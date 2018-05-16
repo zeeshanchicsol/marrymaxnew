@@ -35,6 +35,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    flavorDimensions "tier"
+
+    productFlavors {
+        marrymax {
+            minSdkVersion 16
+            applicationId 'com.chicsol.marrymax'
+            targetSdkVersion 27
+            versionCode 1
+            versionName '1.0'
+
+        }
+        alfalah {
+            minSdkVersion 16
+            applicationId 'com.chicsol.alfalah'
+            targetSdkVersion 27
+            versionCode 1
+            versionName '1.0'
+        }
+    }
+
+
 }
 
 dependencies {
