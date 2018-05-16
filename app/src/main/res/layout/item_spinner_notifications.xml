@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="6dip">
+    <!--    android:layout_height="?android:attr/listPreferredItemHeight"-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ImageViewDashMainNotificaitonIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_dash_user_profile_box"
+                android:src="@mipmap/ic_launcher" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="8"
+            android:orientation="vertical">
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/TextViewDashNotificationUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/colorUserProfileRed"
+                android:textStyle="bold" />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/TextViewDashNotificationDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textColor="#828080" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/colorRegistrationLine"
+
+        ></View>
+
+    <!--    android:textSize="@dimen/text_size_notification_spinner"-->
+
+</LinearLayout>

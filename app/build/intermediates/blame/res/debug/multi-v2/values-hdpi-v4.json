@@ -1,0 +1,45 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymaxalfalah/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/marrymaxandroid/AndroidStudioProjects/marrymaxalfalah/app/src/main/res/values-hdpi/dimens.xml",
+                    "from": {
+                        "startLines": "4,26,21,15,17,11,13,12,23,20,25,8,7,6,22,29,31,30,16,35",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "291,1138,930,677,786,537,629,583,1031,869,1083,478,431,377,987,1223,1339,1279,727,1448",
+                        "endColumns": "57,49,56,49,46,45,46,45,50,60,54,56,46,53,43,55,56,59,58,46",
+                        "endOffsets": "344,1183,982,722,828,578,671,624,1077,925,1133,530,473,426,1026,1274,1391,1334,781,1490"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,113,163,220,270,317,363,410,456,507,568,623,680,727,781,825,881,938,998,1057",
+                        "endColumns": "57,49,56,49,46,45,46,45,50,60,54,56,46,53,43,55,56,59,58,46",
+                        "endOffsets": "108,158,215,265,312,358,405,451,502,563,618,675,722,776,820,876,933,993,1052,1099"
+                    }
+                },
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/5a0b7279202ea0d325748bf3c8fddce8/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    },
+                    "to": {
+                        "startLines": "22",
+                        "startColumns": "4",
+                        "startOffsets": "1104",
+                        "endLines": "26",
+                        "endColumns": "13",
+                        "endOffsets": "1376"
+                    }
+                }
+            ]
+        }
+    ]
+}

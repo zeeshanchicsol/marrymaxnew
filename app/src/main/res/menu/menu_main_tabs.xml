@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_myFavourites"
+        android:title="My Favourites" />
+
+    <item
+        android:id="@+id/menu_accpetedMember"
+        android:title="Accepted Members" />
+
+    <item
+        android:id="@+id/menu_myContacts"
+        android:title="My Contacts" />
+
+    <item
+        android:id="@+id/menu_myNotes"
+        android:title="My Notes" />
+    <item
+        android:id="@+id/menu_mySavedLists"
+        android:title="My Saved Lists" />
+    <item
+        android:id="@+id/menu_mySavedSearches"
+        android:title="My Saved Searches" />
+
+
+</menu>

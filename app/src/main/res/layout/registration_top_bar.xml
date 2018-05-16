@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#e7e7e7"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e7e7e7"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1.2"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.4"
+                        android:gravity="center">
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="28dp"
+                            android:layout_marginRight="35dp"
+                            android:background="@color/colorRegistrationLine" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5"></LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:id="@+id/ViewGeographic"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.4">
+
+
+                            <!--    <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/circle">
+
+                                </LinearLayout>-->
+                            <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/fabGeographic"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clickable="false"
+                                app:backgroundTint="@color/colorCircleDim"
+                                app:elevation="0dp"
+                                app:fabSize="mini" />
+
+                            <TextView
+                                android:id="@+id/fabCount1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+
+                                android:elevation="7dp"
+                                android:text="1"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/reg_circle_text" />
+
+
+                        </FrameLayout>
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewRegTopGeography"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Geographic"
+                            android:textColor="#c92633"
+                            android:textSize="@dimen/text_size_registration_steps" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ViewAppearance"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+
+                            android:layout_weight="0.4">
+
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/fabAppearance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clickable="false"
+                                app:backgroundTint="@color/colorCircleDim"
+                                app:elevation="0dp"
+                                app:fabSize="mini" />
+
+                            <TextView
+                                android:id="@+id/fabCount2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+
+                                android:text="2"
+                                android:textColor="@android:color/white"
+
+                                android:textSize="@dimen/reg_circle_text" />
+
+                        </FrameLayout>
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewRegTopAppearance"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Appearance"
+                            android:textColor="@color/colorCircleDim"
+                            android:textSize="@dimen/text_size_registration_steps" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/ViewLifeStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.4">
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/fabLifeStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clickable="false"
+                                app:backgroundTint="@color/colorCircleDim"
+                                app:elevation="0dp"
+                                app:fabSize="mini" />
+
+                            <TextView
+                                android:id="@+id/fabCount3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="3"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/reg_circle_text" />
+
+
+                        </FrameLayout>
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewRegTopLifeStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Lifestyle"
+                            android:textColor="#6b6b6b"
+                            android:textSize="@dimen/text_size_registration_steps" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ViewInterest"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.4">
+
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/fabInterest"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clickable="false"
+                                app:backgroundTint="@color/colorCircleDim"
+                                app:elevation="0dp"
+                                app:fabSize="mini" />
+
+                            <TextView
+                                android:id="@+id/fabCount4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+
+                                android:text="4"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/reg_circle_text" />
+
+                        </FrameLayout>
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewRegTopInterest"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Interest"
+                            android:textColor="#6b6b6b"
+                            android:textSize="@dimen/text_size_registration_steps" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ViewPersonality"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.4">
+
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/fabPersonality"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clickable="false"
+                                app:backgroundTint="@color/colorCircleDim"
+                                app:elevation="0dp"
+                                app:fabSize="mini" />
+
+                            <TextView
+                                android:id="@+id/fabCount5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+
+                                android:text="5"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/reg_circle_text" />
+
+                        </FrameLayout>
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewRegTopPersonality"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
+
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="Personality"
+                            android:textColor="#6b6b6b"
+                            android:textSize="@dimen/text_size_registration_steps" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+
+        <android.support.v7.widget.AppCompatImageButton
+
+            android:id="@+id/ImageButtonRequestUpdateExpand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:padding="5dp"
+            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutRequestProfileUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:cardElevation="8dp"
+            card_view:cardBackgroundColor="@android:color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatImageButton
+
+                    android:id="@+id/ImageButtonwarinf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@null"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/ic_warning_black_24dp" />
+
+                <TextView
+                    android:id="@+id/TextViewButtonwaring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/ImageButtonwarinf"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:text="Some attributes are not updateable but you can request an update , which is subject to MarryMax approval." />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/ButtonRequestProfileUpdate"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/TextViewButtonwaring"
+                    android:text="Update"
+
+                    android:textColor="@color/colorTextRed" />
+
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MainScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@drawable/ll_face_logo</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorWhite</item>
+
+        <item name="android:colorControlActivated">@color/colorWhite</item>
+        <item name="android:colorControlHighlight">@color/colorWhite</item>
+        <item name="android:colorControlNormal">@color/colorUnderline</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <item name="android:textAppearance">@style/CustomTextAppearance</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+
+
+    <style name="CustomTextAppearance">
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style name="radionbuttonDialog" parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:colorAccent">#107205</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+
+        <item name="android:colorControlActivated">@color/colorWhite</item>
+        <item name="android:colorControlHighlight">@color/colorWhite</item>
+        <item name="android:colorControlNormal">@color/colorUnderline</item>
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/colorWhite</item>
+        <item name="colorControlNormal">@color/colorUnderline</item>
+        <item name="colorControlActivated">@color/colorWhite</item>
+
+
+    </style>
+
+
+    <style name="AlertDialogCustom" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorPrimary">#00397F</item>
+        <item name="android:colorAccent">#0AAEEF</item>
+    </style>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorRegistrationActionBar</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">#019644</item>
+        <item name="android:datePickerStyle">@android:style/Widget.DatePicker</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+
+    </style>
+
+    <style name="PopupMenu" parent="@android:style/Widget.Material.PopupMenu">
+   <!--     <item name="android:popupBackground">@android:color/white</item>-->
+    </style>
+
+    <!--    Dashboard Main -->
+    <style name="AppTheme.NoActionBar"  parent="AppTheme">
+        <item name="colorAccent">#019644</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+    </style>
+<!--    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item_image_slider name="android:headerBackground">@color/prim</item_image_slider>
+        <item_image_slider name="android:calendarTextColor">@color/primDark</item_image_slider>
+        <item_image_slider name="android:dayOfWeekBackground">@color/primDark</item_image_slider>
+        <item_image_slider name="android:yearListSelectorColor">@color/accent</item_image_slider>
+        <item_image_slider name="android:datePickerMode">calendar</item_image_slider>
+        <item_image_slider name="android:minDate">01/01/2000</item_image_slider>
+    </style>-->
+  <!--  <style name="RadioButtonStyle" parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:colorButtonNormal">@color/colorBlack</item>
+        <item name="android:colorAccent">@color/colorBlack</item>
+        &lt;!&ndash; customize colorButtonNormal for the disable color &ndash;&gt;
+        &lt;!&ndash; customize colorAccent for the enabled color &ndash;&gt;
+    </style>-->
+
+</resources>

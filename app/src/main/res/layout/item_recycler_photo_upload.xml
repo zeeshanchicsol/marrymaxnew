@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_margin="10dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4E4E4E"
+        android:foregroundGravity="center">
+
+        <com.chicsol.marrymax.widgets.SquareImageView
+            android:id="@+id/imageViewPhotoUploadPerview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_upload_no_img"
+
+            android:tag="default_image_no" />
+
+
+        <ImageView
+            android:id="@+id/ImagePhotoUploadViewDeleteImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="#909a0606"
+            android:padding="1dp"
+            app:srcCompat="@drawable/ic_clear_white_24dp" />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/CheckBoxPhotoUploadDefaultImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#D9FFFFFF"
+            android:buttonTint="@color/colorDefaultGreen"
+            android:text="Set As Default"
+            android:textColor="@color/colorDefaultGreen" />
+
+        <TextView
+
+            android:id="@+id/TextViewPhotoUploadDefaultImageText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#D9FFFFFF"
+            android:buttonTint="@color/colorDefaultGreen"
+            android:paddingBottom="3dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="3dp"
+            android:text="Default Image"
+
+            android:textColor="@color/colorDefaultGreen"
+            android:visibility="gone" />
+
+    </FrameLayout>
+    <TextView
+        android:id="@+id/TextViewPhotoUploadPhotoStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:textStyle="bold"
+        android:textColor="@color/colorDefaultGreen"
+        />
+
+</LinearLayout>

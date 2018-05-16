@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDashboardBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/progressbar"></include>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+
+            android:orientation="vertical">
+
+
+            <com.chicsol.marrymax.widgets.mTextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="My Contact Detail"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorUserProfileRed" />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We do not show your phone number to others members or third parties and allow you to make that decision."
+                android:textColor="@color/colorBlack"
+
+                />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="To change your phone number send a request to MarryMax, with details."
+                android:textColor="@color/colorBlack"
+
+                />
+
+            <LinearLayout
+                android:id="@+id/LinearlayoutAccountSettingMyContactEdiDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="right"
+
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/LinearlayoutAccountSettingMCEditContact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fa_icon_edit"
+                        android:textColor="@color/colorDefaultGreen" />
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  Edit    "
+                        android:textColor="@color/colorDefaultGreen" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/colorBlack"></View>
+
+                <LinearLayout
+                    android:id="@+id/LinearlayoutAccountSettingMCDeleteContact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fa_icon_delete"
+                        android:textColor="@color/colorASBlue" />
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  Delete"
+                        android:textColor="@color/colorASBlue" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/LinearlayoutAccountSettingMyContact"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Country  "
+                            android:textColor="@color/colorBlack"
+                            android:typeface="monospace" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewASContactCountry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+
+                            android:textColor="@color/colorASBlue" />
+
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/mobnum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:text="Mobile Number  "
+                            android:textColor="@color/colorBlack" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewASContactMobileNumberCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/mobnum"
+                            android:layout_toRightOf="@+id/mobnum"
+                            android:text=""
+                            android:textColor="@color/colorASBlue" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewASContactMobileNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/TextViewASContactMobileNumberCode"
+                            android:layout_toRightOf="@+id/TextViewASContactMobileNumberCode"
+                            android:text=""
+                            android:textColor="@color/colorASBlue" />
+
+
+                        <LinearLayout
+                            android:id="@+id/LinearLayoutAccountSettingMyContactVerifyPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:clickable="true"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="3dp"
+                                android:src="@drawable/num_not_verified_icon_60" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Verify Now"
+                                android:textColor="@color/colorBlack" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/LinearLayoutAccountSettingMyContactVerified"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:clickable="true"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="3dp"
+                                android:src="@drawable/ic_num_verified_icon_60" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Verified"
+                                android:textColor="@color/colorBlack" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/LinearLayoutAccountSettingMyContactNotVerified"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:clickable="true"
+
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="3dp"
+                                android:src="@drawable/no_number_icon_60" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Not Verified"
+                                android:textColor="@color/colorBlack" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/mtextaasdsadf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Landline Number  "
+                            android:textColor="@color/colorBlack" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewASContactLandLineNumberCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/mtextaasdsadf"
+                            android:layout_toRightOf="@+id/mtextaasdsadf"
+                            android:textColor="@color/colorASBlue" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewASContactLandLineNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/TextViewASContactLandLineNumberCode"
+                            android:layout_toRightOf="@+id/TextViewASContactLandLineNumberCode"
+                            android:text=""
+                            android:textColor="@color/colorASBlue" />
+
+                        <LinearLayout
+                            android:id="@+id/LinearLayoutAccountSettingMyContactVerifyLandline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:clickable="true"
+                            android:orientation="horizontal"
+                            android:visibility="visible">
+
+                            <ImageView
+                                android:id="@+id/ImageViewASContactLandLineNumberVerify"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="3dp" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/TextViewASContactLandLineNumberVerify"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="@color/colorBlack" />
+
+
+                        </LinearLayout>
+                        <!--
+                                                <LinearLayout
+                                                    android:id="@+id/LinearLayoutAccountSettingMyContactVerified"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentRight="true"
+                                                    android:clickable="true"
+                                                    android:orientation="horizontal"
+                                                    android:visibility="gone">
+
+                                                    <ImageView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginRight="3dp"
+                                                        android:src="@drawable/ic_num_verified_icon_60" />
+
+                                                    <android.support.v7.widget.AppCompatTextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Verified"
+                                                        android:textColor="@color/colorBlack" />
+
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:id="@+id/LinearLayoutAccountSettingMyContactNotVerified"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentRight="true"
+                                                    android:clickable="true"
+
+                                                    android:orientation="horizontal"
+                                                    android:visibility="gone">
+
+                                                    <ImageView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginRight="3dp"
+                                                        android:src="@drawable/no_number_icon_60" />
+
+                                                    <android.support.v7.widget.AppCompatTextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Not Verified"
+                                                        android:textColor="@color/colorBlack" />
+
+
+                                                </LinearLayout>-->
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Name of Contact Person  "
+                            android:textColor="@color/colorBlack" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewASContactNameContact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/colorASBlue" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Relationship With Member  "
+                            android:textColor="@color/colorBlack" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewASContactRelationship"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/colorASBlue" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Convenient Time to Call  "
+                            android:textColor="@color/colorBlack" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewASContactCallTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/colorASBlue" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/mTextView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email  "
+                            android:textColor="@color/colorBlack" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/colorASBlue" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LinearlayoutAccountSettingMyContactEnterCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="If you already have received verification code on your given mobile number then click below"
+                            android:textColor="@color/colorBlack" />
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/AppcompatButtonMyContactAlraadyHaveCode"
+                            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Click Here to enter and verify"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorTextRed" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Email"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                        android:textColor="@color/colorUserProfileRed" />
+
+
+                    <!--                    <android.support.design.widget.TextInputLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+
+                                            android:textColorHint="@color/colorRegistrationFields">-->
+
+                    <EditText
+                        android:id="@+id/EditTextAScontactEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:editable="false"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"
+                        android:textColor="@color/colorRegistrationFields"
+
+
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/LinearlayoutAccountSettingEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonAccountSettingResendVerificationEmail"
+                            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Resend Verification Email"
+                            android:textAllCaps="false" />
+
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonAccountSettingUpdateEmailCancel"
+                            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Cancel"
+                            android:textAllCaps="false"
+                            android:visibility="gone" />
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonAccountSettingUpdateEmail"
+                            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Update Email"
+                            android:textAllCaps="false" />
+
+
+                    </LinearLayout>
+                    <!--     </android.support.design.widget.TextInputLayout>-->
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+
+                >
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/LinearlayoutAccountSettingMyContactNoData"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorWhite"
+                    android:visibility="visible"
+                    app:cardElevation="8dp"
+                    card_view:cardBackgroundColor="@android:color/white"
+
+                    >
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            android:orientation="vertical">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Country Of Living"
+                                android:textColor="@color/colorSpinnerLabel"
+                                android:textSize="@dimen/text_size_spinner_label" />
+
+                            <android.support.v7.widget.AppCompatSpinner
+                                android:id="@+id/spinnerAScontactCountry"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/colorRegistrationCheckRadio"
+                                app:backgroundTint="#999"
+
+                                />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginTop="5dp"
+                                android:background="#d7d7d7"></View>
+
+
+                        </LinearLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:textColorHint="@color/colorRegistrationFields">
+
+
+                            <!--       <com.chicsol.marrymax.widgets.PrefixEditText
+                                       android:id="@+id/EditTextAScontactMobileNumber"
+
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:gravity="bottom"
+                                       android:tag=""
+                                       android:inputType="number|phone"
+                                       android:textColor="@color/colorRegistrationFields"
+
+                                       android:maxLength="16"
+
+                              />-->
+                            <com.chicsol.marrymax.widgets.PrefixEditText
+                                android:id="@+id/EditTextAScontactMobileNumber"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:hint="Mobile Number"
+                                android:inputType="number"
+                                android:maxLength="22"
+                                android:tag="+6154 "
+                                android:text="1234" />
+
+                            <!--   <android.support.v7.widget.AppCompatEditText
+                                   android:id="@+id/EditTextAScontactMobileNumber"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:hint="Mobile Number"
+                                   android:inputType="number|phone"
+                                   android:maxLength="16"
+                                   android:singleLine="true"
+                                   android:textColor="@color/colorRegistrationFields"
+
+
+                                   app:backgroundTint="@color/colorUnderline"
+
+                                   />-->
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textColorHint="@color/colorRegistrationFields">
+
+
+                            <com.chicsol.marrymax.widgets.PrefixEditText
+                                android:id="@+id/EditTextAScontactLandlineNumber"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:hint="Landline Number"
+                                android:inputType="number"
+                                android:maxLength="22"
+                                android:tag="+6177 "
+                                android:textColor="@color/colorRegistrationFields"
+
+                                />
+
+
+                            <!--   <android.support.v7.widget.AppCompatEditText
+                                   android:id="@+id/EditTextAScontactLandlineNumber"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:hint="Landline Number"
+                                   android:inputType="number|phone"
+                                   android:maxLength="16"
+                                   android:singleLine="true"
+                                   android:textColor="@color/colorRegistrationFields"
+
+
+                                   app:backgroundTint="@color/colorUnderline"
+
+                                   />-->
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textColorHint="@color/colorRegistrationFields">
+
+                            <android.support.v7.widget.AppCompatEditText
+                                android:id="@+id/EditTextAScontactPersonName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Contact Person Name"
+                                android:inputType="text"
+                                android:maxLength="30"
+                                android:singleLine="true"
+                                android:textColor="@color/colorRegistrationFields"
+
+
+                                app:backgroundTint="@color/colorUnderline"
+
+                                />
+                        </android.support.design.widget.TextInputLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            android:orientation="vertical">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Relationship With Member"
+                                android:textColor="@color/colorSpinnerLabel"
+                                android:textSize="@dimen/text_size_spinner_label" />
+
+                            <android.support.v7.widget.AppCompatSpinner
+                                android:id="@+id/spinnerAScontactRelationShipWithMember"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+
+                                android:textColor="@color/colorRegistrationCheckRadio"
+                                app:backgroundTint="#999"
+
+                                />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginTop="5dp"
+                                android:background="#d7d7d7"></View>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            android:orientation="vertical">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Convenient Time to Call"
+                                android:textColor="@color/colorSpinnerLabel"
+                                android:textSize="@dimen/text_size_spinner_label" />
+
+                            <android.support.v7.widget.AppCompatSpinner
+                                android:id="@+id/spinnerMyAScontactConvTimeToCall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/colorRegistrationCheckRadio"
+                                app:backgroundTint="#999"
+
+                                />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginTop="5dp"
+                                android:background="#d7d7d7"></View>
+
+
+                        </LinearLayout>
+                        <!--
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:text="Save"
+                            >
+                        -->
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <android.support.v7.widget.AppCompatButton
+                                android:id="@+id/ButtonAccountSettingContactCancel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="10dp"
+                                android:backgroundTint="@color/colorGrey"
+                                android:text="Cancel"
+                                android:textAllCaps="false"
+                                android:textColor="@color/colorWhite"
+                                android:visibility="gone" />
+
+                            <android.support.v7.widget.AppCompatButton
+                                android:id="@+id/ButtonAccountSettingContactSave"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="10dp"
+                                android:backgroundTint="@color/colorUserProfileRed"
+                                android:text="Save"
+                                android:textAllCaps="false"
+                                android:textColor="@color/colorWhite" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/mTextViewAccountSettingMyContactTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

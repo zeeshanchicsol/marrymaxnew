@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDashboardBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/progressbar"></include>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+
+            android:orientation="vertical">
+
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:text="Profile Privacy"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorUserProfileRed" />
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Profile privacy settings allows access to your full or part of your profile detail or completely hide your profile from all." />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <RadioGroup
+                            android:id="@+id/RadioGroupAccountSettingPrivacyProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="2,0"
+                                android:text="Display my profile to public." />
+
+                            <RadioButton
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="2,1"
+                                android:text="Protect my profile details and show to those who" />
+
+                            <RadioButton
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:tag="2,2"
+                                android:text="Completely hide my profile except members, I contact." />
+
+                            <TextView
+                                android:id="@+id/TextViewAccountSettingPrivacySubOption1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:text="(Subscriber Only Option)"
+                                android:textColor="#666" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:text="Picture Privacy"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorUserProfileRed" />
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Picture privacy settings allows you to show your pictures to anyone or specific members only." />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <RadioGroup
+                            android:id="@+id/RadioGroupAccountSettingPrivacyPicture"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <android.support.v7.widget.AppCompatRadioButton
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="1,0"
+                                android:text="Display my picture to public." />
+
+                            <android.support.v7.widget.AppCompatRadioButton
+
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="1,1"
+                                android:text="Display my picture to only those, who have my permission" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:text="Phone Privacy"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorUserProfileRed" />
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Phone privacy settings allows you to show your phone number to anyone or specific members only." />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <RadioGroup
+                            android:id="@+id/RadioGroupAccountSettingPrivacyPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <android.support.v7.widget.AppCompatRadioButton
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="3,0"
+                                android:text="Display my phone to public." />
+
+                            <android.support.v7.widget.AppCompatRadioButton
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy6"
+                                android:layout_width="match_parent"
+
+                                android:layout_height="wrap_content"
+                                android:tag="3,1"
+                                android:text="Display my phone to only those who have my permission" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:text="Message Privacy"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorUserProfileRed" />
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Message privacy settings allows you to control, how other members can communicate with you." />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <RadioGroup
+                            android:id="@+id/RadioGroupAccountSettingPrivacyMessage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <android.support.v7.widget.AppCompatRadioButton
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy7"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="4,0"
+                                android:text="Only accepted or preferred members can send me messages" />
+
+                            <android.support.v7.widget.AppCompatRadioButton
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy8"
+                                android:layout_width="match_parent"
+
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:tag="4,1"
+                                android:text="Anyone can send me message." />
+
+                            <TextView
+                                android:id="@+id/TextViewAccountSettingPrivacySubOption2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:text="(Subscriber Only Option)"
+                                android:textColor="#666" />
+                        </RadioGroup>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:text="Interest Privacy"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorUserProfileRed" />
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Interest privacy settings allows you to control, who can send you interest." />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+                        <RadioGroup
+                            android:id="@+id/RadioGroupAccountSettingPrivacyInterest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <android.support.v7.widget.AppCompatRadioButton
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="5,0"
+                                android:text="Anyone can send me interest" />
+
+                            <android.support.v7.widget.AppCompatRadioButton
+                                android:id="@+id/SwitchCompatAccountSettingPrivacy10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:tag="5,1"
+                                android:text="Only those, who come in my Preferred Matching Criteria." />
+
+                            <TextView
+                                android:id="@+id/TextViewAccountSettingPrivacySubOption3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:text="(Subscriber Only Option)"
+                                android:textColor="#666" />
+                        </RadioGroup>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

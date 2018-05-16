@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="#e7e7e7"
+    android:orientation="vertical"
+    tools:context=".activities.registration.RegisterAppearanceActivity">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <include
+                layout="@layout/toolbar_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <include layout="@layout/registration_top_bar"></include>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#e7e7e7">
+
+                <android.support.v4.widget.NestedScrollView
+                    android:id="@+id/ScrollViewRegAppearance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/white"
+                                card_view:cardBackgroundColor="@android:color/white"
+                                app:cardElevation="8dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+
+                                    android:orientation="vertical">
+
+                                    <com.chicsol.marrymax.widgets.mTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Physique"
+                                        android:textColor="@android:color/black"
+                                        android:textStyle="bold"
+
+                                        />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+
+                                            android:weightSum="10">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="5">
+
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="2.5"
+                                                android:gravity="center">
+
+                                                <com.chicsol.marrymax.widgets.mTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+
+                                                    android:text="Myself"
+                                                    android:textColor="@color/colorRegistrationCheckRadio" />
+                                            </LinearLayout>
+
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="2.5"
+                                                android:gravity="center">
+
+                                                <com.chicsol.marrymax.widgets.mTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="My Choice"
+                                                    android:textColor="@color/colorRegistrationCheckRadio" />
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:weightSum="10">
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="6.5"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <RadioGroup
+                                                android:id="@+id/RadioGroupPhysicque"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="10dp">
+                                                <!--  <com.chicsol.marrymax.widgets.mRadioButton
+
+                                                      android:id="@+id/mRadioButton"
+                                                      android:layout_width="match_parent"
+                                                      android:layout_height="wrap_content"
+                                                      android:layoutDirection="rtl"
+                                                      android:text="Citizen"
+                                                      android:textColor="@color/colorRegistrationCheckRadio" />-->
+
+                                            </RadioGroup>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/LinearLayoutMyChoicePhysicque"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="3.5"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+                                            <!--    <android.support.v7.widget.AppCompatCheckBox
+                                                    android:id="@+id/checkBox"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+
+
+                                                    />-->
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/white"
+                                card_view:cardBackgroundColor="@android:color/white"
+                                app:cardElevation="8dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+
+                                    android:orientation="vertical">
+
+                                    <com.chicsol.marrymax.widgets.mTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Complexion"
+                                        android:textColor="@android:color/black"
+                                        android:textStyle="bold"
+
+                                        />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:weightSum="10">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="5">
+
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="2.5"
+                                                android:gravity="center">
+
+                                                <com.chicsol.marrymax.widgets.mTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:text="Myself"
+                                                    android:textColor="@color/colorRegistrationCheckRadio" />
+                                            </LinearLayout>
+
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="2.5"
+                                                android:gravity="center">
+
+                                                <com.chicsol.marrymax.widgets.mTextView
+
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="My Choice"
+                                                    android:textColor="@color/colorRegistrationCheckRadio" />
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:weightSum="10">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="6.5"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <RadioGroup
+                                                    android:id="@+id/RadioGroupComplexion"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp">
+                                                    <!--  <com.chicsol.marrymax.widgets.mRadioButton
+
+                                                          android:id="@+id/mRadioButton"
+                                                          android:layout_width="match_parent"
+                                                          android:layout_height="wrap_content"
+                                                          android:layoutDirection="rtl"
+                                                          android:text="Citizen"
+                                                          android:textColor="@color/colorRegistrationCheckRadio" />-->
+
+                                                </RadioGroup>
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:id="@+id/LinearLayoutMyChoiceComplexion"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="3.5"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+                                                <!--    <android.support.v7.widget.AppCompatCheckBox
+                                                        android:id="@+id/checkBox"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+
+
+                                                        />-->
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+
+
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                card_view:cardBackgroundColor="@android:color/white"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/white"
+                                app:cardElevation="8dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+
+                                    <com.chicsol.marrymax.widgets.mTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Hair Colour"
+                                        android:textColor="@android:color/black"
+                                        android:textStyle="bold"
+
+                                        />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:weightSum="10">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="5">
+
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="2.5"
+                                                android:gravity="center">
+
+                                                <com.chicsol.marrymax.widgets.mTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+
+                                                    android:text="Myself"
+                                                    android:textColor="@color/colorRegistrationCheckRadio" />
+                                            </LinearLayout>
+
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="2.5"
+                                                android:gravity="center">
+
+                                                <com.chicsol.marrymax.widgets.mTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="My Choice"
+                                                    android:textColor="@color/colorRegistrationCheckRadio" />
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:weightSum="10">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="6.5"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <RadioGroup
+                                                    android:id="@+id/RadioGroupHair"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp">
+                                                    <!--  <com.chicsol.marrymax.widgets.mRadioButton
+
+                                                          android:id="@+id/mRadioButton"
+                                                          android:layout_width="match_parent"
+                                                          android:layout_height="wrap_content"
+                                                          android:layoutDirection="rtl"
+                                                          android:text="Citizen"
+                                                          android:textColor="@color/colorRegistrationCheckRadio" />-->
+
+                                                </RadioGroup>
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:id="@+id/LinearLayoutMyChoiceHair"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="3.5"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+                                                <!--    <android.support.v7.widget.AppCompatCheckBox
+                                                        android:id="@+id/checkBox"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+
+
+                                                        />-->
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView
+                                card_view:cardBackgroundColor="@android:color/white"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/white"
+                                app:cardElevation="8dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+
+                                    <com.chicsol.marrymax.widgets.mTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Eye Colour"
+                                        android:textColor="@android:color/black"
+                                        android:textStyle="bold"
+
+                                        />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:weightSum="10">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="5">
+
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="2.5"
+                                                android:gravity="center">
+
+                                                <com.chicsol.marrymax.widgets.mTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center"
+                                                    android:text="Myself"
+                                                    android:textColor="@color/colorRegistrationCheckRadio" />
+                                            </LinearLayout>
+
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="2.5">
+
+                                                <com.chicsol.marrymax.widgets.mTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="My Choice"
+                                                    android:textColor="@color/colorRegistrationCheckRadio" />
+
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:weightSum="10">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="6.5"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <RadioGroup
+                                                    android:id="@+id/RadioGroupEye"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="10dp">
+                                                    <!--  <com.chicsol.marrymax.widgets.mRadioButton
+
+                                                          android:id="@+id/mRadioButton"
+                                                          android:layout_width="match_parent"
+                                                          android:layout_height="wrap_content"
+                                                          android:layoutDirection="rtl"
+                                                          android:text="Citizen"
+                                                          android:textColor="@color/colorRegistrationCheckRadio" />-->
+
+                                                </RadioGroup>
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:id="@+id/LinearLayoutMyChoiceEye"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="3.5"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+                                                <!--    <android.support.v7.widget.AppCompatCheckBox
+                                                        android:id="@+id/checkBox"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+
+
+                                                        />-->
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView
+                                card_view:cardBackgroundColor="@android:color/white"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/colorWhite"
+                                app:cardElevation="8dp"
+
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+
+                                    <com.chicsol.marrymax.widgets.mTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:text="Height"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:orientation="vertical">
+
+                                        <com.chicsol.marrymax.widgets.mTextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="My Height"
+                                            android:textColor="@color/colorSpinnerLabel"
+                                            android:textSize="@dimen/text_size_spinner_label" />
+
+                                        <Spinner
+                                            android:id="@+id/SpinnerAppMyHeight"
+                                            android:layout_width="match_parent"
+
+                                            android:layout_height="wrap_content"
+
+
+                                            />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:layout_margin="10dp"
+                                            android:background="#d7d7d7"></View>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:orientation="horizontal">
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <com.chicsol.marrymax.widgets.mTextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="My  Choice Height From"
+                                                android:textColor="@color/colorSpinnerLabel"
+                                                android:textSize="@dimen/text_size_spinner_label" />
+
+                                            <Spinner
+                                                android:id="@+id/SpinnerAppMyChoiceHeightFrom"
+                                                android:layout_width="match_parent"
+
+                                                android:layout_height="wrap_content"
+
+                                                />
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="1dp"
+                                                android:layout_margin="10dp"
+                                                android:layout_marginBottom="5dp"
+                                                android:background="#d7d7d7"></View>
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <com.chicsol.marrymax.widgets.mTextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="My Choice Height To"
+                                                android:textColor="@color/colorSpinnerLabel"
+                                                android:textSize="@dimen/text_size_spinner_label" />
+
+                                            <Spinner
+                                                android:id="@+id/SpinnerAppMyChoiceHeightTo"
+                                                android:layout_width="match_parent"
+
+                                                android:layout_height="wrap_content"
+
+                                                />
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="1dp"
+                                                android:layout_margin="10dp"
+                                                android:layout_marginBottom="5dp"
+                                                android:background="#d7d7d7"></View>
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="60dp"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical"
+
+                            >
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/colorWhite"
+                                card_view:cardBackgroundColor="@android:color/white"
+                                app:cardElevation="8dp"
+
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+
+                                    <com.chicsol.marrymax.widgets.mTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:text="My Choice Age"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginRight="10dp"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <com.chicsol.marrymax.widgets.mTextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="Age From"
+                                                android:textColor="@color/colorSpinnerLabel"
+                                                android:textSize="@dimen/text_size_spinner_label" />
+
+                                            <Spinner
+                                                android:id="@+id/SpinnerAppMyChoiceAgeFrom"
+                                                android:layout_width="match_parent"
+
+                                                android:layout_height="wrap_content"
+
+                                                />
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="1dp"
+                                                android:layout_margin="10dp"
+                                                android:layout_marginBottom="5dp"
+                                                android:background="#d7d7d7"></View>
+
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <com.chicsol.marrymax.widgets.mTextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="Age To"
+                                                android:textColor="@color/colorSpinnerLabel"
+                                                android:textSize="@dimen/text_size_spinner_label" />
+
+
+                                            <Spinner
+                                                android:id="@+id/SpinnerAppMyChoiceAgeTo"
+                                                android:layout_width="match_parent"
+
+                                                android:layout_height="wrap_content"
+
+                                                android:layout_weight="1" />
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="1dp"
+                                                android:layout_margin="10dp"
+                                                android:layout_marginBottom="5dp"
+                                                android:background="#d7d7d7"></View>
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </android.support.v4.widget.NestedScrollView>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.chicsol.marrymax.widgets.mButton2
+                            android:id="@+id/buttonBack"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/colorGrey"
+                            android:text="Back"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite" />
+
+                        <com.chicsol.marrymax.widgets.mButton2
+                            android:id="@+id/buttonContinueStep2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="#216917"
+                            android:text="Continue to Step 3"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite" />
+                    </LinearLayout>
+                </FrameLayout>
+            </FrameLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <include layout="@layout/drawer_navigation_view" />
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

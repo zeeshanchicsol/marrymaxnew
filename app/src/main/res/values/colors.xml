@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorGrey">#808080</color>
+    <color name="colorDefaultGreen">#216917</color>
+    <color name="colorTextRed">#9a0606</color>
+    <color name="colorSpinnerLabel">@color/colorGrey</color>
+
+
+    <!--    LoginActivityColor-->
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="colorUnderline">#d7d7d7</color>
+    <color name="colorCursor">#019644</color>
+    <!--RegistrationColors-->
+    <color name="colorRegistrationActionBar">#9a0606</color>
+    <color name="colorRegistrationLine">#cacaca</color>
+    <color name="colorRegistrationCheckRadio">#0e0e0e</color>
+
+
+    <color name="colorRegistrationInputField">#000</color>
+    <color name="colorRegGender">#9a0606</color>
+
+
+    <color name="colorRegistrationStepComplete">#299001</color>
+    <color name="colorRegistrationStepOnGoing">#9a0606</color>
+    <color name="colorRegStart">#9a0606</color>
+    <!--    <color name="colorRegistrationCheckBoxTextField">#0e0e0e</color>-->
+
+
+    <color name="colorRegistrationTint">#717171</color>
+
+    <!--Cursor InpuFieldColor-->
+    <color name="colorCursorInputField">#019644</color>
+
+    <!--    Dialog Box Colors-->
+    <color name="colorDialogHeadButtons">#d8d8d8</color>
+    <color name="colorRegistrationFields">#0e0e0e</color>
+
+
+    <color name="colorCircleDim">#747474</color>
+
+
+    <color name="colorSpinnerunderLine">#a1a1a1</color>
+
+    <!--DashboardMain-->
+    <color name="colorTabBackground">#eee</color>
+
+    <color name="colorDashboardBackground">#d9d9d9</color>
+
+    <color name="colorDashboardMainBox">#EEEEEE</color>
+    <color name="colorDashboardMainTextRed">#960606</color>
+
+    <color name="colorDashboardMainTextb1">#028461</color>
+    <color name="colorDashboardMainTextb2">#c74c83</color>
+    <color name="colorDashboardMainTextb3">#7a3ccd</color>
+    <color name="colorDashboardMainTextb4">#2467c2</color>
+    <color name="colorDashboardMainNormalText">#090909</color>
+    <color name="colorDashboardMainTableRow">#f3f3f3</color>
+
+    <color name="colorDashboardMainIcon">#828283</color>
+    <color name="colorDashboardMainMemberBoxBackground">#dbdbdb</color>
+    <color name="colorDashboardMainNavIcons">#8a8a8a</color>
+
+
+    <!--    button colors-->
+    <color name="colorGreenButtonNormal">#1b5f0e</color>
+    <color name="colorGreenButtonHighlight">#0D4006</color>
+
+    <!-- DashboardMyMatches-->
+    <color name="colortextdashmymatches">#272727</color>
+    <color name="colorButtonLoadMore">#296A1F</color>
+    <color name="colorMMButtonShowInterest">#258414</color>
+
+
+    <!--UserProfile-->
+    <color name="colorUserProfileTopBar">#757575</color>
+    <color name="colorUserProfileRed">#9a0606</color>
+    <color name="colorUserProfileTab">#CECECE</color>
+    <color name="colorUserProfileTextLight">#6f6f6f</color>
+    <color name="colorUserProfileTextGreen">#216917</color>
+    <color name="colorUserProfileSeparationLine">#eaeaea</color>
+    <color name="colorUserProfileMessageIn">#E2F1F6</color>
+    <color name="colorUserProfileMessageOut">#EEEEEE</color>
+
+    <!--account setting-->
+    <color name="colorASBlue">#0367bc</color>
+
+
+    <!--Subscription Plans-->
+    <color name="colorSubscriptionBlue">#004FC5</color>
+    <color name="colorSubscriptionGreen">#017562</color>
+    <color name="colorSubscriptionYellow">#C57B00</color>
+    <color name="colorSubscriptionDarkGrey">#666</color>
+</resources>

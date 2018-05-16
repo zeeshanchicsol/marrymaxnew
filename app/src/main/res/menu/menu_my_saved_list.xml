@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_mySavedListView"
+        android:title="View" />
+
+    <item
+        android:id="@+id/menu_mySavedListDelete"
+        android:title="Delete" />
+
+
+</menu>

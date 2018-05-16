@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/LinearLayoutMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:elevation="10dp"
+        app:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorTextRed"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Report Concern
+ "
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:id="@+id/dismissBtnReportConcern"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/fa_icon_cross"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewDialogInterestDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="We are very serious about the safety of our members with single objective of providing a safe environment to find matches. In case of any abuse please let us and we will do a thorough investigation."
+                            android:textColor="@color/colorBlack" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:id="@+id/TextViewDialogReportConcernAlias"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textAllCaps="true"
+                                android:textColor="@color/colorDefaultGreen"
+                                android:textStyle="bold" />
+
+                            <com.chicsol.marrymax.widgets.mTextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=", will be blocked imediately!"
+                                android:textColor="@color/colorTextRed"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+
+                        <RadioGroup
+                            android:id="@+id/RadioGroupDialogReportConcern"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"></RadioGroup>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/EditTextReportConcernDialgTextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone">
+
+                            <com.chicsol.marrymax.widgets.mEditText
+
+                                android:id="@+id/EditTextReportConcernDialgOtherReason"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="If other, then please describe the reason."
+                                android:imeOptions="actionDone"
+                                android:inputType="text" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <com.chicsol.marrymax.widgets.mButton2
+                            android:id="@+id/mButtonDialogReportConcern"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_gravity="right"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/colorDefaultGreen"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:text="Submit Report"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite" />
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

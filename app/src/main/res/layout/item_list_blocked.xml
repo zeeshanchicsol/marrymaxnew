@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayoutAdvSearchItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/border_dash_user_profile_box"
+    android:orientation="vertical"
+    android:paddingBottom="3dp"
+
+    android:paddingTop="3dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6">
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/TextViewBlockListAlias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Naureen"
+                android:textColor="@color/colorTextRed"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center">
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/TextViewBlockListDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 Aug, 2016"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <com.chicsol.marrymax.widgets.faTextView
+                android:id="@+id/faTextViewBlockListUnblock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_icon_delete"
+                android:textColor="@color/colorTextRed" />
+
+
+        </LinearLayout>
+
+
+        <!--      <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+            android:gravity="center"
+                  android:layout_weight="3">
+
+                  <com.chicsol.marrymax.widgets.mTextView
+                      android:id="@+id/TextViewListDate"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="03 Jul, 2016"
+                      android:textColor="#333333" />
+
+              </LinearLayout>-->
+
+        <!-- <LinearLayout
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:orientation="horizontal">
+
+
+         </LinearLayout>-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp">
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Reason: "
+            android:textColor="#333333"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:id="@+id/faTextViewBlockListUnBlockReason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Threatening or offensive language."
+            android:textColor="#333333"
+            android:textSize="12sp"
+
+
+            />
+    </LinearLayout>
+
+</LinearLayout>

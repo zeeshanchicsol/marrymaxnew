@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    app:cardElevation="7dp"
+
+
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutRecyclerMemSinceLastWeek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.chicsol.marrymax.widgets.SquareImageViewMSLW
+
+                android:id="@+id/ImageViewMemberImageDashMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="#ef6c00"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.chicsol.marrymax.widgets.mTextView
+                    android:id="@+id/TextViewMemberCountryDashMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Country Name"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_mlw" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:background="@color/colorUnderline"></View>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="1dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:id="@+id/TextViewMemberAliasDashMain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="MemberName"
+                        android:textColor="@color/colorTextRed"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:id="@+id/TextViewMemberAgeDashMain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="(30 Yrs)"
+
+                        android:textColor="#666"
+                        android:textSize="@dimen/text_size_mlw" />
+
+
+                </LinearLayout>
+
+                <com.chicsol.marrymax.widgets.mTextView
+                    android:id="@+id/TextViewMemberEducationMartialStatusDashMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Master Degree | Never married"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_mlw" />
+
+
+                <com.chicsol.marrymax.widgets.mTextView
+                    android:id="@+id/TextViewMemberAboutMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_mlw" />
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="5dp">
+
+            <!--   <com.chicsol.marrymax.widgets.mButton2
+                   android:id="@+id/ButtonViewProfile"
+                   android:layout_width="60dp"
+                   android:layout_height="@dimen/button_height_veiwprofile"
+                   android:background="#296A1F"
+                   android:text="View Profile"
+                   android:textAllCaps="false"
+                   android:textColor="@color/colorWhite"
+                   android:textSize="@dimen/text_size_button_mlw" />-->
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

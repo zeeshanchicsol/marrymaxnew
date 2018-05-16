@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/LinearLayoutMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:elevation="10dp"
+        app:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorTextRed"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Enter Code "
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:id="@+id/dismissBtnVerifyPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/fa_icon_cross"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/LinearlayoutAccountSettingMyContactErrorVerficationCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="  We are unable to send text message on your mobile number. Please contact MarryMax support."
+                            android:textColor="@color/colorTextRed" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LinearlayoutAccountSettingMyContactSendVerificationCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:text="Please Verify Your Phone Number."
+                            android:textColor="@color/colorBlack" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#ccc"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:src="@drawable/no_number_icon_60" />
+
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:id="@+id/TextViewAccountSettingmcMobileNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:text=""
+                                android:textColor="@color/colorDefaultGreen"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="If mobile number is correct then click &quot; Send Verification Code&quot;.
+Once you receive verification code, then enter the code on this page to verify your phone."
+                            android:textColor="@color/colorBlack" />
+
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonAccountSettingmcSendVerificationCode"
+                            style="@style/myCustomMaterialButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="10dp"
+                            android:text="Send Verification Code"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite"
+
+                            app:backgroundTint="@color/colorDefaultGreen" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LinearlayoutAccountSettingMyContactVerifyCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Verify Your Phone Number."
+                            android:textColor="@color/colorTextRed"
+                            android:textStyle="bold" />
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/EditTextAccountSettingMyContactVerifyCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Code"
+
+                            android:imeOptions="actionDone"
+                            android:inputType="number" />
+
+                        <android.support.v7.widget.AppCompatButton
+
+                            android:id="@+id/ButtonAccountSettingmcVerifyNow"
+                            style="@style/myCustomMaterialButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="10dp"
+                            android:text="Verify Now"
+                            android:textAllCaps="false"
+
+                            android:textColor="@color/colorWhite"
+                            app:backgroundTint="@color/colorDefaultGreen" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

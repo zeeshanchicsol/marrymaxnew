@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/grp1">
+        <!--
+        android:checkableBehavior="single">-->
+        <item
+            android:id="@+id/nav_main_dashboard"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Dashboard"
+
+
+            />
+
+        <item
+            android:id="@+id/nav_main_mymessages"
+            android:icon="@drawable/ic_mail_outline_black_24dp"
+            android:title="My Messages" />
+        <item
+            android:id="@+id/nav_main_mymatches"
+            android:icon="@drawable/ic_wc_black_24dp"
+            android:title="My Matches"
+
+            />
+    </group>
+    <group android:id="@+id/grp3">
+        <item
+            android:id="@+id/nav_main_advsearch"
+            android:icon="@drawable/ic_search_black_24dp"
+            android:title="Search" />
+        <item
+            android:id="@+id/nav_main_mylist"
+            android:icon="@drawable/ic_playlist_add_check_black_24dp"
+            android:title="My List" />
+
+    </group>
+    <group android:id="@+id/grp2">
+        <item
+            android:id="@+id/nav_main_editprofile"
+            android:icon="@drawable/ic_person_white_24dp"
+            android:title="Edit Profile" />
+
+        <item
+            android:id="@+id/nav_main_uploadphotos"
+            android:icon="@drawable/ic_add_a_photo_black_24dp"
+            android:title="Upload Photos" />
+        <item
+            android:id="@+id/nav_main_myaccount"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="My Account Setting" />
+        <item
+            android:id="@+id/nav_main_faq"
+            android:icon="@drawable/ic_save_search"
+            android:title="FAQ's"
+            android:visible="false" />
+
+    </group>
+    <group android:id="@+id/grp4">
+
+
+        <item
+            android:id="@+id/nav_main_subscription_plan"
+            android:icon="@drawable/ic_credit_card_black_24dp"
+            android:title="Subscription Plans" />
+
+
+        <item
+            android:id="@+id/nav_main_rate_app"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="Rate App" />
+
+
+
+
+
+        <item
+            android:id="@+id/nav_main_logout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Logout" />
+
+
+
+
+
+
+    </group>
+</menu>

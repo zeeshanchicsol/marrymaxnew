@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+    <!--    <item_slider
+            android:id="@+id/action_settings"
+            android:orderInCategory="100"
+            android:name="Setting"
+            app:showAsAction="never"
+
+            />--><!--    <item_slider
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:name="Setting"
+        app:showAsAction="never"
+
+        />-->
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_96"
+        android:title="Search"
+        app:showAsAction="always"
+
+
+        />
+    <item
+        android:id="@+id/menu_notifications"
+        android:icon="@drawable/ic_bell"
+        android:title="Notifications"
+
+        app:showAsAction="always" />
+
+</menu>

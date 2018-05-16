@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/border_dash_main"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:background="#dadada"
+        android:padding="5dp">
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:id="@+id/TextViewMemberAliasDashMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text="MemberName"
+            android:textColor="@color/colorRegistrationActionBar"
+            android:textSize="@dimen/text_size_mlw"
+            android:textStyle="bold" />
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:id="@+id/TextViewMemberAgeDashMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="(30 Years)"
+
+            android:textColor="#7c7c7c"
+            android:textSize="@dimen/text_size_mlw" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/border_dash_main_profile">
+
+            <ImageView
+                android:id="@+id/ImageViewMemberImageDashMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:src="@mipmap/ic_launcher" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="1dp"
+            android:orientation="vertical">
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/TextViewMemberEducationMartialStatusDashMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Master Degree | Never married"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_mlw" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.chicsol.marrymax.widgets.mTextView
+                    android:id="@+id/TextViewMemberCountryDashMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Country Name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_mlw" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="5dp">
+
+        <com.chicsol.marrymax.widgets.mButton2
+            android:id="@+id/ButtonViewProfile"
+            android:layout_width="60dp"
+            android:layout_height="@dimen/button_height_veiwprofile"
+            android:background="#296A1F"
+            android:text="View Profile"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_button_mlw" />
+    </LinearLayout>
+</LinearLayout>

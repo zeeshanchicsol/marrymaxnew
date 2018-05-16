@@ -1,0 +1,33 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <item
+        android:id="@+id/action_home"
+        android:orderInCategory="100"
+        android:title="-Home"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/action_aboutus"
+        android:orderInCategory="100"
+        android:title="-About Us"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_benefits"
+        android:orderInCategory="100"
+        android:title="-Benefits"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_personalized_matching"
+        android:orderInCategory="100"
+        android:title="Personalized Matching"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_faq"
+        android:orderInCategory="100"
+        android:title="-FAQ"
+        app:showAsAction="never" />
+</menu>

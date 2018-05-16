@@ -1,0 +1,63 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="text_size_spinner_label">10sp</dimen>
+
+
+    <!--    Login Screen-->
+    <dimen name="text_size_login_button">12sp</dimen>
+    <dimen name="text_size_login">12sp</dimen>
+    <dimen name="text_size_forgot_password">14sp</dimen>
+
+
+    <dimen name="interest_margin_left">10dp</dimen>
+    <dimen name="interest_margin_right">10dp</dimen>
+    <dimen name="interest_margin_top">5dp</dimen>
+    <dimen name="interest_margin_bottom">5dp</dimen>
+
+    <dimen name="reg_title_text">11sp</dimen>
+    <dimen name="reg_tv_heading">16sp</dimen>
+
+    <dimen name="reg_circle_text">10sp</dimen>
+    <dimen name="text_size_registration_steps">10sp</dimen>
+
+    <dimen name="circle_width_height">20dp</dimen>
+
+
+    <!--    dashboardMain-->
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="text_size_dash_main_count_box">14sp</dimen>
+    <dimen name="button_height_veiwprofile">12dp</dimen>
+    <dimen name="text_size_mlw">12sp</dimen>
+
+    <dimen name="text_size_button_mlw">11sp</dimen>
+
+    <dimen name="text_size_dashmain_prem">12sp</dimen>
+    <dimen name="button_height_subs">28dp</dimen>
+    <dimen name="text_size_notification_spinner">11sp</dimen>
+
+
+    <!--    dashboardMyMatches-->
+    <dimen name="text_size_mymatches_desc">14sp</dimen>
+    <dimen name="text_size_mymatches_img_count">8sp</dimen>
+    <dimen name="text_size_mymatches_desc2">12sp</dimen>
+
+    <!--           UserProfilePage            -->
+    <dimen name="text_size_up_lastlogin_date">10sp</dimen>
+    <dimen name="text_size_up_h2">10sp</dimen>
+    <dimen name="text_size_up_descripton">14sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="design_bottom_navigation_active_text_size">12sp</dimen>
+
+
+
+    <!--    Adv Search-->
+<dimen name="text_size_adv_search_headings">16sp</dimen>
+
+
+</resources>

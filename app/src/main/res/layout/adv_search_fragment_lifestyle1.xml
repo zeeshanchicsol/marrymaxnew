@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical">
+
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Raised Where"
+            android:textColor="@color/colorUserProfileRed"
+            android:textSize="@dimen/text_size_adv_search_headings"
+
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchRaisedWhere"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7"></View>
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/text_size_adv_search_headings"
+
+            android:text="Hijab"
+            android:textColor="@color/colorUserProfileRed"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchHijab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7"></View>
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/text_size_adv_search_headings"
+
+            android:text="Family Value"
+            android:textColor="@color/colorUserProfileRed"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchFamilyValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7"></View>
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Living Arrangement"
+            android:textSize="@dimen/text_size_adv_search_headings"
+
+            android:textColor="@color/colorUserProfileRed"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchLivingArrangement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>

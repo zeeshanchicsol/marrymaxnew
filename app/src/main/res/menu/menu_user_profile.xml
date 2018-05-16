@@ -1,0 +1,40 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--   <item
+           android:id="@+id/menu_up_add_notes"
+           android:listDivider="@android:color/transparent"
+           android:name="Add Notes" />
+
+       <item
+           android:id="@+id/menu_up_add_to_list"
+           android:name="Add to List" />
+
+       <item
+           android:id="@+id/menu_up_request_permission"
+           android:name="Request &amp; Permissions" />-->
+
+    <!--
+        <item
+            android:id="@+id/menu_up_request"
+            android:name="Request" />-->
+    <item
+        android:id="@+id/menu_up_request_permissions"
+        android:title="Request and Permissions" />
+    <item
+        android:id="@+id/menu_up_remove"
+        android:title="" />
+    <item
+        android:id="@+id/menu_up_block"
+        android:title="Block" />
+    <item
+        android:id="@+id/menu_up_report_concern"
+        android:title="Report Concern" />
+    <item
+        android:id="@+id/menu_up_add_notes"
+        android:title="Add Notes" />
+    <item
+        android:id="@+id/menu_up_add_to_list"
+        android:title="Add to List" />
+
+
+</menu>

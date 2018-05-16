@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.chicsol.marrymax.widgets.mTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Age From"
+                    android:textColor="@color/colorSpinnerLabel"
+                    android:textSize="@dimen/text_size_spinner_label" />
+
+                <Spinner
+                    android:id="@+id/SpinnerAdvSearchAgeFrom"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#d7d7d7"></View>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.chicsol.marrymax.widgets.mTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Age To"
+                    android:textColor="@color/colorSpinnerLabel"
+                    android:textSize="@dimen/text_size_spinner_label" />
+
+                <Spinner
+                    android:id="@+id/SpinnerAdvSearchAgeTo"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#d7d7d7"></View>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.chicsol.marrymax.widgets.mTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Height From"
+                    android:textColor="@color/colorSpinnerLabel"
+                    android:textSize="@dimen/text_size_spinner_label" />
+
+                <Spinner
+                    android:id="@+id/SpinnerAdvSearchHeightFrom"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#d7d7d7"></View>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.chicsol.marrymax.widgets.mTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Height To"
+                    android:textColor="@color/colorSpinnerLabel"
+                    android:textSize="@dimen/text_size_spinner_label" />
+
+                <Spinner
+                    android:id="@+id/SpinnerAdvSearchHeightTo"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#d7d7d7"></View>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/text_size_adv_search_headings"
+
+            android:text="Physique"
+            android:textColor="@color/colorUserProfileRed"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchPhysique"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7"></View>
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:text="Complexion"
+            android:textSize="@dimen/text_size_adv_search_headings"
+
+            android:textColor="@color/colorUserProfileRed"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchComplexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7"></View>
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:text="Eye Color"
+            android:textSize="@dimen/text_size_adv_search_headings"
+
+            android:textColor="@color/colorUserProfileRed"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchEyeColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+          <!--  <com.chicsol.marrymax.widgets.mCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gray"
+                android:textColor="@color/colorTextRed"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill" />-->
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7"></View>
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/text_size_adv_search_headings"
+
+            android:text="Hair Color"
+            android:textColor="@color/colorUserProfileRed"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchHairColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

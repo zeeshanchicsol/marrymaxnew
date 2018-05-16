@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDashboardBackground"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDashboardBackground">
+
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutOrderProcessMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/ProgressbarSubscriptionPlan"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="2dp"
+                android:indeterminate="true"
+
+                android:indeterminateTint="@color/colorUserProfileRed"
+                android:indeterminateTintMode="src_in" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Subscriber Detail"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorBlack" />
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                app:cardElevation="2dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@color/colorGrey"
+
+                            app:srcCompat="@drawable/ic_person_grey_24dp" />
+
+
+                        <TextView
+                            android:id="@+id/TextViewOrderProcessAlias"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="6dp"
+                            android:gravity="center"
+                            android:text="USername"
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/TextViewOrderProcessName"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text=" (Name)"
+                            android:textColor="@color/colorTextRed" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@color/colorGrey"
+                            android:gravity="center"
+                            app:srcCompat="@drawable/ic_email_black_24dp" />
+
+
+                        <TextView
+                            android:id="@+id/TextViewOrderProcessEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:gravity="center"
+                            android:text="abc@live.com"
+                            android:textColor="@color/colorBlack" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:layout_marginBottom="6dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@color/colorGrey"
+
+                            app:srcCompat="@drawable/ic_location_on_black_24dp" />
+
+
+                        <TextView
+                            android:id="@+id/TextViewOrderProcessCountry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center"
+                            android:text="Pakistan"
+                            android:textColor="@color/colorBlack" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Order Detail"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorBlack" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                app:cardElevation="2dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="8dp"
+
+                        android:gravity="center"
+                        android:text="You Selected: "
+                        android:textColor="@color/colorGrey"
+                        android:textSize="10sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp">
+
+                        <TextView
+                            android:id="@+id/TextViewOrderProcessShortDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical"
+                            android:text="Silver Subscription International [3 Months]"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp" />
+
+                        <ImageButton
+
+                            android:id="@+id/ImageButtonEditPlackage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="8dp"
+                                android:text="Price: "
+                                android:textSize="15sp" />
+
+
+                            <TextView
+                                android:id="@+id/TextViewOrderProcessPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="USD 75 "
+                                android:textColor="@color/colorBlack"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/TextViewOrderProcessPromocode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="5dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:text="Have a Promo Code? click here"
+                        android:textColor="@color/colorDefaultGreen"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="8dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center"
+                            android:text="Did Anyone Helped you?"
+
+                            android:textColor="@color/colorBlack"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:orientation="vertical">
+
+
+                            <AutoCompleteTextView
+                                android:id="@+id/EditTextOrderProcessWhoHelped"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:nextFocusLeft="@id/EditTextOrderProcessWhoHelped"
+                                android:nextFocusUp="@id/EditTextOrderProcessWhoHelped"
+                                android:singleLine="true"
+                                android:textColor="@color/colorBlack" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutOrderProcessPromoCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="8dp"
+                                android:text="Promo Code: "
+                                android:textSize="15sp" />
+
+
+                            <TextView
+                                android:id="@+id/TextViewOrderProcessPromocodeName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="USD 75 "
+                                android:textColor="@color/colorBlack"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+
+                            <TextView
+                                android:id="@+id/TextViewOrderProcessPromoCodeDiscountName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="8dp"
+                                android:text="Ramdan Discount: "
+                                android:textSize="15sp" />
+
+
+                            <TextView
+                                android:id="@+id/TextViewOrderProcessPromoCodeDiscountAmount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="USD 75 "
+                                android:textColor="@color/colorBlack"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="8dp"
+                                android:text="Discount: "
+                                android:textSize="15sp" />
+
+
+                            <TextView
+                                android:id="@+id/TextViewOrderProcessPromocodeDiscountPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="USD 75 "
+                                android:textColor="@color/colorBlack"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="#eee"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Total Amount to Be Paid"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="18sp" />
+
+
+                        <TextView
+                            android:id="@+id/TextViewOrderProcessTotalPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:text="USD 60.0"
+                            android:textColor="@color/colorTextRed"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                        <!-- <android.support.v7.widget.AppCompatButton
+                             style="@style/Base.Widget.AppCompat.Button.Borderless"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="Have a Promo Code? click here"
+                             android:textAllCaps="false"
+                             android:textColor="@color/colorTextRed" />
+         -->
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/TextViewTermsConditions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="5dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:text="To Review Our Payment Terms &amp; Conditions, Click Here"
+                        android:textColor="#0066c0"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:text="Select Payment Method"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorUserProfileRed" />
+
+<!--
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="8dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+                &lt;!&ndash;      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginLeft="8dp"
+                          android:layout_marginRight="8dp"
+                          android:orientation="vertical">
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_marginBottom="5dp"
+                              android:layout_marginLeft="5dp"
+                              android:layout_marginTop="10dp"
+                              android:gravity="center"
+                              android:text="Online Payment Method"
+                              android:textColor="@color/colorTextRed"
+                              android:textSize="19sp" />
+
+
+                          <RelativeLayout
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_margin="5dp"
+                              android:orientation="horizontal">
+
+                              <RadioButton
+                                  android:id="@+id/radioOrderProcessStripe"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="match_parent"
+                                  android:layout_alignParentLeft="true" />
+
+                              <ImageView
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_centerInParent="true"
+                                  android:src="@drawable/ic_logo_stripe" />
+                          </RelativeLayout>
+
+                          <LinearLayout
+                              android:id="@+id/LinearlayoutOrderProcessCCDetailView"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical"
+                              android:visibility="gone">
+
+                              <com.stripe.android.view.CardInputWidget
+                                  android:id="@+id/card_input_widget"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content" />
+
+                              <Button
+                                  android:id="@+id/ButtonPayThroughCreditCard"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:layout_marginBottom="8dp"
+                                  android:layout_marginTop="8dp"
+                                  android:backgroundTint="@color/colorTextRed"
+                                  android:text="Pay Through Credit Card"
+                                  android:textAllCaps="false"
+                                  android:textColor="@color/colorWhite" />
+                          </LinearLayout>
+
+                      </LinearLayout>&ndash;&gt;
+
+            </android.support.v7.widget.CardView>-->
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="8dp"
+
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical">
+
+
+                    <RadioGroup
+                        android:id="@+id/RadioGroupOrderProcessMain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="Online Payment Method"
+                            android:textColor="@color/colorTextRed"
+                            android:textSize="19sp" />
+
+
+                        <RadioButton
+                            android:id="@+id/radioOrderProcessStripe"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:drawableTop="@drawable/ic_creditcard" />
+
+
+                        <LinearLayout
+                            android:id="@+id/LinearlayoutOrderProcessCCDetailView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.stripe.android.view.CardInputWidget
+                                android:id="@+id/card_input_widget"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <Button
+                                android:id="@+id/ButtonPayThroughCreditCard"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginTop="8dp"
+                                android:backgroundTint="@color/colorTextRed"
+                                android:text="Make Payment"
+                                android:textAllCaps="false"
+                                android:textColor="@color/colorWhite" />
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="Offline Payment Methods"
+                            android:textColor="@color/colorTextRed"
+                            android:textSize="19sp" />
+
+
+                        <RadioButton
+
+                            android:id="@+id/RadioButtonOrderProcessWesternUnion"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:drawableTop="@drawable/ic_western"
+
+                            android:gravity="top" />
+
+
+                        <LinearLayout
+
+                            android:id="@+id/LinearlayoutOrderProcessWDetailView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Pay using Western Union money transfer (Step - 2 of 2) "
+                                android:textColor="@color/colorTextRed"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/OrderNumber1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+
+                                android:textColor="@color/colorTextRed" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/wu_subscription_plan_web"
+                                android:textColor="@color/colorBlack" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/wu_subscription_plan_mem_support_service"
+                                android:textColor="@color/colorBlack" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/wu_subscription_plan_mem_support_email"
+                                android:textColor="@color/colorBlack" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/colorGrey"></View>
+
+
+                        </LinearLayout>
+
+
+                        <RadioButton
+                            android:id="@+id/RadioButtonOrderProcessEasyPasa"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:drawableTop="@drawable/ic_easypasa"
+                            android:gravity="top" />
+
+
+                        <LinearLayout
+
+                            android:id="@+id/LinearlayoutOrderProcessEasypasaView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Pay Using Telenor Easypaisa (Step - 2 of 2) (Pakistan Only)"
+                                android:textColor="@color/colorTextRed"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/OrderNumber2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+
+                                android:textColor="@color/colorTextRed" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/ep_desc"
+                                android:textColor="@color/colorBlack" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" " />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/ep_desc2"
+                                android:textColor="@color/colorBlack" />
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/colorGrey"></View>
+
+
+                        </LinearLayout>
+
+
+                        <RadioButton
+                            android:id="@+id/RadioButtonOrderProcessABL"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:drawableTop="@drawable/ic_abl" />
+
+                        <LinearLayout
+
+                            android:id="@+id/LinearlayoutOrderProcessABL"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Pay in Bank Account (Step - 2 of 2) (Pakistan Only)"
+                                android:textColor="@color/colorTextRed"
+                                android:textStyle="bold" />
+
+                            <TextView
+
+                                android:id="@+id/OrderNumber3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+
+                                android:textColor="@color/colorTextRed" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+
+                                android:text="Please send your payment to following ABL account; mentioning your order number in payment reference."
+                                android:textColor="@color/colorBlack" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/abl_des"
+                                android:textColor="@color/colorBlack" />
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/colorGrey"></View>
+
+
+                        </LinearLayout>
+
+
+                        <RadioButton
+                            android:id="@+id/RadioButtonOrderProcessCash"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:drawableTop="@drawable/ic_cash" />
+
+
+                        <LinearLayout
+
+                            android:id="@+id/LinearlayoutOrderProcessCash"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Pay Cash Directly at MarryMax.com's Office (Step - 2 of 2) (Pakistan Only)  "
+                                android:textColor="@color/colorTextRed"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/OrderNumber4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Your Order Number is 106"
+                                android:textColor="@color/colorTextRed" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+
+                                android:text="Please visit our Islamabad Office at following address, to pay for the service"
+                                android:textColor="@color/colorBlack" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/cash_desc"
+                                android:textColor="@color/colorBlack" />
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/colorGrey"></View>
+
+
+                        </LinearLayout>
+
+
+                    </RadioGroup>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutOrderProcessError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+
+
+        >
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutMemberUPPicsNotAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+
+                        <TextView
+                            android:id="@+id/TextViewOrderProcessErrorHeading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:text=""
+                            android:textColor="#272a30"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/TextViewOrderProcessErrorDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/colorUserProfileTextGreen" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center">
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

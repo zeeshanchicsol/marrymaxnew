@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--   <item
+           android:id="@+id/menu_up_add_notes"
+           android:listDivider="@android:color/transparent"
+           android:name="Add Notes" />
+
+       <item
+           android:id="@+id/menu_up_add_to_list"
+           android:name="Add to List" />
+
+       <item
+           android:id="@+id/menu_up_request_permission"
+           android:name="Request &amp; Permissions" />-->
+
+    <!--
+        <item
+            android:id="@+id/menu_up_request"
+            android:name="Request" />-->
+    <item
+        android:id="@+id/menu_up_share"
+        android:icon="@drawable/ic_share_white_24dp"
+        android:title="Request and Permissions"
+        app:showAsAction="always" />
+
+
+</menu>

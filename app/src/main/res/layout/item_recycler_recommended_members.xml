@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/colorWhite"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutMessageDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+
+
+                android:layout_weight="2">
+                <!--android:background="@drawable/border_dash_user_profile_box"-->
+                <!-- android:src="@drawable/female_profile_100"-->
+                <ImageView
+                    android:id="@+id/ImageViewRecommendedMatchImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_dash_main_profile"
+
+                    android:padding="1dp"
+
+                    android:src="@drawable/female_profile_100" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/TextViewRecommendedMatchDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="5dp"
+                    android:text=""
+                    android:textColor="@color/colorBlack"
+                    android:textSize="9sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TextViewRecommendedMatchAlias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SHAH_R7"
+                        android:textColor="@color/colorUserProfileTextGreen"
+                        android:textSize="@dimen/text_size_up_h2"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/TextViewRecommendedMatchAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:text="age"
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorGrey"></View>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Education: "
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2" />
+
+                    <TextView
+                        android:id="@+id/TextViewRecommendedMatchEducation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TextViewInterestRequestCountry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marital Status: "
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2" />
+
+                    <TextView
+                        android:id="@+id/TextViewRecommendedMatchMaritalStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ethnicity: "
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2" />
+
+                    <TextView
+                        android:id="@+id/TextViewRecommendedMatchMaritalEthnicity"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Religious: "
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2" />
+
+                    <TextView
+                        android:id="@+id/TextViewRecommendedMatchMaritalReligious"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f2f2f2">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recommded By: " />
+
+
+                <TextView
+                    android:id="@+id/TextViewRecommendedMatchRecomdBy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ali"
+                    android:textColor="@color/colorBlack" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/FloatingActionButtonRecommendedMatchesMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:padding="2dp"
+                    app:backgroundTint="@color/colorWhite"
+                    app:elevation="0dp"
+                    app:fabSize="mini"
+
+                    app:srcCompat="@drawable/ic_more_vert_black_24dp_file"
+
+                    />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

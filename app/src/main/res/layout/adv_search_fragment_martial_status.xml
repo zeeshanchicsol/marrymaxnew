@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical"
+
+        >
+
+
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:text="Martial Status"
+            android:textSize="@dimen/text_size_adv_search_headings"
+
+            android:textStyle="bold"
+            android:textColor="@color/colorUserProfileRed" />
+    <LinearLayout
+        android:id="@+id/LinearLayoutAdvSearchMaritalStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7"></View>
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:textSize="@dimen/text_size_adv_search_headings"
+            android:layout_marginTop="10dp"
+            android:text="Children"
+            android:textStyle="bold"
+            android:textColor="@color/colorUserProfileRed" />
+    <LinearLayout
+        android:id="@+id/LinearLayoutAdvSearchChildren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+</LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

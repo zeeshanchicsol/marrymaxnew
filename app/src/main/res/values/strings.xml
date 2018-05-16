@@ -1,0 +1,146 @@
+<resources>
+    <string name="app_name">MarryMax</string>
+
+    <string name="font_name_fontawesome">fontawesome</string>
+    <string name="font_name_source_centurygothic">CenturyGothic</string>
+    <!-- Strings related to login -->
+
+    <string name="prompt_email">Login Email</string>
+    <string name="prompt_password">Password </string>
+    <string name="action_sign_in">Sign In</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="forgetpassword"><u><b>forgot password ?</b></u></string>
+
+    <string name="updatechoice"><u><b>Update Choices </b></u></string>
+
+
+    <!-- Subscription Plans-->
+
+    <!--wester union-->
+    <string name="wu_subscription_plan_web">
+        For payment using Western Union money transfer assistance please contact at:\n<b>Website:</b> MarryMax.com</string>
+    <string name="wu_subscription_plan_mem_support_service"> <b>Member support service:</b>  +92-51-8311882 available from 10:00 AM - 05:00 PM Pakistan Standard Time</string>
+    <string name="wu_subscription_plan_mem_support_email"><b>Email:</b> support@marrymax.com</string>
+    <!--easypasa-->
+    <string name="ep_desc">Please visit your nearest Easypaisa shop and make payment at this number 034377187181 On payment you\'ll receive a Transaction ID. Please save the Transaction ID and let us know, thanks you.</string>
+    <string name="ep_desc2">
+For assistance please view our tutorial or feel free to contact MarryMax.com support service at  +92-51-8311882 or email at <b>support@marrymax.com</b>.</string>
+
+    <!--abl-->
+    <string name="abl_des">
+
+<b>Bank Branch Name:</b> Allied Bank Limited Jinnah Avenue, Blue Area, Islamabad \n
+<b>Account Number:</b> 0010028483590011  \n
+<b>Account Title:</b> MarryMax (Pvt.) Ltd    \n
+<b>Address:</b> Allied Bank Limited Jinnah Avenue, Blue Area, Islamabad \n
+
+For queries please or feel free to contact MarryMax.com support service at +92-51-8311882 or email at <b> support@marrymax.com</b> .
+    </string>
+
+
+    <string name="cash_desc"><b>Address:</b> 3rd Floor, Green Trust Tower, Jinnah Avenue, Blue Area, Islamabad, Paksitan
+
+For queries please or feel free to contact MarryMax.com support service at +92-51-8311882 or email at <b> support@marrymax.com</b> .</string>
+
+
+    <string name="font_name_centurygothic">centurygotic</string>
+    <string name="font_name_centurygothicBold">centurygoticbold</string>
+    <string-array name="Countries_array">
+        <item>My Country</item>
+
+    </string-array>
+    <string-array name="Countries_array_choice">
+        <item>My Choice  Country</item>
+
+    </string-array>
+
+
+    <string-array name="spinner_array_religion">
+        <item>Religion</item>
+        <item>Muslim</item>
+        <item>Ahmedi</item>
+        <item>Christian</item>
+        <item>Hindu</item>
+        <item>Sikh</item>
+        <item>Other</item>
+
+    </string-array>
+
+    <string-array name="spinner_array_source">
+        <item>Source</item>
+        <item>Search Engine</item>
+        <item>From a Friend/Family Member</item>
+        <item>TV Commercial</item>
+        <item>Newspaper/Magzine</item>
+        <item>Social Media</item>
+        <item>Other</item>
+
+    </string-array>
+
+    <!--    font awesome-->
+    <string name="fa_icon_male">&#xf222;</string>
+    <string name="fa_icon_female">&#xf221;</string>
+
+    <string name="fa_icon_newmessage">&#xf003;</string>
+    <string name="fa_icon_newinterest">&#xf087;</string>
+    <string name="fa_icon_favourite">&#xf005;</string>
+    <string name="fa_icon_request">&#xf27a;</string>
+    <string name="fa_icon_newquestion">&#xf29c;</string>
+    <string name="fa_icon_block">&#xf05e;</string>
+    <string name="fa_icon_notes">&#xf24a;</string>
+    <string name="fa_icon_accepted">&#xf00c;</string>
+    <string name="fa_icon_remove">&#xf056;</string>
+    <string name="fa_icon_send">&#xf1d9;</string>
+    <string name="fa_icon_question_withoutcircle">&#xf128;</string>
+
+    <string name="fa_icon_dashboard">&#xf015;</string>
+    <string name="fa_icon_uploadphoto">&#xf03e;</string>
+
+    <string name="fa_icon_match_pref">&#xf2a1;</string>
+    <string name="fa_icon_ac_setting">&#xf013;</string>
+    <string name="fa_icon_profile_setting">&#xf007;</string>
+    <string name="fa_icon_logout">&#xf08b;</string>
+    <string name="fa_icon_matches">&#xf228;</string>
+    <string name="fa_icon_search">&#xf002;</string>
+    <string name="fa_icon_subscription">&#xf00c;</string>
+    <string name="fa_icon_edit">&#xf044;</string>
+    <string name="fa_icon_date">&#xf073;</string>
+    <string name="fa_icon_cross">&#xf00d;</string>
+    <string name="fa_icon_camera">&#xf030;</string>
+
+    <!--dashboardMain-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="loadmore">Load More</string>
+    <string name="Reset">Reset</string>
+
+    <!--dashboardmyMatches-->
+    <string name="fa_icon_gallery">&#xf03e;</string>
+    <string name="fa_icon_star">&#xf006;</string>
+    <string name="fa_icon_delete">&#xf05e;</string>
+    <string name="fa_icon_show_interest">&#xf087;</string>
+    <string name="fa_icon_menu">&#xf142;</string>
+    <string name="fa_icon_withdraw_interest">&#xf112;</string>
+    <string name="fa_icon_trash">&#xf014;</string>
+    <string name="fa_icon_pause">&#xf04c;</string>
+
+    <!--UserProfile -->
+    <string name="fa_icon_thumbs_up">&#xf087;</string>
+    <!--Reg Geographic-->
+    <string name="tv_name_reg_geogrphic">My Choice Countries</string>
+    <string name="title_activity_photo_upload">Upload Photos</string>
+    <!-- permission item-->
+    <string name="fa_icon_picture">&#xf03e;</string>
+    <string name="fa_icon_user">&#xf2c0;</string>
+    <string name="fa_icon_phone">&#xf095;</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTabBackground"
+
+    android:weightSum="10">
+
+    <!-- Tab title -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9.8"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tab_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="asd asda "
+            android:textColor="@drawable/tab_item_selector" />
+    </LinearLayout>
+
+    <!-- Tab divider -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".2"
+
+        >
+
+        <View
+            android:id="@+id/tab_view_separator"
+            android:layout_width="1.7dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="18dp"
+            android:layout_marginTop="18dp"
+            android:background="@android:color/black"
+            android:padding="5dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

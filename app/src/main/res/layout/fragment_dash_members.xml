@@ -1,0 +1,213 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.chicsol.marrymax.fragments.DashMain.DashMembersFragment">
+
+
+    <!--
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+
+            android:text="My Matches"
+            android:textColor="@color/colorTextRed"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    -->
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/RecyclerViewLastLoginMatches"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:nestedScrollingEnabled="true"
+                android:scrollbarFadeDuration="0"
+                android:scrollbars="vertical" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutMemberDMMatchesNotAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="15dp"
+                                android:src="@drawable/ic_no_result_found" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center">
+
+
+                            <TextView
+                                android:id="@+id/TextViewMemberFragmentError"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginRight="3dp"
+                                android:gravity="center"
+                                android:text="We haven’t found any matches."
+                                android:textColor="#272a30"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+
+                            android:orientation="horizontal">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="We suggest to modify your search criteria, to find Matches."
+                                android:textColor="@color/colorUserProfileTextGreen" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:gravity="center">
+
+                            <android.support.v7.widget.AppCompatButton
+                                android:id="@+id/ButtonDashboardonChangeMatchingAttributeMSLL"
+                                style="@style/myCustomMaterialButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="Change Matching Attribute"
+                                android:textAllCaps="false"
+                                android:textColor="@color/colorWhite"
+                                app:backgroundTint="@color/colorUserProfileRed" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutDMMyMatchesBottomBarMSLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatButton
+
+                    android:id="@+id/ButtonMSLWReset"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35sp"
+                    android:text="@string/Reset"
+                    android:textAllCaps="false"
+                    android:textSize="10sp"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/colorGrey" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/ButtonMSLWLoadMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35sp"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/loadmore"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:backgroundTint="@color/colorTextRed" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

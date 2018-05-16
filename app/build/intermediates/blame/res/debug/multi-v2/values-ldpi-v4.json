@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymaxalfalah/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldpi-v4/values-ldpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/marrymaxandroid/AndroidStudioProjects/marrymaxalfalah/app/src/main/res/values-ldpi/dimens.xml",
+                    "from": {
+                        "startLines": "4,25,20,14,11,12,22,19,24,8,7,6,21,29,32,30,13,36",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "291,1043,833,687,536,582,935,772,988,477,431,377,890,1129,1247,1185,628,1356",
+                        "endColumns": "57,49,56,46,45,45,51,60,54,56,45,53,44,55,56,60,58,46",
+                        "endOffsets": "344,1088,885,729,577,623,982,828,1038,529,472,426,930,1180,1299,1241,682,1398"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,113,163,220,267,313,359,411,472,527,584,630,684,729,785,842,903,962",
+                        "endColumns": "57,49,56,46,45,45,51,60,54,56,45,53,44,55,56,60,58,46",
+                        "endOffsets": "108,158,215,262,308,354,406,467,522,579,625,679,724,780,837,898,957,1004"
+                    }
+                }
+            ]
+        }
+    ]
+}
