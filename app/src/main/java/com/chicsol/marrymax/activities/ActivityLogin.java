@@ -44,6 +44,7 @@ import com.crashlytics.android.Crashlytics;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import io.fabric.sdk.android.Fabric;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -309,7 +310,7 @@ public class ActivityLogin extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //    Log.e("Log params ", Urls.LoginUrl+"   " + params);
+        Log.e("Log params ", Urls.LoginUrl + "   " + params);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.LoginUrl, params,

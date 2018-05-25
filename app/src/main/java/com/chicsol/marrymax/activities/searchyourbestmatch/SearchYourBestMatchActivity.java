@@ -32,6 +32,7 @@ import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.urls.Urls;
+import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.google.gson.Gson;
@@ -230,66 +231,69 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
                 View focusView = null;
 
 
-                if (spinner_religion.getSelectedItemId() == 0) {
+                if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
 
 
-                    TextView errorText = (TextView) spinner_religion.getSelectedView();
-                    errorText.setError("");
-                    errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
-                    errorText.setText("Please Select Religion");
+                    if (spinner_religion.getSelectedItemId() == 0) {
+
+
+                        TextView errorText = (TextView) spinner_religion.getSelectedView();
+                        errorText.setError("");
+                        errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
+                        errorText.setText("Please Select Religion");
+                    }
+
+                    if (gender == null) {
+                        Toast.makeText(SearchYourBestMatchActivity.this, "Please select gender", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    if (spinner_religion.getSelectedItemId() != 0 && gender != null) {
+
+
+                        defaultSelectionsObj.set_gender(gender);
+
+
+                        WebArd sReligion = (WebArd) spinner_religion.getSelectedItem();
+                        defaultSelectionsObj.set_religion_id(Long.parseLong(sReligion.getId()));
+                        if (spinner_education.getSelectedItemId() != 0) {
+                            WebArd srr = (WebArd) spinner_education.getSelectedItem();
+                            defaultSelectionsObj.set_choice_education_ids(srr.getId());
+                        }
+                        if (spinner_ethnic.getSelectedItemId() != 0) {
+                            WebArd srr = (WebArd) spinner_ethnic.getSelectedItem();
+                            defaultSelectionsObj.set_choice_ethnic_bground_ids(srr.getId());
+                        }
+                        if (spinner_religioussect.getSelectedItemId() != 0) {
+                            WebArd srr = (WebArd) spinner_religioussect.getSelectedItem();
+                            defaultSelectionsObj.set_choice_religious_sect_ids(srr.getId());
+                        }
+                        if (spinner_country.getSelectedItemId() != 0) {
+                            WebArd srr = (WebArd) spinner_country.getSelectedItem();
+                            defaultSelectionsObj.set_choice_country_ids(srr.getId());
+                        }
+                        if (spMyChoiceAgeFrom.getSelectedItemId() != 0) {
+                            WebArd srr = (WebArd) spMyChoiceAgeFrom.getSelectedItem();
+                            defaultSelectionsObj.set_choice_age_from(Long.parseLong(srr.getId()));
+                        }
+                        if (spMyChoiceAgeTo.getSelectedItemId() != 0) {
+                            WebArd srr = (WebArd) spMyChoiceAgeTo.getSelectedItem();
+                            defaultSelectionsObj.set_choice_age_upto(Long.parseLong(srr.getId()));
+                        }
+
+
+                        Gson gson = new Gson();
+                        String params = gson.toJson(defaultSelectionsObj);
+                        Log.e("params  ", params + "");
+
+                        // SharedPreferenceManager.setDefaultSelectionsObj(getApplicationContext(),defaultSelectionsObj);
+
+                        Intent in = new Intent(SearchYourBestMatchActivity.this, SearchYourBestMatchResultsActivity.class);
+                        startActivity(in);
+
+
+                    }
                 }
-
-                if (gender == null) {
-                    Toast.makeText(SearchYourBestMatchActivity.this, "Please select gender", Toast.LENGTH_SHORT).show();
-
-                }
-
-                if (spinner_religion.getSelectedItemId() != 0 && gender != null) {
-
-
-                    defaultSelectionsObj.set_gender(gender);
-
-
-                    WebArd sReligion = (WebArd) spinner_religion.getSelectedItem();
-                    defaultSelectionsObj.set_religion_id(Long.parseLong(sReligion.getId()));
-                    if (spinner_education.getSelectedItemId() != 0) {
-                        WebArd srr = (WebArd) spinner_education.getSelectedItem();
-                        defaultSelectionsObj.set_choice_education_ids(srr.getId());
-                    }
-                    if (spinner_ethnic.getSelectedItemId() != 0) {
-                        WebArd srr = (WebArd) spinner_ethnic.getSelectedItem();
-                        defaultSelectionsObj.set_choice_ethnic_bground_ids(srr.getId());
-                    }
-                    if (spinner_religioussect.getSelectedItemId() != 0) {
-                        WebArd srr = (WebArd) spinner_religioussect.getSelectedItem();
-                        defaultSelectionsObj.set_choice_religious_sect_ids(srr.getId());
-                    }
-                    if (spinner_country.getSelectedItemId() != 0) {
-                        WebArd srr = (WebArd) spinner_country.getSelectedItem();
-                        defaultSelectionsObj.set_choice_country_ids(srr.getId());
-                    }
-                    if (spMyChoiceAgeFrom.getSelectedItemId() != 0) {
-                        WebArd srr = (WebArd) spMyChoiceAgeFrom.getSelectedItem();
-                        defaultSelectionsObj.set_choice_age_from(Long.parseLong(srr.getId()));
-                    }
-                    if (spMyChoiceAgeTo.getSelectedItemId() != 0) {
-                        WebArd srr = (WebArd) spMyChoiceAgeTo.getSelectedItem();
-                        defaultSelectionsObj.set_choice_age_upto(Long.parseLong(srr.getId()));
-                    }
-
-
-                    Gson gson = new Gson();
-                    String params = gson.toJson(defaultSelectionsObj);
-                    Log.e("params  ", params + "");
-
-                    // SharedPreferenceManager.setDefaultSelectionsObj(getApplicationContext(),defaultSelectionsObj);
-
-                    Intent in = new Intent(SearchYourBestMatchActivity.this, SearchYourBestMatchResultsActivity.class);
-                    startActivity(in);
-
-
-                }
-
 
             }
         });

@@ -180,11 +180,14 @@ public class AccountDeactivationFragment extends Fragment {
                         etOtherReason.setError("Please Enter Reason");
                         focusView = etOtherReason;
                         focusView.requestFocus();
-                    } /*else if (TextUtils.isEmpty(reason)) {
+                    }
+
+                    /*else if (TextUtils.isEmpty(reason)) {
                     etOtherReason.setError("Please Enter Reason");
                     focusView = etOtherReason;
                     focusView.requestFocus();
-                }*/ else if (TextUtils.isEmpty(close)) {
+                }*/
+                    else if (TextUtils.isEmpty(close)) {
                         etClose.setError("Please Enter Close");
                         focusView = etClose;
                         focusView.requestFocus();
@@ -212,7 +215,7 @@ public class AccountDeactivationFragment extends Fragment {
 
 
                                 //    Log.e(""+ Urls.accountDeactivate, "" + params);
-                                deactivateRequest(params);
+                                //     deactivateRequest(params);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
