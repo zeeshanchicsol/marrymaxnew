@@ -385,6 +385,7 @@ public class MarryMax {
                     return false;
 
                 } else if (smember.get_member_status() < 3 && smember.get_phone_verified() == 0 && smember.get_email_verified() == 0) {
+                    Toast.makeText(context, "Clicked ", Toast.LENGTH_SHORT).show();
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", compUptoSSeventyText, "Complete Profile", 8);
                     dialogP.show(frgMngr, "d");
