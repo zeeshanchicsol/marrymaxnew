@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.activities.subscription.SubscriptionPlanActivity;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.fragments.DashboardAccountSettingFragment;
@@ -343,6 +344,12 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
             MarryMax marryMax = new MarryMax(DashboarMainActivityWithBottomNav.this);
             marryMax.getProfileProgress(getApplicationContext(), member, DashboarMainActivityWithBottomNav.this);
 
+        } else if (id == R.id.nav_main_my_profile_status) {
+
+            Intent in = new Intent(getApplicationContext(), MainDirectiveActivity.class);
+            in.putExtra("type", 22);
+            startActivity(in);
+
         } else if (id == R.id.nav_main_advsearch) {
             MarryMax max = new MarryMax(DashboarMainActivityWithBottomNav.this);
             max.onSearchClicked(getApplicationContext(), 0);
@@ -374,6 +381,8 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
             }
 
         }
+
+
         // DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

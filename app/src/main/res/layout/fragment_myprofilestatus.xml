@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     tools:context=".fragments.AccountSetting.MyProfileStatusFragment">
 
-    <android.support.v7.widget.CardView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:layout_marginTop="5dp"
-        app:cardBackgroundColor="#ffecb6"
-        app:cardUseCompatPadding="true">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/ProgressbarMyProfileStatusFragment"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorUserProfileRed"
+            android:indeterminateTintMode="src_in"
+            android:visibility="visible" />
 
         <android.support.v7.widget.CardView
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
-            app:cardBackgroundColor="#fdfaf1"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
+
 
             >
 
@@ -28,6 +38,7 @@
                      android:layout_width="4dp"
                      android:layout_height="match_parent"
                      android:background="#FF0000" />-->
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -55,6 +66,7 @@
                     android:id="@+id/LinearLayoutMyProfileStatusCompleteProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -67,7 +79,7 @@
                             android:layout_width="20dp"
                             android:layout_height="wrap_content"
                             android:text="@string/fa_icon_profile_setting"
-                            android:textColor="#ef9a00"
+                            android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
 
                         <TextView
@@ -75,7 +87,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Complete your profile"
-                            android:textColor="#ef9a00"
+                            android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
 
 
@@ -106,7 +118,7 @@
                             android:layout_width="20dp"
                             android:layout_height="wrap_content"
                             android:text="@string/fa_icon_newmessage"
-                            android:textColor="#ef9a00"
+                            android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
 
                         <TextView
@@ -114,7 +126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Email verification is pending "
-                            android:textColor="#ef9a00"
+                            android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -144,7 +156,7 @@
                             android:layout_width="20dp"
                             android:layout_height="wrap_content"
                             android:text="@string/fa_icon_phone"
-                            android:textColor="#ef9a00"
+                            android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
 
                         <TextView
@@ -152,7 +164,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Phone Number verification is pending "
-                            android:textColor="#ef9a00"
+                            android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -182,7 +194,7 @@
                             android:layout_width="20dp"
                             android:layout_height="wrap_content"
                             android:text="@string/fa_icon_phone"
-                            android:textColor="#ef9a00"
+                            android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
 
                         <TextView
@@ -190,7 +202,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Admin Review is pending "
-                            android:textColor="#ef9a00"
+                            android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -206,6 +218,117 @@
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
-    </android.support.v7.widget.CardView>
 
-</LinearLayout>
+
+        <android.support.v7.widget.CardView
+
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fa_icon_phone"
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Add Mobile Number "
+                            android:textColor="@color/colorBlack" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:text=" (You can Add and Verify Number by clicking )"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fa_icon_newmessage"
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="zeeshan83@gmail.com "
+                            android:textColor="@color/colorBlack" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatButton
+                            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Resend Verification Email"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorTextRed" />
+
+                        <android.support.v7.widget.AppCompatButton
+                            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Update Email"
+                            android:textAllCaps="false" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

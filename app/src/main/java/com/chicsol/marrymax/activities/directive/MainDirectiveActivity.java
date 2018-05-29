@@ -17,6 +17,7 @@ import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.fragments.AccountSetting.MatchingAttributeFragment;
 import com.chicsol.marrymax.fragments.AccountSetting.MyContactFragment;
+import com.chicsol.marrymax.fragments.AccountSetting.MyProfileStatusFragment;
 import com.chicsol.marrymax.fragments.inbox.DashboardMessagesFragment;
 import com.chicsol.marrymax.fragments.inbox.interests.DashboardMyInterestsMainFragment;
 import com.chicsol.marrymax.fragments.inbox.permissions.DashboardMyPermissionsMainFragment;
@@ -181,6 +182,10 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
             case 21:
                 getSupportActionBar().setTitle("Recommended Matches");
                 fragment = new RecommendedMatches();
+                break;
+            case 22:
+                getSupportActionBar().setTitle("My Profile Status");
+                fragment = new MyProfileStatusFragment();
                 break;
         }
 
