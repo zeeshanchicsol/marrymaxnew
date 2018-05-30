@@ -51,7 +51,7 @@
                     android:id="@+id/TextViewMyProfileStatusTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dear ZEESHAN81, your profile is Not Live"
+                    android:text=""
                     android:textColor="@color/colorBlack" />
 
                 <TextView
@@ -67,6 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -97,7 +98,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
-                        android:text=" (Click to complete your profile)"
+                        android:text=" (Click Here to complete your profile)"
                         android:textSize="10sp" />
                 </LinearLayout>
 
@@ -239,7 +240,6 @@
 
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -247,8 +247,11 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:orientation="horizontal"
-                        android:padding="5dp">
+                        android:padding="5dp"
+
+                        >
 
                         <com.chicsol.marrymax.widgets.faTextView
                             android:layout_width="20dp"
@@ -264,20 +267,61 @@
                             android:text="Add Mobile Number "
                             android:textColor="@color/colorBlack" />
 
+                        <LinearLayout
+                            android:id="@+id/LinearLayoutVerifyMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <com.chicsol.marrymax.widgets.faTextView
+                                android:id="@+id/famobbb1"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+
+
+                                android:text="@string/fa_icon_accepted"
+                                android:textColor="@color/colorDefaultGreen"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvVerified1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="Verified"
+                                android:textColor="@color/colorDefaultGreen" />
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:text=" (You can Add and Verify Number by clicking )"
-                        android:textSize="10sp" />
+
+                    <LinearLayout
+                        android:id="@+id/LinearlayoutMyProfileStatusPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatButton
+                            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginLeft="20dp"
+                            android:text="Add Number"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorTextRed" />
+
+
+                    </LinearLayout>
                 </LinearLayout>
+
 
                 <LinearLayout
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -294,15 +338,44 @@
                             android:textStyle="bold" />
 
                         <TextView
-
+                            android:id="@+id/TextViewMyProfileStatusEmail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="zeeshan83@gmail.com "
+                            android:text=""
                             android:textColor="@color/colorBlack" />
+
+                        <RelativeLayout
+                            android:id="@+id/RelativeLayoutVerifyEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+
+                            >
+
+                            <com.chicsol.marrymax.widgets.faTextView
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@+id/tvVerified"
+
+                                android:text="@string/fa_icon_accepted"
+                                android:textColor="@color/colorDefaultGreen"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvVerified"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="Verified"
+                                android:textColor="@color/colorDefaultGreen" />
+
+                        </RelativeLayout>
+
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/LinearlayoutMyProfileStatusEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -311,6 +384,7 @@
                             style="@style/Widget.AppCompat.Button.Borderless.Colored"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
                             android:layout_weight="1"
                             android:text="Resend Verification Email"
                             android:textAllCaps="false"
@@ -320,6 +394,7 @@
                             style="@style/Widget.AppCompat.Button.Borderless.Colored"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
                             android:layout_weight="1"
                             android:text="Update Email"
                             android:textAllCaps="false" />
