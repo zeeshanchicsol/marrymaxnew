@@ -40,6 +40,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
+import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.MyProfileActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapter;
@@ -1227,27 +1228,34 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     }
 
     private void viewProfile() {
-        if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
-
+      /*  if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
             if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
-
                 if (SharedPreferenceManager.getUserObject(getContext()).get_path() != null && SharedPreferenceManager.getUserObject(getContext()).get_path() != "") {
                     Intent intent = new Intent(getActivity(), MyProfileActivity.class);
-
                     intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getContext()).get_path());
-
                     startActivity(intent);
                 } else {
                     Toast.makeText(getContext(), "Error ! ", Toast.LENGTH_SHORT).show();
-
                 }
             } else {
                 Toast.makeText(getActivity(), "Please Complete Your Profile", Toast.LENGTH_SHORT).show();
-
             }
 
+        }*/
+
+
+        if (member.get_member_status() == 0 || member.get_member_status() >= 7) {
+            MarryMax marryMax = new MarryMax(getActivity());
+            marryMax.getProfileProgress(context, member, getActivity());
+        } else {
+            Intent intent = new Intent(getActivity(), MyProfileActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra("userpath", SharedPreferenceManager.getUserObject(context).get_path());
+            startActivity(intent);
         }
+
+
     }
 
 

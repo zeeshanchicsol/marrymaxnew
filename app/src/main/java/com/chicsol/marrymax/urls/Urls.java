@@ -259,4 +259,7 @@ public class Urls {
     //===============Interest Request Count ==================
     public static String getCommunicationCount = baseUrl + "/api/WebArd/GetCommunicationCount/";
 
+
+    //===============My Profile Status ==================
+    public static String getPhn = baseUrl + "/api/WebArd/GetPhn/";
 }

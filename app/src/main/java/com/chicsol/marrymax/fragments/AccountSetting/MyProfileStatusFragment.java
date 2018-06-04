@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
@@ -45,7 +46,7 @@ public class MyProfileStatusFragment extends Fragment {
     private ProgressBar pDialog;
     LinearLayout llCompleteProfile, llVeriyEmail, llVerifyPhone, llAdminReview, llPhoneVerified;
     RelativeLayout rlEmailVerified;
-    TextView tvDesc;
+    TextView tvDesc, tvPhoneNumber;
     private Context context;
     TextView tvEmail, tvTitleLiveNotLive;
 
@@ -105,6 +106,11 @@ public class MyProfileStatusFragment extends Fragment {
 
         tvEmail = (TextView) view.findViewById(R.id.TextViewMyProfileStatusEmail);
 
+        tvDesc = (TextView) view.findViewById(R.id.TextViewMyProfileStatusDesc);
+
+        tvPhoneNumber = (TextView) view.findViewById(R.id.TextViewMyProfileStatusMobileNumber);
+
+
         llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutMyProfileStatusEmail);
         llASPhone = (LinearLayout) view.findViewById(R.id.LinearlayoutMyProfileStatusPhone);
 
@@ -117,13 +123,22 @@ public class MyProfileStatusFragment extends Fragment {
         tvEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
 
 
-        if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+     /*   if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
             checkEmailStatus(getContext());
             // llASEmail.setVisibility(View.VISIBLE);
         } else {
             rlEmailVerified.setVisibility(View.VISIBLE);
             llASEmail.setVisibility(View.GONE);
+        }*/
+
+        if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+            tvDesc.setVisibility(View.VISIBLE);
+        } else {
+            tvDesc.setVisibility(View.GONE);
         }
+
+
+        getPhoneNumber();
 
 
         getProfileCompletion();
@@ -209,13 +224,62 @@ public class MyProfileStatusFragment extends Fragment {
                             }
 
 
-                            if (dashboards.getPhone_complete_status().equals("0")) {
+                            if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
 
-                                llVerifyPhone.setVisibility(View.VISIBLE);
+                                // llASEmail.setVisibility(View.VISIBLE);
+                                if (dashboards.getEmail_complete_status().equals("1")) {
+                                    //hide update email
+                              /*  etAsEmail.setKeyListener(null);
+                                etAsEmail.setEnabled(false);*/
+                                    llASEmail.setVisibility(View.GONE);
+                                    rlEmailVerified.setVisibility(View.VISIBLE);
+
+                                } else {
+                                    //show
+                                    rlEmailVerified.setVisibility(View.GONE);
+                                    llASEmail.setVisibility(View.VISIBLE);
+
+                                }
+
+
                             } else {
+                                rlEmailVerified.setVisibility(View.VISIBLE);
+                                llASEmail.setVisibility(View.GONE);
+                            }
+
+
+                            // if (dashboards.getPhone_complete_status().equals("0")) {}
+
+
+                            if (dashboards.getPhone_complete_status().equals("1")) {
                                 llVerifyPhone.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.VISIBLE);
+                                llASPhone.setVisibility(View.GONE);
+
+
+                            } else {
+
+                                llASPhone.setVisibility(View.VISIBLE);
+                                llVerifyPhone.setVisibility(View.VISIBLE);
 
                             }
+
+                         /*   if (dashboards.getPhone_complete_status().equals("1")) {
+                                //hide update email
+                              *//*  etAsEmail.setKeyListener(null);
+                                etAsEmail.setEnabled(false);*//*
+                                llASPhone.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.VISIBLE);
+
+                            } else {
+                                //show
+                                llASPhone.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.VISIBLE);
+
+                            }
+                            */
+
+
                             if (dashboards.getAdmin_approved_status().equals("0")) {
                                 llAdminReview.setVisibility(View.VISIBLE);
                            /*     Log.e("mem status", member.get_member_status() + "");
@@ -282,6 +346,36 @@ public class MyProfileStatusFragment extends Fragment {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(context).addToRequestQueue(req, Tag);
+    }
+
+
+    private void getPhoneNumber() {
+
+
+        Log.e(" Notification url", Urls.getPhn + SharedPreferenceManager.getUserObject(context).get_path());
+        StringRequest req = new StringRequest(Urls.getPhn + SharedPreferenceManager.getUserObject(context).get_path(),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("getPhoneNumber ", "=======================  " + response);
+                        if (!response.toString().equals("''")) {
+                            tvPhoneNumber.setText(response);
+
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        MySingleton.getInstance(context).addToRequestQueue(req);
     }
 
 

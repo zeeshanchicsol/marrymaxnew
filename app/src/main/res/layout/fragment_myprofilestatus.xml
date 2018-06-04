@@ -247,11 +247,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:orientation="horizontal"
-                        android:padding="5dp"
-
-                        >
+                        android:padding="5dp">
 
                         <com.chicsol.marrymax.widgets.faTextView
                             android:layout_width="20dp"
@@ -261,7 +258,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-
+                            android:id="@+id/TextViewMyProfileStatusMobileNumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Add Mobile Number "
@@ -278,7 +275,7 @@
                                 android:id="@+id/famobbb1"
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
-
+                                android:gravity="center"
 
                                 android:text="@string/fa_icon_accepted"
                                 android:textColor="@color/colorDefaultGreen"
@@ -332,8 +329,10 @@
 
                         <com.chicsol.marrymax.widgets.faTextView
                             android:layout_width="20dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
                             android:text="@string/fa_icon_newmessage"
+
                             android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
