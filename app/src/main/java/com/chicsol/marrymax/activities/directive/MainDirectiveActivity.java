@@ -187,6 +187,10 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
                 getSupportActionBar().setTitle("My Profile Status");
                 fragment = new MyProfileStatusFragment();
                 break;
+            case 23:
+                getSupportActionBar().setTitle("My Contact");
+                fragment = new MyContactFragment();
+                break;
         }
 
 

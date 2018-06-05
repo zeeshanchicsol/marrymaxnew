@@ -756,8 +756,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private void getRegistrationData() {
         String url = Urls.reg_Listing;
 
-        final ProgressDialog pDialog = new ProgressDialog(RegistrationActivity.this);
-        pDialog.setMessage("Loading...");
+
         pDialog.show();
 
         Log.e("url", "" + url);
@@ -803,7 +802,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -811,7 +810,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("res", "Error: " + error.getMessage());
                 // hide the progress dialog
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -831,8 +830,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void RegisterUser(final String email, final String password, JSONObject params) {
 
-        final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
+
         pDialog.show();
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
         Log.e("params url", Urls.RegistrationUrl + "  ==  " + params);
@@ -845,6 +843,8 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.e("res", response + "");
+                        pDialog.dismiss();
+
                         try {
                             int responseid = response.getInt("id");
 
@@ -874,11 +874,11 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -889,7 +889,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -931,6 +931,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.e("res", response.toString());
+                        pDialog.dismiss();
                         try {
 
                             if (response.get("status").equals("success")) {
@@ -962,7 +963,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -973,7 +974,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 //VolleyLog.e("res err", "Error: " +networkResponse);
                 Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -993,7 +994,7 @@ public class RegistrationActivity extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         if (pDialog != null && pDialog.isShowing()) {
-            pDialog.cancel();
+            pDialog.dismiss();
         }
     }
 
@@ -1001,7 +1002,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         if (pDialog != null && pDialog.isShowing()) {
-            pDialog.hide();
+            pDialog.dismiss();
         }
     }
 }

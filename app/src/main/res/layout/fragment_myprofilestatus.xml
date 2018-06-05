@@ -300,6 +300,7 @@
                         android:layout_height="wrap_content">
 
                         <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonMyProfileStatusAddNumber"
                             style="@style/Widget.AppCompat.Button.Borderless.Colored"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -380,6 +381,8 @@
                         android:orientation="horizontal">
 
                         <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonMyProfileStatusResend"
+
                             style="@style/Widget.AppCompat.Button.Borderless.Colored"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -390,6 +393,8 @@
                             android:textColor="@color/colorTextRed" />
 
                         <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonMyProfileStatusUpdate"
+
                             style="@style/Widget.AppCompat.Button.Borderless.Colored"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

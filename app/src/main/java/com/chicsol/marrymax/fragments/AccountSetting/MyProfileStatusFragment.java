@@ -1,14 +1,17 @@
 package com.chicsol.marrymax.fragments.AccountSetting;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.AppCompatButton;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -22,6 +25,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.other.MarryMax;
@@ -49,6 +53,8 @@ public class MyProfileStatusFragment extends Fragment {
     TextView tvDesc, tvPhoneNumber;
     private Context context;
     TextView tvEmail, tvTitleLiveNotLive;
+
+    private AppCompatButton btAddNumber, btResendVerification, btUpdateEmail;
 
 
     LinearLayout llASEmail, llASPhone;
@@ -94,6 +100,11 @@ public class MyProfileStatusFragment extends Fragment {
 
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarMyProfileStatusFragment);
         pDialog.setVisibility(View.GONE);
+
+
+        btAddNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusAddNumber);
+        btResendVerification = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusResend);
+        btUpdateEmail = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdate);
 
 
         llCompleteProfile = (LinearLayout) view.findViewById(R.id.LinearLayoutMyProfileStatusCompleteProfile);
@@ -146,6 +157,36 @@ public class MyProfileStatusFragment extends Fragment {
     }
 
     private void setListeners() {
+        btAddNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 23);
+                startActivity(in);
+
+            }
+        });
+        btUpdateEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 23);
+                startActivity(in);
+            }
+        });
+
+        btResendVerification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 23);
+                startActivity(in);
+            }
+        });
+
+
+
         llCompleteProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -357,8 +398,13 @@ public class MyProfileStatusFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e("getPhoneNumber ", "=======================  " + response);
-                        if (!response.toString().equals("''")) {
+                        Log.e("getPhoneNumber ", "=======================  " + response.equalsIgnoreCase(response));
+                        Log.e("getPhoneNumber ", "=======================  " + response.replaceAll("^\"|\"$", ""));
+
+                        // result=result.replaceAll("^\"|\"$", "");
+                        response = response.replaceAll("^\"|\"$", "");
+
+                        if (!response.toString().equals("0")) {
                             tvPhoneNumber.setText(response);
 
                         }
