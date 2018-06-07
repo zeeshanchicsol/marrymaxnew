@@ -522,7 +522,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                             e.printStackTrace();
                         }
                         if (!refresh) {
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                             pDialog.setVisibility(View.GONE);
                         }
                     }
@@ -534,7 +534,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
                 VolleyLog.e("res err", "Error: " + error);
                 if (!refresh) {
-                    //pDialog.hide();
+                    //pDialog.dismiss();
                     pDialog.setVisibility(View.GONE);
                 }
                 // LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
@@ -686,14 +686,14 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                             e.printStackTrace();
 
                         }
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
 
-                //     pDialog.hide();
+                //     pDialog.dismiss();
             }
         }) {
             @Override

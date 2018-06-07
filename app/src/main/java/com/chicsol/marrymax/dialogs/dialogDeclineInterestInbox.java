@@ -282,14 +282,14 @@ public class dialogDeclineInterestInbox extends DialogFragment {
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             dialogDeclineInterestInbox.this.getDialog().cancel();
                             e.printStackTrace();
                         }
 
                         dialogDeclineInterestInbox.this.getDialog().cancel();
                         mCompleteListener.onComplete("");
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -300,7 +300,7 @@ public class dialogDeclineInterestInbox extends DialogFragment {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

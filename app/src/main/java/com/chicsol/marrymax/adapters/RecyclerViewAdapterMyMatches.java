@@ -840,12 +840,12 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -854,7 +854,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

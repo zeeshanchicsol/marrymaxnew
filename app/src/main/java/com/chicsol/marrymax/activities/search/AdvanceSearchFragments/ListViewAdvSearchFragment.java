@@ -208,13 +208,13 @@ public class ListViewAdvSearchFragment extends Fragment {
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         });
         MySingleton.getInstance(getContext()).addToRequestQueue(req);
@@ -252,13 +252,13 @@ public class ListViewAdvSearchFragment extends Fragment {
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         });
         MySingleton.getInstance(getContext()).addToRequestQueue(req);

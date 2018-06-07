@@ -266,16 +266,16 @@ public class DashMembers extends Fragment  implements RecyclerViewAdapter.OnItem
                                 llMyMatchesBottomBar.setVisibility(View.GONE);
 
                             }
-                            //  pDialog.hide();
+                            //  pDialog.dismiss();
                           //  pDialog.setVisibility(View.INVISIBLE);
                         } catch (JSONException e) {
                             e.printStackTrace();
                            // pDialog.setVisibility(View.INVISIBLE);
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                         }
 
                       //  pDialog.setVisibility(View.INVISIBLE);
-                        // pDialog.hide();
+                        // pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -285,7 +285,7 @@ public class DashMembers extends Fragment  implements RecyclerViewAdapter.OnItem
 
                 VolleyLog.e("res err", "Error: " + error);
                // pDialog.setVisibility(View.INVISIBLE);
-                //   pDialog.hide();
+                //   pDialog.dismiss();
             }
 
 

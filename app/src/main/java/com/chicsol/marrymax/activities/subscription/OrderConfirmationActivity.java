@@ -161,12 +161,12 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                             setData(subscription);
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -175,7 +175,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

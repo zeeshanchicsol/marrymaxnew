@@ -416,17 +416,17 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            //pDialog.hide();
+                            //pDialog.dismiss();
 
                         }
 
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
 
             }
         }) {
@@ -1064,7 +1064,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
                   /*      } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }*/
 

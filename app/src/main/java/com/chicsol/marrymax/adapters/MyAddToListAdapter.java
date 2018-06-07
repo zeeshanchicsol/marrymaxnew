@@ -282,7 +282,7 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }*/
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -293,7 +293,7 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -365,7 +365,7 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
 
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -376,7 +376,7 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -447,7 +447,7 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
                             updateDataList(dataList);
 
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -458,7 +458,7 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -516,11 +516,11 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 */
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -531,7 +531,7 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

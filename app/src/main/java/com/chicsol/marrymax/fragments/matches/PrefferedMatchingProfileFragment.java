@@ -639,18 +639,18 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
                             }
 
 
-                            //     pDialog.hide();
+                            //     pDialog.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
             }
         }) {
             @Override

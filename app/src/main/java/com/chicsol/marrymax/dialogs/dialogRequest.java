@@ -265,7 +265,7 @@ public class dialogRequest extends DialogFragment {
                                 Toast.makeText(getContext(), "Request has not been sent successfully. ", Toast.LENGTH_SHORT).show();
                             } else if (responseid == 1) {
 
-                                pDialog.hide();
+                                pDialog.dismiss();
                                 dialogRequest.this.getDialog().cancel();
                                 //  mCompleteListener.onComplete(responseid + "");
                                 requestInterface.onRequestCallback(finalType + "", responseid + "");
@@ -302,7 +302,7 @@ public class dialogRequest extends DialogFragment {
 
                             } else {
                                 Toast.makeText(getContext(), "Request has been sent successfully", Toast.LENGTH_LONG).show();
-                                pDialog.hide();
+                                pDialog.dismiss();
                                 dialogRequest.this.getDialog().cancel();
                                 //     mCompleteListener.onComplete(responseid + "");
                                 requestInterface.onRequestCallback(finalType + "", responseid + "");
@@ -310,13 +310,13 @@ public class dialogRequest extends DialogFragment {
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             dialogRequest.this.getDialog().cancel();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                         // dialogRequest.this.getDialog().cancel();
                     }
                 }, new Response.ErrorListener() {
@@ -326,7 +326,7 @@ public class dialogRequest extends DialogFragment {
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

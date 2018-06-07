@@ -207,10 +207,10 @@ public class RequestPermissionsActivity extends AppCompatActivity implements Rec
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -221,7 +221,7 @@ public class RequestPermissionsActivity extends AppCompatActivity implements Rec
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

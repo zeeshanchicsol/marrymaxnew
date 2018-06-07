@@ -152,9 +152,9 @@ public class MySavedListsFragment extends Fragment implements MySavedListAdapter
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
+             /*   LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
                 llmainLayout.setVisibility(View.GONE);
-                tvMySaveSearchesHeader.setVisibility(View.INVISIBLE);
+                tvMySaveSearchesHeader.setVisibility(View.INVISIBLE);*/
                 pDialog.setVisibility(View.GONE);
             }
         }) {

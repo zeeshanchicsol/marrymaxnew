@@ -205,10 +205,10 @@ public class MySavedListAdapter extends ArrayAdapter<mSavList> {
                                // getData();
                             }
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -219,7 +219,7 @@ public class MySavedListAdapter extends ArrayAdapter<mSavList> {
                 VolleyLog.e("res err", "Error: " + error);
                 Toast.makeText(context, "Error !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

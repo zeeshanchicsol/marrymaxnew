@@ -119,6 +119,7 @@ public class dialogProfileCompletion extends DialogFragment {
             public void onClick(final View v) {
 //email verification request
                 if (step == 2) {
+                    dialogProfileCompletion.this.getDialog().cancel();
                  //   emailVerificationRequest();
                     //   Toast.makeText(getContext(), "email", Toast.LENGTH_SHORT).show();
 
@@ -137,16 +138,19 @@ public class dialogProfileCompletion extends DialogFragment {
                     //   Toast.makeText(getContext(), "email", Toast.LENGTH_SHORT).show();
                 }
                 else if (step == 1) {
+                    dialogProfileCompletion.this.getDialog().cancel();
                     //  Intent intent=new Intent(getContext(),Reg)
                     MarryMax marryMax = new MarryMax(null);
                     marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
 
 
                 } else if (step == 3) {
+
                     mCompleteListener.onComplete(3);
                     dialogProfileCompletion.this.getDialog().cancel();
 
                 } else if (step == 8) {
+                    dialogProfileCompletion.this.getDialog().cancel();
                     MarryMax marryMax = new MarryMax(null);
                     marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
 
@@ -214,13 +218,13 @@ public class dialogProfileCompletion extends DialogFragment {
                       /*  } catch (JSONException e) {
                             e.printStackTrace();
                         }*/
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override

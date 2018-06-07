@@ -170,12 +170,12 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
 
 
                         } catch (JSONException e) {
-                           // pDialog.hide();
+                           // pDialog.dismiss();
 
                             pDialog.setVisibility(View.GONE);
                             e.printStackTrace();
                         }
-                    //    pDialog.hide();
+                    //    pDialog.dismiss();
                         pDialog.setVisibility(View.GONE);
                     }
                 }, new Response.ErrorListener() {
@@ -187,7 +187,7 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
                 VolleyLog.e("res err", "Error: " + error);
                Toast.makeText(getContext(), "Error Occured.  !", Toast.LENGTH_SHORT).show();
                 pDialog.setVisibility(View.GONE);
-             //   pDialog.hide();
+             //   pDialog.dismiss();
             }
 
 

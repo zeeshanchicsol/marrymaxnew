@@ -441,7 +441,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
                             e.printStackTrace();
                         }
                         if (!refresh) {
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                             pDialog.setVisibility(View.INVISIBLE);
                             setLoader(false);
                         }
@@ -454,7 +454,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
 
                 VolleyLog.e("res err", "Error: " + error);
                 if (!refresh) {
-                    //pDialog.hide();
+                    //pDialog.dismiss();
                     //   pDialog.setVisibility(View.INVISIBLE);
                     setLoader(false);
                 }

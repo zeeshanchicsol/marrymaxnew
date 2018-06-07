@@ -264,7 +264,7 @@ public class MemberListActivity extends AppCompatActivity implements RecyclerVie
                             recyclerAdapter.clear();
                         }
                         if (!refresh) {
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                             pDialog.setVisibility(View.GONE);
                         }
                     }
@@ -276,7 +276,7 @@ public class MemberListActivity extends AppCompatActivity implements RecyclerVie
 
                 VolleyLog.e("res err", "Error: " + error);
                 if (!refresh) {
-                    //pDialog.hide();
+                    //pDialog.dismiss();
                     pDialog.setVisibility(View.GONE);
                 }
                 // LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);

@@ -980,7 +980,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
                                 setSentReceivedCount(jsonArray);
 
-                                //pDialog.hide();
+                                //pDialog.dismiss();
                                 pDialog.setVisibility(View.INVISIBLE);
                                 swipeRefreshLayout.setRefreshing(false);
                                 //  Log.e("total pages", "" + dashboards.getLooking_4me());
@@ -988,7 +988,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 //   }
                             } else {
                                 //no data
-                                //pDialog.hide();
+                                //pDialog.dismiss();
                                 pDialog.setVisibility(View.INVISIBLE);
                                 swipeRefreshLayout.setRefreshing(false);
                             }
@@ -998,7 +998,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
                         pDialog.setVisibility(View.INVISIBLE);
                         swipeRefreshLayout.setRefreshing(false);
-                        //    pDialog.hide();
+                        //    pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1009,7 +1009,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                 VolleyLog.e("res err", "Error: " + error.getMessage());
                 pDialog.setVisibility(View.INVISIBLE);
                 swipeRefreshLayout.setRefreshing(false);
-                // pDialog.hide();
+                // pDialog.dismiss();
             }
 
 
@@ -1154,7 +1154,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            //pDialog.hide();
+                            //pDialog.dismiss();
                             pDialog.setVisibility(View.INVISIBLE);
                             setWaitScreen(false);
                             swipeRefreshLayout.setRefreshing(false);
@@ -1163,13 +1163,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                         pDialog.setVisibility(View.INVISIBLE);
                         swipeRefreshLayout.setRefreshing(false);
                         setWaitScreen(false);
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
                 pDialog.setVisibility(View.INVISIBLE);
                 swipeRefreshLayout.setRefreshing(false);
                 setWaitScreen(false);
@@ -1294,13 +1294,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                             e.printStackTrace();
                         }
                         pDialog.setVisibility(View.GONE);
-                        //  pDialog.hide();
+                        //  pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //   pDialog.hide();
+                //   pDialog.dismiss();
                 pDialog.setVisibility(View.GONE);
             }
         }) {

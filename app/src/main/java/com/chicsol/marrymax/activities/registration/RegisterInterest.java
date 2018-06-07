@@ -208,7 +208,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                         Log.e("res mainnnnnnnnnnn", response + "");
                         try {
 
-                            pDialog.hide();
+                            pDialog.dismiss();
                             JSONArray jsonArrayInterest = response.getJSONArray("interest");
 
 
@@ -236,7 +236,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
@@ -269,7 +269,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                             viewGenerator.generateCheckBoxesInGridLayout(interestDataList, gridLayout, size.x - 30);
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -280,7 +280,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -335,10 +335,10 @@ public class RegisterInterest extends BaseRegistrationActivity {
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -349,7 +349,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

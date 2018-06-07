@@ -235,7 +235,7 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
                             e.printStackTrace();
                         }
                        /* if (!refresh) {
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                             pDialog.setVisibility(View.GONE);
                         }*/
                         pDialog.setVisibility(View.GONE);

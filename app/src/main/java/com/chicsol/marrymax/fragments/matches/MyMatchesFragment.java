@@ -483,7 +483,7 @@ TextView tvMatchesCount;
                             e.printStackTrace();
                         }
                         if (!refresh) {
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                             pDialog.setVisibility(View.GONE);
                         }
                     }
@@ -495,7 +495,7 @@ TextView tvMatchesCount;
 
                 VolleyLog.e("res err", "Error: " + error);
                 //if (!refresh) {
-                //pDialog.hide();
+                //pDialog.dismiss();
                 pDialog.setVisibility(View.GONE);
                 //   }
                 LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
@@ -648,18 +648,18 @@ TextView tvMatchesCount;
                             }
 
 
-                            //     pDialog.hide();
+                            //     pDialog.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
             }
         }) {
             @Override

@@ -272,7 +272,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -283,7 +283,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -392,7 +392,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }*/
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -403,7 +403,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -506,7 +506,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
 
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -517,7 +517,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

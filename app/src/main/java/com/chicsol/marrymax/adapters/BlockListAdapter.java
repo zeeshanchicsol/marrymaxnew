@@ -130,10 +130,10 @@ public class BlockListAdapter extends ArrayAdapter<WebArdList> {
                             }
                             mCompleteListener.onComplete(1);
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -144,7 +144,7 @@ public class BlockListAdapter extends ArrayAdapter<WebArdList> {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

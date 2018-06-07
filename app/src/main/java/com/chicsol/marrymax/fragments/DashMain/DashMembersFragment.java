@@ -366,16 +366,16 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
                                 llMyMatchesBottomBar.setVisibility(View.GONE);
 
                             }
-                            //  pDialog.hide();
+                            //  pDialog.dismiss();
                             //  pDialog.setVisibility(View.INVISIBLE);
                         } catch (JSONException e) {
                             e.printStackTrace();
                             // pDialog.setVisibility(View.INVISIBLE);
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                         }
 
                         //  pDialog.setVisibility(View.INVISIBLE);
-                        // pDialog.hide();
+                        // pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -385,7 +385,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
                 VolleyLog.e("res err", "Error: " + error);
                 // pDialog.setVisibility(View.INVISIBLE);
-                //   pDialog.hide();
+                //   pDialog.dismiss();
             }
 
 
@@ -505,7 +505,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
                         }
                         recyclerAdapterMSLW.setMoreLoading(false);
                         //    pDialog.setVisibility(View.INVISIBLE);
-                        //  pDialog.hide();
+                        //  pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -516,7 +516,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
                 //  pDialog.setVisibility(View.INVISIBLE);
-                //   pDialog.hide();
+                //   pDialog.dismiss();
             }
 
 

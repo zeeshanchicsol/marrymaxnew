@@ -575,11 +575,11 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -590,7 +590,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -659,16 +659,16 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            pDialog.hide();
+                            pDialog.dismiss();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -715,13 +715,13 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                             adapter_myCountryCity.updateDataList(MyCountryCityDataList);
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -779,11 +779,11 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -794,7 +794,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -868,17 +868,17 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -910,7 +910,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
     protected void onPause() {
         super.onPause();
         if (pDialog != null && pDialog.isShowing()) {
-            pDialog.hide();
+            pDialog.dismiss();
         }
     }
 

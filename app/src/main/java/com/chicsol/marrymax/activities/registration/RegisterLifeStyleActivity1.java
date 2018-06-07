@@ -944,7 +944,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
@@ -981,7 +981,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                             viewGenerator.addDynamicCheckRdioButtons(marriageDataList, rgMarriage, llcbViewMarriage);
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -992,7 +992,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -1049,12 +1049,12 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1065,7 +1065,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -1112,12 +1112,12 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1128,7 +1128,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -1181,12 +1181,12 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1197,7 +1197,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -1229,7 +1229,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
     protected void onPause() {
         super.onPause();
         if (pDialog != null && pDialog.isShowing()) {
-            pDialog.hide();
+            pDialog.dismiss();
         }
     }
 

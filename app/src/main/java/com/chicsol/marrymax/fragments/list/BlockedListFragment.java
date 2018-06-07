@@ -106,13 +106,13 @@ public class BlockedListFragment extends Fragment implements BlockListAdapter.on
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override

@@ -407,12 +407,12 @@ public class RecyclerViewAdapterMatchAid extends RecyclerView.Adapter<RecyclerVi
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -421,7 +421,7 @@ public class RecyclerViewAdapterMatchAid extends RecyclerView.Adapter<RecyclerVi
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

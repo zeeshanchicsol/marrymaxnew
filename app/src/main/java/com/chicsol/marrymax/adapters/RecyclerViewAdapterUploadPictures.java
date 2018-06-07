@@ -315,11 +315,11 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
                                 onItemClickListener.onItemClick(obj);
                             }
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -330,7 +330,7 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -380,11 +380,11 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
 
                             }
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -395,7 +395,7 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

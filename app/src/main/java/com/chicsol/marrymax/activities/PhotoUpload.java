@@ -202,13 +202,13 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                             e.printStackTrace();
                         }*/
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -548,7 +548,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                 } else {
                     Toast.makeText(PhotoUpload.this, "Error Occurred", Toast.LENGTH_SHORT).show();
                 }
-                pDialog.hide();
+                pDialog.dismiss();
               /*  try {
                     JSONObject result = new JSONObject(resultResponse);
                     String type = result.getString("type");
@@ -570,14 +570,14 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                 NetworkResponse networkResponse = error.networkResponse;
                 String errorMessage = "Unknown error";
                 if (networkResponse == null) {
-                    pDialog.hide();
+                    pDialog.dismiss();
                     if (error.getClass().equals(TimeoutError.class)) {
                         errorMessage = "Request timeout";
                     } else if (error.getClass().equals(NoConnectionError.class)) {
                         errorMessage = "Failed to connect server";
                     }
                 } else {
-                    pDialog.hide();
+                    pDialog.dismiss();
                     String result = new String(networkResponse.data);
                     try {
                         JSONObject response = new JSONObject(result);
@@ -598,7 +598,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }
                 Log.i("Error", errorMessage);
@@ -705,13 +705,13 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override

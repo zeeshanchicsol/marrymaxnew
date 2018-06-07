@@ -21,6 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.activities.WebViewActivity;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.activities.registration.RegisterAppearanceActivity;
 import com.chicsol.marrymax.activities.registration.RegisterGeographicActivity;
 import com.chicsol.marrymax.activities.registration.RegisterInterest;
@@ -178,26 +179,39 @@ public class MarryMax {
                                         activity.finish();
                                     }
                                 } else {
-                                    Intent intent = new Intent(activity, RegisterGeographicActivity.class);
+                                 /*   Intent intent = new Intent(activity, RegisterGeographicActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
-                                    activity.finish();
+                                    activity.finish();*/
+
+                                    Intent in = new Intent(activity, MainDirectiveActivity.class);
+                                    in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    in.putExtra("type", 22);
+                                    context.startActivity(in);
+                                    //  activity.finish();
+
                                 }
 
                             } else {
-                                Intent intent = new Intent(activity, RegisterGeographicActivity.class);
+                      /*          Intent intent = new Intent(activity, RegisterGeographicActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 context.startActivity(intent);
-                                activity.finish();
+                                activity.finish();*/
+
+                                Intent in = new Intent(activity, MainDirectiveActivity.class);
+                                in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                in.putExtra("type", 22);
+                                context.startActivity(in);
+                                //  activity.finish();
 
                             }
 
                         } catch (JSONException e) {
-                            //   pDialog.hide();
+                            //   pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        //  pDialog.hide();
+                        //  pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -208,7 +222,7 @@ public class MarryMax {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                //  pDialog.hide();
+                //  pDialog.dismiss();
             }
 
 
@@ -255,7 +269,7 @@ public class MarryMax {
                                 switch (cls.getSimpleName()) {
 
                                     case "RegisterGeographicActivity": {
-                                        //     pDialog.hide();
+                                        //     pDialog.dismiss();
                                         Intent intent = new Intent(activity, cls);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                         context.startActivity(intent);
@@ -265,7 +279,7 @@ public class MarryMax {
                                     case "RegisterAppearanceActivity":
 
                                         if (registration_within_id >= 20) {
-                                            //     pDialog.hide();
+                                            //     pDialog.dismiss();
 
                                             Intent intent = new Intent(activity, cls);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -279,7 +293,7 @@ public class MarryMax {
 
                                     case "RegisterLifeStyleActivity1":
                                         if (registration_within_id >= 35) {
-                                            //   pDialog.hide();
+                                            //   pDialog.dismiss();
                                             Intent intent = new Intent(activity, cls);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                             context.startActivity(intent);
@@ -288,7 +302,7 @@ public class MarryMax {
                                         break;
                                     case "RegisterLifeStyleActivity2":
                                         if (registration_within_id >= 55) {
-                                            //    pDialog.hide();
+                                            //    pDialog.dismiss();
                                             Intent intent = new Intent(activity, cls);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                             context.startActivity(intent);
@@ -298,7 +312,7 @@ public class MarryMax {
 
                                     case "RegisterInterest":
                                         if (registration_within_id >= 70) {
-                                            //   pDialog.hide();
+                                            //   pDialog.dismiss();
                                             Intent intent = new Intent(activity, cls);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                             context.startActivity(intent);
@@ -307,7 +321,7 @@ public class MarryMax {
                                         break;
                                     case "RegisterPersonalityActivity":
                                         if (registration_within_id >= 80) {
-                                            //   pDialog.hide();
+                                            //   pDialog.dismiss();
                                             Intent intent = new Intent(activity, cls);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                             context.startActivity(intent);
@@ -328,11 +342,11 @@ public class MarryMax {
                             }
 
                         } catch (JSONException e) {
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        //      pDialog.hide();
+                        //      pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -343,7 +357,7 @@ public class MarryMax {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                // pDialog.hide();
+                // pDialog.dismiss();
             }
 
 
@@ -385,7 +399,7 @@ public class MarryMax {
                     return false;
 
                 } else if (smember.get_member_status() < 3 && smember.get_phone_verified() == 0 && smember.get_email_verified() == 0) {
-                    Toast.makeText(context, "Clicked ", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(context, "Clicked ", Toast.LENGTH_SHORT).show();
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", compUptoSSeventyText, "Complete Profile", 8);
                     dialogP.show(frgMngr, "d");
@@ -814,12 +828,12 @@ public class MarryMax {
                             newFragment.show(frgMngr, "dialog");
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -830,7 +844,7 @@ public class MarryMax {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -1108,18 +1122,18 @@ public class MarryMax {
                             DrawerActivity.rawSearchObj = null;
                             Constants.defaultSelectionsObj = gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
                             DrawerActivity.rawSearchObj = gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                            //     pDialog.hide();
+                            //     pDialog.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
             }
         }) {
             @Override
@@ -1235,17 +1249,17 @@ public class MarryMax {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            //pDialog.hide();
+                            //pDialog.dismiss();
 
                         }
 
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
 
             }
         }) {

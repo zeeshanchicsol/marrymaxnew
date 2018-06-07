@@ -245,7 +245,7 @@ public class RecommendedMatches extends Fragment implements RecyclerViewAdapterR
                             e.printStackTrace();
                         }
                         if (!refresh) {
-                            // pDialog.hide();
+                            // pDialog.dismiss();
 
                             pDialog.setVisibility(View.GONE);
                         }
@@ -258,7 +258,7 @@ public class RecommendedMatches extends Fragment implements RecyclerViewAdapterR
 
                 VolleyLog.e("res err", "Error: " + error);
                 if (!refresh) {
-                    //pDialog.hide();
+                    //pDialog.dismiss();
                     pDialog.setVisibility(View.GONE);
                     llEmptyState.setVisibility(View.VISIBLE);
                 }

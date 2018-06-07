@@ -605,12 +605,12 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -619,7 +619,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

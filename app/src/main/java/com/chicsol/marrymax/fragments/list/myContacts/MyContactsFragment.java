@@ -312,7 +312,7 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
                             e.printStackTrace();
                         }
                         if (!refresh) {
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                             pDialog.setVisibility(View.GONE);
                         }
                     }
@@ -324,7 +324,7 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
 
                 VolleyLog.e("res err", "Error: " + error);
                 if (!refresh) {
-                    //pDialog.hide();
+                    //pDialog.dismiss();
                     pDialog.setVisibility(View.GONE);
                 }
                 // LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);

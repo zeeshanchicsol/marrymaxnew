@@ -516,15 +516,15 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
                             Log.e("Exception here", "Exception");
                             e.printStackTrace();
-                            pDialog.hide();
+                            pDialog.dismiss();
                         }/* catch (TransactionTooLargeException e)
                         {
                             Log.e("Exception here","Exception");
                             e.printStackTrace();
-                            pDialog.hide();
+                            pDialog.dismiss();
                         }*/
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -535,7 +535,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

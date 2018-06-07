@@ -356,7 +356,7 @@ public class MySubscriptionFragment extends Fragment {
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }*/
 

@@ -591,7 +591,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -599,7 +599,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("res", "Error: " + error.getMessage());
                 // hide the progress dialog
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -626,13 +626,13 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
                         Log.e("response", response.toString());
                         Constants.jsonArraySearch = response;
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
             }
         }) {
             @Override

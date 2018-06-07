@@ -538,7 +538,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
                             e.printStackTrace();
                         }
                         if (!refresh) {
-                            // pDialog.hide();
+                            // pDialog.dismiss();
                             pDialog.setVisibility(View.INVISIBLE);
                         }
                     }
@@ -550,7 +550,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
 
                 VolleyLog.e("res err", "Error: " + error);
                 if (!refresh) {
-                    //pDialog.hide();
+                    //pDialog.dismiss();
                     pDialog.setVisibility(View.INVISIBLE);
                 }
                 LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);

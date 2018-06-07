@@ -298,29 +298,29 @@ public class dialogRequestProfileUpdate extends DialogFragment {
 
 
                             if (responseid == 0) {
-                                pDialog.hide();
+                                pDialog.dismiss();
                                 Toast.makeText(getContext(), "Request has not been sent successfully. ", Toast.LENGTH_SHORT).show();
                             } else if (responseid == 1) {
-                                pDialog.hide();
+                                pDialog.dismiss();
                                 Toast.makeText(getContext(), "Request has been sent successfully", Toast.LENGTH_LONG).show();
 
                                 dialogRequestProfileUpdate.this.getDialog().cancel();
 
                             } else {
-                                pDialog.hide();
+                                pDialog.dismiss();
                                 dialogRequestProfileUpdate.this.getDialog().cancel();
 
                             }
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             dialogRequestProfileUpdate.this.getDialog().cancel();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                         // dialogRequest.this.getDialog().cancel();
                     }
                 }, new Response.ErrorListener() {
@@ -330,7 +330,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -385,16 +385,16 @@ public class dialogRequestProfileUpdate extends DialogFragment {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            pDialog.hide();
+                            pDialog.dismiss();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -441,16 +441,16 @@ public class dialogRequestProfileUpdate extends DialogFragment {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            pDialog.hide();
+                            pDialog.dismiss();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override

@@ -410,12 +410,12 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -424,7 +424,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                 onUpdateListener.onUpdate("Error occurred, Try again.");
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

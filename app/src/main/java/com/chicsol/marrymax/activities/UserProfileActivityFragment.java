@@ -991,17 +991,17 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -1033,17 +1033,17 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -1082,13 +1082,13 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -1135,12 +1135,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1151,7 +1151,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.getActivity(), "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -1204,12 +1204,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1220,7 +1220,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.getActivity(), "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -1273,12 +1273,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1289,7 +1289,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.getActivity(), "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -1337,12 +1337,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                             }
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1353,7 +1353,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.getActivity(), "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -1431,12 +1431,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                         } catch (JSONException e) {
                             setWaitScreen(false);
 
-                            //  pDialog.hide();
+                            //  pDialog.dismiss();
                             e.printStackTrace();
                         }
 
                         setWaitScreen(false);
-                        //  pDialog.hide();
+                        //  pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1447,7 +1447,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.getActivity(), "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
                 setWaitScreen(false);
-                //    pDialog.hide();
+                //    pDialog.dismiss();
             }
 
 
@@ -1683,11 +1683,11 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1698,7 +1698,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

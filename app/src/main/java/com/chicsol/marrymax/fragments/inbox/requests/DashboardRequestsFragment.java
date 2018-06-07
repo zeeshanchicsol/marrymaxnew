@@ -527,7 +527,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                 VolleyLog.e("res err", "Error: " + error);
                 if (!refresh) {
-                    //pDialog.hide();
+                    //pDialog.dismiss();
                     pDialog.setVisibility(View.GONE);
                 }
                 // LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
@@ -677,14 +677,14 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                             e.printStackTrace();
 
                         }
-                        //  pDialog.hide();
+                        //  pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
 
-                //   pDialog.hide();
+                //   pDialog.dismiss();
             }
         }) {
             @Override

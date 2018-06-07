@@ -215,7 +215,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
 
                             try {
-                             //   pDialog.hide();
+                             //   pDialog.dismiss();
 
                                 JSONArray jsonCountryStaeObj = response.getJSONArray(0);
 
@@ -238,13 +238,13 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                             }
                         }
 
-                      //  pDialog.hide();
+                      //  pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-              //  pDialog.hide();
+              //  pDialog.dismiss();
             }
         }) {
             @Override
@@ -287,13 +287,13 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                             e.printStackTrace();
                         }
 
-                       // pDialog.hide();
+                       // pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-               // pDialog.hide();
+               // pDialog.dismiss();
             }
         }) {
             @Override

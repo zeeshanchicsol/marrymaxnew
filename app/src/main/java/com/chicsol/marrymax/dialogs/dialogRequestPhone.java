@@ -209,7 +209,7 @@ public class dialogRequestPhone extends DialogFragment {
                               //  mCompleteListener.onComplete("1");
                                listener.onPhoneViewRequestComplete(responseid+"");
 
-                                pDialog.hide();
+                                pDialog.dismiss();
 
 
                             } else if (responseid == -1) {
@@ -242,13 +242,13 @@ public class dialogRequestPhone extends DialogFragment {
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             dialogRequestPhone.this.getDialog().cancel();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                         //  dialogRequestPhone.this.getDialog().cancel();
                     }
                 }, new Response.ErrorListener() {
@@ -258,7 +258,7 @@ public class dialogRequestPhone extends DialogFragment {
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

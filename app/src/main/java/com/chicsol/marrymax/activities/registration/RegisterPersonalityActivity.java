@@ -386,6 +386,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.e("Response", response.toString());
+                        pDialog.dismiss();
                         //        try {
                         dialogDosDonts newFragment = dialogDosDonts.newInstance(response.toString());
                         newFragment.show(getSupportFragmentManager(), "dialog");
@@ -413,13 +414,13 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                             e.printStackTrace();
                         }*/
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -444,6 +445,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                     public void onResponse(JSONObject response) {
                         //  Log.e("res mainnnnnnnnnnn", response + "");
                         try {
+                            pDialog.dismiss();
 
                             JSONArray jsonArrayInterest = response.getJSONArray("personality");
 
@@ -472,7 +474,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
@@ -515,7 +517,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -526,7 +528,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -591,12 +593,12 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -607,7 +609,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 

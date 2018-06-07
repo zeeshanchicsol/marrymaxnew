@@ -166,12 +166,12 @@ public class ActivityForgetPassword extends AppCompatActivity {
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -182,7 +182,7 @@ public class ActivityForgetPassword extends AppCompatActivity {
                 //VolleyLog.e("res err", "Error: " +networkResponse);
                 Toast.makeText(ActivityForgetPassword.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override

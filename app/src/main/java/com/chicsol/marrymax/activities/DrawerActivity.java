@@ -443,13 +443,13 @@ DrawerActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         Constants.jsonArraySearch = response;
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
             }
         }) {
             @Override

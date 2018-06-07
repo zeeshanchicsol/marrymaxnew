@@ -193,10 +193,10 @@ public class MySavedSearchesListAdapter extends ArrayAdapter<cModel> {
                              //   getData();
                             }
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -207,7 +207,7 @@ public class MySavedSearchesListAdapter extends ArrayAdapter<cModel> {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -250,10 +250,10 @@ public class MySavedSearchesListAdapter extends ArrayAdapter<cModel> {
                                 // getData();
                             }
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -264,7 +264,7 @@ public class MySavedSearchesListAdapter extends ArrayAdapter<cModel> {
                 VolleyLog.e("res err", "Error: " + error);
                 Toast.makeText(context, "Error !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
@@ -343,16 +343,16 @@ public class MySavedSearchesListAdapter extends ArrayAdapter<cModel> {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            pDialog.hide();
+                            pDialog.dismiss();
                         }
-                        pDialog.hide();
+                        pDialog.dismiss();
 
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override

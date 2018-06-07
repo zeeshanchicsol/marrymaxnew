@@ -355,11 +355,11 @@ public class ActivityLogin extends AppCompatActivity {
                             }
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -369,7 +369,7 @@ public class ActivityLogin extends AppCompatActivity {
                 VolleyLog.e("res err", "Error: " + error.getMessage());
                 Toast.makeText(ActivityLogin.this, "Invalid Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -473,7 +473,7 @@ public class ActivityLogin extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         if (pDialog != null && pDialog.isShowing()) {
-            pDialog.hide();
+            pDialog.dismiss();
         }
     }
 

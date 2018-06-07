@@ -356,7 +356,7 @@ public class MyProfileStatusFragment extends Fragment {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            //pDialog.hide();
+                            //pDialog.dismiss();
                             pDialog.setVisibility(View.INVISIBLE);
 
                             ///  swipeRefreshLayout.setRefreshing(false);
@@ -365,13 +365,13 @@ public class MyProfileStatusFragment extends Fragment {
                         pDialog.setVisibility(View.INVISIBLE);
 
 
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
                 pDialog.setVisibility(View.INVISIBLE);
 
             }
@@ -494,17 +494,17 @@ public class MyProfileStatusFragment extends Fragment {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            //pDialog.hide();
+                            //pDialog.dismiss();
 
                         }
 
-                        //   pDialog.hide();
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                //  pDialog.hide();
+                //  pDialog.dismiss();
 
             }
         }) {

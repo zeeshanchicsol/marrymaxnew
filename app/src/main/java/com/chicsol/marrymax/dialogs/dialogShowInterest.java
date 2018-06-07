@@ -370,23 +370,23 @@ public class dialogShowInterest extends DialogFragment {
 
                             if (responseid >= 1) {
                                 Toast.makeText(getContext(), "Interest Showed", Toast.LENGTH_SHORT).show();
-                                pDialog.hide();
+                                pDialog.dismiss();
 
                                 updateMember.updateInterest(true);
                                 //  mCompleteListener.onComplete("done");
                             } else if (responseid == 0) {
                                 Toast.makeText(getContext(), " Interest has not been sent successfully", Toast.LENGTH_SHORT).show();
-                                pDialog.hide();
+                                pDialog.dismiss();
                                 //  mCompleteListener.onComplete("done");
                             }
 
 
                         } catch (JSONException e) {
-                            pDialog.hide();
+                            pDialog.dismiss();
                             e.printStackTrace();
                         }
 
-                        pDialog.hide();
+                        pDialog.dismiss();
                      //   mCompleteListener.onComplete("");
                     }
                 }, new Response.ErrorListener() {
@@ -398,7 +398,7 @@ public class dialogShowInterest extends DialogFragment {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.hide();
+                pDialog.dismiss();
             }
 
 
