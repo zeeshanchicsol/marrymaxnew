@@ -176,28 +176,22 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                 recyclerView.setVisibility(View.GONE);
                                 if (new_messages_count == 0) {
 
-                                    htmlDescriptionText.append(" There are  "+new_messages_count+"  messages. \n");
+                                    htmlDescriptionText.append(" There are  " + new_messages_count + "  messages. \n");
                                     htmlDescriptionText.append(" Find your matches and start communicating. \n");
                                     TextViewEmptyMessage.setText(htmlDescriptionText.toString());
 
                                 }
                                 if (new_messages_count > 0) {
                                     //     new_messages_count>0
-
                              /*
-
-
-                                        Complete Your Profile*/
-
-                                    htmlDescriptionText.append(" There are "+new_messages_count+"  unread messages. \n");
+                                       Complete Your Profile*/
+                                    htmlDescriptionText.append(" There are " + new_messages_count + "  unread messages. \n");
                                     htmlDescriptionText.append(" Please complete & verify your profile to see your messages. \n");
                                     TextViewEmptyMessage.setText(htmlDescriptionText.toString());
 
                                 }
 
-                            } else
-
-                            {
+                            } else {
 
 
                                 if (jsonCountryStaeObj.length() == 0) {
@@ -215,7 +209,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                     Personalized service from MarryMax when need.
                                                    Subscribe*/
 
-                                        htmlDescriptionText.append("  You have "+new_messages_count+" unread messages \n");
+                                        htmlDescriptionText.append("  You have " + new_messages_count + " unread messages \n");
                                         htmlDescriptionText.append("  Free members have a complimentary limited \n messaging quota to read and write message.\n" +
                                                 "\n Subscribe now to enjoy following benefits. ");
 
@@ -305,7 +299,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
 
                 getContext()).
 
-                addToRequestQueue(req,Tag);
+                addToRequestQueue(req, Tag);
 
     }
 
@@ -367,7 +361,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(context).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }
 
 

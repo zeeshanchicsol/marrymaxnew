@@ -54,7 +54,7 @@ public class MyProfileStatusFragment extends Fragment {
     private Context context;
     TextView tvEmail, tvTitleLiveNotLive;
 
-    private AppCompatButton btAddNumber, btResendVerification, btUpdateEmail;
+    private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber, btResendVerification, btUpdateEmail;
 
 
     LinearLayout llASEmail, llASPhone;
@@ -103,6 +103,10 @@ public class MyProfileStatusFragment extends Fragment {
 
 
         btAddNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusAddNumber);
+        btVerifyNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusVerifyNumber);
+        btUpdateNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdateNumber);
+
+
         btResendVerification = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusResend);
         btUpdateEmail = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdate);
 
@@ -184,7 +188,6 @@ public class MyProfileStatusFragment extends Fragment {
                 startActivity(in);
             }
         });
-
 
 
         llCompleteProfile.setOnClickListener(new View.OnClickListener() {

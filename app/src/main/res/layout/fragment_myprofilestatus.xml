@@ -297,7 +297,31 @@
                     <LinearLayout
                         android:id="@+id/LinearlayoutMyProfileStatusPhone"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonMyProfileStatusVerifyNumber"
+                            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginLeft="20dp"
+                            android:text="Verify it"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorTextRed" />
+
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonMyProfileStatusUpdateNumber"
+                            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginLeft="20dp"
+                            android:text="Update Number"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorTextRed" />
 
                         <android.support.v7.widget.AppCompatButton
                             android:id="@+id/ButtonMyProfileStatusAddNumber"

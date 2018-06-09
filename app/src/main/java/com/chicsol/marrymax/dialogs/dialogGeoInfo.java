@@ -145,9 +145,9 @@ public class dialogGeoInfo extends DialogFragment {
 
 
                     etNotes.requestFocus();
-                } else if (!(etNotes.getText().toString().length() > 15) || !(etNotes.getText().toString().length() <= 200)) {
+                } else if (!(etNotes.getText().toString().length() > 10) || !(etNotes.getText().toString().length() <= 200)) {
 
-                    etNotes.setError("Min 15 char, max 200 char");
+                    etNotes.setError("Min 10 char, max 200 char");
                 } else {
 
 

@@ -572,6 +572,10 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             errorText.setError("");
             errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
             errorText.setText("Please select Education");
+
+            Snackbar.make(v, "Please select Education", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
+
             ck = true;
         }
 

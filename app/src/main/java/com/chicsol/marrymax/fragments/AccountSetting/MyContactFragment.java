@@ -440,7 +440,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(context).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }
 
 
@@ -553,23 +553,32 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         btEmailCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
                 etAsEmail.setEnabled(false);
+                etAsEmail.setError(null);
                 emailEnabled = false;
                 btResendVerificationEmail.setVisibility(View.VISIBLE);
                 btEmailCancel.setVisibility(View.GONE);
+                btUpdateEmail.setText("Update");
             }
         });
         btUpdateEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (emailEnabled) {
-                    etAsEmail.setEnabled(false);
-                    emailEnabled = false;
-                    btResendVerificationEmail.setVisibility(View.VISIBLE);
-                    btEmailCancel.setVisibility(View.GONE);
-                    btUpdateEmail.setText("Update Email");
-                    updateEmail();
 
+                    if (!isEmailValid(etAsEmail.getText().toString())) {
+                        etAsEmail.setError(getString(R.string.error_invalid_email));
+
+                    } else {
+
+                        etAsEmail.setEnabled(false);
+                        emailEnabled = false;
+                        btResendVerificationEmail.setVisibility(View.VISIBLE);
+                        btEmailCancel.setVisibility(View.GONE);
+                        btUpdateEmail.setText("Update Email");
+                        updateEmail();
+                    }
                 } else {
                     //edit enabling
                     etAsEmail.setEnabled(true);
@@ -699,6 +708,16 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             }
         });
 
+
+    }
+
+    private boolean isEmailValid(String email) {
+        Pattern pattern;
+        Matcher matcher;
+        String EMAIL_PATTERN = "^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
 
     }
 
@@ -851,7 +870,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(getContext()).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
     }
 
 
@@ -1025,7 +1044,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
     }
 
 
@@ -1093,7 +1112,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
     }
 
 
@@ -1182,7 +1201,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
