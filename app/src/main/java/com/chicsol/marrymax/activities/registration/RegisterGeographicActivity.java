@@ -30,6 +30,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.chicsol.marrymax.BuildConfig;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.dialogs.dialogGeoInfo;
@@ -64,7 +65,7 @@ import java.util.Map;
 
 public class RegisterGeographicActivity extends BaseRegistrationActivity implements dialogMultiChoice.onMultiChoiceSaveListener {
 
-    private Spinner spMyCountry, spMyCountryState, spMyCountryCity;
+    private Spinner spMyCountry, spCountryOrigin, spMyCountryState, spMyCountryCity;
     private List<cModel> MyCountryDataList2;
     private List<WebArd> MyCountryDataList, MyCountryStateDataList, MyCountryCityDataList, MyChoiceCountryDataList, VisaDataList;
     private MySpinnerAdapter adapter_myCountry, adapter_myCountryStates, adapter_myCountryCity, adapter_myChoiceCountry;
@@ -137,6 +138,8 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         seletedCountriesIdDataList = new ArrayList();
         //spinners
         spMyCountry = (Spinner) findViewById(R.id.spinnerMyCountryg);
+
+
         spMyCountryState = (Spinner) findViewById(R.id.spinnerMyCountryStateg);
         spMyCountryCity = (Spinner) findViewById(R.id.spinnerMyCountryCityg);
 
@@ -176,6 +179,15 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         if (marryMax.getUpdateCheck(getApplicationContext())) {
 
             bt_register_free.setText("Update");
+        }
+
+
+        Log.e("FLAVOR", "" + BuildConfig.FLAVOR);
+
+        if (BuildConfig.FLAVOR.equals("alfalah")) {
+         //   Toast.makeText(this, "alfalah           ", Toast.LENGTH_SHORT).show();
+         //   Log.e("FLAVOR", "" + BuildConfig.FLAVOR);
+       //     spCountryOrigin = (Spinner) findViewById(R.id.spinnerOriginCountry);
         }
 
     }

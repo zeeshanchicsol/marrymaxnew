@@ -179,29 +179,29 @@ public class MarryMax {
                                         activity.finish();
                                     }
                                 } else {
-                                 /*   Intent intent = new Intent(activity, RegisterGeographicActivity.class);
+                                    Intent intent = new Intent(activity, RegisterGeographicActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
-                                    activity.finish();*/
+                                    activity.finish();
 
-                                    Intent in = new Intent(activity, MainDirectiveActivity.class);
+                               /*     Intent in = new Intent(activity, MainDirectiveActivity.class);
                                     in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     in.putExtra("type", 22);
-                                    context.startActivity(in);
+                                    context.startActivity(in);*/
                                     //  activity.finish();
 
                                 }
 
                             } else {
-                      /*          Intent intent = new Intent(activity, RegisterGeographicActivity.class);
+                                Intent intent = new Intent(activity, RegisterGeographicActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 context.startActivity(intent);
-                                activity.finish();*/
+                                activity.finish();
 
-                                Intent in = new Intent(activity, MainDirectiveActivity.class);
+                              /*  Intent in = new Intent(activity, MainDirectiveActivity.class);
                                 in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 in.putExtra("type", 22);
-                                context.startActivity(in);
+                                context.startActivity(in);*/
                                 //  activity.finish();
 
                             }
@@ -399,7 +399,7 @@ public class MarryMax {
                     return false;
 
                 } else if (smember.get_member_status() < 3 && smember.get_phone_verified() == 0 && smember.get_email_verified() == 0) {
-                   // Toast.makeText(context, "Clicked ", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(context, "Clicked ", Toast.LENGTH_SHORT).show();
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", compUptoSSeventyText, "Complete Profile", 8);
                     dialogP.show(frgMngr, "d");

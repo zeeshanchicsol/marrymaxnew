@@ -140,8 +140,12 @@ public class dialogProfileCompletion extends DialogFragment {
                 else if (step == 1) {
                     dialogProfileCompletion.this.getDialog().cancel();
                     //  Intent intent=new Intent(getContext(),Reg)
-                    MarryMax marryMax = new MarryMax(null);
-                    marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
+                /*    MarryMax marryMax = new MarryMax(null);
+                    marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());*/
+                    Intent in = new Intent(getActivity(), MainDirectiveActivity.class);
+                    in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    in.putExtra("type", 22);
+                    getActivity().startActivity(in);
 
 
                 } else if (step == 3) {
@@ -151,8 +155,12 @@ public class dialogProfileCompletion extends DialogFragment {
 
                 } else if (step == 8) {
                     dialogProfileCompletion.this.getDialog().cancel();
-                    MarryMax marryMax = new MarryMax(null);
-                    marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
+                  /*  MarryMax marryMax = new MarryMax(null);
+                    marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());*/
+                    Intent in = new Intent(getActivity(), MainDirectiveActivity.class);
+                    in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    in.putExtra("type", 22);
+                    getActivity().startActivity(in);
 
                 } else if (step == subscribe) {
                     MarryMax max = new MarryMax(getActivity());

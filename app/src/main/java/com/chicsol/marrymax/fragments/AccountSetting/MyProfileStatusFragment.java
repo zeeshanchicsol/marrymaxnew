@@ -53,7 +53,7 @@ public class MyProfileStatusFragment extends Fragment {
     TextView tvDesc, tvPhoneNumber;
     private Context context;
     TextView tvEmail, tvTitleLiveNotLive;
-
+    private boolean addNumber = false;
     private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber, btResendVerification, btUpdateEmail;
 
 
@@ -171,6 +171,29 @@ public class MyProfileStatusFragment extends Fragment {
 
             }
         });
+
+        btVerifyNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 23);
+                startActivity(in);
+
+            }
+        });
+        btUpdateNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 23);
+                startActivity(in);
+
+            }
+        });
+
+
         btUpdateEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -295,17 +318,29 @@ public class MyProfileStatusFragment extends Fragment {
                             // if (dashboards.getPhone_complete_status().equals("0")) {}
 
 
-                            if (dashboards.getPhone_complete_status().equals("1")) {
-                                llVerifyPhone.setVisibility(View.GONE);
-                                llPhoneVerified.setVisibility(View.VISIBLE);
-                                llASPhone.setVisibility(View.GONE);
+                            if (!addNumber) {
+                                btAddNumber.setVisibility(View.GONE);
+                                btUpdateNumber.setVisibility(View.VISIBLE);
+                                btVerifyNumber.setVisibility(View.VISIBLE);
+                                if (dashboards.getPhone_complete_status().equals("1")) {
+                                    llVerifyPhone.setVisibility(View.GONE);
+                                    llPhoneVerified.setVisibility(View.VISIBLE);
+                                    llASPhone.setVisibility(View.GONE);
+
+                                    //verfied
 
 
+                                } else {
+// if
+                                    llASPhone.setVisibility(View.VISIBLE);
+                                    llVerifyPhone.setVisibility(View.VISIBLE);
+
+                                }
                             } else {
+                                btUpdateNumber.setVisibility(View.GONE);
+                                btVerifyNumber.setVisibility(View.GONE);
 
-                                llASPhone.setVisibility(View.VISIBLE);
-                                llVerifyPhone.setVisibility(View.VISIBLE);
-
+                                btAddNumber.setVisibility(View.VISIBLE);
                             }
 
                          /*   if (dashboards.getPhone_complete_status().equals("1")) {
@@ -409,7 +444,9 @@ public class MyProfileStatusFragment extends Fragment {
 
                         if (!response.toString().equals("0")) {
                             tvPhoneNumber.setText(response);
-
+                            addNumber = false;
+                        } else {
+                            addNumber = true;
                         }
                     }
 
@@ -428,7 +465,7 @@ public class MyProfileStatusFragment extends Fragment {
         MySingleton.getInstance(context).addToRequestQueue(req);
     }
 
-
+/*
     public void checkEmailStatus(final Context context) {
 
         // pDialog.show();
@@ -459,8 +496,8 @@ public class MyProfileStatusFragment extends Fragment {
 
                             if (dashboards.getEmail_complete_status().equals("1")) {
                                 //hide update email
-                              /*  etAsEmail.setKeyListener(null);
-                                etAsEmail.setEnabled(false);*/
+                              *//*  etAsEmail.setKeyListener(null);
+                                etAsEmail.setEnabled(false);*//*
                                 llASEmail.setVisibility(View.GONE);
                                 rlEmailVerified.setVisibility(View.VISIBLE);
 
@@ -474,8 +511,8 @@ public class MyProfileStatusFragment extends Fragment {
 
                             if (dashboards.getPhone_complete_status().equals("1")) {
                                 //hide update email
-                              /*  etAsEmail.setKeyListener(null);
-                                etAsEmail.setEnabled(false);*/
+                              *//*  etAsEmail.setKeyListener(null);
+                                etAsEmail.setEnabled(false);*//*
                                 llASPhone.setVisibility(View.GONE);
                                 llPhoneVerified.setVisibility(View.VISIBLE);
 
@@ -486,13 +523,13 @@ public class MyProfileStatusFragment extends Fragment {
 
                             }
 
-                                /*else if (members.get_member_status() == 2) {
+                                *//*else if (members.get_member_status() == 2) {
                                     if (dashboards.getEmail_complete_status().equals("1")  && dashboards.getProfile_complete_status().equals("100")) {
                                         members.set_member_status(3);
                                         SharedPreferenceManager.setUserObject(context,members);
                                     }
 
-                                }*/
+                                }*//*
                             //  }
 
                         } catch (JSONException e) {
@@ -522,7 +559,7 @@ public class MyProfileStatusFragment extends Fragment {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(context).addToRequestQueue(req, Tag);
-    }
+    }*/
 
 
 }

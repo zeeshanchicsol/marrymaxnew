@@ -334,15 +334,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                     llEmptyState.setVisibility(View.VISIBLE);
                                     tvInterestRequestEmptyState.setText("You haven’t shown interest in anyone yet!. " +
                                             "\n Find your matches and start communicating.");
-                                    /*if (memberC.getInterested_members_count() == 0) {
-                                        recyclerView.setVisibility(View.GONE);
-                                        llEmptyState.setVisibility(View.VISIBLE);
-                                        tvInterestRequestEmptyState.setText("You haven’t shown interest in anyone yet!.  Find your matches and start communicating.");
-                                    } else if (memberC.getInterested_members_count() > 0) {
-                                        recyclerView.setVisibility(View.GONE);
-                                        llEmptyState.setVisibility(View.VISIBLE);
-                                        tvInterestRequestEmptyState.setText(" Please complete & verify your profile   to express interest.");
-                                    }*/
+
                                 } else {
 
                                     if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 || SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
@@ -354,10 +346,6 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                                 htmlDescriptionText.append(" Subscribe now to enjoy following benefits.");
 
 
-                                                //  htmlDescriptionText.append(" Priority Profile Listing. \n");
-                                               /* htmlDescriptionText.append(" Maximum interaction & quick connect with other members. \n");
-                                                htmlDescriptionText.append(" More Privacy options. \n");
-                                                htmlDescriptionText.append(" Personalized service from MarryMax when need. \n");*/
 
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Priority Profile Listing.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Maximum interaction & quick connect with other members.");
@@ -365,8 +353,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need. ");
 
 
-                                                // htmlDescriptionText.append(" Subscribe Now \n");
-                                                //htmlDescriptionText.append("&#8226; \n");
+
                                             }
 
                                             recyclerView.setVisibility(View.GONE);

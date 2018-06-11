@@ -434,12 +434,10 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                                 htmlDescriptionText.append(" Personalized service from MarryMax when need. \n");*/
 
 
-
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Priority Profile Listing.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Maximum interaction & quick connect with other members.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy options.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need.");
-
 
 
                                                 // htmlDescriptionText.append("&#8226; \n");
@@ -547,7 +545,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -627,7 +625,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -692,7 +690,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(context).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }
 
     @Override
