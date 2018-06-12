@@ -184,7 +184,7 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
                 fragment = new RecommendedMatches();
                 break;
             case 22:
-                getSupportActionBar().setTitle("My Profile Status");
+                getSupportActionBar().setTitle("Profile Settings");
                 fragment = new MyProfileStatusFragment();
                 break;
             case 23:

@@ -344,7 +344,7 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
             MarryMax marryMax = new MarryMax(DashboarMainActivityWithBottomNav.this);
             marryMax.getProfileProgress(getApplicationContext(), member, DashboarMainActivityWithBottomNav.this);
 
-        } else if (id == R.id.nav_main_my_profile_status) {
+        } else if (id == R.id.nav_main_profile_settings) {
 
             Intent in = new Intent(getApplicationContext(), MainDirectiveActivity.class);
             in.putExtra("type", 22);

@@ -573,9 +573,9 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
             errorText.setText("Please select Education");
 
-            Snackbar.make(v, "Please select Education", Snackbar.LENGTH_SHORT)
+         /*   Snackbar.make(v, "Please select Education", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
-
+*/
             ck = true;
         }
 
@@ -585,9 +585,9 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
             errorText.setText("Please select Educational Field");
 
-            Snackbar.make(v, "Please select Educational Field", Snackbar.LENGTH_SHORT)
+         /*   Snackbar.make(v, "Please select Educational Field", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
-
+*/
 
             ck = true;
         }
@@ -597,10 +597,10 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
             errorText.setText("Please select Occupation");
 
-            Snackbar.make(v, "Please select Occupation", Snackbar.LENGTH_SHORT)
+         /*   Snackbar.make(v, "Please select Occupation", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
 
-
+*/
             ck = true;
         }
         if (spMyAnnualIncomeLevel.getSelectedItemId() == 0) {
@@ -608,8 +608,8 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             errorText.setError("");
             errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
             errorText.setText("Please select Annual Income");
-            Snackbar.make(v, "Please select Annual Income", Snackbar.LENGTH_SHORT)
-                    .setAction("Action", null).show();
+           /* Snackbar.make(v, "Please select Annual Income", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();*/
             ck = true;
         }
        /* if (spMyGraduationYear.getSelectedItemId() == 0) {
@@ -619,6 +619,37 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             errorText.setText("Please select graduaction year");
             ck = true;
         }*/
+
+        //last update
+
+         if (spMyEducation.getSelectedItemId() == 0) {
+            Snackbar.make(v, "Please select Education", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
+
+            ck = true;
+        } else if (spMyEducationalField.getSelectedItemId() == 0) {
+
+            Snackbar.make(v, "Please select Educational Field", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
+
+
+            ck = true;
+        } else if (spMyOccupation.getSelectedItemId() == 0) {
+
+            Snackbar.make(v, "Please select Occupation", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
+
+
+            ck = true;
+        } else if (spMyAnnualIncomeLevel.getSelectedItemId() == 0) {
+
+            Snackbar.make(v, "Please select Annual Income", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
+            ck = true;
+        }
+
+
+        //last udpate
         else if (rgEconomy.getCheckedRadioButtonId() == -1) {
             ck = true;
             Snackbar.make(v, "Please select Economy", Snackbar.LENGTH_SHORT)

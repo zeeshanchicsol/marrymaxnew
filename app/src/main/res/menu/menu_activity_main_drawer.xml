@@ -40,9 +40,9 @@
             android:icon="@drawable/ic_person_white_24dp"
             android:title="Edit Profile" />
         <item
-            android:id="@+id/nav_main_my_profile_status"
+            android:id="@+id/nav_main_profile_settings"
             android:icon="@drawable/ic_person_white_24dp"
-            android:title="My Profile Status" />
+            android:title="Profile Setting" />
         <item
             android:id="@+id/nav_main_uploadphotos"
             android:icon="@drawable/ic_add_a_photo_black_24dp"

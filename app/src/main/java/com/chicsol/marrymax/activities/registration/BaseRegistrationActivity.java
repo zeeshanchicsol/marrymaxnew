@@ -33,6 +33,7 @@ import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.FaqActivity;
 import com.chicsol.marrymax.activities.MyProfileActivity;
 import com.chicsol.marrymax.activities.PhotoUpload;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.dialogs.dialogRequestProfileUpdate;
 import com.chicsol.marrymax.fragments.DashboardMatchesMainFragment;
@@ -425,7 +426,19 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
         } else if (id == R.id.nav_main_editprofile) {
             Class cls = RegisterGeographicActivity.class;
             marryMax.getProfileProgress(cls, BaseRegistrationActivity.this, getApplicationContext(), member);
-        } else if (id == R.id.nav_main_advsearch) {
+        }
+
+
+        else if (id == R.id.nav_main_profile_settings) {
+
+            Intent in = new Intent(getApplicationContext(), MainDirectiveActivity.class);
+            in.putExtra("type", 22);
+            startActivity(in);
+
+        }
+
+
+        else if (id == R.id.nav_main_advsearch) {
 
             if (jsonArraySearch == null) {
                 getData();

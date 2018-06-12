@@ -490,7 +490,7 @@
             </android.support.v7.widget.CardView>
 
 
-            <android.support.v7.widget.CardView
+      <!--      <android.support.v7.widget.CardView
 
 
                 android:layout_width="match_parent"
@@ -516,11 +516,11 @@
                         android:textColor="@color/colorUserProfileRed" />
 
 
-                    <!--                    <android.support.design.widget.TextInputLayout
+                    &lt;!&ndash;                    <android.support.design.widget.TextInputLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
 
-                                            android:textColorHint="@color/colorRegistrationFields">-->
+                                            android:textColorHint="@color/colorRegistrationFields">&ndash;&gt;
 
                     <EditText
                         android:id="@+id/EditTextAScontactEmail"
@@ -576,11 +576,11 @@
 
 
                     </LinearLayout>
-                    <!--     </android.support.design.widget.TextInputLayout>-->
+                    &lt;!&ndash;     </android.support.design.widget.TextInputLayout>&ndash;&gt;
 
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </android.support.v7.widget.CardView>-->
 
 
             <LinearLayout

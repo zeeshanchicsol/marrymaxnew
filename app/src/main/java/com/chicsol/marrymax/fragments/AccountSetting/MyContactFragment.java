@@ -82,7 +82,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     private AppCompatSpinner spinnerAScontactCountry, spinnerAScontactRelationShipWithMember, spinnerMyAScontactConvTimeToCall;
     private AppCompatEditText EditTextAScontactPersonName;
     private PrefixEditText EditTextAScontactMobileNumber, EditTextAScontactLandlineNumber;
-    private EditText etAsEmail;
+   // private EditText etAsEmail;
 
     private MySpinnerAdapter adapter_relationship, adapter_convenientTimeToCall;
     private MySpinnerCSCAdapter adapter_countryOfLiving;
@@ -98,13 +98,14 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     RelativeLayout tvHeading;
 
     private ProgressBar pDialog;
-    private AppCompatButton btAlreadyHaveCode, btResendVerificationEmail, btUpdateEmail, btEmailCancel;
+    /*  private AppCompatButton  btResendVerificationEmail, btUpdateEmail, btEmailCancel;*/
 
+    private AppCompatButton btAlreadyHaveCode;
 
-    private LinearLayout
-            llASEmail;
+   /* private LinearLayout
+            llASEmail;*/
 
-    boolean emailEnabled = false;
+/*    boolean emailEnabled = false;*/
     LinearLayout llPhoneVerifyLandline;
     AppCompatTextView tvPhoneVerifyLandline;
     ImageView ivPhoneVerifyLandline;
@@ -147,15 +148,17 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         btCancel = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingContactCancel);
 
 
+   /*Email
+
         btResendVerificationEmail = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingResendVerificationEmail);
         btUpdateEmail = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingUpdateEmail);
-        btEmailCancel = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingUpdateEmailCancel);
+        btEmailCancel = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingUpdateEmailCancel);*/
 
 
         LinearlayoutAccountSettingMyContactNoData = (CardView) view.findViewById(R.id.LinearlayoutAccountSettingMyContactNoData);
         LinearlayoutAccountSettingMyContact = (CardView) view.findViewById(R.id.LinearlayoutAccountSettingMyContact);
         LinearlayoutAccountSettingMyContactEdiDelete = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingMyContactEdiDelete);
-        llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
+      //  llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
 
         LinearlayoutAccountSettingMCEditContact = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingMCEditContact);
         LinearlayoutAccountSettingMCDeleteContact = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingMCDeleteContact);
@@ -192,7 +195,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
         EditTextAScontactMobileNumber = (PrefixEditText) view.findViewById(R.id.EditTextAScontactMobileNumber);
         EditTextAScontactMobileNumber.setFilters(new InputFilter[]{filter});
-        etAsEmail = (EditText) view.findViewById(R.id.EditTextAScontactEmail);
+      //  etAsEmail = (EditText) view.findViewById(R.id.EditTextAScontactEmail);
 
         EditTextAScontactLandlineNumber = (PrefixEditText) view.findViewById(R.id.EditTextAScontactLandlineNumber);
         EditTextAScontactLandlineNumber.setFilters(new InputFilter[]{filter});
@@ -352,20 +355,21 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         }
         snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), "Unable to Verify. Please contact marrymax support", Snackbar.LENGTH_SHORT);
 
+/* email
         etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
-        etAsEmail.setEnabled(false);
+        etAsEmail.setEnabled(false);*/
 
-        if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+    /*    if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
             checkEmailStatus(getContext());
             llASEmail.setVisibility(View.VISIBLE);
         } else {
 
             llASEmail.setVisibility(View.GONE);
-        }
+        }*/
 
     }
 
-    public void checkEmailStatus(final Context context) {
+/*    public void checkEmailStatus(final Context context) {
 
         // pDialog.show();
         Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
@@ -405,13 +409,13 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                             }
 
-                                /*else if (members.get_member_status() == 2) {
+                                *//*else if (members.get_member_status() == 2) {
                                     if (dashboards.getEmail_complete_status().equals("1")  && dashboards.getProfile_complete_status().equals("100")) {
                                         members.set_member_status(3);
                                         SharedPreferenceManager.setUserObject(context,members);
                                     }
 
-                                }*/
+                                }*//*
                             //  }
 
                         } catch (JSONException e) {
@@ -441,7 +445,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(context).addToRequestQueue(req, Tag);
-    }
+    }*/
 
 
     private void setEditValues(Members member) {
@@ -550,7 +554,9 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             }
         });
 
-        btEmailCancel.setOnClickListener(new View.OnClickListener() {
+      /*
+       Email
+       btEmailCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
@@ -602,7 +608,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 dialogP.show(getFragmentManager(), "d");
             }
         });
-
+*/
         btAlreadyHaveCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -711,7 +717,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
     }
 
-    private boolean isEmailValid(String email) {
+/*    private boolean isEmailValid(String email) {
         Pattern pattern;
         Matcher matcher;
         String EMAIL_PATTERN = "^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$";
@@ -719,7 +725,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         matcher = pattern.matcher(email);
         return matcher.matches();
 
-    }
+    }*/
 
     private boolean isPersonalNameValid(String name) {
         Pattern pattern;
@@ -1124,7 +1130,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     }
 
 
-    private void updateEmail() {
+/*    private void updateEmail() {
 
         pDialog.setVisibility(View.VISIBLE);
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
@@ -1203,7 +1209,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
-    }
+    }*/
 
 
     @Override

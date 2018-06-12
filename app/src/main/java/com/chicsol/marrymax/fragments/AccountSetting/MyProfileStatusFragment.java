@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.text.Html;
 import android.util.Log;
@@ -12,25 +13,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
+import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
+import com.chicsol.marrymax.dialogs.dialogVerifyphone;
 import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.WebArd;
+import com.chicsol.marrymax.modal.WebCSC;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
+import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.google.gson.Gson;
@@ -39,11 +49,15 @@ import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class MyProfileStatusFragment extends Fragment {
+public class MyProfileStatusFragment extends Fragment implements dialogVerifyphone.onCompleteListener {
 
 
     String Tag = "MyProfileStatusFragment";
@@ -52,15 +66,24 @@ public class MyProfileStatusFragment extends Fragment {
     RelativeLayout rlEmailVerified;
     TextView tvDesc, tvPhoneNumber;
     private Context context;
-    TextView tvEmail, tvTitleLiveNotLive;
+    TextView tvTitleLiveNotLive;
     private boolean addNumber = false;
-    private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber, btResendVerification, btUpdateEmail;
+    private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber;
+    //   btUpdateEmailz  btResendVerification
 
-
-    LinearLayout llASEmail, llASPhone;
+    LinearLayout llASPhone,llASEmail;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    //=============EMAIL=============
+    private AppCompatButton btAlreadyHaveCode, btResendVerificationEmail, btUpdateEmail, btEmailCancel;
+    private EditText etAsEmail;
+    boolean emailEnabled = false;
+    private Members member = null;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
+
+// ===========================
 
 
     public MyProfileStatusFragment() {
@@ -98,6 +121,8 @@ public class MyProfileStatusFragment extends Fragment {
 
     private void initilize(View view) {
 
+
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefreshProfileStatus);
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarMyProfileStatusFragment);
         pDialog.setVisibility(View.GONE);
 
@@ -107,8 +132,8 @@ public class MyProfileStatusFragment extends Fragment {
         btUpdateNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdateNumber);
 
 
-        btResendVerification = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusResend);
-        btUpdateEmail = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdate);
+        //  btResendVerification = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusResend);
+        //  btUpdateEmailz = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdate);
 
 
         llCompleteProfile = (LinearLayout) view.findViewById(R.id.LinearLayoutMyProfileStatusCompleteProfile);
@@ -119,14 +144,13 @@ public class MyProfileStatusFragment extends Fragment {
         llPhoneVerified = (LinearLayout) view.findViewById(R.id.LinearLayoutVerifyMobile);
         rlEmailVerified = (RelativeLayout) view.findViewById(R.id.RelativeLayoutVerifyEmail);
 
-        tvEmail = (TextView) view.findViewById(R.id.TextViewMyProfileStatusEmail);
 
         tvDesc = (TextView) view.findViewById(R.id.TextViewMyProfileStatusDesc);
 
         tvPhoneNumber = (TextView) view.findViewById(R.id.TextViewMyProfileStatusMobileNumber);
 
 
-        llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutMyProfileStatusEmail);
+        // llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutMyProfileStatusEmail);
         llASPhone = (LinearLayout) view.findViewById(R.id.LinearlayoutMyProfileStatusPhone);
 
 
@@ -135,7 +159,6 @@ public class MyProfileStatusFragment extends Fragment {
         tvTitleLiveNotLive = (TextView) view.findViewById(R.id.TextViewMyProfileStatusTitle);
 
 
-        tvEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
 
 
      /*   if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
@@ -146,12 +169,53 @@ public class MyProfileStatusFragment extends Fragment {
             llASEmail.setVisibility(View.GONE);
         }*/
 
+
+        //============EMAIL
+
+        btResendVerificationEmail = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingResendVerificationEmail);
+        btUpdateEmail = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingUpdateEmail);
+        btEmailCancel = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingUpdateEmailCancel);
+        etAsEmail = (EditText) view.findViewById(R.id.EditTextAScontactEmail);
+          llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
+
+        etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
+        etAsEmail.setEnabled(false);
+
+
+ /*  if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+            checkEmailStatus(getContext());
+            llASEmail.setVisibility(View.VISIBLE);
+        } else {
+
+            llASEmail.setVisibility(View.GONE);
+        }
+*/
+
+        loadData();
+
+
+    }
+
+
+    private void loadData() {
+
+
+
+
+
+
+
         if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
             tvDesc.setVisibility(View.VISIBLE);
         } else {
             tvDesc.setVisibility(View.GONE);
         }
 
+
+        //============EMAIL
+        if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
+            getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+        }
 
         getPhoneNumber();
 
@@ -161,6 +225,15 @@ public class MyProfileStatusFragment extends Fragment {
     }
 
     private void setListeners() {
+
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadData();
+            }
+        });
+
         btAddNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,9 +249,20 @@ public class MyProfileStatusFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+       /*         Intent in = new Intent(getContext(), MainDirectiveActivity.class);
                 in.putExtra("type", 23);
-                startActivity(in);
+                startActivity(in);*/
+                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 0) {
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).getAlias() + "</font></b>, you need to complete your profile first before we send sms code.", "Complete Profile", 8);
+                    dialogP.show(getFragmentManager(), "d");
+
+                } else {
+                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), true);
+                    newFragment.setTargetFragment(MyProfileStatusFragment.this, 3);
+                    newFragment.show(getFragmentManager(), "dialog");
+
+
+                }
 
             }
         });
@@ -194,7 +278,16 @@ public class MyProfileStatusFragment extends Fragment {
         });
 
 
-        btUpdateEmail.setOnClickListener(new View.OnClickListener() {
+   /*     btUpdateEmailz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 23);
+                startActivity(in);
+            }
+        });*/
+
+   /*     btResendVerification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getContext(), MainDirectiveActivity.class);
@@ -202,16 +295,7 @@ public class MyProfileStatusFragment extends Fragment {
                 startActivity(in);
             }
         });
-
-        btResendVerification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
-                in.putExtra("type", 23);
-                startActivity(in);
-            }
-        });
-
+*/
 
         llCompleteProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,6 +304,58 @@ public class MyProfileStatusFragment extends Fragment {
                 marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
             }
         });
+
+
+//===============Email===================
+        btEmailCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
+                etAsEmail.setEnabled(false);
+                etAsEmail.setError(null);
+                emailEnabled = false;
+                btResendVerificationEmail.setVisibility(View.VISIBLE);
+                btEmailCancel.setVisibility(View.GONE);
+                btUpdateEmail.setText("Update");
+            }
+        });
+        btUpdateEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (emailEnabled) {
+
+                    if (!isEmailValid(etAsEmail.getText().toString())) {
+                        etAsEmail.setError(getString(R.string.error_invalid_email));
+
+                    } else {
+
+
+                        updateEmail();
+                    }
+                } else {
+                    //edit enabling
+                    etAsEmail.setEnabled(true);
+                    emailEnabled = true;
+                    btUpdateEmail.setText("Save");
+
+                    btResendVerificationEmail.setVisibility(View.GONE);
+
+                    btEmailCancel.setVisibility(View.VISIBLE);
+
+                }
+
+
+            }
+        });
+        btResendVerificationEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Verify Your Email", "Here is your email address that needs to be verified.<br /> <b>  <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).get_email() + "</font></b><br /> " +
+                        "Please verify your email by using the link, we had emailed you.<br /> <font color=#9a0606> (In case you didn't receive any email,  please check your spam/junk folder or click \"Resend Verification Email\" )</font> ", "Resend Verification Email", 22);
+                dialogP.show(getFragmentManager(), "d");
+            }
+        });
+
 
     }
 
@@ -241,6 +377,7 @@ public class MyProfileStatusFragment extends Fragment {
                     public void onResponse(JSONArray response) {
                         Log.e("Response", response.toString());
 
+                        swipeRefreshLayout.setRefreshing(false);
 
                         try {
                             //     swipeRefreshLayout.setRefreshing(false);
@@ -293,12 +430,12 @@ public class MyProfileStatusFragment extends Fragment {
 
                             if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
 
-                                // llASEmail.setVisibility(View.VISIBLE);
+                                llASEmail.setVisibility(View.VISIBLE);
                                 if (dashboards.getEmail_complete_status().equals("1")) {
                                     //hide update email
                               /*  etAsEmail.setKeyListener(null);
                                 etAsEmail.setEnabled(false);*/
-                                    llASEmail.setVisibility(View.GONE);
+                                   llASEmail.setVisibility(View.GONE);
                                     rlEmailVerified.setVisibility(View.VISIBLE);
 
                                 } else {
@@ -311,7 +448,7 @@ public class MyProfileStatusFragment extends Fragment {
 
                             } else {
                                 rlEmailVerified.setVisibility(View.VISIBLE);
-                                llASEmail.setVisibility(View.GONE);
+                                 llASEmail.setVisibility(View.GONE);
                             }
 
 
@@ -396,8 +533,8 @@ public class MyProfileStatusFragment extends Fragment {
                             e.printStackTrace();
                             //pDialog.dismiss();
                             pDialog.setVisibility(View.INVISIBLE);
+                            swipeRefreshLayout.setRefreshing(false);
 
-                            ///  swipeRefreshLayout.setRefreshing(false);
 
                         }
                         pDialog.setVisibility(View.INVISIBLE);
@@ -410,6 +547,7 @@ public class MyProfileStatusFragment extends Fragment {
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
                 //  pDialog.dismiss();
+                swipeRefreshLayout.setRefreshing(false);
                 pDialog.setVisibility(View.INVISIBLE);
 
             }
@@ -438,6 +576,8 @@ public class MyProfileStatusFragment extends Fragment {
                     public void onResponse(String response) {
                         Log.e("getPhoneNumber ", "=======================  " + response.equalsIgnoreCase(response));
                         Log.e("getPhoneNumber ", "=======================  " + response.replaceAll("^\"|\"$", ""));
+
+                        swipeRefreshLayout.setRefreshing(false);
 
                         // result=result.replaceAll("^\"|\"$", "");
                         response = response.replaceAll("^\"|\"$", "");
@@ -562,4 +702,234 @@ public class MyProfileStatusFragment extends Fragment {
     }*/
 
 
+    //Email
+/*    public void checkEmailStatus(final Context context) {
+
+        // pDialog.show();
+        Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path(),
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                        Log.e("Response", response.toString());
+
+
+                        try {
+
+
+                            JSONArray jsonCountryStaeObj = response.getJSONArray(0);
+                            Gson gsonc;
+                            GsonBuilder gsonBuilderc = new GsonBuilder();
+                            gsonc = gsonBuilderc.create();
+                            Type listType = new TypeToken<Dashboards>() {
+                            }.getType();
+
+                            Dashboards dashboards = (Dashboards) gsonc.fromJson(jsonCountryStaeObj.getJSONObject(0).toString(), listType);
+
+
+                            boolean pCOmpleteStatus = true;
+                            Members members = SharedPreferenceManager.getUserObject(context);
+                            //   if (dashboards.getAdmin_approved_status().equals("1") && members.get_member_status() < 3) {
+
+                            if (dashboards.getEmail_complete_status().equals("1")) {
+                                //hide update email
+                                etAsEmail.setKeyListener(null);
+                                etAsEmail.setEnabled(false);
+                               // llASEmail.setVisibility(View.GONE);
+
+                            } else {
+                                //show
+                              //  llASEmail.setVisibility(View.VISIBLE);
+
+                            }
+
+                                else if (members.get_member_status() == 2) {
+                                    if (dashboards.getEmail_complete_status().equals("1")  && dashboards.getProfile_complete_status().equals("100")) {
+                                        members.set_member_status(3);
+                                        SharedPreferenceManager.setUserObject(context,members);
+                                    }
+
+                                }
+                            //  }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            //pDialog.dismiss();
+
+                        }
+
+                        //   pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+                //  pDialog.dismiss();
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
+    }*/
+
+    private void updateEmail() {
+
+        pDialog.setVisibility(View.VISIBLE);
+        //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
+
+        JSONObject params = new JSONObject();
+        try {
+
+
+            params.put("name", "" + etAsEmail.getText().toString());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("updateEmail", Urls.updateEmail + " == " + params);
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                Urls.updateEmail, params,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("re  update appearance", response + "");
+
+
+                        Gson gson;
+                        GsonBuilder gsonBuilder = new GsonBuilder();
+
+                        gson = gsonBuilder.create();
+                        Type type = new TypeToken<WebArd>() {
+                        }.getType();
+                        WebArd webArd = (WebArd) gson.fromJson(response.toString(), type);
+                        if (webArd.getId().equals("0")) {
+                            Toast.makeText(getContext(), "Email Not updated", Toast.LENGTH_SHORT).show();
+
+                        } else if (webArd.getId().equals("1")) {
+
+                            Toast.makeText(getContext(), "Email Updated", Toast.LENGTH_SHORT).show();
+
+                            etAsEmail.setEnabled(false);
+                            emailEnabled = false;
+                            btResendVerificationEmail.setVisibility(View.VISIBLE);
+                            btEmailCancel.setVisibility(View.GONE);
+                            btUpdateEmail.setText("Update Email");
+
+
+                        } else if (webArd.getId().equals("2")) {
+                            Toast.makeText(getContext(), "Not a valid Email", Toast.LENGTH_SHORT).show();
+
+                        } else if (webArd.getId().equals("3")) {
+                            Toast.makeText(getContext(), "Email  Exists", Toast.LENGTH_SHORT).show();
+
+                        }
+
+
+                        pDialog.setVisibility(View.GONE);
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                VolleyLog.e("res err", "Error: " + error);
+                // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
+
+                pDialog.setVisibility(View.GONE);
+            }
+
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+
+// Adding request to request queue
+        ///   rq.add(jsonObjReq);
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
+
+    }
+
+    private boolean isEmailValid(String email) {
+        Pattern pattern;
+        Matcher matcher;
+        String EMAIL_PATTERN = "^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+
+    }
+
+    private void getRequest(final String path) {
+        pDialog.setVisibility(View.VISIBLE);
+
+        //     Log.e("path", "" + Urls.getProfileContact + path);
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileContact + path,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        //   Log.d("getProfileContact", response.toString());
+                        swipeRefreshLayout.setRefreshing(false);
+                        try {
+                            JSONArray jsonData = response.getJSONArray(0);
+
+                            if (jsonData.length() != 0) {
+
+                                Gson gsonc;
+                                GsonBuilder gsonBuilderc = new GsonBuilder();
+                                gsonc = gsonBuilderc.create();
+                                Type listType = new TypeToken<Members>() {
+                                }.getType();
+                                member = new Members();
+                                member = (Members) gsonc.fromJson(jsonData.getJSONObject(0).toString(), listType);
+
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        pDialog.setVisibility(View.GONE);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+                pDialog.setVisibility(View.GONE);
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
+    }
+
+    @Override
+    public void onComplete(String s) {
+
+    }
 }
