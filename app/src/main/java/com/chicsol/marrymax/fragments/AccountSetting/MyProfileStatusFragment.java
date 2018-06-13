@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.fragments.AccountSetting;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -61,7 +62,7 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
 
     String Tag = "MyProfileStatusFragment";
-    private ProgressBar pDialog;
+    private ProgressDialog pDialog;
     LinearLayout llCompleteProfile, llVeriyEmail, llVerifyPhone, llAdminReview, llPhoneVerified;
     RelativeLayout rlEmailVerified;
     TextView tvDesc, tvPhoneNumber;
@@ -71,7 +72,7 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
     private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber;
     //   btUpdateEmailz  btResendVerification
 
-    LinearLayout llASPhone,llASEmail;
+    LinearLayout llASPhone, llASEmail;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -123,8 +124,11 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
 
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefreshProfileStatus);
-        pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarMyProfileStatusFragment);
-        pDialog.setVisibility(View.GONE);
+   /*     pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarMyProfileStatusFragment);
+        pDialog.setVisibility(View.GONE);*/
+        pDialog = new ProgressDialog(context);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Loading...");
 
 
         btAddNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusAddNumber);
@@ -176,7 +180,7 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
         btUpdateEmail = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingUpdateEmail);
         btEmailCancel = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingUpdateEmailCancel);
         etAsEmail = (EditText) view.findViewById(R.id.EditTextAScontactEmail);
-          llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
+        llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
 
         etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
         etAsEmail.setEnabled(false);
@@ -198,11 +202,6 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
 
     private void loadData() {
-
-
-
-
-
 
 
         if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
@@ -367,9 +366,9 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
 
     private void getProfileCompletion() {
-        pDialog.setVisibility(View.VISIBLE);
+        //   pDialog.setVisibility(View.VISIBLE);
 
-        // pDialog.show();
+        pDialog.show();
         Log.e("URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<JSONArray>() {
@@ -380,6 +379,8 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
                         swipeRefreshLayout.setRefreshing(false);
 
                         try {
+                            pDialog.dismiss();
+
                             //     swipeRefreshLayout.setRefreshing(false);
 
                             JSONArray jsonCountryStaeObj = response.getJSONArray(0);
@@ -435,7 +436,7 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
                                     //hide update email
                               /*  etAsEmail.setKeyListener(null);
                                 etAsEmail.setEnabled(false);*/
-                                   llASEmail.setVisibility(View.GONE);
+                                    llASEmail.setVisibility(View.GONE);
                                     rlEmailVerified.setVisibility(View.VISIBLE);
 
                                 } else {
@@ -448,7 +449,7 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
                             } else {
                                 rlEmailVerified.setVisibility(View.VISIBLE);
-                                 llASEmail.setVisibility(View.GONE);
+                                llASEmail.setVisibility(View.GONE);
                             }
 
 
@@ -531,16 +532,16 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            //pDialog.dismiss();
-                            pDialog.setVisibility(View.INVISIBLE);
+                            pDialog.dismiss();
+                            // pDialog.setVisibility(View.INVISIBLE);
                             swipeRefreshLayout.setRefreshing(false);
 
 
                         }
-                        pDialog.setVisibility(View.INVISIBLE);
+                        //  pDialog.setVisibility(View.INVISIBLE);
 
 
-                        //   pDialog.dismiss();
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -548,7 +549,8 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
                 VolleyLog.d("Err", "Error: " + error.getMessage());
                 //  pDialog.dismiss();
                 swipeRefreshLayout.setRefreshing(false);
-                pDialog.setVisibility(View.INVISIBLE);
+                //   pDialog.setVisibility(View.INVISIBLE);
+                pDialog.dismiss();
 
             }
         }) {
@@ -784,7 +786,9 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
     private void updateEmail() {
 
-        pDialog.setVisibility(View.VISIBLE);
+        //   pDialog.setVisibility(View.VISIBLE);
+
+        pDialog.show();
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
         JSONObject params = new JSONObject();
@@ -838,8 +842,8 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
                         }
 
-
-                        pDialog.setVisibility(View.GONE);
+                        pDialog.dismiss();
+                        //  pDialog.setVisibility(View.GONE);
                     }
                 }, new Response.ErrorListener() {
 
@@ -850,7 +854,8 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.setVisibility(View.GONE);
+                //  pDialog.setVisibility(View.GONE);
+                pDialog.dismiss();
             }
 
 
@@ -882,7 +887,9 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
     }
 
     private void getRequest(final String path) {
-        pDialog.setVisibility(View.VISIBLE);
+        //   pDialog.setVisibility(View.VISIBLE);
+
+        pDialog.dismiss();
 
         //     Log.e("path", "" + Urls.getProfileContact + path);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileContact + path,
@@ -911,13 +918,15 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
                             e.printStackTrace();
                         }
 
-                        pDialog.setVisibility(View.GONE);
+                        //     pDialog.setVisibility(View.GONE);
+                        pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.setVisibility(View.GONE);
+                //   pDialog.setVisibility(View.GONE);
+                pDialog.dismiss();
             }
         }) {
             @Override
@@ -930,6 +939,6 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
     @Override
     public void onComplete(String s) {
-
+        loadData();
     }
 }

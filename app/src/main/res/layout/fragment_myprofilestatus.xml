@@ -26,7 +26,7 @@
                 android:indeterminate="true"
                 android:indeterminateTint="@color/colorUserProfileRed"
                 android:indeterminateTintMode="src_in"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <android.support.v7.widget.CardView
 
@@ -72,6 +72,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="true"
+                        android:visibility="gone"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:orientation="vertical">
 
@@ -111,6 +112,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutMyProfileStatusVerifyEmail"
                         android:layout_width="match_parent"
+                        android:visibility="gone"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -149,6 +151,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutMyProfileStatusVerifyPhone"
                         android:layout_width="match_parent"
+                        android:visibility="gone"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -188,6 +191,7 @@
                         android:id="@+id/LinearLayoutMyProfileStatusAdminApproval"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -214,6 +218,7 @@
                         </LinearLayout>
 
                         <TextView
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
@@ -248,7 +253,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -256,23 +260,96 @@
                             android:padding="5dp">
 
                             <com.chicsol.marrymax.widgets.faTextView
-                                android:layout_width="20dp"
-                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
                                 android:text="@string/fa_icon_phone"
-                                android:textColor="@color/colorBlack"
+                                android:textColor="@color/colorTextRed"
                                 android:textStyle="bold" />
 
-                            <TextView
-                                android:id="@+id/TextViewMyProfileStatusMobileNumber"
+                            <com.chicsol.marrymax.widgets.mTextView
+
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Add Mobile Number "
-                                android:textColor="@color/colorBlack" />
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="Mobile"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                                android:textColor="@color/colorUserProfileRed" />
+
+
+                     <!--       <RelativeLayout
+                                android:id="@+id/RelativeLayoutVerifyEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:visibility="gone"
+
+                                >
+
+                                <com.chicsol.marrymax.widgets.faTextView
+                                    android:layout_width="20dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toLeftOf="@+id/tvVerified"
+                                    android:gravity="center"
+                                    android:text="@string/fa_icon_accepted"
+                                    android:textColor="@color/colorDefaultGreen"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvVerified"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:text="Verified"
+                                    android:textColor="@color/colorDefaultGreen" />
+
+                            </RelativeLayout>-->
+
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_alignParentLeft="true"
+                                android:orientation="horizontal">
+
+                      <!--          <com.chicsol.marrymax.widgets.faTextView
+                                    android:layout_width="20dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/fa_icon_phone"
+                                    android:textColor="@color/colorBlack"
+                                    android:textStyle="bold" />-->
+
+                                <TextView
+                                    android:id="@+id/TextViewMyProfileStatusMobileNumber"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Add Mobile Number "
+                                    android:textColor="@color/colorBlack" />
+
+
+                            </LinearLayout>
 
                             <LinearLayout
                                 android:id="@+id/LinearLayoutVerifyMobile"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
                                 android:orientation="horizontal"
                                 android:visibility="gone">
 
@@ -296,7 +373,7 @@
 
                             </LinearLayout>
 
-                        </LinearLayout>
+                        </RelativeLayout>
 
 
                         <LinearLayout
@@ -391,17 +468,18 @@
 
             <android.support.v7.widget.CardView
 
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardUseCompatPadding="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
+
                     android:orientation="vertical">
 
 
@@ -412,13 +490,15 @@
                         android:padding="5dp">
 
                         <com.chicsol.marrymax.widgets.faTextView
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+
                             android:layout_marginTop="10dp"
                             android:gravity="center"
                             android:text="@string/fa_icon_newmessage"
-                            android:textColor="@color/colorBlack"
+                            android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
 
                         <com.chicsol.marrymax.widgets.mTextView
@@ -436,6 +516,7 @@
                             android:id="@+id/RelativeLayoutVerifyEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:visibility="gone"
 
                             >
@@ -444,7 +525,7 @@
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
                                 android:layout_toLeftOf="@+id/tvVerified"
-
+                                android:gravity="center"
                                 android:text="@string/fa_icon_accepted"
                                 android:textColor="@color/colorDefaultGreen"
                                 android:textStyle="bold" />
@@ -469,15 +550,17 @@
 
                                             android:textColorHint="@color/colorRegistrationFields">-->
 
+
                     <EditText
                         android:id="@+id/EditTextAScontactEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
                         android:editable="false"
                         android:hint="Email"
+
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
                         android:textColor="@color/colorRegistrationFields"

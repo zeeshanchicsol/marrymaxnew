@@ -82,7 +82,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     private AppCompatSpinner spinnerAScontactCountry, spinnerAScontactRelationShipWithMember, spinnerMyAScontactConvTimeToCall;
     private AppCompatEditText EditTextAScontactPersonName;
     private PrefixEditText EditTextAScontactMobileNumber, EditTextAScontactLandlineNumber;
-   // private EditText etAsEmail;
+    // private EditText etAsEmail;
 
     private MySpinnerAdapter adapter_relationship, adapter_convenientTimeToCall;
     private MySpinnerCSCAdapter adapter_countryOfLiving;
@@ -105,7 +105,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
    /* private LinearLayout
             llASEmail;*/
 
-/*    boolean emailEnabled = false;*/
+    /*    boolean emailEnabled = false;*/
     LinearLayout llPhoneVerifyLandline;
     AppCompatTextView tvPhoneVerifyLandline;
     ImageView ivPhoneVerifyLandline;
@@ -158,7 +158,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         LinearlayoutAccountSettingMyContactNoData = (CardView) view.findViewById(R.id.LinearlayoutAccountSettingMyContactNoData);
         LinearlayoutAccountSettingMyContact = (CardView) view.findViewById(R.id.LinearlayoutAccountSettingMyContact);
         LinearlayoutAccountSettingMyContactEdiDelete = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingMyContactEdiDelete);
-      //  llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
+        //  llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
 
         LinearlayoutAccountSettingMCEditContact = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingMCEditContact);
         LinearlayoutAccountSettingMCDeleteContact = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingMCDeleteContact);
@@ -195,7 +195,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
         EditTextAScontactMobileNumber = (PrefixEditText) view.findViewById(R.id.EditTextAScontactMobileNumber);
         EditTextAScontactMobileNumber.setFilters(new InputFilter[]{filter});
-      //  etAsEmail = (EditText) view.findViewById(R.id.EditTextAScontactEmail);
+        //  etAsEmail = (EditText) view.findViewById(R.id.EditTextAScontactEmail);
 
         EditTextAScontactLandlineNumber = (PrefixEditText) view.findViewById(R.id.EditTextAScontactLandlineNumber);
         EditTextAScontactLandlineNumber.setFilters(new InputFilter[]{filter});
@@ -612,10 +612,15 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         btAlreadyHaveCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), false);
-                newFragment.setTargetFragment(MyContactFragment.this, 3);
-                newFragment.show(getFragmentManager(), "dialog");
+                if (member != null) {
+                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), false);
+                    newFragment.setTargetFragment(MyContactFragment.this, 3);
+                    newFragment.show(getFragmentManager(), "dialog");
+                }else {
+                  Toast.makeText(getContext(), "Click Again", Toast.LENGTH_SHORT).show();
+                }
             }
+
         });
   /*      llPhoneVerified.setOnClickListener(new View.OnClickListener() {
             @Override
