@@ -16,7 +16,7 @@ import static com.chicsol.marrymax.webconfig.webconfig.baseUrla;
 
 public class Urls {
     //change this url before deployment
-    public static String baseUrl =baseUrla;
+    public static String baseUrl = baseUrla;
     public static String PassPhraseArdAp = PassPhraseArdApa;
     public static String ARDTOKEN = ARDTOKENa;
 
@@ -267,4 +267,8 @@ public class Urls {
 
     //===============My Profile Status ==================
     public static String getPhn = baseUrl + "/api/WebArd/GetPhn/";
+
+
+    //===============Questions ==================
+    public static String getQuestionAnswers = baseUrl + "/api/WebArd/GetQuestionAnswers/";
 }

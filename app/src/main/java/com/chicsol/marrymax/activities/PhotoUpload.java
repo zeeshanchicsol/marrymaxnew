@@ -133,6 +133,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarPhotoUpload);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         membersDataList = new ArrayList<>();
 
         tvDsdonts = (TextView) findViewById(R.id.TextViewPhotoUploadDosDonts);

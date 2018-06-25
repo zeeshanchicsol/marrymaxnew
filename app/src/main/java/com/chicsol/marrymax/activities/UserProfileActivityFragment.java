@@ -705,9 +705,14 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 popupUp.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
-                         /*   case R.id.menu_up_request:
-
-                                break;*/
+                            case R.id.menu_up_ask_questions:
+                                //  Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
+                                boolean qcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null);
+                                if (qcheck) {
+                                    Intent intent = new Intent(getActivity(), QuestionsActivity.class);
+                                    startActivity(intent);
+                                }
+                                break;
 
 
                             case R.id.menu_up_request_permissions:
@@ -869,9 +874,9 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         Log.e("setup viewpager", "setup viewpager" + jsonArryaResponse1);
 
         Bundle args = new Bundle();
-     args.putString("json", jsonArryaResponse1);
+        args.putString("json", jsonArryaResponse1);
         BasicInfoFragment basicInfoFragment = new BasicInfoFragment();
-     //   basicInfoFragment.jsona=jsonArryaResponse1;
+        //   basicInfoFragment.jsona=jsonArryaResponse1;
         basicInfoFragment.setTargetFragment(getParentFragment(), 0);
         //MessageHistoryFragment messageHistoryFragment = new MessageHistoryFragment();
         PicturesFragment picturesFragment = new PicturesFragment();
