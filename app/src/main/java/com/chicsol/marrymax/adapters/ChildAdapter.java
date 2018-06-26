@@ -9,9 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.chicsol.marrymax.R;
@@ -26,16 +29,19 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     private ArrayList<mChild> childData;
     private ArrayList<mChild> childDataBk;
+    private String title;
+    int pos;
 
 
-    public ChildAdapter(ArrayList<mChild> childData) {
+    public ChildAdapter(ArrayList<mChild> childData, String title, int pos) {
         // this.childData = childData;
 
         this.childData = new ArrayList<>();
         mChild child = new mChild();
-        child.setChild_name("head");
+        child.setName("head a");
         this.childData.add(child);
-
+        this.title = title;
+        this.pos = pos;
 
         childDataBk = new ArrayList<>(childData);
         childDataBk.add(0, child);
@@ -59,7 +65,7 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             if (getItemCount() > 1) {
                 childData.remove(1);
                 notifyDataSetChanged();
-                handler.postDelayed(collapseList, 50);
+                handler.postDelayed(collapseList, 0);
             }
         }
     };
@@ -78,13 +84,13 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             }
             notifyDataSetChanged();
 
-            handler.postDelayed(expandList, 50);
+            handler.postDelayed(expandList, 0);
         }
     };
 
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         final ViewHolder vh = (ViewHolder) holder;
 
         if (position == 0 && getItemCount() == 1) {
@@ -99,7 +105,7 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             //  vh.rlHead.setVisibility(View.GONE);
         }
 
-
+        mChild c = childData.get(position);
         if (position == 0) {
 
             vh.rlHead.setVisibility(View.VISIBLE);
@@ -107,9 +113,19 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         } else {
             vh.rlHead.setVisibility(View.GONE);
             vh.llContent.setVisibility(View.VISIBLE);
+
+
+            holder.itemView.setTag(c);
+
+
         }
-        mChild c = childData.get(position);
-        vh.tvChild.setText(c.getChild_name());
+
+
+        vh.tvChild.setText(c.getName());
+        //  vh.tvChild.check
+
+        vh.tvTitle.setText(title);
+
 
         vh.rlHead.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +139,18 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 }
             }
         });
+
+
+        vh.cb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mChild cOb = (mChild) holder.itemView.getTag();
+
+                Toast.makeText(v.getContext(), "" + pos + "", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     @Override
@@ -139,10 +167,17 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         ImageView tvExpandCollapseToggle;*/
 
         @BindView(R.id.RelativeLayoutHeadSubItem)
-        RelativeLayout rlHead;
+        LinearLayout rlHead;
 
         @BindView(R.id.LinearLayoutContent)
         LinearLayout llContent;
+
+        @BindView(R.id.TextViewQuestionTitle)
+        TextView tvTitle;
+
+
+        @BindView(R.id.CheckboxQuestionTitle)
+        CheckBox cb;
 
 
         public ViewHolder(View itemView) {

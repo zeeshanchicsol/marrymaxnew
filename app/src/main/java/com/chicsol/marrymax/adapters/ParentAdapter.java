@@ -6,6 +6,7 @@ package com.chicsol.marrymax.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,12 @@ import android.view.ViewGroup;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.mChild;
+import com.chicsol.marrymax.modal.mCommunication;
 import com.chicsol.marrymax.modal.mParentChild;
 import com.chicsol.marrymax.utils.NestedRecyclerLinearLayoutManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +36,7 @@ import butterknife.Bind;*/
 
 public class ParentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    ArrayList<mParentChild> parentChildData;
+    ArrayList<mParentChild> parentChildData = new ArrayList<>();
     Context ctx;
 
     public ParentAdapter(Context ctx, ArrayList<mParentChild> parentChildData) {
@@ -62,17 +65,30 @@ public class ParentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolder vh = (ViewHolder) holder;
         mParentChild p = parentChildData.get(position);
-        initChildLayoutManager(vh.rv_child, p.getChild());
+        initChildLayoutManager(vh.rv_child, p.getChild(), p.getTitle(),position);
     }
 
-    private void initChildLayoutManager(RecyclerView rv_child, ArrayList<mChild> childData) {
+    private void initChildLayoutManager(RecyclerView rv_child, ArrayList<mChild> childData, String title,int pos) {
         rv_child.setLayoutManager(new NestedRecyclerLinearLayoutManager(ctx));
-        ChildAdapter childAdapter = new ChildAdapter(childData);
+        ChildAdapter childAdapter = new ChildAdapter(childData, title,pos);
         rv_child.setAdapter(childAdapter);
     }
 
     @Override
     public int getItemCount() {
         return parentChildData.size();
+    }
+
+    public void clear() {
+        parentChildData.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<mParentChild> lst) {
+        parentChildData.clear();
+        parentChildData.addAll(lst);
+        notifyDataSetChanged();
+
+        // Log.e("item size in adapter", parentChildData.size() + "");
     }
 }

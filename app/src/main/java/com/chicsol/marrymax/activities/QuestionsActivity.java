@@ -37,7 +37,7 @@ import java.util.Map;
 
 public class QuestionsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewParent;
-
+    ParentAdapter parentAdapter;
     ArrayList<mParentChild> parentChildObj;
     private String Tag = "QuestionsActivity";
 
@@ -66,7 +66,7 @@ public class QuestionsActivity extends AppCompatActivity {
         recyclerViewParent.setLayoutManager(manager);
         recyclerViewParent.setHasFixedSize(true);
 
-        ParentAdapter parentAdapter = new ParentAdapter(this, createData());
+        parentAdapter = new ParentAdapter(this, new ArrayList<mParentChild>());
         recyclerViewParent.setAdapter(parentAdapter);
 
         getRequest();
@@ -88,56 +88,61 @@ public class QuestionsActivity extends AppCompatActivity {
 
         for (int i = 0; i < 3; i++) {
             mChild c1 = new mChild();
-            c1.setChild_name("Child 1." + (i + 1));
+            c1.setName("Child 1." + (i + 1));
             list1.add(c1);
         }
 
         for (int i = 0; i < 5; i++) {
             mChild c2 = new mChild();
-            c2.setChild_name("Child 2." + (i + 1));
+            c2.setName("Child 2." + (i + 1));
             list2.add(c2);
         }
 
 
         for (int i = 0; i < 2; i++) {
             mChild c3 = new mChild();
-            c3.setChild_name("Child 3." + (i + 1));
+            c3.setName("Child 3." + (i + 1));
             list3.add(c3);
         }
 
 
         for (int i = 0; i < 4; i++) {
             mChild c4 = new mChild();
-            c4.setChild_name("Child 4." + (i + 1));
+            c4.setName("Child 4." + (i + 1));
             list4.add(c4);
         }
 
         for (int i = 0; i < 2; i++) {
             mChild c5 = new mChild();
-            c5.setChild_name("Child 5." + (i + 1));
+            c5.setName("Child 5." + (i + 1));
             list5.add(c5);
         }
 
 
         mParentChild pc1 = new mParentChild();
         pc1.setChild(list1);
+        pc1.setTitle("c1");
         parentChildObj.add(pc1);
 
         mParentChild pc2 = new mParentChild();
+        pc2.setTitle("c2");
         pc2.setChild(list2);
         parentChildObj.add(pc2);
 
 
         mParentChild pc3 = new mParentChild();
         pc3.setChild(list3);
+        pc3.setTitle("c3");
         parentChildObj.add(pc3);
 
         mParentChild pc4 = new mParentChild();
         pc4.setChild(list4);
+        pc4.setTitle("c4");
         parentChildObj.add(pc4);
 
         mParentChild pc5 = new mParentChild();
         pc5.setChild(list5);
+        pc5.setTitle("c5");
         parentChildObj.add(pc5);
 
 
@@ -159,7 +164,7 @@ public class QuestionsActivity extends AppCompatActivity {
                         Log.e("Response", response.toString());
                         try {
 
-
+                            Log.e("array length is", response.length() + "");
                             JSONArray jsonCountryStaeObj = response.getJSONArray(0);
 
 
@@ -169,8 +174,46 @@ public class QuestionsActivity extends AppCompatActivity {
                             Type listType = new TypeToken<List<mMemList>>() {
                             }.getType();
 
-                            List<mMemList> MyCountryStateDataList = (List<mMemList>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                            Log.e("MyCountryStateDataList", "" + MyCountryStateDataList.size());
+                            List<mMemList> questDataList = (List<mMemList>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+                            Log.e("MyCountryStateDataList", "" + questDataList.size());
+                            parentChildObj=new ArrayList<>();
+
+                            for (int i = 0; i < questDataList.size(); i++) {
+                                mMemList objMem = questDataList.get(i);
+
+                                mParentChild pc1 = new mParentChild();
+                                pc1.setTitle(objMem.getName());
+
+
+                                ArrayList<mChild> MQList = new ArrayList<>();
+                                /*    for (int j = 1; i < response.length(); j++) {*/
+
+
+                            /*    mParentChild pc1 = new mParentChild();
+                                pc1.setChild(list1);
+                                pc1.setTitle("c1");
+                                parentChildObj.add(pc1);*/
+
+
+                                JSONArray jsonArraySub = response.getJSONArray(i + 1);
+
+
+                                Gson gsonq;
+                                GsonBuilder gsonBuilderq = new GsonBuilder();
+                                gsonq = gsonBuilderq.create();
+                                Type listTypeq = new TypeToken<List<mChild>>() {
+                                }.getType();
+
+                                MQList = (ArrayList<mChild>) gsonq.fromJson(jsonArraySub.toString(), listTypeq);
+                                pc1.setChild(MQList);
+                                parentChildObj.add(pc1);
+                                //  Log.e("MQList", "" + MQList.size());
+
+                                //  }
+
+                            }
+
+                            parentAdapter.addAll(parentChildObj);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
