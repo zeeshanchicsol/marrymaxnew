@@ -34,14 +34,74 @@
         app:cardElevation="10dp"
         app:cardUseCompatPadding="true">
 
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/RecyclerViewQuestions"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
 
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="0dp" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/RecyclerViewQuestions"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="9"
+
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1">
+
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/ButtonSendQuestions"
+                    style="@style/PrimaryMaterialButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Send Questions"
+
+                    android:textColor="@color/colorWhite"
+                    app:backgroundTint="@color/colorTextRed" />
+                <!--           <TextView
+                               android:id="@+id/total_tv"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_alignParentLeft="true"
+                               android:layout_alignParentStart="true"
+                               android:text="Total"
+                               android:textSize="20sp"
+                               android:textStyle="bold|italic" />
+
+                           <TextView
+                               android:id="@+id/total_amount_tv"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_alignParentEnd="true"
+                               android:layout_alignParentRight="true"
+                               android:layout_alignTop="@+id/total_tv"
+                               android:textSize="20sp"
+                               android:text="Total Right"
+                               android:textStyle="bold|italic" />
+
+                           <Button
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_below="@+id/total_amount_tv"
+                               android:layout_alignParentEnd="true"
+                               android:layout_alignParentRight="true"
+                               android:onClick="onClickSendOrder"
+                               android:text="Button"
+                               android:textColor="@android:color/white"
+                               android:textSize="20sp" />-->
+            </RelativeLayout>
+
+
+        </LinearLayout>
 
 
     </android.support.v7.widget.CardView>

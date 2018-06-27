@@ -1,6 +1,8 @@
 package com.chicsol.marrymax.utils;
 
 
+import android.util.SparseBooleanArray;
+
 import com.chicsol.marrymax.modal.Members;
 
 import org.json.JSONArray;
@@ -24,24 +26,26 @@ public class Constants {
     public static String accessToken = null;
     public static Map<String, String> headerMap;
 
-/*    static {
-        //  params = new HashMap<String, String>();
-        Map<String, String> aMap = new HashMap<String, String>();
+    /*    static {
+            //  params = new HashMap<String, String>();
+            Map<String, String> aMap = new HashMap<String, String>();
 
-        aMap.put("Accept", "application/json");
-        aMap.put("Content-Type", "application/json; charset=utf-8");
+            aMap.put("Accept", "application/json");
+            aMap.put("Content-Type", "application/json; charset=utf-8");
 
-        new functions().checkMinutes();
+            new functions().checkMinutes();
 
-        aMap.put("token", accessToken);
+            aMap.put("token", accessToken);
 
 
-        headerMap = aMap;
-    }*/
+            headerMap = aMap;
+        }*/
+
+    public static SparseBooleanArray selectedQuestions=new SparseBooleanArray();
 
     public static Map<String, String> getHashMap() {
 
-       functions fun = new functions();
+        functions fun = new functions();
 
 
         Map<String, String> aMap = new HashMap<String, String>();
@@ -50,10 +54,9 @@ public class Constants {
         aMap.put("Content-Type", "application/json; charset=utf-8");
 
 
+        aMap.put("token", fun.getToken());
 
-        aMap.put("token",   fun.getToken());
-
-      return  aMap;
+        return aMap;
 
     }
 

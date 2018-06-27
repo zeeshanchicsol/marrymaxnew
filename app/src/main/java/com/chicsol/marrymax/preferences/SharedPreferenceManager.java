@@ -30,6 +30,9 @@ public class SharedPreferenceManager {
     public static final String SUGGESTION_LIST = "suggestion_list";
 
 
+    public static final String USER_QUESTION_OBJ = "user_question_object";
+
+
     public static Members getUserObject(Context context) {
 
         SharedPreferences sharedPreferences = context
@@ -145,7 +148,7 @@ public class SharedPreferenceManager {
     public static String getMessageObject(Context context) {
 
         SharedPreferences sharedPreferences = context
-                .getSharedPreferences(USER_MESSAGE_OBJECT, PRIVATE_MODE);
+                .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
 
         return  sharedPreferences.getString(USER_OBJECT, null);
 
@@ -153,12 +156,30 @@ public class SharedPreferenceManager {
 
     public static void setMessageObject(Context context, String userObject) {
         SharedPreferences sharedPreferences = context
-                .getSharedPreferences(USER_MESSAGE_OBJECT, PRIVATE_MODE);
+                .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(USER_OBJECT, userObject);
         editor.commit();
     }
 
+
+
+    public static String getQuestionObject(Context context) {
+
+        SharedPreferences sharedPreferences = context
+                .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
+
+        return  sharedPreferences.getString(USER_QUESTION_OBJ, null);
+
+    }
+
+    public static void setQuestionObject(Context context, String userObject) {
+        SharedPreferences sharedPreferences = context
+                .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(USER_QUESTION_OBJ, userObject);
+        editor.commit();
+    }
 
 
 

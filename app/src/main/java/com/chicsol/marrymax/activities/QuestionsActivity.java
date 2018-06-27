@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -176,6 +177,9 @@ public class QuestionsActivity extends AppCompatActivity {
 
                             List<mMemList> questDataList = (List<mMemList>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
                             Log.e("MyCountryStateDataList", "" + questDataList.size());
+
+
+
                             parentChildObj=new ArrayList<>();
 
                             for (int i = 0; i < questDataList.size(); i++) {

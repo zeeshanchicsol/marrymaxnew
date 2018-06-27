@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.fragments.inbox.DashboardMessagesFragment;
+import com.chicsol.marrymax.fragments.inbox.DashboardQuestionsFragment;
 import com.chicsol.marrymax.fragments.inbox.interests.DashboardMyInterestsMainFragment;
 import com.chicsol.marrymax.fragments.inbox.permissions.DashboardMyPermissionsMainFragment;
 import com.chicsol.marrymax.fragments.inbox.permissions.DashboardPermissionsFragment;
@@ -38,6 +39,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     private ViewPager mViewPager;
     Typeface typeface;
     private Context context;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_inbox_main, container, false);
-initialize(rootView);
+        initialize(rootView);
         return rootView;
     }
 
@@ -55,17 +57,14 @@ initialize(rootView);
     @Override
     public void onResume() {
         super.onResume();
-        Members member= SharedPreferenceManager.getUserObject(context);
+        Members member = SharedPreferenceManager.getUserObject(context);
         if (member.get_member_status() < 3 || member.get_member_status() >= 7) {
             new MarryMax(null).updateStatus(context);
 
         }
 
 
-
-
     }
-
 
 
     @Override
@@ -75,9 +74,7 @@ initialize(rootView);
     }
 
 
-
-
-    private void initialize(View rootView){
+    private void initialize(View rootView) {
 
         typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/centurygothic.ttf");
 
@@ -92,11 +89,11 @@ initialize(rootView);
         // Set up the ViewPager with the sections adapter.
 
 
-        TabLayout tabLayout = (TabLayout)rootView. findViewById(R.id.tabs_inbox_main);
+        TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_inbox_main);
 
-       // tabLayout.setupWithViewPager(mViewPager);
+        // tabLayout.setupWithViewPager(mViewPager);
 
-        mViewPager = (ViewPager)rootView. findViewById(R.id.container_inbox_main);
+        mViewPager = (ViewPager) rootView.findViewById(R.id.container_inbox_main);
         setupViewPager(mViewPager);
 
         tabLayout.setupWithViewPager(mViewPager);
@@ -120,12 +117,13 @@ initialize(rootView);
         }
 
     }
+
     private void setupViewPager(ViewPager viewPager) {
-       ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-       adapter.addFragment(new DashboardMessagesFragment(), " My Messages ");
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
+        adapter.addFragment(new DashboardMessagesFragment(), " My Messages ");
         adapter.addFragment(new DashboardMyInterestsMainFragment(), " Interests ");
         adapter.addFragment(new DashboardMyRequestsMainFragment(), " Requests ");
-       // adapter.addFragment(new DashboardMyPermissionsMainFragment(), " Permissions ");
+        adapter.addFragment(new DashboardQuestionsFragment(), " Questions ");
 
 
         viewPager.setAdapter(adapter);
@@ -145,6 +143,7 @@ initialize(rootView);
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
         private long baseId = 0;
+
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
@@ -153,7 +152,6 @@ initialize(rootView);
         public Fragment getItem(int position) {
             return mFragmentList.get(position);
         }
-
 
 
         @Override

@@ -271,4 +271,13 @@ public class Urls {
 
     //===============Questions ==================
     public static String getQuestionAnswers = baseUrl + "/api/WebArd/GetQuestionAnswers/";
+    public static String getQuestionInbox = baseUrl + "/api/WebArd/GetQuestionInbox/";
+
+    public static String questionDetails = baseUrl + "/api/WebArd/QuestionDetails";
+    public static String sendQuestion = baseUrl + "/api/WebArd/SendQuestion";
+    public static String sendAnswer = baseUrl + "/api/WebArd/SendAnswer";
+    public static String deleteQuestion = baseUrl + "/api/WebArd/DeleteQuestion";
+    public static String memberData = baseUrl + "/api/WebArd/MemberData";
+
+
 }

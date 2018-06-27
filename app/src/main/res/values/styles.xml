@@ -121,6 +121,16 @@
         <item name="android:gravity">center_vertical|center_horizontal</item>
 
     </style>
+    <style name="PrimaryMaterialButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:background">@drawable/linear_layout_button</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceButton</item>
+
+
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+
+    </style>
 
 
     <style name="PopupMenu" parent="@android:style/Widget.Holo.Light.PopupMenu">
@@ -144,6 +154,7 @@
     <style name="FullHeightDialog" parent="AppTheme">
         <item name="android:windowNoTitle">true</item>
     </style>
+
 
 
 

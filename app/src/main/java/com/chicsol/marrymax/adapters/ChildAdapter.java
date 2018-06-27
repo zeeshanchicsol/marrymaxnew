@@ -6,11 +6,13 @@ package com.chicsol.marrymax.adapters;
 
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.mChild;
+import com.chicsol.marrymax.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -141,12 +144,28 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         });
 
 
+        vh.cb.setChecked(Constants.selectedQuestions.get(pos));
+
+        vh.cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                Constants.selectedQuestions.append(pos, isChecked);
+                for (int i = 0; i < Constants.selectedQuestions.size(); i++) {
+                    int key = Constants.selectedQuestions.keyAt(i);
+                    Log.e("" + key, Constants.selectedQuestions.get(key) + "");
+                }
+                Toast.makeText(buttonView.getContext(), Constants.selectedQuestions.size() + "", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         vh.cb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mChild cOb = (mChild) holder.itemView.getTag();
+                //  mChild cOb = (mChild) holder.itemView.getTag();
 
-                Toast.makeText(v.getContext(), "" + pos + "", Toast.LENGTH_SHORT).show();
+
             }
         });
 
