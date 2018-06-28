@@ -13,7 +13,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -33,9 +32,11 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
+import com.chicsol.marrymax.adapters.RecyclerViewAdapterQuestionsList;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterChatList;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mCommunication;
+import com.chicsol.marrymax.modal.mIceBreak;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -58,14 +59,14 @@ import java.util.Map;
  * Created by Android on 11/3/2016.
  */
 
-public class DashboardQuestionsDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener {
+public class DashboardQuestionsDetailActivity extends AppCompatActivity implements RecyclerViewAdapterQuestionsList.OnItemClickListener {
     private TextView tvAge, tvAlias, tvEthnic, tvReligious, tvMarital, tvCountry;
     RecyclerView recyclerView;
-    private RecyclerViewAdapterChatList recyclerAdapter;
+    private RecyclerViewAdapterQuestionsList recyclerAdapter;
     private List<mCommunication> items;
     private FrameLayout fl_send_message;
     LinearLayout ll_DeleteChat, llMessageDetail, llReadQuota;
-    EditText etSendMessage;
+
     mCommunication objCom;
     private ProgressBar pDialog;
     private TextView tvReadQuotaHeading, tvReadQuotaSubHeading;
@@ -79,8 +80,6 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_dashboard_questions_detail2);
 
-
-        etSendMessage = (EditText) findViewById(R.id.EditTextChatListsendMessageDesc);
 
         String obh = SharedPreferenceManager.getQuestionObject(getApplicationContext());
 
@@ -102,7 +101,6 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
         Log.e(" objCom.request_type_id", "" + objCom.request_type_id);
 
-        etSendMessage.getBackground().mutate().setColorFilter(getResources().getColor(R.color.colorWhite), PorterDuff.Mode.SRC_ATOP);
         initialize(objCom, objtype);
         // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
@@ -181,7 +179,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         // mLayoutManager.setReverseLayout(true);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterChatList(getApplicationContext(), this);
+        recyclerAdapter = new RecyclerViewAdapterQuestionsList(getApplicationContext(), this);
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
         recyclerView.setAdapter(recyclerAdapter);
         recyclerAdapter.setOnItemClickListener(this);
@@ -190,10 +188,15 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         JSONObject params = new JSONObject();
         try {
 
-
+         /*   session_id: request_type_id,
+                    answered: answered,
+                    num: self*/
             params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
             params.put("userpath", obj.getUserpath());
             params.put("session_id", obj.getRequest_type_id());
+            params.put("answered", obj.getAnswered());
+            params.put("num", obj.getSelf());
+
             params.put("alias", obj.getAlias());
             //   path,  userpath, alias, questionids
             getChatRequest(params);
@@ -234,7 +237,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
             public void onClick(View v) {
 
 
-                if (!TextUtils.isEmpty(etSendMessage.getText().toString().trim())) {
+              /*  if (!TextUtils.isEmpty(etSendMessage.getText().toString().trim())) {
                     JSONObject params = new JSONObject();
                     try {
 
@@ -245,11 +248,11 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                         params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
                         params.put("default_image", SharedPreferenceManager.getUserObject(getApplicationContext()).get_default_image());
                         params.put("message", etSendMessage.getText().toString());
-                       // putSendMessage(params);
+                        // putSendMessage(params);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                }
+                }*/
 
 
             }
@@ -464,6 +467,8 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
     }
 
     private void getChatRequest(JSONObject params) {
+        final List<List<mIceBreak>> QuestionChoiceList = new ArrayList<>();
+        final List<mIceBreak> QuestionsList = new ArrayList<>();
 
         final ProgressDialog pDialog = new ProgressDialog(DashboardQuestionsDetailActivity.this);
         pDialog.setMessage("Loading...");
@@ -481,8 +486,45 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                         Log.e("re  getChatRequest", response + "");
                         try {
 
-
                             JSONArray jsonObj = response.getJSONArray("data");
+                            Log.e("re  getChatRequest", jsonObj.length() + "");
+
+
+                            Gson gsonc;
+                            GsonBuilder gsonBuilderc = new GsonBuilder();
+                            gsonc = gsonBuilderc.create();
+                            Type listType = new TypeToken<List<mIceBreak>>() {
+                            }.getType();
+
+                            for (int i = 0; i < jsonObj.length(); i++) {
+                                if (i != jsonObj.length() - 1) {
+
+                                    if (jsonObj.getJSONArray(i).length() > 0) {
+
+                                        List<mIceBreak> dlist = (List<mIceBreak>) gsonc.fromJson(jsonObj.getJSONArray(i).toString(), listType);
+
+                                        QuestionChoiceList.add(dlist);
+
+                                        Log.e("ssssss", dlist.size() + "");
+                                    }
+
+                                } else {
+                                    //last array
+                                    List<mIceBreak> dlist = (List<mIceBreak>) gsonc.fromJson(jsonObj.getJSONArray(i).toString(), listType);
+
+                                    QuestionsList.addAll(dlist);
+                                }
+
+
+                            }
+                            recyclerAdapter.setQuestionChoiceList(QuestionChoiceList);
+                            recyclerAdapter.addAll(QuestionsList);
+
+
+                            //     Log.e("QuestionChoiceList  ", QuestionChoiceList.size() + "");
+                            //     Log.e("QuestionsList  ", QuestionsList.size() + "");
+
+              /*
 
 
                             Gson gsonc;
@@ -494,9 +536,9 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                             List<mCommunication> dlist = (List<mCommunication>) gsonc.fromJson(jsonObj.getJSONArray(0).toString(), listType);
 
                             List<mCommunication> dlist2 = (List<mCommunication>) gsonc.fromJson(jsonObj.getJSONArray(1).toString(), listType);
+*/
 
-
-                            if (dlist.size() > 0) {
+                     /*       if (dlist.size() > 0) {
                                 ll_DeleteChat.setVisibility(View.VISIBLE);
 
                                 if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 3) {
@@ -523,7 +565,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                             } else {
                                 ll_DeleteChat.setVisibility(View.GONE);
 
-                            }
+                            }*/
                         } catch (Exception e) {
 
                             Log.e("Exception here", "Exception");

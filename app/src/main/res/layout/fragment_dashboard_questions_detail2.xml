@@ -312,19 +312,7 @@ android:layout_below="@+id/LinearLayoutMessageDetailData"
             android:paddingTop="10dp"
             android:weightSum="10">
 
-            <EditText
-                android:id="@+id/EditTextChatListsendMessageDesc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
 
-                android:layout_marginLeft="4dp"
-                android:layout_weight="8.8"
-                android:hint="Type Something..."
-                android:lines="2"
-
-                android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"
-                android:textSize="13sp" />
 
             <FrameLayout
                 android:id="@+id/FrameLayoutChatListSendMessage"

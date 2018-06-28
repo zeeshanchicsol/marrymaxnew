@@ -29,6 +29,7 @@ import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.WebArdType;
 import com.chicsol.marrymax.modal.WebCSC;
 import com.chicsol.marrymax.modal.mAsEmailNotifications;
+import com.chicsol.marrymax.modal.mIceBreak;
 import com.chicsol.marrymax.widgets.faTextView;
 import com.chicsol.marrymax.widgets.mCheckBox;
 import com.chicsol.marrymax.widgets.mRadioButton;
@@ -643,6 +644,40 @@ public class ViewGenerator {
 
     }
 
+    public void generateQuestionChoices(final List<mIceBreak> RadioDataList, RadioGroup radioGroup) {
+
+        RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        layoutParams.setMargins(0, 5, 0, 5);
+        //    layoutParams.gravity = Gravity.TOP;
+        for (int i = 0; i < RadioDataList.size(); i++) {
+            //showLog(RadioDataList.get(i).getName()+" ==  "+RadioDataList.get(i).getId());
+            AppCompatRadioButton rdbtn = new AppCompatRadioButton(context);
+            rdbtn.setGravity(Gravity.TOP | Gravity.BOTTOM);
+            // rdbtn.setGravity(Gravity.LEFT);
+
+            rdbtn.setId(i);
+
+         /*   if (disabled) {
+                rdbtn.setEnabled(false);
+            }*/
+            rdbtn.setTextColor(context.getResources().getColor(R.color.colorBlack));
+     /*       if (Integer.parseInt(RadioDataList.get(i).getId()) == 0) {
+                rdbtn.setText(RadioDataList.get(i).getType());
+                rdbtn.setButtonDrawable(android.R.color.transparent);
+
+            } else {*/
+                rdbtn.setId(Integer.parseInt(RadioDataList.get(i).getQuestion_id()));
+                rdbtn.setText(RadioDataList.get(i).getAnswer());
+            //}
+            //   ViewCompat.setLayoutDirection(rdbtn, ViewCompat.LAYOUT_DIRECTION_RTL);
+
+            radioGroup.addView(rdbtn, layoutParams);
+        }
+
+    }
+
+
     public void generateDynamicRadiosForDialogsForMatchAid(final List<WebArdType> RadioDataList, RadioGroup radioGroup, boolean disabled) {
 
 
@@ -728,8 +763,7 @@ public class ViewGenerator {
                 if (disalbled) {
                     cbox.setEnabled(false);
                     cbox.setOnCheckedChangeListener(onCheckedChangeListener);
-                }
-                else {
+                } else {
                     cbox.setChecked(false);
                     cbox.setOnCheckedChangeListener(onCheckedChangeListener);
                 }
@@ -893,8 +927,6 @@ public class ViewGenerator {
 
 
     }
-
-
 
 
 }
