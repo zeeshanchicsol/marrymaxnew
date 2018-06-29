@@ -150,12 +150,19 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                Constants.selectedQuestions.append(pos, isChecked);
-                for (int i = 0; i < Constants.selectedQuestions.size(); i++) {
-                    int key = Constants.selectedQuestions.keyAt(i);
-                    Log.e("" + key, Constants.selectedQuestions.get(key) + "");
+
+                if (Constants.selectedQuestions.size() > 5) {
+                    Toast.makeText(buttonView.getContext(), "You have selected 5 question(s).You can not select more than 5 questions", Toast.LENGTH_SHORT).show();
+                    buttonView.setChecked(!isChecked);
+                } else {
+
+                    Constants.selectedQuestions.append(pos, isChecked);
+               /*     for (int i = 0; i < Constants.selectedQuestions.size(); i++) {
+                        int key = Constants.selectedQuestions.keyAt(i);
+                        Log.e("" + key, Constants.selectedQuestions.get(key) + "");
+                    }*/
                 }
-                Toast.makeText(buttonView.getContext(), Constants.selectedQuestions.size() + "", Toast.LENGTH_SHORT).show();
+
             }
         });
 

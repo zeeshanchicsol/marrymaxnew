@@ -5,14 +5,14 @@
     android:id="@+id/LinearLayoutmessagedetailMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:windowSoftInputMode="adjustPan|adjustResize"
-    tools:context=".fragments.inbox.DashboardMessagesDetailActivity">
+    android:background="#e7e7e7"
+
+    tools:context=".fragments.inbox.DashboardQuestionsDetailActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       >
+        android:layout_height="wrap_content">
 
         <include layout="@layout/toolbar_dashboard" />
     </LinearLayout>
@@ -26,9 +26,9 @@
         android:layout_below="@+id/linearLayout3"
         android:orientation="vertical">
 
-        <include layout="@layout/progressbar"
-            android:visibility="gone"
-            ></include>
+        <include
+            layout="@layout/progressbar"
+            android:visibility="gone"></include>
 
         <LinearLayout
             android:id="@+id/linearLayout5"
@@ -62,8 +62,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:visibility="gone"
-                android:gravity="right|center_vertical">
+                android:gravity="right|center_vertical"
+                android:visibility="visible">
 
                 <com.chicsol.marrymax.widgets.faTextView
                     android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="15dp"
                     android:gravity="center"
-                    android:text="Delete"
+                    android:text="Delete Questions"
                     android:textColor="@color/colorUserProfileRed"
                     android:textSize="13sp" />
 
@@ -99,19 +99,18 @@
 
         android:orientation="horizontal">
 
-     <!--   <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />-->
+        <!--   <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent" />-->
 
         <TextView
             android:id="@+id/TextViewMessageDetailLivingCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="Pakistan |"
             android:textColor="@color/colorBlack"
-            android:textSize="14sp"
-            android:layout_marginLeft="10dp"
-            />
+            android:textSize="14sp" />
 
         <com.chicsol.marrymax.widgets.mTextView
             android:id="@+id/TextViewMessageDetailMaritalStatus"
@@ -142,15 +141,14 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:id="@+id/LinearLayoutMMessagesReadQuota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/LinearLayoutMessageDetailData"
         android:background="@color/colorWhite"
         android:orientation="vertical"
         android:padding="5dp"
-android:layout_below="@+id/LinearLayoutMessageDetailData"
         android:visibility="gone"
 
         >
@@ -277,6 +275,7 @@ android:layout_below="@+id/LinearLayoutMessageDetailData"
 
         </LinearLayout>
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -285,17 +284,18 @@ android:layout_below="@+id/LinearLayoutMessageDetailData"
 
         android:layout_below="@+id/LinearLayoutMMessagesReadQuota"
 
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:theme="@style/AppTheme">
 
-        android:paddingTop="@dimen/activity_vertical_margin">
-
-
+        <!--<android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.CardView>-->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/RecyclerViewMessageListChatMain"
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="55dp"
-            android:scrollbars="vertical">
+            android:background="@color/colorWhite">
 
         </android.support.v7.widget.RecyclerView>
 
@@ -304,7 +304,7 @@ android:layout_below="@+id/LinearLayoutMessageDetailData"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:background="@color/colorUserProfileRed"
+
             android:orientation="horizontal"
 
 
@@ -312,40 +312,14 @@ android:layout_below="@+id/LinearLayoutMessageDetailData"
             android:paddingTop="10dp"
             android:weightSum="10">
 
-
-
-            <FrameLayout
-                android:id="@+id/FrameLayoutChatListSendMessage"
-                android:layout_width="0dp"
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/ButtonSendAnswers"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorTextRed"
+                android:text="Send"
+                android:textColor="@color/colorWhite" />
 
-                android:layout_gravity="center"
-
-                android:layout_marginRight="5dp"
-
-                android:layout_weight="1.2"
-                android:clickable="true">
-
-                <android.support.design.widget.FloatingActionButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:backgroundTint="@color/colorWhite"
-                    app:elevation="0dp"
-                    app:fabSize="auto" />
-
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="1dp"
-                    android:gravity="center"
-                    android:text="@string/fa_icon_send"
-                    android:textColor="@color/colorUserProfileTextGreen"
-                    android:textSize="18sp"
-                    app:elevation="7dp" />
-
-            </FrameLayout>
 
         </LinearLayout>
 

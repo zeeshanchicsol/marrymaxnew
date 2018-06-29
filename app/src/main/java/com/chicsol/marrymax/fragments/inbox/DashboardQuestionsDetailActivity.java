@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -52,6 +53,8 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -64,7 +67,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
     RecyclerView recyclerView;
     private RecyclerViewAdapterQuestionsList recyclerAdapter;
     private List<mCommunication> items;
-    private FrameLayout fl_send_message;
+
     LinearLayout ll_DeleteChat, llMessageDetail, llReadQuota;
 
     mCommunication objCom;
@@ -72,6 +75,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
     private TextView tvReadQuotaHeading, tvReadQuotaSubHeading;
     AppCompatButton btSubscribe;
     MarryMax marryMax;
+    AppCompatButton btSendAnswers;
 
     private String Tag = "DashboardMessagesDetailActivity";
 
@@ -121,10 +125,9 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
-        toolbar.setTitle("Message History");
+        toolbar.setTitle("You are Asked Question(s)!");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         pDialog = (ProgressBar) findViewById(R.id.ProgressbarProjectMain);
         pDialog.setVisibility(View.GONE);
@@ -134,7 +137,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
         btSubscribe = (AppCompatButton) findViewById(R.id.ButtonMessageDetailSubscribe);
 
-        fl_send_message = (FrameLayout) findViewById(R.id.FrameLayoutChatListSendMessage);
+
         tvAge = (TextView) findViewById(R.id.TextViewMessageDetailAge);
         tvAlias = (TextView) findViewById(R.id.TextViewMessageDetailAlias);
         tvEthnic = (TextView) findViewById(R.id.TextViewMessageDetailEthnicbg);
@@ -143,6 +146,9 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         tvCountry = (TextView) findViewById(R.id.TextViewMessageDetailLivingCountry);
         tvReadQuotaHeading = (TextView) findViewById(R.id.TextViewReadQuotaHeading);
         tvReadQuotaSubHeading = (TextView) findViewById(R.id.TextViewReadQuotaSubHeading);
+
+
+        btSendAnswers = (AppCompatButton) findViewById(R.id.ButtonSendAnswers);
 
         Log.e(obj.getEthnic_background_type() + "=====Loggg" + objtype, "" + objCom.getCountry_name());
 
@@ -209,6 +215,63 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
     }
 
     private void setListeners() {
+
+
+        btSendAnswers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (recyclerAdapter != null) {
+
+
+                    StringBuilder stringBuilder = new StringBuilder();
+                    int count = recyclerAdapter.getItemCount();
+
+
+                    HashMap<String, String> ansList = recyclerAdapter.getmCheckedAnswersList();
+
+                    if (count != ansList.size()) {
+                        Toast.makeText(DashboardQuestionsDetailActivity.this, "  Please answer all questions", Toast.LENGTH_SHORT).show();
+                    } else {
+
+                        Iterator it = ansList.entrySet().iterator();
+                        while (it.hasNext()) {
+                            Map.Entry pair = (Map.Entry) it.next();
+                           // System.out.println(pair.getKey() + " = " + pair.getValue());
+
+                            if (it.hasNext()) {
+                                stringBuilder.append(pair.getValue() + ",");
+                            } else {
+                                stringBuilder.append(pair.getValue());
+                            }
+
+
+                            // it.remove(); // avoids a ConcurrentModificationException
+                        }
+
+                        Log.e("answerids", stringBuilder.toString());
+
+                        //path, alias, answerids, session_id
+                        //  putSendAnswer();
+
+                      JSONObject params = new JSONObject();
+                        try {
+                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                            params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                            params.put("answerids", stringBuilder.toString());
+                            params.put("session_id", objCom.getRequest_type_id());
+                            putSendAnswer(params);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                }
+            }
+        });
+
+
         tvAlias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -232,42 +295,16 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
             }
         });
 
-        fl_send_message.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-              /*  if (!TextUtils.isEmpty(etSendMessage.getText().toString().trim())) {
-                    JSONObject params = new JSONObject();
-                    try {
-
-                        //   path, userpath , checkedTextView , default_image
-
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                        params.put("userpath", objCom.getUserpath());
-                        params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
-                        params.put("default_image", SharedPreferenceManager.getUserObject(getApplicationContext()).get_default_image());
-                        params.put("message", etSendMessage.getText().toString());
-                        // putSendMessage(params);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }*/
-
-
-            }
-        });
-
 
         ll_DeleteChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(DashboardQuestionsDetailActivity.this);
 
-                builder.setTitle("Delete Chat");
-                builder.setMessage("Are you sure, delete complete message history between you and " + objCom.getAlias() + " ?");
+                builder.setTitle("Delete Questions");
+                builder.setMessage("AAre you sure you want to remove this questioning session between you and  " + objCom.getAlias() + " ?");
 
-                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
                         // Do nothing but close the dialog
@@ -276,8 +313,8 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
                             JSONObject params1 = new JSONObject();
                             params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                            params1.put("userpath", objCom.getUserpath());
-                            deleteRequest(params1);
+                            params1.put("id", objCom.getId());
+                            deleteQuestion(params1);
 
 
                         } catch (JSONException e) {
@@ -289,7 +326,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                     }
                 });
 
-                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -306,7 +343,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
     }
 
-/*    private void putSendMessage(JSONObject params) {
+    private void putSendAnswer(JSONObject params) {
 
         final ProgressDialog pDialog1 = new ProgressDialog(DashboardQuestionsDetailActivity.this);
         pDialog1.setMessage("Loading...");
@@ -314,15 +351,38 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         pDialog1.show();
 
 
-        Log.e("Params", Urls.sendMessage + "    " + params);
+        Log.e("Params", Urls.sendAnswer + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.sendMessage, params,
+                Urls.sendAnswer, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.e("re  message sent", response + "");
                         try {
+
+                            int responseid = response.getInt("id");
+                            if (responseid >= 1) {
+                                Toast.makeText(DashboardQuestionsDetailActivity.this, "Answers Sent", Toast.LENGTH_SHORT).show();
+                                recyclerAdapter.clear();
+                                finish();
+
+                             /*   JSONObject params1 = new JSONObject();
+                                params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                params1.put("userpath", objCom.getUserpath());
+                                getChatRequest(params1);*/
+
+
+                            }
+
+                        } catch (JSONException e) {
+                            pDialog.setVisibility(View.GONE);
+
+                            e.printStackTrace();
+                        }
+
+
+                   /*     try {
 
                             JSONArray jsdata = response.getJSONArray("data");
 
@@ -349,7 +409,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                                     }
 
                                 } else if (mCommunication.write_quota == 1) {
-                                    etSendMessage.setText("");
+                                    //  etSendMessage.setText("");
                                     JSONObject params1 = new JSONObject();
 
 
@@ -366,7 +426,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                         } catch (JSONException e) {
                             e.printStackTrace();
                             pDialog1.hide();
-                        }
+                        }*/
 
                         pDialog1.hide();
 
@@ -397,15 +457,15 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq, Tag);
 
-    }*/
+    }
 
-    private void deleteRequest(JSONObject params) {
+    private void deleteQuestion(JSONObject params) {
         pDialog.setVisibility(View.VISIBLE);
 
 
-        Log.e("Params", Urls.deleteMessages + "    " + params);
+        Log.e("Params", Urls.deleteQuestion + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.deleteMessages, params,
+                Urls.deleteQuestion, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -415,7 +475,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
                             int responseid = response.getInt("id");
                             if (responseid == 1) {
-                                Toast.makeText(DashboardQuestionsDetailActivity.this, "Chat Deleted", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(DashboardQuestionsDetailActivity.this, "Questions Deleted", Toast.LENGTH_SHORT).show();
                                 recyclerAdapter.clear();
                                 finish();
 
@@ -612,6 +672,9 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
     @Override
     public void onItemClick(View view, mCommunication communication) {
+
+        Toast.makeText(this, "asdsadsa", Toast.LENGTH_SHORT).show();
+
 
     }
 

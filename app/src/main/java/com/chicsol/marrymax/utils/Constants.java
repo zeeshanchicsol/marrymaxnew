@@ -43,6 +43,8 @@ public class Constants {
 
     public static SparseBooleanArray selectedQuestions=new SparseBooleanArray();
 
+
+
     public static Map<String, String> getHashMap() {
 
         functions fun = new functions();

@@ -3,11 +3,13 @@ package com.chicsol.marrymax.activities;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseBooleanArray;
+import android.view.View;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -41,16 +43,19 @@ public class QuestionsActivity extends AppCompatActivity {
     ParentAdapter parentAdapter;
     ArrayList<mParentChild> parentChildObj;
     private String Tag = "QuestionsActivity";
+    AppCompatButton ButtonSendQuestions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
         initialize();
+        setListeners();
     }
 
 
     private void initialize() {
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarPhotoUpload);
         toolbar.setTitle("Ice-Break Questions");
@@ -58,6 +63,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        ButtonSendQuestions = (AppCompatButton) findViewById(R.id.ButtonSendQuestions);
 
         recyclerViewParent = (RecyclerView) findViewById(R.id.RecyclerViewQuestions);
 
@@ -72,6 +78,16 @@ public class QuestionsActivity extends AppCompatActivity {
 
         getRequest();
     }
+
+    private void setListeners() {
+        ButtonSendQuestions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -179,8 +195,7 @@ public class QuestionsActivity extends AppCompatActivity {
                             Log.e("MyCountryStateDataList", "" + questDataList.size());
 
 
-
-                            parentChildObj=new ArrayList<>();
+                            parentChildObj = new ArrayList<>();
 
                             for (int i = 0; i < questDataList.size(); i++) {
                                 mMemList objMem = questDataList.get(i);

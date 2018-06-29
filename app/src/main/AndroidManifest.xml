@@ -205,7 +205,9 @@
         <activity
             android:name=".fragments.inbox.DashboardQuestionsDetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+
+            ></activity>
     </application>
 
 </manifest>

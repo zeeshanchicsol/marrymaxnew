@@ -21,6 +21,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -30,8 +32,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.mCommunication;
@@ -40,6 +44,7 @@ import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ViewGenerator;
 import com.chicsol.marrymax.widgets.RoundedImageView;
+import com.chicsol.marrymax.widgets.mRadioButton;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -49,6 +54,7 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 import com.nostra13.universalimageloader.core.process.BitmapProcessor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RecyclerViewAdapterQuestionsList extends RecyclerView.Adapter<RecyclerViewAdapterQuestionsList.MMViewHolder> implements View.OnClickListener {
@@ -59,12 +65,16 @@ public class RecyclerViewAdapterQuestionsList extends RecyclerView.Adapter<Recyc
     private OnItemClickListener onItemClickListener;
     private DisplayImageOptions options, optionsNormalImage;
     private LayoutInflater inflater;
+
+
     private List<mIceBreak> items;
 
     private LinearLayoutManager mLinearLayoutManager;
     private Fragment fragment;
     MarryMax marryMax;
 
+
+    HashMap<String, String> mCheckedAnswersList;
     ViewGenerator viewGenerator;
 
     public void setQuestionChoiceList(List<List<mIceBreak>> questionChoiceList) {
@@ -75,7 +85,7 @@ public class RecyclerViewAdapterQuestionsList extends RecyclerView.Adapter<Recyc
 
     public RecyclerViewAdapterQuestionsList(final Context context, Activity activity) {
         //this.items = items;
-
+        mCheckedAnswersList = new HashMap<>();
 
         marryMax = new MarryMax(activity);
         this.fragment = fragment;
@@ -216,11 +226,42 @@ public class RecyclerViewAdapterQuestionsList extends RecyclerView.Adapter<Recyc
     public void onBindViewHolder(MMViewHolder holder, int position) {
         final mIceBreak obj = items.get(position);
 
-        holder.tvQuestionTitle.setText(obj.getQuestion());
-        List<mIceBreak> mChoiceList = QuestionChoiceList.get(position);
+        int q = position + 1;
 
-        viewGenerator.generateQuestionChoices(mChoiceList, holder.rgMain);
+        holder.tvQuestionTitle.setText("Q" + q + " : " + obj.getQuestion());
+        if (!obj.getAnswer().equals("")) {
+            holder.tvAnswer.setVisibility(View.VISIBLE);
+            holder.tvAnswer.setText("Ans : " + obj.getAnswer());
 
+        } else {
+            holder.tvAnswer.setVisibility(View.GONE);
+        }
+        if (QuestionChoiceList.size() > 0) {
+            List<mIceBreak> mChoiceList = QuestionChoiceList.get(position);
+
+            // viewGenerator.generateQuestionChoices(mChoiceList, holder.rgMain);
+
+
+            for (int i = 0; i < mChoiceList.size(); i++) {
+                mIceBreak iceBreak = mChoiceList.get(i);
+                RadioButton rbn = new RadioButton(context);
+                rbn.setId(Integer.parseInt(iceBreak.getAnswer_id()));
+
+                rbn.setTextColor(context.getResources().getColor(R.color.colorBlack));
+                //     Log.e("qqq", "" + iceBreak.getAnswer());
+                rbn.setText(iceBreak.getAnswer());
+                //  rbn.setText("zeeshan asds");
+
+                holder.rgMain.addView(rbn);
+            }
+        }
+        holder.rgMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+              //  Toast.makeText(context, "" + checkedId, Toast.LENGTH_SHORT).show();
+                mCheckedAnswersList.put(obj.getQuestion_id(), checkedId + "");
+            }
+        });
         //   Log.e("messagee", obj.getMessage() + "==" + obj.self);
         //holder.tvText1.setText(Html.fromHtml(obj.getMessage()));
        /* if (obj.self == 0) {
@@ -279,7 +320,7 @@ public class RecyclerViewAdapterQuestionsList extends RecyclerView.Adapter<Recyc
 
     @Override
     public void onClick(View v) {
-       // onItemClickListener.onItemClick(v, (mCommunication) v.getTag());
+        // onItemClickListener.onItemClick(v, (mCommunication) v.getTag());
     }
 
 
@@ -323,5 +364,7 @@ public class RecyclerViewAdapterQuestionsList extends RecyclerView.Adapter<Recyc
 
     }
 
-
+    public HashMap<String, String> getmCheckedAnswersList() {
+        return mCheckedAnswersList;
+    }
 }

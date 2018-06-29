@@ -646,6 +646,32 @@ public class ViewGenerator {
 
     public void generateQuestionChoices(final List<mIceBreak> RadioDataList, RadioGroup radioGroup) {
 
+
+ /*       RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        for (int i = 0; i < RadioDataList.size(); i++) {
+            //showLog(RadioDataList.get(i).getName()+" ==  "+RadioDataList.get(i).getId());
+            mRadioButton rdbtn = new mRadioButton(context);
+            //rdbtn.setBackgroundResource(R.drawable.radiobtn_reg_selector);
+            rdbtn.setTextColor(ContextCompat.getColorStateList(context, R.color.colorBlack));
+
+            rdbtn.setId(i);
+            if (Integer.parseInt(RadioDataList.get(i).getId()) == 0) {
+                rdbtn.setText(RadioDataList.get(i).getName());
+                rdbtn.setButtonDrawable(android.R.color.transparent);
+
+            } else {
+                rdbtn.setId(Integer.parseInt(RadioDataList.get(i).getId()));
+                rdbtn.setText(RadioDataList.get(i).getName());
+            }
+            ViewCompat.setLayoutDirection(rdbtn, ViewCompat.LAYOUT_DIRECTION_RTL);
+
+            radioGroup.addView(rdbtn, layoutParams);
+        }*/
+
+        ////========================================================
+
+
         RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         layoutParams.setMargins(0, 5, 0, 5);
@@ -653,7 +679,10 @@ public class ViewGenerator {
         for (int i = 0; i < RadioDataList.size(); i++) {
             //showLog(RadioDataList.get(i).getName()+" ==  "+RadioDataList.get(i).getId());
             AppCompatRadioButton rdbtn = new AppCompatRadioButton(context);
-            rdbtn.setGravity(Gravity.TOP | Gravity.BOTTOM);
+            rdbtn.setBackgroundColor(context.getResources().getColor(R.color.colorTextRed));
+
+            //  mRadioButton rdbtn = new mRadioButton(context);
+            //   rdbtn.setGravity(Gravity.TOP | Gravity.BOTTOM);
             // rdbtn.setGravity(Gravity.LEFT);
 
             rdbtn.setId(i);
@@ -667,10 +696,12 @@ public class ViewGenerator {
                 rdbtn.setButtonDrawable(android.R.color.transparent);
 
             } else {*/
-                rdbtn.setId(Integer.parseInt(RadioDataList.get(i).getQuestion_id()));
-                rdbtn.setText(RadioDataList.get(i).getAnswer());
+            //  rdbtn.setId(Integer.parseInt(RadioDataList.get(i).getQuestion_id()));
+            rdbtn.setText(RadioDataList.get(i).getAnswer());
+
+
             //}
-            //   ViewCompat.setLayoutDirection(rdbtn, ViewCompat.LAYOUT_DIRECTION_RTL);
+            //  ViewCompat.setLayoutDirection(rdbtn, ViewCompat.LAYOUT_DIRECTION_RTL);
 
             radioGroup.addView(rdbtn, layoutParams);
         }

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#f1f1f1"
-            android:text="Q1 : What were you like as a kid?"
+            android:text=""
             android:textColor="@color/colorBlack"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -31,28 +31,33 @@
             android:text="Q1 : What were you like as a kid?"
             android:textColor="@color/colorBlack"
             android:textSize="16sp"
-            android:textStyle="bold"
+
             android:visibility="gone" />
 
 
         <RadioGroup
+
             android:id="@+id/RadioGroupQuestionAnswers"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <!--        <RadioButton
+                  <!-- <RadioButton
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                       android:text="asdasd"
+                       />
 
                     <RadioButton
                         android:layout_width="wrap_content"
+                        android:text="asdasd"
                         android:layout_height="wrap_content" />
 
                     <RadioButton
-                        android:layout_width="wrap_content"
+                        android:layout_width="wrap_content"    android:text="asdasd"
+
                         android:layout_height="wrap_content" />-->
         </RadioGroup>
-      
+
     </LinearLayout>
 
 
