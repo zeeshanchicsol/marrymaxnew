@@ -710,6 +710,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                 boolean qcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null);
                                 if (qcheck) {
                                     Intent intent = new Intent(getActivity(), QuestionsActivity.class);
+                                    intent.putExtra("userpath", userpath);
                                     startActivity(intent);
                                 }
                                 break;

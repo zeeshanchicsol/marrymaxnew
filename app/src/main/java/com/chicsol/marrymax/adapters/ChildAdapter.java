@@ -76,6 +76,7 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     Runnable expandList = new Runnable() {
         @Override
         public void run() {
+
             int currSize = childData.size();
             if (currSize == childDataBk.size()) return;
 
@@ -150,17 +151,22 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+                if (isChecked) {
+                    if (Constants.selectedQuestions.size() > 5) {
+                        Toast.makeText(buttonView.getContext(), "You have selected 5 question(s).You can not select more than 5 questions", Toast.LENGTH_SHORT).show();
+                        buttonView.setChecked(!isChecked);
+                    } else {
 
-                if (Constants.selectedQuestions.size() > 5) {
-                    Toast.makeText(buttonView.getContext(), "You have selected 5 question(s).You can not select more than 5 questions", Toast.LENGTH_SHORT).show();
-                    buttonView.setChecked(!isChecked);
-                } else {
-
-                    Constants.selectedQuestions.append(pos, isChecked);
+                        Constants.selectedQuestions.append(pos, isChecked);
                /*     for (int i = 0; i < Constants.selectedQuestions.size(); i++) {
                         int key = Constants.selectedQuestions.keyAt(i);
                         Log.e("" + key, Constants.selectedQuestions.get(key) + "");
                     }*/
+                    }
+                } else {
+                    Constants.selectedQuestions.append(pos, isChecked);
+                    Constants.selectedQuestions.delete(pos);
+
                 }
 
             }

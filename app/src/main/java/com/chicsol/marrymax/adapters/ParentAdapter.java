@@ -24,6 +24,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.chicsol.marrymax.utils.Constants.selectedQuestions;
+
 /*import com.example.nestedrecyclerview.NestedRecyclerLinearLayoutManager;
 
 import com.example.nestedrecyclerview.model.Child;
@@ -42,6 +44,7 @@ public class ParentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public ParentAdapter(Context ctx, ArrayList<mParentChild> parentChildData) {
         this.ctx = ctx;
         this.parentChildData = parentChildData;
+        selectedQuestions.clear();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -65,12 +68,12 @@ public class ParentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolder vh = (ViewHolder) holder;
         mParentChild p = parentChildData.get(position);
-        initChildLayoutManager(vh.rv_child, p.getChild(), p.getTitle(),position);
+        initChildLayoutManager(vh.rv_child, p.getChild(), p.getTitle(), Integer.parseInt(p.getId()));
     }
 
-    private void initChildLayoutManager(RecyclerView rv_child, ArrayList<mChild> childData, String title,int pos) {
+    private void initChildLayoutManager(RecyclerView rv_child, ArrayList<mChild> childData, String title, int pos) {
         rv_child.setLayoutManager(new NestedRecyclerLinearLayoutManager(ctx));
-        ChildAdapter childAdapter = new ChildAdapter(childData, title,pos);
+        ChildAdapter childAdapter = new ChildAdapter(childData, title, pos);
         rv_child.setAdapter(childAdapter);
     }
 

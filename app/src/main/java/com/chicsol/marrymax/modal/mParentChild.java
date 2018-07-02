@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class mParentChild {
 
 
+
+    String id;
     String title;
 
     public String getTitle() {
@@ -31,5 +33,13 @@ public class mParentChild {
 
     public void setChild(ArrayList<mChild> child) {
         this.child = child;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
