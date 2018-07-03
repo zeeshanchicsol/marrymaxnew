@@ -63,6 +63,7 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
     private LinearLayout llEmptySubItems;
     private String Tag = "DashboardMessagesFragment";
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,7 +101,10 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
 
 
         TextViewEmptyMessage = (TextView) view.findViewById(R.id.TextViewEmptyMessage);
+
         llEmptySubItems = (LinearLayout) view.findViewById(R.id.LinearLayoutEmptySubItems);
+
+
 
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -113,6 +117,7 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
 
 
     }
+
 
 
     @Override
@@ -310,10 +315,12 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
 
+            Log.e(" objCom.request_type_id", "" + communication.getRequest_type_id());
 
-            Log.e(" objCom.request_type_id", "" +  communication.getRequest_type_id());
+       //     Log.e(" getAnswered", "" + communication.getAnswered()+"  "+communication.getSelf());
+/**/
 
-      Intent in = new Intent(getActivity(), DashboardQuestionsDetailActivity.class);
+            Intent in = new Intent(getActivity(), DashboardQuestionsDetailActivity.class);
             Gson gson = new Gson();
             String memString = gson.toJson(communication);
             //in.putExtra("obj", memString);

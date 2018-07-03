@@ -1,15 +1,18 @@
 package com.chicsol.marrymax.activities;
 
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.SparseBooleanArray;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -23,7 +26,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.ParentAdapter;
 import com.chicsol.marrymax.modal.Members;
-import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.mChild;
 import com.chicsol.marrymax.modal.mMemList;
 import com.chicsol.marrymax.modal.mParentChild;
@@ -33,8 +35,14 @@ import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
+import com.nostra13.universalimageloader.core.process.BitmapProcessor;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,14 +53,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class QuestionsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewParent;
+    public ImageLoader imageLoader;
     ParentAdapter parentAdapter;
     ArrayList<mParentChild> parentChildObj;
     private String Tag = "QuestionsActivity";
     AppCompatButton ButtonSendQuestions;
     private String userpath = "";
     private Members member;
+    private DisplayImageOptions options;
+    private TextView tvAlias, tvAge;
+    private CircleImageView ivMain;
+    private int height = 0;
+
+    private LayoutInflater inflater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +84,11 @@ public class QuestionsActivity extends AppCompatActivity {
 
     private void initialize() {
 
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        int heightScreen = metrics.heightPixels;
+        height = (int) (heightScreen * 0.13);
+
+
         member = new Members();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarPhotoUpload);
         toolbar.setTitle("Ice-Break Questions");
@@ -78,6 +100,12 @@ public class QuestionsActivity extends AppCompatActivity {
 
         recyclerViewParent = (RecyclerView) findViewById(R.id.RecyclerViewQuestions);
 
+        ivMain = (CircleImageView) findViewById(R.id.imageViewQuestionsUser);
+
+
+        tvAlias = (TextView) findViewById(R.id.TextViewQuestionsAlias);
+        tvAge = (TextView) findViewById(R.id.TextViewQuestionsAge);
+      //  tvLastLogin = (TextView) findViewById(R.id.TextViewQuestionsLastLogin);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -86,6 +114,52 @@ public class QuestionsActivity extends AppCompatActivity {
 
         parentAdapter = new ParentAdapter(this, new ArrayList<mParentChild>());
         recyclerViewParent.setAdapter(parentAdapter);
+
+
+
+        imageLoader = ImageLoader.getInstance();
+        imageLoader.init(ImageLoaderConfiguration.createDefault(getApplicationContext()));
+        inflater = LayoutInflater.from(getApplicationContext());
+        options = new DisplayImageOptions.Builder()
+                //   .showImageOnLoading(resize(R.drawable.loading_sm))
+                // .showImageOnLoading(resize(R.drawable.loading))
+                // .showImageForEmptyUri(resize(R.drawable.oops_sm))
+                // .showImageForEmptyUri(resize(R.drawable.no_image))
+                //.showImageOnFail(resize(R.drawable.oops_sm))
+                .cacheOnDisk(true)
+                .considerExifParams(true)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+
+                .postProcessor(new BitmapProcessor() {
+                    @Override
+                    public Bitmap process(Bitmap bmp) {
+
+                        Bitmap bmp_sticker;
+                        //    Display display =context.getApplicationContext().getWindowManager().getDefaultDisplay();
+                        DisplayMetrics metrics = getResources().getDisplayMetrics();
+
+                        //  display.getMetrics(metrics);
+
+                        int widthScreen = metrics.widthPixels;
+                        int heightScreen = metrics.heightPixels;
+                        if (widthScreen > heightScreen) {
+                            int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
+
+                            bmp_sticker = resizeImage(bmp, h);
+                        } else {
+                            int h = (int) (heightScreen * 0.13);//it set the height of image 10% of your screen
+
+
+                            bmp_sticker = resizeImageToHeight(bmp, h);
+
+                        }
+
+                        return bmp_sticker;
+                    }
+                }).build();
+
+
+        getRequest();
 
         JSONObject paramsm = new JSONObject();
         try {
@@ -99,8 +173,49 @@ public class QuestionsActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
 
-        getRequest();
+    private void initHeade(Members member) {
+        tvAlias.setText(member.getAlias());
+        tvAge.setText(member.get_min_age()+"");
+      //  tvLastLogin.setText(member.get_last_login_date());
+
+
+        ivMain.setMinimumHeight(height);
+
+        imageLoader.displayImage(Urls.baseUrl + "/" + member.get_default_image(),
+                ivMain, options,
+                new SimpleImageLoadingListener() {
+
+                    @Override
+                    public void onLoadingStarted(String imageUri, View view) {
+                        //  holder.progressBar.setVisibility(View.VISIBLE);
+                        // holder.RLprogress1.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onLoadingFailed(String imageUri, View view,
+                                                FailReason failReason) {
+                        // holder.RLprogress1.setVisibility(View.GONE);
+                        //   holder.progressBar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onLoadingComplete(String imageUri,
+                                                  View view, Bitmap loadedImage) {
+                        // holder.progressBar.setVisibility(View.GONE);
+                        // holder.RLprogress1.setVisibility(View.GONE);
+                        //   holder.progressBar.setVisibility(View.GONE);
+                    }
+                }, new ImageLoadingProgressListener() {
+                    @Override
+                    public void onProgressUpdate(String imageUri,
+                                                 View view, int current, int total) {
+                        // holder.RLprogress1.setProgress(Math.round(100.0f
+                        // * current / total));
+                    }
+                });
+
     }
 
     private void setListeners() {
@@ -406,7 +521,10 @@ public class QuestionsActivity extends AppCompatActivity {
 
                             member = (Members) gsonc.fromJson(responseObject.toString(), listType);
 
-                            //  Log.e("getAlias", "" + mObj.getAlias());
+                            if (member != null) {
+                                initHeade(member);
+                            }
+                            Log.e("getAlias", "" + member.get_age() + "   " + member.get_last_login_date());
 
 
                         } catch (JSONException e) {
@@ -444,4 +562,45 @@ public class QuestionsActivity extends AppCompatActivity {
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
 
     }
+
+
+    private Bitmap resizeImage(final Bitmap image, int maxHeight) {
+        Bitmap resizedImage = null;
+        if (image != null) {
+            //  int maxHeight = 80; //actual image height coming from internet
+            int maxWidth = 300; //actual image width coming from internet
+
+            int imageHeight = image.getHeight();
+            if (imageHeight > maxHeight)
+                imageHeight = maxHeight;
+            int imageWidth = (imageHeight * image.getWidth()) / image.getHeight();
+            if (imageWidth > maxWidth) {
+                imageWidth = maxWidth;
+                imageHeight = (imageWidth * image.getHeight()) / image.getWidth();
+            }
+            resizedImage = Bitmap.createScaledBitmap(image, imageWidth, imageHeight, true);
+        }
+        return resizedImage;
+    }
+
+    private Bitmap resizeImageToHeight(final Bitmap image, int maxHeight) {
+        Bitmap resizedImage = null;
+        if (image != null) {
+            //  int maxHeight = 80; //actual image height coming from internet
+            int maxWidth = 300; //actual image width coming from internet
+
+            int imageHeight = image.getHeight();
+            if (imageHeight > maxHeight)
+                imageHeight = maxHeight;
+            int imageWidth = (imageHeight * image.getWidth()) / image.getHeight();
+
+            /*if (imageWidth > maxWidth) {
+                imageWidth = maxWidth;
+                imageHeight = (imageWidth * image.getHeight()) / image.getWidth();
+            }*/
+            resizedImage = Bitmap.createScaledBitmap(image, imageWidth, imageHeight, true);
+        }
+        return resizedImage;
+    }
+
 }

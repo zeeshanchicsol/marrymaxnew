@@ -2,8 +2,8 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@color/colorDashboardBackground"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorDashboardBackground">
 
 
     <LinearLayout
@@ -193,8 +193,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:visibility="gone"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -390,15 +390,44 @@
 
             />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:orientation="horizontal">
 
-        <android.support.v7.widget.AppCompatButton
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:text="For package details, " />
+
+            <TextView
+                android:id="@+id/TextViewSubscriptionPlanPackages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" click here  "
+                android:clickable="true"
+                android:textColor="@color/colorTextRed"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:text="to view at marrymax.com" />
+        </LinearLayout>
+
+        <!--<android.support.v7.widget.AppCompatButton
+
             android:id="@+id/SubscriptionPlanPackageDetails"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Click here to for further details of packages"
-            android:textColor="@color/colorTextRed" />
+            android:text="For package details, click here to view at marrymax.com"
+            android:textColor="@color/colorTextRed" />-->
 
     </LinearLayout>
 

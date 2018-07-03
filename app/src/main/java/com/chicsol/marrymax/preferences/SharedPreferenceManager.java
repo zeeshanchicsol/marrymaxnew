@@ -150,7 +150,7 @@ public class SharedPreferenceManager {
         SharedPreferences sharedPreferences = context
                 .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
 
-        return  sharedPreferences.getString(USER_OBJECT, null);
+        return sharedPreferences.getString(USER_MESSAGE_OBJECT, null);
 
     }
 
@@ -158,10 +158,9 @@ public class SharedPreferenceManager {
         SharedPreferences sharedPreferences = context
                 .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(USER_OBJECT, userObject);
+        editor.putString(USER_MESSAGE_OBJECT, userObject);
         editor.commit();
     }
-
 
 
     public static String getQuestionObject(Context context) {
@@ -169,7 +168,7 @@ public class SharedPreferenceManager {
         SharedPreferences sharedPreferences = context
                 .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
 
-        return  sharedPreferences.getString(USER_QUESTION_OBJ, null);
+        return sharedPreferences.getString(USER_QUESTION_OBJ, null);
 
     }
 
@@ -180,7 +179,6 @@ public class SharedPreferenceManager {
         editor.putString(USER_QUESTION_OBJ, userObject);
         editor.commit();
     }
-
 
 
 }

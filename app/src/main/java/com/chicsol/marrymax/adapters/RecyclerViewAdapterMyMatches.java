@@ -399,6 +399,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
             imageLoader.displayImage(Urls.baseUrl + "/images/flags/" + member.get_country_flag() + ".gif", holder.ivCountryFlag, optionsNormalImage);
 
             holder.image.setMinimumHeight(height);
+
             imageLoader.displayImage(Urls.baseUrl + "/" + member.get_default_image(),
                     holder.image, options,
                     new SimpleImageLoadingListener() {

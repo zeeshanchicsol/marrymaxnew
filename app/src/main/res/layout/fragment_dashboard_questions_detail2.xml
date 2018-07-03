@@ -290,10 +290,30 @@
         <!--<android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"></android.support.v7.widget.CardView>-->
+
+        <LinearLayout
+            android:id="@+id/asdsaasddfasd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:id="@+id/TextViewQuestionDetailSubject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/colorTextRed"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textStyle="bold" />
+        </LinearLayout>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/RecyclerViewMessageListChatMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/asdsaasddfasd"
             android:layout_marginBottom="55dp"
             android:background="@color/colorWhite">
 

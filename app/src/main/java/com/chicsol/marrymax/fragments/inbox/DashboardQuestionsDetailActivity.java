@@ -72,7 +72,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
     mCommunication objCom;
     private ProgressBar pDialog;
-    private TextView tvReadQuotaHeading, tvReadQuotaSubHeading;
+    private TextView tvReadQuotaHeading, tvReadQuotaSubHeading, tvSubject;
     AppCompatButton btSubscribe;
     MarryMax marryMax;
     AppCompatButton btSendAnswers;
@@ -87,7 +87,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
         String obh = SharedPreferenceManager.getQuestionObject(getApplicationContext());
 
-        Log.e(" obh", "" + obh);
+    //    Log.e(" obh", "" + obh);
 
         int objtype = 0;
         //getIntent().getIntExtra("objtype", 0);
@@ -138,6 +138,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         btSubscribe = (AppCompatButton) findViewById(R.id.ButtonMessageDetailSubscribe);
 
 
+        tvSubject = (TextView) findViewById(R.id.TextViewQuestionDetailSubject);
         tvAge = (TextView) findViewById(R.id.TextViewMessageDetailAge);
         tvAlias = (TextView) findViewById(R.id.TextViewMessageDetailAlias);
         tvEthnic = (TextView) findViewById(R.id.TextViewMessageDetailEthnicbg);
@@ -211,63 +212,95 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
             e.printStackTrace();
         }
 
-        setListeners();
+
+        if (obj.getAnswered() == 0 && obj.getSelf() == 1) {
+            btSendAnswers.setText("Send Answer");
+        } else {
+            btSendAnswers.setText("Send Message");
+        }
+
+
+        Log.e("Subject", "" + obj.getSubject());
+
+        tvSubject.setText(obj.getSubject());
+
+        setListeners(obj);
     }
 
-    private void setListeners() {
+    private void setListeners(final mCommunication obj) {
 
 
         btSendAnswers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (recyclerAdapter != null) {
 
 
-                    StringBuilder stringBuilder = new StringBuilder();
-                    int count = recyclerAdapter.getItemCount();
+                if (obj.getAnswered() == 0 && obj.getSelf() == 1) {
+
+                    if (recyclerAdapter != null) {
 
 
-                    HashMap<String, String> ansList = recyclerAdapter.getmCheckedAnswersList();
+                        StringBuilder stringBuilder = new StringBuilder();
+                        int count = recyclerAdapter.getItemCount();
 
-                    if (count != ansList.size()) {
-                        Toast.makeText(DashboardQuestionsDetailActivity.this, "  Please answer all questions", Toast.LENGTH_SHORT).show();
-                    } else {
 
-                        Iterator it = ansList.entrySet().iterator();
-                        while (it.hasNext()) {
-                            Map.Entry pair = (Map.Entry) it.next();
-                           // System.out.println(pair.getKey() + " = " + pair.getValue());
+                        HashMap<String, String> ansList = recyclerAdapter.getmCheckedAnswersList();
 
-                            if (it.hasNext()) {
-                                stringBuilder.append(pair.getValue() + ",");
-                            } else {
-                                stringBuilder.append(pair.getValue());
+                        if (count != ansList.size()) {
+                            Toast.makeText(DashboardQuestionsDetailActivity.this, "  Please answer all questions", Toast.LENGTH_SHORT).show();
+                        } else {
+
+                            Iterator it = ansList.entrySet().iterator();
+                            while (it.hasNext()) {
+                                Map.Entry pair = (Map.Entry) it.next();
+                                // System.out.println(pair.getKey() + " = " + pair.getValue());
+
+                                if (it.hasNext()) {
+                                    stringBuilder.append(pair.getValue() + ",");
+                                } else {
+                                    stringBuilder.append(pair.getValue());
+                                }
+
+
+                                // it.remove(); // avoids a ConcurrentModificationException
                             }
 
+                            Log.e("answerids", stringBuilder.toString());
 
-                            // it.remove(); // avoids a ConcurrentModificationException
-                        }
+                            //path, alias, answerids, session_id
+                            //  putSendAnswer();
 
-                        Log.e("answerids", stringBuilder.toString());
+                            JSONObject params = new JSONObject();
+                            try {
+                                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                params.put("answerids", stringBuilder.toString());
+                                params.put("session_id", objCom.getRequest_type_id());
+                                putSendAnswer(params);
 
-                        //path, alias, answerids, session_id
-                        //  putSendAnswer();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
 
-                      JSONObject params = new JSONObject();
-                        try {
-                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                            params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                            params.put("answerids", stringBuilder.toString());
-                            params.put("session_id", objCom.getRequest_type_id());
-                            putSendAnswer(params);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
 
                     }
 
+
+                } else {
+                    btSendAnswers.setText("Send Message");
+                    Intent in = new Intent(DashboardQuestionsDetailActivity.this, DashboardMessagesDetailActivity.class);
+                    Gson gson = new Gson();
+                    String memString = gson.toJson(obj);
+                    //in.putExtra("obj", memString);
+                    SharedPreferenceManager.setMessageObject(getApplicationContext(), memString);
+                    in.putExtra("objtype", 1);
+                    startActivity(in);
+
+
                 }
+
+
             }
         });
 

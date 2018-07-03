@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -53,13 +54,13 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
     private RecyclerViewAdapterSubscriptionPlan
             recyclerAdapter;
     private ProgressBar pDialog;
-
+    TextView tvPackageDetails;
     Context activity;
 
     // AppCompatButton btSearch;
 
     private LinearLayout llEmptyState;
-    private AppCompatButton packageDetails;
+   // private AppCompatButton packageDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +102,8 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
     private void initilize() {
 
 
-        packageDetails = (AppCompatButton) findViewById(R.id.SubscriptionPlanPackageDetails);
-
+        //  packageDetails = (AppCompatButton) findViewById(R.id.SubscriptionPlanPackageDetails);
+        tvPackageDetails = (TextView) findViewById(R.id.TextViewSubscriptionPlanPackages);
 
         getSupportActionBar().setTitle("Subscription Plans");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -138,12 +139,20 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
 
     private void
     setListeners() {
-        packageDetails.setOnClickListener(new View.OnClickListener() {
+    /*    packageDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Urls.subscriptionUrl));
+               *//* Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Urls.subscriptionUrl));
                 startActivity(browserIntent);
-*/
+*//*
+                MarryMax marryMax = new MarryMax(SubscriptionPlanActivity.this);
+                marryMax.benefits();
+            }
+        });*/
+
+        tvPackageDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 MarryMax marryMax = new MarryMax(SubscriptionPlanActivity.this);
                 marryMax.benefits();
             }

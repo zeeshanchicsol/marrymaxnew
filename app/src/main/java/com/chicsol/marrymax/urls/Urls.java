@@ -212,7 +212,7 @@ public class Urls {
     public static String about = baseUrl + "/About";
     public static String matchMaking = baseUrl + "/MatchMaking";
     public static String faqs = baseUrl + "/Faqs";
-    public static String benefits = baseUrl + "/Benefits";
+    public static String benefits = baseUrl + "/MembershipPlans";
 
 
     //=============Request And Permissios==================================================
