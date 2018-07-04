@@ -406,7 +406,8 @@ public class RegisterAppearanceActivity extends BaseRegistrationActivity {
         viewGenerator.selectSpinnerItemById(spMyChoiceAgeTo, members_obj.get_choice_age_upto(), ageDataList);
 
         Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-        if (member.get_member_status() == 3 || member.get_member_status() == 4) {
+    /*    if (member.get_member_status() == 3 || member.get_member_status() == 4) {*/
+        if (member.get_member_status() >= 2 && member.get_member_status() < 7) {
             spMyHeight.setEnabled(false);
 
             viewGenerator.selectCheckRadioWithDisabledRadio(rgPhysique, members_obj.get_body_id(), llcbViewPhysique, members_obj.get_choice_body_ids());

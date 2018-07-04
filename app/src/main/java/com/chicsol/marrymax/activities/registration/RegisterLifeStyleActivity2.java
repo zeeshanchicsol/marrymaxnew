@@ -282,7 +282,8 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
 
 
         Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-        if (member.get_member_status() == 3 || member.get_member_status() == 4) {
+        if (member.get_member_status() >= 2 && member.get_member_status() < 7) {
+            /*  if (member.get_member_status() == 3 || member.get_member_status() == 4) {*/
 
 
             viewGenerator.selectCheckRadioWithDisabledRadio(rgSmoke, members_obj.get_smoking_id(), llcbViewSmoke, members_obj.get_choice_smoking_ids());

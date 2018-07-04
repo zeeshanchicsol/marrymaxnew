@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.fragments.list;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
@@ -18,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.adapters.MySavedListAdapter;
 import com.chicsol.marrymax.modal.mSavList;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -64,6 +66,7 @@ public class MySavedListsFragment extends Fragment implements MySavedListAdapter
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_list_my_saved_lists, container, false);
         initialize(rootView);
+        setListeners();
         return rootView;
     }
 
@@ -86,7 +89,7 @@ public class MySavedListsFragment extends Fragment implements MySavedListAdapter
 
             getData();
         }*/
-
+        btSearch = (AppCompatButton) v.findViewById(R.id.ButtonMySaveSearchSearch);
 
     }
 
@@ -100,7 +103,13 @@ public class MySavedListsFragment extends Fragment implements MySavedListAdapter
     }
 
     private void setListeners() {
-
+        btSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SearchMainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

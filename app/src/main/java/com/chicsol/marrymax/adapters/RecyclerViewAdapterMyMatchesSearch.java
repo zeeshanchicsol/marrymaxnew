@@ -304,16 +304,20 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
                 holder.ll_image_count.setVisibility(View.GONE);
             }
 //========Phone View========================
-            if (member.get_phone_view() == 2 || member.get_profile_privilege_id() > 0) {
+            if (member.get_phone_view() == 2 || member.get_phone_privilege_id() > 0) {
                 //see mobile  green
                 holder.ivViewPhone.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
-            } else if (member.get_phone_view() == 1 && member.get_profile_privilege_id() == 0) {
+            } else if (member.get_phone_view() == 1 && member.get_phone_privilege_id() == 0) {
                 //orange
                 holder.ivViewPhone.setImageDrawable(context.getResources().getDrawable(R.drawable.num_not_verified_icon_60));
-            } else if (member.get_phone_view() == 0 && member.get_profile_privilege_id() == 0) {
+            } else if (member.get_phone_view() != 2 && member.get_phone_view() != 1 && member.get_phone_privilege_id() == 0) {
                 //grey
                 holder.ivViewPhone.setImageDrawable(context.getResources().getDrawable(R.drawable.no_number_icon_60));
             }
+            /*else if (member.get_phone_view() == 0 && member.get_profile_privilege_id() == 0) {
+                //grey
+                holder.ivViewPhone.setImageDrawable(context.getResources().getDrawable(R.drawable.no_number_icon_60));
+            }*/
 
 
       /*    hidden_status==1 && profile_privilege_id==0  Request Profile

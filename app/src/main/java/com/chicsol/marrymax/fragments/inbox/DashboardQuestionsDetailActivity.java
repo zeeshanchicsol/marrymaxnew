@@ -346,7 +346,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
                             JSONObject params1 = new JSONObject();
                             params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                            params1.put("id", objCom.getId());
+                            params1.put("id", objCom.getRequest_type_id());
                             deleteQuestion(params1);
 
 
@@ -507,7 +507,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                         try {
 
                             int responseid = response.getInt("id");
-                            if (responseid == 1) {
+                            if (responseid >= 1) {
                                 Toast.makeText(DashboardQuestionsDetailActivity.this, "Questions Deleted", Toast.LENGTH_SHORT).show();
                                 recyclerAdapter.clear();
                                 finish();

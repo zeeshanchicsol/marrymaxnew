@@ -484,7 +484,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                             List<mCommunication> dlist2 = (List<mCommunication>) gsonc.fromJson(jsonObj.getJSONArray(1).toString(), listType);
 
 
-                            if (dlist.size() > 0) {
+                            if (dlist.size() >= 0) {
                                 ll_DeleteChat.setVisibility(View.VISIBLE);
 
                                 if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 3) {

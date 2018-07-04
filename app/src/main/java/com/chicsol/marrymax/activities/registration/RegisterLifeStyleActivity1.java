@@ -119,6 +119,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
         llMainSecondMarriage = (LinearLayout) findViewById(R.id.LinearLayoutRegLifeStyle1Marriage);
 
+
         llChildren = (LinearLayout) findViewById(R.id.LinearLayoutChildren);
 
         rgEconomy = (RadioGroup) findViewById(R.id.RadioGroupEconomy);
@@ -354,8 +355,13 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == 5) {
-                    llMainSecondMarriage.setVisibility(View.VISIBLE);
 
+                    Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
+                    if (member.get_member_status() >= 2) {
+                        llMainSecondMarriage.setVisibility(View.GONE);
+                    } else {
+                        llMainSecondMarriage.setVisibility(View.VISIBLE);
+                    }
 
                 } else {
                     rgMarriage.clearCheck();
@@ -622,7 +628,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
         //last update
 
-         if (spMyEducation.getSelectedItemId() == 0) {
+        if (spMyEducation.getSelectedItemId() == 0) {
             Snackbar.make(v, "Please select Education", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
 
@@ -726,13 +732,14 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
 
         Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-        if (member.get_member_status() == 3 || member.get_member_status() == 4) {
+        if (member.get_member_status() >= 2 && member.get_member_status() < 7) {
             spMyEducation.setEnabled(false);
             viewGenerator.selectCheckRadioWithDisabledRadio(rgEconomy, members_obj.get_economy_id(), llcbViewEconomy, members_obj.get_choice_economy_ids());
             viewGenerator.selectCheckRadioWithDisabledRadio(rgReligious, members_obj.get_religious_sect_id(), llcbViewReligious, members_obj.get_choice_religious_sect_ids());
             viewGenerator.selectCheckRadioWithDisabledRadio(rgEthnic, members_obj.get_ethnic_background_id(), llcbViewEthnic, members_obj.get_choice_ethnic_bground_ids());
             viewGenerator.selectCheckRadioWithDisabledRadio(rgMarital, members_obj.get_marital_status_id(), llcbViewMarital, members_obj.get_choice_marital_status_ids());
             viewGenerator.selectCheckRadioWithDisabledRadio(rgChildren, members_obj.get_children_id(), llcbViewChildren, members_obj.get_choice_children_ids());
+
 
             viewGenerator.selectCheckRadioWithDisabledRadio(rgMarriage, members_obj.getSecond_marriage_reason_id(), llcbViewMarital, members_obj.get_choice_children_ids());
 

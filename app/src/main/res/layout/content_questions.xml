@@ -21,7 +21,8 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
         <LinearLayout
-            android:id="@+id/LinearLayoutDrawerMyProfile"
+
+            android:id="@+id/LinearLayoutQuestionMyProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -127,11 +128,12 @@
             android:textColor="@color/colorUserProfileRed" />
 
         <TextView
+            android:id="@+id/TextViewQuestionsLimit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
 
-            android:text="You can send upto five questions to ZEESHAN63 from many given below.This is an opportunity to set expectations so please be frank." />
+            android:text="" />
 
     </LinearLayout>
 

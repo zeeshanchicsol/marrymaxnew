@@ -1,6 +1,7 @@
 package com.chicsol.marrymax.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,10 +9,12 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,8 +30,10 @@ import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.ParentAdapter;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mChild;
+import com.chicsol.marrymax.modal.mContacts;
 import com.chicsol.marrymax.modal.mMemList;
 import com.chicsol.marrymax.modal.mParentChild;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
@@ -65,9 +70,11 @@ public class QuestionsActivity extends AppCompatActivity {
     private String userpath = "";
     private Members member;
     private DisplayImageOptions options;
-    private TextView tvAlias, tvAge;
+    private TextView tvAlias, tvAge, tvQuestionLimit;
     private CircleImageView ivMain;
     private int height = 0;
+
+    LinearLayout llProfile;
 
     private LayoutInflater inflater;
 
@@ -101,11 +108,14 @@ public class QuestionsActivity extends AppCompatActivity {
         recyclerViewParent = (RecyclerView) findViewById(R.id.RecyclerViewQuestions);
 
         ivMain = (CircleImageView) findViewById(R.id.imageViewQuestionsUser);
+        llProfile = (LinearLayout) findViewById(R.id.LinearLayoutQuestionMyProfile);
 
 
         tvAlias = (TextView) findViewById(R.id.TextViewQuestionsAlias);
         tvAge = (TextView) findViewById(R.id.TextViewQuestionsAge);
-      //  tvLastLogin = (TextView) findViewById(R.id.TextViewQuestionsLastLogin);
+
+        tvQuestionLimit = (TextView) findViewById(R.id.TextViewQuestionsLimit);
+        //  tvLastLogin = (TextView) findViewById(R.id.TextViewQuestionsLastLogin);
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -114,7 +124,6 @@ public class QuestionsActivity extends AppCompatActivity {
 
         parentAdapter = new ParentAdapter(this, new ArrayList<mParentChild>());
         recyclerViewParent.setAdapter(parentAdapter);
-
 
 
         imageLoader = ImageLoader.getInstance();
@@ -176,9 +185,13 @@ public class QuestionsActivity extends AppCompatActivity {
     }
 
     private void initHeade(Members member) {
+
+        String desc = "  You can send upto five questions to  <b> <font color=#216917>" + member.getAlias() + "</font></b> from many given below.This is an opportunity to set expectations so please be frank.";
+        tvQuestionLimit.setText(Html.fromHtml(desc));
+
         tvAlias.setText(member.getAlias());
-        tvAge.setText(member.get_min_age()+"");
-      //  tvLastLogin.setText(member.get_last_login_date());
+        tvAge.setText(member.get_min_age() + "");
+        //  tvLastLogin.setText(member.get_last_login_date());
 
 
         ivMain.setMinimumHeight(height);
@@ -219,6 +232,16 @@ public class QuestionsActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
+
+
+        llProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showUserProfile(member);
+            }
+        });
+
+
         ButtonSendQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -489,6 +512,19 @@ public class QuestionsActivity extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
+
+    }
+
+    private void showUserProfile(Members obj) {
+        Intent intent = new Intent(getApplicationContext(), UserProfileActivityWithSlider.class);
+
+        intent.putExtra("selectedposition", "-1");
+        List<Members> memberDataList = new ArrayList<Members>();
+        Members members = new Members();
+        members.setUserpath(obj.getUserpath());
+        memberDataList.add(members);
+        SharedPreferenceManager.setMemberDataList(getApplicationContext(), new Gson().toJson(memberDataList).toString());
+        startActivity(intent);
 
     }
 
