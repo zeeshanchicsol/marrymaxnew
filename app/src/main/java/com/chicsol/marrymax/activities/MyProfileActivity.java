@@ -1236,8 +1236,8 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
 
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.getProfileDetail);
+        Log.e("getProfileDetail", params.toString());
+        Log.e("getProfileDetail path", Urls.getProfileDetail);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getProfileDetail, params,
                 new Response.Listener<JSONObject>() {

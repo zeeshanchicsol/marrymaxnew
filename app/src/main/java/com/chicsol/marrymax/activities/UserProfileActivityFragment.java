@@ -1385,8 +1385,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         setWaitScreen(true);
 
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.getProfileDetail);
+        Log.e("getProfileDetail", params.toString());
+        Log.e("getProfileDetail ", Urls.getProfileDetail);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getProfileDetail, params,
                 new Response.Listener<JSONObject>() {

@@ -47,6 +47,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.UserProfileActivityFragment;
+import com.chicsol.marrymax.dialogs.dialogAddNotes;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
 import com.chicsol.marrymax.dialogs.dialogRequest;
 import com.chicsol.marrymax.dialogs.dialogRequestPhone;
@@ -705,6 +707,24 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                 }
             });
 
+            if (member.get_issubscribed() == 1 && member.get_isedit() == 2 && member.get_member_notes_id() != 0) {
+                holder.faNotes.setVisibility(View.VISIBLE);
+            } else {
+                holder.faNotes.setVisibility(View.GONE);
+            }
+
+            holder.faNotes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, frgMngr, fragment, v, null, null);
+                    if (bcheck4) {
+                        dialogAddNotes newFragment = dialogAddNotes.newInstance(member.getUserpath());
+                        newFragment.setTargetFragment(fragment, 0);
+                        newFragment.show(frgMngr, "dialog");
+                    }
+                }
+            });
+
 
             holder.faRemoveFromSearch.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1007,7 +1027,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
         public ImageView image;
 
         public mTextView alias, imageCount, age, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvShowInterestText;
-        public faTextView tvBtMenu, faRemoveFromSearch, faInterestIcon;  //faAddToFav
+        public faTextView tvBtMenu, faRemoveFromSearch, faInterestIcon, faNotes;  //faAddToFav
         public ImageView ivCountryFlag, ivViewPhone;
 
         public LinearLayoutCompat bt_ShowInterest, ll_user_profile, ll_image_count;
@@ -1017,6 +1037,8 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
             super(itemView);
 
             faInterestIcon = (faTextView) itemView.findViewById(R.id.faTextViewMyMatchesInterestIcon);
+            faNotes = (faTextView) itemView.findViewById(R.id.faTextViewMMNotes);
+
 
             image = (ImageView) itemView.findViewById(R.id.ImageViewMyMatchesProfile);
             alias = (mTextView) itemView.findViewById(R.id.TextVewMMAlias);

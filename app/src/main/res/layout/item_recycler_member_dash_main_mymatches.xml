@@ -35,8 +35,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-         <!--           android:background="@drawable/border_dash_main_profile"-->
-            <!--        android:src="@drawable/female_profile_100"-->
+                    <!--           android:background="@drawable/border_dash_main_profile"-->
+                    <!--        android:src="@drawable/female_profile_100"-->
                     <ImageView
                         android:id="@+id/ImageViewMyMatchesProfile"
                         android:layout_width="match_parent"
@@ -310,14 +310,30 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/border_my_matches_main_block"
+                    android:clickable="true"
                     android:paddingBottom="3dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:paddingTop="3dp"
                     android:text="@string/fa_icon_delete"
-
                     android:textColor="#9A0507"
                     android:textSize="15sp" />
+
+                <com.chicsol.marrymax.widgets.faTextView
+                    android:id="@+id/faTextViewMMNotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/border_my_matches_main_block"
+                    android:clickable="true"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/fa_icon_notes"
+                    android:textColor="#9A0507"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
 
 
             </LinearLayout>

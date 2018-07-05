@@ -82,15 +82,20 @@
                 android:layout_weight="1"
                 android:gravity="right">
 
+
+
                 <com.chicsol.marrymax.widgets.mTextView
                     android:id="@+id/TextViewMatchAid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:paddingLeft="5dp"
                     android:text="Match Aid"
-                    android:textColor="@color/colorWhite" />
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold" />
 
                 <com.chicsol.marrymax.widgets.faTextView
                     android:id="@+id/faTextViewAddToFavouriteMember"

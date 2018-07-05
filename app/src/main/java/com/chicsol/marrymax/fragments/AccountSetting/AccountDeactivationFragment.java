@@ -215,7 +215,7 @@ public class AccountDeactivationFragment extends Fragment {
 
 
                                 //    Log.e(""+ Urls.accountDeactivate, "" + params);
-                                //     deactivateRequest(params);
+                                     deactivateRequest(params);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
