@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.chicsol.marrymax.BuildConfig;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.fragments.inbox.DashboardMessagesFragment;
@@ -123,7 +124,14 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
         adapter.addFragment(new DashboardMessagesFragment(), " My Messages ");
         adapter.addFragment(new DashboardMyInterestsMainFragment(), " Interests ");
         adapter.addFragment(new DashboardMyRequestsMainFragment(), " Requests ");
-        adapter.addFragment(new DashboardQuestionsFragment(), " Questions ");
+
+
+        if(BuildConfig.FLAVOR.equals("marrymax")) {
+            adapter.addFragment(new DashboardQuestionsFragment(), " Questions ");
+        }
+        /*else if(BuildConfig.FLAVOR.equals("alfalah")) {
+        }*/
+
 
 
         viewPager.setAdapter(adapter);

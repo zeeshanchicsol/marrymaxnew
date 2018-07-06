@@ -170,9 +170,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:background="#E8EAE9"
-                android:text="Search your Best Match"
+                android:text="Find Pakistani Matches Worldwide"
                 android:textAllCaps="false"
                 android:textColor="#0b5b00"
+
                 android:textSize="@dimen/text_size_login" />
         </LinearLayout>
 

@@ -15,6 +15,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,12 +69,12 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
     private Spinner spMyCountry, spCountryOrigin, spMyCountryState, spMyCountryCity;
     private List<cModel> MyCountryDataList2;
     private List<WebArd> MyCountryDataList, MyCountryStateDataList, MyCountryCityDataList, MyChoiceCountryDataList, VisaDataList;
-    private MySpinnerAdapter adapter_myCountry, adapter_myCountryStates, adapter_myCountryCity, adapter_myChoiceCountry;
+    private MySpinnerAdapter adapter_myCountry, adapter_country_origin, adapter_myCountryStates, adapter_myCountryCity, adapter_myChoiceCountry;
     private LinearLayout llCheckboxView;
     private RadioGroup radioGroup;
     private String SelectedCountry, SelectedState;
 
-    private mTextView tvSpMultiChoice;
+    private mTextView tvSpMultiChoice, tvSpMultiChoiceOrigin;
     private Button bt_register_free;
     // seletedCountriesDataList
     private ArrayList seletedCountriesDataListTemp, seletedCountriesIdDataList;
@@ -182,13 +183,22 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         }
 
 
-        Log.e("FLAVOR", "" + BuildConfig.FLAVOR);
+        if (BuildConfig.FLAVOR.equals("alfalah"))
 
-        if (BuildConfig.FLAVOR.equals("alfalah")) {
-         //   Toast.makeText(this, "alfalah           ", Toast.LENGTH_SHORT).show();
-         //   Log.e("FLAVOR", "" + BuildConfig.FLAVOR);
-       //     spCountryOrigin = (Spinner) findViewById(R.id.spinnerOriginCountry);
+        {
+
+
+            tvSpMultiChoiceOrigin = (mTextView) findViewById(R.id.MutliChoiceOriginCountryButton);
+            //spinners
+            spCountryOrigin = (Spinner) findViewById(R.id.spinnerOriginCountry);
+
+            adapter_country_origin = new MySpinnerAdapter(this,
+                    android.R.layout.simple_spinner_item, MyCountryDataList);
+            adapter_country_origin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spCountryOrigin.setAdapter(adapter_country_origin);
+
         }
+
 
     }
 
@@ -328,7 +338,20 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
             }
         });
 
+        if (BuildConfig.FLAVOR.equals("alfalah"))
 
+        {
+
+            tvSpMultiChoiceOrigin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Gson gson = new Gson();
+                    dialogMultiChoice newFragment = dialogMultiChoice.newInstance(gson.toJson(MyChoiceCountryDataList), 2, "Select Origin Country of your Choice");
+                    newFragment.show(getSupportFragmentManager(), "dialog");
+                }
+            });
+
+        }
     }
 
     private boolean checkSelections(View v) {
@@ -538,6 +561,13 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                             MyCountryCityDataList.add(0, new WebArd("-1", "Please Select"));
 
                             adapter_myCountry.updateDataList(MyCountryDataList);
+
+                            if (BuildConfig.FLAVOR.equals("alfalah"))
+
+                            {
+                                adapter_country_origin.updateDataList(MyCountryDataList);
+
+                            }
 
 
                             adapter_myCountryStates.updateDataList(MyCountryStateDataList);
@@ -928,12 +958,29 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
     @Override
     public void onMultiChoiceSave(List<WebArd> s, int c) {
-        MyChoiceCountryDataList.clear();
-        MyChoiceCountryDataList.addAll(s);
 
 
-        MarryMax max = new MarryMax(null);
+        switch (c) {
+            case 1:
 
-        tvSpMultiChoice.setText(max.getSelectedTextFromList(MyChoiceCountryDataList, "My Choice Countries"));
+                MyChoiceCountryDataList.clear();
+                MyChoiceCountryDataList.addAll(s);
+
+
+                MarryMax max = new MarryMax(null);
+
+                tvSpMultiChoice.setText(max.getSelectedTextFromList(MyChoiceCountryDataList, "My Choice Countries"));
+
+
+                break;
+
+            case 2:
+
+                break;
+
+
+        }
+
+
     }
 }

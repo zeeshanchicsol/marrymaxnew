@@ -39,6 +39,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.chicsol.marrymax.BuildConfig;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.ImageSliderPagerAdapter;
 import com.chicsol.marrymax.dialogs.dialogAddNotes;
@@ -52,6 +53,7 @@ import com.chicsol.marrymax.dialogs.dialogReplyOnAcceptInterest;
 import com.chicsol.marrymax.dialogs.dialogReportConcern;
 import com.chicsol.marrymax.dialogs.dialogRequestPhone;
 import com.chicsol.marrymax.dialogs.dialogShowInterest;
+import com.chicsol.marrymax.fragments.inbox.DashboardQuestionsFragment;
 import com.chicsol.marrymax.fragments.userprofilefragments.BasicInfoFragment;
 import com.chicsol.marrymax.fragments.userprofilefragments.PicturesFragment;
 import com.chicsol.marrymax.interfaces.PhoneRequestCallBackInterface;
@@ -532,6 +534,13 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             menuItem.setTitle("Remove");
 
         }
+
+        if (BuildConfig.FLAVOR.equals("alfalah")) {
+            MenuItem menuItem = popupUp.getMenu().findItem(R.id.menu_up_ask_questions);
+            menuItem.setVisible(false);
+        }
+
+
        /* if (member.get_is == 1) {
             MenuItem menuItem = popupUp.getMenu().findItem(R.id.menu_up_remove);
 

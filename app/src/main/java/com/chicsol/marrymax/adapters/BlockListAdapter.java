@@ -63,7 +63,7 @@ public class BlockListAdapter extends ArrayAdapter<WebArdList> {
             holder.txtTitle = (TextView) row.findViewById(R.id.TextViewBlockListAlias);
             holder.txtDate = (TextView) row.findViewById(R.id.TextViewBlockListDate);
             holder.faUnRemove = (faTextView) row.findViewById(R.id.faTextViewBlockListUnblock);
-            holder.txtReason = (TextView) row.findViewById(R.id.faTextViewBlockListUnBlockReason);
+            holder.txtReason = (TextView) row.findViewById(R.id.TextViewBlockListUnBlockReason);
 
             row.setTag(holder);
 
@@ -74,6 +74,11 @@ public class BlockListAdapter extends ArrayAdapter<WebArdList> {
         WebArdList item = data.get(position);
         holder.txtTitle.setText(item.getAlias());
         holder.txtDate.setText(item.getStart_date());
+
+        holder.txtReason.setText(item.getDeactivate_reason());
+
+
+
         holder.faUnRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -3,6 +3,7 @@ package com.chicsol.marrymax.helperMethods;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
+import android.view.MenuItem;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -13,6 +14,8 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.chicsol.marrymax.BuildConfig;
+import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -38,8 +41,8 @@ import java.util.Map;
 public class APIHelper {
     Context context;
 
- /* ListViewAdvSearchFragment.defaultSelectionsObj.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
-*/
+    /* ListViewAdvSearchFragment.defaultSelectionsObj.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
+     */
 /*    Gson gson = new Gson();
     String memString = gson.toJson(ListViewAdvSearchFragment.defaultSelectionsObj);
     params = memString;
@@ -54,6 +57,17 @@ public class APIHelper {
     Dashboards dash = (Dashboards) gson.fromJson(jsonObj.toString(), membert);
 */
 
+/*
+  if(BuildConfig.FLAVOR.equals("alfalah"))
+
+    {
+        MenuItem menuItem = popupUp.getMenu().findItem(R.id.menu_up_ask_questions);
+        menuItem.setVisible(false);
+    }else if(BuildConfig.FLAVOR.equals("marrymax"))
+
+    {
+    }
+    */
 
     private void getRequest(final String country_id) {
 
@@ -61,7 +75,7 @@ public class APIHelper {
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("api path",""+Urls.getStatesUrl + SharedPreferenceManager.getUserObject(context).get_path());
+        Log.e("api path", "" + Urls.getStatesUrl + SharedPreferenceManager.getUserObject(context).get_path());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getStatesUrl + country_id,
                 new Response.Listener<JSONArray>() {
@@ -80,9 +94,7 @@ public class APIHelper {
                             Type listType = new TypeToken<List<WebArd>>() {
                             }.getType();
 
-                       List<WebArd>     MyCountryStateDataList = (List<WebArd>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-
-
+                            List<WebArd> MyCountryStateDataList = (List<WebArd>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
 
 
                         } catch (JSONException e) {
@@ -175,8 +187,7 @@ public class APIHelper {
 
     }
 
-    private void putRequest(JSONObject params, final boolean replyCheck, final Members member)
-    {
+    private void putRequest(JSONObject params, final boolean replyCheck, final Members member) {
 
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
@@ -240,32 +251,33 @@ public class APIHelper {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(context).addToRequestQueue(jsonObjReq);
     }
-   //================================================================================================
-   private void getNotificationCount() {
+
+    //================================================================================================
+    private void getNotificationCount() {
 
 
-       Log.e(" Notification url", Urls.getNotificationCount + SharedPreferenceManager.getUserObject(context).get_path());
-       StringRequest req = new StringRequest(Urls.getNotificationCount + SharedPreferenceManager.getUserObject(context).get_path(),
-               new Response.Listener<String>() {
-                   @Override
-                   public void onResponse(String response) {
-                       Log.e("Notification Count==", "=======================  " + response);
+        Log.e(" Notification url", Urls.getNotificationCount + SharedPreferenceManager.getUserObject(context).get_path());
+        StringRequest req = new StringRequest(Urls.getNotificationCount + SharedPreferenceManager.getUserObject(context).get_path(),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("Notification Count==", "=======================  " + response);
 
-                   }
-               }, new Response.ErrorListener() {
-           @Override
-           public void onErrorResponse(VolleyError error) {
-               VolleyLog.d("Err", "Error: " + error.getMessage());
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
 
-           }
-       }) {
-           @Override
-           public Map<String, String> getHeaders() throws AuthFailureError {
-               return Constants.getHashMap();
-           }
-       };
-       MySingleton.getInstance(context).addToRequestQueue(req);
-   }
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        MySingleton.getInstance(context).addToRequestQueue(req);
+    }
 
 
 }
