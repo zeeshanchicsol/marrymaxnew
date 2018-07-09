@@ -31,6 +31,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.chicsol.marrymax.BuildConfig;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.dialogs.dialogMultiChoice;
@@ -62,12 +63,12 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
     private Button bt_register_free, bt_back;
     private LinearLayout llMainSecondMarriage, llcbViewEconomy, llcbViewReligious, llcbViewEthnic, llcbViewMarital, llcbViewChildren, llChildren, llcbViewMarriage;
     private RadioGroup rgEconomy, rgReligious, rgEthnic, rgMarital, rgChildren, rgMarriage;
-    private List<WebArd> marriageDataList, educationDataList, myEducationDataList, educationFieldDataList, castesDataList, religiousDataList, ethnicDataList, martialDataList, occupationDataList, myOccupationDataList, childrenDataList, incomeDataList, economyDataList, graduationYearDataList;
+    private List<WebArd> languageDataList, marriageDataList, educationDataList, myEducationDataList, educationFieldDataList, castesDataList, religiousDataList, ethnicDataList, martialDataList, occupationDataList, myOccupationDataList, childrenDataList, incomeDataList, economyDataList, graduationYearDataList;
     private Members members_obj;
-    private Spinner spMyEducation, spMyEducationalField, spMyGraduationYear, spMyOccupation, spMyGradYear, spMyAnnualIncomeLevel;
-    private MySpinnerAdapter spAdapterMyEducation, spAdapterMyGradYear, spAdapterMyEducationalField, spAdapterMyGraduationyear, spAdapterMyOccupation, spAdapterMyAnnualIncome;
+    private Spinner spMyLanguage, spMyEducation, spMyEducationalField, spMyGraduationYear, spMyOccupation, spMyGradYear, spMyAnnualIncomeLevel;
+    private MySpinnerAdapter spAdapterMyLanguage, spAdapterMyEducation, spAdapterMyGradYear, spAdapterMyEducationalField, spAdapterMyGraduationyear, spAdapterMyOccupation, spAdapterMyAnnualIncome;
     private boolean updateData = true;
-    private TextView tvMcMyChoiceEducation, tvMcMyChoiceOccupation;
+    private TextView tvMcMyChoiceEducation, tvMcMyChoiceOccupation, tvMutliChoiceMyChoiceLanguage, tvMutliChoiceMySpokenLanguage;
 
     private ArrayList selectedEducationIdDataList, selectedOccupationIdDataList, selectedOccupationDataList;
     private EditText etGraduatedFrom, etNoOfGirls, etNoOfBoys, etMinAge, etMaxAge;
@@ -82,6 +83,9 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
     private AppCompatImageButton btRemoveChildren, btRemoveSchool;
 
     private long removeChildrenMyid;
+    private LinearLayout llLanguage;
+    private LinearLayout llChoiceLanguage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +151,30 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         fabLifeStyle2 = (FloatingActionButton) findViewById(R.id.fabLifeStyle2);
 
 
+        if (BuildConfig.FLAVOR.equals("alfalah")) {
+
+            llLanguage = (LinearLayout) findViewById(R.id.LinearLayoutRegLifeStyle1Language);
+            llChoiceLanguage = (LinearLayout) findViewById(R.id.LinearLayoutRegLifeStyle1ChoiceLanguage);
+            llLanguage.setVisibility(View.VISIBLE);
+            llChoiceLanguage.setVisibility(View.VISIBLE);
+
+            spMyLanguage = (Spinner) findViewById(R.id.spinnerMyLanguage);
+
+            languageDataList = new ArrayList<>();
+
+            spAdapterMyLanguage = new MySpinnerAdapter(this,
+                    android.R.layout.simple_spinner_item, languageDataList);
+            spAdapterMyLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spMyLanguage.setAdapter(spAdapterMyLanguage);
+
+
+            tvMutliChoiceMyChoiceLanguage = (TextView) findViewById(R.id.MutliChoiceMyChoiceLanguage);
+
+            tvMutliChoiceMySpokenLanguage = (TextView) findViewById(R.id.MutliChoiceMySpokenLanguage);
+
+        }
+
+
         marriageDataList = new ArrayList<>();
         educationDataList = new ArrayList<>();
         myEducationDataList = new ArrayList<>();
@@ -168,6 +196,8 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         economyDataList = new ArrayList<>();
 
         graduationYearDataList = new ArrayList<>();
+
+
         Calendar calendar = Calendar.getInstance();
         int current_year = calendar.get(Calendar.YEAR);
 
@@ -393,6 +423,30 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
             }
         });
+        if (BuildConfig.FLAVOR.equals("alfalah")) {
+
+            tvMutliChoiceMyChoiceLanguage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Gson gson = new Gson();
+                    dialogMultiChoice newFragment = dialogMultiChoice.newInstance(gson.toJson(occupationDataList), 2, "My Choice Occupation");
+                    newFragment.show(getSupportFragmentManager(), "dialog");
+
+                }
+            });
+
+            tvMutliChoiceMySpokenLanguage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Gson gson = new Gson();
+                    dialogMultiChoice newFragment = dialogMultiChoice.newInstance(gson.toJson(occupationDataList), 2, "My Choice Occupation");
+                    newFragment.show(getSupportFragmentManager(), "dialog");
+
+                }
+            });
+
+
+        }
 
 //==========================================================================
 
@@ -572,6 +626,24 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
     @SuppressLint("ResourceType")
     private boolean checkFieldsSelection(View v) {
         boolean ck = false;
+
+
+        if (BuildConfig.FLAVOR.equals("alfalah")) {
+
+            if (spMyLanguage.getSelectedItemId() == 0) {
+                TextView errorText = (TextView) spMyLanguage.getSelectedView();
+                errorText.setError("");
+                errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
+                errorText.setText("Please select Language");
+
+         /*   Snackbar.make(v, "Please select Education", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
+*/
+                ck = true;
+            }
+
+
+        }
 
         if (spMyEducation.getSelectedItemId() == 0) {
             TextView errorText = (TextView) spMyEducation.getSelectedView();

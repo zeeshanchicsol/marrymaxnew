@@ -68,7 +68,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
     private Spinner spMyCountry, spCountryOrigin, spMyCountryState, spMyCountryCity;
     private List<cModel> MyCountryDataList2;
-    private List<WebArd> MyCountryDataList, MyCountryStateDataList, MyCountryCityDataList, MyChoiceCountryDataList, VisaDataList;
+    private List<WebArd> MyCountryDataList, MyCountryStateDataList, MyCountryCityDataList, MyChoiceCountryDataList,MyChoiceOriginCountryDataList, VisaDataList;
     private MySpinnerAdapter adapter_myCountry, adapter_country_origin, adapter_myCountryStates, adapter_myCountryCity, adapter_myChoiceCountry;
     private LinearLayout llCheckboxView;
     private RadioGroup radioGroup;
@@ -133,6 +133,8 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         MyCountryStateDataList = new ArrayList<>();
         MyCountryCityDataList = new ArrayList<>();
         MyChoiceCountryDataList = new ArrayList<>();
+        MyChoiceOriginCountryDataList = new ArrayList<>();
+
         VisaDataList = new ArrayList<>();
         // seletedCountriesDataList = new ArrayList();
         //  seletedCountriesDataListTemp = new ArrayList();
@@ -346,7 +348,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 @Override
                 public void onClick(View view) {
                     Gson gson = new Gson();
-                    dialogMultiChoice newFragment = dialogMultiChoice.newInstance(gson.toJson(MyChoiceCountryDataList), 2, "Select Origin Country of your Choice");
+                    dialogMultiChoice newFragment = dialogMultiChoice.newInstance(gson.toJson(MyChoiceOriginCountryDataList), 2, "Select Origin Country of your Choice");
                     newFragment.show(getSupportFragmentManager(), "dialog");
                 }
             });
@@ -555,6 +557,9 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                             VisaDataList = (List<WebArd>) gsonc.fromJson(jsonVisaObj.toString(), listType);
                             MyChoiceCountryDataList.addAll(MyCountryDataList);
                             MyChoiceCountryDataList.add(0, new WebArd("-1", "Any"));
+
+                            MyChoiceOriginCountryDataList.addAll(MyCountryDataList);
+                            MyChoiceOriginCountryDataList.add(0, new WebArd("-1", "Any"));
 
                             MyCountryDataList.add(0, new WebArd("-1", "Please Select"));
                             MyCountryStateDataList.add(0, new WebArd("-1", "Please Select"));
@@ -975,7 +980,13 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 break;
 
             case 2:
+              MyChoiceOriginCountryDataList.clear();
+                MyChoiceOriginCountryDataList.addAll(s);
 
+
+                MarryMax maxa = new MarryMax(null);
+
+                tvSpMultiChoiceOrigin.setText(maxa.getSelectedTextFromList(MyChoiceOriginCountryDataList, "My Choice Origin Countries"));
                 break;
 
 
