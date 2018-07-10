@@ -65,45 +65,127 @@
                     android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
-
                     <com.chicsol.marrymax.widgets.mTextView
                         android:id="@+id/TextViewContactDialogTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Request ABC to Upload Pictures"
+                        android:text="asdasdsad"
                         android:textColor="@color/colorBlack" />
 
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewContactDialogMobileNumber"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Phone"
-                        android:textColor="@color/colorBlack" />
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewContactDialogContactName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Request "
-                        android:textColor="@color/colorBlack" />
 
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewContactDialogRelationship"
+                    <TableLayout
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Request"
-                        android:textColor="@color/colorBlack" />
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewContactDialogPrefferedCallTime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Request"
-                        android:textColor="@color/colorBlack" />
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewContactDialogCountryName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Request "
-                        android:textColor="@color/colorBlack" />
+                        android:layout_marginTop="10dp"
+                        android:stretchColumns="*">
+
+                        <TableRow
+                            android:background="#30808080"
+                            android:padding="5dp">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:text="Contact Name: "
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:id="@+id/TextViewContactDialogContactName"
+
+                                android:textColor="@color/colorBlack" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginTop="4dp"
+
+                            android:padding="5dp">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+
+                                android:text="Mobile Number: "
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:id="@+id/TextViewContactDialogMobileNumber"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="@color/colorBlack" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginTop="4dp"
+
+                            android:background="#30808080"
+                            android:padding="5dp">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Relationship: "
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:id="@+id/TextViewContactDialogRelationship"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="@color/colorBlack" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginTop="4dp"
+                            android:padding="5dp">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Preffered Call Time: "
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
+
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:id="@+id/TextViewContactDialogPrefferedCallTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="@color/colorBlack" />
+
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_marginTop="4dp"
+
+                            android:background="#30808080"
+                            android:padding="5dp">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Country Name: "
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:id="@+id/TextViewContactDialogCountryName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="@color/colorBlack" />
+                        </TableRow>
+
+                    </TableLayout>
+
 
                     <android.support.v7.widget.AppCompatButton
                         android:id="@+id/ButtonContactDialogCancel"

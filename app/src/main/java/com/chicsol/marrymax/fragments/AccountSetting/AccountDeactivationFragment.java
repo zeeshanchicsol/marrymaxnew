@@ -214,8 +214,8 @@ public class AccountDeactivationFragment extends Fragment {
                             if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
 
-                                //    Log.e(""+ Urls.accountDeactivate, "" + params);
-                                     deactivateRequest(params);
+                                //  Log.e(""+ Urls.accountDeactivate, "" + params);
+                                deactivateRequest(params);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -236,7 +236,7 @@ public class AccountDeactivationFragment extends Fragment {
     }
 
     private void deactivateRequest(JSONObject params) {
-
+        btDeactiveAccount.setEnabled(false);
 
         pDialog.setVisibility(View.VISIBLE);
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
@@ -268,6 +268,7 @@ public class AccountDeactivationFragment extends Fragment {
                         } catch (JSONException e) {
                             pDialog.setVisibility(View.GONE);
                             e.printStackTrace();
+
                         }
 
                         pDialog.setVisibility(View.GONE);

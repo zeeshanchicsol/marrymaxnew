@@ -294,76 +294,7 @@ public class QuestionsActivity extends AppCompatActivity {
         return true;
     }
 
-    private ArrayList<mParentChild> createData() {
-        parentChildObj = new ArrayList<>();
-        ArrayList<mChild> list1 = new ArrayList<>();
-        ArrayList<mChild> list2 = new ArrayList<>();
-        ArrayList<mChild> list3 = new ArrayList<>();
-        ArrayList<mChild> list4 = new ArrayList<>();
-        ArrayList<mChild> list5 = new ArrayList<>();
 
-        for (int i = 0; i < 3; i++) {
-            mChild c1 = new mChild();
-            c1.setName("Child 1." + (i + 1));
-            list1.add(c1);
-        }
-
-        for (int i = 0; i < 5; i++) {
-            mChild c2 = new mChild();
-            c2.setName("Child 2." + (i + 1));
-            list2.add(c2);
-        }
-
-
-        for (int i = 0; i < 2; i++) {
-            mChild c3 = new mChild();
-            c3.setName("Child 3." + (i + 1));
-            list3.add(c3);
-        }
-
-
-        for (int i = 0; i < 4; i++) {
-            mChild c4 = new mChild();
-            c4.setName("Child 4." + (i + 1));
-            list4.add(c4);
-        }
-
-        for (int i = 0; i < 2; i++) {
-            mChild c5 = new mChild();
-            c5.setName("Child 5." + (i + 1));
-            list5.add(c5);
-        }
-
-
-        mParentChild pc1 = new mParentChild();
-        pc1.setChild(list1);
-        pc1.setTitle("c1");
-        parentChildObj.add(pc1);
-
-        mParentChild pc2 = new mParentChild();
-        pc2.setTitle("c2");
-        pc2.setChild(list2);
-        parentChildObj.add(pc2);
-
-
-        mParentChild pc3 = new mParentChild();
-        pc3.setChild(list3);
-        pc3.setTitle("c3");
-        parentChildObj.add(pc3);
-
-        mParentChild pc4 = new mParentChild();
-        pc4.setChild(list4);
-        pc4.setTitle("c4");
-        parentChildObj.add(pc4);
-
-        mParentChild pc5 = new mParentChild();
-        pc5.setChild(list5);
-        pc5.setTitle("c5");
-        parentChildObj.add(pc5);
-
-
-        return parentChildObj;
-    }
 
     private void getRequest() {
 

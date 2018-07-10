@@ -31,6 +31,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.MatchAidActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
@@ -69,7 +70,7 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
     private Context context;
     TextView tvTitleLiveNotLive;
     private boolean addNumber = false;
-    private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber;
+    private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber, btMatchAid;
     //   btUpdateEmailz  btResendVerification
 
     LinearLayout llASPhone, llASEmail;
@@ -134,6 +135,8 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
         btAddNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusAddNumber);
         btVerifyNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusVerifyNumber);
         btUpdateNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdateNumber);
+
+        btMatchAid = (AppCompatButton) view.findViewById(R.id.ButtonMatchAid);
 
 
         //  btResendVerification = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusResend);
@@ -225,7 +228,13 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
     private void setListeners() {
 
-
+        btMatchAid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MatchAidActivity.class);
+                startActivity(intent);
+            }
+        });
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

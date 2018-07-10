@@ -1,14 +1,14 @@
 package com.chicsol.marrymax.urls;
 
-
+/*
 import static com.chicsol.alfalah.webconfig.webconfig.ARDTOKENa;
 import static com.chicsol.alfalah.webconfig.webconfig.PassPhraseArdApa;
-import static com.chicsol.alfalah.webconfig.webconfig.baseUrla;
+import static com.chicsol.alfalah.webconfig.webconfig.baseUrla;*/
 
 
-/*import static com.chicsol.marrymax.webconfig.webconfig.ARDTOKENa;
+import static com.chicsol.marrymax.webconfig.webconfig.ARDTOKENa;
 import static com.chicsol.marrymax.webconfig.webconfig.PassPhraseArdApa;
-import static com.chicsol.marrymax.webconfig.webconfig.baseUrla;*/
+import static com.chicsol.marrymax.webconfig.webconfig.baseUrla;
 
 /**
  * Created by Android on 12/14/2016.

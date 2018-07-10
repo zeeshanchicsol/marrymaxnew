@@ -216,7 +216,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
             try {
                 params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
                 params.put("page_no", lastPage);
-                params.put("type", "interest");
+                params.put("type", type);
 
                 // loadData(params.toString(), false);
                 loadMoreData(params.toString());
@@ -381,7 +381,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
                                             totalPages = (int) memberTotalPages.getInterested_members_count();
                                             lastPage = 1;
-                                            //      Log.e("total pages", "" + totalPages);
+                                                 Log.e("total pages interests", "" + totalPages);
                                             swipeRefresh.setRefreshing(false);
                                         }
                                     }
@@ -553,7 +553,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //  Log.e("Params search" + " " + Urls.searchProfiles, "" + params);
+         Log.e("Params loadM request" + " " + Urls.interestRequestType, "" + params);
 
         //  Log.e("Params search" + " " + Urls.searchProfiles, "");
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -575,7 +575,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                 Gson gson;
                                 GsonBuilder gsonBuilder = new GsonBuilder();
                                 gson = gsonBuilder.create();
-                                Type member = new TypeToken<List<Members>>() {
+                                Type member = new TypeToken<List<mCommunication>>() {
                                 }.getType();
                                 recyclerAdapter.setProgressMore(false);
                                 // membersDataList.clear();

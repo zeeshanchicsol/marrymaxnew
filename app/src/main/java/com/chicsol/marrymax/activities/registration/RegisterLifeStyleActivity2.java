@@ -277,7 +277,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
 
         viewGenerator.selectCheckRadio(rgFamilyValues, members_obj.get_family_values_id(), llcbViewFamilyValues, members_obj.get_choice_family_values_ids());
         viewGenerator.selectCheckRadio(rgLivingArrangements, members_obj.get_living_arrangement_id(), llcbViewLivingArrangements, members_obj.get_choice_living_arangment_ids());
-        viewGenerator.selectCheckRadio(rgRaisedWhere, members_obj.get_raised_id(), llcbViewRaisedWhere, members_obj.get_choice_raised_ids());
+
         viewGenerator.selectCheckRadio(rgHijab, members_obj.get_hijab_id(), llcbViewHijab, members_obj.get_choice_hijab_ids());
 
 
@@ -288,12 +288,14 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
 
             viewGenerator.selectCheckRadioWithDisabledRadio(rgSmoke, members_obj.get_smoking_id(), llcbViewSmoke, members_obj.get_choice_smoking_ids());
             viewGenerator.selectCheckRadioWithDisabledRadio(rgDrink, members_obj.get_drink_id(), llcbViewDrink, members_obj.get_choice_drink_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgRaisedWhere, members_obj.get_raised_id(), llcbViewRaisedWhere, members_obj.get_choice_raised_ids());
 
 
         } else {
 
             viewGenerator.selectCheckRadio(rgSmoke, members_obj.get_smoking_id(), llcbViewSmoke, members_obj.get_choice_smoking_ids());
             viewGenerator.selectCheckRadio(rgDrink, members_obj.get_drink_id(), llcbViewDrink, members_obj.get_choice_drink_ids());
+            viewGenerator.selectCheckRadio(rgRaisedWhere, members_obj.get_raised_id(), llcbViewRaisedWhere, members_obj.get_choice_raised_ids());
 
 
         }

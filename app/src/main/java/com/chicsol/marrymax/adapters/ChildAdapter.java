@@ -125,7 +125,7 @@ public class ChildAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
 
 
-        vh.tvChild.setText(c.getName());
+        vh.tvChild.setText("\u25CF  "+c.getName());
         //  vh.tvChild.check
 
         vh.tvTitle.setText(title);

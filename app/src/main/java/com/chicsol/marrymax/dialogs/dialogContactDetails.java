@@ -99,16 +99,16 @@ public class dialogContactDetails extends DialogFragment {
         mTextView contactCalltime = (mTextView) rootView.findViewById(R.id.TextViewContactDialogPrefferedCallTime);
         mTextView contactCountryName = (mTextView) rootView.findViewById(R.id.TextViewContactDialogCountryName);
 
-        contactName.setText("Contact Name: "+member.get_personal_name());
+        contactName.setText(""+member.get_personal_name());
 
-        contactPhone.setText("Mobile number: "+member.get_phone_mobile());
+        contactPhone.setText(""+member.get_phone_mobile());
 
 
-        contactRelationShip.setText("Relationship: "+member.get_profile_owner());
+        contactRelationShip.setText(""+member.get_profile_owner());
 
-        contactCalltime.setText("Preffered Call Time: "+member.get_notes());
+        contactCalltime.setText(""+member.get_notes());
 
-        contactCountryName.setText("Country Name: "+member.get_country_name());
+        contactCountryName.setText(""+member.get_country_name());
 
 
         Button mOkButton = (Button) rootView.findViewById(R.id.ButtonContactDialogCancel);

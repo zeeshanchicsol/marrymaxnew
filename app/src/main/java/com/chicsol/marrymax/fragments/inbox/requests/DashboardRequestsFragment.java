@@ -203,7 +203,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
             try {
                 params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
                 params.put("page_no", lastPage);
-                params.put("type", "request");
+                params.put("type", type);
 
                 //loadData(params.toString(), false);
                 loadMoreData(params.toString());
@@ -372,9 +372,9 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                                 mCommunication memberTotalPages = (mCommunication) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), memberta);
 
 
-                                                totalPages = (int) memberTotalPages.getInterested_members_count();
+                                                totalPages = (int) memberTotalPages.getRequesting_members_count();
                                                 lastPage = 1;
-                                                //      Log.e("total pages", "" + totalPages);
+                                             //   Log.e("total pages Req Sent", "" + totalPages);
                                                 swipeRefresh.setRefreshing(false);
                                             } else {
 
@@ -472,9 +472,9 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                                 mCommunication memberTotalPages = (mCommunication) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), memberth);
 
 
-                                                totalPages = (int) memberTotalPages.getInterested_members_count();
+                                                totalPages = (int) memberTotalPages.getRequesting_members_count();
                                                 lastPage = 1;
-                                                //      Log.e("total pages", "" + totalPages);
+                                             //   Log.e("Requests total pages", "" + totalPages);
                                                 swipeRefresh.setRefreshing(false);
                                             } else {
 
@@ -559,7 +559,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
         }
         //  Log.e("Params search" + " " + Urls.searchProfiles, "" + params);
 
-        //  Log.e("Params search" + " " + Urls.searchProfiles, "");
+        Log.e("Request Params" + " " + Urls.interestRequestType, "");
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.interestRequestType, params,
                 new Response.Listener<JSONObject>() {
@@ -579,13 +579,13 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                 Gson gson;
                                 GsonBuilder gsonBuilder = new GsonBuilder();
                                 gson = gsonBuilder.create();
-                                Type member = new TypeToken<List<Members>>() {
+                                Type member = new TypeToken<List<mCommunication>>() {
                                 }.getType();
                                 recyclerAdapter.setProgressMore(false);
                                 // membersDataList.clear();
                                 membersDataList = (List<mCommunication>) gson.fromJson(jsonarrayData.toString(), member);
 
-                                // Log.e("Length 56", membersDataList.size() + "  ");
+                             //   Log.e("Request Length 56", membersDataList.size() + "  ");
                                 recyclerAdapter.addItemMore(membersDataList);
                                 recyclerAdapter.setMoreLoading(false);
 
@@ -668,7 +668,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                             mComCount comCount = (mComCount) gsonc.fromJson(response.getJSONArray(0).getJSONObject(0).toString(), listType);
 
-                            Log.e("ressssss", comCount.getNew_interests_count() + "");
+                       //     Log.e("ressssss", comCount.getNew_requests_count() + "");
                             getNew_requests_count = (int) comCount.getNew_requests_count();
 
                         } catch (JSONException e) {

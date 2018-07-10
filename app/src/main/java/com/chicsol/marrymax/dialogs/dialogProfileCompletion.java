@@ -120,7 +120,7 @@ public class dialogProfileCompletion extends DialogFragment {
 //email verification request
                 if (step == 2) {
                     dialogProfileCompletion.this.getDialog().cancel();
-                 //   emailVerificationRequest();
+                    //   emailVerificationRequest();
                     //   Toast.makeText(getContext(), "email", Toast.LENGTH_SHORT).show();
 
                /*     Intent intent = new Intent(activity, SearchMainActivity.class);
@@ -129,15 +129,13 @@ public class dialogProfileCompletion extends DialogFragment {
                     context.startActivity(intent);*/
                     dialogProfileCompletion.this.getDialog().cancel();
                     Intent in = new Intent(getContext(), MainDirectiveActivity.class);
-                    in.putExtra("type", 14);
+                    in.putExtra("type", 22);
                     startActivity(in);
 
-                }
-              else   if (step == 22) {
+                } else if (step == 22) {
                     emailVerificationRequest();
                     //   Toast.makeText(getContext(), "email", Toast.LENGTH_SHORT).show();
-                }
-                else if (step == 1) {
+                } else if (step == 1) {
                     dialogProfileCompletion.this.getDialog().cancel();
                     //  Intent intent=new Intent(getContext(),Reg)
                 /*    MarryMax marryMax = new MarryMax(null);
