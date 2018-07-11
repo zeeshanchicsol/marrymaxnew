@@ -488,20 +488,7 @@ public class AccpetedMembers extends Fragment implements RecyclerViewAdapterMyMa
                                         tvMatchesCountCp.setText(memberTotalPages.get_total_member_count() + "");
                                         tvComplProfioleTitle.setText("Members, With Accepted Interest");
 
-                                    }/* else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
-
-                                        GsonBuilder gsonBuildert = new GsonBuilder();
-                                        Type membert = new TypeToken<Members>() {
-                                        }.getType();
-                                        Members memberTotalPages = (Members) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), membert);
-
-
-                                        llSubscribeNow.setVisibility(View.VISIBLE);
-                                        tvMatchesCountSubscribeNow.setText(memberTotalPages.get_total_member_count() + "");
-                                        tvSubscribeNowTitle.setText("Members, With Accepted Interest");
-
-
-                                    }*/ else {
+                                    } else {
                                         LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
                                     }
                                 }

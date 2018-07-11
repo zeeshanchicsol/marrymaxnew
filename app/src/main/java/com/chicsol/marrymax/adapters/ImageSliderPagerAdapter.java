@@ -25,6 +25,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -34,23 +35,23 @@ public class ImageSliderPagerAdapter extends PagerAdapter {
     public ImageLoader imageLoader;
     Context context;
     List<String> images;
-    LayoutInflater layoutInflater;
-    private DisplayImageOptions options;
-    private LayoutInflater inflater;
+   LayoutInflater layoutInflater;
+  //  private DisplayImageOptions options;
+  //  private LayoutInflater inflater;
     private View view;
 
     public ImageSliderPagerAdapter(Context context, List<String> images, View view) {
         this.context = context;
         this.view = view;
         this.images = images;
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+     layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         imageLoader = ImageLoader.getInstance();
         imageLoader.init(ImageLoaderConfiguration.createDefault(context));
 
-        inflater = LayoutInflater.from(context);
+      //  inflater = LayoutInflater.from(context);
 
-        options = new DisplayImageOptions.Builder()
+     /*   options = new DisplayImageOptions.Builder()
                 //   .showImageOnLoading(resize(R.drawable.loading_sm))
                 // .showImageOnLoading(resize(R.drawable.loading))
                 // .showImageForEmptyUri(resize(R.drawable.oops_sm))
@@ -60,7 +61,7 @@ public class ImageSliderPagerAdapter extends PagerAdapter {
                 .considerExifParams(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
 
-             /*   .postProcessor(new BitmapProcessor() {
+             *//*   .postProcessor(new BitmapProcessor() {
                     @Override
                     public Bitmap process(Bitmap bmp) {
 
@@ -86,7 +87,7 @@ public class ImageSliderPagerAdapter extends PagerAdapter {
 
                         return bmp_sticker;
                     }
-                })*/.build();
+                })*//*.build();*/
     }
 
     @Override
@@ -112,7 +113,7 @@ public class ImageSliderPagerAdapter extends PagerAdapter {
         //  imageView.setImageResource(images.get(position));
 
 
-        imageLoader.displayImage(Urls.baseUrl + "/" + images.get(position),
+ /*       imageLoader.displayImage(Urls.baseUrl + "/" + images.get(position),
                 imageView, options,
                 new SimpleImageLoadingListener() {
 
@@ -143,7 +144,9 @@ public class ImageSliderPagerAdapter extends PagerAdapter {
                         // holder.RLprogress1.setProgress(Math.round(100.0f
                         // * current / total));
                     }
-                });
+                });*/
+
+        Picasso.get().load(Urls.baseUrl + "/" + images.get(position)).into(imageView);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

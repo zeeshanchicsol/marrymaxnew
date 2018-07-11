@@ -138,6 +138,9 @@ public class Urls {
 
     public static String searchProfiles = baseUrl + "/api/WebArd/SearchProfiles";//search profiles
 
+    public static String listProfiles = baseUrl + "/api/WebArd/ListProfiles";//list profiles
+
+
     /*submit request for imageview phoneview */
     public static String submitRequest = baseUrl + "/api/WebArd/SubmitRequest ";
 
