@@ -17,6 +17,8 @@ import java.util.Map;
 public class Constants {
     public static boolean searchFromSavedListings = false;
     public static Members defaultSelectionsObj = new Members();
+    public static Members defaultSearchsObj = new Members();
+
     public static Members defaultMatchesObject = null;
     public static JSONArray jsonArraySearch = null;
     public static String font_centurygothic = "fonts/Roboto_Regular.ttf";

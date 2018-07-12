@@ -122,6 +122,29 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
         super.onResume();
 
         if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
+
+            if (defaultSelectionsObj != null) {
+                defaultSelectionsObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                defaultSelectionsObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
+                defaultSelectionsObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
+                defaultSelectionsObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+                //page and type
+                defaultSelectionsObj.set_page_no(1);
+                defaultSelectionsObj.set_type("");
+
+                Gson gson = new Gson();
+                params = gson.toJson(defaultSelectionsObj);
+
+                loadData(params, false);
+
+
+            }
+
+        }
+
+
+
+       /* if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
             Members memberSearchObj = defaultSelectionsObj;
             if (memberSearchObj != null) {
                 memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
@@ -141,6 +164,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
             }
 
         }
+        */
 
 
 /*
@@ -279,11 +303,12 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
             gsont = gsonBuildert.create();
             Type membert = new TypeToken<Members>() {
             }.getType();
-            Members memberObj = (Members) gsont.fromJson(params, membert);
-            memberObj.set_page_no(lastPage);
-            gsont.toString();
+            //   Members memberObj = (Members) gsont.fromJson(params, membert);
+            //   memberObj.set_page_no(lastPage);
+            defaultSelectionsObj.set_page_no(lastPage);
+            //   gsont.toString();
             // Log.e("params json", gsont.toJson(memberObj));
-            loadMoreData(gsont.toJson(memberObj));
+            loadMoreData(gsont.toJson(defaultSelectionsObj));
 
         }
 
@@ -326,7 +351,27 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     @Override
     public void onRefresh() {
 
+
         if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
+
+            defaultSelectionsObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            defaultSelectionsObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
+            defaultSelectionsObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
+            defaultSelectionsObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+            //page and type
+            defaultSelectionsObj.set_page_no(1);
+            defaultSelectionsObj.set_type("");
+
+            Gson gson = new Gson();
+            params = gson.toJson(defaultSelectionsObj);
+            loadData(params, false);
+
+        }
+
+
+
+
+/*        if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
             Members memberSearchObj = defaultSelectionsObj;
             memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
             memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
@@ -340,7 +385,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
             params = gson.toJson(memberSearchObj);
             loadData(params, false);
 
-        }
+        }*/
     }
 
 

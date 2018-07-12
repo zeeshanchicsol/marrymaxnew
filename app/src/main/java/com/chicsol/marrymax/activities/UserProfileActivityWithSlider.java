@@ -20,6 +20,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.ProfileSliderPagerAdapter;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
@@ -29,12 +30,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,8 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
     private String params;
     public List<Members> membersDataList;
 
+    ViewPagerAdapter vAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,12 +57,18 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
         viewPagerProfileSlider = (ViewPager) findViewById(R.id.viewPagerUserProfilesLeftRight);
 
+        vAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+
+
         String memdatalist = SharedPreferenceManager.getMembersDataList(getApplicationContext());
         //getIntent().getExtras().getString("memberdatalist");
 
 
         selectedposition = Integer.parseInt(getIntent().getExtras().getString("selectedposition"));
         Log.e("selec", "=- " + selectedposition);
+        Log.e("selec", "=- " + lastDigit(selectedposition));
+
+
         Gson gsonc;
         GsonBuilder gsonBuilderc = new GsonBuilder();
         gsonc = gsonBuilderc.create();
@@ -70,14 +79,6 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
         membersDataList = (List<Members>) gsonc.fromJson(memdatalist, listType);
         Log.e("mem list size", membersDataList.size() + "" + selectedposition);
-        try {
-            setupViewPager(viewPagerProfileSlider, membersDataList);
-        } catch (Exception e) {
-
-            Crashlytics.logException(e);
-            e.printStackTrace();
-            finish();
-        }
 
 
         Members memberSearchObj = defaultSelectionsObj;
@@ -87,7 +88,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
             memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
             memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
             //page and type
-            memberSearchObj.set_page_no(1);
+            //  memberSearchObj.set_page_no(1);
             memberSearchObj.set_type("");
 
             Gson gson = new Gson();
@@ -97,33 +98,68 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
         }
 
+        setListener();
+    }
+
+
+    private void setListener() {
+
+        viewPagerProfileSlider.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+           //     Log.e("onPageScrolled", "" + position + "    " + positionOffset + "    " + positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+               Log.e("onPageSelected", "" + position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+           //     Log.e("onPageScrollStateChange", "" + state);
+            }
+        });
 
     }
 
-    private void setupViewPager(ViewPager viewPager, List<Members> membersDataList) {
+    public int lastDigit(int number) {
+        return number % 10;
+    }
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+    private void setupViewPager(ViewPager viewPager, List<String> membersDataList) {
+
+
         if (membersDataList.size() > 0) {
             for (int i = 0; i < membersDataList.size(); i++) {
 
 
                 Bundle bundle = new Bundle();
                 Gson gson = new Gson();
-                Log.e("mem " + i, gson.toJson(membersDataList.get(i)));
-                bundle.putString("userpath", membersDataList.get(i).getUserpath());
+
+
+                Log.e("mem " + i, membersDataList.get(i));
+
+
+                bundle.putString("userpath", membersDataList.get(i));
 
                 UserProfileActivityFragment userProfileActivityFragment = new UserProfileActivityFragment();
                 userProfileActivityFragment.setArguments(bundle);
-                adapter.addFragment(userProfileActivityFragment, "ONE" + i);
+                vAdapter.addFragment(userProfileActivityFragment, "ONE" + i);
             }
 
         }
 
 
-        viewPager.setAdapter(adapter);
-        if (selectedposition != -1) {
-            viewPager.setCurrentItem(selectedposition);
+        viewPager.setAdapter(vAdapter);
+
+/*
+        int spos = lastDigit(selectedposition);
+        if (spos != -1) {
+            viewPager.setCurrentItem(spos);
         }
+
+        Log.e("possss", membersDataList.get(spos));*/
     }
 
 
@@ -206,10 +242,10 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         final ProgressDialog pDialog = new ProgressDialog(UserProfileActivityWithSlider.this);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.listProfiles);
+        Log.e("listProfiles params", params.toString());
+        Log.e("listProfiles  path", Urls.listProfiles);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.interestProvisions, params,
+                Urls.listProfiles, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -217,7 +253,31 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                         Log.e("Res  listProfiles ", response + "");
 
                         try {
-                            JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
+                            // JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
+                            int page_num = response.getInt("page_no");
+                            Log.e("listProfiles page_num", "" + page_num);
+                            int count = response.getInt("count");
+                            Log.e(" listProfiles", "" + count);
+                            JSONArray jsonArray = response.getJSONArray("prfids");
+
+                            List<String> pathDataList = new ArrayList<>();
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                pathDataList.add(jsonArray.get(i).toString());
+
+                                Log.e("listProfiles size", "" + jsonArray.get(i).toString() + "====================");
+                            }
+
+
+                            Log.e("listProfiles size", "" + pathDataList.size() + "====================");
+                            try {
+                                setupViewPager(viewPagerProfileSlider, pathDataList);
+                            } catch (Exception e) {
+
+                                Crashlytics.logException(e);
+                                e.printStackTrace();
+                                finish();
+                            }
 
 
                          /*   Gson gson;
