@@ -20,7 +20,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.ProfileSliderPagerAdapter;
 import com.chicsol.marrymax.modal.Members;
-import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
@@ -47,8 +46,13 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
     int selectedposition = -1;
     private String params;
     public List<Members> membersDataList;
-
-    ViewPagerAdapter vAdapter;
+    boolean firstTime = true;
+    ViewPagerAdapter adapter;
+    boolean addBackward = false;
+    //load more
+    int total_pages = 0;
+    int current_page = 0;
+    //===end
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +60,9 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile_with_slider);
 
         viewPagerProfileSlider = (ViewPager) findViewById(R.id.viewPagerUserProfilesLeftRight);
-
-        vAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
+        // viewPagerProfileSlider.setOffscreenPageLimit(1);
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPagerProfileSlider.setAdapter(adapter);
 
         String memdatalist = SharedPreferenceManager.getMembersDataList(getApplicationContext());
         //getIntent().getExtras().getString("memberdatalist");
@@ -91,10 +95,12 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
             //  memberSearchObj.set_page_no(1);
             memberSearchObj.set_type("");
 
+            Log.e("selec page", "=- " + memberSearchObj.get_page_no());
+            current_page = (int) memberSearchObj.get_page_no();
+
             Gson gson = new Gson();
             String params = gson.toJson(memberSearchObj);
-            listProfiles(params);
-
+            listUserProfiles(params);
 
         }
 
@@ -107,17 +113,75 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         viewPagerProfileSlider.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-           //     Log.e("onPageScrolled", "" + position + "    " + positionOffset + "    " + positionOffsetPixels);
+                //     Log.e("onPageScrolled", "" + position + "    " + positionOffset + "    " + positionOffsetPixels);
             }
 
             @Override
             public void onPageSelected(int position) {
-               Log.e("onPageSelected", "" + position);
+                Log.e("ff onPageSelected", "" + position);
+                Log.e("ff adapter.getCount()", "" + adapter.getCount());
+
+                if (position == (adapter.getCount() - 1) && current_page <= total_pages) {
+                    Log.e("ff in", "in ");
+
+                    addBackward = false;
+                    firstTime = false;
+
+                    Members memberSearchObj = defaultSelectionsObj;
+                    if (memberSearchObj != null) {
+                        memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
+                        memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
+                        memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+                        //page and type
+                        memberSearchObj.set_page_no(current_page + 1);
+                        memberSearchObj.set_type("");
+                        current_page = (int) memberSearchObj.get_page_no();
+
+                        Gson gson = new Gson();
+                        String params = gson.toJson(memberSearchObj);
+                        listUserProfiles(params);
+
+                    }
+                }
+
+
+             /*   if (position == (1) && current_page <= total_pages) {
+
+                    addBackward = true;
+                    Log.e("ff in", "in ");
+
+                    firstTime = false;
+
+                    Members memberSearchObj = defaultSelectionsObj;
+                    if (memberSearchObj != null) {
+                        memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
+                        memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
+                        memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+                        //page and type
+                        memberSearchObj.set_page_no(current_page - 1);
+                        memberSearchObj.set_type("");
+                        current_page = (int) memberSearchObj.get_page_no();
+
+                        Gson gson = new Gson();
+                        String params = gson.toJson(memberSearchObj);
+                        listUserProfiles(params);
+
+                    }
+
+
+                }
+*/
+
+                //   Log.e("adapter size", "" +    adapter.getCount());
+
+
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-           //     Log.e("onPageScrollStateChange", "" + state);
+                //     Log.e("onPageScrollStateChange", "" + state);
             }
         });
 
@@ -127,7 +191,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         return number % 10;
     }
 
-    private void setupViewPager(ViewPager viewPager, List<String> membersDataList) {
+    private void updateDataList(List<String> membersDataList) {
 
 
         if (membersDataList.size() > 0) {
@@ -145,23 +209,24 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
                 UserProfileActivityFragment userProfileActivityFragment = new UserProfileActivityFragment();
                 userProfileActivityFragment.setArguments(bundle);
-                vAdapter.addFragment(userProfileActivityFragment, "ONE" + i);
+                adapter.addFragment(userProfileActivityFragment, "ONE" + i);
             }
-
+            adapter.notifyDataSetChanged();
         }
-
-
-        viewPager.setAdapter(vAdapter);
-
-/*
-        int spos = lastDigit(selectedposition);
-        if (spos != -1) {
+        // viewPager.setAdapter(adapter);
+      /*  if (spos != -1) {
             viewPager.setCurrentItem(spos);
-        }
+        }*/
 
-        Log.e("possss", membersDataList.get(spos));*/
     }
 
+    private void setCurrentPosition() {
+
+        int spos = lastDigit(selectedposition);
+        if (spos != -1) {
+            viewPagerProfileSlider.setCurrentItem(spos);
+        }
+    }
 
     @Override
     protected void onResume() {
@@ -188,8 +253,15 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         }
 
         public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
+
+            if (addBackward) {
+                mFragmentList.add(0, fragment);
+                mFragmentTitleList.add(0, title);
+            } else {
+                mFragmentList.add(fragment);
+                mFragmentTitleList.add(title);
+            }
+
         }
 
         @Override
@@ -197,24 +269,14 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
 
-      /*  @Override
-        public Parcelable saveState() {
-            Bundle bundle = (Bundle) super.saveState();
-            bundle.putParcelableArray("states", null); // Never maintain any states from the base class, just null it out
-            return bundle;
-        }*/
 
-    /*    @Override
-        public Parcelable saveState() {
-            Bundle bundle = (Bundle) super.saveState();
-            if (bundle != null) {
-                Parcelable[] states = bundle.getParcelableArray("states"); // Subset only last 3 states
-                if (states != null)
-                    states = Arrays.copyOfRange(states, states.length > 3 ? states.length - 3 : 0, states.length - 1);
-                bundle.putParcelableArray("states", states);
-            } else bundle = new Bundle();
-            return bundle;
-        }*/
+        public void clear() {
+            mFragmentList.clear();
+            mFragmentTitleList.clear();
+
+            notifyDataSetChanged();
+        }
+
 
         @Override
         public Parcelable saveState() {
@@ -230,7 +292,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
     }
 
-    private void listProfiles(String paramsString) {
+    private void listUserProfiles(String paramsString) {
 
         JSONObject params = null;
         try {
@@ -258,6 +320,10 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                             Log.e("listProfiles page_num", "" + page_num);
                             int count = response.getInt("count");
                             Log.e(" listProfiles", "" + count);
+
+                            total_pages = Math.round(count / 10);
+
+                            Log.e("total_pages aa", total_pages + "");
                             JSONArray jsonArray = response.getJSONArray("prfids");
 
                             List<String> pathDataList = new ArrayList<>();
@@ -271,7 +337,12 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
                             Log.e("listProfiles size", "" + pathDataList.size() + "====================");
                             try {
-                                setupViewPager(viewPagerProfileSlider, pathDataList);
+                                //  up(viewPagerProfileSlider, pathDataList);
+                                updateDataList(pathDataList);
+
+                                if (firstTime) {
+                                    setCurrentPosition();
+                                }
                             } catch (Exception e) {
 
                                 Crashlytics.logException(e);

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -812,6 +813,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     }
 
     private void sendMessage(View v) {
+     //   Log.e("Parcel Size", Parcel.obtain().dataSize() + "");
 
         marryMax.statusBaseChecks(member, context, 6, getFragmentManager(), UserProfileActivityFragment.this, v, null, null);
 
@@ -1745,7 +1747,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     @Override
     public void onStop() {
         super.onStop();
-        MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
+        //  MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
     }
 }
