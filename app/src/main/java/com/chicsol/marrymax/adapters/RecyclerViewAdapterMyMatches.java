@@ -111,6 +111,16 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
     private UpdateMatchesCountCallback updateMatchesCountCallback;
     private MatchesRefreshCallBackInterface matchesRefreshCallBackInterface;
 
+    public Members getMemResultsObj() {
+        return memResultsObj;
+    }
+
+    public void setMemResultsObj(Members memResultsObj) {
+        this.memResultsObj = memResultsObj;
+    }
+
+    private Members memResultsObj;
+
     public RecyclerViewAdapterMyMatches(final Context context, FragmentManager frg, OnLoadMoreListener onLoadMoreListener, Fragment fragment, UpdateMatchesCountCallback updateMatchesCountCallback, MatchesRefreshCallBackInterface matchesRefreshCallBackInterface) {
         //this.items = items;
         Activity activity = (Activity) context;
@@ -443,7 +453,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                     //2 interaction
                     Activity activity = (Activity) context;
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
-                        marryMax.statusBaseChecks(member, context, 1, frgMngr, fragment, v, gson.toJson(items), "" + position);
+                        marryMax.statusBaseChecks(member, context, 1, frgMngr, fragment, v, gson.toJson(items), "" + position,memResultsObj);
                     }
 
                 }
@@ -460,7 +470,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                         public boolean onMenuItemClick(MenuItem item2) {
 
                             selectedPosition = position;
-                            boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null);
+                            boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null,memResultsObj);
                             Activity activity = (Activity) context;
                             if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                                 if (checkStatus) {
@@ -602,7 +612,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                         selectedPosition = position;
-                        marryMax.statusBaseChecks(member, context, 4, frgMngr, fragment, v, null, null);
+                        marryMax.statusBaseChecks(member, context, 4, frgMngr, fragment, v, null, null,memResultsObj);
                     }
 
                 }
@@ -618,7 +628,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                         Gson gson = new Gson();
                         //Log.e("selected position", position + "");
-                        marryMax.statusBaseChecks(member, context, 1, frgMngr, fragment, v, gson.toJson(items), position + "");
+                        marryMax.statusBaseChecks(member, context, 1, frgMngr, fragment, v, gson.toJson(items), position + "",memResultsObj);
                     }
 
 /*
@@ -670,7 +680,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                     Log.e("Loggg===" + member.get_request_response_id(), "==" + member.get_request_response_id());
 
 
-                    boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null);
+                    boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null,null);
                     Activity activity = (Activity) context;
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                         if (checkStatus) {
@@ -716,7 +726,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
             holder.faNotes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, frgMngr, fragment, v, null, null);
+                    boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, frgMngr, fragment, v, null, null,null);
                     if (bcheck4) {
                         dialogAddNotes newFragment = dialogAddNotes.newInstance(member.getUserpath());
                         newFragment.setTargetFragment(fragment, 0);
@@ -731,7 +741,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                 public void onClick(View v) {
 
 
-                    boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, frgMngr, fragment, v, null, null);
+                    boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, frgMngr, fragment, v, null, null,null);
                     Activity activity = (Activity) context;
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                         if (checkStatus) {

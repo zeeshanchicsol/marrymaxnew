@@ -381,7 +381,7 @@ public class MarryMax {
 
 
     //cat 1=view profile
-    public boolean statusBaseChecks(Members member, Context context, int category, final FragmentManager frgMngr, Fragment fragment, View view, String memberDataList, String selectedPosition) {
+    public boolean statusBaseChecks(Members member, Context context, int category, final FragmentManager frgMngr, Fragment fragment, View view, String memberDataList, String selectedPosition, Members memResultsObj) {
 
         Members smember = SharedPreferenceManager.getUserObject(context);
 
@@ -418,6 +418,7 @@ public class MarryMax {
 
                     intent.putExtra("selectedposition", selectedPosition);
                     SharedPreferenceManager.setMemberDataList(context, memberDataList);
+                    SharedPreferenceManager.setMemResultsObject(context, memResultsObj);
                     context.startActivity(intent);
                     return false;
                 }
@@ -1286,8 +1287,6 @@ public class MarryMax {
             return false;
         }
     }
-
-
 
 
     public String convertUTCTimeToLocal(String inputDate) {

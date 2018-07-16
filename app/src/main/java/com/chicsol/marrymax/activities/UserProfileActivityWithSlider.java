@@ -54,6 +54,8 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
     int current_page = 0;
     //===end
 
+    String TAG = "UserProfileActivityWithSlider ";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,8 +71,11 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
 
         selectedposition = Integer.parseInt(getIntent().getExtras().getString("selectedposition"));
-        Log.e("selec", "=- " + selectedposition);
-        Log.e("selec", "=- " + lastDigit(selectedposition));
+        Log.e(TAG + " selectedposition", "=- " + selectedposition);
+        Log.e(TAG + "selec", "=- " + lastDigit(selectedposition));
+
+        float t = ((selectedposition - 1) / 10) + 1;
+        int pageNumber = (int) t;
 
 
         Gson gsonc;
@@ -82,27 +87,37 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         }.getType();
 
         membersDataList = (List<Members>) gsonc.fromJson(memdatalist, listType);
-        Log.e("mem list size", membersDataList.size() + "" + selectedposition);
+        Log.e(TAG + "selectedposition", "" + selectedposition);
 
 
-        Members memberSearchObj = defaultSelectionsObj;
+  /*      Members memberSearchObj = defaultSelectionsObj;
         if (memberSearchObj != null) {
             memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
             memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
             memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
             memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
             //page and type
-            //  memberSearchObj.set_page_no(1);
+            memberSearchObj.set_page_no(pageNumber);
             memberSearchObj.set_type("");
 
-            Log.e("selec page", "=- " + memberSearchObj.get_page_no());
+            Log.e(TAG + " page_no", "= " + memberSearchObj.get_page_no());
             current_page = (int) memberSearchObj.get_page_no();
 
             Gson gson = new Gson();
             String params = gson.toJson(memberSearchObj);
             listUserProfiles(params);
 
-        }
+        }*/
+
+
+        current_page = pageNumber;
+        Members memberSearchObj = SharedPreferenceManager.getMemResultsObject(getApplicationContext());
+        memberSearchObj.set_page_no(pageNumber);
+        Gson gson = new Gson();
+        String params = gson.toJson(memberSearchObj);
+
+        listUserProfiles(params);
+
 
         setListener();
     }
@@ -118,8 +133,8 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                Log.e("ff onPageSelected", "" + position);
-                Log.e("ff adapter.getCount()", "" + adapter.getCount());
+                Log.e(TAG + "ff onPageSelected", "" + position);
+                Log.e(TAG + "ff adapter.getCount()", "" + adapter.getCount());
 
                 if (position == (adapter.getCount() - 1) && current_page <= total_pages) {
                     Log.e("ff in", "in ");
@@ -127,7 +142,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                     addBackward = false;
                     firstTime = false;
 
-                    Members memberSearchObj = defaultSelectionsObj;
+                /*    Members memberSearchObj = defaultSelectionsObj;
                     if (memberSearchObj != null) {
                         memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
                         memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
@@ -142,7 +157,17 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                         String params = gson.toJson(memberSearchObj);
                         listUserProfiles(params);
 
-                    }
+                    }*/
+
+                    Members memberSearchObj = SharedPreferenceManager.getMemResultsObject(getApplicationContext());
+                    memberSearchObj.set_page_no(current_page + 1);
+                    Gson gson = new Gson();
+                    String params = gson.toJson(memberSearchObj);
+
+                    listUserProfiles(params);
+
+
+
                 }
 
 
@@ -304,8 +329,8 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         final ProgressDialog pDialog = new ProgressDialog(UserProfileActivityWithSlider.this);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("listProfiles params", params.toString());
-        Log.e("listProfiles  path", Urls.listProfiles);
+        Log.e(TAG + "listProfiles", params.toString());
+        Log.e(TAG + "listProfilespath", Urls.listProfiles);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.listProfiles, params,
                 new Response.Listener<JSONObject>() {
@@ -317,13 +342,13 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                         try {
                             // JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
                             int page_num = response.getInt("page_no");
-                            Log.e("listProfiles page_num", "" + page_num);
+                            Log.e(TAG + "listProfiles page_num", "" + page_num);
                             int count = response.getInt("count");
-                            Log.e(" listProfiles", "" + count);
+                            Log.e(TAG + " listProfiles", "" + count);
 
                             total_pages = Math.round(count / 10);
 
-                            Log.e("total_pages aa", total_pages + "");
+                            Log.e(TAG + "total_pages aa", total_pages + "");
                             JSONArray jsonArray = response.getJSONArray("prfids");
 
                             List<String> pathDataList = new ArrayList<>();
@@ -331,11 +356,11 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 pathDataList.add(jsonArray.get(i).toString());
 
-                                Log.e("listProfiles size", "" + jsonArray.get(i).toString() + "====================");
+                                Log.e(TAG + "listProfiles size", "" + jsonArray.get(i).toString() + "====================");
                             }
 
 
-                            Log.e("listProfiles size", "" + pathDataList.size() + "====================");
+                            Log.e(TAG + "listProfiles size", "" + pathDataList.size() + "====================");
                             try {
                                 //  up(viewPagerProfileSlider, pathDataList);
                                 updateDataList(pathDataList);

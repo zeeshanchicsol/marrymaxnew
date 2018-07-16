@@ -24,6 +24,7 @@ public class SharedPreferenceManager {
     private static final String MARRYMAX_EMAIL_SUGGESTION_PREFER_NAME = "marrymax_email_suggestion_pref";
 
     public static final String USER_OBJECT = "user_object";
+    public static final String MEM_RESULTS_OBJECT = "MEM_RESULTS_OBJECT";
     public static final String USER_MESSAGE_OBJECT = "user_message_object";
     public static final String DEFAULT_SEARCH_OBJECT = "default_search_object";
     public static final String MEMBERS_DATALIST = "members_datalist";
@@ -178,6 +179,28 @@ public class SharedPreferenceManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(USER_QUESTION_OBJ, userObject);
         editor.commit();
+    }
+
+
+    public static void setMemResultsObject(Context context, Members member) {
+        Gson gson = new Gson();
+        String memString = gson.toJson(member);
+        SharedPreferences sharedPreferences = context
+                .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(MEM_RESULTS_OBJECT, memString);
+        editor.commit();
+    }
+
+    public static Members getMemResultsObject(Context context) {
+
+        SharedPreferences sharedPreferences = context
+                .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
+        Gson gson;
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gson = gsonBuilder.create();
+        Members members = gson.fromJson(sharedPreferences.getString(MEM_RESULTS_OBJECT, null), Members.class);
+        return members;
     }
 
 

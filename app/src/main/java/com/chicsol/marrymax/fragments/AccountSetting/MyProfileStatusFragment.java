@@ -217,12 +217,13 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
         //============EMAIL
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+
+
+            getPhoneNumber();
+
+
+            getProfileCompletion();
         }
-
-        getPhoneNumber();
-
-
-        getProfileCompletion();
 
     }
 
@@ -508,32 +509,9 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
                             if (dashboards.getAdmin_approved_status().equals("0")) {
                                 llAdminReview.setVisibility(View.VISIBLE);
-                           /*     Log.e("mem status", member.get_member_status() + "");
-                                if (member.get_member_status() == 7) {
-                                    ivReviewPending.setImageResource(R.drawable.ver_step4);
-                                    ivReviewPending.setBackgroundResource(R.drawable.border_dash_main_profilecombox_red);
-                                    getAdminNotes();
-
-
-                                } else {
-                                    ivReviewPending.setImageResource(R.drawable.ver_step4);
-                                    ivReviewPending.setBackgroundResource(R.drawable.border_dash_main_profilecombox);
-
-                                }
-*/
 
                             } else {
                                 llAdminReview.setVisibility(View.GONE);
-                             /*   ivReviewPending.setImageResource(R.drawable.ver_step4_active);
-                                ivReviewPending.setBackgroundResource(R.drawable.border_dash_main_profilecombox_green);
-                                ivReviewPending.setOnClickListener(null);
-
-                                Members memberObj = SharedPreferenceManager.getUserObject(context);
-
-                                if (memberObj.get_member_status() <= 1) {
-                                    memberObj.set_member_status(2);
-                                    SharedPreferenceManager.setUserObject(context, memberObj);
-                                }*/
 
 
                             }

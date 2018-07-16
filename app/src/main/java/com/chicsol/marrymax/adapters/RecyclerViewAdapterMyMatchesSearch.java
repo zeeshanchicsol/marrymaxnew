@@ -107,6 +107,15 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
     private int selectedPosition;
     UpdateMatchesCountCallback updateMatchesCountCallback;
     MatchesRefreshCallBackInterface matchesRefreshCallBackInterface;
+    public Members getMemResultsObj() {
+        return memResultsObj;
+    }
+
+    public void setMemResultsObj(Members memResultsObj) {
+        this.memResultsObj = memResultsObj;
+    }
+
+    private Members memResultsObj;
 
     public RecyclerViewAdapterMyMatchesSearch(final Activity context, FragmentManager frg, OnLoadMoreListener onLoadMoreListener, UpdateMatchesCountCallback updateMatchesCountCallback, MatchesRefreshCallBackInterface matchesRefreshCallBackInterface) {
 
@@ -410,7 +419,7 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
                         //1 view profile
                         //2 interaction
                         Gson gson = new Gson();
-                        marryMax.statusBaseChecks(member, context, 1, frgMngr, null, v, gson.toJson(items), "" + position);
+                        marryMax.statusBaseChecks(member, context, 1, frgMngr, null, v, gson.toJson(items), "" + position,memResultsObj);
                     } else {
                         dialogLoginToContinue newFragment = dialogLoginToContinue.newInstance();
                         newFragment.show(frgMngr, "dialog");
@@ -427,7 +436,7 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
                         //1 view profile
                         //2 interaction
                         Gson gson = new Gson();
-                        marryMax.statusBaseChecks(member, context, 1, frgMngr, null, v, gson.toJson(items), "" + position);
+                        marryMax.statusBaseChecks(member, context, 1, frgMngr, null, v, gson.toJson(items), "" + position,memResultsObj);
                     } else {
                         dialogLoginToContinue newFragment = dialogLoginToContinue.newInstance();
                         newFragment.show(frgMngr, "dialog");
@@ -452,7 +461,7 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
                                 dialogLoginToContinue newFragment = dialogLoginToContinue.newInstance();
                                 newFragment.show(frgMngr, "dialog");
                             } else {
-                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, null, view, null, null);
+                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, null, view, null, null, null);
 
                                 if (checkStatus) {
 
@@ -600,7 +609,7 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
                     if (SharedPreferenceManager.getUserObject(context) != null) {
                         selectedPosition = position;
                         marryMax.setPhoneViewRequestInterface(RecyclerViewAdapterMyMatchesSearch.this);
-                        marryMax.statusBaseChecks(member, context, 4, frgMngr, null, v, null, null);
+                        marryMax.statusBaseChecks(member, context, 4, frgMngr, null, v, null, null, null);
 
 
                     } else {
@@ -648,7 +657,7 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
                     if (SharedPreferenceManager.getUserObject(context) != null) {
 
 
-                        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, null, view, null, null);
+                        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, null, view, null, null, null);
 
                         if (checkStatus) {
                             if (member.get_request_response_id() == 0) {
@@ -699,7 +708,7 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
             holder.faNotes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, frgMngr, null, v, null, null);
+                    boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, frgMngr, null, v, null, null, null);
                     if (bcheck4) {
                         dialogAddNotes newFragment = dialogAddNotes.newInstance(member.getUserpath());
                       //  newFragment.setTargetFragment(fragment, 0);
@@ -720,7 +729,7 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
                     if (SharedPreferenceManager.getUserObject(context) != null) {
 
 
-                        boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, frgMngr, null, v, null, null);
+                        boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, frgMngr, null, v, null, null, null);
 
                         if (checkStatus) {
                             selectedPosition = position;

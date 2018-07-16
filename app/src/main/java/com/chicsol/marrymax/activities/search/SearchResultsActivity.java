@@ -2,6 +2,7 @@ package com.chicsol.marrymax.activities.search;
 
 import android.content.Context;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -78,6 +79,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     Context activity;
     private Toolbar toolbar;
     private long totalMatchesCount = 0;
+    private String TAG = "SearchResultsActivity ";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -121,7 +123,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     public void onResume() {
         super.onResume();
 
-        if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
+   /*     if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
 
             if (defaultSelectionsObj != null) {
                 defaultSelectionsObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
@@ -141,10 +143,10 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
             }
 
         }
+*/
 
 
-
-       /* if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
+        if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
             Members memberSearchObj = defaultSelectionsObj;
             if (memberSearchObj != null) {
                 memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
@@ -164,7 +166,6 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
             }
 
         }
-        */
 
 
 /*
@@ -352,7 +353,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     public void onRefresh() {
 
 
-        if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
+  /*      if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
 
             defaultSelectionsObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
             defaultSelectionsObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
@@ -366,12 +367,10 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
             params = gson.toJson(defaultSelectionsObj);
             loadData(params, false);
 
-        }
+        }*/
 
 
-
-
-/*        if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
+        if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
             Members memberSearchObj = defaultSelectionsObj;
             memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
             memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
@@ -383,9 +382,12 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
 
             Gson gson = new Gson();
             params = gson.toJson(memberSearchObj);
+
+
+            recyclerAdapter.setMemResultsObj(memberSearchObj);
             loadData(params, false);
 
-        }*/
+        }
     }
 
 
@@ -418,7 +420,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
             e.printStackTrace();
         }
 
-        Log.e("Params search" + " " + Urls.searchProfiles, "" + params);
+        Log.e(TAG + "Params search" + " " + Urls.searchProfiles, "" + params);
 
         //Log.e("Params search" + " " + Urls.searchProfiles, "");
         final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
