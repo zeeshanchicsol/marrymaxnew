@@ -34,6 +34,7 @@ import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
@@ -44,6 +45,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 
 
 public class DashMembersFragment extends Fragment implements RecyclerViewAdapter.OnItemClickListener, RecyclerViewAdapter.OnLoadMoreListener {
@@ -76,7 +79,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
     private int lastPage = 1;
     private int totalPages = 0;
 
-    public JSONObject params = new JSONObject();
+    public String params = "";
 
 
     public DashMembersFragment() {
@@ -220,20 +223,38 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
     private void LoadData() {
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
+            Members memberSearchObj = new Members();
 
-
-            try {
-                params.put("page_no", lastPage);
+            /*      try {*/
+   /*             params.put("page_no", lastPage);
                 params.put("type", type);
                 params.put("member_status", SharedPreferenceManager.getUserObject(getContext()).get_member_status());
                 params.put("phone_verified", SharedPreferenceManager.getUserObject(getContext()).get_phone_verified());
                 params.put("email_verified", SharedPreferenceManager.getUserObject(getContext()).get_email_verified());
 
-                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());*/
 
-            } catch (JSONException e) {
+
+            memberSearchObj.set_path(SharedPreferenceManager.getUserObject(context).get_path());
+            memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(context).get_member_status());
+            memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(context).get_phone_verified());
+            memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(context).get_email_verified());
+            //page and type
+            memberSearchObj.set_page_no(1);
+            memberSearchObj.set_type(type);
+
+
+            Gson gson = new Gson();
+
+            params = gson.toJson(memberSearchObj);
+
+
+            recyclerAdapterMSLW.setMemResultsObj(memberSearchObj);
+
+
+      /*      } catch (JSONException e) {
                 e.printStackTrace();
-            }
+            }*/
 
 
             getMembersListbyTypeMSLW();
@@ -284,6 +305,12 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
 
     private void getMembersListbyTypeMSLW() {
+        JSONObject paramsa = null;
+        try {
+            paramsa = new JSONObject(params);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
       /*  if (btReset.getVisibility() == View.VISIBLE) {
             btReset.setVisibility(View.INVISIBLE);
@@ -295,10 +322,10 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
     pDialog.show();
 }*/
         // pDialog.setVisibility(View.VISIBLE);
-        Log.e("Params", "" + params);
+        Log.e("Params", "" + paramsa);
         Log.e("Member List", "" + Urls.getMembersListbyType);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.getMembersListbyType, params,
+                Urls.getMembersListbyType, paramsa,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -400,11 +427,11 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq, Tag);
     }
 
     @Override
-    public void onItemClick(View view, Members members, int position, List<Members> items) {
+    public void onItemClick(View view, Members members, int position, List<Members> items, Members memResultsObj) {
         //  Toast.makeText(getActivity(), members.get_path() + " clicked", Toast.LENGTH_SHORT).show();
  /*       Intent intent = new Intent(getActivity(), UserProfileActivity.class);
         intent.putExtra("userpath", members.getUserpath());
@@ -419,7 +446,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
             Log.e("Data list ", "" + items.size());
             Gson gson = new Gson();
-            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembersFragment.this, view, gson.toJson(items), "" + position);
+            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembersFragment.this, view, gson.toJson(items), "" + position, memResultsObj);
         }
 
     }
@@ -532,7 +559,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq, Tag);
     }
 
     @Override
@@ -558,6 +585,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
             recyclerAdapterMSLW.setMoreLoading(false);
         }
     }
+
     @Override
     public void onStop() {
         super.onStop();

@@ -175,6 +175,8 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
                             Gson gson = new Gson();
                             params = gson.toJson(memberSearchObj);
 
+                            recyclerAdapter.setMemResultsObj(memberSearchObj);
+
                             loadData(params, false);
                         }
 
@@ -419,6 +421,9 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
 
                 Gson gson = new Gson();
                 params = gson.toJson(memberSearchObj);
+
+                recyclerAdapter.setMemResultsObj(memberSearchObj);
+
                 loadData(params, false);
             }
         }

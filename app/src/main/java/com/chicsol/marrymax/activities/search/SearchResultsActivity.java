@@ -160,6 +160,8 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
                 Gson gson = new Gson();
                 params = gson.toJson(memberSearchObj);
 
+
+                recyclerAdapter.setMemResultsObj(memberSearchObj);
                 loadData(params, false);
 
 

@@ -167,6 +167,10 @@ public class SavedNotes extends Fragment implements RecyclerViewAdapterMyMatches
                 Gson gson = new Gson();
                 String params = gson.toJson(memberSearchObj);
                 this.params = params;
+
+                recyclerAdapter.setMemResultsObj(memberSearchObj);
+
+
                 loadData(params, false);
             }
 
@@ -401,6 +405,9 @@ public class SavedNotes extends Fragment implements RecyclerViewAdapterMyMatches
 
                 Gson gson = new Gson();
                 params = gson.toJson(memberSearchObj);
+
+                recyclerAdapter.setMemResultsObj(memberSearchObj);
+
                 loadData(params, false);
             }
 

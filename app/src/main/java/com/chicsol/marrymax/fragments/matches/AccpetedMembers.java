@@ -163,6 +163,9 @@ public class AccpetedMembers extends Fragment implements RecyclerViewAdapterMyMa
                 Gson gson = new Gson();
                 String params = gson.toJson(memberSearchObj);
                 this.params = params;
+
+                recyclerAdapter.setMemResultsObj(memberSearchObj);
+
                 loadData(params, false);
             }
 
@@ -375,6 +378,9 @@ public class AccpetedMembers extends Fragment implements RecyclerViewAdapterMyMa
 
                 Gson gson = new Gson();
                 params = gson.toJson(memberSearchObj);
+
+                recyclerAdapter.setMemResultsObj(memberSearchObj);
+
                 loadData(params, false);
             }
 

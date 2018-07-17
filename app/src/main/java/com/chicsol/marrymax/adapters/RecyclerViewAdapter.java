@@ -61,6 +61,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private GridLayoutManager mLinearLayoutManager;
 
+    public Members getMemResultsObj() {
+        return memResultsObj;
+    }
+
+    public void setMemResultsObj(Members memResultsObj) {
+        this.memResultsObj = memResultsObj;
+    }
+
+    private Members memResultsObj;
+
     public RecyclerViewAdapter(final Context context, OnLoadMoreListener onLoadMoreListener) {
         items = new ArrayList<>();
         this.context = context;
@@ -206,7 +216,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     Log.e("getMoreLoading rec", getMoreLoading() + "");
 
                     if (!isMoreLoading) {
-                        onItemClickListener.onItemClick(v, item, position, items);
+                        onItemClickListener.onItemClick(v, item, position, items,memResultsObj);
                     } else {
 
                         Toast.makeText(context, "Matches are loading try again ", Toast.LENGTH_SHORT).show();
@@ -235,7 +245,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public interface OnItemClickListener {
 
-        void onItemClick(View view, Members members, int position, List<Members> items);
+        void onItemClick(View view, Members members, int position, List<Members> items,Members memResultsObj);
 
     }
 

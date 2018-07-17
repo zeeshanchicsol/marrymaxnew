@@ -79,7 +79,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
     private ProgressBar pDialog;
     private SwipeRefreshLayout swipeRefresh;
     private String params;
-    private TextView tvMatchesCount,tvMatchesCountCp,  tvComplProfioleTitle, tvMatchesCountSubscribeNow, tvSubscribeNowTitle;
+    private TextView tvMatchesCount, tvMatchesCountCp, tvComplProfioleTitle, tvMatchesCountSubscribeNow, tvSubscribeNowTitle;
     LinearLayout llMMMatchesNotFoundCompleteProfile, llSubscribeNow;
     private Context context;
     private long totalMatchesCount = 0;
@@ -135,6 +135,9 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
                 Gson gson = new Gson();
                 String params = gson.toJson(memberSearchObj);
                 this.params = params;
+
+                recyclerAdapter.setMemResultsObj(memberSearchObj);
+
                 loadData(params, false);
             }
         }
@@ -192,7 +195,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment,this,this);
+        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);
@@ -284,7 +287,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
                 pDialog.setVisibility(View.GONE);
             }
         });
-        MySingleton.getInstance(getContext()).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
     }
 
 
@@ -385,6 +388,9 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
 
                 Gson gson = new Gson();
                 params = gson.toJson(memberSearchObj);
+
+                recyclerAdapter.setMemResultsObj(memberSearchObj);
+
                 loadData(params, false);
 
             }
@@ -477,7 +483,6 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
                                             setMatchesCount();
 
 
-
                                         }
 
                                     }
@@ -558,7 +563,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -570,7 +575,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
         } catch (JSONException e) {
             e.printStackTrace();
         }
-       Log.e("Params search" + " " + Urls.searchProfiles, "" );
+        Log.e("Params search" + " " + Urls.searchProfiles, "");
 
         Log.e("Params loadMoreData" + " ", paramsString);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -638,7 +643,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -652,15 +657,18 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
         totalMatchesCount--;
         setMatchesCount();
     }
+
     private void setMatchesCount() {
 
         tvMatchesCount.setText(totalMatchesCount + " Matches Found");
 
     }
+
     @Override
     public void onRefreshMatch() {
         onRefresh();
     }
+
     @Override
     public void onStop() {
         super.onStop();

@@ -1190,7 +1190,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
     @Override
-    public void onItemClick(View view, Members members, int position, List<Members> items) {
+    public void onItemClick(View view, Members members, int position, List<Members> items,Members memResultsObj) {
         //  Toast.makeText(getActivity(), members.get_path() + " clicked", Toast.LENGTH_SHORT).show();
  /*       Intent intent = new Intent(getActivity(), UserProfileActivity.class);
         intent.putExtra("userpath", members.getUserpath());
@@ -1205,7 +1205,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
             Log.e("Data list ", "" + items.size());
             Gson gson = new Gson();
-            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashboardMainFragment.this, view, gson.toJson(items), "" + position);
+            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashboardMainFragment.this, view, gson.toJson(items), "" + position,memResultsObj);
         }
 
     }

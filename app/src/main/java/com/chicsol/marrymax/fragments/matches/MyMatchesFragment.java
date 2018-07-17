@@ -369,6 +369,8 @@ TextView tvMatchesCount;
 
                 Gson gson = new Gson();
                 params = gson.toJson(memberSearchObj);
+                recyclerAdapter.setMemResultsObj(memberSearchObj);
+
                 loadData(params, false);
             }
 
@@ -643,6 +645,8 @@ TextView tvMatchesCount;
 
                                 Gson gson = new Gson();
                                 params = gson.toJson(memberSearchObj);
+
+                                recyclerAdapter.setMemResultsObj(memberSearchObj);
 
                                 loadData(params, false);
                             }

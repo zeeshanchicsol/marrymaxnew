@@ -418,7 +418,14 @@ public class MarryMax {
 
                     intent.putExtra("selectedposition", selectedPosition);
                     SharedPreferenceManager.setMemberDataList(context, memberDataList);
-                    SharedPreferenceManager.setMemResultsObject(context, memResultsObj);
+
+                    Gson gson = new Gson();
+                    intent.putExtra("memresult", gson.toJson(memResultsObj));
+
+
+
+
+                    //  SharedPreferenceManager.setMemResultsObject(context, memResultsObj);
                     context.startActivity(intent);
                     return false;
                 }

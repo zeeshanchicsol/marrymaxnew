@@ -56,6 +56,9 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
     String TAG = "UserProfileActivityWithSlider ";
 
+
+    Members memberSearchObj;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,13 +72,28 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         String memdatalist = SharedPreferenceManager.getMembersDataList(getApplicationContext());
         //getIntent().getExtras().getString("memberdatalist");
 
+        Gson gson;
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gson = gsonBuilder.create();
+
+
+        memberSearchObj = gson.fromJson(getIntent().getStringExtra("memresult"), Members.class);
+
+
+        Log.e(TAG + " TYPE", "=- " + memberSearchObj.get_type());
+        Log.e(TAG + " memresult", "=- " + getIntent().getStringExtra("memresult"));
+
 
         selectedposition = Integer.parseInt(getIntent().getExtras().getString("selectedposition"));
+        float t = ((selectedposition - 1) / 10) + 1;
+        int pageNumber = (int) t;
+
+
         Log.e(TAG + " selectedposition", "=- " + selectedposition);
         Log.e(TAG + "selec", "=- " + lastDigit(selectedposition));
 
-        float t = ((selectedposition - 1) / 10) + 1;
-        int pageNumber = (int) t;
+
+        Log.e(TAG + "pageNumber", "" + pageNumber);
 
 
         Gson gsonc;
@@ -111,11 +129,14 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
 
         current_page = pageNumber;
-        Members memberSearchObj = SharedPreferenceManager.getMemResultsObject(getApplicationContext());
+      /*  Members memberSearchObj = SharedPreferenceManager.getMemResultsObject(getApplicationContext());
         memberSearchObj.set_page_no(pageNumber);
-        Gson gson = new Gson();
-        String params = gson.toJson(memberSearchObj);
+        Gson gson = new Gson();*/
 
+
+        memberSearchObj.set_page_no(pageNumber);
+        String params = gson.toJson(memberSearchObj);
+        Log.e(TAG + "params  memberSearchObj", "=- " + params);
         listUserProfiles(params);
 
 
@@ -142,62 +163,40 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                     addBackward = false;
                     firstTime = false;
 
-                /*    Members memberSearchObj = defaultSelectionsObj;
-                    if (memberSearchObj != null) {
-                        memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                        memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-                        memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-                        memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
-                        //page and type
-                        memberSearchObj.set_page_no(current_page + 1);
-                        memberSearchObj.set_type("");
-                        current_page = (int) memberSearchObj.get_page_no();
 
-                        Gson gson = new Gson();
-                        String params = gson.toJson(memberSearchObj);
-                        listUserProfiles(params);
-
-                    }*/
-
-                    Members memberSearchObj = SharedPreferenceManager.getMemResultsObject(getApplicationContext());
+                    //  Members memberSearchObj = SharedPreferenceManager.getMemResultsObject(getApplicationContext());
                     memberSearchObj.set_page_no(current_page + 1);
                     Gson gson = new Gson();
                     String params = gson.toJson(memberSearchObj);
+                    Log.e(TAG + " params string", params + "==");
 
                     listUserProfiles(params);
-
 
 
                 }
 
 
-             /*   if (position == (1) && current_page <= total_pages) {
+                if (position == (1) && current_page <= total_pages) {
 
                     addBackward = true;
                     Log.e("ff in", "in ");
 
                     firstTime = false;
+                    Log.e("page minus in", current_page - 1+"");
 
-                    Members memberSearchObj = defaultSelectionsObj;
-                    if (memberSearchObj != null) {
-                        memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                        memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-                        memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-                        memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
-                        //page and type
-                        memberSearchObj.set_page_no(current_page - 1);
-                        memberSearchObj.set_type("");
-                        current_page = (int) memberSearchObj.get_page_no();
 
-                        Gson gson = new Gson();
-                        String params = gson.toJson(memberSearchObj);
-                        listUserProfiles(params);
+                    memberSearchObj.set_page_no(current_page - 1);
+                    Gson gson = new Gson();
+                    String params = gson.toJson(memberSearchObj);
+                    Log.e(TAG + " params string", params + "==");
 
-                    }
+                    listUserProfiles(params);
+
+
 
 
                 }
-*/
+
 
                 //   Log.e("adapter size", "" +    adapter.getCount());
 

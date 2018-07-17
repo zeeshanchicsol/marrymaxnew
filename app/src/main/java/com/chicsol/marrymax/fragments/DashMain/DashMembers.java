@@ -304,7 +304,7 @@ public class DashMembers extends Fragment  implements RecyclerViewAdapter.OnItem
     }
 */
     @Override
-    public void onItemClick(View view, Members members, int position, List<Members> items) {
+    public void onItemClick(View view, Members members, int position, List<Members> items,Members member) {
         //  Toast.makeText(getActivity(), members.get_path() + " clicked", Toast.LENGTH_SHORT).show();
  /*       Intent intent = new Intent(getActivity(), UserProfileActivity.class);
         intent.putExtra("userpath", members.getUserpath());
@@ -319,7 +319,7 @@ public class DashMembers extends Fragment  implements RecyclerViewAdapter.OnItem
 
             Log.e("Data list ", "" + items.size());
             Gson gson = new Gson();
-            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembers.this, view, gson.toJson(items), "" + position);
+            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembers.this, view, gson.toJson(items), "" + position,null);
         }
 
     }
