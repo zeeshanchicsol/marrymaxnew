@@ -430,26 +430,6 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq, Tag);
     }
 
-    @Override
-    public void onItemClick(View view, Members members, int position, List<Members> items, Members memResultsObj) {
-        //  Toast.makeText(getActivity(), members.get_path() + " clicked", Toast.LENGTH_SHORT).show();
- /*       Intent intent = new Intent(getActivity(), UserProfileActivity.class);
-        intent.putExtra("userpath", members.getUserpath());
-        startActivity(intent);*/
-
-        Log.e("position", "position: " + position);
-
-
-        Activity activity = (Activity) getContext();
-        MarryMax marryMax = new MarryMax(getActivity());
-        if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
-
-            Log.e("Data list ", "" + items.size());
-            Gson gson = new Gson();
-            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembersFragment.this, view, gson.toJson(items), "" + position, memResultsObj);
-        }
-
-    }
 
 
     private void getMembersListbyTypeByPageMSLW(int pageNumber) {
@@ -592,4 +572,32 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
     }
+
+
+
+
+    @Override
+    public void onItemClick(View view, Members members, int position, List<Members> items, Members memResultsObj) {
+        //  Toast.makeText(getActivity(), members.get_path() + " clicked", Toast.LENGTH_SHORT).show();
+ /*       Intent intent = new Intent(getActivity(), UserProfileActivity.class);
+        intent.putExtra("userpath", members.getUserpath());
+        startActivity(intent);*/
+
+        Log.e("position", "position: " + position);
+        items.clear();
+        items.add(members);
+
+        Activity activity = (Activity) getContext();
+        MarryMax marryMax = new MarryMax(getActivity());
+        if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
+
+            Log.e("Data list ", "" + items.size());
+            Gson gson = new Gson();
+            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembersFragment.this, view, gson.toJson(items), "-1" , memResultsObj);
+        }
+
+    }
+
+
+
 }

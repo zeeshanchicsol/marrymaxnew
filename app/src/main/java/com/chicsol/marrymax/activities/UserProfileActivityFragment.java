@@ -1,11 +1,13 @@
 package com.chicsol.marrymax.activities;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -124,10 +126,22 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private Context context;
     private View rview;
 
+    public static UserProfileActivityFragment newInstance(String userpath) {
+        UserProfileActivityFragment f = new UserProfileActivityFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putString("userpath", userpath);
+        f.setArguments(args);
+
+        return f;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        userpath = getArguments().getString("userpath");
     }
 
     @Override
@@ -161,7 +175,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         View rootView = inflater.inflate(R.layout.activity_user_profile, container, false);
 
 
-        userpath = getArguments().getString("userpath");
+        // userpath = getArguments().getString("userpath");
 
 
 
@@ -217,7 +231,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             Log.e("interested receieved", member.get_interest_received() + "");
             if (member.get_interested_id() == 0) {
                 tvInterest.setText("Show Interest");
-                llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorUserProfileTextGreen));
+                llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorUserProfileTextGreen));
                 tvShowInterestButtonText.setText("Show Interest");
 
             } else if (member.get_interested_id() != 0) {
@@ -225,18 +239,18 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 if (member.get_interest_received() == 0) {
                     tvInterest.setText("Withdraw Interest");
                     tvShowInterestButtonText.setText("Withdraw Interest");
-                    llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorGrey));
+                    llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorGrey));
                 } else if (member.get_interest_received() == 1) {
 
                     tvInterest.setText("Reply On Interest");
                     tvShowInterestButtonText.setText("Reply On Interest");
-                    llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorDefaultGreen));
+                    llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorDefaultGreen));
 
 
                 } else if (member.get_interest_received() == 3) {
                     tvInterest.setText("Interest Accepted");
                     tvShowInterestButtonText.setText("Interest Accepted");
-                    llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorUserProfileTextGreen));
+                    llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorUserProfileTextGreen));
                 }
             }
             /*else if (member.get_interested_id() == 0 && member.get_interest_received() == 0) {
@@ -318,7 +332,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 }
 
 
-                myCustomPagerAdapter = new ImageSliderPagerAdapter(getActivity(), sliderImagesDataList, rview);
+                myCustomPagerAdapter = new ImageSliderPagerAdapter(context, sliderImagesDataList, rview);
                 viewPagerSlider.setAdapter(myCustomPagerAdapter);
 
 
@@ -440,7 +454,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                     @Override
                     public Bitmap process(Bitmap bmp) {
 
-                        Bitmap bmp_sticker;
+                      /*  Bitmap bmp_sticker;
                         Display display = getActivity().getWindowManager().getDefaultDisplay();
                         DisplayMetrics metrics = new DisplayMetrics();
 
@@ -458,9 +472,9 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
                             bmp_sticker = resizeImage(bmp, h);
                             Log.e("wid " + widthScreen + "  " + heightScreen, "");
-                        }
+                        }*/
 
-                        return bmp_sticker;
+                        return bmp;
                     }
                 }).build();
 
@@ -513,15 +527,15 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         if (member.get_phone_verified() == 2) {
             if (member.get_hide_phone() == 0 || member.get_allow_phone_view() > 0) {
-                ivPhoneVerified.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
+                ivPhoneVerified.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
                 //greeen
             } else {
-                ivPhoneVerified.setImageDrawable(getResources().getDrawable(R.drawable.num_not_verified_icon_60));
+                ivPhoneVerified.setImageDrawable(context.getResources().getDrawable(R.drawable.num_not_verified_icon_60));
                 //    orange
             }
 
         } else {
-            ivPhoneVerified.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+            ivPhoneVerified.setImageDrawable(context.getResources().getDrawable(R.drawable.no_number_icon_60));
             //default
         }
 
@@ -584,7 +598,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             public void onClick(View v) {
 
 
-                marryMax.statusBaseChecks(member, context, 5, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                marryMax.statusBaseChecks(member, context, 5, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
 
             }
         });
@@ -627,7 +641,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             @Override
             public void onClick(View v) {
 
-                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
                 if (bcheck3) {
                     matchAid();
                 }
@@ -640,7 +654,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 //   Toast.makeText(UserProfileActivity.getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
                 //    Log.e("Saved Member", member.get_saved_member() + " ");
 
-                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
                 if (bcheck3) {
                     if (member.get_saved_member() == 1) {
                         JSONObject params = new JSONObject();
@@ -717,7 +731,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                         switch (item.getItemId()) {
                             case R.id.menu_up_ask_questions:
                                 //  Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
-                                boolean qcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                                boolean qcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
                                 if (qcheck) {
                                     Intent intent = new Intent(getActivity(), QuestionsActivity.class);
                                     intent.putExtra("userpath", userpath);
@@ -729,7 +743,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             case R.id.menu_up_request_permissions:
 
 
-                                boolean percheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                                boolean percheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
                                 if (percheck) {
                                     Gson gson = new Gson();
                                     Intent in = new Intent(getActivity(), RequestPermissionsActivity.class);
@@ -744,7 +758,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                             case R.id.menu_up_block:
 
-                                boolean bcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                                boolean bcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
                                 if (bcheck) {
                                     blockUser();
                                 }
@@ -752,7 +766,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             case R.id.menu_up_remove:
 
 
-                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
 
                                 if (checkStatus) {
                                     JSONObject params = new JSONObject();
@@ -769,7 +783,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                 break;
 
                             case R.id.menu_up_report_concern:
-                                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
                                 if (bcheck3) {
                                     reportConcern();
                                 }
@@ -778,7 +792,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             case R.id.menu_up_add_notes:
                                 // dialogAddNotes.newInstance(member, userpath);
 
-                                boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                                boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
                                 if (bcheck4) {
                                     dialogAddNotes newFragment = dialogAddNotes.newInstance(userpath);
                                     newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
@@ -788,7 +802,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                             case R.id.menu_up_add_to_list:
                                 // dialogAddNotes.newInstance(member, userpath);
-                                boolean bcheck5 = marryMax.statusBaseChecks(member, context, 8, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+                                boolean bcheck5 = marryMax.statusBaseChecks(member, context, 8, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
                                 if (bcheck5) {
                                     dialogAddtoList newFragment1 = dialogAddtoList.newInstance(userpath);
                                     newFragment1.setTargetFragment(UserProfileActivityFragment.this, 0);
@@ -813,9 +827,9 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     }
 
     private void sendMessage(View v) {
-     //   Log.e("Parcel Size", Parcel.obtain().dataSize() + "");
+        //   Log.e("Parcel Size", Parcel.obtain().dataSize() + "");
 
-        marryMax.statusBaseChecks(member, context, 6, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+        marryMax.statusBaseChecks(member, context, 6, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
 
     }
 
@@ -837,7 +851,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         // Log.e(functions.checkProfileCompleteStatus(member) + "" + member.get_member_status(), "checcccccccccccccccccccc");
 
 
-        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, getFragmentManager(), UserProfileActivityFragment.this, v, null, null,null);
+        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
 
         if (checkStatus) {
             if (functions.checkProfileCompleteStatus(sessionObj)) {
@@ -923,7 +937,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         for (int i = tabLayout1.getTabCount() - 1; i >= 0; i--) {
             TabLayout.Tab tab = tabLayout1.getTabAt(i);
             LinearLayout relativeLayout = (LinearLayout)
-                    LayoutInflater.from(getActivity()).inflate(R.layout.custom_user_tab_item, tabLayout1, false);
+                    LayoutInflater.from(context).inflate(R.layout.custom_user_tab_item, tabLayout1, false);
             TextView tabTextView = (TextView) relativeLayout.findViewById(R.id.tab_title1);
             tabTextView.setText(tab.getText());
 
@@ -945,7 +959,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private void replyOnInterest(View v) {
 
 
-        PopupMenu popup = new PopupMenu(getActivity(), v);
+        PopupMenu popup = new PopupMenu(context, v);
         //Inflating the Popup using xml file
         popup.getMenuInflater()
                 .inflate(R.menu.menu_yes_no, popup.getMenu());
@@ -1620,6 +1634,10 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             return mFragmentList.get(position);
         }
 
+        @Override
+        public Parcelable saveState() {
+            return null;
+        }
 
         @Override
         public int getCount() {
@@ -1650,11 +1668,11 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         llScreenWait.setVisibility(set ? View.VISIBLE : View.GONE);
 */
         if (set) {
-            getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            ((Activity) context).getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                     WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
         } else {
-            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+            ((Activity) context).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         }
         progressBar.setVisibility(set ? View.VISIBLE : View.GONE);
     }
