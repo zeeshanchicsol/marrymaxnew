@@ -413,7 +413,7 @@ public class MarryMax {
 
                 } else {
 
-
+                    memResultsObj.setUserpath(member.getUserpath());
                     Intent intent = new Intent(context, UserProfileActivityWithSlider.class);
 
                     intent.putExtra("selectedposition", selectedPosition);
@@ -421,8 +421,6 @@ public class MarryMax {
 
                     Gson gson = new Gson();
                     intent.putExtra("memresult", gson.toJson(memResultsObj));
-
-
 
 
                     //  SharedPreferenceManager.setMemResultsObject(context, memResultsObj);

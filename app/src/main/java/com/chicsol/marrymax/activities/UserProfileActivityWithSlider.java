@@ -92,16 +92,15 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
             memberSearchObj = gson.fromJson(getIntent().getStringExtra("memresult"), Members.class);
 
-
             Log.e(TAG + " TYPE", "=- " + memberSearchObj.get_type());
             Log.e(TAG + " memresult", "=- " + getIntent().getStringExtra("memresult"));
-
+            Log.e(TAG + " userpath", "=- " + SharedPreferenceManager.getUserObject(getApplicationContext()).getUserpath());
 
             // Toast.makeText(this, "" + selectedposition, Toast.LENGTH_SHORT).show();
 
-            float t = (((selectedposition ) / 10) + 1);
+            float t = (((selectedposition) / 10) + 1);
 
-         //   t= (float) (t+0.1);
+            //   t= (float) (t+0.1);
             int pageNumber = (int) t;
 
 
@@ -188,7 +187,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                 Log.e(TAG + "ff onPage position", "" + position);
                 Log.e(TAG + "ff adapter.getCount()", "" + adapter.getCount());
 
-                if (position == (adapter.getCount() - 1) && current_page <= total_pages ) {
+                if (position == (adapter.getCount() - 1) && current_page <= total_pages) {
                     Log.e("ff in", "in ");
 
 
