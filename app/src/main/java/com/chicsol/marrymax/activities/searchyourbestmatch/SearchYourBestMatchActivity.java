@@ -79,7 +79,9 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
 
         initialize();
         setListenders();
+
         getRegistrationData();
+
 
     }
 
@@ -319,7 +321,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
         spMyChoiceAgeTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-             //   WebArd ard = (WebArd) view.getTag();
+                //   WebArd ard = (WebArd) view.getTag();
 
                 WebArd waMyChoiceAgeFrom = (WebArd) spMyChoiceAgeFrom.getSelectedItem();
                 WebArd waMyChoiceAgeTo = (WebArd) spMyChoiceAgeTo.getSelectedItem();
@@ -332,7 +334,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
                     }
                 } else {
                     spMyChoiceAgeTo.setSelection(0);
-                  //  Toast.makeText(SearchYourBestMatchActivity.this, "Please Select Age From First", Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(SearchYourBestMatchActivity.this, "Please Select Age From First", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -453,7 +455,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
         Log.e("FragmentAlertDialog", "Negative click!");
     }
 
-    public static class DialogProfileFor1 extends DialogFragment {
+/*    public static class DialogProfileFor1 extends DialogFragment {
 
 
         public static DialogProfileFor1 newInstance(int title) {
@@ -498,7 +500,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
             super.onStart();
             getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
-    }
+    }*/
 
 
     private void disbaleGenderClickListeners()
@@ -535,6 +537,15 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
         gender = "F";
     }
 
+
+    private void setDefaultSelections() {
+
+        spMyChoiceAgeFrom.setSelection(4);
+        spMyChoiceAgeTo.setSelection(12);
+        selectfemale();
+        spinner_religion.setSelection(1);
+
+    }
 
     private void getRegistrationData() {
 
@@ -586,6 +597,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
                             educationDatalist = (List<WebArd>) gsonc.fromJson(educationarray.toString(), listType);
                             educationDatalist.add(0, new WebArd("-1", "Select Education"));
                             adapter_education.updateDataList(educationDatalist);
+                            setDefaultSelections();
 
                         } catch (JSONException e) {
                             e.printStackTrace();

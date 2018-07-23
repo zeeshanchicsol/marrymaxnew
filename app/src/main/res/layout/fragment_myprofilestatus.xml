@@ -203,7 +203,7 @@
                             <com.chicsol.marrymax.widgets.faTextView
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
-                                android:text="@string/fa_icon_phone"
+                                android:text="@string/fa_icon_user"
                                 android:textColor="@color/colorTextRed"
                                 android:textStyle="bold" />
 
@@ -656,6 +656,14 @@
 
 
                     </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/TextViewMatchAidSubscribersOnly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+
+                        android:text="Subscriber Only" />
 
                     <TextView
                         android:layout_width="wrap_content"

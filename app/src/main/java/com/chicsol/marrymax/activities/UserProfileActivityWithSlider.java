@@ -98,7 +98,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
             // Toast.makeText(this, "" + selectedposition, Toast.LENGTH_SHORT).show();
 
-            float t = (((selectedposition) / 10) + 1);
+            float t = (((selectedposition) / 50) + 1);
 
             //   t= (float) (t+0.1);
             int pageNumber = (int) t;
@@ -246,7 +246,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
     }
 
     public int lastDigit(int number) {
-        return number % 10;
+        return number % 50;
     }
 
     private void updateDataList(ArrayList<String> membersDataList) {

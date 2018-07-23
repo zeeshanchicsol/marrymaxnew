@@ -85,8 +85,8 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
-// ===========================
-
+    // ===========================
+    TextView tvSubscriberOnly;
 
     public MyProfileStatusFragment() {
         // Required empty public constructor
@@ -130,6 +130,15 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
         pDialog = new ProgressDialog(context);
         pDialog.setCancelable(false);
         pDialog.setMessage("Loading...");
+
+
+        tvSubscriberOnly = (TextView) view.findViewById(R.id.TextViewMatchAidSubscribersOnly);
+        if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() <= 3) {
+            tvSubscriberOnly.setVisibility(View.VISIBLE);
+
+        } else {
+            tvSubscriberOnly.setVisibility(View.GONE);
+        }
 
 
         btAddNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusAddNumber);
@@ -470,20 +479,7 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
                                 btAddNumber.setVisibility(View.GONE);
                                 btUpdateNumber.setVisibility(View.VISIBLE);
                                 btVerifyNumber.setVisibility(View.VISIBLE);
-                                if (dashboards.getPhone_complete_status().equals("1")) {
-                                    llVerifyPhone.setVisibility(View.GONE);
-                                    llPhoneVerified.setVisibility(View.VISIBLE);
-                                    llASPhone.setVisibility(View.GONE);
 
-                                    //verfied
-
-
-                                } else {
-// if
-                                    llASPhone.setVisibility(View.VISIBLE);
-                                    llVerifyPhone.setVisibility(View.VISIBLE);
-
-                                }
                             } else {
                                 btUpdateNumber.setVisibility(View.GONE);
                                 btVerifyNumber.setVisibility(View.GONE);
@@ -491,10 +487,24 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
                                 btAddNumber.setVisibility(View.VISIBLE);
                             }
 
-                         /*   if (dashboards.getPhone_complete_status().equals("1")) {
+                            if (dashboards.getPhone_complete_status().equals("1")) {
+                                llVerifyPhone.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.VISIBLE);
+                                llASPhone.setVisibility(View.GONE);
+
+                                //verfied
+
+
+                            } else {
+// if
+                                llASPhone.setVisibility(View.VISIBLE);
+                                llVerifyPhone.setVisibility(View.VISIBLE);
+
+                            }
+
+                     /*   if (dashboards.getPhone_complete_status().equals("1")) {
                                 //hide update email
-                              *//*  etAsEmail.setKeyListener(null);
-                                etAsEmail.setEnabled(false);*//*
+
                                 llASPhone.setVisibility(View.GONE);
                                 llPhoneVerified.setVisibility(View.VISIBLE);
 
@@ -503,8 +513,7 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
                                 llASPhone.setVisibility(View.GONE);
                                 llPhoneVerified.setVisibility(View.VISIBLE);
 
-                            }
-                            */
+                            }*/
 
 
                             if (dashboards.getAdmin_approved_status().equals("0")) {

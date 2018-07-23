@@ -49,7 +49,7 @@ import java.util.Map;
 
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 
-public class MySavedListAdapter extends ArrayAdapter<mSavList> {
+public class  MySavedListAdapter extends ArrayAdapter<mSavList> {
     Fragment fragment;
     Context context;
     int layoutResourceId;
@@ -202,7 +202,7 @@ public class MySavedListAdapter extends ArrayAdapter<mSavList> {
                             if (responseid == 1) {
                                 Toast.makeText(context, "List Deleted", Toast.LENGTH_SHORT).show();
                                 onUpdateListener.onUpdate("");
-                               // getData();
+                                // getData();
                             }
                         } catch (JSONException e) {
                             pDialog.dismiss();
@@ -241,8 +241,6 @@ public class MySavedListAdapter extends ArrayAdapter<mSavList> {
     }
 
 
-
-
     static class Holder {
         AppCompatImageView ivMenu;
         TextView txtName;
@@ -250,7 +248,6 @@ public class MySavedListAdapter extends ArrayAdapter<mSavList> {
         faTextView faTxtBlock;
         faTextView faTxtClick;
     }
-
 
 
     public interface OnUpdateListener {

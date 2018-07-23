@@ -1,6 +1,7 @@
 package com.chicsol.marrymax.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,8 +23,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.dialogs.dialogMatchAidFeedback;
 import com.chicsol.marrymax.modal.mLfm;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
@@ -53,13 +57,18 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
     private int height = 0;
     private Toolbar toolbar;
 
+    LinearLayout llNoMatches, llEmptyMatches;
+
+    AppCompatButton btMatchAidSubscribe, btFindMatches;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_aid);
         initialize();
+        setListeners();
 
-        getRequest();
     }
 
     @Override
@@ -70,12 +79,16 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
 
     private void initialize() {
 
+
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
         toolbar.setTitle("Match Aid");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        btMatchAidSubscribe = (AppCompatButton) findViewById(R.id.ButtonMatchAidSubscribe);
+        btFindMatches = (AppCompatButton) findViewById(R.id.ButtonMatchAidFindMatches);
 
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         int heightScreen = metrics.heightPixels;
@@ -123,11 +136,35 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
 
         ll_Main = (LinearLayout) findViewById(R.id.LinearLayoutMatchAidMain);
 
+        llNoMatches = (LinearLayout) findViewById(R.id.LinearLayoutMAtchAidNoMatches);
+        llEmptyMatches = (LinearLayout) findViewById(R.id.LinearLayoutMAtchAidEmpty);
 
+        if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() <= 3) {
+            llNoMatches.setVisibility(View.VISIBLE);
+
+        } else {
+            llNoMatches.setVisibility(View.GONE);
+            getRequest();
+        }
     }
 
     private void setListeners() {
+        btMatchAidSubscribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MarryMax(MatchAidActivity.this).subscribe();
+            }
+        });
 
+
+        btFindMatches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getApplicationContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 24);
+                startActivity(in);
+            }
+        });
     }
 
     private void getRequest() {

@@ -30,6 +30,7 @@ import com.chicsol.marrymax.fragments.matches.AccpetedMembers;
 import com.chicsol.marrymax.fragments.matches.LookingForEachOther;
 import com.chicsol.marrymax.fragments.matches.MatchesWithPhotoUpdate2Fragment;
 import com.chicsol.marrymax.fragments.matches.MyFavouriteMatches;
+import com.chicsol.marrymax.fragments.matches.MyMatchesFragment;
 import com.chicsol.marrymax.fragments.matches.PrefferedMatchingProfileFragment;
 import com.chicsol.marrymax.fragments.matches.SavedNotes;
 import com.chicsol.marrymax.fragments.matches.WhoViewedMe;
@@ -190,6 +191,13 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
             case 23:
                 getSupportActionBar().setTitle("My Contact");
                 fragment = new MyContactFragment();
+                break;
+
+            case 24:
+
+                getSupportActionBar().setTitle("Matches");
+                fragment = new MyMatchesFragment();
+
                 break;
         }
 
