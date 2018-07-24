@@ -292,7 +292,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
             public void onClick(View v) {
 
 
-                marryMax.statusBaseChecks(member, context, 5, fragmentManager, null, v, null, null,null);
+                marryMax.statusBaseChecks(member, context, 5, fragmentManager, null, v, null, null,null,null);
 
             }
         });
@@ -336,7 +336,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
             @Override
             public void onClick(View v) {
 
-                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null);
+                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null,null);
                 if (bcheck3) {
                     matchAid();
                 }
@@ -349,7 +349,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                 //   Toast.makeText(UserProfileActivity.context, "Clicked", Toast.LENGTH_SHORT).show();
                 //    Log.e("Saved Member", member.get_saved_member() + " ");
 
-                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null);
+                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null,null);
                 if (bcheck3) {
                     if (member.get_saved_member() == 1) {
                         JSONObject params = new JSONObject();
@@ -429,7 +429,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                                 break;*/
                             case R.id.menu_up_block:
 
-                                boolean bcheck = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null);
+                                boolean bcheck = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null,null);
                                 if (bcheck) {
                                     blockUser();
                                 }
@@ -437,7 +437,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                             case R.id.menu_up_remove:
 
 
-                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, fragmentManager, null, v, null, null,null);
+                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, fragmentManager, null, v, null, null,null,null);
 
                                 if (checkStatus) {
                                     JSONObject params = new JSONObject();
@@ -454,7 +454,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                                 break;
 
                             case R.id.menu_up_report_concern:
-                                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null);
+                                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null,null);
                                 if (bcheck3) {
                                     reportConcern();
                                 }
@@ -479,7 +479,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
 
     private void sendMessage(View v) {
 
-        marryMax.statusBaseChecks(member, context, 6, fragmentManager, null, v, null, null,null);
+        marryMax.statusBaseChecks(member, context, 6, fragmentManager, null, v, null, null,null,null);
 
     }
 
@@ -501,7 +501,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
         Log.e(functions.checkProfileCompleteStatus(member) + "" + member.get_member_status(), "checcccccccccccccccccccc");
 
 
-        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, fragmentManager, null, v, null, null,null);
+        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, fragmentManager, null, v, null, null,null,null);
 
         if (checkStatus) {
             if (functions.checkProfileCompleteStatus(sessionObj)) {

@@ -598,7 +598,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             public void onClick(View v) {
 
 
-                marryMax.statusBaseChecks(member, context, 5, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                marryMax.statusBaseChecks(member, context, 5, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
 
             }
         });
@@ -641,7 +641,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             @Override
             public void onClick(View v) {
 
-                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, Tag);
                 if (bcheck3) {
                     matchAid();
                 }
@@ -654,7 +654,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 //   Toast.makeText(UserProfileActivity.getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
                 //    Log.e("Saved Member", member.get_saved_member() + " ");
 
-                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
                 if (bcheck3) {
                     if (member.get_saved_member() == 1) {
                         JSONObject params = new JSONObject();
@@ -731,7 +731,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                         switch (item.getItemId()) {
                             case R.id.menu_up_ask_questions:
                                 //  Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
-                                boolean qcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                                boolean qcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
                                 if (qcheck) {
                                     Intent intent = new Intent(getActivity(), QuestionsActivity.class);
                                     intent.putExtra("userpath", userpath);
@@ -743,7 +743,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             case R.id.menu_up_request_permissions:
 
 
-                                boolean percheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                                boolean percheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
                                 if (percheck) {
                                     Gson gson = new Gson();
                                     Intent in = new Intent(getActivity(), RequestPermissionsActivity.class);
@@ -758,7 +758,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                             case R.id.menu_up_block:
 
-                                boolean bcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                                boolean bcheck = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
                                 if (bcheck) {
                                     blockUser();
                                 }
@@ -766,7 +766,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             case R.id.menu_up_remove:
 
 
-                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
 
                                 if (checkStatus) {
                                     JSONObject params = new JSONObject();
@@ -783,7 +783,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                 break;
 
                             case R.id.menu_up_report_concern:
-                                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
                                 if (bcheck3) {
                                     reportConcern();
                                 }
@@ -792,7 +792,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             case R.id.menu_up_add_notes:
                                 // dialogAddNotes.newInstance(member, userpath);
 
-                                boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                                boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
                                 if (bcheck4) {
                                     dialogAddNotes newFragment = dialogAddNotes.newInstance(userpath);
                                     newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
@@ -802,7 +802,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                             case R.id.menu_up_add_to_list:
                                 // dialogAddNotes.newInstance(member, userpath);
-                                boolean bcheck5 = marryMax.statusBaseChecks(member, context, 8, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+                                boolean bcheck5 = marryMax.statusBaseChecks(member, context, 8, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
                                 if (bcheck5) {
                                     dialogAddtoList newFragment1 = dialogAddtoList.newInstance(userpath);
                                     newFragment1.setTargetFragment(UserProfileActivityFragment.this, 0);
@@ -829,7 +829,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private void sendMessage(View v) {
         //   Log.e("Parcel Size", Parcel.obtain().dataSize() + "");
 
-        marryMax.statusBaseChecks(member, context, 6, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+        marryMax.statusBaseChecks(member, context, 6, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
 
     }
 
@@ -851,7 +851,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         // Log.e(functions.checkProfileCompleteStatus(member) + "" + member.get_member_status(), "checcccccccccccccccccccc");
 
 
-        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null);
+        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
 
         if (checkStatus) {
             if (functions.checkProfileCompleteStatus(sessionObj)) {

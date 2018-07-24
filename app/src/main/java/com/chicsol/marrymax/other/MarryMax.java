@@ -381,7 +381,7 @@ public class MarryMax {
 
 
     //cat 1=view profile
-    public boolean statusBaseChecks(Members member, Context context, int category, final FragmentManager frgMngr, Fragment fragment, View view, String memberDataList, String selectedPosition, Members memResultsObj) {
+    public boolean statusBaseChecks(Members member, Context context, int category, final FragmentManager frgMngr, Fragment fragment, View view, String memberDataList, String selectedPosition, Members memResultsObj, String TAG) {
 
         Members smember = SharedPreferenceManager.getUserObject(context);
 
@@ -416,8 +416,35 @@ public class MarryMax {
                     memResultsObj.setUserpath(member.getUserpath());
                     Intent intent = new Intent(context, UserProfileActivityWithSlider.class);
 
-                    intent.putExtra("selectedposition", selectedPosition);
-                    SharedPreferenceManager.setMemberDataList(context, memberDataList);
+
+                    if (TAG.equals("SavedNotes") || TAG.equals("AccpetedMembers") || TAG.equals("FavouriteMembers")) {
+
+
+                        Gson gsonc;
+                        GsonBuilder gsonBuilderc = new GsonBuilder();
+                        gsonc = gsonBuilderc.create();
+
+
+                        Type listType = new TypeToken<List<Members>>() {
+                        }.getType();
+
+                        List<Members> membersDataLista = (List<Members>) gsonc.fromJson(memberDataList, listType);
+
+                        Members seletedMember = membersDataLista.get(Integer.parseInt(selectedPosition));
+                        membersDataLista.clear();
+                        membersDataLista.add(seletedMember);
+
+
+                        Log.e("membersDataLista", membersDataLista.size() + "");
+
+                        intent.putExtra("selectedposition", "-1");
+                        SharedPreferenceManager.setMemberDataList(context, gsonc.toJson(membersDataLista));
+                    } else {
+                        intent.putExtra("selectedposition", selectedPosition);
+                        SharedPreferenceManager.setMemberDataList(context, memberDataList);
+                    }
+                  /*  intent.putExtra("selectedposition", selectedPosition);
+                    SharedPreferenceManager.setMemberDataList(context, memberDataList);*/
 
                     Gson gson = new Gson();
                     intent.putExtra("memresult", gson.toJson(memResultsObj));

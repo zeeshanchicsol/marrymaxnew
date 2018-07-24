@@ -238,7 +238,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchResultsActivity.this, getSupportFragmentManager(), this, this, this);
+        recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchResultsActivity.this, getSupportFragmentManager(), this, this, this,TAG);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);

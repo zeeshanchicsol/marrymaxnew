@@ -83,6 +83,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
     Context activity;
     private Toolbar toolbar;
     private Spinner spinner_bride_groom;
+    String TAG = "SearchYourBestMatchResultsActivity";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -275,7 +276,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchYourBestMatchResultsActivity.this, getSupportFragmentManager(), this, this, this);
+        recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchYourBestMatchResultsActivity.this, getSupportFragmentManager(), this, this, this, TAG);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);

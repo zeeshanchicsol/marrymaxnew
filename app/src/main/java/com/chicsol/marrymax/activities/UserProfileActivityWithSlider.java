@@ -85,6 +85,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         gson = gsonBuilder.create();
 
 
+
         selectedposition = Integer.parseInt(getIntent().getExtras().getString("selectedposition"));
 
 

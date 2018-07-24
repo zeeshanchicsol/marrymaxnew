@@ -268,7 +268,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
                 String type = null, title = null, btTitile = null, desc = null;
 
 
-                boolean checkStatus = marryMax.statusBaseChecks(member, getContext(), 2, getFragmentManager(), PicturesFragment.this, v, null, null,null);
+                boolean checkStatus = marryMax.statusBaseChecks(member, getContext(), 2, getFragmentManager(), PicturesFragment.this, v, null, null,null,null);
 
                 if (checkStatus) {
                     if (member.get_image_count() == 0) {

@@ -593,7 +593,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
             Log.e("Data list ", "" + items.size());
             Gson gson = new Gson();
-            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembersFragment.this, view, gson.toJson(items), "-1" , memResultsObj);
+            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembersFragment.this, view, gson.toJson(items), "-1" , memResultsObj,Tag);
         }
 
     }

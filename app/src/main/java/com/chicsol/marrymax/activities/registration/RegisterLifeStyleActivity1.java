@@ -834,6 +834,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         ((RadioButton) rgChildren.getChildAt(0)).setEnabled(true);
 
         if (members_obj.get_children_id() == 2 || members_obj.get_children_id() == 3) {
+
             ((RadioButton) rgChildren.getChildAt(0)).setEnabled(false);
             btRemoveChildren.setVisibility(View.VISIBLE);
 

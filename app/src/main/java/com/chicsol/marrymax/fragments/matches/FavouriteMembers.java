@@ -63,7 +63,7 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
  * Created by Android on 11/3/2016.
  */
 
-public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener,  DashboardMatchesMainFragment.MatchesMainFragmentInterface, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback , MatchesRefreshCallBackInterface {
+public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, DashboardMatchesMainFragment.MatchesMainFragmentInterface, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface {
     public static int result = 0;
     LinearLayout LinearLayoutMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -79,7 +79,7 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
     private SwipeRefreshLayout swipeRefresh;
     private String params;
     Context context;
-    private TextView   tvMatchesCountCP, tvMatchesCount, tvComplProfioleTitle, tvMatchesCountSubscribeNow, tvSubscribeNowTitle;
+    private TextView tvMatchesCountCP, tvMatchesCount, tvComplProfioleTitle, tvMatchesCountSubscribeNow, tvSubscribeNowTitle;
     LinearLayout llMMMatchesNotFoundCompleteProfile, llSubscribeNow;
     private long totalMatchesCount = 0;
     private String Tag = "FavouriteMembers";
@@ -232,13 +232,15 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment,this,this);
+        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this,Tag);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);
 
         recyclerView.setAdapter(recyclerAdapter);
         swipeRefresh.setOnRefreshListener(this);
+
+
 
 
         ((AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick)).setOnClickListener(new View.OnClickListener() {
@@ -320,7 +322,7 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(getContext()).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
     }
 
 
@@ -508,8 +510,8 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
 
                                     if (memberTotalPages.get_total_member_count() > 0) {
                                         if (getView() != null) {
-                                          //  getView().findViewById(R.id.TextViewMatchesTotalCount).setVisibility(View.VISIBLE);
-                                           // ((TextView) getView().findViewById(R.id.TextViewMatchesTotalCount)).setText("" + memberTotalPages.get_total_member_count() + " Matches Found");
+                                            //  getView().findViewById(R.id.TextViewMatchesTotalCount).setVisibility(View.VISIBLE);
+                                            // ((TextView) getView().findViewById(R.id.TextViewMatchesTotalCount)).setText("" + memberTotalPages.get_total_member_count() + " Matches Found");
 
                                             tvMatchesCount.setVisibility(View.VISIBLE);
                                             totalMatchesCount = memberTotalPages.get_total_member_count();
@@ -593,7 +595,7 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -673,7 +675,7 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -692,11 +694,13 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
         totalMatchesCount--;
         setMatchesCount();
     }
+
     private void setMatchesCount() {
 
         tvMatchesCount.setText(totalMatchesCount + " Matches Found");
 
     }
+
     @Override
     public void onRefreshMatch() {
         onRefresh();

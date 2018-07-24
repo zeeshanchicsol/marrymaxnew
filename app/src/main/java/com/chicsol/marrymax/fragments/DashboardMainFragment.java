@@ -1210,7 +1210,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
             Log.e("Data list ", "" + items.size());
             Gson gson = new Gson();
-            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashboardMainFragment.this, view, gson.toJson(items), "" + position, memResultsObj);
+            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashboardMainFragment.this, view, gson.toJson(items), "" + position, memResultsObj,Tag);
         }
 
     }
