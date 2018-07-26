@@ -188,7 +188,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                 Log.e(TAG + "ff onPage position", "" + position);
                 Log.e(TAG + "ff adapter.getCount()", "" + adapter.getCount());
 
-                if (position == (adapter.getCount() - 1) && current_page <= total_pages) {
+                if (position == (adapter.getCount() - 1) && current_page < total_pages) {
                     Log.e("ff in", "in ");
 
 
@@ -352,7 +352,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         if (!addBackward) {
             int spos = lastDigit(selectedposition);
             if (spos != -1) {
-                viewPagerProfileSlider.setCurrentItem(spos);
+                viewPagerProfileSlider.setCurrentItem(spos,true);
             }
         }
     }

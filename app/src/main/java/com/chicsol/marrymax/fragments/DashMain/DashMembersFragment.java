@@ -249,7 +249,24 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
             params = gson.toJson(memberSearchObj);
 
 
-            recyclerAdapterMSLW.setMemResultsObj(memberSearchObj);
+            //     argsRequest.putString("type", "mymatches");
+            //     argsPermission.putString("type", "registertoday");
+
+
+            if (type.equals("mymatches")) {
+                // memberSearchObj.set_type();
+                //  PM
+                Members members = memberSearchObj;
+                members.set_type("PM");
+
+                recyclerAdapterMSLW.setMemResultsObj(members);
+            } else {
+
+                Members members = memberSearchObj;
+                members.set_type("MBW");
+                recyclerAdapterMSLW.setMemResultsObj(members);
+            }
+
 
 
       /*      } catch (JSONException e) {
@@ -431,7 +448,6 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
     }
 
 
-
     private void getMembersListbyTypeByPageMSLW(int pageNumber) {
         recyclerAdapterMSLW.setProgressMore(true);
         // btReset.setVisibility(View.VISIBLE);
@@ -574,8 +590,6 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
     }
 
 
-
-
     @Override
     public void onItemClick(View view, Members members, int position, List<Members> items, Members memResultsObj) {
         //  Toast.makeText(getActivity(), members.get_path() + " clicked", Toast.LENGTH_SHORT).show();
@@ -593,11 +607,10 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
             Log.e("Data list ", "" + items.size());
             Gson gson = new Gson();
-            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembersFragment.this, view, gson.toJson(items), "-1" , memResultsObj,Tag);
+            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembersFragment.this, view, gson.toJson(items), position + "", memResultsObj, Tag);
         }
 
     }
-
 
 
 }
