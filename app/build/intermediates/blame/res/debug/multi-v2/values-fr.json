@@ -1,0 +1,96 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fr/values-fr.xml",
+            "map": [
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/abfe3b674bbf9d3a058db7468cd59aa9/res/values-fr/values-fr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "104",
+                        "startColumns": "4",
+                        "startOffsets": "7813",
+                        "endColumns": "100",
+                        "endOffsets": "7909"
+                    }
+                },
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/aa46b336c3dc4109f5c5e8ad67f51a21/res/values-fr/values-fr.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,216,331,442,524,630,760,843,923,1009,1119,1231,1334,1445,1552,1659,1818,1917",
+                        "endColumns": "110,114,110,81,105,129,82,79,85,109,111,102,110,106,106,158,98,85",
+                        "endOffsets": "211,326,437,519,625,755,838,918,1004,1114,1226,1329,1440,1547,1654,1813,1912,1998"
+                    },
+                    "to": {
+                        "startLines": "78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,103",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "5028,5139,5254,5365,5447,5553,5683,5766,5846,5932,6042,6154,6257,6368,6475,6582,6741,7727",
+                        "endColumns": "110,114,110,81,105,129,82,79,85,109,111,102,110,106,106,158,98,85",
+                        "endOffsets": "5134,5249,5360,5442,5548,5678,5761,5841,5927,6037,6149,6252,6363,6470,6577,6736,6835,7808"
+                    }
+                },
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/4e87762fcddf4cdb09713b7f71324f74/res/values-fr/values-fr.xml",
+                    "from": {
+                        "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,79,80,81",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,359,621,886,1154,1409,1676,1946,2219,2466,2717,2970,3217,3471,3730,3991,4238,4498,4762,5028,5096,5224,5351",
+                        "endLines": "5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69,73,77,78,79,80,81",
+                        "endColumns": "14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,67,127,126,150",
+                        "endOffsets": "354,616,881,1149,1404,1671,1941,2214,2461,2712,2965,3212,3466,3725,3986,4233,4493,4757,5023,5091,5219,5346,5497"
+                    },
+                    "to": {
+                        "startLines": "2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,74,99,100,101,102",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,359,621,886,1154,1409,1676,1946,2219,2466,2717,2970,3217,3471,3730,3991,4238,4498,4762,7253,7321,7449,7576",
+                        "endLines": "5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69,73,77,99,100,101,102",
+                        "endColumns": "14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,67,127,126,150",
+                        "endOffsets": "354,616,881,1149,1404,1671,1941,2214,2461,2712,2965,3212,3466,3725,3986,4233,4493,4757,5023,7316,7444,7571,7722"
+                    }
+                },
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/stripe-android-4.1.5.aar/253feb62945c74ace575fd160dde056c/res/values-fr/values-fr.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,123,193",
+                        "endColumns": "67,69,50",
+                        "endOffsets": "118,188,239"
+                    },
+                    "to": {
+                        "startLines": "95,96,98",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "6840,6908,7202",
+                        "endColumns": "67,69,50",
+                        "endOffsets": "6903,6973,7248"
+                    }
+                },
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.1.aar/13eeb012a201e032e45661a445f4cc57/res/values-fr/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "223",
+                        "endOffsets": "508"
+                    },
+                    "to": {
+                        "startLines": "97",
+                        "startColumns": "4",
+                        "startOffsets": "6978",
+                        "endColumns": "223",
+                        "endOffsets": "7197"
+                    }
+                }
+            ]
+        }
+    ]
+}

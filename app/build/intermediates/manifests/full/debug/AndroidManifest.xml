@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chicsol.marrymax"
+    android:versionCode="26"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="27" />
+
+    <!-- android:name=".ActivityLogin" -->
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.chicsol.marrymax.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.chicsol.marrymax.permission.C2D_MESSAGE" /> <!-- android:name=".App" -->
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.chicsol.marrymax.activities.ActivityLogin"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainScreenTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Receievers -->
+        <!--
+        <receiver
+            android:name=".receivers.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity
+            android:name="com.chicsol.marrymax.activities.registration.RegisterGeographicActivity"
+            android:label="Geographic"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.registration.RegistrationActivity"
+            android:label="Registration"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.registration.RegisterAppearanceActivity"
+            android:label="Appearance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.registration.RegisterLifeStyleActivity1"
+            android:label="Lifestyle"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.registration.RegisterLifeStyleActivity2"
+            android:label="Lifestyle"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.registration.RegisterInterest"
+            android:label="Interest"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity"
+            android:label="Personality"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchActivity"
+            android:label="Search Your Best Match"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.DashboarMainActivity"
+            android:label="Dashboard"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav"
+            android:label="Dashboard"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.UserProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.UserProfileActivityWithSlider"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.MyProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- android:theme="@style/AppTheme" -->
+        <activity
+            android:name="com.chicsol.marrymax.fragments.inbox.DashboardMessagesDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.AccountSettingActivity"
+            android:label="Account Setting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.NotificationsActivity"
+            android:label="Notification Archive"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.FaqActivity"
+            android:label="FAQs"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.search.SearchMainActivity"
+            android:label="Advance Search"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.search.SearchResultsActivity"
+            android:label="Search Results"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.PhotoUpload"
+            android:label="@string/title_activity_photo_upload"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchResultsActivity"
+            android:label="Search Your Best Match"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.ActivityForgetPassword"
+            android:label="Forgot Password"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainScreenTheme" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.RequestPermissionsActivity"
+            android:label="Request &amp; Permissions "
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.subscription.SubscriptionPlanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.subscription.OrderProcessActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="6491af68e92e504fd5f2570f0730b25b27eed5f4" />
+
+        <activity
+            android:name="com.chicsol.marrymax.activities.subscription.OrderConfirmationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.directive.MainDirectiveActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.fragments.list.MemberListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.MatchAidActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.QuestionsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.chicsol.marrymax.fragments.inbox.DashboardQuestionsDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.chicsol.marrymax" />
+            </intent-filter>
+        </receiver>
+        <!--
+ Internal (not exported) receiver used by the app to start its own exported services
+             without risk of being spoofed.
+        -->
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+            android:exported="false" />
+        <!--
+ FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.chicsol.marrymax.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="com.kbeanie.multipicker.utils.AMPFileProvider"
+            android:authorities="com.chicsol.marrymax.multipicker.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="com.chicsol.marrymax.com.squareup.picasso"
+            android:exported="false" />
+    </application>
+
+</manifest>
