@@ -147,7 +147,8 @@ public class AccpetedMembers extends Fragment implements RecyclerViewAdapterMyMa
             //ListViewAdvSearchFragment.defaultSelectionsObj
         }*/
 
-
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             Members memberSearchObj = DrawerActivity.rawSearchObj;
             if (memberSearchObj != null) {
@@ -214,7 +215,7 @@ public class AccpetedMembers extends Fragment implements RecyclerViewAdapterMyMa
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this,Tag);
+        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this, Tag);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);
@@ -293,6 +294,8 @@ public class AccpetedMembers extends Fragment implements RecyclerViewAdapterMyMa
 
     @Override
     public void onLoadMore() {
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
 
         if (lastPage != totalPages && lastPage < totalPages) {
             lastPage = lastPage + 1;

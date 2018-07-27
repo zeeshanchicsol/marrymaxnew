@@ -109,7 +109,8 @@ public class WhomIViewed extends Fragment implements RecyclerViewAdapterMyMatche
     public void onResume() {
         super.onResume();
 
-
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             Members memberSearchObj = DrawerActivity.rawSearchObj;
             if (memberSearchObj != null) {
@@ -325,6 +326,10 @@ public class WhomIViewed extends Fragment implements RecyclerViewAdapterMyMatche
 
     @Override
     public void onRefresh() {
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
+
+
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
 

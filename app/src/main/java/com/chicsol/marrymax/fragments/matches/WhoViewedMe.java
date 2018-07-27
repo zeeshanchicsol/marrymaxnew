@@ -116,6 +116,10 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
     public void onResume() {
         super.onResume();
 
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
+
+
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             Members memberSearchObj = DrawerActivity.rawSearchObj;
             if (memberSearchObj != null) {
@@ -321,6 +325,9 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
 
     @Override
     public void onRefresh() {
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
+
         Members memberSearchObj = DrawerActivity.rawSearchObj;
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             if (memberSearchObj != null) {

@@ -79,7 +79,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
     private SwipeRefreshLayout swipeRefresh;
     private String params;
 
-    private TextView tvMatchesCountCp, tvMatchesCount,tvComplProfioleTitle, tvMatchesCountSubscribeNow, tvSubscribeNowTitle;
+    private TextView tvMatchesCountCp, tvMatchesCount, tvComplProfioleTitle, tvMatchesCountSubscribeNow, tvSubscribeNowTitle;
     LinearLayout llMMMatchesNotFoundCompleteProfile, llSubscribeNow;
     private Context context;
     private long totalMatchesCount = 0;
@@ -119,8 +119,8 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
     @Override
     public void onResume() {
         super.onResume();
-
-
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
             Members memberSearchObj = DrawerActivity.rawSearchObj;
@@ -185,7 +185,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this,this,Tag);
+        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this, Tag);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);
@@ -278,7 +278,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
                 pDialog.setVisibility(View.GONE);
             }
         });
-        MySingleton.getInstance(getContext()).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
     }
 
 
@@ -364,6 +364,9 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
 
     @Override
     public void onRefresh() {
+        recyclerAdapter.setMoreLoading(false);
+        lastPage = 1;
+
         Members memberSearchObj = DrawerActivity.rawSearchObj;
 
         memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
@@ -560,7 +563,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -640,7 +643,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -660,10 +663,12 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
         tvMatchesCount.setText(totalMatchesCount + " Matches Found");
 
     }
+
     @Override
     public void onRefreshMatch() {
         onRefresh();
     }
+
     @Override
     public void onStop() {
         super.onStop();

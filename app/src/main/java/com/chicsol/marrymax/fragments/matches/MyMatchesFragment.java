@@ -122,7 +122,8 @@ TextView tvMatchesCount;
     @Override
     public void onResume() {
         super.onResume();
-
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
             getRawData();
@@ -356,6 +357,9 @@ TextView tvMatchesCount;
 
     @Override
     public void onRefresh() {
+
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             Members memberSearchObj = DrawerActivity.rawSearchObj;
             if (memberSearchObj != null) {

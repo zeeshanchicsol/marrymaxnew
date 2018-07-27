@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xxhdpi-v4/values-xxhdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/res/values-xxhdpi/dimens.xml",
+                    "from": {
+                        "startLines": "4,25,21,16,11,12,23,20,24,8,7,6,22,29,32,30,15,35",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "291,1042,836,691,537,583,937,775,988,478,431,377,893,1128,1246,1184,631,1354",
+                        "endColumns": "57,49,56,46,45,45,50,60,53,56,46,53,43,55,56,60,59,46",
+                        "endOffsets": "344,1087,888,733,578,624,983,831,1037,530,473,426,932,1179,1298,1240,686,1396"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,113,163,220,267,313,359,410,471,525,582,629,683,727,783,840,901,961",
+                        "endColumns": "57,49,56,46,45,45,50,60,53,56,46,53,43,55,56,60,59,46",
+                        "endOffsets": "108,158,215,262,308,354,405,466,520,577,624,678,722,778,835,896,956,1003"
+                    }
+                }
+            ]
+        }
+    ]
+}

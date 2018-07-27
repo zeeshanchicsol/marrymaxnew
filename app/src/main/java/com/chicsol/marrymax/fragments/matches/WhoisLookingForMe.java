@@ -119,6 +119,8 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
     public void onResume() {
         super.onResume();
 
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
 
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
@@ -195,7 +197,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this,Tag);
+        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this, Tag);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);
@@ -373,6 +375,10 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
 
     @Override
     public void onRefresh() {
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
+
+        Log.e("lastPage", "" + lastPage);
         Members memberSearchObj = DrawerActivity.rawSearchObj;
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             new MarryMax(null).getRawData(context, 2);

@@ -145,6 +145,9 @@ public class MatchesWithPhotoUpdate2Fragment extends Fragment implements Recycle
         if (result != 0) {
             Toast.makeText(getContext(), "val: " + result, Toast.LENGTH_SHORT).show();
         }
+
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             Members memberSearchObj = DrawerActivity.rawSearchObj;
             if (memberSearchObj != null) {
@@ -360,6 +363,10 @@ public class MatchesWithPhotoUpdate2Fragment extends Fragment implements Recycle
 
     @Override
     public void onRefresh() {
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
+
+
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             Members memberSearchObj = DrawerActivity.rawSearchObj;
             if (memberSearchObj != null) {

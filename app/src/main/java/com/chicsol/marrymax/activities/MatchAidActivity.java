@@ -138,6 +138,7 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
 
         llNoMatches = (LinearLayout) findViewById(R.id.LinearLayoutMAtchAidNoMatches);
         llEmptyMatches = (LinearLayout) findViewById(R.id.LinearLayoutMAtchAidEmpty);
+        llEmptyMatches.setVisibility(View.GONE);
 
         if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() <= 3) {
             llNoMatches.setVisibility(View.VISIBLE);
@@ -199,6 +200,11 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
                             Log.e("s 1", lis1.size() + "");
                             Log.e("s 2", lis2.size() + "");
 
+
+                            if (lis1.size() == 0) {
+
+                                llEmptyMatches.setVisibility(View.VISIBLE);
+                            }
 
                             if (ll_Main.getChildCount() > 0) {
                                 ll_Main.removeAllViews();

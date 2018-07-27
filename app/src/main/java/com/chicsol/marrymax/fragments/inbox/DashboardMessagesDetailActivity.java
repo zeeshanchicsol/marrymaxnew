@@ -380,7 +380,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -447,12 +447,12 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
     private void getChatRequest(JSONObject params) {
-
+        ll_DeleteChat.setVisibility(View.GONE);
         final ProgressDialog pDialog = new ProgressDialog(DashboardMessagesDetailActivity.this);
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
@@ -484,7 +484,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                             List<mCommunication> dlist2 = (List<mCommunication>) gsonc.fromJson(jsonObj.getJSONArray(1).toString(), listType);
 
 
-                            if (dlist.size() >= 0) {
+                            if (dlist.size() > 0) {
                                 ll_DeleteChat.setVisibility(View.VISIBLE);
 
                                 if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 3) {
@@ -552,7 +552,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 

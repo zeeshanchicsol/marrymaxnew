@@ -150,7 +150,8 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
             //    listener.onItemSelected(dataList.get(0));
             //ListViewAdvSearchFragment.defaultSelectionsObj
         }*/
-
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -409,7 +410,8 @@ public class FavouriteMembers extends Fragment implements RecyclerViewAdapterMyM
     @Override
     public void onRefresh() {
         Members memberSearchObj = DrawerActivity.rawSearchObj;
-
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
 
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             if (memberSearchObj != null) {

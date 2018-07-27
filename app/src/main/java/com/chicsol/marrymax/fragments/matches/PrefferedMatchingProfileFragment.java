@@ -80,7 +80,6 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
     private String Tag = "PrefferedMatchingProfileFragment";
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,7 +113,8 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
     public void onResume() {
         super.onResume();
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
-
+            lastPage = 1;
+            recyclerAdapter.setMoreLoading(false);
             getRawData();
 
 
@@ -187,7 +187,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this,Tag);
+        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this, Tag);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);
@@ -349,8 +349,11 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
 
     @Override
     public void onRefresh() {
+
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
+            lastPage = 1;
+            recyclerAdapter.setMoreLoading(false);
 
             Members memberSearchObj = DrawerActivity.rawSearchObj;
             if (memberSearchObj != null) {
@@ -516,7 +519,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -596,7 +599,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -668,7 +671,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(context).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }
 
     @Override
