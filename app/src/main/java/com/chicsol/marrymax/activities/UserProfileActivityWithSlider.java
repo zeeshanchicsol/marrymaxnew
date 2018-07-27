@@ -457,7 +457,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                             int count = response.getInt("count");
                             Log.e(TAG + " listProfiles", "" + count);
 
-                            total_pages = Math.round(count / 10);
+                            total_pages = Math.round(count / 50);
 
                             Log.e(TAG + "total_pages aa", total_pages + "");
                             JSONArray jsonArray = response.getJSONArray("prfids");
