@@ -339,8 +339,8 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
     pDialog.show();
 }*/
         // pDialog.setVisibility(View.VISIBLE);
-        Log.e("Params", "" + paramsa);
-        Log.e("Member List", "" + Urls.getMembersListbyType);
+        Log.e("MemberList Params", "" + paramsa);
+        Log.e("MemberList", "" + Urls.getMembersListbyType);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getMembersListbyType, paramsa,
                 new Response.Listener<JSONObject>() {

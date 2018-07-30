@@ -85,7 +85,6 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         gson = gsonBuilder.create();
 
 
-
         selectedposition = Integer.parseInt(getIntent().getExtras().getString("selectedposition"));
 
 
@@ -352,7 +351,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         if (!addBackward) {
             int spos = lastDigit(selectedposition);
             if (spos != -1) {
-                viewPagerProfileSlider.setCurrentItem(spos,true);
+                viewPagerProfileSlider.setCurrentItem(spos, true);
             }
         }
     }

@@ -487,6 +487,9 @@ public class MyProfileStatusFragment extends Fragment implements dialogVerifypho
                                 btAddNumber.setVisibility(View.VISIBLE);
                             }
 
+
+
+
                             if (dashboards.getPhone_complete_status().equals("1")) {
                                 llVerifyPhone.setVisibility(View.GONE);
                                 llPhoneVerified.setVisibility(View.VISIBLE);
