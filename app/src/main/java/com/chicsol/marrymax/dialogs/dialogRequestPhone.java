@@ -179,6 +179,7 @@ public class dialogRequestPhone extends DialogFragment {
         super.onStart();
 
         getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
     }
 
 
@@ -206,8 +207,8 @@ public class dialogRequestPhone extends DialogFragment {
                             if (responseid >= 1) {
                                 Toast.makeText(getContext(), "Phone View Requested", Toast.LENGTH_SHORT).show();
                                 dialogRequestPhone.this.getDialog().cancel();
-                              //  mCompleteListener.onComplete("1");
-                               listener.onPhoneViewRequestComplete(responseid+"");
+                                //  mCompleteListener.onComplete("1");
+                                listener.onPhoneViewRequestComplete(responseid + "");
 
                                 pDialog.dismiss();
 
@@ -235,8 +236,8 @@ public class dialogRequestPhone extends DialogFragment {
 
 
                             } else {
-                              //  listener.complete();
-                             //   mCompleteListener.onComplete("1");
+                                //  listener.complete();
+                                //   mCompleteListener.onComplete("1");
                                 dialogRequestPhone.this.getDialog().cancel();
                             }
 
