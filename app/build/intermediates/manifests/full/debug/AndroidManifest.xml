@@ -108,6 +108,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
+            android:name="com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeSearchActivity"
+            android:label="Who is Looking For Me"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name="com.chicsol.marrymax.activities.DashboarMainActivity"
             android:label="Dashboard"
             android:screenOrientation="portrait"
@@ -169,6 +174,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeResultsActivity"
+            android:label="Find Out Who Is Looking For You"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.chicsol.marrymax.activities.ActivityForgetPassword"
             android:label="Forgot Password"
             android:screenOrientation="portrait"
@@ -219,6 +229,7 @@
             android:name="com.chicsol.marrymax.fragments.inbox.DashboardQuestionsDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsSearchActivity" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"

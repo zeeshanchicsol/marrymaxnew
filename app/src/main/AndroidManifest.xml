@@ -94,6 +94,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
+            android:name=".activities.whoislookingformesearch.WhoIsLookingForMeSearchActivity"
+            android:label="Who is Looking For Me"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".activities.DashboarMainActivity"
             android:label="Dashboard"
             android:screenOrientation="portrait"
@@ -155,6 +160,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".activities.whoislookingformesearch.WhoIsLookingForMeResultsActivity"
+            android:label="Find Out Who Is Looking For You"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".activities.ActivityForgetPassword"
             android:label="Forgot Password"
             android:screenOrientation="portrait"
@@ -200,14 +210,12 @@
         <activity
             android:name=".activities.QuestionsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".fragments.inbox.DashboardQuestionsDetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-
-            ></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.whoislookingformesearch.WhoIsSearchActivity"></activity>
     </application>
 
 </manifest>

@@ -30,6 +30,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.registration.RegistrationActivity;
 import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchActivity;
+import com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeResultsActivity;
+import com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeSearchActivity;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.other.ConnectionDetector;
 import com.chicsol.marrymax.other.MarryMax;
@@ -212,7 +214,8 @@ public class ActivityLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
-                    Intent in = new Intent(ActivityLogin.this, SearchYourBestMatchActivity.class);
+                 //   Intent in = new Intent(ActivityLogin.this, SearchYourBestMatchActivity.class);
+                    Intent in = new Intent(ActivityLogin.this, WhoIsLookingForMeSearchActivity.class);
                     startActivity(in);
                 }
             }

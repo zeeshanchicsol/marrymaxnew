@@ -17,7 +17,7 @@ import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.fragments.AccountSetting.MatchingAttributeFragment;
 import com.chicsol.marrymax.fragments.AccountSetting.MyContactFragment;
-import com.chicsol.marrymax.fragments.AccountSetting.MyProfileStatusFragment;
+import com.chicsol.marrymax.fragments.AccountSetting.MyProfileSettingFragment;
 import com.chicsol.marrymax.fragments.inbox.DashboardMessagesFragment;
 import com.chicsol.marrymax.fragments.inbox.interests.DashboardMyInterestsMainFragment;
 import com.chicsol.marrymax.fragments.inbox.permissions.DashboardMyPermissionsMainFragment;
@@ -186,7 +186,7 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
                 break;
             case 22:
                 getSupportActionBar().setTitle("Profile Settings");
-                fragment = new MyProfileStatusFragment();
+                fragment = new MyProfileSettingFragment();
                 break;
             case 23:
                 getSupportActionBar().setTitle("My Contact");

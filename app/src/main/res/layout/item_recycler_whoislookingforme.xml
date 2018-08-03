@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/border_accountsetting_subscription_packages_box"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/TextViewWhoIsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e7e7e7"
+        android:padding="5dp"
+        android:text="Physique  "
+        android:textColor="@color/colorTextRed" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="15dp"
+        android:orientation="vertical">
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select"
+            android:textColor="@color/colorSpinnerLabel"
+            android:textSize="@dimen/text_size_spinner_label" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/SpinnerWhoIsLooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorRegistrationCheckRadio"
+            app:backgroundTint="#999"
+
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:background="#d7d7d7"></View>
+
+
+        <!--     android:theme="@style/ThemeSpinner"
+             style="@style/Widget.AppCompat.Spinner.Underlined"-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d7d7d7"></View>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
