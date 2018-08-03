@@ -5,7 +5,7 @@
     android:id="@+id/swiperefreshProfileStatus"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AccountSetting.MyProfileStatusFragment">
+    tools:context=".fragments.AccountSetting.MyProfileSettingFragment">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
