@@ -25,6 +25,7 @@ import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.Subscription;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.WebCSC;
+import com.chicsol.marrymax.modal.WebCSCWithList;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -49,7 +50,7 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 public class WhoIsSearchActivity extends AppCompatActivity {
 
     private
-    List<List<WebCSC>> dataList;
+    List<WebCSCWithList> dataList;
     public static JSONObject paramsa;
     private
     RecyclerView recyclerView;
@@ -82,7 +83,7 @@ public class WhoIsSearchActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
 
-        recyclerAdapter = new RecyclerViewAdapterWhoIsLookingForMe(new ArrayList<List<WebCSC>>(), getApplicationContext());
+        recyclerAdapter = new RecyclerViewAdapterWhoIsLookingForMe(new ArrayList<WebCSCWithList>(), getApplicationContext());
 
         recyclerView.setAdapter(recyclerAdapter);
         //  swipeRefresh.setOnRefreshListener(this);
@@ -148,9 +149,11 @@ public class WhoIsSearchActivity extends AppCompatActivity {
 
                             for (int i = 0; i < response.length(); i++) {
 
-                                JSONArray jsonCountryStaeObj = response.getJSONArray(i);
+                                WebCSCWithList cscWithList = new WebCSCWithList();
 
-                                //   Log.e("getLfmLists", "" + jsonCountryStaeObj.length());
+                                JSONObject jsonObj = response.getJSONObject(i);
+
+                                Log.e("getLfmLists", "" + jsonObj.get("name"));
 
                                 Gson gsonc;
                                 GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -158,9 +161,13 @@ public class WhoIsSearchActivity extends AppCompatActivity {
                                 Type listType = new TypeToken<List<WebCSC>>() {
                                 }.getType();
 
-                                List<WebCSC> objList = (List<WebCSC>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+                                List<WebCSC> objList = (List<WebCSC>) gsonc.fromJson(jsonObj.get("list").toString(), listType);
 
-                                dataList.add(objList);
+                                cscWithList.setId(jsonObj.get("id").toString());
+                                cscWithList.setName(jsonObj.get("name").toString());
+                                cscWithList.setList(objList);
+
+                                dataList.add(cscWithList);
 
                             }
                             recyclerAdapter.addAll(dataList);
@@ -204,7 +211,8 @@ public class WhoIsSearchActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.action_apply:
-                Toast.makeText(this, "Apply", Toast.LENGTH_SHORT).show();
+
+                finish();
                 return true;
 
             default:

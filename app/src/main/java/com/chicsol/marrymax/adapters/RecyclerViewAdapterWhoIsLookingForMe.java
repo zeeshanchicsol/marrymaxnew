@@ -30,6 +30,12 @@ import android.widget.Toast;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebCSC;
+import com.chicsol.marrymax.modal.WebCSCWithList;
+import com.chicsol.marrymax.utils.ViewGenerator;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -38,14 +44,18 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<RecyclerViewAdapterWhoIsLookingForMe.ViewHolder> {
 
     Context context;
+    Gson gson;
 
-
-    private List<List<WebCSC>> items;
+    ViewGenerator viewGenerator;
+    private List<WebCSCWithList> items;
 //    private OnItemClickListener onItemClickListener;
 
-    public RecyclerViewAdapterWhoIsLookingForMe(List<List<WebCSC>> items, final Context context) {
+    public RecyclerViewAdapterWhoIsLookingForMe(List<WebCSCWithList> items, final Context context) {
         this.items = items;
         this.context = context;
+        gson = new Gson();
+        viewGenerator = new ViewGenerator(context);
+
     }
 
 /*    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -62,8 +72,11 @@ public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<R
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
+        final String idkey = items.get(position).getId();
+        final String name = items.get(position).getName();
+        List<WebCSC> dataList = items.get(position).getList();
+        holder.title.setText(name);
 
-        List<WebCSC> dataList = items.get(position);
 
         MySpinnerCSCAdapter spAdapter = new MySpinnerCSCAdapter(context, android.R.layout.simple_spinner_dropdown_item, dataList);
 
@@ -72,8 +85,25 @@ public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<R
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                WebCSC selectedItem = (WebCSC) holder.spWhoIs.getSelectedItem();
-             //   Toast.makeText(context, "" + selectedItem.getName(), Toast.LENGTH_SHORT).show();
+                WebCSC obj = (WebCSC) holder.spWhoIs.getSelectedItem();
+
+                if (!obj.getId().equals("-1")) {
+                    //  Toast.makeText(context, "" + obj.getId() + "   =====   " + name, Toast.LENGTH_SHORT).show();
+
+                    String obString = gson.toJson(defaultSelectionsObj);
+                    try {
+                        JSONObject jsonObject = new JSONObject(obString);
+
+                        jsonObject.put(idkey, obj.getId());
+
+                        defaultSelectionsObj = gson.fromJson(jsonObject.toString(), Members.class);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+                //   Toast.makeText(context, "" + selectedItem.getName(), Toast.LENGTH_SHORT).show();
 
             }
 
@@ -82,6 +112,54 @@ public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<R
 
             }
         });
+
+
+        if (idkey.equals("religion_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_religion_id(), dataList);
+        } else if (idkey.equals("gender")) {
+            if (defaultSelectionsObj.get_gender().equals("M")) {
+                holder.spWhoIs.setSelection(1);
+            } else {
+                holder.spWhoIs.setSelection(2);
+            }
+
+
+        } else if (idkey.equals("min_age")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_min_age(), dataList);
+        } else if (idkey.equals("country_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_country_id(), dataList);
+        } else if (idkey.equals("visa_status_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_visa_status_id(), dataList);
+        } else if (idkey.equals("body_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_body_id(), dataList);
+        } else if (idkey.equals("complexion_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_complexion_id(), dataList);
+        } else if (idkey.equals("height_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_height_id(), dataList);
+        } else if (idkey.equals("education_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_education_id(), dataList);
+        } else if (idkey.equals("ethnic_background_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_ethnic_background_id(), dataList);
+        } else if (idkey.equals("religious_sect_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_religious_sect_id(), dataList);
+        } else if (idkey.equals("marital_status_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_marital_status_id(), dataList);
+        } else if (idkey.equals("children_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_children_id(), dataList);
+        } else if (idkey.equals("living_arrangement_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_living_arrangement_id(), dataList);
+        } else if (idkey.equals("hijab_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_hijab_id(), dataList);
+        } else if (idkey.equals("raised_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_raised_id(), dataList);
+        } else if (idkey.equals("smoking_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_smoking_id(), dataList);
+        } else if (idkey.equals("drink_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_drink_id(), dataList);
+        }
+
+
+        //
 
 
 
@@ -133,7 +211,7 @@ public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<R
         }
     }
 
-    public void addAll(List<List<WebCSC>> lst) {
+    public void addAll(List<WebCSCWithList> lst) {
         items.clear();
         items.addAll(lst);
         notifyDataSetChanged();
