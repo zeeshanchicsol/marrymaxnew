@@ -57,6 +57,7 @@ import com.nostra13.universalimageloader.core.process.BitmapProcessor;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -228,7 +229,11 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
 
         if (holder1 instanceof MMViewHolder) {
             MMViewHolder holder = ((MMViewHolder) holder1);
-
+            if (position == 1) {
+                holder.tvRecomm.setVisibility(View.VISIBLE);
+            } else {
+                holder.tvRecomm.setVisibility(View.GONE);
+            }
 
             holder.tvPlanName.setText(obj.getItem_name());
             holder.tvPlanDuration.setText("(" + obj.getDuration() + " Months)");
@@ -302,7 +307,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
         if (isProgress) {
 
             items.add(null);
-           notifyItemInserted(items.size() - 1);
+            notifyItemInserted(items.size() - 1);
 
         } else {
             items.remove(items.size() - 1);
@@ -355,7 +360,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvPlanName, tvPlanDuration, tvPlanTitle, tvPlanShortDescription;
+        public TextView tvPlanName, tvRecomm, tvPlanDuration, tvPlanTitle, tvPlanShortDescription;
 
         AppCompatButton btPurchase;
 
@@ -369,7 +374,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
             tvPlanShortDescription = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescription);
 
             btPurchase = (AppCompatButton) itemView.findViewById(R.id.ButtonSubscriptionPurchase);
-
+            tvRecomm = (TextView) itemView.findViewById(R.id.TextViewRecommendedP);
 
         }
     }
@@ -382,7 +387,6 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
             pBar = (ProgressBar) v.findViewById(R.id.pBar);
         }
     }
-
 
 
 }

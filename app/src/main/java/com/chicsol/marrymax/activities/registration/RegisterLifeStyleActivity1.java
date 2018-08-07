@@ -151,7 +151,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         fabLifeStyle2 = (FloatingActionButton) findViewById(R.id.fabLifeStyle2);
 
 
-        if (BuildConfig.FLAVOR.equals("alfalah")) {
+/*        if (BuildConfig.FLAVOR.equals("alfalah")) {
 
             llLanguage = (LinearLayout) findViewById(R.id.LinearLayoutRegLifeStyle1Language);
             llChoiceLanguage = (LinearLayout) findViewById(R.id.LinearLayoutRegLifeStyle1ChoiceLanguage);
@@ -172,7 +172,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
             tvMutliChoiceMySpokenLanguage = (TextView) findViewById(R.id.MutliChoiceMySpokenLanguage);
 
-        }
+        }*/
 
 
         marriageDataList = new ArrayList<>();
@@ -385,7 +385,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == 5) {
-
+                    rgMarriage.clearCheck();
                     Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
                     if (member.get_member_status() >= 2) {
                         llMainSecondMarriage.setVisibility(View.GONE);
@@ -423,7 +423,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
             }
         });
-        if (BuildConfig.FLAVOR.equals("alfalah")) {
+/*        if (BuildConfig.FLAVOR.equals("alfalah")) {
 
             tvMutliChoiceMyChoiceLanguage.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -446,7 +446,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             });
 
 
-        }
+        }*/
 
 //==========================================================================
 
@@ -627,6 +627,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
     private boolean checkFieldsSelection(View v) {
         boolean ck = false;
 
+/*
 
         if (BuildConfig.FLAVOR.equals("alfalah")) {
 
@@ -636,14 +637,17 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                 errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
                 errorText.setText("Please select Language");
 
-         /*   Snackbar.make(v, "Please select Education", Snackbar.LENGTH_SHORT)
+         */
+/*   Snackbar.make(v, "Please select Education", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
-*/
+*//*
+
                 ck = true;
             }
 
 
         }
+*/
 
         if (spMyEducation.getSelectedItemId() == 0) {
             TextView errorText = (TextView) spMyEducation.getSelectedView();

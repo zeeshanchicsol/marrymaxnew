@@ -58,11 +58,11 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
 
     String gender = null;
     private TextView tv_RegisterNewActivity;
-    private Spinner spinner_source, spMyChoiceAgeFrom, spMyChoiceAgeTo, spinner_religion, spinner_education, spinner_country, spinner_ethnic, spinner_religioussect;
+    private Spinner spinner_source, spMyChoiceAgeFrom, spinner_religion, spinner_education, spinner_country, spinner_ethnic, spinner_religioussect;
     private Button bt_back, buttonSearchMatches;
     private LinearLayout ll_maleNormal, ll_maleSelected, ll_femaleNormal, ll_femaleSelected;
     private List<WebArd> ageDataList, religionDatalist, ethnicDatalist, relgiousSectDatalist, countryDatalist, educationDatalist;
-    private MySpinnerAdapter spAdapterMyChoiceAgeFrom, spAdapterMyChoiceAgeTo, adapter_religion, adapter_religioussect, adapter_country, adapter_ethnic, adapter_education;
+    private MySpinnerAdapter spAdapterMyChoiceAgeFrom,  adapter_religion, adapter_religioussect, adapter_country, adapter_ethnic, adapter_education;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +113,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
         ll_femaleSelected = (LinearLayout) findViewById(R.id.LinearLayoutFemaleSelected);
 
         spMyChoiceAgeFrom = (Spinner) findViewById(R.id.SpinnerAppMyChoiceAgeFrom);
-        spMyChoiceAgeTo = (Spinner) findViewById(R.id.SpinnerAppMyChoiceAgeTo);
+     //   spMyChoiceAgeTo = (Spinner) findViewById(R.id.SpinnerAppMyChoiceAgeTo);
 
         spinner_education = (Spinner) findViewById(R.id.sp_bestmatch_education);
         spinner_ethnic = (Spinner) findViewById(R.id.sp_bestmatch_ethnic_background);
@@ -133,11 +133,11 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
         spAdapterMyChoiceAgeFrom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spMyChoiceAgeFrom.setAdapter(spAdapterMyChoiceAgeFrom);
 
-        spAdapterMyChoiceAgeTo = new MySpinnerAdapter(this,
+     /*   spAdapterMyChoiceAgeTo = new MySpinnerAdapter(this,
                 android.R.layout.simple_spinner_item, ageDataList);
         spAdapterMyChoiceAgeTo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spMyChoiceAgeTo.setAdapter(spAdapterMyChoiceAgeTo);
-
+*/
 
         bt_back = (Button) findViewById(R.id.ButtonBack);
 
@@ -274,13 +274,13 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
                         }
                         if (spMyChoiceAgeFrom.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spMyChoiceAgeFrom.getSelectedItem();
-                            defaultSelectionsObj.set_choice_age_from(Long.parseLong(srr.getId()));
+                            defaultSelectionsObj.set_min_age(Long.parseLong(srr.getId()));
                         }
-                        if (spMyChoiceAgeTo.getSelectedItemId() != 0) {
+                      /*  if (spMyChoiceAgeTo.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spMyChoiceAgeTo.getSelectedItem();
                             defaultSelectionsObj.set_choice_age_upto(Long.parseLong(srr.getId()));
                         }
-
+*/
 
                         Gson gson = new Gson();
                         String params = gson.toJson(defaultSelectionsObj);
@@ -316,7 +316,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
     private void setSpinnerListeners() {
 
 
-        spMyChoiceAgeTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+/*        spMyChoiceAgeTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 //   WebArd ard = (WebArd) view.getTag();
@@ -345,7 +345,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
-        });
+        });*/
 
 
      /*   spMyChoiceheightTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -538,8 +538,8 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
 
     private void setDefaultSelections() {
 
-        spMyChoiceAgeFrom.setSelection(4);
-        spMyChoiceAgeTo.setSelection(12);
+     //   spMyChoiceAgeFrom.setSelection(4);
+     //   spMyChoiceAgeTo.setSelection(12);
         selectfemale();
         spinner_religion.setSelection(1);
 

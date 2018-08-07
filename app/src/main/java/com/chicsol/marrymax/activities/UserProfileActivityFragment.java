@@ -119,7 +119,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private JSONArray responsArray;
     private String userpath;
     private ProgressDialog pDialog;
-    //
+
     ViewPagerAdapter1 adapter;
     ProgressBar progressBar;
     Toolbar toolbar;
@@ -1098,36 +1098,57 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                         try {
                             int res = response.getJSONArray(1).getJSONObject(0).getInt("id");
                             Log.e("ressss", "" + res + "");
-                            if (res == 0) {
+
+
+                            if (SharedPreferenceManager.getUserObject(context).get_member_status() != 4) {
                                 dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).get_member_status());
                                 newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
                                 newFragment.show(getFragmentManager(), "dialog");
+
                             } else {
-                                dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath);
-                                newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
-                                newFragment.show(getFragmentManager(), "dialog");
+                                if (res == 0) {
+                                    dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).get_member_status());
+                                    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                    newFragment.show(getFragmentManager(), "dialog");
+                                } else {
+                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath);
+                                    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                    newFragment.show(getFragmentManager(), "dialog");
+                                }
                             }
 
-                        } catch (JSONException e) {
+
+                        } catch (
+                                JSONException e)
+
+                        {
                             e.printStackTrace();
                         }
 
 
                         pDialog.dismiss();
                     }
-                }, new Response.ErrorListener() {
+                }, new Response.ErrorListener()
+
+        {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
                 pDialog.dismiss();
             }
-        }) {
+        })
+
+        {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(getActivity()).addToRequestQueue(req, Tag);
+        MySingleton.getInstance(
+
+                getActivity()).
+
+                addToRequestQueue(req, Tag);
     }
 
 
@@ -1659,6 +1680,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+
     }
 
 

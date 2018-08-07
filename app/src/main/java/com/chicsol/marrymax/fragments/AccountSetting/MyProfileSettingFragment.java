@@ -236,8 +236,15 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         btMatchAid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MatchAidActivity.class);
-                startActivity(intent);
+
+                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3) {
+
+                    Toast.makeText(context, "Please complete and verify your profile details.", Toast.LENGTH_LONG).show();
+                } else {
+
+                    Intent intent = new Intent(getActivity(), MatchAidActivity.class);
+                    startActivity(intent);
+                }
             }
         });
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -481,8 +488,6 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                                 btAddNumber.setVisibility(View.VISIBLE);
                             }
-
-
 
 
                             if (dashboards.getPhone_complete_status().equals("1")) {

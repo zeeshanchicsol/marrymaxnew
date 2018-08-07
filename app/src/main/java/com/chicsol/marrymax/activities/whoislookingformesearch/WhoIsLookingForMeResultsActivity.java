@@ -225,7 +225,7 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
     private void initilize() {
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
-        toolbar.setTitle("Find Out Who Is Looking For You");
+        toolbar.setTitle("Who Is Looking For Me");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // fragment = SearchResultsActivity.this;

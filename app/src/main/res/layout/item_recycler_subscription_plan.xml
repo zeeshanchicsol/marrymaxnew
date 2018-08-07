@@ -30,6 +30,17 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/TextViewRecommendedP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:text="Recommended"
+                    android:background="#e09100"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="10sp" />
+
+                <TextView
                     android:id="@+id/TextViewSubscriptionPlanName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
