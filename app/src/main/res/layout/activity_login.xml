@@ -87,7 +87,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/prompt_password"
-                        android:imeActionId="@+id/login"
+
                         android:imeActionLabel="@string/action_sign_in_short"
                         android:imeOptions="actionUnspecified"
                         android:maxLength="15"
@@ -162,15 +162,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <com.chicsol.marrymax.widgets.mButton2
                 android:id="@+id/buttonSearchYourBestMatch"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:background="#E8EAE9"
-                android:text="Find Pakistani Matches Worldwide"
+                android:layout_weight="1"
+                android:background="@color/colorWhite"
+                android:text="Find Matches"
+                android:textAllCaps="false"
+                android:textColor="#0b5b00"
+
+                android:textSize="@dimen/text_size_login" />
+
+            <!--    Find Pakistani Matches Worldwide-->
+
+            <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/buttonSearchWhoIsLooking"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="@color/colorWhite"
+                android:text="Who Is Looking For Me"
                 android:textAllCaps="false"
                 android:textColor="#0b5b00"
 

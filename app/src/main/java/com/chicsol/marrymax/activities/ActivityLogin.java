@@ -61,7 +61,7 @@ public class ActivityLogin extends AppCompatActivity {
     private CoordinatorLayout coordinatorLayout;
     private EditText etPassword;
     private AutoCompleteTextView etEmail;
-    private Button btLogin, btRegister, btSearchBMatch, forgetpassword;
+    private Button btLogin, btRegister, btSearchBMatch, btWhoIsLForMe, forgetpassword;
     private TextView tvDont;
     private ConnectionDetector connectionDetector;
     private UserSessionManager session;
@@ -120,6 +120,8 @@ public class ActivityLogin extends AppCompatActivity {
         btLogin = (Button) findViewById(R.id.email_sign_in_button);
         btRegister = (Button) findViewById(R.id.ButtonRegister);
         btSearchBMatch = (Button) findViewById(R.id.buttonSearchYourBestMatch);
+        btWhoIsLForMe = (Button) findViewById(R.id.buttonSearchWhoIsLooking);
+
 
         //  etEmail.setTransformationMethod(new PasswordTransformationMethod());
         etPassword.setTransformationMethod(new PasswordTransformationMethod());
@@ -214,7 +216,18 @@ public class ActivityLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
-                 //   Intent in = new Intent(ActivityLogin.this, SearchYourBestMatchActivity.class);
+                    Intent in = new Intent(ActivityLogin.this, SearchYourBestMatchActivity.class);
+
+                    startActivity(in);
+                }
+            }
+        });
+
+        btWhoIsLForMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
+                  
                     Intent in = new Intent(ActivityLogin.this, WhoIsLookingForMeSearchActivity.class);
                     startActivity(in);
                 }

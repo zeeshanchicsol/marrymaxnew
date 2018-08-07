@@ -9,7 +9,7 @@ package com.google.android.gms;
 public final class R {
     public static final class id {
         public static final int auto = 0x7f090335;
-        public static final int center = 0x7f090347;
+        public static final int center = 0x7f090348;
         public static final int none = 0x7f090441;
         public static final int normal = 0x7f090442;
         public static final int radio = 0x7f090451;
