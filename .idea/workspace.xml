@@ -15,9 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -102,11 +101,30 @@
       <file leaf-file-name="MyProfileSettingFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="235" column="23" lean-forward="false" selection-start-line="235" selection-start-column="23" selection-end-line="235" selection-end-column="23" />
+            <state relative-caret-position="633">
+              <caret line="268" column="8" lean-forward="false" selection-start-line="268" selection-start-column="8" selection-end-line="268" selection-end-column="8" />
               <folding>
-                <element signature="e#37101#37102#0" expanded="true" />
-                <element signature="e#37127#37128#0" expanded="true" />
+                <element signature="e#8775#9289#0" expanded="true" />
+                <element signature="e#9288#9289#0" expanded="true" />
+                <element signature="e#9340#9496#0" expanded="true" />
+                <element signature="e#9495#9496#0" expanded="true" />
+                <element signature="e#9539#9816#0" expanded="true" />
+                <element signature="e#9815#9816#0" expanded="true" />
+                <element signature="e#9873#10942#0" expanded="true" />
+                <element signature="e#10941#10942#0" expanded="true" />
+                <element signature="e#10987#11264#0" expanded="true" />
+                <element signature="e#11263#11264#0" expanded="true" />
+                <element signature="e#11971#12279#0" expanded="true" />
+                <element signature="e#12278#12279#0" expanded="true" />
+                <element signature="e#12367#12887#0" expanded="true" />
+                <element signature="e#12886#12887#0" expanded="true" />
+                <element signature="e#12931#13697#0" expanded="true" />
+                <element signature="e#13180#13219#0" expanded="true" />
+                <element signature="e#13696#13697#0" expanded="true" />
+                <element signature="e#13753#14491#0" expanded="true" />
+                <element signature="e#14490#14491#0" expanded="true" />
+                <element signature="e#37112#37113#0" expanded="true" />
+                <element signature="e#37138#37139#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2652,7 +2670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533653636230</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="updatesrfgg">
+      <created>1533796070052</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1533796070052</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3124,11 +3149,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="235" column="23" lean-forward="false" selection-start-line="235" selection-start-column="23" selection-end-line="235" selection-end-column="23" />
+        <state relative-caret-position="633">
+          <caret line="268" column="8" lean-forward="false" selection-start-line="268" selection-start-column="8" selection-end-line="268" selection-end-column="8" />
           <folding>
-            <element signature="e#37101#37102#0" expanded="true" />
-            <element signature="e#37127#37128#0" expanded="true" />
+            <element signature="e#8775#9289#0" expanded="true" />
+            <element signature="e#9288#9289#0" expanded="true" />
+            <element signature="e#9340#9496#0" expanded="true" />
+            <element signature="e#9495#9496#0" expanded="true" />
+            <element signature="e#9539#9816#0" expanded="true" />
+            <element signature="e#9815#9816#0" expanded="true" />
+            <element signature="e#9873#10942#0" expanded="true" />
+            <element signature="e#10941#10942#0" expanded="true" />
+            <element signature="e#10987#11264#0" expanded="true" />
+            <element signature="e#11263#11264#0" expanded="true" />
+            <element signature="e#11971#12279#0" expanded="true" />
+            <element signature="e#12278#12279#0" expanded="true" />
+            <element signature="e#12367#12887#0" expanded="true" />
+            <element signature="e#12886#12887#0" expanded="true" />
+            <element signature="e#12931#13697#0" expanded="true" />
+            <element signature="e#13180#13219#0" expanded="true" />
+            <element signature="e#13696#13697#0" expanded="true" />
+            <element signature="e#13753#14491#0" expanded="true" />
+            <element signature="e#14490#14491#0" expanded="true" />
+            <element signature="e#37112#37113#0" expanded="true" />
+            <element signature="e#37138#37139#0" expanded="true" />
           </folding>
         </state>
       </provider>
