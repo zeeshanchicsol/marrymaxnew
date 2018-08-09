@@ -178,14 +178,13 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
 
         } else {
 
-            if(obj.get_photo_name().equals("Approved")){
+            if (obj.get_photo_name().equals("Approved")) {
 
                 holder.tvphotoUploadStatus.setVisibility(View.VISIBLE);
                 holder.tvphotoUploadStatus.setText(obj.get_photo_name());
                 holder.tvphotoUploadStatus.setTextColor(context.getResources().getColor(R.color.colorDefaultGreen));
 
-            }
-            else {
+            } else {
                 holder.tvphotoUploadStatus.setVisibility(View.VISIBLE);
                 holder.tvphotoUploadStatus.setText("New picture; Not reviewed yet!");
                 holder.tvphotoUploadStatus.setTextColor(context.getResources().getColor(R.color.colorTextRed));
@@ -193,8 +192,18 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
 
             }
 
+
+            if (obj.get_photo_name().equals("Approved")) {
+
+                holder.defaultCheckbox.setVisibility(View.VISIBLE);
+
+            }
+            else {
+                holder.defaultCheckbox.setVisibility(View.GONE);
+            }
+
             holder.imageDeleteImage.setVisibility(View.VISIBLE);
-          holder.imagePerView.setTag("-");
+            holder.imagePerView.setTag("-");
             imageLoader.displayImage(Urls.baseUrl + "/" + obj.get_photo_path(),
                     holder.imagePerView, options,
                     new SimpleImageLoadingListener() {
@@ -278,7 +287,7 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
             @Override
             public void onClick(View v) {
                 if (holder.imagePerView.getTag().equals("default_image_no")) {
-                   // Toast.makeText(context, "default", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(context, "default", Toast.LENGTH_SHORT).show();
 
                     onSelectImageListener.onSelectImage("");
 
@@ -358,7 +367,7 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Log.e("del Params",  Urls.deletePics+ "----" + params);
+        Log.e("del Params", Urls.deletePics + "----" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.deletePics, params,
                 new Response.Listener<JSONObject>() {
@@ -451,21 +460,18 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
         public ImageView imageDeleteImage;
         public AppCompatCheckBox defaultCheckbox;
         public SquareImageView imagePerView;
-        public TextView tvDefaultImage,tvphotoUploadStatus;
+        public TextView tvDefaultImage, tvphotoUploadStatus;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            tvphotoUploadStatus=(TextView) itemView.findViewById(R.id.TextViewPhotoUploadPhotoStatus);
+            tvphotoUploadStatus = (TextView) itemView.findViewById(R.id.TextViewPhotoUploadPhotoStatus);
             imagePerView = (SquareImageView) itemView.findViewById(R.id.imageViewPhotoUploadPerview);
             imageDeleteImage = (ImageView) itemView.findViewById(R.id.ImagePhotoUploadViewDeleteImage);
             defaultCheckbox = (AppCompatCheckBox) itemView.findViewById(R.id.CheckBoxPhotoUploadDefaultImage);
             tvDefaultImage = (TextView) itemView.findViewById(R.id.TextViewPhotoUploadDefaultImageText);
         }
     }
-
-
-
 
 
 }

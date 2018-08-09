@@ -44,7 +44,8 @@
             android:background="#D9FFFFFF"
             android:buttonTint="@color/colorDefaultGreen"
             android:text="Set As Default"
-            android:textColor="@color/colorDefaultGreen" />
+            android:textColor="@color/colorDefaultGreen"
+            android:visibility="gone" />
 
         <TextView
 
@@ -66,14 +67,14 @@
             android:visibility="gone" />
 
     </FrameLayout>
+
     <TextView
         android:id="@+id/TextViewPhotoUploadPhotoStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
 
-        android:textStyle="bold"
         android:textColor="@color/colorDefaultGreen"
-        />
+        android:textStyle="bold" />
 
 </LinearLayout>

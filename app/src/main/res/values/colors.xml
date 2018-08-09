@@ -82,6 +82,8 @@
     <color name="colorUserProfileTab">#CECECE</color>
     <color name="colorUserProfileTextLight">#6f6f6f</color>
     <color name="colorUserProfileTextGreen">#216917</color>
+    <color name="colorUserProfileTextGreenLight">#299E0D</color>
+
     <color name="colorUserProfileSeparationLine">#eaeaea</color>
     <color name="colorUserProfileMessageIn">#E2F1F6</color>
     <color name="colorUserProfileMessageOut">#EEEEEE</color>
@@ -95,9 +97,6 @@
     <color name="colorSubscriptionGreen">#017562</color>
     <color name="colorSubscriptionYellow">#C57B00</color>
     <color name="colorSubscriptionDarkGrey">#666</color>
-
-
-
 
 
     <!--    recyclerview parent-->

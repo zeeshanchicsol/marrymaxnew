@@ -58,6 +58,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
     //load more
     int total_pages = 0;
     int current_page = 0;
+    private String selectedUserPath;
     //===end
 
     String TAG = "UserProfileActivityWithSlider ";
@@ -65,7 +66,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
     int lastSelectedPosition = 0;
 
-    Members memberSearchObj;
+   private Members memberSearchObj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,8 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
 
         selectedposition = Integer.parseInt(getIntent().getExtras().getString("selectedposition"));
+
+        selectedUserPath = getIntent().getExtras().getString("userpath");
 
 
         if (selectedposition != -1) {
@@ -351,6 +354,8 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         if (!addBackward) {
             int spos = lastDigit(selectedposition);
             if (spos != -1) {
+
+
                 viewPagerProfileSlider.setCurrentItem(spos, true);
             }
         }
@@ -467,6 +472,18 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                                 pathDataList.add(jsonArray.get(i).toString());
 
                                 Log.e(TAG + "listProfiles size", "" + jsonArray.get(i).toString() + "====================");
+                                if (jsonArray.get(i).toString().equals(selectedUserPath)) {
+                                    Log.e(TAG + "selectedPathMatch ", "" + jsonArray.get(i).toString() + "     ====================");
+                                    Log.e(TAG + "selectedPathMatch ", "" + selectedposition + "     ====================  " + i);
+                                }
+
+                                if (selectedposition == i) {
+                                    Log.e(TAG + "selectedPath", "" + jsonArray.get(i).toString() + "     ====================");
+                                    Log.e(TAG + "selectedPath", "" + selectedUserPath + "    ====================");
+
+
+                                }
+
                             }
 
 
@@ -562,7 +579,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                             int count = response.getInt("count");
                             Log.e(TAG + " listProfiles", "" + count);
 
-                            total_pages = Math.round(count / 10);
+                            total_pages = Math.round(count / 12);
 
                             Log.e(TAG + "total_pages aa", total_pages + "");
                             JSONArray jsonArray = response.getJSONArray("prfids");

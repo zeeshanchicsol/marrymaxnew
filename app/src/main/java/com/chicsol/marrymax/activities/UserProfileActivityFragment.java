@@ -231,7 +231,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             Log.e("interested receieved", member.get_interest_received() + "");
             if (member.get_interested_id() == 0) {
                 tvInterest.setText("Show Interest");
-                llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorUserProfileTextGreen));
+                llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorUserProfileTextGreenLight));
                 tvShowInterestButtonText.setText("Show Interest");
 
             } else if (member.get_interested_id() != 0) {
@@ -250,7 +250,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 } else if (member.get_interest_received() == 3) {
                     tvInterest.setText("Interest Accepted");
                     tvShowInterestButtonText.setText("Interest Accepted");
-                    llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorUserProfileTextGreen));
+                    llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorUserProfileTextGreenLight));
                 }
             }
             /*else if (member.get_interested_id() == 0 && member.get_interest_received() == 0) {
