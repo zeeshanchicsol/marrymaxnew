@@ -63,7 +63,7 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
  * Created by Android on 1/12/2017.
  */
 
-public class BaseRegistrationActivity extends DrawerActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class BaseRegistrationActivity extends DrawerActivity implements NavigationView.OnNavigationItemSelectedListener, dialogRequestProfileUpdate.onCompleteListener {
     public LinearLayout geographicView, appearanceView, lifestyleView, interestView, personalityView;
     public FloatingActionButton fabAppearance, fabGeographic, fabLifestyle, fabInterest, fabPersonality;
     public mTextView tvGeogrphic, tvAppearance, tvLifestyle, tvPersonality, tvInterest;
@@ -188,33 +188,33 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
                 .considerExifParams(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
 
-             /*   .postProcessor(new BitmapProcessor() {
-                    @Override
-                    public Bitmap process(Bitmap bmp) {
+                /*   .postProcessor(new BitmapProcessor() {
+                       @Override
+                       public Bitmap process(Bitmap bmp) {
 
-                        Bitmap bmp_sticker;
-                        Display display =getContext().getWindowManager().getDefaultDisplay();
-                        DisplayMetrics metrics = new DisplayMetrics();
+                           Bitmap bmp_sticker;
+                           Display display =getContext().getWindowManager().getDefaultDisplay();
+                           DisplayMetrics metrics = new DisplayMetrics();
 
-                        display.getMetrics(metrics);
+                           display.getMetrics(metrics);
 
-                        int widthScreen = metrics.widthPixels;
-                        int heightScreen = metrics.heightPixels;
-                        if (widthScreen > heightScreen) {
-                            int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
-                            //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
-                            bmp_sticker = resizeImage(bmp, h);
-                        } else {
-                            int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
-                            //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
-                            bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
-                        }
+                           int widthScreen = metrics.widthPixels;
+                           int heightScreen = metrics.heightPixels;
+                           if (widthScreen > heightScreen) {
+                               int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
+                               //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
+                               Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                               bmp_sticker = resizeImage(bmp, h);
+                           } else {
+                               int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
+                               //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
+                               bmp_sticker = resizeImage(bmp, h);
+                               Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                           }
 
-                        return bmp_sticker;
-                    }
-                })*/.build();
+                           return bmp_sticker;
+                       }
+                   })*/.build();
 
         ImageView iv_profile = (ImageView) findViewById(R.id.imageViewNavDefaultImage);
         imageLoader.displayImage(Urls.baseUrl + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_default_image(),
@@ -249,7 +249,6 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
                         // * current / total));
                     }
                 });
-
 
 
         if (member.get_member_status() == 3 || member.get_member_status() == 4) {
@@ -426,19 +425,13 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
         } else if (id == R.id.nav_main_editprofile) {
             Class cls = RegisterGeographicActivity.class;
             marryMax.getProfileProgress(cls, BaseRegistrationActivity.this, getApplicationContext(), member);
-        }
-
-
-        else if (id == R.id.nav_main_profile_settings) {
+        } else if (id == R.id.nav_main_profile_settings) {
 
             Intent in = new Intent(getApplicationContext(), MainDirectiveActivity.class);
             in.putExtra("type", 22);
             startActivity(in);
 
-        }
-
-
-        else if (id == R.id.nav_main_advsearch) {
+        } else if (id == R.id.nav_main_advsearch) {
 
             if (jsonArraySearch == null) {
                 getData();
@@ -526,5 +519,20 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
             }
 
         }
+    }
+
+    @Override
+    public void onComplete(String s) {
+        //    Toast.makeText(this, "finised", Toast.LENGTH_SHORT).show();
+
+        if (visible) {
+            llRequestProfileUpdaye.setVisibility(View.GONE);
+            visible = false;
+
+        } else {
+            llRequestProfileUpdaye.setVisibility(View.VISIBLE);
+            visible = true;
+        }
+
     }
 }

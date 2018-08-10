@@ -93,7 +93,7 @@
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Number:"
+                            android:text="Number:  "
                             android:textColor="#333333"
                             android:textStyle="bold" />
 
@@ -116,7 +116,7 @@
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Call Time:"
+                            android:text="Call Time:  "
                             android:textColor="#333333" />
 
                         <com.chicsol.marrymax.widgets.mTextView

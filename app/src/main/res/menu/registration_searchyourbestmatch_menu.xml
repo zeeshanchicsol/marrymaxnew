@@ -1,13 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_filter_results"
-
+        android:icon="@drawable/ic_filter_list_black_24dp"
         android:title="Filter"
+        app:actionLayout="@layout/wilfm_custom_menu_layout"
         app:showAsAction="always" />
-
+    <!-- <item
+         android:id="@+id/your_id"
+         android:title="@string/your_string"
+         android:icon="@drawable/your_menu_icon"
+         app:actionLayout="@layout/your_custom_menu_layout"
+         app:showAsAction = "always"
+         />-->
 
 </menu>
+

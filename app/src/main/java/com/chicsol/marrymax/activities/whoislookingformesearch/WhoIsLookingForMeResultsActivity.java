@@ -228,6 +228,9 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
         toolbar.setTitle("Who Is Looking For Me");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.inflateMenu(R.menu.registration_searchyourbestmatch_menu);
+
         // fragment = SearchResultsActivity.this;
         spinner_bride_groom = (Spinner) findViewById(R.id.sp_bestmatch_results_bride_groom);
 
@@ -294,6 +297,20 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
     }
 
     private void setListenders() {
+
+        Menu menu = toolbar.getMenu();
+
+        View your_menu_view = menu.findItem(R.id.action_filter_results).getActionView();
+        your_menu_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(WhoIsLookingForMeResultsActivity.this, WhoIsSearchActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
 
 
         btMyMatchesSubscribeClick.setOnClickListener(new View.OnClickListener() {
@@ -641,36 +658,45 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
     }*/
 
 
-    @Override
+  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.registration_searchyourbestmatch_menu, menu);
+
+      for (int i = 0; i < menu.size(); i++) {
+          MenuItem item = menu.getItem(i);
+          if (item.getItemId() == R.id.action_filter_results) {
+              View itemChooser = item.getActionView();
+              if (itemChooser != null) {
+                  itemChooser.setOnClickListener(new View.OnClickListener() {
+                      @Override
+                      public void onClick(View v) {
+                          Intent intent = new Intent(WhoIsLookingForMeResultsActivity.this, WhoIsSearchActivity.class);
+                          startActivity(intent);
+
+                      }
+                  });
+              }
+          }
+      }
         return true;
     }
 
-    @Override
+/*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
 
             case R.id.action_filter_results:
 
-
-               /* MarryMax max = new MarryMax(WhoIsLookingForMeResultsActivity.this);
-                max.onSearchClicked(getApplicationContext(), 1);*/
-
-
                 Intent intent = new Intent(WhoIsLookingForMeResultsActivity.this, WhoIsSearchActivity.class);
                 startActivity(intent);
-
                 return true;
-
-
             default:
                 return super.onOptionsItemSelected(item);
 
         }
-    }
+    }*/
 
 
     @Override

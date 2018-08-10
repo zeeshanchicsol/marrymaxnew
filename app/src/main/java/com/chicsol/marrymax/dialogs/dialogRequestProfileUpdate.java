@@ -27,6 +27,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
+import com.chicsol.marrymax.interfaces.PhoneRequestCallBackInterface;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -68,6 +69,14 @@ public class dialogRequestProfileUpdate extends DialogFragment {
     EditText etDesc;
     Button mOkButton;
 
+
+ /*   private PhoneRequestCallBackInterface listener;
+
+    public void setListener(PhoneRequestCallBackInterface listener) {
+        this.listener = listener;
+    }
+*/
+
     public static dialogRequestProfileUpdate newInstance(String params) {
  /*       Members member, String userpath, boolean replyCheck, Members member2*/
         dialogRequestProfileUpdate frag = new dialogRequestProfileUpdate();
@@ -83,7 +92,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
-       /* try {
+      try {
 
 
             if (getTargetFragment() != null) {
@@ -93,7 +102,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
             }
         } catch (ClassCastException e) {
             throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
-        }*/
+        }
     }
 
     @Override
@@ -301,12 +310,16 @@ public class dialogRequestProfileUpdate extends DialogFragment {
                                 pDialog.dismiss();
                                 Toast.makeText(getContext(), "Request has not been sent successfully. ", Toast.LENGTH_SHORT).show();
                             } else if (responseid == 1) {
+                                mCompleteListener.onComplete("");
                                 pDialog.dismiss();
                                 Toast.makeText(getContext(), "Request has been sent successfully", Toast.LENGTH_LONG).show();
+
+
 
                                 dialogRequestProfileUpdate.this.getDialog().cancel();
 
                             } else {
+                                mCompleteListener.onComplete("");
                                 pDialog.dismiss();
                                 dialogRequestProfileUpdate.this.getDialog().cancel();
 

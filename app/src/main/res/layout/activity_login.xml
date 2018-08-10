@@ -97,60 +97,109 @@
 
                 </android.support.design.widget.TextInputLayout>
                 <!--   android:imeActionId="@+id/login"-->
-                <Button
-                    android:id="@+id/email_sign_in_button"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorTextRed"
-                    android:text="@string/action_sign_in"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_size_login_button" />
+                    android:gravity="center">
 
-                <android.support.v7.widget.AppCompatButton
+                    <!--     <android.support.v7.widget.AppCompatButton
+                             android:id="@+id/forgetpassword"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_alignParentLeft="true"
+                             android:layout_gravity="center"
+                             android:layout_marginTop="13dp"
+                             android:background="@android:color/transparent"
+                             android:text="@string/forgetpassword"
+                             android:textAllCaps="false"
+                             android:textColor="@color/colorWhite"
+                             android:textSize="@dimen/text_size_forgot_password" />-->
 
-                    android:id="@+id/forgetpassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="13dp"
-                    android:background="@android:color/transparent"
-                    android:text="@string/forgetpassword"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_size_forgot_password" />
+                    <com.chicsol.marrymax.widgets.mButton2
+                        android:id="@+id/email_sign_in_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/ButtonBorder.Accent"
+
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="16dp"
+
+                        android:text="@string/action_sign_in"
+                        android:textAllCaps="true"
+
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold" />
+
+                    <!--         <com.chicsol.marrymax.widgets.mButton2
+                                 android:id="@+id/email_sign_in_button2"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:layout_gravity="center"
+                                 android:layout_marginTop="16dp"
+                                 android:background="@color/colorTextRed"
+                                 android:text="Register"
+                                 android:textAllCaps="true"
+                                 android:textColor="@color/colorWhite"
+                                 android:textStyle="bold" />-->
+                </RelativeLayout>
+                <!--          android:textSize="@dimen/text_size_login_button"-->
+                <!--          <android.support.v7.widget.AppCompatButton
+
+                              android:id="@+id/forgetpassword"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_gravity="center"
+                              android:layout_marginTop="13dp"
+                              android:background="@android:color/transparent"
+                              android:text="@string/forgetpassword"
+                              android:textAllCaps="false"
+                              android:textColor="@color/colorWhite"
+                              android:textSize="@dimen/text_size_forgot_password" />-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/textViewDont"
+                    <!--     <com.chicsol.marrymax.widgets.mTextView
+                             android:id="@+id/textViewDont"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="Create New Account "
+
+                             android:textColor="@android:color/white"
+                             android:textSize="@dimen/text_size_login"
+                             tools:text="Don't have account," />-->
+                    <!--   android:background="@android:color/transparent"-->
+
+                    <com.chicsol.marrymax.widgets.mButton2
+                        android:id="@+id/forgetpassword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Don't have account, "
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="13dp"
+                        android:background="@android:color/transparent"
+                        android:text="@string/forgetpassword"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
 
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/text_size_login"
-                        tools:text="Don't have account," />
-                    <!--   android:background="@android:color/transparent"-->
-                    <android.support.v7.widget.AppCompatButton
+                    <com.chicsol.marrymax.widgets.mButton2
                         android:id="@+id/ButtonRegister"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorDefaultGreen"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
-
-                        android:text="Register"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:text="Create New Account "
                         android:textAllCaps="false"
+                        android:textSize="@dimen/text_size_forgot_password"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/text_size_login"
-                        android:textStyle="bold" />
+
+                        />
 
                 </LinearLayout>
 
@@ -168,33 +217,40 @@
 
             <com.chicsol.marrymax.widgets.mButton2
                 android:id="@+id/buttonSearchYourBestMatch"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                style="@style/ButtonBorder.Accent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="@color/colorWhite"
+
+
                 android:text="Find Matches"
                 android:textAllCaps="false"
-                android:textColor="#0b5b00"
+                android:textColor="@color/colorWhite"
 
-                android:textSize="@dimen/text_size_login" />
+                />
 
             <!--    Find Pakistani Matches Worldwide-->
 
             <com.chicsol.marrymax.widgets.mButton2
                 android:id="@+id/buttonSearchWhoIsLooking"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                style="@style/ButtonBorder.Accent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="@color/colorWhite"
+
                 android:text="Who Is Looking For Me"
                 android:textAllCaps="false"
-                android:textColor="#0b5b00"
+                android:textColor="@color/colorWhite"
 
-                android:textSize="@dimen/text_size_login" />
+                />
+            <!--    0b5b00-->
+            <!--            text_size_login-->
         </LinearLayout>
 
     </LinearLayout>

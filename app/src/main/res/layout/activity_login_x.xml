@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/startupscreen"
+        android:fitsSystemWindows="false"
+        android:orientation="vertical"
+        android:weightSum="10"
+        tools:context=".activities.ActivityLogin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/login_startup_logo_lg"
+
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--  android:theme="@style/TextLabel"-->
+
+                    <android.support.v7.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/EditTextEmailLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/colorWhite"
+                        app:backgroundTint="@color/colorUnderline"
+
+
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+
+                    app:passwordToggleDrawable="@null">
+                    <!--          android:theme="@style/TextLabel"-->
+                    <com.chicsol.marrymax.widgets.mEditText
+                        android:id="@+id/EditTextPasswordLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_password"
+
+                        android:imeActionLabel="@string/action_sign_in_short"
+                        android:imeOptions="actionUnspecified"
+                        android:maxLength="15"
+                        android:singleLine="true"
+                        android:textColor="@color/colorWhite"
+                        app:backgroundTint="@color/colorUnderline" />
+
+                </android.support.design.widget.TextInputLayout>
+                <!--   android:imeActionId="@+id/login"-->
+                <com.chicsol.marrymax.widgets.mButton2
+                    android:id="@+id/email_sign_in_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorTextRed"
+                    android:text="@string/action_sign_in"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold" />
+                <!--          android:textSize="@dimen/text_size_login_button"-->
+                <android.support.v7.widget.AppCompatButton
+
+                    android:id="@+id/forgetpassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="13dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/forgetpassword"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_forgot_password" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:id="@+id/textViewDont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Don't have account, "
+
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_size_login"
+                        tools:text="Don't have account," />
+                    <!--   android:background="@android:color/transparent"-->
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/ButtonRegister"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorDefaultGreen"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+
+                        android:text="Register"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_size_login"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/buttonSearchYourBestMatch"
+                style="@style/ButtonBorder.Accent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+
+
+                android:text="Find Matches"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+
+                />
+
+            <!--    Find Pakistani Matches Worldwide-->
+
+            <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/buttonSearchWhoIsLooking"
+                style="@style/ButtonBorder.Accent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+
+                android:text="Who Is Looking For Me"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+
+                />
+            <!--    0b5b00-->
+            <!--            text_size_login-->
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

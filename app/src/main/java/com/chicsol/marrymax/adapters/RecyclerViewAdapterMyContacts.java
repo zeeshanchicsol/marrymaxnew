@@ -239,7 +239,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
 
         if (holder1 instanceof MMViewHolder) {
             MMViewHolder holder = ((MMViewHolder) holder1);
-            holder.tvAlias.setText(obj.getAlias());
+            holder.tvAlias.setText(obj.getAlias()+" ");
             holder.tvAge.setText("( " + obj.getMin_age() + " Years )");
 
             holder.tvPhone.setText(obj.getPhone_mobile());
