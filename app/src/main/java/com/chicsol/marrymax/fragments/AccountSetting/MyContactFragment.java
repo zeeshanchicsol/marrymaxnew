@@ -231,6 +231,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
                 String mobNum = EditTextAScontactMobileNumber.getText().toString();
+
+
                 String landNum = EditTextAScontactLandlineNumber.getText().toString();
                 String personName = EditTextAScontactPersonName.getText().toString();
 
@@ -616,8 +618,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), false);
                     newFragment.setTargetFragment(MyContactFragment.this, 3);
                     newFragment.show(getFragmentManager(), "dialog");
-                }else {
-                  Toast.makeText(getContext(), "Click Again", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Click Again", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -949,7 +951,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         } else if (member.get_phone_view() == 3) {
             llPhoneVerifyLandline.setVisibility(View.VISIBLE);
             tvPhoneVerifyLandline.setText("Not Verified");
-            ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.num_not_verified_icon_60));
+            ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
             //not verified
 
         }

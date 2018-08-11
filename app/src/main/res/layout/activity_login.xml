@@ -117,13 +117,14 @@
 
                     <com.chicsol.marrymax.widgets.mButton2
                         android:id="@+id/email_sign_in_button"
+                        style="@style/ButtonBorder.Accent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        style="@style/ButtonBorder.Accent"
-
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/colorTextRed"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"
 
                         android:text="@string/action_sign_in"
                         android:textAllCaps="true"
@@ -188,16 +189,17 @@
 
                     <com.chicsol.marrymax.widgets.mButton2
                         android:id="@+id/ButtonRegister"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorDefaultGreen"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
-                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
                         android:text="Create New Account "
-                        android:textAllCaps="false"
-                        android:textSize="@dimen/text_size_forgot_password"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
                         android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_size_forgot_password"
 
                         />
 

@@ -40,6 +40,7 @@ import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
+import com.chicsol.marrymax.utils.Cryptography_Android;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.utils.functions;
 import com.crashlytics.android.Crashlytics;
@@ -99,6 +100,15 @@ public class ActivityLogin extends AppCompatActivity {
 
         initialize();
         setListeners();
+
+
+        try {
+            String encrypt = Cryptography_Android.Encrypt("abc@123#456***636695927072240000", "myk@ey1#2345");
+
+            Log.e("encrypt", "" + encrypt);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -227,7 +237,7 @@ public class ActivityLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
-                  
+
                     Intent in = new Intent(ActivityLogin.this, WhoIsLookingForMeSearchActivity.class);
                     startActivity(in);
                 }

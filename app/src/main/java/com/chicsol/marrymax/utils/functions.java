@@ -55,6 +55,8 @@ public class functions {
         Cryptography_Android crypt = new Cryptography_Android();
         String encryptedValue = null;
         try {
+
+            Log.e("ARDTOKEN",""+Urls.ARDTOKEN +"***" + ticks);
             encryptedValue = crypt.Encrypt(Urls.ARDTOKEN +"***" + ticks, Urls.PassPhraseArdAp);
             //120 minutes check
             //    Log.e("encrypted value ", encryptedValue + "");

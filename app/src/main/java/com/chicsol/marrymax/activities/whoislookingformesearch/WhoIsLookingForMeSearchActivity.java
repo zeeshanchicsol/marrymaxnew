@@ -127,7 +127,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
             ageDataList.add(webArd);
         }
 
-        ageDataList.add(0, new WebArd("-1", "Please Select"));
+        ageDataList.add(0, new WebArd("-1", "Select"));
         spAdapterMyChoiceAgeFrom = new MySpinnerAdapter(this,
                 android.R.layout.simple_spinner_item, ageDataList);
         spAdapterMyChoiceAgeFrom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -575,25 +575,25 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
                             }.getType();
 
                             religionDatalist = (List<WebArd>) gsonc.fromJson(religionarray.toString(), listType);
-                            religionDatalist.add(0, new WebArd("-1", "Select Religion"));
+                            religionDatalist.add(0, new WebArd("-1", "Select "));
                             Log.e("size", "" + religionDatalist.size());
                             adapter_religion.updateDataList(religionDatalist);
 
                             relgiousSectDatalist = (List<WebArd>) gsonc.fromJson(religioussectarray.toString(), listType);
-                            relgiousSectDatalist.add(0, new WebArd("-1", "Select Religious Sect"));
+                            relgiousSectDatalist.add(0, new WebArd("-1", "Select"));
 
                             adapter_religioussect.updateDataList(relgiousSectDatalist);
 
                             ethnicDatalist = (List<WebArd>) gsonc.fromJson(ethnicarray.toString(), listType);
-                            ethnicDatalist.add(0, new WebArd("-1", "Select Ethnic Background"));
+                            ethnicDatalist.add(0, new WebArd("-1", "Select"));
                             adapter_ethnic.updateDataList(ethnicDatalist);
 
                             countryDatalist = (List<WebArd>) gsonc.fromJson(countryarray.toString(), listType);
-                            countryDatalist.add(0, new WebArd("-1", "Select Country"));
+                            countryDatalist.add(0, new WebArd("-1", "Select "));
                             adapter_country.updateDataList(countryDatalist);
 
                             educationDatalist = (List<WebArd>) gsonc.fromJson(educationarray.toString(), listType);
-                            educationDatalist.add(0, new WebArd("-1", "Select Education"));
+                            educationDatalist.add(0, new WebArd("-1", "Select"));
                             adapter_education.updateDataList(educationDatalist);
                             setDefaultSelections();
 

@@ -23,12 +23,12 @@
         android:layout_margin="15dp"
         android:orientation="vertical">
 
-        <com.chicsol.marrymax.widgets.mTextView
+<!--        <com.chicsol.marrymax.widgets.mTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Select"
             android:textColor="@color/colorSpinnerLabel"
-            android:textSize="@dimen/text_size_spinner_label" />
+            android:textSize="@dimen/text_size_spinner_label" />-->
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/SpinnerWhoIsLooking"
