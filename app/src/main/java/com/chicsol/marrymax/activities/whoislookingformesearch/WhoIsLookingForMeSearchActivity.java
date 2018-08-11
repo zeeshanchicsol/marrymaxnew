@@ -540,8 +540,8 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
 
      //   spMyChoiceAgeFrom.setSelection(4);
      //   spMyChoiceAgeTo.setSelection(12);
-        selectfemale();
-        spinner_religion.setSelection(1);
+     //   selectfemale();
+     //   spinner_religion.setSelection(1);
 
     }
 
