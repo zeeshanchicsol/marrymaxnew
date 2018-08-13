@@ -103,7 +103,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
         try {
-            String encrypt = Cryptography_Android.Encrypt("abc@123#456***636695927072240000", "myk@ey1#2345");
+            String encrypt = Cryptography_Android.Encrypt("abc@123#456***636695927072240000", "passwordpassword");
 
             Log.e("encrypt", "" + encrypt);
         } catch (Exception e) {
