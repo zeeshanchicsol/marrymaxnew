@@ -229,6 +229,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsSearchActivity" />
+        <activity
+            android:name="com.chicsol.marrymax.activities.ContactAcivity"
+            android:theme="@style/AppTheme.NoActionBarA" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"

@@ -99,6 +99,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actvity_registration);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -745,6 +746,9 @@ public class RegistrationActivity extends AppCompatActivity {
                 return true;
             case R.id.action_faq:
                 marryMax.faq();
+                return true;
+            case R.id.action_contact:
+                marryMax.contact();
                 return true;
 
             default:

@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.chicsol.marrymax.activities.ContactAcivity;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.activities.WebViewActivity;
@@ -965,6 +966,17 @@ public class MarryMax {
         Intent intent = new Intent(activity, WebViewActivity.class);
         intent.putExtra("url", Urls.faqs);
         intent.putExtra("title", "FAQs");
+        activity.startActivity(intent);
+
+    }
+
+    public void contact() {
+       /* Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Urls.faqs));
+        activity.startActivity(browserIntent);*/
+
+        Intent intent = new Intent(activity, ContactAcivity.class);
+        //  intent.putExtra("url", Urls.faqs);
+        //    intent.putExtra("title", "FAQs");
         activity.startActivity(intent);
 
     }

@@ -12,7 +12,7 @@
     <item
         android:id="@+id/action_personalized_matching"
         android:orderInCategory="100"
-        android:title="Personalized Matching"
+        android:title="-Personalized Matching"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_benefits"
@@ -30,5 +30,10 @@
         android:id="@+id/action_faq"
         android:orderInCategory="100"
         android:title="-FAQ"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_contact"
+        android:orderInCategory="100"
+        android:title="-Contact"
         app:showAsAction="never" />
 </menu>

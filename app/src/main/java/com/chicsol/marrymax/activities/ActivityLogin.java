@@ -52,6 +52,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -102,13 +103,6 @@ public class ActivityLogin extends AppCompatActivity {
         setListeners();
 
 
-        try {
-            String encrypt = Cryptography_Android.Encrypt("abc@123#456***636695927072240000", "passwordpassword");
-
-            Log.e("encrypt", "" + encrypt);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
 
     }
@@ -117,6 +111,10 @@ public class ActivityLogin extends AppCompatActivity {
     private void initialize() {
         pDialog = new ProgressDialog(ActivityLogin.this);
         pDialog.setMessage("Loading...");
+
+
+
+
 
         //  Typeface tf = Typeface.createFromAsset(getAssets(), Constants.font_centurygothic);
         etEmail = (AutoCompleteTextView) findViewById(R.id.EditTextEmailLogin);

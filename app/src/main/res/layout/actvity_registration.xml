@@ -193,10 +193,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Profile Name"
+                                android:imeOptions="actionDone"
                                 android:inputType="text"
                                 android:maxLength="12"
                                 android:singleLine="true"
-                                android:imeOptions="actionDone"
                                 android:textColor="@color/colorRegistrationFields"
                                 app:backgroundTint="@color/colorUnderline" />
                         </android.support.design.widget.TextInputLayout>

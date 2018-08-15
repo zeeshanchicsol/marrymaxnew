@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coossrdinatorLayoutReg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/startupscreen"
+    android:orientation="vertical"
+    tools:context=".activities.ContactAcivity">
+
+    <include layout="@layout/toolbar_dashboard" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:fitsSystemWindows="false"
+            android:orientation="vertical"
+            android:weightSum="10"
+            tools:context=".activities.ContactAcivity">
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="In case you have any question, feel free to contact us."
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Contact For "
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_spinner_label" />
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/sp_contactfor"
+                        style="@style/SpinnerNew"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+
+                        />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="#d7d7d7"
+
+                        ></View>
+                </LinearLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorWhite">
+                    <!--  android:theme="@style/TextLabel"-->
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/EditTextContactName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/colorWhite"
+                        app:backgroundTint="@color/colorUnderline"
+
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Country "
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_spinner_label" />
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/sp_contactCountry"
+                        style="@style/Widget.AppCompat.Spinner"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="#d7d7d7"
+
+                        ></View>
+                </LinearLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="@color/colorWhite">
+
+
+                    <com.chicsol.marrymax.widgets.PrefixEditText
+                        android:id="@+id/EditTextcontactMobileNumber"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:hint="Phone "
+                        android:inputType="number"
+                        android:maxLength="22"
+                        android:tag="+6154 "
+                        app:backgroundTint="@color/colorUnderline"
+                        android:text="1234"
+                        android:textColor="@color/colorWhite" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorWhite">
+                    <!--  android:theme="@style/TextLabel"-->
+
+                    <com.chicsol.marrymax.widgets.mAutoCompleteTextView
+                        android:id="@+id/EditTextContactEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/colorWhite"
+                        app:backgroundTint="@color/colorUnderline"
+
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorWhite">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/EditTextContactQuestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Question"
+                        android:inputType="text"
+                        android:imeOptions="actionDone"
+                        android:maxLength="1000"
+                        android:textColor="@color/colorWhite"
+                        app:backgroundTint="@color/colorUnderline" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/ButtonContactSubmit"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/colorUserProfileTextGreenLight"
+                    android:text="Submit" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

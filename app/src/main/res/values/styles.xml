@@ -67,6 +67,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.NoActionBarA" parent="AppTheme">
+        <item name="colorAccent">@color/colorWhite</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"></style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -121,6 +127,7 @@
         <item name="android:gravity">center_vertical|center_horizontal</item>
 
     </style>
+
     <style name="PrimaryMaterialButton" parent="Base.Widget.AppCompat.Button">
         <item name="android:background">@drawable/linear_layout_button</item>
         <item name="android:textAppearance">?android:attr/textAppearanceButton</item>
@@ -136,7 +143,6 @@
     <style name="PopupMenu" parent="@android:style/Widget.Holo.Light.PopupMenu">
 
 
-
         <!--  <item name="android:popupBackground">@android:color/white</item>-->
     </style>
 
@@ -148,16 +154,25 @@
         <item name="colorControlNormal">#999</item>
 
 
+    </style>
+
+
+    <style name="SpinnerNew" parent="Base.Widget.AppCompat.Spinner">
+        <!-- Color when pressed -->
+        <item name="android:textColor">@color/colorWhite</item>
+        <!-- Default color for the dropdown arrow and line -->
+        <item name="colorControlNormal">@color/colorWhite</item>
 
 
     </style>
+
+
     <style name="FullHeightDialog" parent="AppTheme">
         <item name="android:windowNoTitle">true</item>
     </style>
 
 
-
-    <style name="ButtonBorder" parent="Widget.AppCompat.Button.Colored"/>
+    <style name="ButtonBorder" parent="Widget.AppCompat.Button.Colored" />
 
     <style name="ButtonBorder.Accent">
         <item name="android:background">@drawable/bg_btn_outline</item>

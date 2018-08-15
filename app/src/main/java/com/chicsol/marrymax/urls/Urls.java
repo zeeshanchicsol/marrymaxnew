@@ -243,8 +243,15 @@ public class Urls {
     public static String forwardMember = baseUrl + "/api/WebArd/ForwardMember";
 
 
+    //==================Contact Us==================
+    public static String getContactList = baseUrl + "/api/WebArd/GetContactList/";
+    public static String contactUs = baseUrl + "/api/WebArd/ContactUs";
+
+
     //================MATCH AID==================
     public static String getAssistanceList = baseUrl + "/api/WebArd/GetAssistanceList/";
+
+
     public static String addFeedback = baseUrl + "/api/WebArd/AddFeedback";
 
 

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-221:12
-INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-221:12
-INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-221:12
-INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-221:12
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
+INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
+INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
+INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
 MERGED from [com.google.firebase:firebase-core:10.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-core-10.0.1.aar/f179f09c5afbcabdcdd7e78820d5d1b9/AndroidManifest.xml:2:1-6:12
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.6.8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/crashlytics-2.6.8.aar/52c27e04cfbe907bc32c682e3ac68c90/AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:design:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/507d5e2d264b81e77a5eea70e391b248/AndroidManifest.xml:17:1-22:12
@@ -44,20 +44,20 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/marrymaxandroid/
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/3544b7625e4a583e5fbd3186477efd0b/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/2133c3d828ba145964e255fbe5256b32/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/f8afd197d0756eae05484825d36a4367/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-221:12
-INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-221:12
-INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-221:12
+INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
+INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
+INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
 	package
 		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:3:5-35
 		INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-221:12
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
 		INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-221:12
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
 		INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:11-69
@@ -118,19 +118,19 @@ ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/An
 	android:name
 		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:18:22-73
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:20:5-80
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:19:5-80
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:20:22-77
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:19:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:21:5-81
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:20:5-81
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:21:22-78
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:20:22-78
 uses-permission#android.permission.WRITE_USER_DICTIONARY
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:22:5-80
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:21:5-80
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:22:22-77
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:21:22-77
 application
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:25:5-219:19
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:24:5-221:19
 MERGED from [com.google.firebase:firebase-core:10.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-core-10.0.1.aar/f179f09c5afbcabdcdd7e78820d5d1b9/AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-core:10.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-core-10.0.1.aar/f179f09c5afbcabdcdd7e78820d5d1b9/AndroidManifest.xml:5:5-20
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.6.8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/crashlytics-2.6.8.aar/52c27e04cfbe907bc32c682e3ac68c90/AndroidManifest.xml:11:5-20
@@ -166,361 +166,367 @@ MERGED from [com.crashlytics.sdk.android:answers:1.3.13] /Users/marrymaxandroid/
 MERGED from [io.fabric.sdk.android:fabric:1.3.17] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/fabric-1.3.17.aar/768295e5ec172fc0496e0f85f836a0b3/AndroidManifest.xml:31:5-20
 MERGED from [io.fabric.sdk.android:fabric:1.3.17] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/fabric-1.3.17.aar/768295e5ec172fc0496e0f85f836a0b3/AndroidManifest.xml:31:5-20
 	android:supportsRtl
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:32:9-35
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:31:9-35
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:29:9-41
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:28:9-41
 	android:hardwareAccelerated
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:27:9-43
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:26:9-43
 	android:roundIcon
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:31:9-54
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:30:9-54
 	android:largeHeap
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:30:9-33
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:29:9-33
 	android:icon
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:28:9-43
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:27:9-43
 	android:allowBackup
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:26:9-35
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:25:9-35
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:33:9-40
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:32:9-40
 activity#com.chicsol.marrymax.activities.ActivityLogin
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:34:9-43:20
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:33:9-42:20
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:36:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:35:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:37:13-51
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:36:13-51
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:35:13-53
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:34:13-53
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:38:13-42:29
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:37:13-41:29
 action#android.intent.action.MAIN
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:39:17-69
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:38:17-69
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:39:25-66
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:38:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:41:17-77
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:40:17-77
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:41:27-74
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:40:27-74
 activity#com.chicsol.marrymax.activities.registration.RegisterGeographicActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:56:9-60:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:55:9-59:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:59:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:58:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:58:13-39
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:57:13-39
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:60:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:59:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:57:13-79
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:56:13-79
 activity#com.chicsol.marrymax.activities.registration.RegistrationActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:61:9-65:47
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:60:9-64:47
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:64:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:63:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:63:13-41
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:62:13-41
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:65:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:64:13-44
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:62:13-73
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:61:13-73
 activity#com.chicsol.marrymax.activities.registration.RegisterAppearanceActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:66:9-70:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:65:9-69:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:69:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:68:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:68:13-39
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:67:13-39
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:70:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:69:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:67:13-79
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:66:13-79
 activity#com.chicsol.marrymax.activities.registration.RegisterLifeStyleActivity1
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:71:9-75:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:70:9-74:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:74:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:73:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:73:13-38
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:72:13-38
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:75:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:74:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:72:13-79
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:71:13-79
 activity#com.chicsol.marrymax.activities.registration.RegisterLifeStyleActivity2
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:76:9-80:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:75:9-79:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:79:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:78:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:78:13-38
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:77:13-38
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:80:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:79:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:77:13-79
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:76:13-79
 activity#com.chicsol.marrymax.activities.registration.RegisterInterest
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:81:9-85:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:80:9-84:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:84:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:83:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:83:13-37
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:82:13-37
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:85:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:84:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:82:13-69
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:81:13-69
 activity#com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:86:9-90:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:85:9-89:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:89:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:88:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:88:13-40
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:87:13-40
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:90:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:89:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:87:13-80
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:86:13-80
 activity#com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:91:9-95:47
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:90:9-94:47
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:94:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:93:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:93:13-51
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:92:13-51
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:95:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:94:13-44
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:92:13-87
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:91:13-87
 activity#com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeSearchActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:96:9-100:47
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:95:9-99:47
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:99:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:98:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:98:13-50
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:97:13-50
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:100:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:99:13-44
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:97:13-95
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:96:13-95
 activity#com.chicsol.marrymax.activities.DashboarMainActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:101:9-105:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:100:9-104:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:104:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:103:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:103:13-38
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:102:13-38
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:105:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:104:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:102:13-60
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:101:13-60
 activity#com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:106:9-110:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:105:9-109:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:109:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:108:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:108:13-38
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:107:13-38
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:110:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:109:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:107:13-73
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:106:13-73
 activity#com.chicsol.marrymax.activities.UserProfileActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:111:9-114:47
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:110:9-113:47
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:113:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:112:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:114:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:113:13-44
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:112:13-59
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:111:13-59
 activity#com.chicsol.marrymax.activities.UserProfileActivityWithSlider
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:115:9-118:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:114:9-117:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:117:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:116:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:118:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:117:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:116:13-69
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:115:13-69
 activity#com.chicsol.marrymax.activities.MyProfileActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:119:9-122:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:118:9-121:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:121:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:120:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:122:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:121:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:120:13-57
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:119:13-57
 activity#com.chicsol.marrymax.fragments.inbox.DashboardMessagesDetailActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:124:9-127:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:123:9-126:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:126:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:125:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:127:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:126:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:125:13-76
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:124:13-76
 activity#com.chicsol.marrymax.activities.AccountSettingActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:128:9-131:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:127:9-130:59
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:130:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:129:13-44
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:131:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:130:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:129:13-62
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:128:13-62
 activity#com.chicsol.marrymax.activities.NotificationsActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:132:9-136:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:131:9-135:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:135:13-49
-	android:label
 		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:134:13-49
+	android:label
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:133:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:136:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:135:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:133:13-61
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:132:13-61
 activity#com.chicsol.marrymax.activities.FaqActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:137:9-141:47
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:136:9-140:47
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:140:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:139:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:139:13-33
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:138:13-33
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:141:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:140:13-44
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:138:13-51
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:137:13-51
 activity#com.chicsol.marrymax.activities.search.SearchMainActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:142:9-146:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:141:9-145:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:145:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:144:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:144:13-43
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:143:13-43
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:146:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:145:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:143:13-65
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:142:13-65
 activity#com.chicsol.marrymax.activities.search.SearchResultsActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:147:9-151:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:146:9-150:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:150:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:149:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:149:13-43
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:148:13-43
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:151:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:150:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:148:13-68
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:147:13-68
 activity#com.chicsol.marrymax.activities.PhotoUpload
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:152:9-156:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:151:9-155:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:155:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:154:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:154:13-64
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:153:13-64
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:156:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:155:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:153:13-51
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:152:13-51
 activity#com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchResultsActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:157:9-161:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:156:9-160:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:160:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:159:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:159:13-51
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:158:13-51
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:161:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:160:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:158:13-94
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:157:13-94
 activity#com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeResultsActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:162:9-166:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:161:9-165:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:165:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:164:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:164:13-60
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:163:13-60
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:166:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:165:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:163:13-96
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:162:13-96
 activity#com.chicsol.marrymax.activities.ActivityForgetPassword
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:167:9-171:54
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:166:9-170:54
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:170:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:169:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:169:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:168:13-44
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:171:13-51
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:170:13-51
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:168:13-62
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:167:13-62
 activity#com.chicsol.marrymax.activities.RequestPermissionsActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:172:9-176:47
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:171:9-175:47
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:175:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:174:13-49
 	android:label
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:174:13-55
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:173:13-55
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:176:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:175:13-44
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:173:13-66
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:172:13-66
 activity#com.chicsol.marrymax.activities.subscription.SubscriptionPlanActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:177:9-180:47
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:176:9-179:47
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:179:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:178:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:180:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:179:13-44
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:178:13-77
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:177:13-77
 activity#com.chicsol.marrymax.activities.subscription.OrderProcessActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:181:9-184:47
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:180:9-183:47
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:183:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:182:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:184:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:183:13-44
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:182:13-73
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:181:13-73
 meta-data#io.fabric.ApiKey
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:186:9-188:72
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:185:9-187:72
 	android:value
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:188:13-69
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:187:13-69
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:187:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:186:13-44
 activity#com.chicsol.marrymax.activities.subscription.OrderConfirmationActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:190:9-193:47
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:189:9-192:47
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:192:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:191:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:193:13-44
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:192:13-44
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:191:13-78
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:190:13-78
 activity#com.chicsol.marrymax.activities.directive.MainDirectiveActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:194:9-197:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:193:9-196:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:196:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:195:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:197:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:196:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:195:13-71
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:194:13-71
 activity#com.chicsol.marrymax.fragments.list.MemberListActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:198:9-201:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:197:9-200:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:200:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:199:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:201:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:200:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:199:13-62
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:198:13-62
 activity#com.chicsol.marrymax.activities.MatchAidActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:202:9-205:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:201:9-204:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:204:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:203:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:205:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:204:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:203:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:202:13-56
 activity#com.chicsol.marrymax.activities.WebViewActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:206:9-209:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:205:9-208:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:208:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:207:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:209:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:208:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:207:13-55
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:206:13-55
 activity#com.chicsol.marrymax.activities.QuestionsActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:210:9-213:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:209:9-212:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:212:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:211:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:213:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:212:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:211:13-57
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:210:13-57
 activity#com.chicsol.marrymax.fragments.inbox.DashboardQuestionsDetailActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:214:9-217:59
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:213:9-216:59
 	android:screenOrientation
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:216:13-49
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:215:13-49
 	android:theme
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:217:13-56
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:216:13-56
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:215:13-77
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:214:13-77
 activity#com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsSearchActivity
-ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:218:9-101
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:217:9-92
 	android:name
-		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:218:19-89
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:217:19-89
+activity#com.chicsol.marrymax.activities.ContactAcivity
+ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:218:9-220:69
+	android:theme
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:220:13-57
+	android:name
+		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:219:13-54
 uses-sdk
 INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
