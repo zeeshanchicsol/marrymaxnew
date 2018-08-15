@@ -103,6 +103,10 @@ public class ActivityLogin extends AppCompatActivity {
         setListeners();
 
 
+        Calendar cl2 = Calendar.getInstance();
+
+        Long ticks = 621355968000000000L + cl2.getTimeInMillis() * 10000;
+        Log.e("ticks ", "ticks "+ticks + "   ms  "+ cl2.getTimeInMillis() );
 
 
     }
@@ -111,9 +115,6 @@ public class ActivityLogin extends AppCompatActivity {
     private void initialize() {
         pDialog = new ProgressDialog(ActivityLogin.this);
         pDialog.setMessage("Loading...");
-
-
-
 
 
         //  Typeface tf = Typeface.createFromAsset(getAssets(), Constants.font_centurygothic);
