@@ -30,7 +30,7 @@ public class webconfig {
 
 
     //Production=====
-/*  public static String baseUrla = "https://marrymax.com";
+/* public static String baseUrla = "https://marrymax.com";
     public static String PassPhraseArdApa = "dvnh78543";
     public static String ARDTOKENa = "yhoe6934";*/
 
