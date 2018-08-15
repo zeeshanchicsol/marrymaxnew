@@ -6,22 +6,22 @@
     density="420dpi"
     format="10"
     plugin-version="3.1.4"
-    timestamp="1534346003013"
+    timestamp="1534346498266"
     token="-3437216352686199496"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="5935" />
+        duration="6102" />
     <task
         name="instant-run-dex"
-        duration="59" />
+        duration="184" />
     <task
         name="instant-run-transform"
-        duration="40" />
+        duration="84" />
     <task
         name="verifier"
-        duration="5" />
+        duration="17" />
 
     <artifact
         location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/reload-dex/debug/classes.dex"
@@ -109,6 +109,14 @@
     <build
         build-mode="HOT_WARM"
         timestamp="1534346003013"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/builds/debug/1534346003013/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1534346498266"
         verifier="COMPATIBLE" >
         <artifact
             location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/reload-dex/debug/classes.dex"

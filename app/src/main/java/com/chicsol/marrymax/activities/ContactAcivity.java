@@ -243,6 +243,10 @@ public class ContactAcivity extends AppCompatActivity {
                                     params.put("contact_message", question);
                                     params.put("contact_country_id", countryObj.getId());
 
+                                    if (SharedPreferenceManager.getUserObject(getApplicationContext()) != null) {
+                                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                    }
+
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
