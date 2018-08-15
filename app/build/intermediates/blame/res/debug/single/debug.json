@@ -4,12 +4,12 @@
         "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/e52a0d8d9427571d29e11ebd22b1732f/res/raw/joda_asia_kathmandu"
     },
     {
-        "merged": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/raw_joda_america_boa_vista.flat",
-        "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/e52a0d8d9427571d29e11ebd22b1732f/res/raw/joda_america_boa_vista"
-    },
-    {
         "merged": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/layout_activity_list_my_recommended_members.xml.flat",
         "source": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/res/layout/activity_list_my_recommended_members.xml"
+    },
+    {
+        "merged": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/raw_joda_america_boa_vista.flat",
+        "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/e52a0d8d9427571d29e11ebd22b1732f/res/raw/joda_america_boa_vista"
     },
     {
         "merged": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/raw_joda_etc_gmt_1.flat",
@@ -1542,6 +1542,10 @@
     {
         "merged": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/90af972411fe8310e9cf38ac3612c685/res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/drawable_ic_contact_mail_black_24dp.xml.flat",
+        "source": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/res/drawable/ic_contact_mail_black_24dp.xml"
     },
     {
         "merged": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/raw_joda_hst.flat",

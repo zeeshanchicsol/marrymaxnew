@@ -447,6 +447,11 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
             Intent in = new Intent(BaseRegistrationActivity.this, FaqActivity.class);
             startActivity(in);
         }
+        else if (id == R.id.nav_main_contact_us) {
+            MarryMax max = new MarryMax(BaseRegistrationActivity.this);
+            max.contact();
+
+        }
 
         // DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

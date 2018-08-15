@@ -380,6 +380,10 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
                         Uri.parse("http://play.google.com/store/apps/details?id=" + context.getPackageName())));
             }
 
+        } else if (id == R.id.nav_main_contact_us) {
+            MarryMax max = new MarryMax(DashboarMainActivityWithBottomNav.this);
+            max.contact();
+
         }
 
 

@@ -437,6 +437,9 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
             case R.id.action_faq:
                 marryMax.faq();
                 return true;
+            case R.id.action_contact:
+                marryMax.contact();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
 
