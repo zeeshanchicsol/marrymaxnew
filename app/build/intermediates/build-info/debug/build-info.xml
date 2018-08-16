@@ -2,58 +2,84 @@
 <instant-run
     abi="x86"
     api-level="24"
-    build-mode="HOT_WARM"
+    build-mode="FULL"
     density="420dpi"
     format="10"
+    ir-eligibility="STATIC_INITIALIZER_CHANGE"
     plugin-version="3.1.4"
-    timestamp="1534414869951"
+    timestamp="1534436742752"
     token="-3437216352686199496"
-    verifier="COMPATIBLE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="8018" />
+        duration="7531" />
     <task
         name="instant-run-dex"
-        duration="263" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="155" />
+        duration="21" />
     <task
         name="verifier"
-        duration="32" />
+        duration="3" />
 
     <artifact
-        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1534413313487"
-        verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
-            type="SPLIT" />
+        ir-eligibility="STATIC_INITIALIZER_CHANGE"
+        timestamp="1534436742752"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
             location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
             location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
@@ -62,19 +88,20 @@
             location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
             type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1534414869951"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

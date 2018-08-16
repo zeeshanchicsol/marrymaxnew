@@ -28,6 +28,8 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.ActivityLogin;
+import com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeResultsActivity;
+import com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsSearchActivity;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatchesSearch;
 import com.chicsol.marrymax.dialogs.dialogLoginToContinue;
@@ -673,10 +675,30 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.registration_searchyourbestmatch_menu, menu);
+
+
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem item = menu.getItem(i);
+            if (item.getItemId() == R.id.action_filter_results) {
+                View itemChooser = item.getActionView();
+                if (itemChooser != null) {
+                    itemChooser.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            MarryMax max = new MarryMax(SearchYourBestMatchResultsActivity.this);
+                            max.onSearchClicked(getApplicationContext(), 1);
+
+                        }
+                    });
+                }
+            }
+        }
+
         return true;
     }
 
-    @Override
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
@@ -693,7 +715,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
                 return super.onOptionsItemSelected(item);
 
         }
-    }
+    }*/
 
 
     @Override
