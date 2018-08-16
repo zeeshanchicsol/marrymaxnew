@@ -121,6 +121,9 @@ public class ContactAcivity extends AppCompatActivity {
         etName = (EditText) findViewById(R.id.EditTextContactName);
         etEmail = (EditText) findViewById(R.id.EditTextContactEmail);
         etQuestion = (EditText) findViewById(R.id.EditTextContactQuestion);
+        etQuestion.setHorizontallyScrolling(false);
+        etQuestion.setMaxLines(Integer.MAX_VALUE);
+
         ButtonContactSubmit = findViewById(R.id.ButtonContactSubmit);
         EditTextAScontactMobileNumber = findViewById(R.id.EditTextcontactMobileNumber);
 

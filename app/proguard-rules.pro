@@ -14,7 +14,7 @@
 # class:
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
-#}
+# }
 
 #-keep public class com.chicsol.marrymax.model.**
 
@@ -29,6 +29,6 @@
 }
 
 -ignorewarnings
--keep class * {
-    public private *;
-}
+#-keep class * {
+ #   public private *;
+#}

@@ -15,6 +15,7 @@ public class webconfig {
     public static String ARDTOKENa = "abc123456";*/
 
 
+
     // dvp
     public static String baseUrla = "http://172.99.1.63:82";
     public static String PassPhraseArdApa = "myk@ey1#2345";
