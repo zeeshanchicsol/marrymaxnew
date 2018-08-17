@@ -43,6 +43,7 @@ import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.Cryptography_Android;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.utils.functions;
+import com.chicsol.marrymax.widgets.mButton2;
 import com.crashlytics.android.Crashlytics;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -63,7 +64,7 @@ public class ActivityLogin extends AppCompatActivity {
     private CoordinatorLayout coordinatorLayout;
     private EditText etPassword;
     private AutoCompleteTextView etEmail;
-    private Button btLogin, btRegister, btSearchBMatch, btWhoIsLForMe, forgetpassword;
+    private mButton2 btLogin, btRegister, btSearchBMatch, btWhoIsLForMe, forgetpassword;
     private TextView tvDont;
     private ConnectionDetector connectionDetector;
     private UserSessionManager session;
@@ -126,10 +127,10 @@ public class ActivityLogin extends AppCompatActivity {
 
         tvDont = (TextView) findViewById(R.id.textViewDont);
 
-        btLogin = (Button) findViewById(R.id.email_sign_in_button);
-        btRegister = (Button) findViewById(R.id.ButtonRegister);
-        btSearchBMatch = (Button) findViewById(R.id.buttonSearchYourBestMatch);
-        btWhoIsLForMe = (Button) findViewById(R.id.buttonSearchWhoIsLooking);
+        btLogin = (mButton2) findViewById(R.id.email_sign_in_button);
+        btRegister = (mButton2) findViewById(R.id.ButtonRegister);
+        btSearchBMatch = (mButton2) findViewById(R.id.buttonSearchYourBestMatch);
+        btWhoIsLForMe = (mButton2) findViewById(R.id.buttonSearchWhoIsLooking);
 
 
         //  etEmail.setTransformationMethod(new PasswordTransformationMethod());
@@ -141,7 +142,7 @@ public class ActivityLogin extends AppCompatActivity {
 
         session = new UserSessionManager(getApplicationContext());
 
-        forgetpassword = (Button) findViewById(R.id.forgetpassword);
+        forgetpassword = (mButton2) findViewById(R.id.forgetpassword);
 
         emailSuggestionList = new ArrayList();
 

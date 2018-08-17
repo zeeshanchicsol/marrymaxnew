@@ -9,7 +9,7 @@
             <corners android:radius="5dp"/>
         </shape>
     </item>
-    <item android:id="@android:id/mask">
+    <item >
         <shape>
             <stroke
                 android:width="2dp"
