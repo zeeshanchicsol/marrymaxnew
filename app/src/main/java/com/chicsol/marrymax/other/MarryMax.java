@@ -386,7 +386,7 @@ public class MarryMax {
 
         Members smember = SharedPreferenceManager.getUserObject(context);
 
-        Log.e("member type", smember.get_member_status() + "-------" + member.get_open_message());
+      //  Log.e("member type", smember.get_member_status() + "-------" + member.get_open_message());
         switch (category) {
 
             //View Profile

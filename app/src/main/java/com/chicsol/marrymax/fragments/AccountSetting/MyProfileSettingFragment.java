@@ -128,7 +128,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
         tvSubscriberOnly = (TextView) view.findViewById(R.id.TextViewMatchAidSubscribersOnly);
-        if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() <= 3) {
+        if (SharedPreferenceManager.getUserObject(context).get_member_status() <= 3) {
             tvSubscriberOnly.setVisibility(View.VISIBLE);
 
         } else {
@@ -189,7 +189,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         etAsEmail = (EditText) view.findViewById(R.id.EditTextAScontactEmail);
         llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
 
-        etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
+        etAsEmail.setText(SharedPreferenceManager.getUserObject(context).get_email());
         etAsEmail.setEnabled(false);
 
 
@@ -211,7 +211,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     private void loadData() {
 
 
-        if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+        if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
             tvDesc.setVisibility(View.VISIBLE);
         } else {
             tvDesc.setVisibility(View.GONE);
@@ -220,7 +220,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
         //============EMAIL
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
-            getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+            getRequest(SharedPreferenceManager.getUserObject(context).get_path());
 
 
             getPhoneNumber();
@@ -237,7 +237,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             @Override
             public void onClick(View v) {
 
-                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3) {
+                if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3) {
 
                     Toast.makeText(context, "Please complete and verify your profile details.", Toast.LENGTH_LONG).show();
                 } else {
@@ -266,17 +266,11 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         });
 
 
-
-
         btVerifyNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-       /*         Intent in = new Intent(getContext(), MainDirectiveActivity.class);
-                in.putExtra("type", 23);
-                startActivity(in);*/
-                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 0) {
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).getAlias() + "</font></b>, you need to complete your profile first before we send sms code.", "Complete Profile", 8);
+                if (SharedPreferenceManager.getUserObject(context).get_member_status() == 0) {
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to complete your profile first before we send sms code.", "Complete Profile", 8);
                     dialogP.show(getFragmentManager(), "d");
 
                 } else {
@@ -324,7 +318,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             @Override
             public void onClick(View v) {
                 MarryMax marryMax = new MarryMax(getActivity());
-                marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
+                marryMax.getProfileProgress(context, SharedPreferenceManager.getUserObject(context), getActivity());
             }
         });
 
@@ -333,7 +327,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         btEmailCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
+                etAsEmail.setText(SharedPreferenceManager.getUserObject(context).get_email());
                 etAsEmail.setEnabled(false);
                 etAsEmail.setError(null);
                 emailEnabled = false;
@@ -373,7 +367,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         btResendVerificationEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Verify Your Email", "Here is your email address that needs to be verified.<br /> <b>  <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).get_email() + "</font></b><br /> " +
+                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Verify Your Email", "Here is your email address that needs to be verified.<br /> <b>  <font color=#216917>" + SharedPreferenceManager.getUserObject(context).get_email() + "</font></b><br /> " +
                         "Please verify your email by using the link, we had emailed you.<br /> <font color=#9a0606> (In case you didn't receive any email,  please check your spam/junk folder or click \"Resend Verification Email\" )</font> ", "Resend Verification Email", 22);
                 dialogP.show(getFragmentManager(), "d");
             }
@@ -453,7 +447,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             }
 
 
-                            if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+                            if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
 
                                 llASEmail.setVisibility(View.VISIBLE);
                                 if (dashboards.getEmail_complete_status().equals("1")) {
@@ -798,7 +792,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
             params.put("name", "" + etAsEmail.getText().toString());
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
 
 
         } catch (JSONException e) {
@@ -823,11 +817,11 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                         }.getType();
                         WebArd webArd = (WebArd) gson.fromJson(response.toString(), type);
                         if (webArd.getId().equals("0")) {
-                            Toast.makeText(getContext(), "Email Not updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Email Not updated", Toast.LENGTH_SHORT).show();
 
                         } else if (webArd.getId().equals("1")) {
 
-                            Toast.makeText(getContext(), "Email Updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Email Updated", Toast.LENGTH_SHORT).show();
 
                             etAsEmail.setEnabled(false);
                             emailEnabled = false;
@@ -837,10 +831,10 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
                         } else if (webArd.getId().equals("2")) {
-                            Toast.makeText(getContext(), "Not a valid Email", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Not a valid Email", Toast.LENGTH_SHORT).show();
 
                         } else if (webArd.getId().equals("3")) {
-                            Toast.makeText(getContext(), "Email  Exists", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Email  Exists", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -874,7 +868,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
+        MySingleton.getInstance(context).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -936,7 +930,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }
 
     @Override

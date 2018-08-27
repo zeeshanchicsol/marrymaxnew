@@ -233,7 +233,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                 totalItemCount = mLinearLayoutManager.getItemCount();
                 firstVisibleItem = mLinearLayoutManager.findFirstVisibleItemPosition();
 
-                Log.e("zxzxzx "+isMoreLoading,"totalItemCount: "+totalItemCount+"  visibleItemCount : "+visibleItemCount+"");
+          //      Log.e("zxzxzx "+isMoreLoading,"totalItemCount: "+totalItemCount+"  visibleItemCount : "+visibleItemCount+"");
                 if (!isMoreLoading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
                     if (onLoadMoreListener != null) {
                         onLoadMoreListener.onLoadMore();

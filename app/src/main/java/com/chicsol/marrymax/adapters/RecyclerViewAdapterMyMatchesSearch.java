@@ -110,7 +110,7 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
     public Members getMemResultsObj() {
         return memResultsObj;
     }
-
+private RecyclerView mRecyclerView;
     public void setMemResultsObj(Members memResultsObj) {
         this.memResultsObj = memResultsObj;
     }
@@ -218,6 +218,8 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
 
 
     public void setRecyclerView(RecyclerView mView) {
+
+        mRecyclerView=mView;
         mView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -898,8 +900,18 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
             items.add(null);
             notifyItemInserted(items.size() - 1);
 
+          /*  mRecyclerView.post(new Runnable() {
+                public void run() {
+
+
+                }
+            });*/
+
+
         } else {
             items.remove(items.size() - 1);
+
+
             notifyItemRemoved(items.size());
         }
     }

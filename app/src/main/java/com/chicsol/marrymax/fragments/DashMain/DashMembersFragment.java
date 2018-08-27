@@ -32,6 +32,7 @@ import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.chicsol.marrymax.widgets.NpaGridLayoutManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -154,7 +155,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         //  recyclerViewMSLW.setLayoutManager();
 
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        NpaGridLayoutManager gridLayoutManager = new NpaGridLayoutManager(getContext(), 2);
 
         recyclerViewMSLW.setLayoutManager(gridLayoutManager);
 

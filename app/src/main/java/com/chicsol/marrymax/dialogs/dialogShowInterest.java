@@ -363,7 +363,9 @@ public class dialogShowInterest extends DialogFragment {
                     public void onResponse(JSONObject response) {
 
                         Log.e("re  update interest", response + "");
-                        dialogShowInterest.this.getDialog().cancel();
+
+                        dialogShowInterest.this.getDialog().dismiss();
+
                         try {
                             int responseid = response.getInt("id");
 
