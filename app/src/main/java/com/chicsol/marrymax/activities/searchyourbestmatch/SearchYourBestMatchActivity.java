@@ -630,6 +630,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
     }
 
     private void getSearchListData() {
+
         // Log.e("get message","lllllllkkasdksadk");
         //  String.Max
 //pDialog.setMessage("getMessage");

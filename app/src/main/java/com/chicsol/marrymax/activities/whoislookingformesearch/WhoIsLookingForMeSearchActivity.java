@@ -46,8 +46,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
-
 
 /**
  * Created by Redz on 10/21/2016.
@@ -62,14 +60,14 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
     private Button bt_back, buttonSearchMatches;
     private LinearLayout ll_maleNormal, ll_maleSelected, ll_femaleNormal, ll_femaleSelected;
     private List<WebArd> ageDataList, religionDatalist, ethnicDatalist, relgiousSectDatalist, countryDatalist, educationDatalist;
-    private MySpinnerAdapter spAdapterMyChoiceAgeFrom,  adapter_religion, adapter_religioussect, adapter_country, adapter_ethnic, adapter_education;
+    private MySpinnerAdapter spAdapterMyChoiceAgeFrom, adapter_religion, adapter_religioussect, adapter_country, adapter_ethnic, adapter_education;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 //        if (defaultSelectionsObj == null) {
-        defaultSelectionsObj = new Members();
+        Constants.defaultSelectionsObj = new Members();
         // }
         setContentView(R.layout.actvity_search_who_is_looking_for_me);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -113,7 +111,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
         ll_femaleSelected = (LinearLayout) findViewById(R.id.LinearLayoutFemaleSelected);
 
         spMyChoiceAgeFrom = (Spinner) findViewById(R.id.SpinnerAppMyChoiceAgeFrom);
-     //   spMyChoiceAgeTo = (Spinner) findViewById(R.id.SpinnerAppMyChoiceAgeTo);
+        //   spMyChoiceAgeTo = (Spinner) findViewById(R.id.SpinnerAppMyChoiceAgeTo);
 
         spinner_education = (Spinner) findViewById(R.id.sp_bestmatch_education);
         spinner_ethnic = (Spinner) findViewById(R.id.sp_bestmatch_ethnic_background);
@@ -179,8 +177,10 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
         adapter_ethnic.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_ethnic.setAdapter(adapter_ethnic);
 
-        getSearchListData();
 
+        if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
+            getSearchListData();
+        }
 
     }
 
@@ -251,30 +251,32 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
                     if (spinner_religion.getSelectedItemId() != 0 && gender != null) {
 
 
-                        defaultSelectionsObj.set_gender(gender);
+                        Constants.defaultSelectionsObj.set_gender(gender);
 
 
                         WebArd sReligion = (WebArd) spinner_religion.getSelectedItem();
-                        defaultSelectionsObj.set_religion_id(Long.parseLong(sReligion.getId()));
+                        Constants.defaultSelectionsObj.set_religion_id(Long.parseLong(sReligion.getId()));
+
                         if (spinner_education.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spinner_education.getSelectedItem();
-                            defaultSelectionsObj.set_choice_education_ids(srr.getId());
+                            Constants.defaultSelectionsObj.set_education_id(Long.parseLong(srr.getId()));
                         }
+
                         if (spinner_ethnic.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spinner_ethnic.getSelectedItem();
-                            defaultSelectionsObj.set_choice_ethnic_bground_ids(srr.getId());
+                            Constants.defaultSelectionsObj.set_ethnic_background_id(Integer.parseInt(srr.getId()));
                         }
                         if (spinner_religioussect.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spinner_religioussect.getSelectedItem();
-                            defaultSelectionsObj.set_choice_religious_sect_ids(srr.getId());
+                            Constants.defaultSelectionsObj.set_religious_sect_id(Integer.parseInt(srr.getId()));
                         }
                         if (spinner_country.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spinner_country.getSelectedItem();
-                            defaultSelectionsObj.set_choice_country_ids(srr.getId());
+                            Constants.defaultSelectionsObj.set_country_id(Long.parseLong(srr.getId()));
                         }
                         if (spMyChoiceAgeFrom.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spMyChoiceAgeFrom.getSelectedItem();
-                            defaultSelectionsObj.set_min_age(Long.parseLong(srr.getId()));
+                            Constants.defaultSelectionsObj.set_min_age(Long.parseLong(srr.getId()));
                         }
                       /*  if (spMyChoiceAgeTo.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spMyChoiceAgeTo.getSelectedItem();
@@ -283,7 +285,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
 */
 
                         Gson gson = new Gson();
-                        String params = gson.toJson(defaultSelectionsObj);
+                        String params = gson.toJson(Constants.defaultSelectionsObj);
                         Log.e("params  ", params + "");
 
                         // SharedPreferenceManager.setDefaultSelectionsObj(getApplicationContext(),defaultSelectionsObj);
@@ -542,10 +544,10 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
 
     private void setDefaultSelections() {
 
-     //   spMyChoiceAgeFrom.setSelection(4);
-     //   spMyChoiceAgeTo.setSelection(12);
-     //   selectfemale();
-     //   spinner_religion.setSelection(1);
+        //   spMyChoiceAgeFrom.setSelection(4);
+        //   spMyChoiceAgeTo.setSelection(12);
+        //   selectfemale();
+        //   spinner_religion.setSelection(1);
 
     }
 

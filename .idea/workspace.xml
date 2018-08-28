@@ -24,7 +24,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/widgets/NpaGridLayoutManager.java" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
@@ -33,128 +32,61 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/fabric/res/debug/values/com_crashlytics_build_id.xml" afterPath="$PROJECT_DIR$/app/build/generated/fabric/res/debug/values/com_crashlytics_build_id.xml" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/chicsol/marrymax/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/chicsol/marrymax/BuildConfig.java" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/crashlytics-build.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/crashlytics-build.properties" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/BuildConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/BuildConfig.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$10.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$11.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$12.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$14.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$15.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$9.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$MMViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$MMViewHolder.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$ProgressViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$ProgressViewHolder.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/dialogs/dialogShowInterest.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/dialogs/dialogShowInterest.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$12.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$13.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$14.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$15.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$17.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$17.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$2.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/other/MarryMax.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/other/MarryMax.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$37$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$37$1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$37.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$37.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$38.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$38.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$39.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$39.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$40.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$40.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$41.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$41.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$42.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$42.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$ViewPagerAdapter1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$ViewPagerAdapter1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/WebViewActivity$myWebClient.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/WebViewActivity$myWebClient.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/WebViewActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/WebViewActivity.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$10.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$11.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$12.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$6.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7$1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$8.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$9.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/webconfig/webconfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/chicsol/marrymax/webconfig/webconfig.class" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/BuildConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/BuildConfig.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$10.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$11.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$12.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$14.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$15.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$9.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$MMViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$MMViewHolder.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$ProgressViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$ProgressViewHolder.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/dialogs/dialogShowInterest$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/dialogs/dialogShowInterest.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/dialogs/dialogShowInterest.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$12.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$13.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$14.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$15.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$17.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$17.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$2.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/other/MarryMax.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/other/MarryMax.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$37$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$37$1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$37.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$37.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$38.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$38.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$39.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$39.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$40.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$40.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$41.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$41.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$42.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$42.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$ViewPagerAdapter1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment$ViewPagerAdapter1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/UserProfileActivityFragment.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/WebViewActivity$myWebClient.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/WebViewActivity$myWebClient.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/WebViewActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/WebViewActivity.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$10.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$11.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$12.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$6.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7$1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$8.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$9.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/webconfig/webconfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/webconfig/webconfig.class" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_dep/debug/dependencies/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_dep/debug/dependencies/AndroidManifest.xml" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_dep/debug/package_dependencies/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_dep/debug/package_dependencies/dex-renamer-state.txt" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/package_slice_0/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/package_slice_0/dex-renamer-state.txt" />
@@ -177,8 +109,9 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/slice_7/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/slice_7/AndroidManifest.xml" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/slice_8/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/slice_8/AndroidManifest.xml" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/slice_9/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/slice_9/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/vLmCeLMXR+2P61f7bPytmaq2TOc=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/vLmCeLMXR+2P61f7bPytmaq2TOc=" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/tmp/debug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/tmp/debug/dex-renamer-state.txt" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/tmp/debug/zip-cache/vLmCeLMXR+2P61f7bPytmaq2TOc=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/tmp/debug/zip-cache/vLmCeLMXR+2P61f7bPytmaq2TOc=" />
@@ -189,8 +122,12 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest-checker/debug/manifest.crc" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest-checker/debug/manifest.crc" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest-checker/debug/manifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest-checker/debug/manifest.xml" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/output.json" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/output.json" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/output.json" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/output.json" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/output.json" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/output.json" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/dep/dependencies.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/dep/dependencies.apk" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_0.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_0.apk" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_1.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_1.apk" />
@@ -202,135 +139,61 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_7.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_7.apk" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_8.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_8.apk" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_9.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_9.apk" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/splits-support/debug/apk-list/apk-list.gson" afterPath="$PROJECT_DIR$/app/build/intermediates/splits-support/debug/apk-list/apk-list.gson" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/BuildConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/BuildConfig.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$10.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$11.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$12.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$14.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$15.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$9.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$MMViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$MMViewHolder.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$ProgressViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$ProgressViewHolder.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/dialogs/dialogShowInterest$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/dialogs/dialogShowInterest$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/dialogs/dialogShowInterest$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/dialogs/dialogShowInterest$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/dialogs/dialogShowInterest$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/dialogs/dialogShowInterest$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/dialogs/dialogShowInterest.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/dialogs/dialogShowInterest.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$12.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$13.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$14.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$15.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$17.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$17.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$2.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/other/MarryMax.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/other/MarryMax.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$37$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$37$1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$37.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$37.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$38.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$38.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$39.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$39.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$40.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$40.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$41.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$41.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$42.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$42.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$ViewPagerAdapter1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment$ViewPagerAdapter1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/UserProfileActivityFragment.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/WebViewActivity$myWebClient.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/WebViewActivity$myWebClient.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/WebViewActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/WebViewActivity.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$10.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$11.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$12.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$6.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7$1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$8.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$9.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/webconfig/webconfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/webconfig/webconfig.class" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2$2.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$2.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/chicsol/marrymax/dialogs/dialogShowInterest$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/chicsol/marrymax/dialogs/dialogShowInterest$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/chicsol/marrymax/dialogs/dialogShowInterest$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/chicsol/marrymax/dialogs/dialogShowInterest$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/chicsol/marrymax/dialogs/dialogShowInterest$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/chicsol/marrymax/dialogs/dialogShowInterest$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/chicsol/marrymax/dialogs/dialogShowInterest.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/6/com/chicsol/marrymax/dialogs/dialogShowInterest.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/7/com/chicsol/marrymax/other/MarryMax.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/7/com/chicsol/marrymax/other/MarryMax.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$10.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$11.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$12.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$6.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7$1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$7.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$8.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity$9.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/webconfig/webconfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/1/com/chicsol/marrymax/webconfig/webconfig.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$37$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$37$1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$37.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$37.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$38.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$38.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$39.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$39.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$40.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$40.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$41.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$41.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$42.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$42.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$ViewPagerAdapter1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment$ViewPagerAdapter1.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/UserProfileActivityFragment.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/WebViewActivity$myWebClient.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/WebViewActivity$myWebClient.class" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/WebViewActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/4/com/chicsol/marrymax/activities/WebViewActivity.class" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/BuildConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/BuildConfig.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$12.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$13.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$14.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$15.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$16.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$17.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$17.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/8/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$10.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$11.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$12.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$13.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$14.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$15.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$3.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$4.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$5.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$6.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$7.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8$1.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$8.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$9.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$MMViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$MMViewHolder.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$ProgressViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch$ProgressViewHolder.class" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/9/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.class" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/__content__.json" />
       <change beforePath="$PROJECT_DIR$/app/release/app-release.apk" afterPath="$PROJECT_DIR$/app/release/app-release.apk" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogShowInterest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogShowInterest.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/other/MarryMax.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/other/MarryMax.java" />
+      <change beforePath="$PROJECT_DIR$/app/release/output.json" afterPath="$PROJECT_DIR$/app/release/output.json" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/WebViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/WebViewActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -354,25 +217,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyProfileSettingFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java">
+      <file leaf-file-name="webconfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="292" column="0" lean-forward="false" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
-              <folding>
-                <element signature="e#9833#10728#0" expanded="true" />
-                <element signature="e#10727#10728#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="442">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webconfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java">
+      <file leaf-file-name="SearchYourBestMatchActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="429">
+              <caret line="632" column="8" lean-forward="false" selection-start-line="632" selection-start-column="8" selection-end-line="632" selection-end-column="8" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebViewActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/WebViewActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyMatchesFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/matches/MyMatchesFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="413" column="14" lean-forward="false" selection-start-line="413" selection-start-column="14" selection-end-line="413" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserProfileActivityWithSlider.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityWithSlider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserProfileActivityFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="1435" column="59" lean-forward="false" selection-start-line="1435" selection-start-column="59" selection-end-line="1435" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WhoIsLookingForMeSearchActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="278" column="100" lean-forward="false" selection-start-line="278" selection-start-column="100" selection-end-line="278" selection-end-column="100" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -390,9 +302,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>coordinatorLayout</find>
-      <find>email</find>
-      <find>etEmailView</find>
       <find>nav_main_rate_app</find>
       <find>nav_main_logout</find>
       <find>EditTextContactEmail</find>
@@ -420,6 +329,9 @@
       <find>viewPagerMemFragment</find>
       <find>mRecyclerView</find>
       <find>supportsPredictiveItemAnimations</find>
+      <find>MarryMax</find>
+      <find>WebViewActivity</find>
+      <find>faRemoveFromSearch</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2517,9 +2429,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_filter_list_black_24dp.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/registration_searchyourbestmatch_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/wilfm_custom_menu_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeResultsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_list_my_contacts.xml" />
@@ -2542,8 +2451,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/mCountryCode.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegistrationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/actvity_registration.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_activity_main_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/BaseRegistrationActivity.java" />
@@ -2557,7 +2464,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_contact_acivity.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/other/MarryMax.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogShowInterest.java" />
@@ -2567,11 +2473,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/widgets/GridRecyclerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/widgets/NpaGridLayoutManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/matches/MyMatchesFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/WebViewActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="964" />
@@ -2592,20 +2505,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="marrymax" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2667,17 +2566,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="marrymax" type="462c0819:PsiDirectoryNode" />
               <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="registration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
-              <item name="marrymax" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="marrymax" type="462c0819:PsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
               <item name="searchyourbestmatch" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2700,27 +2588,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="marrymax" type="462c0819:PsiDirectoryNode" />
               <item name="adapters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
-              <item name="marrymax" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="marrymax" type="462c0819:PsiDirectoryNode" />
-              <item name="fragments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
-              <item name="marrymax" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="marrymax" type="462c0819:PsiDirectoryNode" />
-              <item name="fragments" type="462c0819:PsiDirectoryNode" />
-              <item name="AccountSetting" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
@@ -2791,6 +2658,20 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="marrymax" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3200,11 +3081,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534505674158</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="pre release bug">
+      <created>1535381991663</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1535381991663</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="964" extended-state="0" />
+    <frame x="1" y="23" width="1920" height="964" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -3218,18 +3106,18 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57192177" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4913694" sideWeight="0.49361023" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15420023" sideWeight="0.4914803" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2662407" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30457935" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52819335" sideWeight="0.49361023" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52704257" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21979287" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38895282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.009205984" sideWeight="0.5021299" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4913694" sideWeight="0.5085197" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38895282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3255,82 +3143,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/MySpinnerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="47" column="7" lean-forward="false" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_as_my_contact.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="677" column="56" lean-forward="false" selection-start-line="677" selection-start-column="56" selection-end-line="677" selection-end-column="56" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/WebCSC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/WebArd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/mCountryCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyContactFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="83" column="56" lean-forward="false" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/MySpinnerAdapterContactUS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/actvity_registration.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="144" column="27" lean-forward="false" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="82" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="440" column="0" lean-forward="false" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="437" column="31" lean-forward="false" selection-start-line="437" selection-start-column="31" selection-end-line="437" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/utils/functions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -3373,13 +3185,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_activity_main_drawer.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
           <caret line="70" column="46" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="46" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
@@ -3417,7 +3229,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3425,7 +3236,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3449,30 +3259,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3285">
           <caret line="219" column="12" lean-forward="false" selection-start-line="219" selection-start-column="12" selection-end-line="219" selection-end-column="12" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_contact_details.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
@@ -3484,14 +3293,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_contact_acivity.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="192" column="53" lean-forward="false" selection-start-line="192" selection-start-column="53" selection-end-line="192" selection-end-column="53" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/ContactAcivity.java">
@@ -3514,15 +3323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2793">
           <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/other/MarryMax.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="282" column="1" lean-forward="false" selection-start-line="282" selection-start-column="1" selection-end-line="282" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3530,7 +3330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4920">
           <caret line="366" column="70" lean-forward="false" selection-start-line="366" selection-start-column="70" selection-end-line="366" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3554,14 +3353,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="939" column="40" lean-forward="false" selection-start-line="939" selection-start-column="40" selection-end-line="939" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -3592,7 +3383,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3676,14 +3466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-483">
-          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_faq.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3697,19 +3479,128 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="3570">
           <caret line="292" column="0" lean-forward="false" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsSearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="58" column="39" lean-forward="true" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterWhoIsLookingForMe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="128" column="43" lean-forward="false" selection-start-line="128" selection-start-column="33" selection-end-line="128" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="278" column="100" lean-forward="false" selection-start-line="278" selection-start-column="100" selection-end-line="278" selection-end-column="100" />
           <folding>
-            <element signature="e#9833#10728#0" expanded="true" />
-            <element signature="e#10727#10728#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityWithSlider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="1435" column="59" lean-forward="false" selection-start-line="1435" selection-start-column="59" selection-end-line="1435" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/matches/MyMatchesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="413" column="14" lean-forward="false" selection-start-line="413" selection-start-column="14" selection-end-line="413" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/other/MarryMax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="953" column="45" lean-forward="false" selection-start-line="953" selection-start-column="45" selection-end-line="953" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/WebViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="442">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_recycler_member_dash_main_mymatches.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="307" column="55" lean-forward="false" selection-start-line="307" selection-start-column="37" selection-end-line="307" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatches.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="742" column="37" lean-forward="false" selection-start-line="742" selection-start-column="19" selection-end-line="742" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="632" column="8" lean-forward="false" selection-start-line="632" selection-start-column="8" selection-end-line="632" selection-end-column="8" />
           <folding />
         </state>
       </provider>

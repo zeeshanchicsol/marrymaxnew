@@ -210,7 +210,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             e.printStackTrace();
         }
 
-        Log.d("Params", params.toString() + "");
+        Log.e("Params", params.toString() + "");
         getProfileDetail(params);
 
 
@@ -1433,6 +1433,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         Log.e("getProfileDetail", params.toString());
         Log.e("getProfileDetail ", Urls.getProfileDetail);
+        Log.e("getProfileDetail ", Constants.getHashMap()+"");
+
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getProfileDetail, params,
                 new Response.Listener<JSONObject>() {

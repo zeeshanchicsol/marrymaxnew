@@ -41,13 +41,13 @@ public class WebViewActivity extends AppCompatActivity {
 
 
         webView = (WebView) findViewById(R.id.webView1);
-/*        webView.setWebChromeClient(new WebChromeClient());*/
+        /*        webView.setWebChromeClient(new WebChromeClient());*/
 
         WebSettings webSettings = webView.getSettings();
-        webView.getSettings(). setDomStorageEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setJavaScriptEnabled(true);
 
-     webView.setWebChromeClient(new WebChromeClient() {
+        webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
                 pDialog.setVisibility(View.VISIBLE);
 
@@ -69,7 +69,7 @@ public class WebViewActivity extends AppCompatActivity {
         webSettings.setDefaultTextEncodingName("utf-8");*/
 
 
-      webView.setWebViewClient(new myWebClient());
+        webView.setWebViewClient(new myWebClient());
 
         webView.loadUrl(url);
 
@@ -92,6 +92,7 @@ public class WebViewActivity extends AppCompatActivity {
 
 
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
@@ -135,4 +136,15 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        webView.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        webView.onResume();
+    }
 }

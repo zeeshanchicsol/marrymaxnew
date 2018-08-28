@@ -18,9 +18,9 @@ public class webconfig {
 
 
     // dvp
-/*   public static String baseUrla = "http://172.99.1.63:82";
+  public static String baseUrla = "http://172.99.1.63:82";
     public static String PassPhraseArdApa = "myk@ey1#2345";
-    public static String ARDTOKENa = "abc@123#456";*/
+    public static String ARDTOKENa = "abc@123#456";
 
 
 
@@ -33,9 +33,9 @@ public class webconfig {
 
     //Production=====
 
- public static String baseUrla = "https://marrymax.com";
+/* public static String baseUrla = "https://marrymax.com";
     public static String PassPhraseArdApa = "dvnh78543";
-    public static String ARDTOKENa = "yhoe6934";
+    public static String ARDTOKENa = "yhoe6934";*/
 
 
 }
