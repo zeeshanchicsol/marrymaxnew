@@ -419,7 +419,7 @@ DrawerActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                VolleyLog.d("Err", "Error: " + error.getMessage());
+                VolleyLog.d("Error", "getNotificationCount: " + error.getMessage());
 
             }
         }) {
