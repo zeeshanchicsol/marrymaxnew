@@ -941,7 +941,7 @@ public class MarryMax {
 
         Intent intent = new Intent(activity, WebViewActivity.class);
         intent.putExtra("url", Urls.benefits);
-        intent.putExtra("title", "Benefits");
+        intent.putExtra("title", "Membership Plans");
         activity.startActivity(intent);
 
 

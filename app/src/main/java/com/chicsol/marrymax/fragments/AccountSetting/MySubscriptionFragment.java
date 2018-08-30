@@ -1,6 +1,7 @@
 package com.chicsol.marrymax.fragments.AccountSetting;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyAccountSubscription;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.other.MarryMax;
@@ -195,7 +197,7 @@ public class MySubscriptionFragment extends Fragment {
         bt_NotLiveCompletetProfile = (AppCompatButton) view.findViewById(R.id.AppCompatButtonASTitleNotLiveCompleteProfile);
 
 
-      //  bt_subscribe = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingMySubscriptionMain);
+        //  bt_subscribe = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingMySubscriptionMain);
         bt_subscribe2 = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingMySubscriptionMain2);
 
 
@@ -224,7 +226,13 @@ public class MySubscriptionFragment extends Fragment {
         bt_NotLiveCompletetProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new MarryMax(getActivity()).getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
+                //      new MarryMax(getActivity()).getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
+                Intent in = new Intent(getActivity(), MainDirectiveActivity.class);
+                in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                in.putExtra("type", 22);
+                getActivity().startActivity(in);
+
+
             }
         });
      /*   bt_subscribe.setOnClickListener(new View.OnClickListener() {
@@ -269,46 +277,46 @@ public class MySubscriptionFragment extends Fragment {
 
 
                             List<Members> dataList = (List<Members>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                        if(dataList.size()>0){
+                            if (dataList.size() > 0) {
 
-                            Members smem = dataList.get(0);
-                            long member_status = SharedPreferenceManager.getUserObject(context).get_member_status();
-                            if (member_status == 4) {
+                                Members smem = dataList.get(0);
+                                long member_status = SharedPreferenceManager.getUserObject(context).get_member_status();
+                                if (member_status == 4) {
 
-                                llProfileLive.setVisibility(View.GONE);
-                                llDefault.setVisibility(View.GONE);
-                                llMySubscription.setVisibility(View.VISIBLE);
-                                recyclerAdapter.addAll(dataList);
-
-                            } else if (member_status == 3) {
-
-                                if (smem.get_my_id() == 0) {
-                                    //show packages
                                     llProfileLive.setVisibility(View.GONE);
+                                    llDefault.setVisibility(View.GONE);
+                                    llMySubscription.setVisibility(View.VISIBLE);
+                                    recyclerAdapter.addAll(dataList);
 
-                                    llMySubscription.setVisibility(View.GONE);
-                                    llDefault.setVisibility(View.VISIBLE);
+                                } else if (member_status == 3) {
+
+                                    if (smem.get_my_id() == 0) {
+                                        //show packages
+                                        llProfileLive.setVisibility(View.GONE);
+
+                                        llMySubscription.setVisibility(View.GONE);
+                                        llDefault.setVisibility(View.VISIBLE);
 
 
-                                } else if (smem.get_my_id() == 1) {
+                                    } else if (smem.get_my_id() == 1) {
 
-                                    llMySubscription.setVisibility(View.GONE);
+                                        llMySubscription.setVisibility(View.GONE);
 
-                                    llProfileLive.setVisibility(View.VISIBLE);
+                                        llProfileLive.setVisibility(View.VISIBLE);
 
 
-                                    tvTitleNotLive.setText("You Profile is Live");
-                                    tProfileLive.setText("Your Payment Pending for Approval, which will be done within 24 hours");
-                                    btProfileLive.setVisibility(View.GONE);
+                                        tvTitleNotLive.setText("You Profile is Live");
+                                        tProfileLive.setText("Your Payment Pending for Approval, which will be done within 24 hours");
+                                        btProfileLive.setVisibility(View.GONE);
 
-                                    //   Toast.makeText(getContext(), "Your Payment Pending for Approval", Toast.LENGTH_SHORT).show();
-                                    //Your Payment Pending for Approval
+                                        //   Toast.makeText(getContext(), "Your Payment Pending for Approval", Toast.LENGTH_SHORT).show();
+                                        //Your Payment Pending for Approval
+                                    }
+
                                 }
+                            } else {
 
-                            }}
-                            else {
-
-                        }
+                            }
 
 
                             //    Log.e("data list size", "" + dataList.size()+" =========================");
@@ -385,7 +393,7 @@ public class MySubscriptionFragment extends Fragment {
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
     }
 
 
@@ -395,7 +403,6 @@ public class MySubscriptionFragment extends Fragment {
         MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
     }
-
 
 
 }

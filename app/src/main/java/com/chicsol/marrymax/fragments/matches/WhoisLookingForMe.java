@@ -28,6 +28,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.activities.DrawerActivity;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatches;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
@@ -223,12 +224,19 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
                 marryMax.subscribe();
             }
         });
+
         ((AppCompatButton) view.findViewById(R.id.ButtonMMonCompleteProfile)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                MarryMax marryMax = new MarryMax(getActivity());
+
+               /* MarryMax marryMax = new MarryMax(getActivity());
                 marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
+*/
+                Intent in = new Intent(getActivity(), MainDirectiveActivity.class);
+                in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                in.putExtra("type", 22);
+                getActivity().startActivity(in);
 
             }
         });

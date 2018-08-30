@@ -308,7 +308,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
         pDialog.show();
 
 
-        Log.e("Params", "" + params);
+        Log.e("Params interest "+ Urls.updateInterestUrl, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateInterestUrl, params,
                 new Response.Listener<JSONObject>() {

@@ -830,6 +830,11 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             btUpdateEmail.setText("Update Email");
 
 
+                            Members member = SharedPreferenceManager.getUserObject(context);
+                            member.set_email(etAsEmail.getText().toString());
+                            SharedPreferenceManager.setUserObject(context, member);
+
+
                         } else if (webArd.getId().equals("2")) {
                             Toast.makeText(context, "Not a valid Email", Toast.LENGTH_SHORT).show();
 

@@ -186,7 +186,9 @@ public class Urls {
 
 
     //========================PhotoUpload================================
-    public static String fileUpload = baseUrl + "/api/FileUpd/UserPhoto";
+    //  public static String fileUpload = baseUrl + "/api/FileUpd/UserPhoto";
+    public static String fileUpload = baseUrl + "/api/FileUpd/UserPhotoReq";
+
 
     public static String getPhotoDosDonts = baseUrl + "/api/WebArd/GetPhotoDosDonts/";
     public static String getMembersPictures = baseUrl + "/api/WebArd/GetMembersPictures/";
@@ -210,10 +212,10 @@ public class Urls {
 
     public static String subscriptionUrl = baseUrl + "/Subscription";
 
-    public static String about = baseUrl + "/About";
-    public static String matchMaking = baseUrl + "/MatchMaking";
-    public static String faqs = baseUrl + "/Faqs";
-    public static String benefits = baseUrl + "/MembershipPlans";
+    public static String about = baseUrl + "/App/About";
+    public static String matchMaking = baseUrl + "/App/MatchMaking";
+    public static String faqs = baseUrl + "/App/Faqs";
+    public static String benefits = baseUrl + "/App/MembershipPlans";
 
 
     //=============Request And Permissios==================================================

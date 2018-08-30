@@ -558,7 +558,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         pDialog.show();
 
 
-        Log.e("Params", "" + params);
+        Log.e("Params " + Urls.updatePersonalityUrl, "" + params);
+
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updatePersonalityUrl, params,
                 new Response.Listener<JSONObject>() {

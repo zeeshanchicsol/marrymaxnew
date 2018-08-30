@@ -90,6 +90,8 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
     private boolean sentToSettings = false;
     private SharedPreferences permissionStatus;
     String path = "";
+    String subject = null;
+    String userpath = null;
 
     boolean OreoCheck = false;
 
@@ -129,6 +131,16 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
     }
 
     public void initilize() {
+
+        if (getIntent().hasExtra("subject")) {
+            //
+            subject = getIntent().getStringExtra("subject");
+
+            userpath = getIntent().getStringExtra("userpath");
+          //  Log.e("request", subject+"    "+userpath);
+        }
+
+        // getIntent().getStringExtra()
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarPhotoUpload);
         setSupportActionBar(toolbar);
@@ -526,7 +538,14 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
         final String filename = new File(path).getName();
         Log.e("File Name", "" + filename);
 
-        String url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path();
+
+        String url;
+        if (subject != null) {
+            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path() + "/" + userpath + "/" + subject;
+        } else {
+            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path();
+        }
+
         Log.e("url", "" + url);
         final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
         pDialog.setMessage("Loading...");

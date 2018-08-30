@@ -46,6 +46,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.PhotoUpload;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.dialogs.dialogDeclineInterestInbox;
 import com.chicsol.marrymax.dialogs.dialogReplyOnAcceptInterestInbox;
@@ -60,6 +61,7 @@ import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.chicsol.marrymax.widgets.mTextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -79,7 +81,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, WithdrawRequestCallBackInterface ,RequestCallbackInterface {
+public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, WithdrawRequestCallBackInterface, RequestCallbackInterface {
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
     public ImageLoader imageLoader;
@@ -292,6 +294,18 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
 
             }
 
+            if (!interestCheck) {
+                Log.e("obj.getRequest_id()", "" + obj.getRequest_type_id());
+                if (obj.getRequest_type_id() == 1) {
+                    holder.tvYes.setText("Upload Image");
+                } else {
+                    holder.tvYes.setText("Allow");
+
+                }
+
+                holder.tvNo.setText("Deny");
+            }
+
 
             holder.tvAlias.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -409,22 +423,31 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
                     } else {
 
 
-                        JSONObject params = new JSONObject();
-                        try {
+                        if (obj.getRequest_type_id() == 1) {
 
-                            params.put("request_response_id", "3");
-                            params.put("request_id", obj.getRequest_id());
-                            params.put("type", obj.getRequest_type_id());
-                            params.put("userpath", obj.getUserpath());
-                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                            params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
+                            Intent intent = new Intent(context, PhotoUpload.class);
+                            intent.putExtra("subject", obj.getSubject());
+                            intent.putExtra("userpath", obj.getUserpath());
+                            context.startActivity(intent);
+                        } else {
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+
+                            JSONObject params = new JSONObject();
+                            try {
+
+                                params.put("request_response_id", "3");
+                                params.put("request_id", obj.getRequest_id());
+                                params.put("type", obj.getRequest_type_id());
+                                params.put("userpath", obj.getUserpath());
+                                params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                                params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            Log.e("params", Urls.responseInterest + "   " + params);
+                            responseOnInterest(params, obj);
                         }
-                        Log.e("params", Urls.responseInterest + "   " + params);
-                        responseOnInterest(params);
-
                     }
                 }
             });
@@ -452,7 +475,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
                             e.printStackTrace();
                         }
                         Log.e("params", Urls.responseInterest + "   " + params);
-                        responseOnInterest(params);
+                        responseOnInterest(params, obj);
 
                     }
 
@@ -592,7 +615,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvAlias, tvAge, tvEthnic, tvMessage, tvCountry, tvOccupation, tvEdu, tvDate;
+        public TextView tvAlias, tvAge, tvEthnic, tvMessage, tvCountry, tvOccupation, tvEdu, tvDate, tvYes, tvNo;
 
         public LinearLayout ll_Yes, ll_No;
         public AppCompatButton btWithdraw;
@@ -611,6 +634,10 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
             ll_Yes = (LinearLayout) itemView.findViewById(R.id.LinearLayoutInterestRequestYes);
             ll_No = (LinearLayout) itemView.findViewById(R.id.LinearLayoutInterestRequestNo);
             btWithdraw = (AppCompatButton) itemView.findViewById(R.id.ButtonInterestRequestWithdraw);
+
+            tvYes = (mTextView) itemView.findViewById(R.id.TextViewInterestRequestYes);
+            tvNo = (mTextView) itemView.findViewById(R.id.TextViewInterestRequestNo);
+
         }
     }
 
@@ -695,7 +722,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
     }
 
 
-    private void responseOnInterest(JSONObject params) {
+    private void responseOnInterest(JSONObject params, mCommunication obj) {
 
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
