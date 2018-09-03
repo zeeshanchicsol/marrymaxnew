@@ -788,7 +788,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         Log.e("get_about_type", "" + members_obj.get_about_type() + "  --   " + members_obj.get_about_type_id());
 
         //  if (members_obj.get_about_type() != "" || members_obj.get_about_type_id() != 0) {
-        if (members_obj.get_about_type() != "" && members_obj.get_about_type() != null) {
+        if ((members_obj.get_about_type() != "" && members_obj.get_about_type() != null)  || members_obj.get_about_type_id()!=0 ) {
             btRemoveSchool.setVisibility(View.VISIBLE);
         } else {
             btRemoveSchool.setVisibility(View.GONE);
