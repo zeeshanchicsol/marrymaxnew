@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.fragments.AccountSetting;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -52,7 +54,7 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
     private SwitchCompat SCtDisableEmailNotifications;
     private ProgressBar pDialog;
     private Context context;
-
+    private boolean loading = false;
     private String Tag = "DashMembersFragment";
 
     @Override
@@ -64,11 +66,19 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_as_email_notifications, container, false);
+
         initilize(rootView);
         return rootView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loading = false;
+    }
+
     private void initilize(View view) {
+        loading = false;
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarProjectMain);
         SCtDisableEmailNotifications = (SwitchCompat) view.findViewById(R.id.SwitchCompatDisableEmailNotifications);
         llSwitchMain = (LinearLayout) view.findViewById(R.id.LinearLayoutAccountSettingEmailNotificationsMain);
@@ -88,15 +98,16 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
 
 
     private void getNotificationRequest() {
-
+        loading = true;
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getNotRequest p", "" + Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).get_path());
+        Log.e(Tag + " getNotRequest p", "" + Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).get_path());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.e("Response", response.toString());
+                        loading = false;
                         try {
 
 
@@ -153,6 +164,7 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
                 pDialog.setVisibility(View.GONE);
+                loading = false;
             }
         }) {
             @Override
@@ -160,47 +172,53 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(getContext()).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
     }
 
 
-    private void putChangeNotificationRequest(JSONObject params) {
+    private void putChangeNotificationRequest(JSONObject params, final CompoundButton buttonView) {
+        loading = true;
+      //  pDialog.setVisibility(View.VISIBLE);
+        final ProgressDialog pD = new ProgressDialog(context);
+        pD.setMessage("Loading...");
+        pD.show();
+        pD.setCancelable(false);
 
-        pDialog.setVisibility(View.VISIBLE);
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.changeNotification);
+        Log.e(Tag + " params", params.toString());
+        Log.e(Tag + " profile path", Urls.changeNotification);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.changeNotification, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  change notif ", response + "");
-
+                        Log.e("Res changeNotification", response + "");
+                        loading = false;
                         try {
                             int responseid = response.getInt("id");
 
-                            if (responseid == 1) {
-
-                                //  getNotificationRequest();
+                            if (responseid >= 0) {
+                              //  buttonView.setId(responseid);
+                                 getNotificationRequest();
                             }
 
 
                         } catch (JSONException e) {
-                            pDialog.setVisibility(View.GONE);
+                            //   pDialog.setVisibility(View.GONE);
+                           pD.dismiss();
                             e.printStackTrace();
                         }
-
-                        pDialog.setVisibility(View.GONE);
+                      pD.dismiss();
+                 //   pDialog.setVisibility(View.GONE);
                     }
                 }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-
-
+                loading = false;
+                pD.dismiss();
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.setVisibility(View.GONE);
+             //   pDialog.setVisibility(View.GONE);
             }
 
 
@@ -215,15 +233,22 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
     }
 
 
     private void putChangeNotificationAll(JSONObject params) {
+        loading = true;
+        pDialog.setVisibility(View.VISIBLE  );
 
-        pDialog.setVisibility(View.GONE);
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.changeNotificationall);
+       /* final ProgressDialog pD = new ProgressDialog(context);
+        pD.setMessage("Loading...");
+        pD.show();
+        pD.setCancelable(false);*/
+
+
+        Log.e(Tag + " params all", params.toString());
+        Log.e(Tag + " profile path all", Urls.changeNotificationall);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.changeNotificationall, params,
                 new Response.Listener<JSONObject>() {
@@ -231,7 +256,7 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.e("Res  change notif ", response + "");
-
+                        loading = false;
                         try {
                             int responseid = response.getInt("id");
 
@@ -242,21 +267,23 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
 
 
                         } catch (JSONException e) {
-                            pDialog.setVisibility(View.GONE);
+                          //  pD.dismiss();
+                              pDialog.setVisibility(View.GONE);
                             e.printStackTrace();
                         }
+                       // pD.dismiss();
 
-
-                        pDialog.setVisibility(View.GONE);
+                       pDialog.setVisibility(View.GONE);
                     }
                 }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                loading = false;
 
                 VolleyLog.e("res err", "Error: " + error);
                 pDialog.setVisibility(View.GONE);
+              //  pD.dismiss();
             }
 
 
@@ -271,14 +298,15 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
     }
 
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        Log.e("loading", "" + SCtDisableEmailNotifications.isChecked());
 
-
+        // if (!loading) {
         String my_id = null;
         if (isChecked) {
             my_id = "0";
@@ -303,7 +331,10 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
                 jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
                 jsonObject.put("id", id);
 
+
+                //  if (!loading) {
                 putChangeNotificationAll(jsonObject);
+                //   }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -311,29 +342,37 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
 
         } else {
 
-            JSONObject jsonObject = new JSONObject();
-            try {
-                jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                jsonObject.put("id", buttonView.getId());
-                jsonObject.put("isedit", buttonView.getTag());
-                jsonObject.put("my_id", my_id);
-                putChangeNotificationRequest(jsonObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (SCtDisableEmailNotifications.isChecked()) {
+
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                    jsonObject.put("id", buttonView.getId());
+                    jsonObject.put("isedit", buttonView.getTag());
+                    jsonObject.put("my_id", my_id);
+                    //   if (!loading) {
+                    putChangeNotificationRequest(jsonObject, buttonView);
+                    //   }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
-
-
         }
+        //  } else {
 
+        //    Toast.makeText(context, "Please wait while your request is processing", Toast.LENGTH_SHORT).show();
+        //  buttonView.setChecked(!isChecked);
+        //  }
 
     }
-
 
 
     @Override
     public void onStop() {
         super.onStop();
-        MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
+        loading = false;
+        //     MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
     }
 

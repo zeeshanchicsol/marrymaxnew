@@ -426,7 +426,7 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
     @Override
     public void onStop() {
         super.onStop();
-        MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
+      //  MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
     }
 

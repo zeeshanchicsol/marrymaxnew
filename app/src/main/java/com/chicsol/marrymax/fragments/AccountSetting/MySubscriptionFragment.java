@@ -400,7 +400,7 @@ public class MySubscriptionFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
+     //   MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
     }
 

@@ -543,10 +543,16 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
         if (subject != null) {
             url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path() + "/" + userpath + "/" + subject;
         } else {
-            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path();
+            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path()+ "/0/0";
         }
 
         Log.e("url", "" + url);
+
+
+
+
+
+
         final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
