@@ -31,7 +31,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.chicsol.marrymax.BuildConfig;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.dialogs.dialogMultiChoice;
@@ -85,6 +84,8 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
     private long removeChildrenMyid;
     private LinearLayout llLanguage;
     private LinearLayout llChoiceLanguage;
+    private ArrayList mcList;
+    private TextView tvCasteErrorMsg;
 
 
     @Override
@@ -110,6 +111,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
 
+        tvCasteErrorMsg = (TextView) findViewById(R.id.TextViewRegTopLifeStyle1CasteErrorMessage);
 
         btRemoveChildren = (AppCompatImageButton) findViewById(R.id.ButtonLifeStyleRemoveChildren);
         btRemoveSchool = (AppCompatImageButton) findViewById(R.id.ButtonLifeStyleRemoveSchool);
@@ -196,6 +198,8 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         economyDataList = new ArrayList<>();
 
         graduationYearDataList = new ArrayList<>();
+
+        mcList = new ArrayList();
 
 
         Calendar calendar = Calendar.getInstance();
@@ -387,7 +391,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                 if (checkedId == 5) {
                     rgMarriage.clearCheck();
                     Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-                    if (member.get_member_status() >= 2) {
+                    if (member.get_member_status() >= 2 && member.get_member_status() < 7) {
                         llMainSecondMarriage.setVisibility(View.GONE);
                     } else {
                         llMainSecondMarriage.setVisibility(View.VISIBLE);
@@ -539,8 +543,6 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                         boys_count = etNoOfBoys.getText().toString();
                         min_age = etMinAge.getText().toString();
                         max_age = etMaxAge.getText().toString();
-
-
                     }
 
 
@@ -757,7 +759,30 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             ck = true;
             Snackbar.make(v, "Please select  Children ", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
+        } else if (rgChildren.getCheckedRadioButtonId() != -1) {
+            String min_age = etMinAge.getText().toString();
+            String max_age = etMaxAge.getText().toString();
+
+            String girls_count = etNoOfGirls.getText().toString();
+            String boys_count = etNoOfBoys.getText().toString();
+            if ((rgChildren.getCheckedRadioButtonId() == 2 || rgChildren.getCheckedRadioButtonId() == 3) && ((!min_age.equals("") && !max_age.equals("")) && (girls_count.equals("") && boys_count.equals("")))) {
+
+                ck = true;
+                Snackbar.make(v, " Please complete all fields with valid information! ", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+            }
+
         }
+
+     /*   if (children_id.equals("2") || children_id.equals("3")) {
+            girls_count = etNoOfGirls.getText().toString();
+            boys_count = etNoOfBoys.getText().toString();
+            min_age = etMinAge.getText().toString();
+            max_age = etMaxAge.getText().toString();
+        }
+*/
+
+
         return ck;
     }
 
@@ -788,7 +813,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         Log.e("get_about_type", "" + members_obj.get_about_type() + "  --   " + members_obj.get_about_type_id());
 
         //  if (members_obj.get_about_type() != "" || members_obj.get_about_type_id() != 0) {
-        if ((members_obj.get_about_type() != "" && members_obj.get_about_type() != null)  || members_obj.get_about_type_id()!=0 ) {
+        if ((members_obj.get_about_type() != "" && members_obj.get_about_type() != null) || members_obj.get_about_type_id() != 0) {
             btRemoveSchool.setVisibility(View.VISIBLE);
         } else {
             btRemoveSchool.setVisibility(View.GONE);
@@ -844,6 +869,8 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
             if (members_obj.get_girls_count() == 0 && members_obj.get_boys_count() == 0 && members_obj.get_min_age() == 0 && members_obj.get_max_age() == 0) {
                 btRemoveChildren.setVisibility(View.GONE);
+                ((RadioButton) rgChildren.getChildAt(0)).setEnabled(true);
+                //    llChildren.setVisibility(View.GONE);
             } else {
                 etNoOfGirls.setText(members_obj.get_girls_count() + "");
                 etNoOfBoys.setText(+members_obj.get_boys_count() + "");
@@ -856,6 +883,22 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
         etGraduatedFrom.setText(members_obj.get_about_type());
         acMyCaste.setText(members_obj.get_caste_name());
+
+        if (!members_obj.get_caste_name().equals("")) {
+
+            int pos = getCastePos(members_obj.get_caste_name());
+
+            if (pos == -1) {
+                tvCasteErrorMsg.setVisibility(View.VISIBLE);
+                acMyCaste.setEnabled(false);
+            } else {
+                tvCasteErrorMsg.setVisibility(View.GONE);
+                acMyCaste.setEnabled(true);
+            }
+            // Log.e("position", pos + " =====");
+
+        }
+
 
         Log.e("caste id", "castt  " + members_obj.get_caste_id() + "  lllll");
         if (members_obj.get_caste_id() != 0) {
@@ -938,29 +981,32 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
     }
 
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.registration_activity_menu, menu);
-        return true;
+    /* @Override
+     public boolean onCreateOptionsMenu(Menu menu) {
+         // Inflate the menu; this adds items to the action bar if it is present.
+         getMenuInflater().inflate(R.menu.registration_activity_menu, menu);
+         return true;
+     }
+
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         // Handle action bar item_image_slider clicks here. The action bar will
+         // automatically handle clicks on the Home/Up button, so long
+         // as you specify a parent activity in AndroidManifest.xml.
+         int id = item.getItemId();
+         switch (item.getItemId()) {
+             case android.R.id.home:
+                 finish();
+                 //   NavUtils.navigateUpFromSameTask(this);
+                 return true;
+
+             default:
+                 return super.onOptionsItemSelected(item);
+         }
+     }*/
+    private int getCastePos(String caste) {
+        return mcList.indexOf(caste);
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item_image_slider clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                //   NavUtils.navigateUpFromSameTask(this);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
 
     //API CALLS
     private void GetLifeStyleData() {
@@ -1036,7 +1082,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                             spAdapterMyOccupation.updateDataList(myOccupationDataList);
 
 
-                            ArrayList mcList = new ArrayList();
+                            mcList = new ArrayList();
                             for (WebArd value : castesDataList) {
                                 mcList.add(value.getName());
 

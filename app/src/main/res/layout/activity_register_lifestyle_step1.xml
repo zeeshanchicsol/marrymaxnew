@@ -845,6 +845,14 @@
                                             android:inputType="text"
                                             android:textColor="@color/colorBlack" />
 
+                                        <TextView
+                                            android:id="@+id/TextViewRegTopLifeStyle1CasteErrorMessage"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="#e48900"
+                                            android:text="Newly added caste approval is pending."
+                                            android:visibility="gone" />
+
 
                                     </LinearLayout>
 
@@ -1900,7 +1908,7 @@
 
         </android.support.design.widget.AppBarLayout>
 
-         <include layout="@layout/drawer_navigation_view" />
+        <include layout="@layout/drawer_navigation_view" />
 
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>
