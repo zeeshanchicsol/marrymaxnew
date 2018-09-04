@@ -1269,14 +1269,16 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
                                 Toast.makeText(RegisterLifeStyleActivity1.this, "Removed", Toast.LENGTH_SHORT).show();
 
-                                members_obj.set_my_id(0);
+
                                 members_obj.set_about_type("");
                                 members_obj.set_about_type_id(0);
+                                etGraduatedFrom.setText(members_obj.get_about_type());
+                                spMyGraduationYear.setSelection(0);
+                                btRemoveSchool.setVisibility(View.GONE);
 
-                                selectFormData(members_obj);
-                                //GetLifeStyleData();
-                           /*     finish();
-                                startActivity(getIntent());*/
+
+
+
 
                             } else {
                                 Toast.makeText(RegisterLifeStyleActivity1.this, "Error", Toast.LENGTH_SHORT).show();
