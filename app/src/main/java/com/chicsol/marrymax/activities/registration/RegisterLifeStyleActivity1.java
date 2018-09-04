@@ -1268,7 +1268,15 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                             if (responseid == 1) {
 
                                 Toast.makeText(RegisterLifeStyleActivity1.this, "Removed", Toast.LENGTH_SHORT).show();
-                                GetLifeStyleData();
+
+                                members_obj.set_my_id(0);
+                                members_obj.set_about_type("");
+                                members_obj.set_about_type_id(0);
+
+                                selectFormData(members_obj);
+                                //GetLifeStyleData();
+                           /*     finish();
+                                startActivity(getIntent());*/
 
                             } else {
                                 Toast.makeText(RegisterLifeStyleActivity1.this, "Error", Toast.LENGTH_SHORT).show();
