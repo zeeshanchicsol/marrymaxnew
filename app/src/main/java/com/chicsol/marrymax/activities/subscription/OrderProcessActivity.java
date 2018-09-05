@@ -827,7 +827,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
     @Override
     public void onApplyPromoCode(String s) {
-        Toast.makeText(this, "" + s, Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(this, "" + s, Toast.LENGTH_SHORT).show();
         procode_code = s;
         generateCart(getParams(false));
     }

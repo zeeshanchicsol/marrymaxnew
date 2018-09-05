@@ -391,11 +391,11 @@
                                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
                                 android:layout_marginLeft="20dp"
                                 android:text="Verify it"
                                 android:textAllCaps="false"
-                                android:textColor="@color/colorTextRed" />
+                                android:textColor="@color/colorTextRed"
+                                android:visibility="gone" />
 
 
                             <android.support.v7.widget.AppCompatButton
@@ -403,22 +403,22 @@
                                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
                                 android:layout_marginLeft="20dp"
                                 android:text="Update Number"
                                 android:textAllCaps="false"
-                                android:textColor="@color/colorTextRed" />
+                                android:textColor="@color/colorTextRed"
+                                android:visibility="gone" />
 
                             <android.support.v7.widget.AppCompatButton
                                 android:id="@+id/ButtonMyProfileStatusAddNumber"
                                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
                                 android:layout_marginLeft="20dp"
                                 android:text="Add Number"
                                 android:textAllCaps="false"
-                                android:textColor="@color/colorTextRed" />
+                                android:textColor="@color/colorTextRed"
+                                android:visibility="gone" />
 
 
                         </LinearLayout>

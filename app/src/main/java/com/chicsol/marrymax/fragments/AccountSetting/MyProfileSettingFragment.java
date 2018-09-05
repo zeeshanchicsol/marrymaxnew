@@ -226,7 +226,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             getPhoneNumber();
 
 
-            getProfileCompletion();
+
         }
 
     }
@@ -586,6 +586,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                         } else {
                             addNumber = true;
                         }
+                        getProfileCompletion();
                     }
 
                 }, new Response.ErrorListener() {

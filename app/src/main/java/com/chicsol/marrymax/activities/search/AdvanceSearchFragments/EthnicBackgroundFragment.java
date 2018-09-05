@@ -3,11 +3,15 @@ package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.chicsol.marrymax.R;
@@ -30,6 +34,7 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
     private LinearLayout LinearLayoutAdvSearchEthnicBackground, LinearLayoutAdvSearchReligiousSect, LinearLayoutAdvSearchCaste;
 
     private ViewGenerator viewGenerator;
+    private EditText etCasteSearch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,7 +54,7 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
         View view = inflater.inflate(R.layout.adv_search_fragment_ethnic_background,
                 container, false);
         initialize(view);
-
+        setListenersD();
 
         return view;
     }
@@ -60,6 +65,8 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
         LinearLayoutAdvSearchEthnicBackground = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchEthnicBackground);
         LinearLayoutAdvSearchReligiousSect = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchReligiousSect);
         LinearLayoutAdvSearchCaste = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchCaste);
+
+        etCasteSearch = (EditText) view.findViewById(R.id.EditTextAdvSearchEthnicBackgrounCasteSearch);
 
         Gson gsonc;
         GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -103,7 +110,32 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
 
     }
 
+    private void setListenersD() {
+
+
+        etCasteSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.e("onTextChanged", s.toString() + "");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+    }
+
+
     private void setListeners() {
+
+
         {
             int childcount = LinearLayoutAdvSearchEthnicBackground.getChildCount();
             for (int i = 0; i < childcount; i++) {

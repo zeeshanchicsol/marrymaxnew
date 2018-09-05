@@ -42,7 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
+
 
 public class UserProfileActivityWithSlider extends AppCompatActivity {
     private ViewPager viewPagerProfileSlider;
