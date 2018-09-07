@@ -191,10 +191,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
                 llPicsNotAvailable.setVisibility(View.VISIBLE);
             }
             recyclerView.setVisibility(View.GONE);
-         /*   if (memb.get_photo_upload_request_id() == 0) {
-                Log.e("geupload_request_id 0", "  ");
 
-            }*/
 
             tvEmptyStateAlias.setText(SharedPreferenceManager.getUserObject(getActivity()).getAlias());
 

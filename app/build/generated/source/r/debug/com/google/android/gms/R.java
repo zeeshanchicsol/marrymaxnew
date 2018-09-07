@@ -10,13 +10,13 @@ public final class R {
     public static final class id {
         public static final int auto = 0x7f090340;
         public static final int center = 0x7f090353;
-        public static final int none = 0x7f09044e;
-        public static final int normal = 0x7f09044f;
-        public static final int radio = 0x7f09045e;
-        public static final int text = 0x7f0904bd;
-        public static final int text2 = 0x7f0904be;
-        public static final int toolbar = 0x7f0904cb;
-        public static final int wrap_content = 0x7f0904ea;
+        public static final int none = 0x7f09044f;
+        public static final int normal = 0x7f090450;
+        public static final int radio = 0x7f09045f;
+        public static final int text = 0x7f0904bf;
+        public static final int text2 = 0x7f0904c0;
+        public static final int toolbar = 0x7f0904cd;
+        public static final int wrap_content = 0x7f0904ec;
     }
     public static final class integer {
         public static final int google_play_services_version = 0x7f0a0007;

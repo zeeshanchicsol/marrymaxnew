@@ -3,6 +3,10 @@ package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -15,6 +19,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.adapters.SearchCheckBoxAdapter;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.utils.ViewGenerator;
 import com.google.gson.Gson;
@@ -24,17 +29,21 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
-public class EthnicBackgroundFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
+public class EthnicBackgroundFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, SearchCheckBoxAdapter.ContactsAdapterListener {
 
     private LinearLayout LinearLayoutAdvSearchEthnicBackground, LinearLayoutAdvSearchReligiousSect, LinearLayoutAdvSearchCaste;
 
     private ViewGenerator viewGenerator;
     private EditText etCasteSearch;
+
+    private RecyclerView recycler_view_caste;
+    private SearchCheckBoxAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,12 +70,15 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
 
     private void initialize(View view) {
 
+
         viewGenerator = new ViewGenerator(getContext());
         LinearLayoutAdvSearchEthnicBackground = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchEthnicBackground);
         LinearLayoutAdvSearchReligiousSect = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchReligiousSect);
         LinearLayoutAdvSearchCaste = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchCaste);
 
         etCasteSearch = (EditText) view.findViewById(R.id.EditTextAdvSearchEthnicBackgrounCasteSearch);
+        recycler_view_caste = (RecyclerView) view.findViewById(R.id.recycler_view_caste);
+
 
         Gson gsonc;
         GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -84,7 +96,23 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
 
 
             List<WebArd> dataList2 = (List<WebArd>) gsonc.fromJson(jsonArraySearch.getJSONArray(23).toString(), listType);
-            viewGenerator.generateDynamicCheckBoxesLLWithTag(dataList2, LinearLayoutAdvSearchCaste, "caste");
+            //    viewGenerator.generateDynamicCheckBoxesLLWithTag(dataList2, LinearLayoutAdvSearchCaste, "caste");
+            if (defaultSelectionsObj.get_choice_caste_ids() != null) {
+                dataList2 = checkTrueSelected(dataList2);
+            }
+
+            //  defaultSelectionsObj.get_choice_caste_ids()
+
+
+            mAdapter = new SearchCheckBoxAdapter(getContext(), dataList2, this);
+
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+            recycler_view_caste.setLayoutManager(mLayoutManager);
+            recycler_view_caste.setItemAnimator(new DefaultItemAnimator());
+            // recycler_view_caste.addItemDecoration(new MyDividerItemDecoration(this, DividerItemDecoration.VERTICAL, 36));
+            recycler_view_caste.setAdapter(mAdapter);
+
+            Log.e("Logggeeee", "" + defaultSelectionsObj.get_choice_caste_ids());
 
 
         } catch (JSONException e) {
@@ -122,6 +150,7 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 Log.e("onTextChanged", s.toString() + "");
+                mAdapter.getFilter().filter(s);
             }
 
             @Override
@@ -183,5 +212,82 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
                 }
             }
         }
+    }
+
+
+    private List<WebArd> checkTrueSelected(List<WebArd> dataList2) {
+
+        String[] seletedIds = defaultSelectionsObj.get_choice_caste_ids().split(",");
+
+        if (seletedIds.length > 0) {
+
+            for (int i = 0; i < dataList2.size(); i++) {
+                WebArd obja = dataList2.get(i);
+
+                for (int j = 0; j < seletedIds.length; j++) {
+                    if (obja.getId().equals(seletedIds[j])) {
+                        dataList2.get(i).setSelected(true);
+                    }
+                }
+
+            }
+            return dataList2;
+
+        } else {
+            return dataList2;
+        }
+
+    }
+
+    @Override
+    public void onContactSelected(List<WebArd> dataList) {
+
+
+
+
+        StringBuilder sbSelectedVisaMyChoice = new StringBuilder();
+
+        for (int i = 0; i < dataList.size(); i++) {
+
+
+            if (dataList.get(i).isSelected()) {
+                sbSelectedVisaMyChoice.append(dataList.get(i).getId());
+                if (i != dataList.size() - 1) {
+                    sbSelectedVisaMyChoice.append(",");
+                }
+            }
+
+
+        }
+        if (sbSelectedVisaMyChoice.length() == 0) {
+
+
+            defaultSelectionsObj.set_choice_caste_ids("0");
+        }
+
+        Character ch = new Character(',');
+        if (sbSelectedVisaMyChoice.length() > 0) {
+            if (sbSelectedVisaMyChoice.charAt(sbSelectedVisaMyChoice.length() - 1) == ch) {
+                sbSelectedVisaMyChoice.deleteCharAt(sbSelectedVisaMyChoice.length() - 1);
+            }
+
+        }
+
+
+        defaultSelectionsObj.set_choice_caste_ids(clearCommarEnd(sbSelectedVisaMyChoice).toString());
+
+    }
+
+    private StringBuilder clearCommarEnd(StringBuilder stringBuilder) {
+
+        Character ch = new Character(',');
+        if (stringBuilder.length() > 0) {
+
+            if (stringBuilder.charAt(stringBuilder.length() - 1) == ch) {
+                stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            }
+        }
+
+        return stringBuilder;
     }
 }
