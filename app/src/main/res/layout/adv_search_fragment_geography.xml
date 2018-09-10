@@ -13,8 +13,6 @@
         >
 
 
-
-
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -26,10 +24,71 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
             android:layout_marginTop="10dp"
-            android:text="Country"
-            android:textSize="@dimen/text_size_adv_search_headings"
-
+            android:text="Top Locations"
             android:textColor="@color/colorUserProfileRed"
+
+            android:textSize="@dimen/text_size_adv_search_headings"
+            android:textStyle="bold" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchTopLocations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Top Cities"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/RecyclerViewAdvSearchItemTopCities"
+                android:layout_width="match_parent"
+                android:nestedScrollingEnabled="false"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Top Countries"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/RecyclerViewAdvSearchItemTopStates"
+                android:layout_width="match_parent"
+                android:nestedScrollingEnabled="false"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+
+
+
+        </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7"></View>
+
+
+        <com.chicsol.marrymax.widgets.mTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:text="Country"
+            android:textColor="@color/colorUserProfileRed"
+
+            android:textSize="@dimen/text_size_adv_search_headings"
             android:textStyle="bold" />
 
 
@@ -58,11 +117,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
-            android:textSize="@dimen/text_size_adv_search_headings"
-
             android:layout_marginTop="10dp"
+
             android:text="State"
             android:textColor="@color/colorUserProfileRed"
+            android:textSize="@dimen/text_size_adv_search_headings"
             android:textStyle="bold" />
 
 
@@ -100,10 +159,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
             android:layout_marginTop="10dp"
-            android:textSize="@dimen/text_size_adv_search_headings"
-
             android:text="City"
+
             android:textColor="@color/colorUserProfileRed"
+            android:textSize="@dimen/text_size_adv_search_headings"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -134,10 +193,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
             android:layout_marginTop="10dp"
-            android:textSize="@dimen/text_size_adv_search_headings"
-
             android:text="Visa Status"
+
             android:textColor="@color/colorUserProfileRed"
+            android:textSize="@dimen/text_size_adv_search_headings"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -148,8 +207,6 @@
 
 
         </LinearLayout>
-
-
 
 
     </LinearLayout>

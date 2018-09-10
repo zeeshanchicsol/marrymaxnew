@@ -49,6 +49,7 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
                         if (Integer.parseInt(sv.getId()) == Integer.parseInt(visa_status_check_ids[j])) {
 
                             sv.setSelected(true);
+
                         }
 
 
@@ -72,12 +73,17 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
         //if true, your checkbox will be selected, else unselected
         holder.checkbox.setChecked(webCSCs.get(position).isSelected());
 
+      /*  if(webCSCs.get(position).isSelected()){
+            onItemClickListener.onCheckedChange(getCheckedItems(), scCheck,webCSCs.get(holder.getAdapterPosition()));
+        }
+*/
         holder.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 webCSCs.get(holder.getAdapterPosition()).setSelected(isChecked);
                 Log.e("city and id", webCSCs.get(holder.getAdapterPosition()).getName() + "  " + webCSCs.get(holder.getAdapterPosition()).getId());
-                onItemClickListener.onCheckedChange(getCheckedItems(), scCheck);
+                Log.e("CheckedItems", "" + getCheckedItems());
+                onItemClickListener.onCheckedChange(getCheckedItems(), scCheck,webCSCs.get(holder.getAdapterPosition()));
 
             }
         });
@@ -125,7 +131,7 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
 
 
     public interface OnCheckedChangeListener {
-        void onCheckedChange(String selectedCheckBoxes, int scCheck);
+        void onCheckedChange(String selectedCheckBoxes, int scChec, WebCSC ObjCsc);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

@@ -1,6 +1,8 @@
 package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -44,14 +46,17 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
 public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCRAdapter.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
     private LinearLayout LinearLayoutAdvSearchVisaStatus;
-    private RecyclerView rvCountries, rvStates, rvCities;
+    private RecyclerView rvCountries, rvStates, rvCities, rvTopCities, rvTopStates;
     private ViewGenerator viewGenerator;
-    private List<WebCSC> countriesDataList, statesDataList, citiesDataList;
-    private CheckBoxAdvSearchCSCRAdapter countriesAdapter, statesAdapter, citiesAdapter;
+    private List<WebCSC> countriesDataList, statesDataList, citiesDataList, topCitiesDataList, topStatesDataList;
+    private CheckBoxAdvSearchCSCRAdapter countriesAdapter, statesAdapter, citiesAdapter, topCitiesAdapter, topStatesAdapter;
     private ProgressDialog pDialog;
     private mTextView tvMsgStates, tvMsgCities;
     private String selectedCountries;
     private int CountryClick = 1, CityClick = 0, StateClick = 2;
+
+    private boolean statesApiRunning = false;
+    private boolean citiesApiRunning = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,11 +99,20 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
         rvCities.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvCities.setHasFixedSize(true);
 
+        rvTopCities = (RecyclerView) view.findViewById(R.id.RecyclerViewAdvSearchItemTopCities);
+        rvTopCities.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //  rvTopCities.setHasFixedSize(true);
+
+        rvTopStates = (RecyclerView) view.findViewById(R.id.RecyclerViewAdvSearchItemTopStates);
+        rvTopStates.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //    rvTopStates.setHasFixedSize(true);
+
 
         countriesDataList = new ArrayList<>();
         citiesDataList = new ArrayList<>();
         statesDataList = new ArrayList<>();
-
+        topCitiesDataList = new ArrayList<>();
+        topStatesDataList = new ArrayList<>();
 
         countriesAdapter = new CheckBoxAdvSearchCSCRAdapter(countriesDataList, 1);
         rvCountries.setAdapter(countriesAdapter);
@@ -112,6 +126,16 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
         citiesAdapter = new CheckBoxAdvSearchCSCRAdapter(citiesDataList, 0);
         rvCities.setAdapter(citiesAdapter);
         citiesAdapter.setOnItemClickListener(GeographyFragment.this);
+
+
+        topCitiesAdapter = new CheckBoxAdvSearchCSCRAdapter(topCitiesDataList, 3);
+        rvTopCities.setAdapter(topCitiesAdapter);
+        topCitiesAdapter.setOnItemClickListener(GeographyFragment.this);
+
+
+        topStatesAdapter = new CheckBoxAdvSearchCSCRAdapter(topStatesDataList, 4);
+        rvTopStates.setAdapter(topStatesAdapter);
+        topStatesAdapter.setOnItemClickListener(GeographyFragment.this);
 
 
         viewGenerator = new ViewGenerator(getContext());
@@ -128,7 +152,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
         }.getType();
 
 
-        List<WebCSC> countriesDataList = null;
+        //List<WebCSC> countriesDataList = null;
         try {
             List<WebArd> dataList0 = (List<WebArd>) gsonc.fromJson(jsonArraySearch.getJSONArray(21).toString(), listType);
             viewGenerator.generateDynamicCheckBoxesLL(dataList0, LinearLayoutAdvSearchVisaStatus);
@@ -138,7 +162,12 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
             Log.e("c size", countriesDataList.size() + "");
             //	viewGenerator.generateDynamicCheckBoxesLL(dataList1, LinearLayoutAdvSearchCountries);
 
+            topCitiesDataList = (List<WebCSC>) gsonc.fromJson(jsonArraySearch.getJSONArray(27).toString(), listTypeWebCsc);
+            topStatesDataList = (List<WebCSC>) gsonc.fromJson(jsonArraySearch.getJSONArray(26).toString(), listTypeWebCsc);
+
             countriesAdapter.updateDataList(countriesDataList);
+            topCitiesAdapter.updateDataList(topCitiesDataList);
+            topStatesAdapter.updateDataList(topStatesDataList);
 
 
 		/*	List<WebArd> dataList2 = (List<WebArd>) gsonc.fromJson(DrawerActivity.jsonArraySearch.getJSONArray(23).toString(), listType);
@@ -165,10 +194,11 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
 
     @Override
-    public void onCheckedChange(String selectedIds, int scCheck) {
+    public void onCheckedChange(String selectedIds, int scCheck, final WebCSC Objcsc) {
 
         switch (scCheck) {
             case 1:
+                //countries
                 if (!selectedIds.equals("")) {
                     selectedCountries = selectedIds;
                     defaultSelectionsObj.set_choice_country_ids(selectedIds);
@@ -180,6 +210,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 }
                 break;
             case 2:
+                //states
                 if (!selectedIds.equals("")) {
                     getCities(selectedCountries + "^" + selectedIds);
                     defaultSelectionsObj.set_choice_state_ids(selectedIds);
@@ -190,21 +221,125 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 }
                 break;
             case 0:
+//cities
                 defaultSelectionsObj.set_choice_cities_ids(selectedIds);
 
                 break;
+            case 3:
+                //top cities selection
+                if (!selectedIds.equals("")) {
+                    //    new GetStates(selectedIds, scCheck, Objcsc).execute();
+                    Log.e("cid", "" + Objcsc.getCid());
+                    countriesAdapter.selectItem(Objcsc.getCid());
+
+                    getStates(Objcsc.getCid());
+                    selectStatesGetCities(Objcsc);
+                } else {
+                    statesAdapter.clear();
+                    citiesAdapter.clear();
+                    countriesAdapter.clear();
+                    countriesAdapter.updateDataList(countriesDataList);
+
+                }
+
+                //   defaultSelectionsObj.set_choice_cities_ids(selectedIds);
+
+                break;
+
+            case 4:
+                //top states selection
+                //    defaultSelectionsObj.set_choice_cities_ids(selectedIds);
+
+                break;
+
+
             default:
                 break;
         }
 
     }
 
+    private void selectStatesGetCities(final WebCSC Objcsc) {
+
+
+        Thread MyThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    sleep(1000);
+                    if (!statesApiRunning) {
+
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                statesAdapter.selectItem(Objcsc.getSid());
+                                // getCities(Objcsc.getSid());
+                                getCities(Objcsc.getCid() + "^" + Objcsc.getSid());
+                                selectCity(Objcsc);
+                            }
+                        });
+
+                        // MyThread.stop();
+
+
+                    } else {
+                        sleep(1000);
+                    }
+                    //   MyThread.stop();
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        MyThread.start();
+
+
+    }
+
+
+    private void selectCity(final WebCSC Objcsc) {
+        Thread MyThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    sleep(1000);
+                    if (!citiesApiRunning) {
+
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                citiesAdapter.selectItem(Objcsc.getId());
+
+                            }
+                        });
+
+                        // MyThread.stop();
+
+
+                    } else {
+                        sleep(1000);
+                    }
+                    //   MyThread.stop();
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        MyThread.start();
+
+    }
+
 
     private void getStates(final String country_id) {
 
+        statesApiRunning = true;
         Log.e("getStates", Urls.getStates + country_id);
-       // pDialog.setMessage("states loading....");
-       // pDialog.show();
+        // pDialog.setMessage("states loading....");
+        // pDialog.show();
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getStates + country_id,
                 new Response.Listener<JSONArray>() {
@@ -215,7 +350,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
 
                             try {
-                             //   pDialog.dismiss();
+                                //   pDialog.dismiss();
 
                                 JSONArray jsonCountryStaeObj = response.getJSONArray(0);
 
@@ -231,20 +366,22 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                                     tvMsgStates.setVisibility(View.GONE);
                                     statesAdapter.updateDataList(MyCountryStateDataList);
                                 }
-
+                                statesApiRunning = false;
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                statesApiRunning = false;
                             }
                         }
 
-                      //  pDialog.dismiss();
+                        //  pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-              //  pDialog.dismiss();
+                statesApiRunning = false;
+                //  pDialog.dismiss();
             }
         }) {
             @Override
@@ -256,8 +393,9 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     }
 
     private void getCities(final String country_id) {
-      //  pDialog.setMessage("cities loading...");
-      //  pDialog.show();
+        citiesApiRunning = true;
+        //  pDialog.setMessage("cities loading...");
+        //  pDialog.show();
         Log.e("getCities", Urls.getCities + country_id);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getCities + country_id,
                 new Response.Listener<JSONArray>() {
@@ -281,19 +419,21 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                                 tvMsgCities.setVisibility(View.GONE);
                                 citiesAdapter.updateDataList(MyCountryStateDataList);
                             }
-
+                            citiesApiRunning = false;
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            citiesApiRunning = false;
                         }
 
-                       // pDialog.dismiss();
+                        // pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-               // pDialog.dismiss();
+                // pDialog.dismiss();
+                citiesApiRunning = false;
             }
         }) {
             @Override
@@ -331,4 +471,48 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         defaultSelectionsObj.set_choice_visa_status_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchVisaStatus));
     }
+/*
+
+    private class GetStates extends AsyncTask {
+        String selectedIds;
+        int scCheck;
+        WebCSC Objcsc;
+
+        public GetStates(String selectedIds, int scCheck, WebCSC Objcsc) {
+            this.selectedIds = selectedIds;
+            this.scCheck = scCheck;
+            this.Objcsc = Objcsc;
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+
+
+
+
+
+            //
+
+            // getCities(Objcsc.getId());
+
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+
+                }
+            });
+
+        }
+    }
+*/
+
 }

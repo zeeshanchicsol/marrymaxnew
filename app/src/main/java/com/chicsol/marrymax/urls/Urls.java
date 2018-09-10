@@ -118,6 +118,9 @@ public class Urls {
     //Search Data
     public static String getSaveSearchLists = baseUrl + "/api/WebArd/GetSaveSearchLists/";
     public static String getSearchLists = baseUrl + "/api/WebArd/GetSearchLists/";
+    public static String getSearchListsAdv = baseUrl + "/api/WebArd/GetSearchListsAdv/";
+
+
     public static String getRawData = baseUrl + "/api/WebArd/GetRawData/";
     public static String getSrhRawData = baseUrl + "/api/WebArd/GetSrhRawData/";
 

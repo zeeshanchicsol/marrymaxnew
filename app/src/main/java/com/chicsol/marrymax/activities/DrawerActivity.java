@@ -437,8 +437,8 @@ DrawerActivity extends AppCompatActivity {
 
     private void getSearchListData() {
 
-        Log.e("Search Lists url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        Log.e("Search Lists url", Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
