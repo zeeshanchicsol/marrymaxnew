@@ -229,16 +229,30 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 //top cities selection
                 if (!selectedIds.equals("")) {
                     //    new GetStates(selectedIds, scCheck, Objcsc).execute();
-                    Log.e("cid", "" + Objcsc.getCid());
+                    Log.e("cid", "" + Objcsc.getCid() + "   " + selectedIds);
                     countriesAdapter.selectItem(Objcsc.getCid());
 
-                    getStates(Objcsc.getCid());
-                    selectStatesGetCities(Objcsc);
+              /*      if (selectedCountries != null) {
+                        selectedCountries = selectedCountries + "," +selectedIds;
+                    } else {
+                        selectedCountries =selectedIds;
+                    }*/
+
+                    // getStates(Objcsc.getCid());
+
+                    Log.e("statesAdapter", statesAdapter.getCheckedItems());
+                    String lastCheckedStates = statesAdapter.getCheckedItems();
+
+                    getStates(countriesAdapter.getCheckedItems());
+                    selectStatesGetCities(Objcsc, lastCheckedStates);
+
+
                 } else {
-                    statesAdapter.clear();
+                    //  statesAdapter.clear();
+                    tvMsgCities.setVisibility(View.VISIBLE);
                     citiesAdapter.clear();
-                    countriesAdapter.clear();
-                    countriesAdapter.updateDataList(countriesDataList);
+                    // countriesAdapter.clear();
+                    // countriesAdapter.updateDataList(countriesDataList);
 
                 }
 
@@ -250,6 +264,31 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 //top states selection
                 //    defaultSelectionsObj.set_choice_cities_ids(selectedIds);
 
+              /*  Log.e("data obj", "cid: " + Objcsc.getCid() + " sid: " + Objcsc.getSid() + " id: " + Objcsc.getId());
+
+                if (!selectedIds.equals("")) {
+                    //   getCities(selectedCountries + "^" + selectedIds);
+
+
+                    countriesAdapter.selectItem(Objcsc.getCid());
+
+                    if (selectedCountries != null) {
+                        selectedCountries = selectedCountries + "," + Objcsc.getCid();
+                    } else {
+                        selectedCountries = Objcsc.getCid();
+                    }
+                    getStates(selectedCountries);
+
+                    getCities(Objcsc.getCid() + "^" + Objcsc.getId());
+
+                    defaultSelectionsObj.set_choice_state_ids(Objcsc.getId());
+                } else {
+                    tvMsgCities.setVisibility(View.VISIBLE);
+                    citiesAdapter.clear();
+                    defaultSelectionsObj.set_choice_state_ids(selectedIds);
+                }*/
+
+
                 break;
 
 
@@ -259,7 +298,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
     }
 
-    private void selectStatesGetCities(final WebCSC Objcsc) {
+    private void selectStatesGetCities(final WebCSC Objcsc, final String lastCheckedStates) {
 
 
         Thread MyThread = new Thread() {
@@ -272,10 +311,26 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                statesAdapter.selectItem(Objcsc.getSid());
+
+                                String lastCheckedStatesa;
+                                if (lastCheckedStates != null && !lastCheckedStates.equals("")) {
+                                    lastCheckedStatesa = lastCheckedStates + "," + Objcsc.getSid();
+                                } else {
+                                    lastCheckedStatesa = Objcsc.getSid();
+                                }
+
+                                Log.e("countriesAdapter 1", "" + lastCheckedStatesa);
+                                statesAdapter.selectItem(lastCheckedStatesa);
+
+
+
                                 // getCities(Objcsc.getSid());
-                                getCities(Objcsc.getCid() + "^" + Objcsc.getSid());
+                                //getCities(Objcsc.getCid() + "^" + Objcsc.getSid());
+
+                                Log.e("countriesAdapter 2", "" + countriesAdapter.getCheckedItems() + "^" + statesAdapter.getCheckedItems());
+                                getCities(countriesAdapter.getCheckedItems() + "^" + statesAdapter.getCheckedItems());
                                 selectCity(Objcsc);
+                                topStatesAdapter.selectItem(Objcsc.getSid());
                             }
                         });
 

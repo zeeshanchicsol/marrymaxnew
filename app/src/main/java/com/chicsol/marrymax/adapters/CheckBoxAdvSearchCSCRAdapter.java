@@ -117,7 +117,7 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
         notifyDataSetChanged();
     }
 
-    private String getCheckedItems() {
+    public String getCheckedItems() {
         StringBuilder stringBuilder = new StringBuilder();
         for (WebCSC webCSC : webCSCs) {
             if (webCSC.isSelected()) {

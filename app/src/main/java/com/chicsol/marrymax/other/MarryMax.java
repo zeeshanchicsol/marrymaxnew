@@ -386,7 +386,7 @@ public class MarryMax {
 
         Members smember = SharedPreferenceManager.getUserObject(context);
 
-      //  Log.e("member type", smember.get_member_status() + "-------" + member.get_open_message());
+        //  Log.e("member type", smember.get_member_status() + "-------" + member.get_open_message());
         switch (category) {
 
             //View Profile
@@ -960,15 +960,57 @@ public class MarryMax {
     }
 
     public void faq() {
-       /* Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Urls.faqs));
-        activity.startActivity(browserIntent);*/
-
         Intent intent = new Intent(activity, WebViewActivity.class);
         intent.putExtra("url", Urls.faqs);
         intent.putExtra("title", "FAQs");
         activity.startActivity(intent);
 
     }
+
+
+
+
+
+    public void PrivacyPolicy() {
+        Intent intent = new Intent(activity, WebViewActivity.class);
+        intent.putExtra("url", Urls.privacyPolicy);
+        intent.putExtra("title", "Privacy Policy");
+        activity.startActivity(intent);
+
+    }
+
+    public void ProfileGuideline() {
+        Intent intent = new Intent(activity, WebViewActivity.class);
+        intent.putExtra("url", Urls.profileGuideline);
+        intent.putExtra("title", "Profile Guideline");
+        activity.startActivity(intent);
+
+    }
+
+    public void SecurityTip() {
+        Intent intent = new Intent(activity, WebViewActivity.class);
+        intent.putExtra("url", Urls.securityTip);
+        intent.putExtra("title", "Security Tip");
+        activity.startActivity(intent);
+
+    }
+
+    public void TermsofUse() {
+        Intent intent = new Intent(activity, WebViewActivity.class);
+        intent.putExtra("url", Urls.termsofUse);
+        intent.putExtra("title", "Terms Of Use");
+        activity.startActivity(intent);
+
+    }
+
+    public void WhyMarryMax() {
+        Intent intent = new Intent(activity, WebViewActivity.class);
+        intent.putExtra("url", Urls.whyMarryMax);
+        intent.putExtra("title", "Why MarryMax");
+        activity.startActivity(intent);
+
+    }
+
 
     public void contact() {
        /* Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Urls.faqs));

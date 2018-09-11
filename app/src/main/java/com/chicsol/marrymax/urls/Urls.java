@@ -220,6 +220,14 @@ public class Urls {
     public static String faqs = baseUrl + "/App/Faqs";
     public static String benefits = baseUrl + "/App/MembershipPlans";
 
+    public static String privacyPolicy = baseUrl + "/App/PrivacyPolicy";
+    public static String profileGuideline = baseUrl + "/App/ProfileGuideline";
+    public static String securityTip = baseUrl + "/App/SecurityTip";
+    public static String termsofUse = baseUrl + "/App/TermsofUse";
+    public static String whyMarryMax = baseUrl + "/App/WhyMarryMax";
+
+
+
 
     //=============Request And Permissios==================================================
     public static String requestPermissions = baseUrl + "/api/WebArd/RequestPermissions";

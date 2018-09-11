@@ -441,6 +441,22 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
                 marryMax.contact();
                 return true;
 
+            case R.id.action_privacy_policy:
+                marryMax.PrivacyPolicy();
+                return true;
+            case R.id.action_profile_guideline:
+                marryMax.ProfileGuideline();
+                return true;
+            case R.id.action_security_tip:
+                marryMax.SecurityTip();
+                return true;
+            case R.id.action_terms_of_use:
+                marryMax.TermsofUse();
+                return true;
+            case R.id.action_why_marrymax:
+                marryMax.WhyMarryMax();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 

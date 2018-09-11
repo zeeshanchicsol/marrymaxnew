@@ -36,4 +36,34 @@
         android:orderInCategory="100"
         android:title="-Contact"
         app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/m_area"
+        android:enabled="true"
+        android:title="More"
+        android:titleCondensed="Areas"
+        android:orderInCategory="100"
+        android:visible="true">
+        <menu>
+            <item
+                android:id="@+id/action_privacy_policy"
+                android:title="Privacy Policy"></item>
+            <item
+                android:id="@+id/action_profile_guideline"
+                android:title="Profile Guideline"></item>
+            <item
+                android:id="@+id/action_security_tip"
+                android:title="Security Tip"></item>
+
+
+            <item
+                android:id="@+id/action_terms_of_use"
+                android:title="Terms Of Use"></item>
+
+            <item
+                android:id="@+id/action_why_marrymax"
+                android:title="Why MarryMax"></item>
+        </menu>
+    </item>
 </menu>
