@@ -57,7 +57,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Top Countries"
+                android:text="Top States"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold" />
 
@@ -128,7 +128,7 @@
         <LinearLayout
             android:id="@+id/LinearLayoutAdvSearchStates"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:orientation="vertical">
 
             <com.chicsol.marrymax.widgets.mTextView

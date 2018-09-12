@@ -63,6 +63,34 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
         notifyDataSetChanged();
     }
 
+    public void unCheckItems(String items) {
+        if (items != null && items != "") {
+            String[] visa_status_check_ids = items.split(",");
+            if (visa_status_check_ids.length > 0) {
+                int childcount = webCSCs.size();
+                for (int i = 0; i < childcount; i++) {
+
+                    WebCSC sv = webCSCs.get(i);
+
+                    for (int j = 0; j < visa_status_check_ids.length; j++) {
+
+                        if (Integer.parseInt(sv.getId()) == Integer.parseInt(visa_status_check_ids[j])) {
+
+                            sv.setSelected(false);
+
+                        }
+
+
+                    }
+
+
+                }
+
+            }
+        }
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.bindData(webCSCs.get(position));
@@ -83,7 +111,7 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
                 webCSCs.get(holder.getAdapterPosition()).setSelected(isChecked);
                 Log.e("city and id", webCSCs.get(holder.getAdapterPosition()).getName() + "  " + webCSCs.get(holder.getAdapterPosition()).getId());
                 Log.e("CheckedItems", "" + getCheckedItems());
-                onItemClickListener.onCheckedChange(getCheckedItems(), scCheck,webCSCs.get(holder.getAdapterPosition()));
+                onItemClickListener.onCheckedChange(getCheckedItems(), scCheck,webCSCs.get(holder.getAdapterPosition()),  isChecked);
 
             }
         });
@@ -131,7 +159,7 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
 
 
     public interface OnCheckedChangeListener {
-        void onCheckedChange(String selectedCheckBoxes, int scChec, WebCSC ObjCsc);
+        void onCheckedChange(String selectedCheckBoxes, int scChec, WebCSC ObjCsc, boolean isChecked);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

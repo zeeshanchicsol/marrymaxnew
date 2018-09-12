@@ -257,7 +257,9 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
 
 
                         WebArd sReligion = (WebArd) spinner_religion.getSelectedItem();
+
                         defaultSelectionsObj.set_religion_id(Long.parseLong(sReligion.getId()));
+
                         if (spinner_education.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spinner_education.getSelectedItem();
                             defaultSelectionsObj.set_choice_education_ids(srr.getId());
