@@ -29,7 +29,7 @@ public class SearchCheckBoxAdapter extends RecyclerView.Adapter<SearchCheckBoxAd
 
     private List<WebArd> contactListFiltered;
     private ContactsAdapterListener listener;
-    private SparseBooleanArray itemStateArray = new SparseBooleanArray();
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         //   public TextView name, phone;
@@ -58,7 +58,7 @@ public class SearchCheckBoxAdapter extends RecyclerView.Adapter<SearchCheckBoxAd
         this.listener = listener;
         this.contactList = contactList;
         this.contactListFiltered = contactList;
-        this.itemStateArray = new SparseBooleanArray(contactList.size());
+
     }
 
     @Override

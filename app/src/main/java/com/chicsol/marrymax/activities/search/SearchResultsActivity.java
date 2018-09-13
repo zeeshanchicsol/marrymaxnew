@@ -27,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchResultsActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatchesSearch;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
@@ -36,6 +37,7 @@ import com.chicsol.marrymax.dialogs.dialogShowInterest;
 import com.chicsol.marrymax.interfaces.MatchesRefreshCallBackInterface;
 import com.chicsol.marrymax.interfaces.UpdateMatchesCountCallback;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -628,8 +630,36 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
         super.onPrepareOptionsMenu(menu);
         return true;
     }
-
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.registration_searchyourbestmatch_menu, menu);
+
+
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem item = menu.getItem(i);
+            if (item.getItemId() == R.id.action_filter_results) {
+                View itemChooser = item.getActionView();
+                if (itemChooser != null) {
+                    itemChooser.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            Intent intent = new Intent(SearchResultsActivity.this, SearchMainActivity.class);
+                            intent.putExtra("fromResultsCheck", true);
+                            startActivity(intent);
+                            finish();
+
+                        }
+                    });
+                }
+            }
+        }
+
+        return true;
+    }
+
+  /*  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.registration_searchyourbestmatch_menu, menu);
@@ -653,7 +683,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
                 return super.onOptionsItemSelected(item);
 
         }
-    }
+    }*/
 
     void setLoader(boolean set) {
       /*  llScreenMain.setVisibility(set ? View.GONE : View.VISIBLE);

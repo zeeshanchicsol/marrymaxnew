@@ -33,44 +33,44 @@
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="200dp">
-        <LinearLayout
-            android:id="@+id/LinearLayoutAdvSearchTopLocations"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
-
-            <TextView
+            <LinearLayout
+                android:id="@+id/LinearLayoutAdvSearchTopLocations"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Top Cities"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/RecyclerViewAdvSearchItemTopCities"
-                android:layout_width="match_parent"
-                android:nestedScrollingEnabled="false"
-                android:layout_height="wrap_content"
-                android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Top States"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/RecyclerViewAdvSearchItemTopStates"
-                android:layout_width="match_parent"
-                android:nestedScrollingEnabled="false"
-                android:layout_height="wrap_content"
-                android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Top Cities"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
 
-        </LinearLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/RecyclerViewAdvSearchItemTopCities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Top States"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/RecyclerViewAdvSearchItemTopStates"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+
+
+            </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
 
         <View
@@ -91,6 +91,11 @@
             android:textSize="@dimen/text_size_adv_search_headings"
             android:textStyle="bold" />
 
+        <EditText
+            android:id="@+id/EditTextAdvSearchGeographyCountrySearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search" />
 
         <LinearLayout
             android:id="@+id/LinearLayoutAdvSearchCountries"
@@ -130,6 +135,12 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/EditTextAdvSearchGeographyStateSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search" />
 
             <com.chicsol.marrymax.widgets.mTextView
                 android:id="@+id/TextViewAdvSearchStateError"
@@ -171,6 +182,7 @@
             android:layout_height="200dp"
             android:orientation="vertical">
 
+
             <com.chicsol.marrymax.widgets.mTextView
                 android:id="@+id/TextViewAdvSearchCityError"
                 android:layout_width="match_parent"
@@ -178,6 +190,14 @@
                 android:layout_margin="5dp"
                 android:text=" Cities will be populated on selecting states. Cities available for pakistan only."
                 android:textColor="@color/colorDefaultGreen" />
+
+
+            <EditText
+                android:id="@+id/EditTextAdvSearchGeographyCitySearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search" />
+
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/RecyclerViewAdvSearchItemCities"

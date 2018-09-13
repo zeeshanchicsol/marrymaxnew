@@ -7,24 +7,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.WebCSC;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxAdvSearchCSCRAdapter.ViewHolder> implements View.OnClickListener {
+public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxAdvSearchCSCRAdapter.ViewHolder> implements View.OnClickListener, Filterable {
 
 
     public OnCheckedChangeListener onItemClickListener;
-    public ArrayList<WebCSC> webCSCs;
+    public List<WebCSC> items;
+
+    public List<WebCSC> itemsFiltered;
+
+
     private int scCheck = 0;
 
     //scCheck value for state is 2 and for cities is 2
     public CheckBoxAdvSearchCSCRAdapter(List<WebCSC> webCSCs, int scCheck) {
-        this.webCSCs = new ArrayList<>(webCSCs);
+        this.items = new ArrayList<>(webCSCs);
+        this.itemsFiltered =  new ArrayList<>(webCSCs);
         this.scCheck = scCheck;
     }
 
@@ -39,10 +47,10 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
         if (items != null && items != "") {
             String[] visa_status_check_ids = items.split(",");
             if (visa_status_check_ids.length > 0) {
-                int childcount = webCSCs.size();
+                int childcount = itemsFiltered.size();
                 for (int i = 0; i < childcount; i++) {
 
-                    WebCSC sv = webCSCs.get(i);
+                    WebCSC sv = itemsFiltered.get(i);
 
                     for (int j = 0; j < visa_status_check_ids.length; j++) {
 
@@ -67,10 +75,10 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
         if (items != null && items != "") {
             String[] visa_status_check_ids = items.split(",");
             if (visa_status_check_ids.length > 0) {
-                int childcount = webCSCs.size();
+                int childcount = itemsFiltered.size();
                 for (int i = 0; i < childcount; i++) {
 
-                    WebCSC sv = webCSCs.get(i);
+                    WebCSC sv = itemsFiltered.get(i);
 
                     for (int j = 0; j < visa_status_check_ids.length; j++) {
 
@@ -93,13 +101,13 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.bindData(webCSCs.get(position));
+        holder.bindData(itemsFiltered.get(position));
 
         //in some cases, it will prevent unwanted situations
         holder.checkbox.setOnCheckedChangeListener(null);
 
         //if true, your checkbox will be selected, else unselected
-        holder.checkbox.setChecked(webCSCs.get(position).isSelected());
+        holder.checkbox.setChecked(itemsFiltered.get(position).isSelected());
 
       /*  if(webCSCs.get(position).isSelected()){
             onItemClickListener.onCheckedChange(getCheckedItems(), scCheck,webCSCs.get(holder.getAdapterPosition()));
@@ -108,21 +116,21 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
         holder.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                webCSCs.get(holder.getAdapterPosition()).setSelected(isChecked);
-                Log.e("city and id", webCSCs.get(holder.getAdapterPosition()).getName() + "  " + webCSCs.get(holder.getAdapterPosition()).getId());
-                Log.e("CheckedItems", "" + getCheckedItems());
-                onItemClickListener.onCheckedChange(getCheckedItems(), scCheck,webCSCs.get(holder.getAdapterPosition()),  isChecked);
+                itemsFiltered.get(holder.getAdapterPosition()).setSelected(isChecked);
+            //    Log.e("city and id", webCSCsListFiltered.get(holder.getAdapterPosition()).getName() + "  " + webCSCsListFiltered.get(holder.getAdapterPosition()).getId());
+             //   Log.e("CheckedItems", "" + getCheckedItems());
+                onItemClickListener.onCheckedChange(getCheckedItems(), scCheck, itemsFiltered.get(holder.getAdapterPosition()), isChecked);
 
             }
         });
 
-        holder.itemView.setTag(webCSCs.get(position));
+        holder.itemView.setTag(itemsFiltered.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return webCSCs.size();
+        return itemsFiltered.size();
     }
 
     public void setOnItemClickListener(OnCheckedChangeListener onItemClickListener) {
@@ -135,19 +143,28 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
     }
 
     public void updateDataList(List<WebCSC> datas) {
-        webCSCs.clear();
-        webCSCs.addAll(datas);
+        items.clear();
+        items.addAll(datas);
+
+
+        itemsFiltered.clear();
+        itemsFiltered.addAll(datas);
+
         notifyDataSetChanged();
     }
 
     public void clear() {
-        webCSCs.clear();
+        items.clear();
+        itemsFiltered.clear();
+
         notifyDataSetChanged();
+
+
     }
 
     public String getCheckedItems() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (WebCSC webCSC : webCSCs) {
+        for (WebCSC webCSC : items) {
             if (webCSC.isSelected()) {
                 if (stringBuilder.length() > 0)
                     stringBuilder.append(",");
@@ -180,5 +197,43 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
             textONEs.setText(webCSC.getName());
         }
     }
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    itemsFiltered = items;
+                } else {
+                    List<WebCSC> filteredList = new ArrayList<>();
+                    for (WebCSC row : items) {
+
+                        // name match condition. this might differ depending on your requirement
+                        // here we are looking for name or phone number match
+                        // if (row.getName().toLowerCase().contains(charString.toLowerCase()) || row.getName().contains(charSequence)) {
+                        if (row.getName().toLowerCase().startsWith(charString.toLowerCase())) {
+                            filteredList.add(row);
+                        }
+                    }
+
+                    itemsFiltered = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = itemsFiltered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                itemsFiltered = (ArrayList<WebCSC>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
 
 }

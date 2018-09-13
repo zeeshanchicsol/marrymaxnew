@@ -137,11 +137,7 @@ public class MySubscriptionFragment extends Fragment {
                 bt_NotLiveCompletetProfile.setVisibility(View.GONE);
                 //You need to contact marrymax support to purchase subscription
 
-            } /*else if (member_status == 3) {
-                llDefault.setVisibility(View.GONE);
-                llMySubscription.setVisibility(View.GONE);
-                llProfileLive.setVisibility(View.VISIBLE);
-            }*/
+            }
         } else {
 
 
@@ -305,7 +301,7 @@ public class MySubscriptionFragment extends Fragment {
                                         llProfileLive.setVisibility(View.VISIBLE);
 
 
-                                        tvTitleNotLive.setText("You Profile is Live");
+                                        tvTitleNotLive.setText("Your Profile is Live");
                                         tProfileLive.setText("Your Payment Pending for Approval, which will be done within 24 hours");
                                         btProfileLive.setVisibility(View.GONE);
 
@@ -314,8 +310,6 @@ public class MySubscriptionFragment extends Fragment {
                                     }
 
                                 }
-                            } else {
-
                             }
 
 

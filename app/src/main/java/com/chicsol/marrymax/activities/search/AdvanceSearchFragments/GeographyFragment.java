@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.android.volley.AuthFailureError;
@@ -63,6 +66,8 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     Map<String, String> selectedStatesMap = new HashMap<String, String>();
     Map<String, String> selectedCitiesMap = new HashMap<String, String>();
 
+    private EditText etCountrySearch, etStatesSearch, etCitySearch;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +94,12 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     private void initialize(View view) {
         pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
+
+
+        etCountrySearch = (EditText) view.findViewById(R.id.EditTextAdvSearchGeographyCountrySearch);
+        etStatesSearch = (EditText) view.findViewById(R.id.EditTextAdvSearchGeographyStateSearch);
+        etCitySearch = (EditText) view.findViewById(R.id.EditTextAdvSearchGeographyCitySearch);
+
         tvMsgStates = (mTextView) view.findViewById(R.id.TextViewAdvSearchStateError);
         tvMsgCities = (mTextView) view.findViewById(R.id.TextViewAdvSearchCityError);
 
@@ -171,6 +182,8 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
             topStatesDataList = (List<WebCSC>) gsonc.fromJson(jsonArraySearch.getJSONArray(26).toString(), listTypeWebCsc);
 
             countriesAdapter.updateDataList(countriesDataList);
+
+
             topCitiesAdapter.updateDataList(topCitiesDataList);
             topStatesAdapter.updateDataList(topStatesDataList);
 
@@ -191,7 +204,9 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchVisaStatus, defaultSelectionsObj.get_choice_visa_status_ids());
             countriesAdapter.selectItem(defaultSelectionsObj.get_choice_country_ids());
             if (defaultSelectionsObj.get_choice_country_ids() != "" && defaultSelectionsObj.get_choice_country_ids() != null) {
-                getStates(defaultSelectionsObj.get_choice_country_ids());
+           getStates(defaultSelectionsObj.get_choice_country_ids());
+           //    selectStatesGetCities(defaultSelectionsObj.get_choice_country_ids());
+
             }
         }
 
@@ -235,10 +250,15 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
                 } else {
                     selectedStatesMap.remove(Objcsc.getId());
+                    topStatesAdapter.unCheckItems(Objcsc.getId());
                 }
 //============================================================
                 if (!selectedIds.equals("")) {
-                    getCities(selectedCountries + "^" + selectedIds);
+                    // getCities(getComaSeparatedItemsFromMap(selectedCountriesMap) + "^" + selectedIds);
+                    getCities(countriesAdapter.getCheckedItems() + "^" + statesAdapter.getCheckedItems());
+                    selectStatesGetCities(getComaSeparatedItemsFromMap(selectedStatesMap));
+
+
                     defaultSelectionsObj.set_choice_state_ids(selectedIds);
                 } else {
                     tvMsgCities.setVisibility(View.VISIBLE);
@@ -270,6 +290,8 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
 
                     countriesAdapter.selectItem(getComaSeparatedItemsFromMap(selectedCountriesMap));
+                    topStatesAdapter.selectItem(getComaSeparatedItemsFromMap(selectedStatesMap
+                    ));
 
                     getStates(getComaSeparatedItemsFromMap(selectedCountriesMap));
                     selectStatesGetCities(getComaSeparatedItemsFromMap(selectedStatesMap));
@@ -635,6 +657,62 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 }
             }
         }
+
+
+        etCountrySearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.e("onTextChanged", s.toString() + "");
+                countriesAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        etStatesSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.e("onTextChanged", s.toString() + "");
+                statesAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        etCitySearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.e("onTextChanged", s.toString() + "");
+                citiesAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 
     }
