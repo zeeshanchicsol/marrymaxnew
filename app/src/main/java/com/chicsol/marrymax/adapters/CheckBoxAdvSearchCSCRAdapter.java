@@ -32,7 +32,7 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
     //scCheck value for state is 2 and for cities is 2
     public CheckBoxAdvSearchCSCRAdapter(List<WebCSC> webCSCs, int scCheck) {
         this.items = new ArrayList<>(webCSCs);
-        this.itemsFiltered =  new ArrayList<>(webCSCs);
+        this.itemsFiltered = new ArrayList<>(webCSCs);
         this.scCheck = scCheck;
     }
 
@@ -99,6 +99,18 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
         notifyDataSetChanged();
     }
 
+
+    public void unCheckAll() {
+
+        int childcount = itemsFiltered.size();
+        for (int i = 0; i < childcount; i++) {
+            itemsFiltered.get(i).setSelected(false);
+        }
+
+
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.bindData(itemsFiltered.get(position));
@@ -117,8 +129,8 @@ public class CheckBoxAdvSearchCSCRAdapter extends RecyclerView.Adapter<CheckBoxA
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 itemsFiltered.get(holder.getAdapterPosition()).setSelected(isChecked);
-            //    Log.e("city and id", webCSCsListFiltered.get(holder.getAdapterPosition()).getName() + "  " + webCSCsListFiltered.get(holder.getAdapterPosition()).getId());
-             //   Log.e("CheckedItems", "" + getCheckedItems());
+                //    Log.e("city and id", webCSCsListFiltered.get(holder.getAdapterPosition()).getName() + "  " + webCSCsListFiltered.get(holder.getAdapterPosition()).getId());
+                //   Log.e("CheckedItems", "" + getCheckedItems());
                 onItemClickListener.onCheckedChange(getCheckedItems(), scCheck, itemsFiltered.get(holder.getAdapterPosition()), isChecked);
 
             }

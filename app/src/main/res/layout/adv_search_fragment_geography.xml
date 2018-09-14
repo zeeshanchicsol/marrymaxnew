@@ -84,7 +84,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:text="Country"
             android:textColor="@color/colorUserProfileRed"
 
@@ -122,7 +123,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
 
             android:text="State"
             android:textColor="@color/colorUserProfileRed"
@@ -169,7 +171,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:text="City"
 
             android:textColor="@color/colorUserProfileRed"
@@ -182,7 +185,11 @@
             android:layout_height="200dp"
             android:orientation="vertical">
 
-
+            <EditText
+                android:id="@+id/EditTextAdvSearchGeographyCitySearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search" />
             <com.chicsol.marrymax.widgets.mTextView
                 android:id="@+id/TextViewAdvSearchCityError"
                 android:layout_width="match_parent"
@@ -192,11 +199,7 @@
                 android:textColor="@color/colorDefaultGreen" />
 
 
-            <EditText
-                android:id="@+id/EditTextAdvSearchGeographyCitySearch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Search" />
+
 
 
             <android.support.v7.widget.RecyclerView

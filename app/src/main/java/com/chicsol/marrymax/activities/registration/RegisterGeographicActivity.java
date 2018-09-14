@@ -866,7 +866,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://ipecho.net/plain";
+        String url = "https://ipecho.net/plain";
 
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
