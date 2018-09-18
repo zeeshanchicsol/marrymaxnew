@@ -230,7 +230,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
             case 1:
                 //countries
 
-               // Log.e("cid", "" + Objcsc.getId());
+                // Log.e("cid", "" + Objcsc.getId());
                 if (isChecked) {
                     selectedCountriesMap.put(Objcsc.getId(), Objcsc.getId());
 

@@ -1321,7 +1321,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private void getStatus() {
 
 
-        ///  Log.e("getStatus ", "" + Urls.getStatus + SharedPreferenceManager.getUserObject(getContext()).get_path());
+          Log.e("getStatus ", "" + Urls.getStatus + SharedPreferenceManager.getUserObject(getContext()).get_path());
         StringRequest req = new StringRequest(Urls.getStatus + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<String>() {
                     @Override
