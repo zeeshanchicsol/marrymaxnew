@@ -652,8 +652,8 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
         //  String.Max
 //pDialog.setMessage("getMessage");
         //  pDialog.show();
-        Log.e("Search Lists url", Urls.getSearchLists + 0);
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + 0,
+        Log.e("Search Lists url", Urls.getSearchListsAdv + 0);
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchListsAdv + 0,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

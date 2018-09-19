@@ -109,6 +109,8 @@ public class WhoIsSearchActivity extends AppCompatActivity {
             memberSearchObj.set_page_no(1);
             memberSearchObj.set_type("");
 
+            Log.e("gender",memberSearchObj.get_gender());
+
             Gson gson = new Gson();
 
 

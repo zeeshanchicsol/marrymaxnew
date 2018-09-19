@@ -18,6 +18,7 @@ package com.chicsol.marrymax.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,7 +95,19 @@ public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<R
                     try {
                         JSONObject jsonObject = new JSONObject(obString);
 
-                        jsonObject.put(idkey, obj.getId());
+                        if(idkey.equals("gender")){
+
+                            if(obj.getId().equals("0")){
+                                jsonObject.put(idkey, "M");
+                            }else {
+                                jsonObject.put(idkey, "F");
+                            }
+
+                        }else {
+                            jsonObject.put(idkey, obj.getId());
+                        }
+
+                       // Log.e("gender  " + idkey, obj.getId());
 
                         defaultSelectionsObj = gson.fromJson(jsonObject.toString(), Members.class);
 

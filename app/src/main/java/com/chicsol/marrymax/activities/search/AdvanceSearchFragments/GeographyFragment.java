@@ -493,7 +493,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                                 Log.e("countriesAdapter 2", "" + countriesAdapter.getCheckedItems() + "^" + statesAdapter.getCheckedItems());
                                 getCities(countriesAdapter.getCheckedItems() + "^" + statesAdapter.getCheckedItems());
                                 selectCity(selectedCities);
-                                // topStatesAdapter.selectItem(Objcsc.getSid());
+                                topStatesAdapter.selectItem(selectedStates);
                             }
                         });
 
@@ -529,6 +529,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                             @Override
                             public void run() {
                                 citiesAdapter.selectItem(sCities);
+                                topCitiesAdapter.selectItem(sCities);
 
                             }
                         });

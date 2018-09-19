@@ -1266,7 +1266,7 @@ public class MarryMax {
     private void getSearchListData(final Context context) {
 
         //  Log.e("url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + SharedPreferenceManager.getUserObject(context).get_path(),
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
