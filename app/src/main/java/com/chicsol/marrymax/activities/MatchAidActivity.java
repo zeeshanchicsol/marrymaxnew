@@ -3,6 +3,7 @@ package com.chicsol.marrymax.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
@@ -24,6 +25,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
+import com.chicsol.marrymax.activities.registration.RegisterGeographicActivity;
 import com.chicsol.marrymax.dialogs.dialogMatchAidFeedback;
 import com.chicsol.marrymax.modal.mLfm;
 import com.chicsol.marrymax.other.MarryMax;
@@ -173,7 +175,18 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
 
         final ProgressDialog pDialog = new ProgressDialog(MatchAidActivity.this);
         pDialog.setMessage("Loading...");
-        pDialog.show();
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            if (MatchAidActivity.this.isDestroyed()) { // or call isFinishing() if min sdk version < 17
+
+
+                pDialog.show();
+            }
+        }
+
+
+
         Log.e("getRequest path", "" + Urls.getAssistanceList + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getAssistanceList + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
@@ -306,6 +319,15 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                            if (MatchAidActivity.this.isDestroyed()) { // or call isFinishing() if min sdk version < 17
+                                return;
+                            }
+                        }
+
+
 
                         pDialog.dismiss();
                     }

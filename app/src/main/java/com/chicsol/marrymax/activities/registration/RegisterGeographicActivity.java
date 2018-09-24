@@ -2,6 +2,7 @@ package com.chicsol.marrymax.activities.registration;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
@@ -493,10 +494,12 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
         }
 
-        final ProgressDialog pd = new ProgressDialog(RegisterGeographicActivity.this);
-        pd.setCancelable(false);
-        pd.setMessage("Loading");
-        pd.show();
+
+
+        pDialog.show();
+
+
+
 
 
         new Handler().postDelayed(new Runnable() {
@@ -507,10 +510,15 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 spMyCountryState.setOnItemSelectedListener(statesListener);
                 updateData = false;
 
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    if (RegisterGeographicActivity.this.isDestroyed()) { // or call isFinishing() if min sdk version < 17
+                        return;
+                    }
+                }
 
-                if (pd != null) {
-                    if (pd.isShowing()) {
-                        pd.dismiss();
+                if (pDialog != null) {
+                    if (pDialog.isShowing()) {
+                        pDialog.dismiss();
                     }
                 }
 

@@ -3,6 +3,7 @@ package com.chicsol.marrymax.fragments.AccountSetting;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -30,6 +31,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.MatchAidActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
+import com.chicsol.marrymax.activities.registration.RegisterGeographicActivity;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
 import com.chicsol.marrymax.modal.Dashboards;
@@ -226,7 +228,6 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             getPhoneNumber();
 
 
-
         }
 
     }
@@ -287,7 +288,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             @Override
             public void onClick(View v) {
 
-                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                Intent in = new Intent(context, MainDirectiveActivity.class);
                 in.putExtra("type", 23);
                 startActivity(in);
 
@@ -385,8 +386,11 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
     private void getProfileCompletion() {
         //   pDialog.setVisibility(View.VISIBLE);
+        if (pDialog != null) {
+            pDialog.show();
+        }
 
-        pDialog.show();
+
         Log.e("URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<JSONArray>() {
@@ -397,7 +401,10 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                         swipeRefreshLayout.setRefreshing(false);
 
                         try {
-                            pDialog.dismiss();
+                            if (pDialog != null) {
+                                pDialog.dismiss();
+                            }
+
 
                             //     swipeRefreshLayout.setRefreshing(false);
 
@@ -528,16 +535,28 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            pDialog.dismiss();
+                            if (pDialog != null) {
+                                pDialog.dismiss();
+                            }
+
                             // pDialog.setVisibility(View.INVISIBLE);
                             swipeRefreshLayout.setRefreshing(false);
 
 
                         }
                         //  pDialog.setVisibility(View.INVISIBLE);
+                        if (pDialog != null) {
+                            pDialog.dismiss();
+                        }
 
 
-                        pDialog.dismiss();
+                      /*  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                            if (getActivity().isDestroyed()) { // or call isFinishing() if min sdk version < 17
+                                pDialog.dismiss();
+                            }
+                        }*/
+
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -546,7 +565,10 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                 //  pDialog.dismiss();
                 swipeRefreshLayout.setRefreshing(false);
                 //   pDialog.setVisibility(View.INVISIBLE);
-                pDialog.dismiss();
+                if (pDialog != null) {
+                    pDialog.dismiss();
+                }
+
 
             }
         }) {
@@ -921,7 +943,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                         }
 
                         //     pDialog.setVisibility(View.GONE);
-                        pDialog.dismiss();
+                        if (pDialog != null) {
+                            pDialog.dismiss();
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -937,6 +961,15 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             }
         };
         MySingleton.getInstance(context).addToRequestQueue(req, Tag);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if (pDialog != null)
+            pDialog.dismiss();
+        pDialog = null;
     }
 
     @Override

@@ -910,13 +910,26 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
     public void setProgressMore(final boolean isProgress) {
         if (isProgress) {
 
+            items.add(new Members());
+
+         notifyItemInserted(items.size() );
+
+        } else {
+         //   items.remove(items.size() - 1);
+            notifyItemRemoved(items.size());
+        }
+
+
+
+       /* if (isProgress) {
+
             items.add(null);
             notifyItemInserted(items.size() - 1);
 
         } else {
             items.remove(items.size() - 1);
             notifyItemRemoved(items.size());
-        }
+        }*/
     }
 
     public void setMoreLoading(boolean isMoreLoading) {

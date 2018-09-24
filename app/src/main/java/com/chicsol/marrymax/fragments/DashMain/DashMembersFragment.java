@@ -450,17 +450,17 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
 
     private void getMembersListbyTypeByPageMSLW(int pageNumber) {
-        recyclerAdapterMSLW.setProgressMore(true);
+//        recyclerAdapterMSLW.setProgressMore(true);
         // btReset.setVisibility(View.VISIBLE);
         JSONObject params = new JSONObject();
         try {
             params.put("page_no", pageNumber);
             params.put("type", type);
-            params.put("member_status", SharedPreferenceManager.getUserObject(getContext()).get_member_status());
-            params.put("phone_verified", SharedPreferenceManager.getUserObject(getContext()).get_phone_verified());
-            params.put("email_verified", SharedPreferenceManager.getUserObject(getContext()).get_email_verified());
+            params.put("member_status", SharedPreferenceManager.getUserObject(context).get_member_status());
+            params.put("phone_verified", SharedPreferenceManager.getUserObject(context).get_phone_verified());
+            params.put("email_verified", SharedPreferenceManager.getUserObject(context).get_email_verified());
 
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
 
         } catch (JSONException e) {
             e.printStackTrace();
