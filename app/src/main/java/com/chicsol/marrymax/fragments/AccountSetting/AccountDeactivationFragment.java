@@ -36,6 +36,7 @@ import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.crashlytics.android.Crashlytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -215,10 +216,11 @@ public class AccountDeactivationFragment extends Fragment {
 
 
                                 //  Log.e(""+ Urls.accountDeactivate, "" + params);
-                                deactivateRequest(params);
+                                     deactivateRequest(params);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            Crashlytics.log(e.toString());
                         }
 
 

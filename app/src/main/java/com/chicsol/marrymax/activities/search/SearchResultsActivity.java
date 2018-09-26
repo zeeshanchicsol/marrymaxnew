@@ -43,6 +43,7 @@ import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.chicsol.marrymax.utils.WrapContentLinearLayoutManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -237,7 +238,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
         recyclerView = (RecyclerView) findViewById(R.id.RecyclerViewDashMainMyMatches);
 
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchResultsActivity.this, getSupportFragmentManager(), this, this, this,TAG);

@@ -6,6 +6,7 @@ INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main
 INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml:2:1-223:12
 MERGED from [com.google.firebase:firebase-core:16.0.3] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.3.aar/944b496d463b085f32ddf671f3101d8d/AndroidManifest.xml:2:1-9:12
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.6.8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/crashlytics-2.6.8.aar/52c27e04cfbe907bc32c682e3ac68c90/AndroidManifest.xml:2:1-13:12
+MERGED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-23:12
 MERGED from [com.android.support:design:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/507d5e2d264b81e77a5eea70e391b248/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.1.aar/b63d92b068e67eb025da40a73588c9bc/AndroidManifest.xml:17:1-34:12
 MERGED from [com.google.firebase:firebase-analytics:16.0.3] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.3.aar/9d60f0ba878a6c29e517563000317f17/AndroidManifest.xml:17:1-55:12
@@ -25,13 +26,13 @@ MERGED from [net.danlew:android.joda:2.9.9] /Users/marrymaxandroid/.gradle/cache
 MERGED from [com.google.android:flexbox:0.2.5] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/flexbox-0.2.5.aar/3c6ad0f150410adeecd0c76a95f8c490/AndroidManifest.xml:17:1-27:12
 MERGED from [com.stripe:stripe-android:4.1.5] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/stripe-android-4.1.5.aar/f7830c4a75ddb6777c7b1ab9aafae720/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/90af972411fe8310e9cf38ac3612c685/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/49a2dfa554e6967185ec720727e47c40/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/ae932fc9d65dfabd15d192d0801b301e/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/b7b77a79901d8585df16ce214c71e876/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.1.aar/ec58d3b861f4bbba953c8acd3cbbd269/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:gridlayout-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/gridlayout-v7-27.1.1.aar/04872651734c087cc8b11050832685da/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.volley:volley:1.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/63d49b9797e8e270fa978c44ebf4823b/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/f0df511299275c951d35032dfc23c1aa/AndroidManifest.xml:2:1-11:12
-MERGED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:2:1-23:12
 MERGED from [de.hdodenhof:circleimageview:2.2.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/circleimageview-2.2.0.aar/b0743305f6f984ab86cfd177c82cbda0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.jakewharton:butterknife:8.8.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/butterknife-8.8.1.aar/1abf210024cc65bc14b3b64c8918c20b/AndroidManifest.xml:2:1-7:12
 MERGED from [com.squareup.picasso:picasso:2.71828] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/e5831441de32b4859e6a9e2ad03147d3/AndroidManifest.xml:2:1-14:12
@@ -39,7 +40,6 @@ MERGED from [com.crashlytics.sdk.android:beta:1.2.5] /Users/marrymaxandroid/.gra
 MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.3.17] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/crashlytics-core-2.3.17.aar/f16856416205f9ea540618da7315d3d0/AndroidManifest.xml:45:1-56:12
 MERGED from [com.crashlytics.sdk.android:answers:1.3.13] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/answers-1.3.13.aar/2acb4560110259531295ffddc6b12cb5/AndroidManifest.xml:2:1-13:12
 MERGED from [io.fabric.sdk.android:fabric:1.3.17] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/fabric-1.3.17.aar/768295e5ec172fc0496e0f85f836a0b3/AndroidManifest.xml:22:1-33:12
-MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/49a2dfa554e6967185ec720727e47c40/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/d8bfda7e4df39f783225b10009b42231/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/0926484d781e9fa90ec6721dd9a23274/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/8f70684e57b0d12675e2a2cb870b2173/AndroidManifest.xml:17:1-22:12
@@ -147,6 +147,8 @@ MERGED from [com.google.firebase:firebase-core:16.0.3] /Users/marrymaxandroid/.g
 MERGED from [com.google.firebase:firebase-core:16.0.3] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.3.aar/944b496d463b085f32ddf671f3101d8d/AndroidManifest.xml:7:5-20
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.6.8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/crashlytics-2.6.8.aar/52c27e04cfbe907bc32c682e3ac68c90/AndroidManifest.xml:11:5-20
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.6.8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/crashlytics-2.6.8.aar/52c27e04cfbe907bc32c682e3ac68c90/AndroidManifest.xml:11:5-20
+MERGED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
+MERGED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.1.aar/b63d92b068e67eb025da40a73588c9bc/AndroidManifest.xml:26:5-32:19
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.1.aar/b63d92b068e67eb025da40a73588c9bc/AndroidManifest.xml:26:5-32:19
 MERGED from [com.google.firebase:firebase-analytics:16.0.3] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.3.aar/9d60f0ba878a6c29e517563000317f17/AndroidManifest.xml:28:5-53:19
@@ -177,8 +179,6 @@ MERGED from [com.android.volley:volley:1.0.0] /Users/marrymaxandroid/.gradle/cac
 MERGED from [com.android.volley:volley:1.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/63d49b9797e8e270fa978c44ebf4823b/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/f0df511299275c951d35032dfc23c1aa/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/f0df511299275c951d35032dfc23c1aa/AndroidManifest.xml:9:5-20
-MERGED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:11:5-21:19
-MERGED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:11:5-21:19
 MERGED from [de.hdodenhof:circleimageview:2.2.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/circleimageview-2.2.0.aar/b0743305f6f984ab86cfd177c82cbda0/AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:2.2.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/circleimageview-2.2.0.aar/b0743305f6f984ab86cfd177c82cbda0/AndroidManifest.xml:9:5-20
 MERGED from [com.squareup.picasso:picasso:2.71828] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/e5831441de32b4859e6a9e2ad03147d3/AndroidManifest.xml:7:5-12:19
@@ -563,6 +563,8 @@ MERGED from [com.google.firebase:firebase-core:16.0.3] /Users/marrymaxandroid/.g
 MERGED from [com.google.firebase:firebase-core:16.0.3] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.3.aar/944b496d463b085f32ddf671f3101d8d/AndroidManifest.xml:5:5-44
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.6.8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/crashlytics-2.6.8.aar/52c27e04cfbe907bc32c682e3ac68c90/AndroidManifest.xml:7:5-43
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.6.8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/crashlytics-2.6.8.aar/52c27e04cfbe907bc32c682e3ac68c90/AndroidManifest.xml:7:5-43
+MERGED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/507d5e2d264b81e77a5eea70e391b248/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/507d5e2d264b81e77a5eea70e391b248/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.1.aar/b63d92b068e67eb025da40a73588c9bc/AndroidManifest.xml:20:5-44
@@ -601,6 +603,8 @@ MERGED from [com.stripe:stripe-android:4.1.5] /Users/marrymaxandroid/.gradle/cac
 MERGED from [com.stripe:stripe-android:4.1.5] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/stripe-android-4.1.5.aar/f7830c4a75ddb6777c7b1ab9aafae720/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/90af972411fe8310e9cf38ac3612c685/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/90af972411fe8310e9cf38ac3612c685/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/49a2dfa554e6967185ec720727e47c40/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/49a2dfa554e6967185ec720727e47c40/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/ae932fc9d65dfabd15d192d0801b301e/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/ae932fc9d65dfabd15d192d0801b301e/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/b7b77a79901d8585df16ce214c71e876/AndroidManifest.xml:20:5-44
@@ -613,8 +617,6 @@ MERGED from [com.android.volley:volley:1.0.0] /Users/marrymaxandroid/.gradle/cac
 MERGED from [com.android.volley:volley:1.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/63d49b9797e8e270fa978c44ebf4823b/AndroidManifest.xml:7:5-43
 MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/f0df511299275c951d35032dfc23c1aa/AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/f0df511299275c951d35032dfc23c1aa/AndroidManifest.xml:5:5-7:41
-MERGED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:7:5-9:41
-MERGED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:7:5-9:41
 MERGED from [de.hdodenhof:circleimageview:2.2.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/circleimageview-2.2.0.aar/b0743305f6f984ab86cfd177c82cbda0/AndroidManifest.xml:5:5-7:41
 MERGED from [de.hdodenhof:circleimageview:2.2.0] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/circleimageview-2.2.0.aar/b0743305f6f984ab86cfd177c82cbda0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.jakewharton:butterknife:8.8.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/butterknife-8.8.1.aar/1abf210024cc65bc14b3b64c8918c20b/AndroidManifest.xml:5:5-43
@@ -629,8 +631,6 @@ MERGED from [com.crashlytics.sdk.android:answers:1.3.13] /Users/marrymaxandroid/
 MERGED from [com.crashlytics.sdk.android:answers:1.3.13] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/answers-1.3.13.aar/2acb4560110259531295ffddc6b12cb5/AndroidManifest.xml:7:5-43
 MERGED from [io.fabric.sdk.android:fabric:1.3.17] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/fabric-1.3.17.aar/768295e5ec172fc0496e0f85f836a0b3/AndroidManifest.xml:27:5-43
 MERGED from [io.fabric.sdk.android:fabric:1.3.17] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/fabric-1.3.17.aar/768295e5ec172fc0496e0f85f836a0b3/AndroidManifest.xml:27:5-43
-MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/49a2dfa554e6967185ec720727e47c40/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/49a2dfa554e6967185ec720727e47c40/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/d8bfda7e4df39f783225b10009b42231/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/d8bfda7e4df39f783225b10009b42231/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:27.1.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/0926484d781e9fa90ec6721dd9a23274/AndroidManifest.xml:20:5-44
@@ -665,6 +665,22 @@ INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main
 		INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
 		ADDED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/src/main/AndroidManifest.xml
+provider#com.kbeanie.multipicker.utils.AMPFileProvider
+ADDED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:13-76
+	android:exported
+		ADDED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:13-73
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:17:13-19:49
+	android:resource
+		ADDED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:19:17-46
+	android:name
+		ADDED from [:multipicker] /Users/marrymaxandroid/AndroidStudioProjects/marrymax/multipicker/build/intermediates/manifests/full/debug/AndroidManifest.xml:18:17-67
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.1.aar/b63d92b068e67eb025da40a73588c9bc/AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-analytics:16.0.3] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.3.aar/9d60f0ba878a6c29e517563000317f17/AndroidManifest.xml:25:5-68
@@ -829,22 +845,6 @@ ADDED from [com.google.android.gms:play-services-basement:15.0.1] /Users/marryma
 		ADDED from [com.google.android.gms:play-services-basement:15.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/a1bbd8ffa0db641f426a123cd3a73fa2/AndroidManifest.xml:25:13-66
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:15.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/a1bbd8ffa0db641f426a123cd3a73fa2/AndroidManifest.xml:24:13-58
-provider#com.kbeanie.multipicker.utils.AMPFileProvider
-ADDED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:12:9-20:20
-	android:grantUriPermissions
-		ADDED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:16:13-47
-	android:authorities
-		ADDED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:14:13-76
-	android:exported
-		ADDED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:15:13-37
-	android:name
-		ADDED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:13:13-73
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:17:13-19:49
-	android:resource
-		ADDED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:19:17-46
-	android:name
-		ADDED from [com.kbeanie:multipicker:1.1.31] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/multipicker-1.1.31.aar/1509c6e57c8908d264f99e03aca7d001/AndroidManifest.xml:18:17-67
 provider#com.squareup.picasso.PicassoProvider
 ADDED from [com.squareup.picasso:picasso:2.71828] /Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/e5831441de32b4859e6a9e2ad03147d3/AndroidManifest.xml:8:9-11:40
 	android:authorities

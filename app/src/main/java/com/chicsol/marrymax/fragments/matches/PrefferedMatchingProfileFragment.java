@@ -41,6 +41,7 @@ import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.chicsol.marrymax.utils.WrapContentLinearLayoutManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -53,6 +54,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static java.security.AccessController.getContext;
 
 /**
  * Created by Android on 11/3/2016.
@@ -184,11 +187,16 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
         recyclerView = (RecyclerView) view.findViewById(R.id.RecyclerViewDashMainMyMatches);
 
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+
+     //   LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+
+        LinearLayoutManager mLayoutManager =   new WrapContentLinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this, Tag);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
+
+
 
         recyclerAdapter.setRecyclerView(recyclerView);
 

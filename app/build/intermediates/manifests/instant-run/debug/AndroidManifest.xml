@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chicsol.marrymax"
-    android:versionCode="36"
+    android:versionCode="37"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -234,6 +234,16 @@
             android:name="com.chicsol.marrymax.activities.ContactAcivity"
             android:theme="@style/AppTheme.NoActionBarA" />
 
+        <provider
+            android:name="com.kbeanie.multipicker.utils.AMPFileProvider"
+            android:authorities="com.chicsol.marrymax.multipicker.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
+
         <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
@@ -305,15 +315,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <provider
-            android:name="com.kbeanie.multipicker.utils.AMPFileProvider"
-            android:authorities="com.chicsol.marrymax.multipicker.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/paths" />
-        </provider>
         <provider
             android:name="com.squareup.picasso.PicassoProvider"
             android:authorities="com.chicsol.marrymax.com.squareup.picasso"

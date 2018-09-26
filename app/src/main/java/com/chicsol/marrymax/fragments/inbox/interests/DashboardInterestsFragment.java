@@ -39,6 +39,7 @@ import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.utils.ViewGenerator;
+import com.chicsol.marrymax.utils.WrapContentLinearLayoutManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -186,7 +187,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
         recyclerView = (RecyclerView) view.findViewById(R.id.RecyclerViewInboxListInterests);
 
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         recyclerAdapter = new RecyclerViewAdapterMyInterestsRequests(getContext(), getFragmentManager(), this, fragment, true, this, withdrawCheck);

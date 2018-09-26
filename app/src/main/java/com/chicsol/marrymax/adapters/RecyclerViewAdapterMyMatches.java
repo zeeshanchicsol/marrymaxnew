@@ -89,6 +89,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static java.security.AccessController.getContext;
+
 public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, UpdateMemberFromDialogFragment, RemoveMember, RequestCallbackInterface, PhoneRequestCallBackInterface, WithdrawRequestCallBackInterface {
     private final int VIEW_ITEM = 1;
     private final int VIEW_PROG = 0;
@@ -110,6 +112,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
     private int selectedPosition;
     private UpdateMatchesCountCallback updateMatchesCountCallback;
     private MatchesRefreshCallBackInterface matchesRefreshCallBackInterface;
+    private RecyclerView recyclerView;
 
     public Members getMemResultsObj() {
         return memResultsObj;
@@ -225,6 +228,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 
     public void setRecyclerView(RecyclerView mView) {
+        recyclerView = mView;
         mView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -233,7 +237,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                 totalItemCount = mLinearLayoutManager.getItemCount();
                 firstVisibleItem = mLinearLayoutManager.findFirstVisibleItemPosition();
 
-          //      Log.e("zxzxzx "+isMoreLoading,"totalItemCount: "+totalItemCount+"  visibleItemCount : "+visibleItemCount+"");
+                //      Log.e("zxzxzx "+isMoreLoading,"totalItemCount: "+totalItemCount+"  visibleItemCount : "+visibleItemCount+"");
                 if (!isMoreLoading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
                     if (onLoadMoreListener != null) {
                         onLoadMoreListener.onLoadMore();
@@ -246,6 +250,8 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
     public void setLinearLayoutManager(LinearLayoutManager linearLayoutManager) {
         this.mLinearLayoutManager = linearLayoutManager;
+
+
     }
 
 
@@ -457,7 +463,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                     //2 interaction
                     Activity activity = (Activity) context;
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
-                        marryMax.statusBaseChecks(member, context, 1, frgMngr, fragment, v, gson.toJson(items), "" + position, memResultsObj,TAG);
+                        marryMax.statusBaseChecks(member, context, 1, frgMngr, fragment, v, gson.toJson(items), "" + position, memResultsObj, TAG);
                     }
 
                 }
@@ -474,7 +480,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                         public boolean onMenuItemClick(MenuItem item2) {
 
                             selectedPosition = position;
-                            boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null, memResultsObj,TAG);
+                            boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null, memResultsObj, TAG);
                             Activity activity = (Activity) context;
                             if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                                 if (checkStatus) {
@@ -616,7 +622,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                         selectedPosition = position;
-                        marryMax.statusBaseChecks(member, context, 4, frgMngr, fragment, v, null, null, memResultsObj,TAG);
+                        marryMax.statusBaseChecks(member, context, 4, frgMngr, fragment, v, null, null, memResultsObj, TAG);
                     }
 
                 }
@@ -632,7 +638,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                         Gson gson = new Gson();
                         //Log.e("selected position", position + "");
-                        marryMax.statusBaseChecks(member, context, 1, frgMngr, fragment, v, gson.toJson(items), position + "", memResultsObj,TAG);
+                        marryMax.statusBaseChecks(member, context, 1, frgMngr, fragment, v, gson.toJson(items), position + "", memResultsObj, TAG);
                     }
 
 /*
@@ -684,7 +690,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                     Log.e("Loggg===" + member.get_request_response_id(), "==" + member.get_request_response_id());
 
 
-                    boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null, null,null);
+                    boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null, null, null);
                     Activity activity = (Activity) context;
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                         if (checkStatus) {
@@ -730,7 +736,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
             holder.faNotes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, frgMngr, fragment, v, null, null, null,null);
+                    boolean bcheck4 = marryMax.statusBaseChecks(member, context, 8, frgMngr, fragment, v, null, null, null, null);
                     if (bcheck4) {
                         dialogAddNotes newFragment = dialogAddNotes.newInstance(member.getUserpath());
                         newFragment.setTargetFragment(fragment, 0);
@@ -745,7 +751,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                 public void onClick(View v) {
 
 
-                    boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, frgMngr, fragment, v, null, null, null,null);
+                    boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, frgMngr, fragment, v, null, null, null, null);
                     Activity activity = (Activity) context;
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                         if (checkStatus) {
@@ -908,7 +914,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
     }
 
     public void setProgressMore(final boolean isProgress) {
-        if (isProgress) {
+   /*     if (isProgress) {
 
             items.add(new Members());
 
@@ -917,19 +923,34 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
         } else {
          //   items.remove(items.size() - 1);
             notifyItemRemoved(items.size());
-        }
+        }*/
 
 
 
-       /* if (isProgress) {
+        if (isProgress) {
 
             items.add(null);
-            notifyItemInserted(items.size() - 1);
+            recyclerView.post(new Runnable() {
+                public void run() {
+                    if (items.size() > 0) {
+                        notifyItemInserted(items.size() - 1);
+                    }
+                }
+            });
+
 
         } else {
             items.remove(items.size() - 1);
-            notifyItemRemoved(items.size());
-        }*/
+
+            recyclerView.post(new Runnable() {
+                public void run() {
+                    if (items.size() > 0) {
+                        notifyItemRemoved(items.size());
+                    }
+                }
+            });
+
+        }
     }
 
     public void setMoreLoading(boolean isMoreLoading) {

@@ -110,7 +110,7 @@ public class RecyclerViewAdapterMyMatchesSearch extends RecyclerView.Adapter<Rec
     public Members getMemResultsObj() {
         return memResultsObj;
     }
-private RecyclerView mRecyclerView;
+private RecyclerView recyclerView;
     public void setMemResultsObj(Members memResultsObj) {
         this.memResultsObj = memResultsObj;
     }
@@ -219,7 +219,7 @@ private RecyclerView mRecyclerView;
 
     public void setRecyclerView(RecyclerView mView) {
 
-        mRecyclerView=mView;
+        recyclerView=mView;
         mView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -895,17 +895,17 @@ private RecyclerView mRecyclerView;
     }
 
     public void setProgressMore(final boolean isProgress) {
-        if (isProgress) {
+  /*      if (isProgress) {
 
             items.add(null);
             notifyItemInserted(items.size() - 1);
 
-          /*  mRecyclerView.post(new Runnable() {
+          *//*  mRecyclerView.post(new Runnable() {
                 public void run() {
 
 
                 }
-            });*/
+            });*//*
 
 
         } else {
@@ -913,7 +913,33 @@ private RecyclerView mRecyclerView;
 
 
             notifyItemRemoved(items.size());
+        }*/
+
+        if (isProgress) {
+
+            items.add(null);
+            //   notifyItemInserted(items.size() - 1);
+            recyclerView.post(new Runnable() {
+                public void run() {
+                    if (items.size() > 0) {
+                        notifyItemInserted(items.size() - 1);
+                    }
+                }
+            });
+
+        } else {
+            items.remove(items.size() - 1);
+            recyclerView.post(new Runnable() {
+                public void run() {
+                    if (items.size() > 0) {
+                        notifyItemRemoved(items.size());
+                    }
+                }
+            });
+
         }
+
+
     }
 
     public void setMoreLoading(boolean isMoreLoading) {
@@ -1089,4 +1115,6 @@ private RecyclerView mRecyclerView;
             pBar = (ProgressBar) v.findViewById(R.id.pBar);
         }
     }
+
 }
+

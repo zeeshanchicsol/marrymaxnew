@@ -450,7 +450,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
 
     private void getMembersListbyTypeByPageMSLW(int pageNumber) {
-//        recyclerAdapterMSLW.setProgressMore(true);
+       recyclerAdapterMSLW.setProgressMore(true);
         // btReset.setVisibility(View.VISIBLE);
         JSONObject params = new JSONObject();
         try {

@@ -65,6 +65,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return memResultsObj;
     }
 
+    RecyclerView recyclerView;
+
     public void setMemResultsObj(Members memResultsObj) {
         this.memResultsObj = memResultsObj;
     }
@@ -216,7 +218,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     Log.e("getMoreLoading rec", getMoreLoading() + "");
 
                     if (!isMoreLoading) {
-                        onItemClickListener.onItemClick(v, item, position, items,memResultsObj);
+                        onItemClickListener.onItemClick(v, item, position, items, memResultsObj);
                     } else {
 
                         Toast.makeText(context, "Matches are loading try again ", Toast.LENGTH_SHORT).show();
@@ -245,7 +247,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public interface OnItemClickListener {
 
-        void onItemClick(View view, Members members, int position, List<Members> items,Members memResultsObj);
+        void onItemClick(View view, Members members, int position, List<Members> items, Members memResultsObj);
 
     }
 
@@ -278,6 +280,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public void setRecyclerView(RecyclerView mView) {
+        recyclerView = mView;
 
         mView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -316,7 +319,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public void setProgressMore(final boolean isProgress) {
-        if (isProgress) {
+       /* if (isProgress) {
 
             items.add(null);
             notifyItemInserted(items.size() - 1);
@@ -324,7 +327,34 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         } else {
             items.remove(items.size() - 1);
             notifyItemRemoved(items.size());
+        }*/
+
+
+        if (isProgress) {
+
+            items.add(null);
+            //   notifyItemInserted(items.size() - 1);
+            recyclerView.post(new Runnable() {
+                public void run() {
+                    if (items.size() > 0) {
+                        notifyItemInserted(items.size() - 1);
+                    }
+                }
+            });
+
+        } else {
+            items.remove(items.size() - 1);
+            recyclerView.post(new Runnable() {
+                public void run() {
+                    if (items.size() > 0) {
+                        notifyItemRemoved(items.size());
+                    }
+                }
+            });
+
         }
+
+
     }
 
     public void setMoreLoading(boolean isMoreLoading) {
@@ -341,10 +371,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public void addAll(List<Members> lst) {
-       items.clear();
+        items.clear();
         items.addAll(lst);
         notifyDataSetChanged();
-      //  Log.e("item size in adapter", items.size() + "");
+        //  Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<Members> lst) {

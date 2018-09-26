@@ -103,6 +103,8 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
     private MarryMax marryMax;
     private int selectedPosition = 0;
 
+    private RecyclerView recyclerView;
+
     public RecyclerViewAdapterMyInterestsRequests(final Context context, FragmentManager frg, OnLoadMoreListener onLoadMoreListener, Fragment fragment, boolean interestCheck, OnUpdateListener onUpdateListener, boolean withdrawcheck) {
         //this.items = items;
         marryMax = new MarryMax((Activity) context);
@@ -200,6 +202,8 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
 
 
     public void setRecyclerView(RecyclerView mView) {
+        recyclerView = mView;
+
         mView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -514,7 +518,33 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
 
 
     public void setProgressMore(final boolean isProgress) {
+
         if (isProgress) {
+
+            items.add(null);
+            recyclerView.post(new Runnable() {
+                public void run() {
+                    if (items.size() > 0) {
+                        notifyItemInserted(items.size() - 1);
+                    }
+                }
+            });
+
+
+        } else {
+            items.remove(items.size() - 1);
+
+            recyclerView.post(new Runnable() {
+                public void run() {
+                    if (items.size() > 0) {
+                        notifyItemRemoved(items.size());
+                    }
+                }
+            });
+
+        }
+
+      /*  if (isProgress) {
 
             items.add(null);
             notifyItemInserted(items.size() - 1);
@@ -522,7 +552,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
         } else {
             items.remove(items.size() - 1);
             notifyItemRemoved(items.size());
-        }
+        }*/
     }
 
     public void setMoreLoading(boolean isMoreLoading) {
