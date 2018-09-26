@@ -194,8 +194,10 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
 
 
             if (obj.get_photo_name().equals("Approved")) {
+                if (!obj.get_default_image().equals("1")) {
+                    holder.defaultCheckbox.setVisibility(View.VISIBLE);
+                }
 
-                holder.defaultCheckbox.setVisibility(View.VISIBLE);
 
             }
             else {

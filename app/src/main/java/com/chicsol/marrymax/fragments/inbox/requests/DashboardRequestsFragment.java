@@ -2,9 +2,11 @@ package com.chicsol.marrymax.fragments.inbox.requests;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,6 +27,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyInterestsRequests;
 import com.chicsol.marrymax.dialogs.dialogDeclineInterestInbox;
 import com.chicsol.marrymax.dialogs.dialogReplyOnAcceptInterestInbox;
@@ -86,7 +89,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
     private Context context;
     private LinearLayout llEmptySubItems;
     private int getNew_requests_count = 0;
-
+    private AppCompatButton btCompleteProfile;
     private String Tag = "DashboardRequestsFragment";
 
     @Override
@@ -161,6 +164,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
         ivEmptyState.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ic_empty_state_request_received));
         tvInterestRequestEmptyState = (TextView) view.findViewById(R.id.TextViewInterestRequestEmptyState);
 
+        btCompleteProfile = (AppCompatButton) view.findViewById(R.id.ButtonDInterestsCompleteProfile);
         // tvInterestRequestEmptyState.setText("You have 0 requests");
 
         llEmptySubItems = (LinearLayout) view.findViewById(R.id.LinearLayoutEmptySubItems);
@@ -187,9 +191,22 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
         recyclerView.setAdapter(recyclerAdapter);
         swipeRefresh.setOnRefreshListener(this);
 
+        setListenders();
+    }
+    private void setListenders() {
+        btCompleteProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //new MarryMax(getActivity()).
+                Intent in = new Intent(getActivity(), MainDirectiveActivity.class);
+                in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                in.putExtra("type", 22);
+                getActivity().startActivity(in);
+            }
+        });
+
 
     }
-
 
     @Override
     public void onLoadMore() {
@@ -397,10 +414,12 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                         tvInterestRequestEmptyState.setText("There are " + getNew_requests_count + " requests. " +
                                                 "\nPlease complete & verify your profile to view the requests," +
                                                 "\n shown in you.");
+                                        btCompleteProfile.setVisibility(View.VISIBLE);
                                         //new count
                                     } else if (memberC.getRequesting_members_count() > 0) {
                                         tvInterestRequestEmptyState.setText("There are " + getNew_requests_count + " requests, waiting for you to respond." +
                                                 "\nPlease complete & verify your profile to view all requests.");
+                                        btCompleteProfile.setVisibility(View.VISIBLE);
 
                                         //new count
                                     }

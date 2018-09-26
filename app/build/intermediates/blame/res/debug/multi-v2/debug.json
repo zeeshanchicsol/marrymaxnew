@@ -89,21 +89,6 @@
             ]
         },
         {
-            "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/values-th-rTH_values-th-rTH.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/e52a0d8d9427571d29e11ebd22b1732f/res/values-th-rTH/values-th-rTH.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "66",
-                        "endOffsets": "117"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/values-pt-rBR_values-pt-rBR.arsc.flat",
             "map": [
                 {
@@ -172,6 +157,21 @@
                         "startOffsets": "1904,2011,2191,2320,2430,2656,2788,2940,3278,3507,3617,3812,3944,4160,4347,4446,4542",
                         "endColumns": "106,179,128,109,225,131,151,133,228,109,194,131,215,186,98,95,112",
                         "endOffsets": "2006,2186,2315,2425,2651,2783,2935,3069,3502,3612,3807,3939,4155,4342,4441,4537,4650"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/values-th-rTH_values-th-rTH.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/e52a0d8d9427571d29e11ebd22b1732f/res/values-th-rTH/values-th-rTH.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
                     }
                 }
             ]
@@ -1119,6 +1119,21 @@
             ]
         },
         {
+            "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/values-lv-rLV_values-lv-rLV.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/e52a0d8d9427571d29e11ebd22b1732f/res/values-lv-rLV/values-lv-rLV.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/values-pt-rPT_values-pt-rPT.arsc.flat",
             "map": [
                 {
@@ -1206,21 +1221,6 @@
                         "startOffsets": "10157",
                         "endColumns": "100",
                         "endOffsets": "10253"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/res/merged/debug/values-lv-rLV_values-lv-rLV.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/e52a0d8d9427571d29e11ebd22b1732f/res/values-lv-rLV/values-lv-rLV.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "66",
-                        "endOffsets": "117"
                     }
                 }
             ]

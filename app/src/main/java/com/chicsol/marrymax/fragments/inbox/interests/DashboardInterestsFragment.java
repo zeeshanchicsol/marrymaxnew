@@ -2,9 +2,11 @@ package com.chicsol.marrymax.fragments.inbox.interests;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -25,6 +27,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyInterestsRequests;
 import com.chicsol.marrymax.dialogs.dialogDeclineInterestInbox;
 import com.chicsol.marrymax.dialogs.dialogReplyOnAcceptInterestInbox;
@@ -89,9 +92,9 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
     private int getInterested_members_count = 0;
 
     ViewGenerator viewGenerator;
+    private AppCompatButton btCompleteProfile;
 
     private String Tag = "DashboardInterestsFragment";
-
 
 
     @Override
@@ -176,6 +179,8 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
         //  tvInterestRequestEmptyState.setText("You have 0 interests");
 
         llEmptyState = (LinearLayout) view.findViewById(R.id.LinearLayoutInterestsRequestsEmptyState);
+        btCompleteProfile = (AppCompatButton) view.findViewById(R.id.ButtonDInterestsCompleteProfile);
+
 
         llEmptySubItems = (LinearLayout) view.findViewById(R.id.LinearLayoutEmptySubItems);
 
@@ -187,7 +192,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
         recyclerView = (RecyclerView) view.findViewById(R.id.RecyclerViewInboxListInterests);
 
 
-        LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getContext());
+        LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         recyclerAdapter = new RecyclerViewAdapterMyInterestsRequests(getContext(), getFragmentManager(), this, fragment, true, this, withdrawCheck);
@@ -201,8 +206,23 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
         swipeRefresh.setOnRefreshListener(this);
 
 
+        setListenders();
     }
 
+    private void setListenders() {
+        btCompleteProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //new MarryMax(getActivity()).
+                Intent in = new Intent(getActivity(), MainDirectiveActivity.class);
+                in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                in.putExtra("type", 22);
+                getActivity().startActivity(in);
+            }
+        });
+
+
+    }
 
     @Override
     public void onLoadMore() {
@@ -347,12 +367,10 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                                 htmlDescriptionText.append(" Subscribe now to enjoy following benefits.");
 
 
-
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Priority Profile Listing.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Maximum interaction & quick connect with other members.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy options.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need. ");
-
 
 
                                             }
@@ -382,7 +400,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
                                             totalPages = (int) memberTotalPages.getInterested_members_count();
                                             lastPage = 1;
-                                                 Log.e("total pages interests", "" + totalPages);
+                                            Log.e("total pages interests", "" + totalPages);
                                             swipeRefresh.setRefreshing(false);
                                         }
                                     }
@@ -403,12 +421,14 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                         tvInterestRequestEmptyState.setText("There are " + getInterested_members_count + " interests." +
                                                 "\nPlease complete & verify your profile to view the interests," +
                                                 "\n shown in you.");
+                                        btCompleteProfile.setVisibility(View.VISIBLE);
                                     } else if (memberC.getInterested_members_count() > 0) {
                                         recyclerView.setVisibility(View.GONE);
                                         llEmptyState.setVisibility(View.VISIBLE);
                                         tvInterestRequestEmptyState.setText("There are " + getInterested_members_count + " interests, waiting for you to respond." +
                                                 "\nPlease complete & verify your profile to view the interests," +
                                                 "\n shown in you.");
+                                        btCompleteProfile.setVisibility(View.VISIBLE);
 
                                     }
 
@@ -542,7 +562,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -554,7 +574,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
         } catch (JSONException e) {
             e.printStackTrace();
         }
-         Log.e("Params loadM request" + " " + Urls.interestRequestType, "" + params);
+        Log.e("Params loadM request" + " " + Urls.interestRequestType, "" + params);
 
         //  Log.e("Params search" + " " + Urls.searchProfiles, "");
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -622,7 +642,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -689,7 +709,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(context).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }
 
     @Override

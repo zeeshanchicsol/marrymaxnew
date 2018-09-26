@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -23,10 +26,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterInBoxList;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mComCount;
 import com.chicsol.marrymax.modal.mCommunication;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -63,6 +68,8 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
     private LinearLayout llEmptySubItems;
     private String Tag = "DashboardMessagesFragment";
 
+    private AppCompatButton btCompleteProfile;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +103,9 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
         recyclerView = (RecyclerView) view.findViewById(R.id.RecyclerViewInboxListMain);
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarProjectMain);
 
+        btCompleteProfile = (AppCompatButton) view.findViewById(R.id.ButtonMMatchesCompleteProfile);
+
+
         viewGenerator = new ViewGenerator(context);
 
 
@@ -125,6 +135,16 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
     }
 
     private void setListenders() {
+        btCompleteProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //new MarryMax(getActivity()).
+                Intent in = new Intent(getActivity(), MainDirectiveActivity.class);
+                in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                in.putExtra("type", 22);
+                getActivity().startActivity(in);
+            }
+        });
 
       /*  ll_messagedetail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,6 +208,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                     htmlDescriptionText.append(" There are " + new_messages_count + "  unread messages. \n");
                                     htmlDescriptionText.append(" Please complete & verify your profile to see your messages. \n");
                                     TextViewEmptyMessage.setText(htmlDescriptionText.toString());
+                                    btCompleteProfile.setVisibility(View.VISIBLE);
 
                                 }
 
