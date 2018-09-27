@@ -22,10 +22,9 @@ public class webconfig {
     public static String ARDTOKENa = "abc@123#456";
 
 
-
     //Production=====
 
- /*   public static String baseUrla = "https://marrymax.com";
+/*    public static String baseUrla = "https://marrymax.com";
     public static String PassPhraseArdApa = "dvnh78543";
     public static String ARDTOKENa = "yhoe6934";*/
 
