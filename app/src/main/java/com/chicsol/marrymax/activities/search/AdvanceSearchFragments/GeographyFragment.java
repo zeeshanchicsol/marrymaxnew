@@ -465,7 +465,8 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 try {
                     sleep(500);
                     if (!statesApiRunning) {
-
+                        if(getActivity() == null)
+                            return;
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -525,6 +526,8 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     sleep(500);
                     if (!citiesApiRunning) {
 
+                        if(getActivity() == null)
+                            return;
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
