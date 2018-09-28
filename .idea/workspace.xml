@@ -18,7 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="bug fixing 42">
+    <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="">
       <change beforePath="" afterPath="$PROJECT_DIR$/app/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
@@ -3471,13 +3471,6 @@
       <option name="presentableId" value="Default" />
       <updated>1532684130521</updated>
     </task>
-    <task id="LOCAL-00009" summary="updates">
-      <created>1533308975444</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1533308975444</updated>
-    </task>
     <task id="LOCAL-00010" summary="updatesrfgg">
       <created>1533309360052</created>
       <option name="number" value="00010" />
@@ -3814,7 +3807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538137783702</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="bug fixing 43">
+      <created>1538139564678</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1538139564678</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3871,7 +3871,8 @@
     <MESSAGE value="pre release bug" />
     <MESSAGE value="email notification bug fixation" />
     <MESSAGE value="bug fixing 42" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixing 42" />
+    <MESSAGE value="bug fixing 43" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixing 43" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4260,6 +4261,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
