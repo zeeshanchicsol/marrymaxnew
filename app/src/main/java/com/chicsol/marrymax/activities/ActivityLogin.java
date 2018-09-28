@@ -78,6 +78,8 @@ public class ActivityLogin extends AppCompatActivity {
     ArrayList emailSuggestionList;
 
 
+    //jkn  k
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
