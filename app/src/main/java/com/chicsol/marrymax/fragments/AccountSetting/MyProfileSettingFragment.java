@@ -117,6 +117,13 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         return rootView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        pDialog = new ProgressDialog(context);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Loading...");
+    }
 
     private void initilize(View view) {
 
@@ -968,8 +975,8 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         super.onPause();
 
         if (pDialog != null)
-            pDialog.dismiss();
-        pDialog = null;
+        {    pDialog.dismiss();}
+
     }
 
     @Override

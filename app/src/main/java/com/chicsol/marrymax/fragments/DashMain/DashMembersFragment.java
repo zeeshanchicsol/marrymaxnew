@@ -157,7 +157,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
         NpaGridLayoutManager gridLayoutManager = new NpaGridLayoutManager(getContext(), 2);
 
-        recyclerViewMSLW.setLayoutManager(gridLayoutManager);
+
 
 
   /*      recyclerAdapterMSLW = new RecyclerViewAdapter();
@@ -167,6 +167,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
         recyclerAdapterMSLW = new RecyclerViewAdapter(context, this);
         recyclerAdapterMSLW.setLinearLayoutManager(gridLayoutManager);
+        recyclerViewMSLW.setLayoutManager(gridLayoutManager);
 
         recyclerAdapterMSLW.setRecyclerView(recyclerViewMSLW);
 

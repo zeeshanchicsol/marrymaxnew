@@ -328,8 +328,8 @@ public class MySavedSearchesListAdapter extends ArrayAdapter<cModel> {
                             Log.e("body ids rawww", gson.toJson(defaultSelectionsObj) + "  --");
 */
 
-                            Log.e("body ids rawww", defaultSelectionsObj.get_choice_height_from_id() + "  --");
-                            Log.e("body ids rawww", defaultSelectionsObj.get_choice_height_to_id() + "  --");
+                         //   Log.e("body ids rawww", defaultSelectionsObj.get_choice_height_from_id() + "  --");
+                       //     Log.e("body ids rawww", defaultSelectionsObj.get_choice_height_to_id() + "  --");
                             /*Log.e("body ids rawww", defaultSelectionsObj.get_country_id() + "  --");
                             Log.e("body ids rawww", defaultSelectionsObj.get_choice_country_ids() + "  --");
                             Log.e("body ids rawww", defaultSelectionsObj.get_choice_country_names() + "  --");*/
