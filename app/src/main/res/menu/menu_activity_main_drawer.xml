@@ -16,14 +16,15 @@
             android:id="@+id/nav_main_mymessages"
             android:icon="@drawable/ic_mail_outline_black_24dp"
             android:title="My Messages" />
+
+    </group>
+    <group android:id="@+id/grp3">
         <item
             android:id="@+id/nav_main_mymatches"
             android:icon="@drawable/ic_wc_black_24dp"
             android:title="My Matches"
 
             />
-    </group>
-    <group android:id="@+id/grp3">
         <item
             android:id="@+id/nav_main_advsearch"
             android:icon="@drawable/ic_search_black_24dp"
@@ -40,13 +41,14 @@
             android:icon="@drawable/ic_person_white_24dp"
             android:title="Edit Profile" />
         <item
-            android:id="@+id/nav_main_profile_settings"
-            android:icon="@drawable/ic_person_white_24dp"
-            android:title="Profile Setting" />
-        <item
             android:id="@+id/nav_main_uploadphotos"
             android:icon="@drawable/ic_add_a_photo_black_24dp"
             android:title="Upload Photos" />
+        <item
+            android:id="@+id/nav_main_profile_settings"
+            android:icon="@drawable/ic_profile_settings_24dp"
+            android:title="Profile Setting" />
+
         <item
             android:id="@+id/nav_main_myaccount"
             android:icon="@drawable/ic_settings_black_24dp"
