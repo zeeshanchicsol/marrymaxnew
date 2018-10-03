@@ -54,6 +54,7 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
     int selectedTab;
 
     private BottomNavigationView bottomNavigation;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -170,7 +171,8 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
         member = SharedPreferenceManager.getUserObject(getApplication());
 
         bottomNavigation = (BottomNavigationView) findViewById(R.id.navigation);
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigation);
+      bottomNavigation.setLabelVisibilityMode(1);
+  //   BottomNavigationViewHelper.disableShiftMode(bottomNavigation);
         //    fragmentManager = getSupportFragmentManager();
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
