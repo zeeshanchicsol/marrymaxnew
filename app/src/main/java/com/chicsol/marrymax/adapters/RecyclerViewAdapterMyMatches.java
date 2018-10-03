@@ -966,7 +966,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
         items.clear();
         items.addAll(lst);
         notifyDataSetChanged();
-        Log.e("item size in adapter", items.size() + "");
+     //   Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<Members> lst) {

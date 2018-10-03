@@ -258,14 +258,13 @@ public class dialogVerifyphone extends DialogFragment {
             }
         };
 
-        // StringRequest stringRequest=new StringRequest()
 
 
-        MySingleton.getInstance(
-
-                getContext()).
-
-                addToRequestQueue(req);
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getActivity()).addToRequestQueue(req);
 
     }
 

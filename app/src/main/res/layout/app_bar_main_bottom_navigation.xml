@@ -51,8 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@android:color/white"
-        app:menu="@menu/navigation"
         app:elevation="16dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/navigation"
         tools:override="true" />
     <!--    android:background="?android:attr/windowBackground"-->
 </LinearLayout><!--    <include layout="@layout/content_main" />-->

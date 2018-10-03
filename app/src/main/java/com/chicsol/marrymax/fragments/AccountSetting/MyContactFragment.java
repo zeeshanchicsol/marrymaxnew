@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.fragments.AccountSetting;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.adapters.MySpinnerCSCAdapter;
@@ -641,14 +643,16 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         llVerifyPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 0) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).getAlias() + "</font></b>, you need to complete your profile first before we send sms code.", "Complete Profile", 8);
                     dialogP.show(getFragmentManager(), "d");
 
                 } else {
-                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), true);
-                    newFragment.setTargetFragment(MyContactFragment.this, 3);
-                    newFragment.show(getFragmentManager(), "dialog");
+
+                      getValidCode(SharedPreferenceManager.getUserObject(getContext()).get_path());
+
+
 
 
                 }
@@ -1137,70 +1141,120 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     }
 
 
-/*    private void updateEmail() {
+    /*    private void updateEmail() {
 
-        pDialog.setVisibility(View.VISIBLE);
-        //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
+            pDialog.setVisibility(View.VISIBLE);
+            //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
-        JSONObject params = new JSONObject();
-        try {
-
-
-            params.put("name", "" + etAsEmail.getText().toString());
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            JSONObject params = new JSONObject();
+            try {
 
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Log.e("updateEmail", Urls.updateEmail + " == " + params);
-
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.updateEmail, params,
-                new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                params.put("name", "" + etAsEmail.getText().toString());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
 
 
-                        Gson gson;
-                        GsonBuilder gsonBuilder = new GsonBuilder();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.e("updateEmail", Urls.updateEmail + " == " + params);
 
-                        gson = gsonBuilder.create();
-                        Type type = new TypeToken<WebArd>() {
-                        }.getType();
-                        WebArd webArd = (WebArd) gson.fromJson(response.toString(), type);
-                        if (webArd.getId().equals("0")) {
-                            Toast.makeText(getContext(), "Email Not updated", Toast.LENGTH_SHORT).show();
+            JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                    Urls.updateEmail, params,
+                    new Response.Listener<JSONObject>() {
 
-                        } else if (webArd.getId().equals("1")) {
-                            Toast.makeText(getContext(), "Email Updated", Toast.LENGTH_SHORT).show();
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.e("re  update appearance", response + "");
 
-                        } else if (webArd.getId().equals("2")) {
-                            Toast.makeText(getContext(), "Not a valid Email", Toast.LENGTH_SHORT).show();
 
-                        } else if (webArd.getId().equals("3")) {
-                            Toast.makeText(getContext(), "Email  Exists", Toast.LENGTH_SHORT).show();
+                            Gson gson;
+                            GsonBuilder gsonBuilder = new GsonBuilder();
 
+                            gson = gsonBuilder.create();
+                            Type type = new TypeToken<WebArd>() {
+                            }.getType();
+                            WebArd webArd = (WebArd) gson.fromJson(response.toString(), type);
+                            if (webArd.getId().equals("0")) {
+                                Toast.makeText(getContext(), "Email Not updated", Toast.LENGTH_SHORT).show();
+
+                            } else if (webArd.getId().equals("1")) {
+                                Toast.makeText(getContext(), "Email Updated", Toast.LENGTH_SHORT).show();
+
+                            } else if (webArd.getId().equals("2")) {
+                                Toast.makeText(getContext(), "Not a valid Email", Toast.LENGTH_SHORT).show();
+
+                            } else if (webArd.getId().equals("3")) {
+                                Toast.makeText(getContext(), "Email  Exists", Toast.LENGTH_SHORT).show();
+
+                            }
+
+
+                            pDialog.setVisibility(View.GONE);
                         }
+                    }, new Response.ErrorListener() {
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
 
 
-                        pDialog.setVisibility(View.GONE);
+                    VolleyLog.e("res err", "Error: " + error);
+                    // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
+
+                    pDialog.setVisibility(View.GONE);
+                }
+
+
+            }) {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    return Constants.getHashMap();
+                }
+            };
+
+    // Adding request to request queue
+            ///   rq.add(jsonObjReq);
+            jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                    0,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
+
+        }*/
+    private void getValidCode(final String path) {
+        final ProgressDialog pDialog = new ProgressDialog(getContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+        Log.e("path", "" + Urls.getValidCode + path);
+        StringRequest req = new StringRequest(Urls.getValidCode + path,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("Response--", response.toString() + "==");
+                        if (response != null) {
+
+                            if (Long.parseLong(response) == 0) {
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), false);
+                                newFragment.setTargetFragment(MyContactFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+
+                            } else {
+
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), true);
+                                newFragment.setTargetFragment(MyContactFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+                            }
+                        }
+                        pDialog.dismiss();
                     }
-                }, new Response.ErrorListener() {
+                }, new Response.ErrorListener()
 
+        {
             @Override
             public void onErrorResponse(VolleyError error) {
-
-
-                VolleyLog.e("res err", "Error: " + error);
-                // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
-
-                pDialog.setVisibility(View.GONE);
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+                pDialog.dismiss();
             }
-
-
         }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
@@ -1208,16 +1262,14 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             }
         };
 
-// Adding request to request queue
-        ///   rq.add(jsonObjReq);
-        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+
+        req.setRetryPolicy(new DefaultRetryPolicy(
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
+        MySingleton.getInstance(getActivity()).addToRequestQueue(req);
 
-    }*/
-
+    }
 
     @Override
     public void onComplete(String s) {

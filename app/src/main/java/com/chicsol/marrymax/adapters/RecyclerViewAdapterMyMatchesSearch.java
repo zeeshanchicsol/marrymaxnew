@@ -903,7 +903,6 @@ private RecyclerView recyclerView;
           *//*  mRecyclerView.post(new Runnable() {
                 public void run() {
 
-
                 }
             });*//*
 

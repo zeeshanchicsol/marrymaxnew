@@ -7,31 +7,31 @@
         android:enabled="true"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Dashboard"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always|withText"  />
 
     <item
         android:id="@+id/navigation_mymatches"
         android:enabled="true"
         android:icon="@drawable/ic_wc_black_24dp"
         android:title="My Matches"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always|withText" />
 
     <item
         android:id="@+id/navigation_messages"
         android:enabled="true"
         android:icon="@drawable/ic_mail_outline_black_24dp"
         android:title="Inbox"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always|withText"  />
     <item
         android:id="@+id/navigation_mylist"
         android:enabled="true"
         android:icon="@drawable/ic_playlist_add_check_black_24dp"
         android:title="My List"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always|withText"  />
     <item
         android:id="@+id/navigation_myaccount"
         android:enabled="true"
         android:icon="@drawable/ic_settings_black_24dp"
         android:title="My Account"
-        app:showAsAction="ifRoom" />-->
+        app:showAsAction="always|withText" />-->
 </menu>

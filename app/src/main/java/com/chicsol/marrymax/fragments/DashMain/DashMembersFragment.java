@@ -110,6 +110,8 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
     @Override
     public void onResume() {
         super.onResume();
+
+        recyclerAdapterMSLW.setMoreLoading(false);
         lastPage = 1;
         totalPages = 0;
         LoadData();
@@ -371,7 +373,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
                                 Log.e("membersDataListMSLW 56", membersDataListMSLW.size() + "  ");
                                 recyclerAdapterMSLW.addAll(membersDataListMSLW);
 
-                                Log.e("getMoreLoading", recyclerAdapterMSLW.getMoreLoading() + "");
+
                                 recyclerAdapterMSLW.setMoreLoading(false);
                                /* recyclerAdapterMSLL = new RecyclerViewAdapter(membersDataListMSLW, context);
                                 recyclerAdapterMSLL.setOnItemClickListener(DashboardMainFragment.this);
@@ -600,8 +602,8 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         startActivity(intent);*/
 
         Log.e("position", "position: " + position);
-        items.clear();
-        items.add(members);
+      //  items.clear();
+      //  items.add(members);
 
         Activity activity = (Activity) getContext();
         MarryMax marryMax = new MarryMax(getActivity());

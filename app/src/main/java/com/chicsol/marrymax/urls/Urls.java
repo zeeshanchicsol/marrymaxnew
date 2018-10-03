@@ -152,7 +152,9 @@ public class Urls {
     public static String editContact = baseUrl + "/api/WebArd/EditContact";
     public static String deleteContact = baseUrl + "/api/WebArd/DeleteContact";
     public static String getMobileCode = baseUrl + "/api/WebArd/GetMobileCode/";
+    public static String getValidCode = baseUrl + "/api/WebArd/GetValidCode/";
     public static String validateMobile = baseUrl + "/api/WebArd/ValidateMobile";
+
     public static String getPreferences = baseUrl + "/api/WebArd/GetPreferences/";
     public static String editPreferences = baseUrl + "/api/WebArd/EditPreferences";
     public static String getSubscriptions = baseUrl + "/api/WebArd/GetSubscriptions/";

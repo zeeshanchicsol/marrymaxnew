@@ -119,7 +119,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         return bmp_sticker;
                     }
                 }).*/build();
-
+        items = new ArrayList<>();
 
     }
 
