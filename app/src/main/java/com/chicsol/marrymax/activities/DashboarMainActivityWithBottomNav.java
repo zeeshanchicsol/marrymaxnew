@@ -14,6 +14,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -30,7 +31,10 @@ import com.chicsol.marrymax.helperMethods.BottomNavigationViewHelper;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.other.UserSessionManager;
+import com.chicsol.marrymax.preferences.PDefaultValue;
+import com.chicsol.marrymax.preferences.Prefs;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
+import com.chicsol.marrymax.utils.AppVersionCode;
 import com.chicsol.marrymax.utils.ConnectCheck;
 
 import java.util.ArrayList;
@@ -126,7 +130,12 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
         setContentView(R.layout.activity_dashboard_main_bottom_navigation);
 
         //  typeface = Typeface.createFromAsset(getAssets(), Constants.font_centurygothic);
+   /*     if (Prefs.getApplicationVersionCode(this) <
+   AppVersionCode.getApkVersionCode(this)) {
+         //   Log.e("Old Version is: " + Prefs.getApplicationVersionCode(this), "New is : " + AppVersionCode.getApkVersionCode(this));
+            checkApplicationVersionCode();
 
+        }*/
 
         selectedTab = getIntent().getIntExtra("name", 0);
         //   Toast.makeText(this, "sss is " + selectedTab, Toast.LENGTH_SHORT).show();
@@ -171,8 +180,8 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
         member = SharedPreferenceManager.getUserObject(getApplication());
 
         bottomNavigation = (BottomNavigationView) findViewById(R.id.navigation);
-      bottomNavigation.setLabelVisibilityMode(1);
-  //   BottomNavigationViewHelper.disableShiftMode(bottomNavigation);
+        bottomNavigation.setLabelVisibilityMode(1);
+        //   BottomNavigationViewHelper.disableShiftMode(bottomNavigation);
         //    fragmentManager = getSupportFragmentManager();
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -419,4 +428,22 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
         }, 4000);
     }
 
+    void checkApplicationVersionCode() {
+        switch (Prefs.getApplicationVersionCode(this)) {
+            /**********   for the very first time only   **********/
+            /**********   things that we need only once  **********/
+            case PDefaultValue.VERSION_CODE:
+
+                //put this apk version code in Shared Preference
+                Prefs.putApplicationVersionCode(this, AppVersionCode.getApkVersionCode(this));
+
+                //recall this method so that doWorkOnLatestVersion() can be called
+                checkApplicationVersionCode();
+                break;
+            //**********************************************************//
+            default:
+                //do this for every version
+                break;
+        }
+    }
 }

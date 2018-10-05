@@ -13,10 +13,13 @@ import io.fabric.sdk.android.Fabric;
 
 public class App extends Application {
     private static App mInstance;
-
+    public static String package_name;
     @Override
     public void onCreate() {
         super.onCreate();
+
+        package_name = getPackageName();
+
         Fabric.with(this, new Crashlytics());
         mInstance = this;
 
