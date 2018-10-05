@@ -518,7 +518,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
 
                                         llMMMatchesNotFoundCompleteProfile.setVisibility(View.VISIBLE);
                                         tvMatchesCountCp.setText(memberTotalPages.get_total_member_count() + "");
-                                        tvComplProfioleTitle.setText("Matches, Looking For Me!");
+                                        tvComplProfioleTitle.setText("Members, Looking For Me!");
 
                                     } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
 
@@ -530,7 +530,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
 
                                         llSubscribeNow.setVisibility(View.VISIBLE);
                                         tvMatchesCountSubscribeNow.setText(memberTotalPages.get_total_member_count() + "");
-                                        tvSubscribeNowTitle.setText("Matches, Looking For Me!");
+                                        tvSubscribeNowTitle.setText("Members, Looking For Me!");
 
 
                                     } else {

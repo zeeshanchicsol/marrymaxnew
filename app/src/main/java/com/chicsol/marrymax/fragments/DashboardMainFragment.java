@@ -663,24 +663,24 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         llMembersLookingForMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
+              //  if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
 
                     Intent in = new Intent(getContext(), MainDirectiveActivity.class);
                     in.putExtra("type", 4);
                     startActivity(in);
-                }
+             //   }
 
             }
         });
         llMatchesLookingForMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
+              //  if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
 
                     Intent in = new Intent(getContext(), MainDirectiveActivity.class);
                     in.putExtra("type", 3);
                     startActivity(in);
-                }
+              //  }
 
             }
         });

@@ -500,7 +500,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
 
                                         llMMMatchesNotFoundCompleteProfile.setVisibility(View.VISIBLE);
                                         tvMatchesCountCp.setText(memberTotalPages.get_total_member_count() + "");
-                                        tvComplProfioleTitle.setText("Members Looking For Me");
+                                        tvComplProfioleTitle.setText("Matches Looking For Me");
 
 
                                     } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
@@ -513,7 +513,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
 
                                         llSubscribeNow.setVisibility(View.VISIBLE);
                                         tvMatchesCountSubscribeNow.setText(memberTotalPages.get_total_member_count() + "");
-                                        tvSubscribeNowTitle.setText("Members Looking For Me");
+                                        tvSubscribeNowTitle.setText("Matches Looking For Me");
 
 
                                     } else {
