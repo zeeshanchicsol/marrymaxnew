@@ -91,6 +91,8 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
         setContentView(R.layout.fragment_dashboard_mymatches);
 
 
+
+
         initilize();
         setListenders();
     }
@@ -126,6 +128,8 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     public void onResume() {
         super.onResume();
 
+
+
    /*     if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
 
             if (defaultSelectionsObj != null) {
@@ -150,6 +154,8 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
 
 
         if (ConnectCheck.isConnected(LinearLayoutMMMatchesNotFound)) {
+
+
             Members memberSearchObj = defaultSelectionsObj;
             if (memberSearchObj != null) {
                 memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
@@ -224,6 +230,17 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
 
     private void initilize() {
 
+        if (defaultSelectionsObj != null) {
+
+            if (defaultSelectionsObj.getAlias()!=null) {
+                if (!defaultSelectionsObj.getAlias().equals("")) {
+
+                    TAG = "searchByAlias";
+                }
+            }
+        }
+
+
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
         toolbar.setTitle("Search");
@@ -238,10 +255,11 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
         recyclerView = (RecyclerView) findViewById(R.id.RecyclerViewDashMainMyMatches);
 
 
-        LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getApplicationContext());
+        LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchResultsActivity.this, getSupportFragmentManager(), this, this, this,TAG);
+
+        recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchResultsActivity.this, getSupportFragmentManager(), this, this, this, TAG);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);
@@ -631,6 +649,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
         super.onPrepareOptionsMenu(menu);
         return true;
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -418,7 +418,8 @@ public class MarryMax {
                     Intent intent = new Intent(context, UserProfileActivityWithSlider.class);
 
 
-                    if (TAG.equals("SavedNotes") || TAG.equals("AccpetedMembers") || TAG.equals("FavouriteMembers")) {
+                    Log.e("Tag is",TAG+"==");
+                    if (TAG.equals("SavedNotes") || TAG.equals("AccpetedMembers") || TAG.equals("FavouriteMembers") || TAG.equals("searchByAlias")) {
 
 
                         Gson gsonc;

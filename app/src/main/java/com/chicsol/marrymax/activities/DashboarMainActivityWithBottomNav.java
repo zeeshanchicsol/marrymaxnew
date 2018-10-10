@@ -376,7 +376,7 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
             Intent in = new Intent(DashboarMainActivityWithBottomNav.this, SubscriptionPlanActivity.class);
             startActivity(in);
 
-        } else if (id == R.id.nav_main_rate_app) {
+        } /*else if (id == R.id.nav_main_rate_app) {
             Uri uri = Uri.parse("market://details?id=" + getPackageName());
             Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
             // To count with Play market backstack, After pressing back button,
@@ -391,7 +391,7 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
                         Uri.parse("http://play.google.com/store/apps/details?id=" + context.getPackageName())));
             }
 
-        } else if (id == R.id.nav_main_contact_us) {
+        }*/ else if (id == R.id.nav_main_contact_us) {
             MarryMax max = new MarryMax(DashboarMainActivityWithBottomNav.this);
             max.contact();
 
