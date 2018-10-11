@@ -141,8 +141,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="60dp"
                             android:layout_marginTop="20dp"
+                            android:layout_marginBottom="60dp"
                             android:orientation="vertical"
 
                             >
@@ -201,8 +201,8 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginRight="20dp"
                                             android:layout_marginTop="20dp"
+                                            android:layout_marginRight="20dp"
                                             app:columnCount="1">
 
 
@@ -309,9 +309,18 @@
                                                 android:textColor="@color/colorBlack"
                                                 app:backgroundTint="@color/colorUnderline" />
 
+                                            <TextView
+
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginBottom="5dp"
+                                                android:lineSpacingExtra="2dp"
+                                                android:lineSpacingMultiplier="1"
+                                                android:text="@string/declaration_text"
+                                                android:textColor="@color/colorBlack"
+                                                app:layout_gravity="right" />
 
                                         </android.support.v7.widget.GridLayout>
-
 
                                     </LinearLayout>
 

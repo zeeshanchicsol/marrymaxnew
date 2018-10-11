@@ -1728,7 +1728,23 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@color/colorUserProfileSeparationLine"></View>
+                <TextView
 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:lineSpacingExtra="2dp"
+                    android:lineSpacingMultiplier="1"
+                    android:text="@string/declaration_text"
+                    android:textColor="@color/colorBlack"
+                    app:layout_gravity="right" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorUserProfileSeparationLine"></View>
             </LinearLayout>
 
 
