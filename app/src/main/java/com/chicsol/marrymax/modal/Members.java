@@ -538,7 +538,7 @@ public class Members {
     @SerializedName("interest_response")
     private long _interest_response;
     @SerializedName("interested_id")
-    private long _interested_id;
+    private long _interested_id=0;
     @SerializedName("interest_received")
     private long _interest_received;
     @SerializedName("image_count")
