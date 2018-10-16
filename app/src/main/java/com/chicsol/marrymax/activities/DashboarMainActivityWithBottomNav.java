@@ -176,6 +176,7 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
         idList[4] = R.id.navigation_myaccount;
 
         mViewPager = (ViewPager) findViewById(R.id.container_dashmain_nav);
+        mViewPager.setOffscreenPageLimit(5);
         setupViewPager(mViewPager);
         member = SharedPreferenceManager.getUserObject(getApplication());
 

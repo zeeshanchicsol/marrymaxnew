@@ -28,11 +28,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="declaration added">
+    <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$ViewPagerAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$ViewPagerAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" afterDir="false" />
@@ -46,27 +49,25 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/modal/Members.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/chicsol/marrymax/modal/Members.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/package_slice_0/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/package_slice_0/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/package_slice_8/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/ir_slices/debug/package_slice_8/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_0.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_0.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_8.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_8.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/8/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/8/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$ViewPagerAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav$ViewPagerAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$11.class" afterDir="false" />
@@ -80,21 +81,23 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$18.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$20.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/modal/Members.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/modal/Members.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/GridRecyclerView.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/GridRecyclerView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/PrefixEditText.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/PrefixEditText.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/RoundedImageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/RoundedImageView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/SquareImageView.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/SquareImageView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/SquareImageViewMSLW.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/SquareImageViewMSLW.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/faTextView.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/faTextView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mAutoCompleteTextView.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mAutoCompleteTextView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mButton2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mButton2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mCheckBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mCheckBox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mEditText.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mEditText.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mRadioButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mRadioButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mTextView.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/0/com/chicsol/marrymax/widgets/mTextView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/__content__.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -119,20 +122,20 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="activity_register_personality.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_personality.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
+            <state relative-caret-position="4665">
               <caret line="311" column="39" selection-start-line="311" selection-start-column="39" selection-end-line="320" selection-end-column="77" />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="BasicInfoFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
+            <state relative-caret-position="1035">
               <caret line="94" column="68" selection-start-line="94" selection-start-column="68" selection-end-line="94" selection-end-column="68" />
             </state>
           </provider>
@@ -140,16 +143,16 @@
       </file>
       <file leaf-file-name="fragment_userprpfile_basic_info.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_userprpfile_basic_info.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
+            <state relative-caret-position="25560">
               <caret line="1726" column="47" selection-start-line="1726" selection-start-column="47" selection-end-line="1726" selection-end-column="47" />
               <folding>
                 <element signature="e#61773#62697#0" />
               </folding>
             </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -165,40 +168,26 @@
       <file leaf-file-name="MyProfileSettingFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12548">
-              <caret line="89" column="44" lean-forward="true" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
-              <folding>
-                <element signature="e#9050#9559#0" expanded="true" />
-                <element signature="e#9558#9559#0" expanded="true" />
-                <element signature="e#9610#9766#0" expanded="true" />
-                <element signature="e#9765#9766#0" expanded="true" />
-                <element signature="e#9809#10086#0" expanded="true" />
-                <element signature="e#10085#10086#0" expanded="true" />
-                <element signature="e#10133#11028#0" expanded="true" />
-                <element signature="e#11027#11028#0" expanded="true" />
-                <element signature="e#11073#11345#0" expanded="true" />
-                <element signature="e#11344#11345#0" expanded="true" />
-                <element signature="e#12052#12350#0" expanded="true" />
-                <element signature="e#12349#12350#0" expanded="true" />
-                <element signature="e#12438#12953#0" expanded="true" />
-                <element signature="e#12952#12953#0" expanded="true" />
-                <element signature="e#12997#13763#0" expanded="true" />
-                <element signature="e#13246#13285#0" expanded="true" />
-                <element signature="e#13762#13763#0" expanded="true" />
-                <element signature="e#13819#14552#0" expanded="true" />
-                <element signature="e#14551#14552#0" expanded="true" />
-                <element signature="e#38066#38067#0" expanded="true" />
-                <element signature="e#38092#38093#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="510">
+              <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DashMembersFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DashMembersFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="472" column="49" lean-forward="true" selection-start-line="472" selection-start-column="49" selection-end-line="472" selection-end-column="49" />
+            <state relative-caret-position="17">
+              <caret line="485" column="80" selection-start-line="485" selection-start-column="80" selection-end-line="485" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DashboarMainActivityWithBottomNav.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="167" column="88" selection-start-line="167" selection-start-column="88" selection-end-line="167" selection-end-column="88" />
             </state>
           </provider>
         </entry>
@@ -206,8 +195,8 @@
       <file leaf-file-name="WhoIsLookingForMeSearchActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4771">
-              <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
+            <state relative-caret-position="2925">
+              <caret line="247" selection-start-line="247" selection-end-line="247" />
             </state>
           </provider>
         </entry>
@@ -215,8 +204,8 @@
       <file leaf-file-name="UserProfileActivityFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="857" column="54" lean-forward="true" selection-start-line="857" selection-start-column="14" selection-end-line="857" selection-end-column="54" />
+            <state relative-caret-position="11385">
+              <caret line="857" column="54" selection-start-line="857" selection-start-column="14" selection-end-line="857" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -224,21 +213,8 @@
       <file leaf-file-name="Members.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="8040">
               <caret line="540" column="33" selection-start-line="540" selection-start-column="33" selection-end-line="540" selection-end-column="33" />
-              <folding>
-                <element signature="e#62568#62569#0" expanded="true" />
-                <element signature="e#62605#62606#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="56" column="109" selection-start-line="56" selection-start-column="109" selection-end-line="56" selection-end-column="110" />
             </state>
           </provider>
         </entry>
@@ -256,7 +232,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onLayoutChildren</find>
       <find>setProgressMore</find>
       <find>onRes</find>
       <find>LoadData</find>
@@ -286,6 +261,7 @@
       <find>getPhoneNumber</find>
       <find>pDialog</find>
       <find>null</find>
+      <find>ViewPager</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments</dir>
@@ -3719,7 +3695,6 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_activity_main_drawer.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/other/MarryMax.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/SearchResultsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
@@ -3728,10 +3703,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="965" />
@@ -3743,6 +3720,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3903,7 +3881,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3917,7 +3894,7 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="device.picker.selection" value="ZX1G22Q6XQ" />
+    <property name="device.picker.selection" value="ed486f02" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1536303285852" />
@@ -4080,13 +4057,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1532684130521</updated>
-    </task>
-    <task id="LOCAL-00019" summary="updatesrfgg">
-      <created>1533998352511</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1533998352511</updated>
     </task>
     <task id="LOCAL-00020" summary="updatesrfgg">
       <created>1534001357761</created>
@@ -4424,7 +4394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539256345780</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="declaration added">
+      <created>1539341869473</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1539341869475</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TodoView">
@@ -4437,7 +4414,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="965" extended-state="0" />
+    <frame x="1" y="23" width="1920" height="965" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32911393" />
@@ -4447,11 +4424,10 @@
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.44462195" side_tool="true" weight="0.09907834" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.32960597" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48509052" weight="0.32528734" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.35714287" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5266241" weight="0.32988507" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="7" sideWeight="0.5553781" visible="true" weight="0.26152074" />
+      <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.5553781" weight="0.41129032" />
       <window_info id="Captures" order="2" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -4466,6 +4442,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Assistant" order="4" weight="0.32960597" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.32960597" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -4531,13 +4508,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_main_bottom_navigation.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values-hdpi/dimens.xml">
@@ -4635,23 +4612,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_mymatches.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1695">
           <caret line="389" column="60" selection-start-line="389" selection-start-column="60" selection-end-line="389" selection-end-column="60" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9825">
           <caret line="655" column="45" selection-start-line="655" selection-start-column="45" selection-end-line="655" selection-end-column="45" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/directive/MainDirectiveActivity.java">
@@ -4669,18 +4646,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_user_profile_toolbar.xml">
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_profile.xml">
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
     </entry>
@@ -4692,13 +4669,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_activity_main_drawer.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1065">
           <caret line="71" column="9" selection-start-line="71" selection-start-column="5" selection-end-line="74" selection-end-column="42" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
@@ -4764,13 +4741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4905">
-          <caret line="375" column="30" selection-start-line="375" selection-start-column="30" selection-end-line="375" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/other/MarryMax.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5295">
@@ -4800,16 +4770,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_userprpfile_basic_info.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
+        <state relative-caret-position="25560">
           <caret line="1726" column="47" selection-start-line="1726" selection-start-column="47" selection-end-line="1726" selection-end-column="47" />
           <folding>
             <element signature="e#61773#62697#0" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MySubscriptionFragment.java">
@@ -4820,81 +4790,61 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_personality.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="4665">
           <caret line="311" column="39" selection-start-line="311" selection-start-column="39" selection-end-line="320" selection-end-column="77" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
+        <state relative-caret-position="1035">
           <caret line="94" column="68" selection-start-line="94" selection-start-column="68" selection-end-line="94" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="8040">
           <caret line="540" column="33" selection-start-line="540" selection-start-column="33" selection-end-line="540" selection-end-column="33" />
-          <folding>
-            <element signature="e#62568#62569#0" expanded="true" />
-            <element signature="e#62605#62606#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="857" column="54" lean-forward="true" selection-start-line="857" selection-start-column="14" selection-end-line="857" selection-end-column="54" />
+        <state relative-caret-position="11385">
+          <caret line="857" column="54" selection-start-line="857" selection-start-column="14" selection-end-line="857" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeSearchActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4771">
-          <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
+        <state relative-caret-position="2925">
+          <caret line="247" selection-start-line="247" selection-end-line="247" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12548">
-          <caret line="89" column="44" lean-forward="true" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
-          <folding>
-            <element signature="e#9050#9559#0" expanded="true" />
-            <element signature="e#9558#9559#0" expanded="true" />
-            <element signature="e#9610#9766#0" expanded="true" />
-            <element signature="e#9765#9766#0" expanded="true" />
-            <element signature="e#9809#10086#0" expanded="true" />
-            <element signature="e#10085#10086#0" expanded="true" />
-            <element signature="e#10133#11028#0" expanded="true" />
-            <element signature="e#11027#11028#0" expanded="true" />
-            <element signature="e#11073#11345#0" expanded="true" />
-            <element signature="e#11344#11345#0" expanded="true" />
-            <element signature="e#12052#12350#0" expanded="true" />
-            <element signature="e#12349#12350#0" expanded="true" />
-            <element signature="e#12438#12953#0" expanded="true" />
-            <element signature="e#12952#12953#0" expanded="true" />
-            <element signature="e#12997#13763#0" expanded="true" />
-            <element signature="e#13246#13285#0" expanded="true" />
-            <element signature="e#13762#13763#0" expanded="true" />
-            <element signature="e#13819#14552#0" expanded="true" />
-            <element signature="e#14551#14552#0" expanded="true" />
-            <element signature="e#38066#38067#0" expanded="true" />
-            <element signature="e#38092#38093#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="510">
+          <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="472" column="49" lean-forward="true" selection-start-line="472" selection-start-column="49" selection-end-line="472" selection-end-column="49" />
+        <state relative-caret-position="17">
+          <caret line="485" column="80" selection-start-line="485" selection-start-column="80" selection-end-line="485" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="167" column="88" selection-start-line="167" selection-start-column="88" selection-end-line="167" selection-end-column="88" />
         </state>
       </provider>
     </entry>
