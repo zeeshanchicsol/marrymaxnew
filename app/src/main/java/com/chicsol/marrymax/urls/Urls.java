@@ -30,6 +30,11 @@ public class Urls {
 
     public static String updateUserGeographyUrl = baseUrl + "/api/WebArd/EditGeogrophics";
 
+    public static String getCntCode = baseUrl + "/api/WebArd/GetCntCode/";
+
+    public static String getIpAddress = baseUrl + "/api/WebArd/GetIpAddress/";
+
+
     //Appearance
     public static String RegGetProfileAppearance = baseUrl + "/api/WebArd/GetProfileAppearance/";
     public static String updateUserAppearanceUrl = baseUrl + "/api/WebArd/EditAppearance";
@@ -227,8 +232,6 @@ public class Urls {
     public static String securityTip = baseUrl + "/App/SecurityTip";
     public static String termsofUse = baseUrl + "/App/TermsofUse";
     public static String whyMarryMax = baseUrl + "/App/WhyMarryMax";
-
-
 
 
     //=============Request And Permissios==================================================

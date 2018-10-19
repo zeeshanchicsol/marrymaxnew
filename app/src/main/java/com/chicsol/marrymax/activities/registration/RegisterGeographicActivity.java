@@ -69,7 +69,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
     private Spinner spMyCountry, spCountryOrigin, spMyCountryState, spMyCountryCity;
     private List<cModel> MyCountryDataList2;
-    private List<WebArd> MyCountryDataList, MyCountryStateDataList, MyCountryCityDataList, MyChoiceCountryDataList,MyChoiceOriginCountryDataList, VisaDataList;
+    private List<WebArd> MyCountryDataList, MyCountryStateDataList, MyCountryCityDataList, MyChoiceCountryDataList, MyChoiceOriginCountryDataList, VisaDataList;
     private MySpinnerAdapter adapter_myCountry, adapter_country_origin, adapter_myCountryStates, adapter_myCountryCity, adapter_myChoiceCountry;
     private LinearLayout llCheckboxView;
     private RadioGroup radioGroup;
@@ -137,8 +137,8 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         MyChoiceOriginCountryDataList = new ArrayList<>();
 
         VisaDataList = new ArrayList<>();
-        // seletedCountriesDataList = new ArrayList();
-        //  seletedCountriesDataListTemp = new ArrayList();
+        //seletedCountriesDataList = new ArrayList();
+        //seletedCountriesDataListTemp = new ArrayList();
         seletedCountriesIdDataList = new ArrayList();
         //spinners
         spMyCountry = (Spinner) findViewById(R.id.spinnerMyCountryg);
@@ -218,7 +218,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                     cModel c = MyCountryDataList2.get(position - 1);
                     Log.e("country data code", "" + c.getCode());
 
-                    getCurrentIP(c.getCode());
+                    getCountryCode(c.getCode());
 
                 }
                 if (Integer.parseInt(ard.getId()) != 0 && updateData != true) {
@@ -495,11 +495,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         }
 
 
-
         pDialog.show();
-
-
-
 
 
         new Handler().postDelayed(new Runnable() {
@@ -870,52 +866,98 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
     }
 
-    public void getCurrentIP(final String selectedCountryCode) {
+    public void getCountryCode(final String selectedCountryCode) {
 
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://ipecho.net/plain";
 
-// Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+        Log.e("api path", Urls.getCntCode);
+        StringRequest req = new StringRequest(Urls.getCntCode,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        //      mTextView.setText("Response is: "+ response.substring(0,500));
+                        Log.e("Response", "=======================  " + response);
+                        Log.e("country code  " + selectedCountryCode, response);
 
-                        GetCountryCode(response.toString(), selectedCountryCode);
+                        String cc = response;
+                        response = response.replaceAll("^\"|\"$", "");
+
+                        if (!selectedCountryCode.toLowerCase().equals(response.toLowerCase())) {
+                            dialogGeoInfo newFragment = dialogGeoInfo.newInstance(response.toString());
+                            newFragment.show(getSupportFragmentManager(), "dialog");
+                        }
+
+                     //   getIp(cc);
+
 
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("response error", "" + error);
+                VolleyLog.d("Err", "Error: " + error.getMessage());
 
             }
-        });
-// Add the request to the RequestQueue.
-        queue.add(stringRequest);
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(req);
 
 
     }
 
-    private void GetCountryCode(String clientip, final String selectedCountryCode) {
+   /* public void getIp(final String cc) {
+        Log.e("api path", Urls.getIpAddress);
+        StringRequest req = new StringRequest(Urls.getIpAddress,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("Response", "=======================  " + response);
+                        //  Log.e("country code", response.get("countryCode").toString());
+                        Toast.makeText(RegisterGeographicActivity.this, "CountryCode & IP = "+cc + "  " + response, Toast.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(req);
+
+
+    }*/
+
+/*    private void getCountryCodeX(final String selectedCountryCode) {
+        // getCurrentIP();
 
         pDialog.show();
+        //   Log.e("clientip", "http://geoip.nekudo.com/api/" + clientip + "/en/short ");
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                "http://geoip.nekudo.com/api/" + clientip + "/en/short ", null,
+                "http://ip-api.com/json", null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        //  Log.e("res mainnnnnnnnnnn", response + "");
+                        Log.e("res mainnnnnnnnnnn", response + "");
                         try {
 
-                            JSONObject jsonObjCountry = response.getJSONObject("country");
 
-                            Log.e("country code", jsonObjCountry.get("code").toString());
-                            if (!selectedCountryCode.equals(jsonObjCountry.get("code").toString())) {
+                            Log.e("country code", response.get("countryCode").toString());
+                            if (!selectedCountryCode.equals(response.get("countryCode").toString())) {
                                 dialogGeoInfo newFragment = dialogGeoInfo.newInstance(response.toString());
                                 newFragment.show(getSupportFragmentManager(), "dialog");
 
@@ -943,15 +985,13 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         };
 
 
-
-
-/*        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));*/
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjReq);
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
 
-    }
+    }*/
 
     @Override
     public void onDestroy() {
@@ -988,7 +1028,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 break;
 
             case 2:
-              MyChoiceOriginCountryDataList.clear();
+                MyChoiceOriginCountryDataList.clear();
                 MyChoiceOriginCountryDataList.addAll(s);
 
 

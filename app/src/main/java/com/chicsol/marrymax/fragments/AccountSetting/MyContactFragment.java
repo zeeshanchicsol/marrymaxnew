@@ -644,15 +644,13 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             @Override
             public void onClick(View v) {
 
-                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 0) {
+                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 0 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).getAlias() + "</font></b>, you need to complete your profile first before we send sms code.", "Complete Profile", 8);
                     dialogP.show(getFragmentManager(), "d");
 
                 } else {
 
-                      getValidCode(SharedPreferenceManager.getUserObject(getContext()).get_path());
-
-
+                    getValidCode(SharedPreferenceManager.getUserObject(getContext()).get_path());
 
 
                 }

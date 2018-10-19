@@ -367,7 +367,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
                                 SharedPreferenceManager.setUserObject(getApplicationContext(), response.getJSONObject("data"));
-                                session.createUserLoginSession(response.getJSONObject("data").get("alias").toString(), response.getJSONObject("data").getLong("memberid") + "", response.getJSONObject("data").getInt("member_status") + "");
+                                session.createUserLoginSession(response.getJSONObject("data").get("alias").toString(), response.getJSONObject("data").getString("path") + "", response.getJSONObject("data").getInt("member_status") + "");
 
                                 //  Log.d("Member id", response.getLong("memberid") + "");
                                 //  Log.d("Alias", response.get("alias").toString());
