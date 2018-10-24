@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.adapters.RecyclerViewAdapterAmenities;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterRecomendedMembers;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterSubscriptionPlan;
 import com.chicsol.marrymax.modal.Subscription;
@@ -56,11 +58,12 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
     private ProgressBar pDialog;
     TextView tvPackageDetails;
     Context activity;
-
+    private RecyclerView rvAmenities;
+    private RecyclerViewAdapterAmenities adapterAmenities;
     // AppCompatButton btSearch;
 
     private LinearLayout llEmptyState;
-   // private AppCompatButton packageDetails;
+    // private AppCompatButton packageDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +108,7 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
         //  packageDetails = (AppCompatButton) findViewById(R.id.SubscriptionPlanPackageDetails);
         tvPackageDetails = (TextView) findViewById(R.id.TextViewSubscriptionPlanPackages);
 
-        getSupportActionBar().setTitle("Subscription Plans");
+        getSupportActionBar().setTitle("Subscription Packages");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -131,6 +134,26 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
         recyclerAdapter.setRecyclerView(recyclerView);
 
         recyclerView.setAdapter(recyclerAdapter);
+
+
+        rvAmenities = (RecyclerView) findViewById(R.id.RecyclerViewOptions);
+
+        rvAmenities.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
+
+        List<String> featuresList = new ArrayList<String>();
+
+        featuresList.add("Personalized Assistance");
+        featuresList.add("View Verfied Phone Numbers");
+        featuresList.add("Send Direct Messages");
+        featuresList.add("Maxmum Privacy Options");
+        featuresList.add("Priority Profile Listing");
+        featuresList.add("And many more");
+
+        adapterAmenities = new RecyclerViewAdapterAmenities(featuresList, getApplicationContext());
+        // adapterAmenities.setOnItemClickListener(this);
+        rvAmenities.setAdapter(adapterAmenities);
+
+
         //  swipeRefresh.setOnRefreshListener(this);
 
         //  btSearch = (AppCompatButton) findViewById(R.id.ButtonMyContatsSearch);

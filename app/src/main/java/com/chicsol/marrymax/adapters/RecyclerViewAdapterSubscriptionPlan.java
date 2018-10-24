@@ -235,8 +235,8 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 holder.tvRecomm.setVisibility(View.GONE);
             }
 
-            holder.tvPlanName.setText(obj.getItem_name());
-            holder.tvPlanDuration.setText("(" + obj.getDuration() + " Months)");
+            holder.tvPlanName.setText(""+obj.getItem_name());
+            holder.tvPlanDuration.setText("  (" + obj.getDuration() + " Months)");
             holder.tvPlanTitle.setText(obj.getName());
 
             holder.btPurchase.setOnClickListener(new View.OnClickListener() {
@@ -269,19 +269,19 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
 
             } else if (obj.getItem_name().equals("Gold")) {
 
-                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionYellow));
-                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionYellow));
+                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGreen));
+                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGreen));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionYellow));
+                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionGreen));
                 }
                 holder.tvPlanShortDescription.setText("50 Verified Phone Numbers ");
 
             } else if (obj.getItem_name().equals("Platinum")
                     ) {
-                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGreen));
-                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGreen));
+                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionYellow));
+                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionYellow));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionGreen));
+                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionYellow));
                 }
                 holder.tvPlanShortDescription.setText("80 Verified Phone Numbers ");
 

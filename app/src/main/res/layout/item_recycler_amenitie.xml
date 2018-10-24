@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left">
+
+    <!--
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow>
+    -->
+
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="@dimen/detail_padding_table_col">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+
+            app:srcCompat="@drawable/ic_check_black_24dp" />
+
+        <TextView
+            android:id="@+id/TextViewAmenityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:padding="@dimen/detail_padding_table_col"
+            android:text="Balcony  "
+            android:textColor="@color/colorSubscriptionGreen"
+            android:textSize="@dimen/detail_tv_size_table"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <!--            <TextView
+                    android:id="@+id/TextViewPropertyType"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/detail_padding_table_col"
+                    android:text="Apartment"
+                    android:textColor="@color/detail_color_right_col"
+                    android:textSize="@dimen/detail_tv_size_table"
+                    android:textStyle="bold" />-->
+    <!-- </TableRow>
+
+ </TableLayout>-->
+</LinearLayout>

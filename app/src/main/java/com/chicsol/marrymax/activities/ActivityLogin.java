@@ -45,7 +45,7 @@ import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.utils.functions;
 import com.chicsol.marrymax.widgets.mButton2;
 import com.crashlytics.android.Crashlytics;
-import com.google.firebase.analytics.FirebaseAnalytics;
+//import com.google.firebase.analytics.FirebaseAnalytics;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -71,7 +71,7 @@ public class ActivityLogin extends AppCompatActivity {
 
     private ProgressDialog pDialog;
 
-    private FirebaseAnalytics mFirebaseAnalytics;
+  //  private FirebaseAnalytics mFirebaseAnalytics;
     private ArrayAdapter acAdapter;
 
 
@@ -85,7 +85,7 @@ public class ActivityLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_login);
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+    //    mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
 
