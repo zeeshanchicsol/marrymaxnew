@@ -938,8 +938,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         */
         if (member.get_phone_view() == 1) {
             llPhoneVerifyLandline.setVisibility(View.VISIBLE);
-            tvPhoneVerifyLandline.setText("Pending");
-            ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.num_not_verified_icon_60));
+            tvPhoneVerifyLandline.setText("Not Verified");
+            ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
             //pending
 
 
@@ -990,6 +990,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             llEnterCode.setVisibility(View.VISIBLE);
             llPhoneNotVerified.setVisibility(View.GONE);
             llPhoneVerified.setVisibility(View.GONE);
+
+            //blue icon
 
         }
         //Log.e("get_phone_home", member.get_phone_verified() + "");

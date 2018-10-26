@@ -200,7 +200,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="3dp"
-                                android:src="@drawable/num_not_verified_icon_60" />
+                                android:src="@drawable/num_not_verified_icon_blue" />
 
                             <android.support.v7.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
@@ -414,10 +414,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
-                        android:layout_marginBottom="20dp"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="20dp"
                         android:orientation="horizontal">
 
                         <com.chicsol.marrymax.widgets.mTextView
@@ -438,10 +438,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="20dp"
                         android:orientation="horizontal"
                         android:visibility="gone">
 
@@ -490,97 +490,97 @@
             </android.support.v7.widget.CardView>
 
 
-      <!--      <android.support.v7.widget.CardView
+            <!--      <android.support.v7.widget.CardView
 
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardElevation="8dp">
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      app:cardElevation="8dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:orientation="vertical">
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginLeft="5dp"
+                          android:layout_marginRight="5dp"
+                          android:orientation="vertical">
 
-                    <com.chicsol.marrymax.widgets.mTextView
+                          <com.chicsol.marrymax.widgets.mTextView
 
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Email"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:textColor="@color/colorUserProfileRed" />
-
-
-                    &lt;!&ndash;                    <android.support.design.widget.TextInputLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-
-                                            android:textColorHint="@color/colorRegistrationFields">&ndash;&gt;
-
-                    <EditText
-                        android:id="@+id/EditTextAScontactEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="10dp"
-                        android:editable="false"
-                        android:hint="Email"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        android:textColor="@color/colorRegistrationFields"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginLeft="5dp"
+                              android:layout_marginTop="10dp"
+                              android:text="Email"
+                              android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                              android:textColor="@color/colorUserProfileRed" />
 
 
-                        />
+                          &lt;!&ndash;                    <android.support.design.widget.TextInputLayout
+                                                  android:layout_width="match_parent"
+                                                  android:layout_height="wrap_content"
 
-                    <LinearLayout
-                        android:id="@+id/LinearlayoutAccountSettingEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                                                  android:textColorHint="@color/colorRegistrationFields">&ndash;&gt;
 
-                        android:orientation="horizontal">
-
-                        <android.support.v7.widget.AppCompatButton
-                            android:id="@+id/ButtonAccountSettingResendVerificationEmail"
-                            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Resend Verification Email"
-                            android:textAllCaps="false" />
-
-
-                        <android.support.v7.widget.AppCompatButton
-                            android:id="@+id/ButtonAccountSettingUpdateEmailCancel"
-                            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Cancel"
-                            android:textAllCaps="false"
-                            android:visibility="gone" />
-
-                        <android.support.v7.widget.AppCompatButton
-                            android:id="@+id/ButtonAccountSettingUpdateEmail"
-                            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Update Email"
-                            android:textAllCaps="false" />
+                          <EditText
+                              android:id="@+id/EditTextAScontactEmail"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginLeft="5dp"
+                              android:layout_marginRight="5dp"
+                              android:layout_marginTop="10dp"
+                              android:editable="false"
+                              android:hint="Email"
+                              android:inputType="textEmailAddress"
+                              android:singleLine="true"
+                              android:textColor="@color/colorRegistrationFields"
 
 
-                    </LinearLayout>
-                    &lt;!&ndash;     </android.support.design.widget.TextInputLayout>&ndash;&gt;
+                              />
+
+                          <LinearLayout
+                              android:id="@+id/LinearlayoutAccountSettingEmail"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+
+                              android:orientation="horizontal">
+
+                              <android.support.v7.widget.AppCompatButton
+                                  android:id="@+id/ButtonAccountSettingResendVerificationEmail"
+                                  style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:text="Resend Verification Email"
+                                  android:textAllCaps="false" />
 
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>-->
+                              <android.support.v7.widget.AppCompatButton
+                                  android:id="@+id/ButtonAccountSettingUpdateEmailCancel"
+                                  style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:text="Cancel"
+                                  android:textAllCaps="false"
+                                  android:visibility="gone" />
+
+                              <android.support.v7.widget.AppCompatButton
+                                  android:id="@+id/ButtonAccountSettingUpdateEmail"
+                                  style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:text="Update Email"
+                                  android:textAllCaps="false" />
+
+
+                          </LinearLayout>
+                          &lt;!&ndash;     </android.support.design.widget.TextInputLayout>&ndash;&gt;
+
+
+                      </LinearLayout>
+                  </android.support.v7.widget.CardView>-->
 
 
             <LinearLayout
@@ -641,8 +641,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"
                                 android:layout_marginTop="5dp"
+                                android:layout_marginRight="5dp"
                                 android:background="#d7d7d7"></View>
 
 
@@ -652,8 +652,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
                             android:layout_marginTop="5dp"
+                            android:layout_marginRight="5dp"
                             android:textColorHint="@color/colorRegistrationFields">
 
 
@@ -793,8 +793,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"
                                 android:layout_marginTop="5dp"
+                                android:layout_marginRight="5dp"
                                 android:background="#d7d7d7"></View>
 
 
@@ -832,8 +832,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"
                                 android:layout_marginTop="5dp"
+                                android:layout_marginRight="5dp"
                                 android:background="#d7d7d7"></View>
 
 
@@ -860,8 +860,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
-                                android:layout_marginRight="10dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
                                 android:backgroundTint="@color/colorGrey"
                                 android:text="Cancel"
                                 android:textAllCaps="false"
@@ -873,8 +873,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right"
-                                android:layout_marginRight="10dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
                                 android:backgroundTint="@color/colorUserProfileRed"
                                 android:text="Save"
                                 android:textAllCaps="false"
