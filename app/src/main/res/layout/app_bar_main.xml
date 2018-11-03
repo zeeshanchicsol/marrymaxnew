@@ -38,6 +38,8 @@
 
                     app:tabIndicatorHeight="3dp"
                     app:tabMode="scrollable"
+                    app:tabMaxWidth="0dp"
+                    app:tabGravity="fill"
                     />
 
             </LinearLayout>

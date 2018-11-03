@@ -78,7 +78,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
 */
 
     public static dialogRequestProfileUpdate newInstance(String params) {
- /*       Members member, String userpath, boolean replyCheck, Members member2*/
+        /*       Members member, String userpath, boolean replyCheck, Members member2*/
         dialogRequestProfileUpdate frag = new dialogRequestProfileUpdate();
         Bundle args = new Bundle();
 
@@ -92,7 +92,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
-      try {
+        try {
 
 
             if (getTargetFragment() != null) {
@@ -240,26 +240,30 @@ public class dialogRequestProfileUpdate extends DialogFragment {
 
 
                 String desc = etDesc.getText().toString();
+                if (sub != null) {
+                    if (!sub.getId().equals("-1") && !TextUtils.isEmpty(desc)) {
 
-                if (!sub.getId().equals("-1") && !TextUtils.isEmpty(desc)) {
+                        JSONObject params = new JSONObject();
+                        try {
 
-                    JSONObject params = new JSONObject();
-                    try {
+                            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
 
-                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                            params.put("ID", cat.getId());
+                            params.put("ID2", sub.getId());
+                            params.put("Name", etDesc.getText().toString());
 
-                        params.put("ID", cat.getId());
-                        params.put("ID2", sub.getId());
-                        params.put("Name", etDesc.getText().toString());
+                            requestPermission(params);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
 
-                        requestPermission(params);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                        Toast.makeText(getContext(), "Some Fields are missisng", Toast.LENGTH_SHORT).show();
                     }
                 } else {
 
-                    Toast.makeText(getContext(), "Some Fields are missisng", Toast.LENGTH_SHORT).show();
                 }
+                Toast.makeText(getContext(), "Some Fields are missisng", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -287,7 +291,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
     }
 
     private void requestPermission(JSONObject params) {
-/*        RequestUpdate             path,ID,ID2,Name                    Response 1 success,0 fail*/
+        /*        RequestUpdate             path,ID,ID2,Name                    Response 1 success,0 fail*/
 
         final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
@@ -313,7 +317,6 @@ public class dialogRequestProfileUpdate extends DialogFragment {
                                 mCompleteListener.onComplete("");
                                 pDialog.dismiss();
                                 Toast.makeText(getContext(), "Request has been sent successfully", Toast.LENGTH_LONG).show();
-
 
 
                                 dialogRequestProfileUpdate.this.getDialog().cancel();
@@ -446,7 +449,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
                                 MyCountryDataList = (List<WebArd>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
 
 
-                              // MyCountryDataList.add(0, new WebArd("-1", "Please Select"));
+                                // MyCountryDataList.add(0, new WebArd("-1", "Please Select"));
                                 adapter_attribute.updateDataList(MyCountryDataList);
                                 spAttribute.setSelection(0);
                             }

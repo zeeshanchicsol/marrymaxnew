@@ -3,6 +3,7 @@ package com.chicsol.marrymax.fragments.AccountSetting;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -233,9 +234,11 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
                 String mobNum = EditTextAScontactMobileNumber.getText().toString();
+                String countryCode = EditTextAScontactMobileNumber.getTag().toString();
 
 
                 String landNum = EditTextAScontactLandlineNumber.getText().toString();
+
                 String personName = EditTextAScontactPersonName.getText().toString();
 
               /*  tvMobile.setText(member.get_phone_mobile());
@@ -247,6 +250,12 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 View focusView = null;
                 Log.e("length is ", mobNum.length() + "");
 
+                Log.e("Country Code is ", countryCode + " ppp");
+
+                if (spinnerAScontactCountry.getSelectedItemPosition() != 0) {
+                    countryCode = countryCode.replace("+", "");
+                }
+
 
                 if (spinnerAScontactCountry.getSelectedItemPosition() == 0) {
                     Toast.makeText(getContext(), "Select Country", Toast.LENGTH_SHORT).show();
@@ -257,8 +266,23 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     focusView = EditTextAScontactMobileNumber;
 
                     focusView.requestFocus();
+                } else if (!countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.length() - 1)))) {
+                    EditTextAScontactMobileNumber.setError("Invalid Mobile Number");
+                    focusView = EditTextAScontactMobileNumber;
+                    focusView.requestFocus();
+
+                } else if (!TextUtils.isEmpty(landNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(landNum.substring(0, countryCode.length() - 1)))) {
+
+                    //     if (!countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(landNum.substring(0, countryCode.length()-1)))) {
+                    EditTextAScontactLandlineNumber.setError("Invalid Landline Number");
+                    focusView = EditTextAScontactLandlineNumber;
+                    focusView.requestFocus();
+
+                    //  }
+
+
                 } else if (!isPhone(mobNum)) {
-                    EditTextAScontactMobileNumber.setError("Invalid  phone format");
+                    EditTextAScontactMobileNumber.setError("Invalid phone format");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
                 } else if (mobNum.length() > 16) {
@@ -280,8 +304,6 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                         focusView = EditTextAScontactLandlineNumber;
                         focusView.requestFocus();
                     }
-
-
                 }*/
                 else if (TextUtils.isEmpty(personName.trim())) {
                     EditTextAScontactPersonName.setError("Please Enter Person Name");
@@ -317,8 +339,10 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     Members member = new Members();
                     member.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
                     WebCSC selectedCountry = (WebCSC) spinnerAScontactCountry.getSelectedItem();
-                    member.set_country_id(Long.parseLong(selectedCountry.getId()));
 
+                    if (selectedCountry != null) {
+                        member.set_country_id(Long.parseLong(selectedCountry.getId()));
+                    }
 
                     WebArd selectedRelationShip = (WebArd) spinnerAScontactRelationShipWithMember.getSelectedItem();
                     member.set_profile_owner_id(Long.parseLong(selectedRelationShip.getId()));
@@ -451,6 +475,18 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }*/
 
+
+    private boolean countryCodeCheck(int countryCode, int mobNum) {
+
+        Log.e("countryCodeCheck", countryCode + "   " + mobNum);
+
+        if (countryCode == mobNum) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
 
     private void setEditValues(Members member) {
         //  spinnerAScontactCountry, EditTextAScontactMobileNumber, EditTextAScontactLandlineNumber, EditTextAScontactPersonName,

@@ -42,7 +42,9 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorTabBackground"
                     app:tabIndicatorHeight="3dp"
-                    app:tabMode="fixed" />
+                    app:tabMode="fixed"
+                    app:tabMaxWidth="0dp"
+                    app:tabGravity="fill"/>
 
             </LinearLayout>
 

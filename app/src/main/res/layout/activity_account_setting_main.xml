@@ -40,6 +40,8 @@
                         android:layout_height="wrap_content"
                         android:background="@color/colorTabBackground"
                         app:tabIndicatorHeight="3dp"
+                        app:tabMaxWidth="0dp"
+                        app:tabGravity="fill"
                         app:tabMode="scrollable" />
 
                 </LinearLayout>
