@@ -80,18 +80,18 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
 
                 break;
             case 2:
-                getSupportActionBar().setTitle("Matches With Photo Update");
+                getSupportActionBar().setTitle("My Matches, Photo Update");
                 fragment = new MatchesWithPhotoUpdate2Fragment();
                 break;
 
             case 3:
-                getSupportActionBar().setTitle("Matches Looking For me");
+                getSupportActionBar().setTitle("My Matches, Looking For me");
                 fragment = new LookingForEachOther();
 
                 break;
             //mem loogking for me
             case 4:
-                getSupportActionBar().setTitle("Members Looking For me");
+                getSupportActionBar().setTitle("Members, Looking For me");
                 fragment = new WhoisLookingForMe();
                 break;
 

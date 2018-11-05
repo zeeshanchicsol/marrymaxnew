@@ -70,7 +70,7 @@
                             android:id="@+id/mTextView14"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="There are no Saved Searches!"
+                            android:text="There are no Saved Lists!"
                             android:textColor="#272a30"
                             android:textSize="18sp" />
 
@@ -101,7 +101,7 @@
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Find Matches &amp; Save &amp; Name Your Searches! "
+                            android:text="Find Matches &amp; Create Your Lists "
                             android:textColor="@color/colorUserProfileTextGreen" />
 
 

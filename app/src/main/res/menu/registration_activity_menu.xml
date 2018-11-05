@@ -9,11 +9,11 @@
         android:title="-Home"
         app:showAsAction="never" />
 
-    <item
+<!--    <item
         android:id="@+id/action_personalized_matching"
         android:orderInCategory="100"
         android:title="-Personalized Matching"
-        app:showAsAction="never" />
+        app:showAsAction="never" />-->
     <item
         android:id="@+id/action_benefits"
         android:orderInCategory="100"

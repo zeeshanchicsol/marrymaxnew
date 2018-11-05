@@ -210,7 +210,7 @@ public class DashboardMatchesMainFragment extends Fragment implements DashboarMa
         adapter.addFragment(new MyMatchesFragment(), " My Matches ");
         adapter.addFragment(new WhoisLookingForMe(), " Who is Looking For Me ");
         adapter.addFragment(new LookingForEachOther(), " Looking For Each Other ");
-        adapter.addFragment(new MatchesWithPhotoUpdate2Fragment(), " Matches With PhotoUpdate ");
+        adapter.addFragment(new MatchesWithPhotoUpdate2Fragment(), " Matches With Photo Update ");
       /*  adapter.addFragment(new MyFavouriteMatches(), " My Favourite Matches ");*/
      /*   adapter.addFragment(new AccpetedMembers(), " Accepted Members ");*/
        /*   adapter.addFragment(new PrivacySettingsFragment(), "Privacy Setting ");

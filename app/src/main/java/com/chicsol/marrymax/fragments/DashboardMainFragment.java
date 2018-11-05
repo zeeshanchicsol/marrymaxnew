@@ -705,7 +705,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         llProfileIncomplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Profile Incomplete", "To communicate and interact with potential matches, Please Complete your profile.", "Complete Profile", 1);
+                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Profile Incomplete", "To communicate and interact with potential matches, Please Complete your profile.", "Complete Profile", 11);
                 dialogP.show(getFragmentManager(), "d");
             }
         });
@@ -1416,7 +1416,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
         adapterMemFragment.addFragment(rp1, " My Matches  ");
-        adapterMemFragment.addFragment(rp2, " Matches Since Last Week ");
+        adapterMemFragment.addFragment(rp2, " Matches From Last Week ");
         ///adapter.addFragment(messageHistoryFragment, "Message History");
 
 

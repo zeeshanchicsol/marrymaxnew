@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Select Gender"
-            android:textColor="@color/colorSpinnerLabel"
+            android:textColor="@color/colorTextRed"
             android:textSize="@dimen/text_size_spinner_label" />
 
         <android.support.v7.widget.AppCompatSpinner

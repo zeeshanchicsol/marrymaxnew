@@ -394,10 +394,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
     private void getProfileCompletion() {
         //   pDialog.setVisibility(View.VISIBLE);
-        if(!((Activity) context).isFinishing())
-        {
+        if (!((Activity) context).isFinishing()) {
 
-                pDialog.show();
+            pDialog.show();
 
             //show dialog
         }
@@ -414,8 +413,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                         try {
 
-                                pDialog.dismiss();
-
+                            pDialog.dismiss();
 
 
                             //     swipeRefreshLayout.setRefreshing(false);
@@ -435,13 +433,14 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             //   tvProfileCompleteion.setText(dashboards.getProfile_complete_status() + "% Complete");
 
 
-                            if (Integer.parseInt(dashboards.getProfile_complete_status()) >= 70) {
+                            if (Integer.parseInt(dashboards.getProfile_complete_status()) < 70 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
 
-                                String compUptoSSeventyText = "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, your profile is <b> <font color=#9a0606> Live </font></b> ";
+                                String compUptoSSeventyText = "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, your profile is <b> <font color=#9a0606>Not Live </font></b> ";
                                 tvTitleLiveNotLive.setText(Html.fromHtml(compUptoSSeventyText));
 
                             } else {
-                                String compUptoSSeventyText = "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, your profile is <b> <font color=#9a0606>Not Live </font></b> ";
+
+                                String compUptoSSeventyText = "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, your profile is <b> <font color=#9a0606> Live </font></b> ";
                                 tvTitleLiveNotLive.setText(Html.fromHtml(compUptoSSeventyText));
                             }
 
@@ -547,14 +546,14 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                                pDialog.dismiss();
+                            pDialog.dismiss();
                             // pDialog.setVisibility(View.INVISIBLE);
                             swipeRefreshLayout.setRefreshing(false);
 
 
                         }
                         //  pDialog.setVisibility(View.INVISIBLE);
-                            pDialog.dismiss();
+                        pDialog.dismiss();
 
 
                       /*  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -571,7 +570,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                 VolleyLog.d("Err", "Error: " + error.getMessage());
                 swipeRefreshLayout.setRefreshing(false);
                 //   pDialog.setVisibility(View.INVISIBLE);
-                    pDialog.dismiss();
+                pDialog.dismiss();
 
 
             }
@@ -948,7 +947,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                         //     pDialog.setVisibility(View.GONE);
 
-                            pDialog.dismiss();
+                        pDialog.dismiss();
 
                     }
                 }, new Response.ErrorListener() {
@@ -971,8 +970,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     public void onPause() {
         super.onPause();
 
-        if (pDialog != null)
-        {    pDialog.dismiss();}
+        if (pDialog != null) {
+            pDialog.dismiss();
+        }
 
     }
 

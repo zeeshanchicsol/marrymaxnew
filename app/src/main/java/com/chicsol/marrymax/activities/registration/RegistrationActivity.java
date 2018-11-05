@@ -741,9 +741,9 @@ public class RegistrationActivity extends AppCompatActivity {
             case R.id.action_benefits:
                 marryMax.benefits();
                 return true;
-            case R.id.action_personalized_matching:
+        /*    case R.id.action_personalized_matching:
                 marryMax.personalizedMatching();
-                return true;
+                return true;*/
             case R.id.action_faq:
                 marryMax.faq();
                 return true;
@@ -870,7 +870,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             int responseid = response.getInt("id");
 
                             if (responseid == 1) {
-                                Toast.makeText(RegistrationActivity.this, "Account Created Successfully", Toast.LENGTH_SHORT).show();
+                                //   Toast.makeText(RegistrationActivity.this, "Account Created Successfully", Toast.LENGTH_SHORT).show();
                                 LoginUser(email, password);
                             } else if (responseid == 3) {
                                 Toast.makeText(RegistrationActivity.this, "Some field is incomplete", Toast.LENGTH_SHORT).show();

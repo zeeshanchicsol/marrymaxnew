@@ -17,60 +17,62 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-            <LinearLayout
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:orientation="vertical">
-
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorTextRed"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
 
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Login to continue "
-                        android:textColor="@color/colorWhite"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <com.chicsol.marrymax.widgets.faTextView
-                        android:id="@+id/mButtonDismissDialogBlock"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="@string/fa_icon_cross"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewDialogInterestDetails"
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Please click on the login to continue"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />
+                        android:background="@color/colorTextRed"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Login to continue "
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:id="@+id/mButtonDismissDialogBlock"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@string/fa_icon_cross"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewDialogInterestDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please click on the login to continue"
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
 
 
                         <RadioGroup
@@ -78,43 +80,62 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"></RadioGroup>
 
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/EditTextBlockDialgTextInputLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        >
 
-                        <com.chicsol.marrymax.widgets.mEditText
-
-                            android:id="@+id/EditTextBlockDialgOtherReason"
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/EditTextBlockDialgTextInputLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="If other, then please describe the reason."
-                            android:inputType="text"
-                            android:imeOptions="actionDone"
-                            />
-                    </android.support.design.widget.TextInputLayout>
+                            android:visibility="gone">
+
+                            <com.chicsol.marrymax.widgets.mEditText
+
+                                android:id="@+id/EditTextBlockDialgOtherReason"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="If other, then please describe the reason."
+                                android:imeOptions="actionDone"
+                                android:inputType="text" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right">
+
+                            <android.support.v7.widget.AppCompatButton
+                                android:id="@+id/mButtonDialogRegister"
+                                style="@style/myCustomMaterialButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:text="Register Now"
+
+                                android:textAllCaps="false"
+                                android:textColor="@color/colorWhite"
+                                app:backgroundTint="@color/colorDefaultGreen" />
+
+                            <android.support.v7.widget.AppCompatButton
+                                android:id="@+id/mButtonDialogBlock"
+                                style="@style/myCustomMaterialButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="10dp"
+                                android:text="Login"
+
+                                android:textAllCaps="false"
+                                android:textColor="@color/colorWhite"
+                                app:backgroundTint="@color/colorDefaultGreen" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
 
-
-                    <android.support.v7.widget.AppCompatButton
-                        android:id="@+id/mButtonDialogBlock"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="10dp"
-                        app:backgroundTint="@color/colorDefaultGreen"
-                        style="@style/myCustomMaterialButton"
-
-                        android:text="Login"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorWhite" />
                 </LinearLayout>
-
-
-            </LinearLayout>
-</ScrollView>
+            </ScrollView>
 
         </LinearLayout>
 

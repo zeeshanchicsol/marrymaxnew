@@ -2141,7 +2141,6 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_personalized_matching
 id action_privacy_policy
 id action_profile_guideline
 id action_search
@@ -2354,6 +2353,7 @@ id mButtonDialogMatchAid
 id mButtonDialogMatchAidSubscribe
 id mButtonDialogMatchAidUPCancel
 id mButtonDialogMatchAidUPViewProgress
+id mButtonDialogRegister
 id mButtonDialogReportConcern
 id mButtonDialogRequest
 id mButtonDialogRequestSubscribe

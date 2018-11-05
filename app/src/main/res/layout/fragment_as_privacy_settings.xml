@@ -52,8 +52,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="wrap_content"
@@ -70,8 +70,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <RadioGroup
                             android:id="@+id/RadioGroupAccountSettingPrivacyProfile"
@@ -92,6 +92,33 @@
                                 android:layout_height="wrap_content"
                                 android:tag="2,1"
                                 android:text="Protect my profile details and show to those who" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="\u25BA  Have my permission to view my profile, or"
+                                    android:textColor="@color/colorDefaultGreen" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="\u25BA  I show interest, or"
+                                    android:textColor="@color/colorDefaultGreen" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="\u25BA  Who accepted my interest."
+                                    android:textColor="@color/colorDefaultGreen" />
+
+                            </LinearLayout>
+
 
                             <RadioButton
                                 android:id="@+id/SwitchCompatAccountSettingPrivacy3"
@@ -148,8 +175,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="wrap_content"
@@ -166,8 +193,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <RadioGroup
                             android:id="@+id/RadioGroupAccountSettingPrivacyPicture"
@@ -228,8 +255,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="wrap_content"
@@ -246,8 +273,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <RadioGroup
                             android:id="@+id/RadioGroupAccountSettingPrivacyPhone"
@@ -309,8 +336,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="wrap_content"
@@ -327,8 +354,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <RadioGroup
                             android:id="@+id/RadioGroupAccountSettingPrivacyMessage"
@@ -382,8 +409,8 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
@@ -400,8 +427,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="wrap_content"
@@ -418,8 +445,8 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
                         <RadioGroup
                             android:id="@+id/RadioGroupAccountSettingPrivacyInterest"

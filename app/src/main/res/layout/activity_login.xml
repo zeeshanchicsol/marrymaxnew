@@ -120,8 +120,8 @@
                         style="@style/ButtonBorder.Accent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
                         android:layout_marginTop="16dp"
+                        android:layout_marginRight="5dp"
                         android:backgroundTint="@color/colorTextRed"
                         android:paddingLeft="30dp"
                         android:paddingRight="30dp"
@@ -195,11 +195,11 @@
                         android:backgroundTint="@color/colorDefaultGreen"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
-                        android:text="Create New Account "
+                        android:text="Register Now "
                         android:textAllCaps="true"
-                        android:textStyle="bold"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/text_size_forgot_password"
+                        android:textStyle="bold"
 
                         />
 
@@ -226,12 +226,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:text="Find Matches"
+                android:text="Find Someone Special!"
                 android:textAllCaps="false"
-                android:textColor="@color/colorWhite"
-                />
-
-            <!--    Find Pakistani Matches Worldwide-->
+                android:textColor="@color/colorWhite" />
+            <!--  android:text="Find Matches"-->
 
             <com.chicsol.marrymax.widgets.mButton2
                 android:id="@+id/buttonSearchWhoIsLooking"
@@ -242,12 +240,13 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:text="Who Is Looking For Me"
+                android:text="Find Now"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
 
                 />
-            <!--    0b5b00-->
+            <!--   android:text="Who Is Looking For Me"-->
+
             <!--            text_size_login-->
         </LinearLayout>
 

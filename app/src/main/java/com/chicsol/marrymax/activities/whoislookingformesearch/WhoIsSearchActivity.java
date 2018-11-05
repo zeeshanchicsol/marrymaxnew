@@ -91,7 +91,7 @@ public class WhoIsSearchActivity extends AppCompatActivity {
         //  btSearch = (AppCompatButton) findViewById(R.id.ButtonMyContatsSearch);
 
 
-        getSupportActionBar().setTitle("Get More Specific");
+        getSupportActionBar().setTitle("Be More Specific");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getRequest();

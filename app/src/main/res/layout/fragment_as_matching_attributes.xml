@@ -24,17 +24,26 @@
             <com.chicsol.marrymax.widgets.mTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
                 android:text="Preferred Matching Atributes"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textColor="@color/colorUserProfileRed" />
 
+
             <com.chicsol.marrymax.widgets.mTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:lineHeight="5dp"
+                android:text="Matching profiles will be shown based on choice values selected for the highlighted matching attributes."
+                android:textSize="14sp" />
+
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:text="Select any Four Matching Attributes that matters most to you!"
                 android:textColor="@color/colorBlack" />
 
@@ -42,9 +51,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="3dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
                 android:orientation="horizontal">
 
                 <com.chicsol.marrymax.widgets.mTextView
@@ -58,7 +67,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(you can't update these three attributes)"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
@@ -73,8 +83,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
 
                     android:orientation="horizontal">
 
@@ -155,10 +165,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="3dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
                 android:orientation="horizontal">
 
                 <com.chicsol.marrymax.widgets.mTextView
@@ -206,10 +216,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="3dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
                 android:orientation="horizontal">
 
                 <com.chicsol.marrymax.widgets.mTextView
@@ -259,10 +269,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="3dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="3dp"
                 android:orientation="horizontal">
 
                 <com.chicsol.marrymax.widgets.mTextView
@@ -313,8 +323,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -322,10 +332,10 @@
                     android:id="@+id/ButtonAccountSettingMatchPrefSavePref"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:backgroundTint="@color/colorTextRed"
                     android:text="Save Preferences"
                     android:textAllCaps="false"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="@color/colorWhite"
+                    app:backgroundTint="@color/colorTextRed" />
 
 
             </LinearLayout>

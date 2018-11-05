@@ -27,8 +27,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
-                android:layout_marginRight="100dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="100dp"
                 android:indeterminate="true"
                 android:indeterminateTint="@color/colorUserProfileRed"
                 android:indeterminateTintMode="src_in"
@@ -94,8 +94,8 @@
                                 android:layout_weight="0.04"
                                 android:background="#eeeeee"
                                 android:orientation="horizontal"
-                                android:paddingBottom="4dp"
-                                android:paddingTop="4dp">
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp">
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -190,8 +190,8 @@
                                         <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginBottom="10dp"
                                             android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="10dp"
                                             android:orientation="horizontal"
                                             android:weightSum="10">
 
@@ -199,8 +199,8 @@
 
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginBottom="5dp"
                                                 android:layout_marginTop="5dp"
+                                                android:layout_marginBottom="5dp"
                                                 android:layout_weight="2.5"
 
 
@@ -241,9 +241,9 @@
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
 
-                                                android:layout_marginBottom="5dp"
                                                 android:layout_marginLeft="20dp"
                                                 android:layout_marginTop="5dp"
+                                                android:layout_marginBottom="5dp"
                                                 android:layout_weight="2.5"
                                                 android:gravity="center"
                                                 android:orientation="vertical"
@@ -280,9 +280,9 @@
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
 
-                                                android:layout_marginBottom="5dp"
                                                 android:layout_marginLeft="20dp"
                                                 android:layout_marginTop="5dp"
+                                                android:layout_marginBottom="5dp"
                                                 android:layout_weight="2.5"
 
                                                 android:gravity="center"
@@ -320,9 +320,9 @@
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
 
-                                                android:layout_marginBottom="5dp"
                                                 android:layout_marginLeft="20dp"
                                                 android:layout_marginTop="5dp"
+                                                android:layout_marginBottom="5dp"
                                                 android:layout_weight="2.5"
 
                                                 android:gravity="center"
@@ -472,8 +472,8 @@
                                         android:id="@+id/LinearlayoutDMWhomViewedMeCount"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginBottom="5dp"
                                         android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp"
                                         android:clickable="true"
                                         android:foreground="?android:attr/selectableItemBackground"
                                         android:orientation="horizontal">
@@ -865,18 +865,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-
                         android:text="My Stats"
                         android:textColor="@color/colorTextRed"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
                     <LinearLayout
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal"
-
                         android:weightSum="9">
 
                         <android.support.v7.widget.CardView
@@ -915,8 +916,8 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:paddingBottom="5dp"
-                                    android:paddingTop="5dp">
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp">
 
                                     <android.support.v7.widget.AppCompatTextView
                                         android:layout_width="wrap_content"
@@ -936,8 +937,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentRight="true"
                                         android:layout_gravity="right|center"
-                                        android:layout_marginRight="4dp"
                                         android:layout_marginTop="4dp"
+                                        android:layout_marginRight="4dp"
 
 
                                         android:textColor="@color/colorBlack"
@@ -988,8 +989,8 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:paddingBottom="5dp"
-                                    android:paddingTop="5dp">
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp">
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -1006,8 +1007,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentRight="true"
                                         android:layout_gravity="right"
-                                        android:layout_marginRight="4dp"
                                         android:layout_marginTop="4dp"
+                                        android:layout_marginRight="4dp"
 
                                         android:textColor="@color/colorBlack"
                                         android:textSize="10sp" />
@@ -1055,14 +1056,14 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:paddingBottom="5dp"
-                                    android:paddingTop="5dp">
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="5dp">
 
                                     <android.support.v7.widget.AppCompatTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_alignParentLeft="true"
                                         android:layout_alignParentStart="true"
+                                        android:layout_alignParentLeft="true"
                                         android:layout_alignParentTop="true"
                                         android:layout_marginLeft="4dp"
                                         android:text="New Requests"
@@ -1075,8 +1076,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentRight="true"
                                         android:layout_gravity="right"
-                                        android:layout_marginRight="4dp"
                                         android:layout_marginTop="4dp"
+                                        android:layout_marginRight="4dp"
 
                                         android:textColor="@color/colorBlack"
                                         android:textSize="10sp" />
@@ -1124,8 +1125,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#eeeeee"
-                                android:paddingBottom="4dp"
-                                android:paddingTop="4dp">
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp">
 
                                 <android.support.v7.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
@@ -1156,8 +1157,8 @@
                                         android:id="@+id/TextViewAcceptedMem_ic"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_alignParentLeft="true"
                                         android:layout_alignParentStart="true"
+                                        android:layout_alignParentLeft="true"
                                         android:layout_centerVertical="true"
                                         android:layout_marginLeft="5dp"
                                         android:text="@string/fa_icon_accepted"
@@ -1169,8 +1170,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
-                                        android:layout_marginLeft="20dp"
                                         android:layout_marginStart="20dp"
+                                        android:layout_marginLeft="20dp"
                                         android:layout_toEndOf="@+id/TextViewAcceptedMem_ic"
                                         android:layout_toRightOf="@+id/TextViewAcceptedMem_ic"
                                         android:text="Accepted Members   "
@@ -1217,10 +1218,10 @@
                                             android:layout_height="wrap_content"
                                             android:layout_centerVertical="true"
                                             android:layout_gravity="center"
-                                            android:paddingBottom="3dp"
                                             android:paddingLeft="5dp"
-                                            android:paddingRight="5dp"
                                             android:paddingTop="2dp"
+                                            android:paddingRight="5dp"
+                                            android:paddingBottom="3dp"
                                             android:text="1"
                                             android:textColor="@color/colorTextRed"
                                             android:textSize="11sp" />
@@ -1258,8 +1259,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
 
-                                        android:layout_marginLeft="21dp"
                                         android:layout_marginStart="21dp"
+                                        android:layout_marginLeft="21dp"
                                         android:layout_toEndOf="@+id/TextViewFavourite_ic"
                                         android:layout_toRightOf="@+id/TextViewFavourite_ic"
                                         android:text="My Favourite  "
@@ -1304,10 +1305,10 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
 
-                                            android:paddingBottom="3dp"
                                             android:paddingLeft="5dp"
-                                            android:paddingRight="5dp"
                                             android:paddingTop="2dp"
+                                            android:paddingRight="5dp"
+                                            android:paddingBottom="3dp"
 
                                             android:text="1"
                                             android:textColor="@color/colorTextRed"
@@ -1322,8 +1323,8 @@
                                     android:id="@+id/RelativeLayoutDashMyNotes"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
                                     android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="5dp"
                                     android:clickable="true"
 
                                     android:paddingTop="3dp">
@@ -1344,8 +1345,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
-                                        android:layout_marginLeft="22dp"
                                         android:layout_marginStart="22dp"
+                                        android:layout_marginLeft="22dp"
                                         android:layout_toEndOf="@+id/TextViewNotes_ic"
                                         android:layout_toRightOf="@+id/TextViewNotes_ic"
                                         android:text="My Notes   "
@@ -1385,10 +1386,10 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:elevation="7dp"
-                                            android:paddingBottom="3dp"
                                             android:paddingLeft="5dp"
-                                            android:paddingRight="5dp"
                                             android:paddingTop="2dp"
+                                            android:paddingRight="5dp"
+                                            android:paddingBottom="3dp"
                                             android:text="1"
                                             android:textColor="@color/colorTextRed"
                                             android:textSize="11sp" />
@@ -1402,8 +1403,8 @@
                                     android:id="@+id/RelativeLayoutDashRecommendedMatch"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
                                     android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="5dp"
                                     android:clickable="true"
 
                                     android:paddingTop="3dp">
@@ -1424,8 +1425,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
-                                        android:layout_marginLeft="22dp"
                                         android:layout_marginStart="22dp"
+                                        android:layout_marginLeft="22dp"
                                         android:layout_toEndOf="@+id/TextViewRecom_ic"
                                         android:layout_toRightOf="@+id/TextViewRecom_ic"
                                         android:text="Recommended Matches  "
@@ -1465,10 +1466,10 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:elevation="7dp"
-                                            android:paddingBottom="3dp"
                                             android:paddingLeft="5dp"
-                                            android:paddingRight="5dp"
                                             android:paddingTop="2dp"
+                                            android:paddingRight="5dp"
+                                            android:paddingBottom="3dp"
                                             android:text="1"
                                             android:textColor="@color/colorTextRed"
                                             android:textSize="11sp" />
@@ -1510,8 +1511,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
-                                        android:layout_marginLeft="22dp"
                                         android:layout_marginStart="22dp"
+                                        android:layout_marginLeft="22dp"
                                         android:layout_toEndOf="@+id/TextViewRemFromSearch_ic"
                                         android:layout_toRightOf="@+id/TextViewRemFromSearch_ic"
                                         android:text="Removed From Search  "
@@ -1552,10 +1553,10 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
 
-                                            android:paddingBottom="3dp"
                                             android:paddingLeft="5dp"
-                                            android:paddingRight="5dp"
                                             android:paddingTop="2dp"
+                                            android:paddingRight="5dp"
+                                            android:paddingBottom="3dp"
                                             android:text="1"
                                             android:textColor="@color/colorTextRed"
                                             android:textSize="11sp" />
@@ -1591,8 +1592,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
-                                        android:layout_marginLeft="22dp"
                                         android:layout_marginStart="22dp"
+                                        android:layout_marginLeft="22dp"
                                         android:layout_toEndOf="@+id/TextViewBlocked_ic"
                                         android:layout_toRightOf="@+id/TextViewBlocked_ic"
                                         android:text="Blocked"
@@ -1633,10 +1634,10 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
 
-                                            android:paddingBottom="3dp"
                                             android:paddingLeft="5dp"
-                                            android:paddingRight="5dp"
                                             android:paddingTop="2dp"
+                                            android:paddingRight="5dp"
+                                            android:paddingBottom="3dp"
                                             android:text="1"
                                             android:textColor="@color/colorTextRed"
                                             android:textSize="11sp" />
@@ -1860,10 +1861,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/colorWhite"
-                            app:tabMode="fixed"
-                            app:tabMaxWidth="0dp"
                             app:tabGravity="fill"
-                            />
+                            app:tabMaxWidth="0dp"
+                            app:tabMode="fixed" />
 
                         <android.support.v4.view.ViewPager
                             android:id="@+id/viewpagerMembersFragment"
@@ -1879,8 +1879,8 @@
                         android:id="@+id/ButtonSubscribe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:foreground="?android:attr/selectableItemBackground"
 
                         android:text="Subscribe Now"

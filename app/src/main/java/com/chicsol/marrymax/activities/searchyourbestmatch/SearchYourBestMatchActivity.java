@@ -433,9 +433,9 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
             case R.id.action_benefits:
                 marryMax.benefits();
                 return true;
-            case R.id.action_personalized_matching:
+        /*    case R.id.action_personalized_matching:
                 marryMax.personalizedMatching();
-                return true;
+                return true;*/
             case R.id.action_faq:
                 marryMax.faq();
                 return true;

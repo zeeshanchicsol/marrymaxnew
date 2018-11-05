@@ -135,7 +135,11 @@ public class dialogProfileCompletion extends DialogFragment {
                 } else if (step == 22) {
                     emailVerificationRequest();
                     //   Toast.makeText(getContext(), "email", Toast.LENGTH_SHORT).show();
-                } else if (step == 1) {
+                }
+
+
+                //will  go to profile settings
+                else if (step == 1) {
                     dialogProfileCompletion.this.getDialog().cancel();
                     //  Intent intent=new Intent(getContext(),Reg)
                 /*    MarryMax marryMax = new MarryMax(null);
@@ -144,6 +148,16 @@ public class dialogProfileCompletion extends DialogFragment {
                     in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     in.putExtra("type", 22);
                     getActivity().startActivity(in);
+
+
+                }
+
+
+//will  go to registration steps
+                else if (step == 11) {
+                    dialogProfileCompletion.this.getDialog().cancel();
+                    MarryMax marryMax = new MarryMax(null);
+                    marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
 
 
                 } else if (step == 3) {

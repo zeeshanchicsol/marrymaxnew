@@ -60,9 +60,12 @@
                         android:textColor="@color/colorBlack" />
 
                     <TextView
+                        android:layout_marginTop="5dp"
                         android:id="@+id/TextViewMyProfileStatusDesc"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
+                        android:gravity="left"
                         android:layout_height="wrap_content"
+                        android:lineSpacingExtra="5dp"
                         android:text="You can communicate &amp; interact with other members once your profile is 100% complete and verified. Here are current pending action items:"
                         android:textColor="@color/colorBlack" />
 
@@ -415,7 +418,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="20dp"
-                                android:text="Add Number"
+                                android:text="Add Phone Number"
                                 android:textAllCaps="false"
                                 android:textColor="@color/colorTextRed"
                                 android:visibility="gone" />
@@ -605,6 +608,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:textColor="@color/colorTextRed"
                             android:text="Update Email"
                             android:textAllCaps="false" />
 

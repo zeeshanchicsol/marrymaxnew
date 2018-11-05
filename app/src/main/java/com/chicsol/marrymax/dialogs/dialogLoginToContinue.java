@@ -2,6 +2,7 @@ package com.chicsol.marrymax.dialogs;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
@@ -13,7 +14,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.ActivityForgetPassword;
+import com.chicsol.marrymax.activities.ActivityLogin;
+import com.chicsol.marrymax.activities.registration.RegistrationActivity;
+import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.widgets.faTextView;
+import com.chicsol.marrymax.widgets.mButton2;
 
 
 /**
@@ -80,6 +86,36 @@ public class dialogLoginToContinue extends DialogFragment {
 
             }
         });
+
+
+
+        Button btRegister = (Button) rootView.findViewById(R.id.mButtonDialogRegister);
+        btRegister.setOnClickListener(new View.OnClickListener() {
+            public void onClick(final View v) {
+
+
+
+
+              //  if (ConnectCheck.isConnected(getContext().findViewById(android.R.id.content))) {
+
+                    mCompleteLoginListener.onCompleteLogin("");
+                    dialogLoginToContinue.this.getDialog().cancel();
+
+                    getActivity().finish();
+
+
+
+                Intent intent = new Intent(getContext(), RegistrationActivity.class);
+                intent.putExtra("updateData", false);
+                startActivity(intent);
+             //   }
+
+
+
+            }
+        });
+
+
 
         faTextView cancelButton = (faTextView) rootView.findViewById(R.id.mButtonDismissDialogBlock);
         cancelButton.setOnClickListener(new View.OnClickListener() {
