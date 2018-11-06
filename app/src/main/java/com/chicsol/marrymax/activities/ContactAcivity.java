@@ -169,6 +169,10 @@ public class ContactAcivity extends AppCompatActivity {
                     String question = etQuestion.getText().toString();
                     String name = etName.getText().toString();
                     String mobNum = EditTextAScontactMobileNumber.getText().toString();
+                    String countryCode = EditTextAScontactMobileNumber.getTag().toString();
+
+               Log.e(""+     Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.trim().substring(0, countryCode.length() ))+"" );
+
 
 
                     if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
@@ -214,6 +218,11 @@ public class ContactAcivity extends AppCompatActivity {
                             focusView = EditTextAScontactMobileNumber;
 
                             focusView.requestFocus();
+                        } else if (!countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.trim().substring(0, countryCode.length() - 2)))) {
+                            EditTextAScontactMobileNumber.setError("Invalid Mobile Number");
+                            focusView = EditTextAScontactMobileNumber;
+                            focusView.requestFocus();
+
                         } else if (!isPhone(mobNum)) {
                             EditTextAScontactMobileNumber.setError("Invalid  phone format");
                             focusView = EditTextAScontactMobileNumber;
@@ -256,7 +265,7 @@ public class ContactAcivity extends AppCompatActivity {
                                 }
 
 
-                                contactUs(params);
+                               contactUs(params);
 
 
                             } else {
@@ -472,6 +481,18 @@ public class ContactAcivity extends AppCompatActivity {
 
     }
 
+
+    private boolean countryCodeCheck(int countryCode, int mobNum) {
+
+        Log.e("countryCodeCheck", countryCode + "   " + mobNum);
+
+        if (countryCode == mobNum) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
 
     @Override
     public boolean onSupportNavigateUp() {

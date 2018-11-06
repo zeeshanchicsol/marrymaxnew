@@ -17,6 +17,7 @@
 package com.chicsol.marrymax.adapters;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -29,6 +30,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -38,6 +40,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -199,8 +202,7 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
                 }
 
 
-            }
-            else {
+            } else {
                 holder.defaultCheckbox.setVisibility(View.GONE);
             }
 
@@ -288,13 +290,18 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
         holder.imagePerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (holder.imagePerView.getTag().equals("default_image_no")) {
+
+
+                if (SharedPreferenceManager.getUserObject(context).get_member_status() == 7 || SharedPreferenceManager.getUserObject(context).get_member_status() == 8) {
+                    Toast.makeText(context, "Please review notes as MarryMax team advised and update your profile", Toast.LENGTH_SHORT).show();
+
+                } else if (holder.imagePerView.getTag().equals("default_image_no")) {
                     // Toast.makeText(context, "default", Toast.LENGTH_SHORT).show();
 
                     onSelectImageListener.onSelectImage("");
 
-
                 }
+
                 //      android:tag="default_image_no"
             }
         });

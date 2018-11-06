@@ -137,14 +137,14 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         pDialog.setMessage("Loading...");
 
 
-        tvSubscriberOnly = (TextView) view.findViewById(R.id.TextViewMatchAidSubscribersOnly);
+    /*    tvSubscriberOnly = (TextView) view.findViewById(R.id.TextViewMatchAidSubscribersOnly);
         if (SharedPreferenceManager.getUserObject(context).get_member_status() <= 3) {
             tvSubscriberOnly.setVisibility(View.VISIBLE);
 
         } else {
             tvSubscriberOnly.setVisibility(View.GONE);
         }
-
+*/
 
         btAddNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusAddNumber);
         btVerifyNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusVerifyNumber);

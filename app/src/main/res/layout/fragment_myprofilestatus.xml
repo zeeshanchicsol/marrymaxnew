@@ -60,11 +60,11 @@
                         android:textColor="@color/colorBlack" />
 
                     <TextView
-                        android:layout_marginTop="5dp"
                         android:id="@+id/TextViewMyProfileStatusDesc"
                         android:layout_width="match_parent"
-                        android:gravity="left"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="left"
                         android:lineSpacingExtra="5dp"
                         android:text="You can communicate &amp; interact with other members once your profile is 100% complete and verified. Here are current pending action items:"
                         android:textColor="@color/colorBlack" />
@@ -342,8 +342,8 @@
                                     android:id="@+id/TextViewMyProfileStatusMobileNumber"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
                                     android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="5dp"
                                     android:text="Add Mobile Number "
                                     android:textColor="@color/colorBlack"
                                     android:textSize="18sp" />
@@ -397,7 +397,7 @@
                                 android:layout_marginLeft="20dp"
                                 android:text="Verify it"
                                 android:textAllCaps="false"
-                                android:textColor="@color/colorTextRed"
+
                                 android:visibility="gone" />
 
 
@@ -409,7 +409,7 @@
                                 android:layout_marginLeft="20dp"
                                 android:text="Update Number"
                                 android:textAllCaps="false"
-                                android:textColor="@color/colorTextRed"
+
                                 android:visibility="gone" />
 
                             <android.support.v7.widget.AppCompatButton
@@ -420,7 +420,7 @@
                                 android:layout_marginLeft="20dp"
                                 android:text="Add Phone Number"
                                 android:textAllCaps="false"
-                                android:textColor="@color/colorTextRed"
+
                                 android:visibility="gone" />
 
 
@@ -563,8 +563,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:editable="false"
                         android:hint="Email"
 
@@ -608,7 +608,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:textColor="@color/colorTextRed"
+
                             android:text="Update Email"
                             android:textAllCaps="false" />
 
@@ -640,18 +640,20 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
                         android:padding="5dp">
 
-                        <!--          <ImageView
-                                      android:layout_width="wrap_content"
-                                      android:layout_height="wrap_content"
-                                      android:src="male"/>-->
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/no_asistance_new" />
 
                         <com.chicsol.marrymax.widgets.mTextView
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="10dp"
                             android:text="Match Aid"
@@ -661,27 +663,25 @@
 
                     </LinearLayout>
 
+                    <!--  <TextView
+                          android:id="@+id/TextViewMatchAidSubscribersOnly"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_margin="8dp"
+
+                          android:text="Subscriber feature" />-->
+
                     <TextView
-                        android:id="@+id/TextViewMatchAidSubscribersOnly"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-
-                        android:text="Subscriber Only" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:text="Request MarryMax member support team to contact your potential matches on your behalf." />
-
-
-                    <!--                    <android.support.design.widget.TextInputLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-
-                                            android:textColorHint="@color/colorRegistrationFields">-->
-
+                        android:lineSpacingExtra="5dp"
+                        android:text="MarryMax member associates are available at every step to assist you in finding, coordinating and connecting with the perfect match for you."
+                        android:textColor="@color/colorBlack" />
+                    <!--   <android.support.design.widget.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColorHint="@color/colorRegistrationFields">-->
 
                     <LinearLayout
 

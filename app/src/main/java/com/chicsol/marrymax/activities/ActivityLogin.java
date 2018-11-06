@@ -131,7 +131,11 @@ public class ActivityLogin extends AppCompatActivity {
 
         btLogin = (mButton2) findViewById(R.id.email_sign_in_button);
         btRegister = (mButton2) findViewById(R.id.ButtonRegister);
+
+        //Find Matches
         btSearchBMatch = (mButton2) findViewById(R.id.buttonSearchYourBestMatch);
+
+       // Who Is Looking For Me
         btWhoIsLForMe = (mButton2) findViewById(R.id.buttonSearchWhoIsLooking);
 
 

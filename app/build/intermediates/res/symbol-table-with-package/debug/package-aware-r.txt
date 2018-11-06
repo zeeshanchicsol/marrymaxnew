@@ -1276,7 +1276,7 @@ drawable nav_side_bar
 drawable nav_text_fa_selector
 drawable nav_text_selector
 drawable navigation_empty_icon
-drawable no_asistance
+drawable no_asistance_new
 drawable no_number_icon_60
 drawable notification_action_background
 drawable notification_bg
@@ -1932,7 +1932,6 @@ id TextViewMachAidmDescription
 id TextViewMachAidmStatus
 id TextViewMale
 id TextViewMatchAid
-id TextViewMatchAidSubscribersOnly
 id TextViewMatchesTotalCount
 id TextViewMemListCountry
 id TextViewMemberAboutMe

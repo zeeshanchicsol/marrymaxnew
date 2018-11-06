@@ -38,7 +38,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Verification Code "
+                        android:text="Verify Your Number "
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -96,7 +96,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#ccc"
+                            android:background="#D3D3D3"
                             android:orientation="horizontal"
                             android:padding="10dp">
 
@@ -123,7 +123,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="If mobile number is correct then click &quot; Send Verification Code&quot;.
+                            android:text="If mobile number is correct then click &quot; Send Verification Code&quot;. \n
 Once you receive verification code, then enter the code on this page to verify your phone."
                             android:textColor="@color/colorBlack" />
 

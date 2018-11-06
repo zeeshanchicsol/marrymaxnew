@@ -54,7 +54,7 @@
 
         <activity
             android:name=".activities.registration.RegisterGeographicActivity"
-            android:label="Geographic"
+            android:label="Registration"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -64,27 +64,27 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.registration.RegisterAppearanceActivity"
-            android:label="Appearance"
+            android:label="Registration"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.registration.RegisterLifeStyleActivity1"
-            android:label="Lifestyle"
+            android:label="Registration"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.registration.RegisterLifeStyleActivity2"
-            android:label="Lifestyle"
+            android:label="Registration"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.registration.RegisterInterest"
-            android:label="Interest"
+            android:label="Registration"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.registration.RegisterPersonalityActivity"
-            android:label="Personality"
+            android:label="Registration"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
