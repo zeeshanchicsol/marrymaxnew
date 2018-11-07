@@ -3,7 +3,9 @@ package com.chicsol.marrymax.dialogs;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -24,6 +27,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.ContactAcivity;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -56,12 +60,17 @@ public class dialogVerifyphone extends DialogFragment {
     private AppCompatButton btnSendVerificaitonCode, btnVerifyPhone;
     public onCompleteListener mCompleteListener;
     private boolean enterCode = false;
+    private TextView tvContactSupport;
 
-    public static dialogVerifyphone newInstance(String phone, boolean ec) {
+    private Context context;
+    private String country_id;
+
+    public static dialogVerifyphone newInstance(String phone, String country_id, boolean ec) {
 
         dialogVerifyphone frag = new dialogVerifyphone();
         Bundle args = new Bundle();
 
+        args.putString("country_id", country_id);
         args.putString("phone", phone);
         args.putBoolean("enterCode", ec);
         frag.setArguments(args);
@@ -74,6 +83,8 @@ public class dialogVerifyphone extends DialogFragment {
         Bundle mArgs = getArguments();
         phone = mArgs.getString("phone");
         enterCode = mArgs.getBoolean("enterCode");
+        country_id = mArgs.getString("country_id");
+
 
         ///  Log.e("json data", myValue);
 
@@ -84,6 +95,8 @@ public class dialogVerifyphone extends DialogFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
+        this.context = context;
         try {
 
 
@@ -102,6 +115,9 @@ public class dialogVerifyphone extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.dialog_verify_phone, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
+
+        tvContactSupport = (TextView) rootView.findViewById(R.id.TextViewInformSupport);
 
 
         tvMobileNumber = (mTextView) rootView.findViewById(R.id.TextViewAccountSettingmcMobileNumber);
@@ -142,6 +158,41 @@ public class dialogVerifyphone extends DialogFragment {
                 }
             }
         });
+
+
+        tvContactSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                /*  Toast.makeText(RegistrationActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                 */
+                JSONObject params = new JSONObject();
+                try {
+
+                    params.put("contact_phone", phone);
+                    params.put("contact_ip", "");
+                    params.put("emailaddress", "");
+                    params.put("contact_category_id", "6");
+                    params.put("contact_name", SharedPreferenceManager.getUserObject(context).get_personal_name());
+
+                    params.put("contact_message", "I am unable to verify phone number. - Sent from Account Setting");
+                    params.put("contact_country_id", country_id);
+
+                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                Log.e("params contact", params.toString());
+                contactUs(params);
+
+
+            }
+        });
+
 
    /*     Bundle mArgs = getArguments();
         String myValue = mArgs.getString("jsondata");
@@ -257,7 +308,6 @@ public class dialogVerifyphone extends DialogFragment {
                 return Constants.getHashMap();
             }
         };
-
 
 
         req.setRetryPolicy(new DefaultRetryPolicy(
@@ -387,4 +437,70 @@ public class dialogVerifyphone extends DialogFragment {
     }
 
 
+    private void contactUs(JSONObject params) {
+
+        Log.e("params", "" + params);
+        final ProgressDialog pDialog = new ProgressDialog(getContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+
+
+        //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
+        Log.e("params url", Urls.contactUs + "  ==  " + params);
+
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                Urls.contactUs, params,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("res", response + "");
+                        pDialog.dismiss();
+
+                        try {
+                            int responseid = response.getInt("id");
+
+                            if (responseid == 1) {
+                                Toast.makeText(getContext(), "Thank you for contacting us. MarryMax support will contact you to verify your phone number.\n", Toast.LENGTH_SHORT).show();
+                                dialogVerifyphone.this.getDialog().cancel();
+
+                            }
+
+                        } catch (JSONException e) {
+                            pDialog.dismiss();
+                            e.printStackTrace();
+                        }
+
+                        pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                VolleyLog.e("res err", "Error: " + error);
+                // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
+
+                pDialog.dismiss();
+            }
+
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+
+// Adding request to request queue
+        ///   rq.add(jsonObjReq);
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(context).addToRequestQueue(jsonObjReq);
+
+    }
 }

@@ -283,7 +283,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                     dialogP.show(getFragmentManager(), "d");
 
                 } else {
-                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), true);
+                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(),"", true);
                     newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
                     newFragment.show(getFragmentManager(), "dialog");
 

@@ -58,10 +58,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
 
@@ -69,14 +69,47 @@
                         android:id="@+id/LinearlayoutAccountSettingMyContactErrorVerficationCode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:visibility="gone">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="  We are unable to send text message on your mobile number. Please contact MarryMax support."
+                            android:text=" \u25CF  We are unable to send text message on your mobile number."
                             android:textColor="@color/colorTextRed" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text=" \u25CF  Please "
+                                android:textColor="@color/colorTextRed" />
+
+                            <TextView
+                                android:id="@+id/TextViewInformSupport"
+                                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:gravity="center"
+                                android:text="CLICK HERE"
+                                android:textColor="@color/colorDefaultGreen"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="to inform MarryMax support."
+                                android:textColor="@color/colorTextRed" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -90,6 +123,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
+                            android:gravity="left"
                             android:text="Please Verify Your Phone Number."
                             android:textColor="@color/colorBlack" />
 

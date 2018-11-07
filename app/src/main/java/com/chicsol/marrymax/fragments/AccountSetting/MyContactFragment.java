@@ -99,7 +99,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     private Members member = null;
     private Snackbar snackbarNotVerified;
     RelativeLayout tvHeading;
-
+    private String country_id = "";
     private ProgressBar pDialog;
     /*  private AppCompatButton  btResendVerificationEmail, btUpdateEmail, btEmailCancel;*/
 
@@ -499,6 +499,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         viewGenerator.selectSpinnerItemByIdWebCSC(spinnerAScontactCountry, member.get_country_id(), countryOfLivingDataList);
         viewGenerator.selectSpinnerItemById(spinnerAScontactRelationShipWithMember, member.get_profile_owner_id(), relationshipDataList);
 
+
+
         Log.e("Evening aaaaa", "" + member.get_notes() + "===");
 
         viewGenerator.selectSpinnerItemByValue(spinnerMyAScontactConvTimeToCall, member.get_notes(), covenientTimetoCallDataList);
@@ -653,7 +655,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             @Override
             public void onClick(View v) {
                 if (member != null) {
-                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), false);
+                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, false);
                     newFragment.setTargetFragment(MyContactFragment.this, 3);
                     newFragment.show(getFragmentManager(), "dialog");
                 } else {
@@ -929,6 +931,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         tvLandlineCode.setText("  ");
         LinearlayoutAccountSettingMyContact.setVisibility(View.VISIBLE);
         LinearlayoutAccountSettingMyContactNoData.setVisibility(View.GONE);
+
+        country_id = member.get_country_id() + "";
 
         String mobile = member.get_phone_mobile();
         Log.e("mob", "mob==" + mobile);
@@ -1270,13 +1274,13 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                         if (response != null) {
 
                             if (Long.parseLong(response) == 0) {
-                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), false);
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, false);
                                 newFragment.setTargetFragment(MyContactFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
 
                             } else {
 
-                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), true);
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, true);
                                 newFragment.setTargetFragment(MyContactFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
                             }

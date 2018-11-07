@@ -35,8 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
                 android:text="Subscriber Detail"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textColor="@color/colorBlack" />
@@ -104,8 +104,8 @@
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:tint="@color/colorGrey"
                             android:gravity="center"
+                            android:tint="@color/colorGrey"
                             app:srcCompat="@drawable/ic_email_black_24dp" />
 
 
@@ -157,8 +157,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
                 android:text="Order Detail"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textColor="@color/colorBlack" />
@@ -183,8 +183,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
                         android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
 
                         android:gravity="center"
                         android:text="You Selected: "
@@ -194,9 +194,9 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp">
 
                         <TextView
                             android:id="@+id/TextViewOrderProcessShortDescription"
@@ -262,9 +262,9 @@
                         android:id="@+id/TextViewOrderProcessPromocode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="6dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:clickable="true"
                         android:text="Have a Promo Code? click here"
@@ -281,8 +281,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
                             android:layout_marginTop="8dp"
+                            android:layout_marginRight="8dp"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
                             android:gravity="center"
@@ -295,9 +295,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
                             android:orientation="vertical">
 
 
@@ -419,8 +419,8 @@
                         android:background="#eee"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
 
 
                         <TextView
@@ -455,9 +455,9 @@
                         android:id="@+id/TextViewTermsConditions"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="13dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:clickable="true"
                         android:text="To Review Our Payment Terms &amp; Conditions, Click Here"
@@ -479,80 +479,80 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textColor="@color/colorUserProfileRed" />
 
-<!--
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="8dp"
-                app:cardPreventCornerOverlap="false"
-                app:cardUseCompatPadding="true">
+            <!--
+                        <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:cardElevation="8dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true">
 
-                &lt;!&ndash;      <LinearLayout
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="8dp"
-                          android:layout_marginRight="8dp"
-                          android:orientation="vertical">
+                            &lt;!&ndash;      <LinearLayout
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:layout_marginLeft="8dp"
+                                      android:layout_marginRight="8dp"
+                                      android:orientation="vertical">
 
-                          <TextView
-                              android:layout_width="wrap_content"
-                              android:layout_height="match_parent"
-                              android:layout_marginBottom="5dp"
-                              android:layout_marginLeft="5dp"
-                              android:layout_marginTop="10dp"
-                              android:gravity="center"
-                              android:text="Online Payment Method"
-                              android:textColor="@color/colorTextRed"
-                              android:textSize="19sp" />
+                                      <TextView
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="match_parent"
+                                          android:layout_marginBottom="5dp"
+                                          android:layout_marginLeft="5dp"
+                                          android:layout_marginTop="10dp"
+                                          android:gravity="center"
+                                          android:text="Online Payment Method"
+                                          android:textColor="@color/colorTextRed"
+                                          android:textSize="19sp" />
 
 
-                          <RelativeLayout
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:layout_margin="5dp"
-                              android:orientation="horizontal">
+                                      <RelativeLayout
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content"
+                                          android:layout_margin="5dp"
+                                          android:orientation="horizontal">
 
-                              <RadioButton
-                                  android:id="@+id/radioOrderProcessStripe"
-                                  android:layout_width="wrap_content"
-                                  android:layout_height="match_parent"
-                                  android:layout_alignParentLeft="true" />
+                                          <RadioButton
+                                              android:id="@+id/radioOrderProcessStripe"
+                                              android:layout_width="wrap_content"
+                                              android:layout_height="match_parent"
+                                              android:layout_alignParentLeft="true" />
 
-                              <ImageView
-                                  android:layout_width="match_parent"
-                                  android:layout_height="wrap_content"
-                                  android:layout_centerInParent="true"
-                                  android:src="@drawable/ic_logo_stripe" />
-                          </RelativeLayout>
+                                          <ImageView
+                                              android:layout_width="match_parent"
+                                              android:layout_height="wrap_content"
+                                              android:layout_centerInParent="true"
+                                              android:src="@drawable/ic_logo_stripe" />
+                                      </RelativeLayout>
 
-                          <LinearLayout
-                              android:id="@+id/LinearlayoutOrderProcessCCDetailView"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:orientation="vertical"
-                              android:visibility="gone">
+                                      <LinearLayout
+                                          android:id="@+id/LinearlayoutOrderProcessCCDetailView"
+                                          android:layout_width="match_parent"
+                                          android:layout_height="wrap_content"
+                                          android:orientation="vertical"
+                                          android:visibility="gone">
 
-                              <com.stripe.android.view.CardInputWidget
-                                  android:id="@+id/card_input_widget"
-                                  android:layout_width="match_parent"
-                                  android:layout_height="wrap_content" />
+                                          <com.stripe.android.view.CardInputWidget
+                                              android:id="@+id/card_input_widget"
+                                              android:layout_width="match_parent"
+                                              android:layout_height="wrap_content" />
 
-                              <Button
-                                  android:id="@+id/ButtonPayThroughCreditCard"
-                                  android:layout_width="wrap_content"
-                                  android:layout_height="wrap_content"
-                                  android:layout_gravity="center"
-                                  android:layout_marginBottom="8dp"
-                                  android:layout_marginTop="8dp"
-                                  android:backgroundTint="@color/colorTextRed"
-                                  android:text="Pay Through Credit Card"
-                                  android:textAllCaps="false"
-                                  android:textColor="@color/colorWhite" />
-                          </LinearLayout>
+                                          <Button
+                                              android:id="@+id/ButtonPayThroughCreditCard"
+                                              android:layout_width="wrap_content"
+                                              android:layout_height="wrap_content"
+                                              android:layout_gravity="center"
+                                              android:layout_marginBottom="8dp"
+                                              android:layout_marginTop="8dp"
+                                              android:backgroundTint="@color/colorTextRed"
+                                              android:text="Pay Through Credit Card"
+                                              android:textAllCaps="false"
+                                              android:textColor="@color/colorWhite" />
+                                      </LinearLayout>
 
-                      </LinearLayout>&ndash;&gt;
+                                  </LinearLayout>&ndash;&gt;
 
-            </android.support.v7.widget.CardView>-->
+                        </android.support.v7.widget.CardView>-->
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -578,9 +578,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
                             android:gravity="center"
                             android:text="Online Payment Method"
                             android:textColor="@color/colorTextRed"
@@ -612,8 +612,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginBottom="8dp"
                                 android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
                                 android:backgroundTint="@color/colorTextRed"
                                 android:text="Make Payment"
                                 android:textAllCaps="false"
@@ -624,9 +624,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:gravity="center"
                             android:text="Offline Payment Methods"
                             android:textColor="@color/colorTextRed"
@@ -964,9 +964,10 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:text=""
-                            android:textColor="#272a30"
-                            android:textSize="18sp" />
-
+                            android:textColor="@color/colorTextRed"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                        <!-- android:textColor="#272a30"-->
                     </LinearLayout>
 
                 </LinearLayout>
@@ -993,8 +994,9 @@
 
                         <TextView
                             android:id="@+id/TextViewOrderProcessErrorDescription"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text=""
                             android:textColor="@color/colorUserProfileTextGreen" />
 
