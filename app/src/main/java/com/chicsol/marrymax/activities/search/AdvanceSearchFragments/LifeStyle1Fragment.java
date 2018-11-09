@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,6 +30,8 @@ public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnChe
     private LinearLayout LinearLayoutAdvSearchRaisedWhere, LinearLayoutAdvSearchHijab, LinearLayoutAdvSearchFamilyValues, LinearLayoutAdvSearchLivingArrangement;
 
     private ViewGenerator viewGenerator;
+    private OnChildFragmentInteractionListener fragmentInteractionListener;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +103,8 @@ public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnChe
 
         }
 
+
+
     }
 
     private void setListeners() {
@@ -157,6 +162,33 @@ public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnChe
                 defaultSelectionsObj.set_choice_living_arangment_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchLivingArrangement));
             }
         }
+        updateDot();
+    }
+
+
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+
+            if (getTargetFragment() != null) {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) getTargetFragment();
+            } else {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
+        }
+    }
+
+    public interface OnChildFragmentInteractionListener {
+        void messageFromChildToParent();
+    }
+
+    private void updateDot() {
+        fragmentInteractionListener.messageFromChildToParent();
 
     }
+
+
 }

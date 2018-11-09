@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -28,7 +29,7 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
     private LinearLayout LinearLayoutAdvSearchSiblingPosition, LinearLayoutAdvSearchSmoking, LinearLayoutAdvSearchDrink;
 
     private ViewGenerator viewGenerator;
-
+    private OnChildFragmentInteractionListener fragmentInteractionListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,6 +95,7 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
 
         }
 
+
     }
 
     private void setListeners() {
@@ -132,7 +134,7 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
         if (buttonView.getTag() != null) {
-          //  Log.e("sibling ids",""+ defaultSelectionsObj.get_choice_raised_ids());
+            //  Log.e("sibling ids",""+ defaultSelectionsObj.get_choice_raised_ids());
             if (buttonView.getTag().equals("sibling")) {
                 defaultSelectionsObj.set_choice_sibling_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchSiblingPosition));
 
@@ -147,7 +149,32 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
 
 
         }
+        updateDot();
     }
 
+
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+
+            if (getTargetFragment() != null) {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) getTargetFragment();
+            } else {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
+        }
+    }
+
+    public interface OnChildFragmentInteractionListener {
+        void messageFromChildToParent();
+    }
+
+    private void updateDot() {
+        fragmentInteractionListener.messageFromChildToParent();
+
+    }
 
 }

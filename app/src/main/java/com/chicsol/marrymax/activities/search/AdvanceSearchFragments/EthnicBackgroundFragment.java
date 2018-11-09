@@ -44,6 +44,7 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
 
     private RecyclerView recycler_view_caste;
     private SearchCheckBoxAdapter mAdapter;
+    private OnChildFragmentInteractionListener fragmentInteractionListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,10 +53,10 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
     }
 
 
-    @Override
+/*    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -136,6 +137,8 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchCaste, defaultSelectionsObj.get_choice_caste_ids());
         }
 
+
+
     }
 
     private void setListenersD() {
@@ -212,6 +215,8 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
                 }
             }
         }
+
+        updateDot();
     }
 
 
@@ -275,7 +280,7 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
 
 
         defaultSelectionsObj.set_choice_caste_ids(clearCommarEnd(sbSelectedVisaMyChoice).toString());
-
+        updateDot();
     }
 
     private StringBuilder clearCommarEnd(StringBuilder stringBuilder) {
@@ -290,4 +295,34 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
 
         return stringBuilder;
     }
+
+
+
+
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+
+            if (getTargetFragment() != null) {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) getTargetFragment();
+            } else {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
+        }
+    }
+
+    public interface OnChildFragmentInteractionListener {
+        void messageFromChildToParent();
+    }
+
+    private void updateDot() {
+        fragmentInteractionListener.messageFromChildToParent();
+
+    }
+
+
+
 }

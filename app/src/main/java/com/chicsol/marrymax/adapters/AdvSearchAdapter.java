@@ -29,10 +29,10 @@ public class AdvSearchAdapter extends ArrayAdapter<mAdvSearchListing> {
     }
 
     public void reset() {
-      ///  Toast.makeText(context, "Reset Done", Toast.LENGTH_SHORT).show();
-        Log.e("Reset","resetttttttttttt");
+        ///  Toast.makeText(context, "Reset Done", Toast.LENGTH_SHORT).show();
+        //     Log.e("Reset","resetttttttttttt");
 
-        Log.e("Reset","resetttttttttttt");
+        //    Log.e("Reset","resetttttttttttt");
     }
 
     @Override
@@ -46,7 +46,10 @@ public class AdvSearchAdapter extends ArrayAdapter<mAdvSearchListing> {
 
             holder = new WeatherHolder();
             holder.imgIcon = (ImageView) row.findViewById(R.id.ImageViewAdvSearchIcon);
+
+            holder.viewCircleHeight = (View) row.findViewById(R.id.ViewCircleHeight);
             // holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);
+
 
             row.setTag(holder);
         } else {
@@ -57,11 +60,19 @@ public class AdvSearchAdapter extends ArrayAdapter<mAdvSearchListing> {
         // holder.txtTitle.setText(item_slider.name);
         holder.imgIcon.setImageResource(item.icon);
 
+        if (item.isDataSelection()) {
+            holder.viewCircleHeight.setVisibility(View.VISIBLE);
+        }else {
+            holder.viewCircleHeight.setVisibility(View.GONE);
+        }
+
         return row;
     }
 
     static class WeatherHolder {
         ImageView imgIcon;
         TextView txtTitle;
+        View viewCircleHeight;
+
     }
 }

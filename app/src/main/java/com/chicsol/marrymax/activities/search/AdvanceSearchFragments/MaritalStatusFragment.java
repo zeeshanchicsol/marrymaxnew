@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -31,6 +32,8 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
     private LinearLayout LinearLayoutAdvSearchMaritalStatus, LinearLayoutAdvSearchChildren;
 
     private ViewGenerator viewGenerator;
+    private OnChildFragmentInteractionListener fragmentInteractionListener;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,9 @@ Log.e("set selection","sett selection");
 
         }
 
+
+
+
     }
 
     private void setListeners() {
@@ -115,7 +121,7 @@ Log.e("set selection","sett selection");
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         defaultSelectionsObj.set_choice_marital_status_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchMaritalStatus));
         defaultSelectionsObj.set_choice_children_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchChildren));
-
+        updateDot();
     }
 
 /*    // ItemDetailFragment.newInstance(item_image_slider)
@@ -126,4 +132,31 @@ Log.e("set selection","sett selection");
     //    fragmentDemo.setArguments(args);
         return fragmentDemo;
     }*/
+
+
+
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+
+            if (getTargetFragment() != null) {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) getTargetFragment();
+            } else {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
+        }
+    }
+
+    public interface OnChildFragmentInteractionListener {
+        void messageFromChildToParent();
+    }
+
+    private void updateDot() {
+        fragmentInteractionListener.messageFromChildToParent();
+
+    }
+
 }

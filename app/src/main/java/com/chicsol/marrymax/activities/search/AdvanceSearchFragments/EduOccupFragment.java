@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -30,6 +31,8 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
     private LinearLayout LinearLayoutAdvSearchEducation, LinearLayoutAdvSearchOccupation;
 
     private ViewGenerator viewGenerator;
+
+    private OnChildFragmentInteractionListener fragmentInteractionListener;
 
 
     @Override
@@ -91,6 +94,7 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
 
         }
 
+
     }
 
     private void setListeners() {
@@ -132,6 +136,37 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
             }
 
         }
+        updateDot();
     }
+
+
+
+
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+
+            if (getTargetFragment() != null) {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) getTargetFragment();
+            } else {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
+        }
+    }
+
+    public interface OnChildFragmentInteractionListener {
+        void messageFromChildToParent();
+    }
+
+    private void updateDot() {
+        fragmentInteractionListener.messageFromChildToParent();
+
+    }
+
+
+
 
 }

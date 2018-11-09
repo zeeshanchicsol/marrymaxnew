@@ -1,7 +1,10 @@
 package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +13,11 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
+import com.chicsol.marrymax.dialogs.dialogShowInterest;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.utils.ViewGenerator;
@@ -38,6 +43,7 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
     private Spinner spRegisterWithIn, spLastLoginDate;
     private MySpinnerAdapter spinnerAdapterRegisteredWithIn, spinnerAdapterLastLogin;
     private mCheckBox checkboxItemAdvSearchBasicsPicOnly, checkboxItemAdvSearchBasicsOpenToPub;
+    private OnChildFragmentInteractionListener fragmentInteractionListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,7 +80,7 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
 
         dataListRegWithin = new ArrayList<>();
         dataListRegWithin.add(new WebArd("0", "Select"));
-     //   dataListRegWithin.add(new WebArd("1", "Today"));
+        //   dataListRegWithin.add(new WebArd("1", "Today"));
         dataListRegWithin.add(new WebArd("7", "Last 7 Days"));
         dataListRegWithin.add(new WebArd("15", "Last 15 Days"));
         dataListRegWithin.add(new WebArd("30", "Last 30 Days"));
@@ -118,9 +124,11 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                    WebArd selectedItem = (WebArd) spRegisterWithIn.getSelectedItem();
-                    defaultSelectionsObj.set_registration_within_id(Long.parseLong(selectedItem.getId()));
-                    //    Log.e("set_reg_within_id",""+defaultSelectionsObj.get_registration_within_id());
+                WebArd selectedItem = (WebArd) spRegisterWithIn.getSelectedItem();
+                defaultSelectionsObj.set_registration_within_id(Long.parseLong(selectedItem.getId()));
+
+                updateDot();
+                //    Log.e("set_reg_within_id",""+defaultSelectionsObj.get_registration_within_id());
 
             }
 
@@ -132,11 +140,11 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                    WebArd selectedItem = (WebArd) spLastLoginDate.getSelectedItem();
+                WebArd selectedItem = (WebArd) spLastLoginDate.getSelectedItem();
 
-                    defaultSelectionsObj.set_last_login_date_id(Long.parseLong(selectedItem.getId()));
-                    //  Log.e("set_reg_within_id",""+defaultSelectionsObj.get_last_login_date_id());
-
+                defaultSelectionsObj.set_last_login_date_id(Long.parseLong(selectedItem.getId()));
+                //  Log.e("set_reg_within_id",""+defaultSelectionsObj.get_last_login_date_id());
+                updateDot();
             }
 
             @Override
@@ -169,6 +177,16 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
     }
 
     private void setSelection() {
+
+
+        /*if (defaultSelectionsObj != null) {
+            if (defaultSelectionsObj.get_pictureonly() == 1 || defaultSelectionsObj.get_opentopublic() == 1 || defaultSelectionsObj.get_registration_within_id() != 0 || defaultSelectionsObj.get_last_login_date_id() != 0 || !TextUtils.isEmpty(defaultSelectionsObj.get_choice_profile_owner_Ids()) || !TextUtils.isEmpty(defaultSelectionsObj.get_choice_zodiac_sign_ids())) {
+                Toast.makeText(getContext(), "selected", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "not selected", Toast.LENGTH_SHORT).show();
+            }
+        }*/
+
 
         if (defaultSelectionsObj != null) {
 
@@ -226,6 +244,9 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         //   Log.e("pic only", isChecked + "" + buttonView.getTag());
 
+        //to update dotted ui
+
+
         if (buttonView == checkboxItemAdvSearchBasicsPicOnly) {
             if (isChecked) {
 
@@ -255,8 +276,51 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
             }
 
         }
+
+
+        updateDot();
+
+
+    }
+
+    private void updateDot() {
+        fragmentInteractionListener.messageFromChildToParent();
+
     }
 /*    public void resetSearch() {
         Log.e("Dome","Dddddddddddddddddddddddddddddd");
      }*/
+
+
+ /*   @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        // check if parent Fragment implements listener
+        if (getParentFragment() instanceof OnChildFragmentInteractionListener) {
+            mParentListener = (OnChildFragmentInteractionListener) getParentFragment();
+        } else {
+            throw new RuntimeException("The parent fragment must implement OnChildFragmentInteractionListener");
+        }
+
+    }*/
+
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+
+            if (getTargetFragment() != null) {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) getTargetFragment();
+            } else {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
+        }
+    }
+
+    public interface OnChildFragmentInteractionListener {
+        void messageFromChildToParent();
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -67,6 +68,8 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     Map<String, String> selectedCitiesMap = new HashMap<String, String>();
 
     private EditText etCountrySearch, etStatesSearch, etCitySearch;
+
+    private OnChildFragmentInteractionListener fragmentInteractionListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -220,6 +223,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
             }
         }
 
+
     }
 
 
@@ -243,6 +247,8 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                         topStatesAdapter.unCheckAll();
                         topCitiesAdapter.unCheckAll();
                     }
+
+
                 }
 
 
@@ -256,6 +262,8 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     selectStatesGetCities(getComaSeparatedItemsFromMap(selectedStatesMap), getComaSeparatedItemsFromMap(selectedCitiesMap));
 
 
+
+
                 } else {
                     citiesAdapter.clear();
                     tvMsgCities.setVisibility(View.VISIBLE);
@@ -264,7 +272,14 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     tvMsgStates.setVisibility(View.VISIBLE);
                     statesAdapter.clear();
                     defaultSelectionsObj.set_choice_country_ids(selectedIds);
+
+                    defaultSelectionsObj.set_choice_state_ids(getComaSeparatedItemsFromMap(selectedStatesMap));
+                    defaultSelectionsObj.set_choice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
+
                 }
+                Log.e("selectedMap  " + defaultSelectionsObj.get_choice_country_ids() + " = " + defaultSelectionsObj.get_choice_state_ids() + " = " + defaultSelectionsObj.get_choice_cities_ids(), "" + getComaSeparatedItemsFromMap(selectedStatesMap) + " --------  " + getComaSeparatedItemsFromMap(selectedCitiesMap));
+
+
                 break;
             case 2:
                 //states
@@ -439,6 +454,8 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 break;
         }
 
+        updateDot();
+
     }
 
     public String getComaSeparatedItemsFromMap(Map<String, String> map) {
@@ -465,7 +482,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 try {
                     sleep(500);
                     if (!statesApiRunning) {
-                        if(getActivity() == null)
+                        if (getActivity() == null)
                             return;
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
@@ -526,7 +543,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     sleep(500);
                     if (!citiesApiRunning) {
 
-                        if(getActivity() == null)
+                        if (getActivity() == null)
                             return;
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
@@ -752,53 +769,33 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         defaultSelectionsObj.set_choice_visa_status_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchVisaStatus));
+        updateDot();
     }
 
 
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
 
-
-/*
-
-    private class GetStates extends AsyncTask {
-        String selectedIds;
-        int scCheck;
-        WebCSC Objcsc;
-
-        public GetStates(String selectedIds, int scCheck, WebCSC Objcsc) {
-            this.selectedIds = selectedIds;
-            this.scCheck = scCheck;
-            this.Objcsc = Objcsc;
-        }
-
-        @Override
-        protected Object doInBackground(Object[] objects) {
-
-
-
-
-
-            //
-
-            // getCities(Objcsc.getId());
-
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Object o) {
-            super.onPostExecute(o);
-
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-
-
-                }
-            });
-
+            if (getTargetFragment() != null) {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) getTargetFragment();
+            } else {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
         }
     }
-*/
+
+    public interface OnChildFragmentInteractionListener {
+        void messageFromChildToParent();
+    }
+
+    private void updateDot() {
+        fragmentInteractionListener.messageFromChildToParent();
+
+    }
+
 
 }

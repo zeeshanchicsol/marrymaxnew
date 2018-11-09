@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,7 +12,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
+
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
@@ -36,7 +37,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
     private Spinner spAgeFrom, spAgeTo, spHeightFrom, spHeightTo;
     private MySpinnerAdapter spinnerAdapterAgeFrom, spinnerAdapterAgeTo, spinnerAdapterHeightFrom, spinnerAdapterHeightTo;
     private List<WebArd> agefromDataList, ageToDataList, heightFromDataList, heightToDataList;
-
+   private OnChildFragmentInteractionListener fragmentInteractionListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -178,20 +179,20 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
             //viewGenerator.selectCheckBoxes(llAdvSearchComplexion, members.get_choice_zodiac_sign_ids());
 
             Log.e("Eye colorrrrr", "Selection  height  " + defaultSelectionsObj.get_choice_height_from_id());
-         //   Toast.makeText(getContext(), "== "+defaultSelectionsObj.get_choice_age_from(), Toast.LENGTH_SHORT).show();
+            //   Toast.makeText(getContext(), "== "+defaultSelectionsObj.get_choice_age_from(), Toast.LENGTH_SHORT).show();
 
-            if(defaultSelectionsObj.get_choice_age_from()==0){
+            if (defaultSelectionsObj.get_choice_age_from() == 0) {
                 defaultSelectionsObj.set_choice_age_from(18);
             }
-            if(defaultSelectionsObj.get_choice_age_upto()==0){
+            if (defaultSelectionsObj.get_choice_age_upto() == 0) {
                 defaultSelectionsObj.set_choice_age_upto(70);
             }
 
-            if(defaultSelectionsObj.get_choice_height_from_id()==0){
+            if (defaultSelectionsObj.get_choice_height_from_id() == 0) {
                 defaultSelectionsObj.set_choice_height_from_id(Long.parseLong(heightFromDataList.get(1).getId()));
             }
-            if(defaultSelectionsObj.get_choice_height_to_id()==0){
-                defaultSelectionsObj.set_choice_height_to_id(Long.parseLong(heightFromDataList.get(heightFromDataList.size()-1).getId()));
+            if (defaultSelectionsObj.get_choice_height_to_id() == 0) {
+                defaultSelectionsObj.set_choice_height_to_id(Long.parseLong(heightFromDataList.get(heightFromDataList.size() - 1).getId()));
             }
 
             viewGenerator.selectSpinnerItemById(spAgeFrom, defaultSelectionsObj.get_choice_age_from(), agefromDataList);
@@ -213,6 +214,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
                     WebArd selectedItem = (WebArd) spAgeFrom.getSelectedItem();
                     defaultSelectionsObj.set_choice_age_from(Long.parseLong(selectedItem.getId()));
                 }
+                updateDot();
             }
 
             @Override
@@ -227,6 +229,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
                     WebArd selectedItem = (WebArd) spAgeTo.getSelectedItem();
                     defaultSelectionsObj.set_choice_age_upto(Long.parseLong(selectedItem.getId()));
                 }
+                updateDot();
             }
 
             @Override
@@ -241,6 +244,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
                     WebArd selectedItem = (WebArd) spHeightFrom.getSelectedItem();
                     defaultSelectionsObj.set_choice_height_from_id(Long.parseLong(selectedItem.getId()));
                 }
+                updateDot();
             }
 
             @Override
@@ -255,6 +259,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
                     WebArd selectedItem = (WebArd) spHeightTo.getSelectedItem();
                     defaultSelectionsObj.set_choice_height_to_id(Long.parseLong(selectedItem.getId()));
                 }
+                updateDot();
             }
 
             @Override
@@ -314,15 +319,38 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
         defaultSelectionsObj.set_choice_complexion_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchComplexion));
         defaultSelectionsObj.set_choice_hair_color_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchHairColor));
         defaultSelectionsObj.set_choice_eye_color_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchEyeColor));
+        updateDot();
     }
 
-/*    // ItemDetailFragment.newInstance(item_image_slider)
-    public static AppearanceFragment newInstance(String item_image_slider) {
-    	AppearanceFragment fragmentDemo = new AppearanceFragment();
-        Bundle args = new Bundle();
-        args.putString("item_image_slider", item_image_slider);
-        fragmentDemo.setArguments(args);
-        return fragmentDemo;
-    }*/
+    /*    // ItemDetailFragment.newInstance(item_image_slider)
+        public static AppearanceFragment newInstance(String item_image_slider) {
+            AppearanceFragment fragmentDemo = new AppearanceFragment();
+            Bundle args = new Bundle();
+            args.putString("item_image_slider", item_image_slider);
+            fragmentDemo.setArguments(args);
+            return fragmentDemo;
+        }*/
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
 
+            if (getTargetFragment() != null) {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) getTargetFragment();
+            } else {
+                fragmentInteractionListener = (OnChildFragmentInteractionListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
+        }
+    }
+
+    public interface OnChildFragmentInteractionListener {
+        void messageFromChildToParent();
+    }
+
+    private void updateDot() {
+        fragmentInteractionListener.messageFromChildToParent();
+
+    }
 }

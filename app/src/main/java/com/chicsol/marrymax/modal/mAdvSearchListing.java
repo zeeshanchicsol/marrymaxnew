@@ -21,12 +21,18 @@ public class mAdvSearchListing {
     public Fragment fragment;
 
 
-    public mAdvSearchListing(int icon, int icon_selected, String title, Fragment frg) {
+    @SerializedName("dataSelection")
+    public boolean dataSelection;
+
+
+    public mAdvSearchListing(int icon, int icon_selected, String title, Fragment frg, boolean dataSelection) {
         super();
         this.icon = icon;
         this.title = title;
         this.fragment = frg;
         this.icon_selected = icon_selected;
+        this.dataSelection = dataSelection;
+
     }
 
     public int getIcon_selected() {
@@ -52,4 +58,14 @@ public class mAdvSearchListing {
     public Fragment getFragment() {
         return fragment;
     }
+
+
+    public boolean isDataSelection() {
+        return dataSelection;
+    }
+
+    public void setDataSelection(boolean dataSelection) {
+        this.dataSelection = dataSelection;
+    }
+
 }

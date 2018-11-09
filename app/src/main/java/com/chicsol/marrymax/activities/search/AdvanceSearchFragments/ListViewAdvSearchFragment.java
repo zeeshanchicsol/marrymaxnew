@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DrawerActivity;
@@ -24,7 +26,7 @@ import java.util.List;
 
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 
-public class ListViewAdvSearchFragment extends Fragment {
+public class ListViewAdvSearchFragment extends Fragment implements BasicsFragment.OnChildFragmentInteractionListener, AppearanceFragment.OnChildFragmentInteractionListener, MaritalStatusFragment.OnChildFragmentInteractionListener, EduOccupFragment.OnChildFragmentInteractionListener, EthnicBackgroundFragment.OnChildFragmentInteractionListener, LifeStyle1Fragment.OnChildFragmentInteractionListener, LifeStyle2Fragment.OnChildFragmentInteractionListener, GeographyFragment.OnChildFragmentInteractionListener {
 
     View lasView = null;
     List<mAdvSearchListing> dataList;
@@ -34,6 +36,7 @@ public class ListViewAdvSearchFragment extends Fragment {
     private ListView lvItems;
     private OnItemSelectedListener listener;
     private ProgressDialog pDialog;
+    boolean basicsSelected = false, appearanceSelected = false, eduOccuSelected = false, ethnicSelected = false, geographySelected = false, lifestyle1Selected = false, lifestyle2Selected = false, maritalSelected = false;
 
     public static ListViewAdvSearchFragment newInstance() {
         ListViewAdvSearchFragment fragment = new ListViewAdvSearchFragment();
@@ -54,7 +57,7 @@ public class ListViewAdvSearchFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.e("Search after", "after");
+        //   Log.e("Search after", "after");
 /*        if (SearchMainActivity.searchKey != null) {
             getSelectedSearchObject(SearchMainActivity.searchKey);
         } else {*/
@@ -65,7 +68,7 @@ public class ListViewAdvSearchFragment extends Fragment {
            Log.e("not null","raw object");
            defaultSelectionsObj = DrawerActivity.rawSearchObj;
        }*/
-           // }
+        // }
         listener.onItemSelected(dataList.get(0));
         //   }
 
@@ -87,17 +90,7 @@ public class ListViewAdvSearchFragment extends Fragment {
         lvItems = (ListView) view.findViewById(R.id.lvItems);
 
         dataList = new ArrayList<>();
-
-        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu1, R.drawable.ic_adv_s_menu1_active, "Cloudy", new BasicsFragment()));
-        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu2, R.drawable.ic_adv_s_menu2_active, "Showers", new AppearanceFragment()));
-        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu3, R.drawable.ic_adv_s_menu3_active, "Showers", new MaritalStatusFragment()));
-        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu4, R.drawable.ic_adv_s_menu4_active, "Showers", new EduOccupFragment()));
-
-        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu5, R.drawable.ic_adv_s_menu5_active, "Showers", new EthnicBackgroundFragment()));
-        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu6, R.drawable.ic_adv_s_menu6_active, "Showers", new GeographyFragment()));
-        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu7, R.drawable.ic_adv_s_menu7_active, "Showers", new LifeStyle1Fragment()));
-        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu7, R.drawable.ic_adv_s_menu7_active, "Showers", new LifeStyle2Fragment()));
-
+        initDataList();
 
         //  dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu3, "Snow"));
         //   dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu4, "Storm"));
@@ -114,6 +107,67 @@ public class ListViewAdvSearchFragment extends Fragment {
         advSearchAdapter = new AdvSearchAdapter(getActivity(), R.layout.adv_search_item_listview, dataList);
         lvItems.setAdapter(advSearchAdapter);
 
+
+    }
+
+    private void initDataList() {
+        updateAllSelectionsAccordingToSearchCategories();
+
+        BasicsFragment basicsFragment = new BasicsFragment();
+        basicsFragment.setTargetFragment(ListViewAdvSearchFragment.this, 0);
+
+        AppearanceFragment appearanceFragment = new AppearanceFragment();
+        appearanceFragment.setTargetFragment(ListViewAdvSearchFragment.this, 0);
+
+        MaritalStatusFragment maritalStatusFragment = new MaritalStatusFragment();
+        maritalStatusFragment.setTargetFragment(ListViewAdvSearchFragment.this, 0);
+
+        EduOccupFragment eduOccupFragment = new EduOccupFragment();
+        eduOccupFragment.setTargetFragment(ListViewAdvSearchFragment.this, 0);
+
+        EthnicBackgroundFragment ethnicBackgroundFragment = new EthnicBackgroundFragment();
+        ethnicBackgroundFragment.setTargetFragment(ListViewAdvSearchFragment.this, 0);
+
+        GeographyFragment geographyFragment = new GeographyFragment();
+        geographyFragment.setTargetFragment(ListViewAdvSearchFragment.this, 0);
+
+        LifeStyle1Fragment lifeStyle1Fragment = new LifeStyle1Fragment();
+        lifeStyle1Fragment.setTargetFragment(ListViewAdvSearchFragment.this, 0);
+
+        LifeStyle2Fragment lifeStyle2Fragment = new LifeStyle2Fragment();
+        lifeStyle2Fragment.setTargetFragment(ListViewAdvSearchFragment.this, 0);
+
+
+        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu1, R.drawable.ic_adv_s_menu1_active, "Cloudy", basicsFragment, basicsSelected));
+        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu2, R.drawable.ic_adv_s_menu2_active, "Showers", appearanceFragment, appearanceSelected));
+        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu3, R.drawable.ic_adv_s_menu3_active, "Showers", maritalStatusFragment, maritalSelected));
+        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu4, R.drawable.ic_adv_s_menu4_active, "Showers", eduOccupFragment, eduOccuSelected));
+
+        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu5, R.drawable.ic_adv_s_menu5_active, "Showers", ethnicBackgroundFragment, ethnicSelected));
+        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu6, R.drawable.ic_adv_s_menu6_active, "Showers", geographyFragment, geographySelected));
+        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu7, R.drawable.ic_adv_s_menu7_active, "Showers", lifeStyle1Fragment, lifestyle1Selected));
+        dataList.add(new mAdvSearchListing(R.drawable.ic_adv_s_menu7, R.drawable.ic_adv_s_menu7_active, "Showers", lifeStyle2Fragment, lifestyle2Selected));
+
+
+    }
+
+    private boolean checkStringWith0andNull(String str) {
+        if (str != null) {
+            if (!TextUtils.isEmpty(str)) {
+
+                if (!str.equals("0")) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
 
     }
 
@@ -146,8 +200,9 @@ public class ListViewAdvSearchFragment extends Fragment {
 
             }
         });
-
-        //   listener.onItemSelected(dataList.get(0));
+        //   lvItems.setSelection(0);
+        /*lvItems.set*/
+        //  listener.onItemSelected(dataList.get(0));
 
     }
 
@@ -277,14 +332,87 @@ public class ListViewAdvSearchFragment extends Fragment {
         if (advSearchAdapter != null) {
             advSearchAdapter.reset();
         } else {
-            Log.e("Null", "Nullllllllllllllllllll");
+
             ///  Toast.makeText(getContext(), "Null", Toast.LENGTH_SHORT).show();
         }
 
         //Toast.makeText(getContext(), "Clickec", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void messageFromChildToParent() {
+
+        advSearchAdapter.clear();
+        initDataList();
+
+
+        advSearchAdapter.notifyDataSetChanged();
+    }
+
     public interface OnItemSelectedListener {
         public void onItemSelected(mAdvSearchListing i);
     }
+
+
+    private void updateAllSelectionsAccordingToSearchCategories() {
+
+        if (defaultSelectionsObj != null) {
+
+//===============Basics=======================
+
+            if (defaultSelectionsObj.get_pictureonly() != 0 || defaultSelectionsObj.get_opentopublic() != 0 || defaultSelectionsObj.get_registration_within_id() != 0 || defaultSelectionsObj.get_last_login_date_id() != 0 || checkStringWith0andNull(defaultSelectionsObj.get_choice_profile_owner_Ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_zodiac_sign_ids())) {
+                basicsSelected = true;
+            } else {
+                basicsSelected = false;
+            }
+
+
+//================Appearance===============
+            if (defaultSelectionsObj.get_choice_age_from() != 18 || defaultSelectionsObj.get_choice_age_upto() != 70 || defaultSelectionsObj.get_choice_height_from_id() != 1 || defaultSelectionsObj.get_choice_height_to_id() != 31 || checkStringWith0andNull(defaultSelectionsObj.get_choice_body_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_complexion_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_hair_color_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_eye_color_ids())
+                    ) {
+                appearanceSelected = true;
+            } else {
+                appearanceSelected = false;
+            }
+//================Marital Status===============
+            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_marital_status_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_children_ids())) {
+                maritalSelected = true;
+            } else {
+                maritalSelected = false;
+            }
+//================Edu Occupation===============
+            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_education_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_occupation_ids())) {
+                eduOccuSelected = true;
+            } else {
+                eduOccuSelected = false;
+            }
+//================Ethnic Background===============
+            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_ethnic_bground_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_religious_sect_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_caste_ids())) {
+                ethnicSelected = true;
+            } else {
+                ethnicSelected = false;
+            }
+//================Lifestyle 1 ===============
+            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_raised_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_hijab_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_family_values_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_living_arangment_ids())) {
+                lifestyle1Selected = true;
+            } else {
+                lifestyle1Selected = false;
+            }
+//================Lifestyle 2 ===============
+            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_sibling_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_smoking_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_drink_ids())) {
+                lifestyle2Selected = true;
+            } else {
+                lifestyle2Selected = false;
+            }
+//================Geography  ===============
+            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_country_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_state_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_cities_ids())|| checkStringWith0andNull(defaultSelectionsObj.get_choice_visa_status_ids())) {
+                geographySelected = true;
+            } else {
+                geographySelected = false;
+            }
+
+        }
+    }
+
+
 }
