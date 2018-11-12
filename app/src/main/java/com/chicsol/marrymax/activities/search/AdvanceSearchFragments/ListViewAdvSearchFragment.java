@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DrawerActivity;
+import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.adapters.AdvSearchAdapter;
 import com.chicsol.marrymax.modal.mAdvSearchListing;
 
@@ -204,6 +205,10 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
         /*lvItems.set*/
         //  listener.onItemSelected(dataList.get(0));
 
+
+    //  getActivity().setMenuUpdateListener
+      //    SearchMainActivity.set
+
     }
 
 
@@ -349,6 +354,8 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
         advSearchAdapter.notifyDataSetChanged();
     }
 
+
+
     public interface OnItemSelectedListener {
         public void onItemSelected(mAdvSearchListing i);
     }
@@ -405,7 +412,7 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
                 lifestyle2Selected = false;
             }
 //================Geography  ===============
-            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_country_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_state_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_cities_ids())|| checkStringWith0andNull(defaultSelectionsObj.get_choice_visa_status_ids())) {
+            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_country_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_state_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_cities_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_visa_status_ids())) {
                 geographySelected = true;
             } else {
                 geographySelected = false;

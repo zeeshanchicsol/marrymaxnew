@@ -331,7 +331,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                         Toast.makeText(DashboardMessagesDetailActivity.this, "Dear " + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + ", you have send too many messages. In order to avoid spam please wait for sometime to send more messages.", Toast.LENGTH_LONG).show();
 
                                     } else {
-                                        Toast.makeText(DashboardMessagesDetailActivity.this, "Dear " + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + ", your complementary free messaging quota is exhausted. As a free member you can send only one message in three days.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(DashboardMessagesDetailActivity.this, "Dear " + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + ", Please! Subscribe to send message and view verified Phone numbers.", Toast.LENGTH_LONG).show();
 
                                     }
 

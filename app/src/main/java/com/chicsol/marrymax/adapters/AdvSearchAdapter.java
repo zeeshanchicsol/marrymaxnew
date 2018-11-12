@@ -62,6 +62,9 @@ public class AdvSearchAdapter extends ArrayAdapter<mAdvSearchListing> {
 
         if (item.isDataSelection()) {
             holder.viewCircleHeight.setVisibility(View.VISIBLE);
+
+        //    holder.imgIcon.setImageResource(item.icon_selected);
+
         }else {
             holder.viewCircleHeight.setVisibility(View.GONE);
         }

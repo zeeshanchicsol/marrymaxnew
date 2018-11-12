@@ -868,6 +868,7 @@ public class MarryMax {
                         } catch (JSONException e) {
                             pDialog.dismiss();
                             e.printStackTrace();
+                            Toast.makeText(activity, "Unable to provide contact details", Toast.LENGTH_LONG).show();
                         }
 
 

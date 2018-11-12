@@ -1,6 +1,7 @@
 package com.chicsol.marrymax.activities.search;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.ActivityLogin;
 import com.chicsol.marrymax.activities.DrawerActivity;
+import com.chicsol.marrymax.activities.search.AdvanceSearchFragments.GeographyFragment;
 import com.chicsol.marrymax.activities.search.AdvanceSearchFragments.ListViewAdvSearchFragment;
 import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchResultsActivity;
 import com.chicsol.marrymax.dialogs.dialogLoginToContinue;
@@ -44,6 +46,7 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 public class SearchMainActivity extends AppCompatActivity implements ListViewAdvSearchFragment.OnItemSelectedListener, dialogLoginToContinue.onCompleteLoginListener {
 
     Fragment fragmentItem;
+    Fragment fragmentItemListi;
     ListViewAdvSearchFragment mManagerFragment;
     private LinearLayout llSearch, llResetSearch, llSaveSearch;
     private ProgressDialog pDialog;
@@ -52,6 +55,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
     private AppCompatEditText etSearchByProfile;
     private boolean bestMatchCheck;
     private View.OnTouchListener onTouchListener;
+    //   private OnMenuUpdatedListener onMenuUpdatedListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +108,10 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
     }
 
+ /*   public void setMenuUpdateListener(OnMenuUpdatedListener listener) {
+        onMenuUpdatedListener = listener;
+    }
+*/
 
     @Override
     protected void onResume() {
@@ -222,7 +230,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
                         // drawable = getResources().getDrawable(R.drawable.ic_search_black_24dp);
                     }
 
-                  //  StateListDrawable stateListDrawable = (StateListDrawable) drawable;
+                    //  StateListDrawable stateListDrawable = (StateListDrawable) drawable;
 
                     etSearchByProfile.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
                     etSearchByProfile.setOnTouchListener(onTouchListener);
@@ -305,6 +313,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
             }
         });
+
         llResetSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -326,12 +335,37 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
                     ft.detach(fragmentItem);
                     ft.attach(fragmentItem);
                     ft.commit();
+
+
+                    fragmentItemListi = new ListViewAdvSearchFragment();
+                    FragmentTransaction fta = getSupportFragmentManager().beginTransaction();
+                    fta.replace(R.id.fragmentItemsList, fragmentItemListi);
+                    fta.detach(fragmentItemListi);
+                    fta.attach(fragmentItemListi);
+                    fta.commit();
+
+                  /*  Fragment frg = null;
+                    frg = getSupportFragmentManager().findFragmentByTag("ListViewAdvSearchFragment");
+                    final FragmentTransaction fta = getSupportFragmentManager().beginTransaction();
+                    fta.detach(frg);
+                    fta.attach(frg);
+                    fta.commit();
+*/
+        /*            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragmentItemsList);
+                   // Fragment currentFragment = getFragmentManager().findFragmentByTag("YourFragmentTag");
+                    FragmentTransaction fragmentTransactiona = getFragmentManager().beginTransaction();
+                    fragmentTransactiona.detach(currentFragment);
+                    fragmentTransactiona.attach(currentFragment);
+                    fragmentTransactiona.commit();*/
+
+
                     Toast.makeText(SearchMainActivity.this, "Reset Done", Toast.LENGTH_SHORT).show();
 
                 }
 
             }
         });
+
         llSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -372,6 +406,8 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.flDetailContainer, fragmentItem);
         ft.commit();
+
+
     }
 
 
@@ -385,7 +421,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         }
     }
 
-    private void resetSearch() {
+ /*   private void resetSearch() {
         Members members = new Members();
         defaultSelectionsObj = members;
 
@@ -396,7 +432,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         ft.commit();
 
 
-    }
+    }*/
 
 
     @Override
@@ -436,5 +472,10 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
             }
         }
 
+    }*/
+
+
+   /* public interface OnMenuUpdatedListener {
+        public void onMenuUpdted(String i);
     }*/
 }
