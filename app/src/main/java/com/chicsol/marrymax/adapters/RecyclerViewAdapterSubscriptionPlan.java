@@ -235,7 +235,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 holder.tvRecomm.setVisibility(View.GONE);
             }
 
-            holder.tvPlanName.setText(""+obj.getItem_name());
+            holder.tvPlanName.setText("" + obj.getItem_name());
             holder.tvPlanDuration.setText("  (" + obj.getDuration() + " Months)");
             holder.tvPlanTitle.setText(obj.getName());
 
@@ -265,6 +265,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionBlue));
                 }
                 holder.tvPlanShortDescription.setText("25 Verified Phone Numbers ");
+                holder.tvPlanShortDescriptionMatchesCount.setText("50 Matches Communication ");
 
 
             } else if (obj.getItem_name().equals("Gold")) {
@@ -275,6 +276,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionGreen));
                 }
                 holder.tvPlanShortDescription.setText("50 Verified Phone Numbers ");
+                holder.tvPlanShortDescriptionMatchesCount.setText("100 Matches Communication ");
 
             } else if (obj.getItem_name().equals("Platinum")
                     ) {
@@ -283,7 +285,8 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionYellow));
                 }
-                holder.tvPlanShortDescription.setText("80 Verified Phone Numbers ");
+                holder.tvPlanShortDescription.setText("75 Verified Phone Numbers ");
+                holder.tvPlanShortDescriptionMatchesCount.setText("125 Matches Communication ");
 
             }
             holder.itemView.setTag(obj);
@@ -360,7 +363,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvPlanName, tvRecomm, tvPlanDuration, tvPlanTitle, tvPlanShortDescription;
+        public TextView tvPlanName, tvRecomm, tvPlanDuration, tvPlanTitle, tvPlanShortDescription, tvPlanShortDescriptionMatchesCount;
 
         AppCompatButton btPurchase;
 
@@ -372,6 +375,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
             tvPlanDuration = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanDuration);
             tvPlanTitle = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanTitleDetail);
             tvPlanShortDescription = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescription);
+            tvPlanShortDescriptionMatchesCount = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescriptionMatchesCount);
 
             btPurchase = (AppCompatButton) itemView.findViewById(R.id.ButtonSubscriptionPurchase);
             tvRecomm = (TextView) itemView.findViewById(R.id.TextViewRecommendedP);

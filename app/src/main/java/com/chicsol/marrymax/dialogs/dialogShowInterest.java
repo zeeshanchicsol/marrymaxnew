@@ -146,8 +146,8 @@ public class dialogShowInterest extends DialogFragment {
 
             if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 3) {
 
-                desctxt = "<ul><li>Your complimentary free member communication quota is exhausted.</li>\n" +
-                        "<br><li>You need to wait 72 hours before you can send new request.</li>\n" +
+                desctxt = "<ul><li>Your complimentary contact limit is exhausted.</li>\n" +
+                        "<br><li>You need to wait 24 hours before you can send new request.</li>\n" +
                         "<br><li>To maximize your options and communicate immediately, please subscribe.</li>\n" +
                         "</ul>";
 
@@ -157,8 +157,8 @@ public class dialogShowInterest extends DialogFragment {
             } else if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 4) {
 
 
-                desctxt = "<ul><li>Your complimentary paid member communication quota is exhausted.</li>\n" +
-                        "<br><li>You need to wait 24 hours before you can send new request.</li>\n" +
+                desctxt = "<ul><li>You have reached the contact limit.</li>\n" +
+                        "<br><li>Please wait 24 hours to send new request.</li>\n" +
                         "</ul>";
 
                 mOkButton.setVisibility(View.GONE);

@@ -217,12 +217,12 @@ public class dialogRequestPhone extends DialogFragment {
                                 mOkButton.setVisibility(View.GONE);
                                 String desctxt = "";
                                 if (SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
-                                    desctxt = "<ul>\n" + "<li>Your complimentary paid member communication quota is exhausted.</li>\n" +
-                                            "<li>You need to wait 24 hours before you can send new request.</li>\n" +
+                                    desctxt = "<ul>\n" + "<li>You have reached the contact limit.</li>\n" +
+                                            "<li>Please wait 24 hours to send new request.</li>\n" +
                                             "</ul>";
                                 } else {
-                                    desctxt = "<ul>\n" + "<li>Your complimentary free member communication quota is exhausted.</li>\n" +
-                                            "<li>You need to wait 72 hours before you can send new request.</li>\n" +
+                                    desctxt = "<ul>\n" + "<li>Your complimentary contact limit is exhausted.</li>\n" +
+                                            "<li>You need to wait 24 hours before you can send new request.</li>\n" +
                                             "<li>To maximize your options and communicate immediately, please subscribe.</li>\n" +
                                             "</ul>";
                                 }

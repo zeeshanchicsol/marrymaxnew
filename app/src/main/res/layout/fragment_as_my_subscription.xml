@@ -83,8 +83,11 @@
                             <com.chicsol.marrymax.widgets.mTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="As a Free member you can send &amp; read only one message per week, along with other limitations. To connect immediately with matches, we highly suggest to subscribe."
+                                android:text="We bring you the matches and you communicate with them. Subscribe and let us know when you need us to coordinate with your matches on your behalf."
                                 android:textColor="@color/colorBlack" />
+
+                           <!-- android:text="As a Free member you can send &amp; read only one message per week, along with other limitations. To connect immediately with matches, we highly suggest to subscribe."
+-->
                         </LinearLayout>
 
                         <LinearLayout
@@ -132,7 +135,7 @@
                                     <com.chicsol.marrymax.widgets.mTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Send  directl Messages to anyone!"
+                                        android:text="Priority Profile Listing."
                                         android:textColor="@color/colorBlack" />
 
                                 </LinearLayout>
@@ -152,7 +155,7 @@
                                     <com.chicsol.marrymax.widgets.mTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="View Verified Phone Numbers!"
+                                        android:text="View Verified Phone."
                                         android:textColor="@color/colorBlack" />
 
                                 </LinearLayout>
@@ -172,7 +175,7 @@
                                     <com.chicsol.marrymax.widgets.mTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Who is looking for you!"
+                                        android:text="Personalized Assistance."
                                         android:textColor="@color/colorBlack" />
 
                                 </LinearLayout>
@@ -192,51 +195,51 @@
                                     <com.chicsol.marrymax.widgets.mTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Who's Viewed your profile."
+                                        android:text="More Privacy Options."
                                         android:textColor="@color/colorBlack" />
 
                                 </LinearLayout>
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="5dp">
-
-                                    <com.chicsol.marrymax.widgets.faTextView
-                                        android:layout_width="wrap_content"
+                                <!--    <LinearLayout
+                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginRight="4dp"
-                                        android:text="@string/fa_icon_subscription"
-                                        android:textColor="@color/colorDefaultGreen" />
+                                        android:padding="5dp">
 
-                                    <com.chicsol.marrymax.widgets.mTextView
-                                        android:layout_width="wrap_content"
+                                        <com.chicsol.marrymax.widgets.faTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginRight="4dp"
+                                            android:text="@string/fa_icon_subscription"
+                                            android:textColor="@color/colorDefaultGreen" />
+
+                                        <com.chicsol.marrymax.widgets.mTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="More privacy options!"
+                                            android:textColor="@color/colorBlack" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="More privacy options!"
-                                        android:textColor="@color/colorBlack" />
+                                        android:layout_marginBottom="20dp"
+                                        android:padding="5dp">
 
-                                </LinearLayout>
+                                        <com.chicsol.marrymax.widgets.faTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginRight="4dp"
+                                            android:text="@string/fa_icon_subscription"
+                                            android:textColor="@color/colorDefaultGreen" />
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="20dp"
-                                    android:padding="5dp">
+                                        <com.chicsol.marrymax.widgets.mTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Profile tagged as premium member"
+                                            android:textColor="@color/colorBlack" />
 
-                                    <com.chicsol.marrymax.widgets.faTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginRight="4dp"
-                                        android:text="@string/fa_icon_subscription"
-                                        android:textColor="@color/colorDefaultGreen" />
-
-                                    <com.chicsol.marrymax.widgets.mTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Profile tagged as premium member"
-                                        android:textColor="@color/colorBlack" />
-
-                                </LinearLayout>
+                                    </LinearLayout>-->
 
 
                             </LinearLayout>

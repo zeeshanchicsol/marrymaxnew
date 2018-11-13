@@ -331,7 +331,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                         Toast.makeText(DashboardMessagesDetailActivity.this, "Dear " + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + ", you have send too many messages. In order to avoid spam please wait for sometime to send more messages.", Toast.LENGTH_LONG).show();
 
                                     } else {
-                                        Toast.makeText(DashboardMessagesDetailActivity.this, "Dear " + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + ", Please! Subscribe to send message and view verified Phone numbers.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(DashboardMessagesDetailActivity.this, "Dear " + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + ", Please! Subscribe to send message and view verified phone numbers.", Toast.LENGTH_LONG).show();
 
                                     }
 
@@ -494,7 +494,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                             llReadQuota.setVisibility(View.VISIBLE);
                                             String headertxt = "<b>" + mCom.getCount() + "</b> unread messages from <font color='#9a0606'>" + "<b>" + objCom.getAlias().toUpperCase() + "</b></font>";
                                             tvReadQuotaHeading.setText(Html.fromHtml(headertxt));
-                                            String subheadertxt = "Dear <font color='#9a0606'><b>" + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + "<b></font> , your free message quota is exhausted. <font color='#9a0606'>" + "<b>" + "</b></font>";
+                                            String subheadertxt = "Dear <font color='#9a0606'><b>" + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + "<b></font> , Please subscribe to send personalized message and connect with the potential matches immediately.Subscribe now to enjoy following benefits. <font color='#9a0606'>" + "<b>" + "</b></font>   \n \\u25CF As a free member you can find & view your matches. \n \\u25CF To read & write direct messages, please upgrade your account to a subscriber.";
                                             tvReadQuotaSubHeading.setText(Html.fromHtml(subheadertxt));
                                             if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() >= 4) {
                                                 btSubscribe.setVisibility(View.GONE);

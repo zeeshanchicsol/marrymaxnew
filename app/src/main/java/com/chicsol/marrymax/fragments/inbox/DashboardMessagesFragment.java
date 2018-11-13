@@ -231,7 +231,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                                    Subscribe*/
 
                                         htmlDescriptionText.append("  You have " + new_messages_count + " unread messages \n");
-                                        htmlDescriptionText.append("  Free members have a complimentary limited \n messaging quota to read and write message.\n" +
+                                        htmlDescriptionText.append("  Please subscribe to send personalized message \n and connect with the potential matches immediately.\n" +
                                                 "\n Subscribe now to enjoy following benefits. ");
 
 

@@ -611,7 +611,7 @@ public class MarryMax {
                     context.startActivity(in);
                     return false;
                 } else if (smember.get_member_status() == 3 && member.get_open_message() == 0) {
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, as a free member you can send direct messages after interest is accepted.Only subscribers can send direct messages.", "Subscribe", 9);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please subscribe to send personalized message and connect with the potential matches immediately.", "Subscribe", 9);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
 
