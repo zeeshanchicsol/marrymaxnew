@@ -50,7 +50,7 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
     private SwitchCompat s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;*/
     private RadioGroup rgProfile, rgPicture, rgPhone, rgMessage, rgInterest;
     private View view2;
-    private TextView tvSubOpt1, tvSubOpt2, tvSubOpt3;
+    private TextView tvSubOpt1, tvSubOpt2, tvSubOpt3, tvSubOpt4;
     private Context context;
 
 
@@ -89,7 +89,7 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
         tvSubOpt1 = (TextView) view.findViewById(R.id.TextViewAccountSettingPrivacySubOption1);
         tvSubOpt2 = (TextView) view.findViewById(R.id.TextViewAccountSettingPrivacySubOption2);
         tvSubOpt3 = (TextView) view.findViewById(R.id.TextViewAccountSettingPrivacySubOption3);
-
+        tvSubOpt4 = (TextView) view.findViewById(R.id.TextViewAccountSettingPrivacyPhoneSubOption1);
     }
 
 
@@ -186,19 +186,24 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
             tvSubOpt1.setVisibility(View.VISIBLE);
             tvSubOpt2.setVisibility(View.VISIBLE);
             tvSubOpt3.setVisibility(View.VISIBLE);
+            tvSubOpt4.setVisibility(View.VISIBLE);
+
             disableSubscribersRadios(rgProfile);
             disableSubscribersRadios(rgMessage);
             disableSubscribersRadios(rgInterest);
+            disableSubscribersRadios(rgPhone);
 
 
         } else {
             tvSubOpt1.setVisibility(View.GONE);
             tvSubOpt2.setVisibility(View.GONE);
             tvSubOpt3.setVisibility(View.GONE);
+            tvSubOpt4.setVisibility(View.GONE);
 
             enableeSubscribersRadios(rgProfile);
             enableeSubscribersRadios(rgMessage);
             enableeSubscribersRadios(rgInterest);
+            enableeSubscribersRadios(rgPhone);
         }
 
 

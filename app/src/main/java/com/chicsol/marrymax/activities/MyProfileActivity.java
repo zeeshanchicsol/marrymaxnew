@@ -747,6 +747,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
         Bundle args = new Bundle();
         args.putString("json", jsonArryaResponse1);
+        args.putBoolean("myprofilecheck", true);
         BasicInfoFragment basicInfoFragment = new BasicInfoFragment();
         //MessageHistoryFragment messageHistoryFragment = new MessageHistoryFragment();
         PicturesFragment picturesFragment = new PicturesFragment();
@@ -758,6 +759,8 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         // picturesFragment.jsonData = jsonArryaResponse;
 
         adapter.clearFragments();
+
+
         adapter.addFragment(basicInfoFragment, "Basic");
         ///adapter.addFragment(messageHistoryFragment, "Message History");
 

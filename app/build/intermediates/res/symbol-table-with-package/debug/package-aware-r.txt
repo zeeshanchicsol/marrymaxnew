@@ -1399,6 +1399,7 @@ id CheckBoxDeclineInterestAllowPics
 id CheckBoxInterestAllowPhone
 id CheckBoxInterestAllowPics
 id CheckBoxMultiChoice
+id CheckBoxPersonalityDeclaration
 id CheckBoxPhotoUploadDefaultImage
 id CheckboxQuestionTitle
 id CheckedTextMulti
@@ -1556,6 +1557,7 @@ id LinearLayoutDMReviewPending
 id LinearLayoutDMVerifyEmail
 id LinearLayoutDMVerifyPhone
 id LinearLayoutDashMainDashboard
+id LinearLayoutDeclaration
 id LinearLayoutDonts
 id LinearLayoutDos
 id LinearLayoutDrawerMyProfile
@@ -1823,6 +1825,7 @@ id TextViewAcceptedMem
 id TextViewAcceptedMemCount
 id TextViewAcceptedMem_ic
 id TextViewAccountSettingMySubscriptionPorfileLIve
+id TextViewAccountSettingPrivacyPhoneSubOption1
 id TextViewAccountSettingPrivacySubOption1
 id TextViewAccountSettingPrivacySubOption2
 id TextViewAccountSettingPrivacySubOption3
@@ -1951,6 +1954,7 @@ id TextViewMessageDetailReligious
 id TextViewMultiChoice
 id TextViewMyContactListCallTime
 id TextViewMyInterestRequestsUsername
+id TextViewMyProfileDeclaration
 id TextViewMyProfileStatusDesc
 id TextViewMyProfileStatusMobileNumber
 id TextViewMyProfileStatusTitle
@@ -2023,6 +2027,7 @@ id TextViewRecommendedMatchMaritalReligious
 id TextViewRecommendedMatchMaritalStatus
 id TextViewRecommendedMatchRecomdBy
 id TextViewRecommendedP
+id TextViewRegPersonalityDeclaration
 id TextViewRegTopAppearance
 id TextViewRegTopGeography
 id TextViewRegTopInterest
@@ -3437,6 +3442,7 @@ string com_crashlytics_android_build_id
 string cvc_amex_hint
 string cvc_number_hint
 string declaration_text
+string declaration_text_i_understand
 string default_web_client_id
 string ep_desc
 string ep_desc2

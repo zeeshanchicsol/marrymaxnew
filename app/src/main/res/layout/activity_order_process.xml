@@ -613,11 +613,20 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="8dp"
-                                android:layout_marginBottom="8dp"
+
                                 android:backgroundTint="@color/colorTextRed"
                                 android:text="Make Payment"
                                 android:textAllCaps="false"
                                 android:textColor="@color/colorWhite" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:gravity="center"
+                                android:text="Once we received the credit card payment we will contact you to confirm the details"
+                                android:textSize="12sp" />
+
                         </LinearLayout>
 
 

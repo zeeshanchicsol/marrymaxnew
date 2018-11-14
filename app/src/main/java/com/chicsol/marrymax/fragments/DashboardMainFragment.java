@@ -50,6 +50,7 @@ import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mDshCount;
 import com.chicsol.marrymax.other.MarryMax;
+import com.chicsol.marrymax.other.UserSessionManager;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -663,24 +664,24 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         llMembersLookingForMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
+                //  if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
 
-                    Intent in = new Intent(getContext(), MainDirectiveActivity.class);
-                    in.putExtra("type", 4);
-                    startActivity(in);
-             //   }
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 4);
+                startActivity(in);
+                //   }
 
             }
         });
         llMatchesLookingForMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
+                //  if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
 
-                    Intent in = new Intent(getContext(), MainDirectiveActivity.class);
-                    in.putExtra("type", 3);
-                    startActivity(in);
-              //  }
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 3);
+                startActivity(in);
+                //  }
 
             }
         });
@@ -1210,7 +1211,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
             Log.e("Data list ", "" + items.size());
             Gson gson = new Gson();
-            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashboardMainFragment.this, view, gson.toJson(items), "" + position, memResultsObj,Tag);
+            marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashboardMainFragment.this, view, gson.toJson(items), "" + position, memResultsObj, Tag);
         }
 
     }
@@ -1321,18 +1322,27 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private void getStatus() {
 
 
-          Log.e("getStatus ", "" + Urls.getStatus + SharedPreferenceManager.getUserObject(getContext()).get_path());
+        Log.e("getStatus ", "" + Urls.getStatus + SharedPreferenceManager.getUserObject(getContext()).get_path());
         StringRequest req = new StringRequest(Urls.getStatus + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Log.e("getStatus Response", response.toString());
 
+
                         Members member1 = SharedPreferenceManager.getUserObject(context);
                         if (member1.get_member_status() != Long.parseLong(response)) {
                             member1.set_member_status(Long.parseLong(response));
                             SharedPreferenceManager.setUserObject(context, member1);
                             member = member1;
+                        }
+
+                        if (response.equals("5")) {
+
+                            UserSessionManager sessionManager = new UserSessionManager(context);
+                            sessionManager.logoutUser();
+
+
                         }
 
 

@@ -206,7 +206,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:tag="1,0"
+
                                 android:text="Display my picture to public." />
+
 
                             <android.support.v7.widget.AppCompatRadioButton
 
@@ -282,18 +284,28 @@
                             android:layout_height="wrap_content">
 
                             <android.support.v7.widget.AppCompatRadioButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:tag="3,0"
-                                android:text="Display my phone to public." />
-
-                            <android.support.v7.widget.AppCompatRadioButton
                                 android:id="@+id/SwitchCompatAccountSettingPrivacy6"
                                 android:layout_width="match_parent"
 
                                 android:layout_height="wrap_content"
                                 android:tag="3,1"
                                 android:text="Display my phone to only those who have my permission" />
+
+                            <android.support.v7.widget.AppCompatRadioButton
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:tag="3,0"
+                                android:text="Display my phone to public." />
+
+                            <TextView
+                                android:id="@+id/TextViewAccountSettingPrivacyPhoneSubOption1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:text="(Subscriber Only Option)"
+                                android:textColor="#666" />
+
 
                         </RadioGroup>
 

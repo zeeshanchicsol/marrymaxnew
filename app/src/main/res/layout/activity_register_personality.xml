@@ -310,15 +310,23 @@
                                                 app:backgroundTint="@color/colorUnderline" />
 
                                             <TextView
-
+                                                android:id="@+id/TextViewRegPersonalityDeclaration"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginBottom="5dp"
+                                                android:fontFamily="sans-serif"
                                                 android:lineSpacingExtra="2dp"
                                                 android:lineSpacingMultiplier="1"
                                                 android:text="@string/declaration_text"
                                                 android:textColor="@color/colorBlack"
                                                 app:layout_gravity="right" />
+                                          <!--  android:text="@string/declaration_text"-->
+
+                                            <CheckBox
+                                                android:id="@+id/CheckBoxPersonalityDeclaration"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/declaration_text_i_understand" />
 
                                         </android.support.v7.widget.GridLayout>
 

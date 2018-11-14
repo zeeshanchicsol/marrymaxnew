@@ -20,8 +20,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:paddingBottom="5dp"
                 android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="Basic Information"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/colorUserProfileRed" />
@@ -43,8 +43,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorUserProfileRed"
-                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:src="@drawable/ic_person_white_24dp" />
 
             </LinearLayout>
@@ -104,7 +104,7 @@
                         android:textSize="@dimen/text_size_up_descripton" />
 
                 </LinearLayout>
-            <!--    android:textColor="#2e2e2e"-->
+                <!--    android:textColor="#2e2e2e"-->
 
                 <LinearLayout
                     android:id="@+id/LinearLayoutUserProfileMTO"
@@ -221,8 +221,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorUserProfileRed"
-                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:src="@drawable/ic_web_white_24dp" />
 
             </LinearLayout>
@@ -419,8 +419,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorUserProfileRed"
-                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:src="@drawable/ic_incognito_white_24dp" />
 
             </LinearLayout>
@@ -959,8 +959,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorUserProfileRed"
-                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:src="@drawable/ic_xbox_controller_white_24dp" />
 
             </LinearLayout>
@@ -1001,8 +1001,8 @@
                     android:id="@+id/FlexboxLaoutInterests"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
 
                     app:alignContent="stretch"
                     app:alignItems="stretch"
@@ -1039,8 +1039,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorGreenButtonHighlight"
-                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:src="@drawable/ic_web_white_24dp" />
 
             </LinearLayout>
@@ -1236,8 +1236,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorGreenButtonHighlight"
-                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:src="@drawable/ic_incognito_white_24dp" />
 
             </LinearLayout>
@@ -1593,8 +1593,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp">
 
                     <com.chicsol.marrymax.widgets.mTextView
                         android:layout_width="wrap_content"
@@ -1640,8 +1640,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorGreenButtonHighlight"
-                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:src="@drawable/ic_vector_difference_white_24dp" />
 
             </LinearLayout>
@@ -1725,26 +1725,46 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@color/colorUserProfileSeparationLine"></View>
-                <TextView
 
+                <LinearLayout
+                    android:id="@+id/LinearLayoutDeclaration"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:lineSpacingExtra="2dp"
-                    android:lineSpacingMultiplier="1"
-                    android:text="@string/declaration_text"
-                    android:textColor="@color/colorBlack"
-                    app:layout_gravity="right" />
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/colorUserProfileSeparationLine"></View>
+                    <TextView
+                        android:id="@+id/TextViewMyProfileDeclaration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:lineSpacingExtra="2dp"
+                        android:lineSpacingMultiplier="1"
+                        android:text="@string/declaration_text"
+                        android:textColor="@color/colorBlack"
+                        app:layout_gravity="right" />
+
+                    <CheckBox
+                        android:id="@+id/CheckBoxPersonalityDeclaration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:enabled="false"
+                        android:text="@string/declaration_text_i_understand" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/colorUserProfileSeparationLine"></View>
+
+
+                </LinearLayout>
+
             </LinearLayout>
 
 

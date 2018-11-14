@@ -42,6 +42,8 @@ public class BasicInfoFragment extends Fragment {
     private FlexboxLayout flexboxLayoutInterest;
     private LinearLayout llMTO, llWIDFF, llMS, llAMC;
     public String jsona = "";
+    boolean myProfileCheck;
+    LinearLayout LinearLayoutDeclaration;
 
     public BasicInfoFragment() {
         // Required empty public constructor
@@ -63,6 +65,13 @@ public class BasicInfoFragment extends Fragment {
 
             interestJsonArray = jsonArray.getJSONArray(3);
             describePersonalityJsonArray = jsonArray.getJSONArray(2);
+
+
+            Bundle bundle = getArguments();
+
+            myProfileCheck = bundle.getBoolean("myprofilecheck", false);
+
+
 
 /*
             <com.chicsol.marrymax.widgets.mTextView
@@ -103,6 +112,15 @@ public class BasicInfoFragment extends Fragment {
     }
 
     private void initilize(View view) {
+
+        LinearLayoutDeclaration = (LinearLayout) view.findViewById(R.id.LinearLayoutDeclaration);
+        if (myProfileCheck) {
+            LinearLayoutDeclaration.setVisibility(View.VISIBLE);
+        } else {
+            LinearLayoutDeclaration.setVisibility(View.GONE);
+        }
+
+
         tvDesc = (mTextView) view.findViewById(R.id.TextViewUPDescription);
         tvMostThankful = (mTextView) view.findViewById(R.id.TextViewUPMostThankful);
         tvWhatIdoFor = (mTextView) view.findViewById(R.id.TextViewUPWhatIdo);

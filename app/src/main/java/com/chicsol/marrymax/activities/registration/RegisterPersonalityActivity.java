@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayout;
+import android.text.Spannable;
 import android.text.TextUtils;
+import android.text.style.BulletSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -61,6 +63,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
     private Members members_obj;
     private EditText etAboutMyChoice, etAboutMe, etMyStrength, etMostThankfulFor, etWhatIdoFor;
     private mTextView tvDosDont;
+    private CheckBox cbDeclaration;
+    private TextView tvDeclaration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +93,20 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         etMostThankfulFor = (EditText) findViewById(R.id.EditTextMostThankfulPers);
         etMyStrength = (EditText) findViewById(R.id.EditTextmyStrengthsPers);
         etWhatIdoFor = (EditText) findViewById(R.id.EditTextWhatIDoPers);
+        cbDeclaration = (CheckBox) findViewById(R.id.CheckBoxPersonalityDeclaration);
+
+
+        tvDeclaration = (TextView) findViewById(R.id.TextViewRegPersonalityDeclaration);
+
+      /*  tvDeclaration.setText("abc\n123\n");
+        Spannable s = tvDeclaration.getText();
+        s.setSpan(new BulletSpan(), 0, 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        s.setSpan(new BulletSpan(), 4, 5, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        s.setSpan(new BulletSpan(), 7, 8, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        tvDeclaration.setText(s);
+*/
+
+
 
         etAboutMe.setHorizontallyScrolling(false);
         etAboutMe.setMaxLines(Integer.MAX_VALUE);
@@ -118,6 +136,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         tvLifestyle.setTextColor(getResources().getColor(R.color.colorRegistrationStepComplete));
         tvInterest.setTextColor(getResources().getColor(R.color.colorRegistrationStepComplete));
         tvPersonality.setTextColor(getResources().getColor(R.color.colorRegistrationStepOnGoing));
+
 
         tvDosDont = (mTextView) findViewById(R.id.TextViewDosDont);
 
@@ -214,7 +233,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
             @Override
             public void onClick(View v) {
                 ViewGenerator vg = new ViewGenerator(RegisterPersonalityActivity.this);
-
+                cbDeclaration.setError(null);
 
                 if (!checkSelections(v)) {
 
@@ -317,6 +336,17 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
             }
 
         }
+
+
+        if (!updateData) {
+            if (!cbDeclaration.isChecked()) {
+                cbDeclaration.setError("Please read and confirm");
+                cbDeclaration.requestFocus();
+                ck = true;
+            }
+        }
+
+
         return ck;
     }
 
@@ -493,11 +523,16 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
 
                         if (updateData) {
+                            cbDeclaration.setChecked(true);
+                            cbDeclaration.setEnabled(false);
+
+
                             Point size = new Point();
                             getWindowManager().getDefaultDisplay().getSize(size);
                             viewGenerator.generateCheckBoxesInGridLayout(personalityDataList, gridLayout, size.x - 30);
 
                             selectFormData(members_obj);
+
 
                         } else {
                             Point size = new Point();
