@@ -83,6 +83,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
+    private String country_id = "";
     // ===========================
     TextView tvSubscriberOnly;
 
@@ -283,9 +284,11 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                     dialogP.show(getFragmentManager(), "d");
 
                 } else {
-                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(),"", true);
+                  /*  dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, true);
                     newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                    newFragment.show(getFragmentManager(), "dialog");
+                    newFragment.show(getFragmentManager(), "dialog");*/
+
+                    getValidCode(SharedPreferenceManager.getUserObject(getContext()).get_path());
 
 
                 }
@@ -391,7 +394,55 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
     }
 
+    private void getValidCode(final String path) {
+        final ProgressDialog pDialog = new ProgressDialog(getContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+        Log.e("path", "" + Urls.getValidCode + path);
+        StringRequest req = new StringRequest(Urls.getValidCode + path,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("Response--", response.toString() + "==");
+                        if (response != null) {
 
+                            if (Long.parseLong(response) == 0) {
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, false);
+                                newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+
+                            } else {
+
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, true);
+                                newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+                            }
+                        }
+                        pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener()
+
+        {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+                pDialog.dismiss();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+
+
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getActivity()).addToRequestQueue(req);
+
+    }
     private void getProfileCompletion() {
         //   pDialog.setVisibility(View.VISIBLE);
         if (!((Activity) context).isFinishing()) {
@@ -937,7 +988,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                 }.getType();
                                 member = new Members();
                                 member = (Members) gsonc.fromJson(jsonData.getJSONObject(0).toString(), listType);
-
+                                country_id = member.get_country_id() + "";
                             }
 
 

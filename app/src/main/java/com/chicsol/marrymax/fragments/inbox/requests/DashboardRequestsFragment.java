@@ -37,6 +37,7 @@ import com.chicsol.marrymax.dialogs.dialogWithdrawInterest;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mComCount;
 import com.chicsol.marrymax.modal.mCommunication;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -89,7 +90,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
     private Context context;
     private LinearLayout llEmptySubItems;
     private int getNew_requests_count = 0;
-    private AppCompatButton btCompleteProfile;
+    private AppCompatButton btCompleteProfile, btOnSearch;
     private String Tag = "DashboardRequestsFragment";
 
     @Override
@@ -166,6 +167,8 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
         btCompleteProfile = (AppCompatButton) view.findViewById(R.id.ButtonDInterestsCompleteProfile);
         // tvInterestRequestEmptyState.setText("You have 0 requests");
+        btOnSearch = (AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick);
+
 
         llEmptySubItems = (LinearLayout) view.findViewById(R.id.LinearLayoutEmptySubItems);
         llEmptyState = (LinearLayout) view.findViewById(R.id.LinearLayoutInterestsRequestsEmptyState);
@@ -193,7 +196,14 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
         setListenders();
     }
+
     private void setListenders() {
+        btOnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MarryMax(getActivity()).onSearchClicked(context, 0);
+            }
+        });
         btCompleteProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -334,6 +344,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                                     tvInterestRequestEmptyState.setText("You haven’t sent any request yet!  " +
                                             "\n Find your matches and start communicating.");
+                                    btOnSearch.setVisibility(View.VISIBLE);
 
                                   /*  if (memberC.getRequesting_members_count() == 0) {
                                         tvInterestRequestEmptyState.setText("You haven’t send any request yet!  \n Find your matches and start communicating.");
@@ -392,7 +403,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                                                 totalPages = (int) memberTotalPages.getRequesting_members_count();
                                                 lastPage = 1;
-                                             //   Log.e("total pages Req Sent", "" + totalPages);
+                                                //   Log.e("total pages Req Sent", "" + totalPages);
                                                 swipeRefresh.setRefreshing(false);
                                             } else {
 
@@ -494,7 +505,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                                                 totalPages = (int) memberTotalPages.getRequesting_members_count();
                                                 lastPage = 1;
-                                             //   Log.e("Requests total pages", "" + totalPages);
+                                                //   Log.e("Requests total pages", "" + totalPages);
                                                 swipeRefresh.setRefreshing(false);
                                             } else {
 
@@ -605,7 +616,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                 // membersDataList.clear();
                                 membersDataList = (List<mCommunication>) gson.fromJson(jsonarrayData.toString(), member);
 
-                             //   Log.e("Request Length 56", membersDataList.size() + "  ");
+                                //   Log.e("Request Length 56", membersDataList.size() + "  ");
                                 recyclerAdapter.addItemMore(membersDataList);
                                 recyclerAdapter.setMoreLoading(false);
 
@@ -688,7 +699,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                             mComCount comCount = (mComCount) gsonc.fromJson(response.getJSONArray(0).getJSONObject(0).toString(), listType);
 
-                       //     Log.e("ressssss", comCount.getNew_requests_count() + "");
+                            //     Log.e("ressssss", comCount.getNew_requests_count() + "");
                             getNew_requests_count = (int) comCount.getNew_requests_count();
 
                         } catch (JSONException e) {

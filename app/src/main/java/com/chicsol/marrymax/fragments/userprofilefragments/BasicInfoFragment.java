@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -119,6 +120,12 @@ public class BasicInfoFragment extends Fragment {
         } else {
             LinearLayoutDeclaration.setVisibility(View.GONE);
         }
+
+
+        WebView webView = (WebView)view. findViewById(R.id.WebViewBasicsyDeclaration);
+        // displaying content in WebView from html file that stored in assets folder
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("file:///android_asset/" + "declaration.html");
 
 
         tvDesc = (mTextView) view.findViewById(R.id.TextViewUPDescription);

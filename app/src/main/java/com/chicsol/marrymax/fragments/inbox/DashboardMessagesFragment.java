@@ -68,7 +68,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
     private LinearLayout llEmptySubItems;
     private String Tag = "DashboardMessagesFragment";
 
-    private AppCompatButton btCompleteProfile;
+    private AppCompatButton btCompleteProfile, btOnSearch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -104,7 +104,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarProjectMain);
 
         btCompleteProfile = (AppCompatButton) view.findViewById(R.id.ButtonMMatchesCompleteProfile);
-
+        btOnSearch = (AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick);
 
         viewGenerator = new ViewGenerator(context);
 
@@ -135,6 +135,12 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
     }
 
     private void setListenders() {
+        btOnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MarryMax(getActivity()).onSearchClicked(context, 0);
+            }
+        });
         btCompleteProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,6 +206,8 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                     htmlDescriptionText.append(" Find your matches and start communicating. \n");
                                     TextViewEmptyMessage.setText(htmlDescriptionText.toString());
 
+                                    btOnSearch.setVisibility(View.VISIBLE);
+
                                 }
                                 if (new_messages_count > 0) {
                                     //     new_messages_count>0
@@ -262,7 +270,13 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                     You have 0 unread messages OR
                                     You have 1 unread messages
                                     You can send & read only one message per week.We suggest you to
-                                    subscribe as being a paid member you will enjoyPriority Profile
+                                    subscribe as being a paid member you will enjoy.
+
+
+//New Text =====================================================
+Please subscribe to send personalized message and connect with the potential matches immediately.
+Subscribe now to enjoy following benefits.
+                                    Priority Profile
                                     ListingView Verified PhoneMore Privacy
                                     OptionsPersonalized Assistance
 

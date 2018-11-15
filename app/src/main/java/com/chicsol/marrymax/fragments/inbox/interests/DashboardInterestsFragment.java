@@ -33,9 +33,9 @@ import com.chicsol.marrymax.dialogs.dialogDeclineInterestInbox;
 import com.chicsol.marrymax.dialogs.dialogReplyOnAcceptInterestInbox;
 import com.chicsol.marrymax.dialogs.dialogRequestPhone;
 import com.chicsol.marrymax.dialogs.dialogShowInterest;
-import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mComCount;
 import com.chicsol.marrymax.modal.mCommunication;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -92,7 +92,8 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
     private int getInterested_members_count = 0;
 
     ViewGenerator viewGenerator;
-    private AppCompatButton btCompleteProfile;
+    private AppCompatButton btCompleteProfile,btOnSearch;
+
 
     private String Tag = "DashboardInterestsFragment";
 
@@ -180,7 +181,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
         llEmptyState = (LinearLayout) view.findViewById(R.id.LinearLayoutInterestsRequestsEmptyState);
         btCompleteProfile = (AppCompatButton) view.findViewById(R.id.ButtonDInterestsCompleteProfile);
-
+        btOnSearch = (AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick);
 
         llEmptySubItems = (LinearLayout) view.findViewById(R.id.LinearLayoutEmptySubItems);
 
@@ -210,6 +211,13 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
     }
 
     private void setListenders() {
+
+        btOnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MarryMax(getActivity()).onSearchClicked(context, 0);
+            }
+        });
         btCompleteProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -355,7 +363,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                     llEmptyState.setVisibility(View.VISIBLE);
                                     tvInterestRequestEmptyState.setText("You haven’t shown interest in anyone yet!. " +
                                             "\n Find your matches and start communicating.");
-
+                                    btOnSearch.setVisibility(View.VISIBLE);
                                 } else {
 
                                     if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 || SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {

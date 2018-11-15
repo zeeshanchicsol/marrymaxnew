@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayout;
+import android.text.Html;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.BulletSpan;
 import android.util.Log;
@@ -15,6 +17,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -64,7 +67,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
     private EditText etAboutMyChoice, etAboutMe, etMyStrength, etMostThankfulFor, etWhatIdoFor;
     private mTextView tvDosDont;
     private CheckBox cbDeclaration;
-    private TextView tvDeclaration;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,16 +99,28 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         cbDeclaration = (CheckBox) findViewById(R.id.CheckBoxPersonalityDeclaration);
 
 
-        tvDeclaration = (TextView) findViewById(R.id.TextViewRegPersonalityDeclaration);
+        // tvDeclaration.setText(Html.fromHtml(getResources().getString(R.string.declaration_text_2)));
 
-      /*  tvDeclaration.setText("abc\n123\n");
-        Spannable s = tvDeclaration.getText();
-        s.setSpan(new BulletSpan(), 0, 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        s.setSpan(new BulletSpan(), 4, 5, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        s.setSpan(new BulletSpan(), 7, 8, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
-        tvDeclaration.setText(s);
-*/
+        WebView webView = (WebView) findViewById(R.id.WebViewPersonalityDeclaration);
+        // displaying content in WebView from html file that stored in assets folder
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("file:///android_asset/" + "declaration.html");
+/*
 
+
+       tvDeclaration.setText(" Please read it carefully, before posting this Profile!\nI am a Pakistani by origin.\n" +
+               "I hereby declare that I am genuinely interested in finding a matrimonial match for this listing. \n" +
+               "I am the authorized person to create and list this profile and not related or linked with any other matrimonial service provider. \n" +
+               "This profile doesn\'t contain any gender, age, ethnic, religion or any other discriminatory text, unless there is a genuine requirement. \n" +
+               "The profiles or matches, which are contacted through this listing, will be used for this matrimonial profile only and not for any other purpose; violation of this term may lead to stern legal action.\n");
+        Spannable s =new SpannableString(tvDeclaration.getText());
+        s.setSpan(new BulletSpan(), 0, 0, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new BulletSpan(), 4, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new BulletSpan(), 8, 8, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new BulletSpan(), 0, 0, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new BulletSpan(), 4, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new BulletSpan(), 8, 8, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tvDeclaration.setText(s);*/
 
 
         etAboutMe.setHorizontallyScrolling(false);

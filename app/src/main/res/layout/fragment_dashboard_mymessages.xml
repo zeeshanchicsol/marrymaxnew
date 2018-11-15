@@ -53,7 +53,16 @@
                     android:layout_height="wrap_content"
 
                     android:gravity="center">
-
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/ButtonOnSearchClick"
+                        style="@style/myCustomMaterialButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Go To Search"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:visibility="gone"
+                        app:backgroundTint="@color/colorUserProfileRed" />
                     <android.support.v7.widget.AppCompatButton
                         android:id="@+id/ButtonMMatchesCompleteProfile"
                         style="@style/myCustomMaterialButton"

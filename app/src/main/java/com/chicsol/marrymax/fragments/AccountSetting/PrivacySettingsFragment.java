@@ -50,9 +50,9 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
     private SwitchCompat s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;*/
     private RadioGroup rgProfile, rgPicture, rgPhone, rgMessage, rgInterest;
     private View view2;
-    private TextView tvSubOpt1, tvSubOpt2, tvSubOpt3, tvSubOpt4;
+    private TextView tvSubOpt1, tvSubOpt3, tvSubOpt4;
     private Context context;
-
+    // tvSubOpt2
 
     private String Tag = "DashMembersFragment";
 
@@ -87,7 +87,7 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
         rgMessage = (RadioGroup) view.findViewById(R.id.RadioGroupAccountSettingPrivacyMessage);
         rgInterest = (RadioGroup) view.findViewById(R.id.RadioGroupAccountSettingPrivacyInterest);
         tvSubOpt1 = (TextView) view.findViewById(R.id.TextViewAccountSettingPrivacySubOption1);
-        tvSubOpt2 = (TextView) view.findViewById(R.id.TextViewAccountSettingPrivacySubOption2);
+        //  tvSubOpt2 = (TextView) view.findViewById(R.id.TextViewAccountSettingPrivacySubOption2);
         tvSubOpt3 = (TextView) view.findViewById(R.id.TextViewAccountSettingPrivacySubOption3);
         tvSubOpt4 = (TextView) view.findViewById(R.id.TextViewAccountSettingPrivacyPhoneSubOption1);
     }
@@ -184,24 +184,24 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
 
         if (SharedPreferenceManager.getUserObject(context).get_member_status() < 4) {
             tvSubOpt1.setVisibility(View.VISIBLE);
-            tvSubOpt2.setVisibility(View.VISIBLE);
+          //  tvSubOpt2.setVisibility(View.VISIBLE);
             tvSubOpt3.setVisibility(View.VISIBLE);
             tvSubOpt4.setVisibility(View.VISIBLE);
 
             disableSubscribersRadios(rgProfile);
-            disableSubscribersRadios(rgMessage);
+            //   disableSubscribersRadios(rgMessage);
             disableSubscribersRadios(rgInterest);
             disableSubscribersRadios(rgPhone);
 
 
         } else {
             tvSubOpt1.setVisibility(View.GONE);
-            tvSubOpt2.setVisibility(View.GONE);
+       //     tvSubOpt2.setVisibility(View.GONE);
             tvSubOpt3.setVisibility(View.GONE);
             tvSubOpt4.setVisibility(View.GONE);
 
             enableeSubscribersRadios(rgProfile);
-            enableeSubscribersRadios(rgMessage);
+        //    enableeSubscribersRadios(rgMessage);
             enableeSubscribersRadios(rgInterest);
             enableeSubscribersRadios(rgPhone);
         }

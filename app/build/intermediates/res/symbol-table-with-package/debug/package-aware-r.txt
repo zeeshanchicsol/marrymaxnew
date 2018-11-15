@@ -1954,7 +1954,6 @@ id TextViewMessageDetailReligious
 id TextViewMultiChoice
 id TextViewMyContactListCallTime
 id TextViewMyInterestRequestsUsername
-id TextViewMyProfileDeclaration
 id TextViewMyProfileStatusDesc
 id TextViewMyProfileStatusMobileNumber
 id TextViewMyProfileStatusTitle
@@ -2027,7 +2026,6 @@ id TextViewRecommendedMatchMaritalReligious
 id TextViewRecommendedMatchMaritalStatus
 id TextViewRecommendedMatchRecomdBy
 id TextViewRecommendedP
-id TextViewRegPersonalityDeclaration
 id TextViewRegTopAppearance
 id TextViewRegTopGeography
 id TextViewRegTopInterest
@@ -2125,6 +2123,8 @@ id ViewHorizontalLine
 id ViewInterest
 id ViewLifeStyle
 id ViewPersonality
+id WebViewBasicsyDeclaration
+id WebViewPersonalityDeclaration
 id action0
 id action_aboutus
 id action_apply
@@ -3441,7 +3441,6 @@ string character_counter_pattern
 string com_crashlytics_android_build_id
 string cvc_amex_hint
 string cvc_number_hint
-string declaration_text
 string declaration_text_i_understand
 string default_web_client_id
 string ep_desc

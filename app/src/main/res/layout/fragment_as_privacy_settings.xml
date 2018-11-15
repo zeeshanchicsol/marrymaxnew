@@ -387,7 +387,7 @@
                                 android:layout_width="match_parent"
 
                                 android:layout_height="wrap_content"
-                                android:enabled="false"
+
                                 android:tag="4,1"
                                 android:text="Anyone can send me message." />
 
@@ -395,6 +395,7 @@
                                 android:id="@+id/TextViewAccountSettingPrivacySubOption2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:visibility="gone"
                                 android:layout_marginLeft="30dp"
                                 android:text="(Subscriber Only Option)"
                                 android:textColor="#666" />

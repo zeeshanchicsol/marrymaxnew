@@ -1,6 +1,7 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -1736,16 +1737,12 @@
                     android:orientation="vertical"
                     android:visibility="gone">
 
-                    <TextView
-                        android:id="@+id/TextViewMyProfileDeclaration"
+                    <WebView
+                        android:id="@+id/WebViewBasicsyDeclaration"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:lineSpacingExtra="2dp"
-                        android:lineSpacingMultiplier="1"
-                        android:text="@string/declaration_text"
-                        android:textColor="@color/colorBlack"
-                        app:layout_gravity="right" />
+                        tools:ignore="WebViewLayout"></WebView>
+
 
                     <CheckBox
                         android:id="@+id/CheckBoxPersonalityDeclaration"
