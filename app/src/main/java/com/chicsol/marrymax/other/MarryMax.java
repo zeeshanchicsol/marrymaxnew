@@ -418,7 +418,7 @@ public class MarryMax {
                     Intent intent = new Intent(context, UserProfileActivityWithSlider.class);
 
 
-                    Log.e("Tag is",TAG+"==");
+                    Log.e("Tag is", TAG + "==");
                     if (TAG.equals("SavedNotes") || TAG.equals("AccpetedMembers") || TAG.equals("FavouriteMembers") || TAG.equals("searchByAlias")) {
 
 
@@ -485,7 +485,7 @@ public class MarryMax {
                     return true;
 
 
-                } else if (smember.get_member_status() == 7 ||  smember.get_member_status()== 8) {
+                } else if (smember.get_member_status() == 7 || smember.get_member_status() == 8) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
@@ -598,9 +598,9 @@ public class MarryMax {
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
-                } else if (smember.get_member_status() == 3 && member.get_open_message() == 1) {
+                } else if (smember.get_member_status() == 3) {
 
-                    Intent in = new Intent(activity, DashboardMessagesDetailActivity.class);
+                  /*  Intent in = new Intent(activity, DashboardMessagesDetailActivity.class);
                     Gson gson = new Gson();
                     String memString = gson.toJson(member);
                     //  in.putExtra("obj", memString);
@@ -608,14 +608,17 @@ public class MarryMax {
                     SharedPreferenceManager.setMessageObject(context, memString);
                     in.putExtra("objtype", 0);
                     in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(in);
+                    context.startActivity(in);*/
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Message", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "!</font></b>.", member.get_accept_message() + "", 23);
+                    dialogP.setTargetFragment(fragment, 0);
+                    dialogP.show(frgMngr, "d");
                     return false;
-                } else if (smember.get_member_status() == 3 && member.get_open_message() == 0) {
+                } /*else if (smember.get_member_status() == 3 && member.get_open_message() == 0) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please subscribe to send personalized message and connect with the potential matches immediately.", "Subscribe", 9);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
 
-                } else {
+                } */ else {
 
                     Intent in = new Intent(activity, DashboardMessagesDetailActivity.class);
                     Gson gson = new Gson();
@@ -628,7 +631,7 @@ public class MarryMax {
                     context.startActivity(in);
                     return false;
                 }
-                break;
+
             case blockReportConcernMatchAidFavourite:
                 if (smember.get_member_status() < 3) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
@@ -968,9 +971,6 @@ public class MarryMax {
         activity.startActivity(intent);
 
     }
-
-
-
 
 
     public void PrivacyPolicy() {

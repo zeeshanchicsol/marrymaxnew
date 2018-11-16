@@ -573,6 +573,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             faAddToFavourites.setPressed(true);
         }
 
+       // Log.e("Saved Member", member.get_saved_member() + " ");
+        if (member.get_open_message() == 0) {
+
+      llUPSendMessage.setBackgroundColor(getResources().getColor(R.color.colorGrey));
+        }
+
         //MenuItem menuItem1 = popupUp.getMenu().findItem(R.id.menu_up_request);
 
       /*  Log.e("Vall Member", member.get_hide_profile() + " " + member.get_hide_photo());

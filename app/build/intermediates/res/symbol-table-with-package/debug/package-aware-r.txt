@@ -1350,6 +1350,7 @@ id ButtonDashboardRequestSentCount
 id ButtonDashboardonChangeMatchingAttributeMSLL
 id ButtonDialogPCButton
 id ButtonDialogPCDismiss
+id ButtonDialogPCSubscribe
 id ButtonDialogRequestAccept
 id ButtonDialogRequestDeny
 id ButtonDialogRequestDenyPermission
@@ -1900,6 +1901,8 @@ id TextViewInterestRequestCountry
 id TextViewInterestRequestDate
 id TextViewInterestRequestEducation
 id TextViewInterestRequestEmptyState
+id TextViewInterestRequestEmptyStateMessageCount
+id TextViewInterestRequestEmptyStateTitle
 id TextViewInterestRequestEthnicBackground
 id TextViewInterestRequestMessage
 id TextViewInterestRequestNo
@@ -2044,6 +2047,7 @@ id TextViewRequestPermissionItemType
 id TextViewRequestPermissionTitle
 id TextViewRequests
 id TextViewRequests_ic
+id TextViewShortDescriptionMM
 id TextViewSubscriptionPlanDuration
 id TextViewSubscriptionPlanName
 id TextViewSubscriptionPlanPackages
@@ -2393,6 +2397,8 @@ id mTextViewAccountSettingPrefferedMatchingGeography
 id mTextViewAccountSettingPrefferedMatchingLifestyle
 id mTextViewDatePicker
 id mTextViewLinearLayoutUserProfileShowInterestText
+id mTextViewMatchesNotFoundMain
+id mTextViewMatchesNotFoundSubHeading
 id m_area
 id masked
 id media_actions

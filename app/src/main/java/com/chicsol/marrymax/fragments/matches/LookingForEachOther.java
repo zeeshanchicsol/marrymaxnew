@@ -85,6 +85,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
     private Context context;
     private long totalMatchesCount = 0;
     private String Tag = "LookingForEachOther";
+    TextView tvShortDescEmptyMessage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -177,6 +178,8 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
         tvMatchesCountSubscribeNow = (TextView) view.findViewById(R.id.TextViewMMMatchesCountSubscribeNow);
         llSubscribeNow = (LinearLayout) view.findViewById(R.id.LinearLayoutMMMatchesNotFoundSubscribeNow);
 
+        tvShortDescEmptyMessage = (TextView) view.findViewById(R.id.TextViewShortDescriptionMM);
+
 
         swipeRefresh = (SwipeRefreshLayout) view.findViewById(R.id.SwipeRefreshDashMainMM);
         llMMMatchesNotFound = (LinearLayout) view.findViewById(R.id.LinearLayoutMMMatchesNotFound);
@@ -193,6 +196,11 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
 
         recyclerView.setAdapter(recyclerAdapter);
         swipeRefresh.setOnRefreshListener(this);
+
+
+        tvShortDescEmptyMessage.setText("No more wait, just take the initiative to connect with your potential matches, who are also interested in someone like you!");
+
+
 
 
         ((AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick)).setOnClickListener(new View.OnClickListener() {

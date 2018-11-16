@@ -16,11 +16,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
         android:orientation="vertical"
-        android:paddingBottom="10dp"
         android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:visibility="gone">
 
         <com.chicsol.marrymax.widgets.mTextView
@@ -74,8 +74,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginRight="2dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="2dp"
                 android:text=""
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:visibility="gone" />
@@ -145,7 +145,7 @@
 
 
                                 <com.chicsol.marrymax.widgets.mTextView
-                                    android:id="@+id/mTextView14"
+                                    android:id="@+id/mTextViewMatchesNotFoundMain"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="No Matches are found."
@@ -177,9 +177,10 @@
                                 android:orientation="horizontal">
 
                                 <com.chicsol.marrymax.widgets.mTextView
+                                    android:id="@+id/mTextViewMatchesNotFoundSubHeading"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
+                                    android:gravity="center"
                                     android:text="We suggest to alter your search and find Matches. "
                                     android:textColor="@color/colorUserProfileTextGreen" />
 
@@ -333,8 +334,8 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="30dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginBottom="30dp"
                                 android:gravity="center">
 
                                 <android.support.v7.widget.AppCompatButton
@@ -457,13 +458,22 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
                             android:gravity="center"
                             android:text="Committed to get married!"
                             android:textColor="#535353"
                             android:textSize="18sp"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/TextViewShortDescriptionMM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:gravity="center" />
+
 
                         <TextView
                             android:layout_width="match_parent"
@@ -594,8 +604,8 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="30dp"
                                 android:layout_marginTop="10dp"
+                                android:layout_marginBottom="30dp"
                                 android:gravity="center">
 
                                 <android.support.v7.widget.AppCompatButton

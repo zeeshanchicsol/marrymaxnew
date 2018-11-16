@@ -84,6 +84,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
     private TextView tvMatchesCount, tvMatchesCountCp, tvComplProfioleTitle, tvMatchesCountSubscribeNow, tvSubscribeNowTitle;
     LinearLayout llMMMatchesNotFoundCompleteProfile, llSubscribeNow;
     private Context context;
+    TextView tvShortDescEmptyMessage;
     private long totalMatchesCount = 0;
 
     private String Tag = "WhoisLookingForMe";
@@ -190,6 +191,9 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
         tvMatchesCountSubscribeNow = (TextView) view.findViewById(R.id.TextViewMMMatchesCountSubscribeNow);
         llSubscribeNow = (LinearLayout) view.findViewById(R.id.LinearLayoutMMMatchesNotFoundSubscribeNow);
 
+        tvShortDescEmptyMessage = (TextView) view.findViewById(R.id.TextViewShortDescriptionMM);
+
+
 
         swipeRefresh = (SwipeRefreshLayout) view.findViewById(R.id.SwipeRefreshDashMainMM);
         LinearLayoutMMMatchesNotFound = (LinearLayout) view.findViewById(R.id.LinearLayoutMMMatchesNotFound);
@@ -206,6 +210,9 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
 
         recyclerView.setAdapter(recyclerAdapter);
         swipeRefresh.setOnRefreshListener(this);
+
+
+        tvShortDescEmptyMessage.setText("View and connect with matches, who are looking for someone like you!");
 
 
         ((AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick)).setOnClickListener(new View.OnClickListener() {

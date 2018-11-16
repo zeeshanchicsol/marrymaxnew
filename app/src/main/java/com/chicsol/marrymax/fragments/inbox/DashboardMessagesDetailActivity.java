@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -71,8 +72,12 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
     private TextView tvReadQuotaHeading, tvReadQuotaSubHeading;
     AppCompatButton btSubscribe;
     MarryMax marryMax;
+    private LinearLayout llEmptySubItems;
 
     private String Tag = "DashboardMessagesDetailActivity";
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,6 +134,9 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
         btSubscribe = (AppCompatButton) findViewById(R.id.ButtonMessageDetailSubscribe);
 
+
+
+
         fl_send_message = (FrameLayout) findViewById(R.id.FrameLayoutChatListSendMessage);
         tvAge = (TextView) findViewById(R.id.TextViewMessageDetailAge);
         tvAlias = (TextView) findViewById(R.id.TextViewMessageDetailAlias);
@@ -138,6 +146,8 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         tvCountry = (TextView) findViewById(R.id.TextViewMessageDetailLivingCountry);
         tvReadQuotaHeading = (TextView) findViewById(R.id.TextViewReadQuotaHeading);
         tvReadQuotaSubHeading = (TextView) findViewById(R.id.TextViewReadQuotaSubHeading);
+
+        llEmptySubItems = (LinearLayout) findViewById(R.id.LinearLayoutEmptySubItems);
 
         Log.e(obj.getEthnic_background_type() + "=====Loggg" + objtype, "" + objCom.getCountry_name());
 
@@ -484,28 +494,31 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                             List<mCommunication> dlist2 = (List<mCommunication>) gsonc.fromJson(jsonObj.getJSONArray(1).toString(), listType);
 
 
+                            if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 3) {
+                                if (dlist2.size() > 0) {
+                                    mCommunication mCom = dlist2.get(0);
+                                    if (mCom.read_quota == 0 && mCom.count > 0) {
+                                        llReadQuota.setVisibility(View.VISIBLE);
+                                        String headertxt = "<b>" + mCom.getCount() + "</b> unread messages from <font color='#9a0606'>" + "<b>" + objCom.getAlias().toUpperCase() + "</b></font>";
+                                        tvReadQuotaHeading.setText(Html.fromHtml(headertxt));
+                                        String subheadertxt = "Dear <font color='#9a0606'><b>" + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + "</b></font> , Please subscribe to send personalized message and connect with the potential matches immediately.Subscribe now to enjoy following benefits. \n \u25CF As a free member you can find & view your matches. \n \u25CF To read & write direct messages, please upgrade your account to a subscriber.";
+                                        tvReadQuotaSubHeading.setText(Html.fromHtml(subheadertxt));
+                                        if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() >= 4) {
+                                            btSubscribe.setVisibility(View.GONE);
+                                        }
+
+                                    }
+                                }
+                            } else {
+                                llReadQuota.setVisibility(View.GONE);
+
+                            }
+
+
                             if (dlist.size() > 0) {
                                 ll_DeleteChat.setVisibility(View.VISIBLE);
 
-                                if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 3) {
-                                    if (dlist2.size() > 0) {
-                                        mCommunication mCom = dlist2.get(0);
-                                        if (mCom.read_quota == 0 && mCom.count > 0) {
-                                            llReadQuota.setVisibility(View.VISIBLE);
-                                            String headertxt = "<b>" + mCom.getCount() + "</b> unread messages from <font color='#9a0606'>" + "<b>" + objCom.getAlias().toUpperCase() + "</b></font>";
-                                            tvReadQuotaHeading.setText(Html.fromHtml(headertxt));
-                                            String subheadertxt = "Dear <font color='#9a0606'><b>" + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + "<b></font> , Please subscribe to send personalized message and connect with the potential matches immediately.Subscribe now to enjoy following benefits. <font color='#9a0606'>" + "<b>" + "</b></font>   \n \\u25CF As a free member you can find & view your matches. \n \\u25CF To read & write direct messages, please upgrade your account to a subscriber.";
-                                            tvReadQuotaSubHeading.setText(Html.fromHtml(subheadertxt));
-                                            if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() >= 4) {
-                                                btSubscribe.setVisibility(View.GONE);
-                                            }
 
-                                        }
-                                    }
-                                } else {
-                                    llReadQuota.setVisibility(View.GONE);
-
-                                }
                                 recyclerAdapter.addAll(dlist);
                                 scrollToBottom();
                             } else {

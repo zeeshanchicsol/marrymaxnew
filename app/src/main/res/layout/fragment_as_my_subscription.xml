@@ -83,11 +83,11 @@
                             <com.chicsol.marrymax.widgets.mTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="We bring you the matches and you communicate with them. Subscribe and let us know when you need us to coordinate with your matches on your behalf."
+                                android:text="We bring you the matches to maximize your options and you connect and communicate with them. Subscribe and let us know when you need us to coordinate with your matches on your behalf."
                                 android:textColor="@color/colorBlack" />
 
-                           <!-- android:text="As a Free member you can send &amp; read only one message per week, along with other limitations. To connect immediately with matches, we highly suggest to subscribe."
--->
+                            <!-- android:text="As a Free member you can send &amp; read only one message per week, along with other limitations. To connect immediately with matches, we highly suggest to subscribe."
+ -->
                         </LinearLayout>
 
                         <LinearLayout

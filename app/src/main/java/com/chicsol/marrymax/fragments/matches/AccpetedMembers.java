@@ -44,6 +44,7 @@ import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.utils.WrapContentLinearLayoutManager;
+import com.chicsol.marrymax.widgets.mTextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -81,7 +82,7 @@ public class AccpetedMembers extends Fragment implements RecyclerViewAdapterMyMa
     LinearLayout llMMMatchesNotFoundCompleteProfile, llSubscribeNow;
     private long totalMatchesCount = 0;
     private String Tag = "AccpetedMembers";
-
+    private mTextView tvNotFoundMain, tvMatchesNotFoundSubHeading;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -197,6 +198,14 @@ public class AccpetedMembers extends Fragment implements RecyclerViewAdapterMyMa
     }
 
     private void initilize(View view) {
+
+
+        tvNotFoundMain = (mTextView) view.findViewById(R.id.mTextViewMatchesNotFoundMain);
+        tvMatchesNotFoundSubHeading = (mTextView) view.findViewById(R.id.mTextViewMatchesNotFoundSubHeading);
+        tvNotFoundMain.setText("Not Connected With Your Matches Yet ?");
+        tvMatchesNotFoundSubHeading.setText("Don't sit back, talk to us and we will help you in getting connected with your matches.");
+
+
         fragment = AccpetedMembers.this;
         membersDataList = new ArrayList<>();
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarMyMatches);
@@ -214,7 +223,7 @@ public class AccpetedMembers extends Fragment implements RecyclerViewAdapterMyMa
         recyclerView = (RecyclerView) view.findViewById(R.id.RecyclerViewDashMainMyMatches);
 
 
-        LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getContext());
+        LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this, Tag);

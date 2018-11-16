@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,6 +30,7 @@ import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.chicsol.marrymax.utils.ViewGenerator;
 import com.chicsol.marrymax.widgets.faTextView;
 
 import java.util.Map;
@@ -41,6 +44,10 @@ public class dialogProfileCompletion extends DialogFragment {
     int step;
     // private ListView lv_mycontacts;
     private onCompleteListener mCompleteListener;
+    private LinearLayout llEmptySubItems;
+    private ViewGenerator viewGenerator;
+    private LinearLayout LinearLayoutInterestsRequestsEmptyState;
+
 
     public static dialogProfileCompletion newInstance(String title, String desc, String btnText, int step) {
 
@@ -90,6 +97,10 @@ public class dialogProfileCompletion extends DialogFragment {
         final View rootView = inflater.inflate(R.layout.dialog_profile_completion, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
+        viewGenerator = new ViewGenerator(getContext());
+        llEmptySubItems = (LinearLayout) rootView.findViewById(R.id.LinearLayoutEmptySubItems);
+
+        LinearLayoutInterestsRequestsEmptyState = (LinearLayout) rootView.findViewById(R.id.LinearLayoutInterestsRequestsEmptyState);
         tvDesc = (AppCompatTextView) rootView.findViewById(R.id.TextVewDialogPCDescription);
         tvTitle = (AppCompatTextView) rootView.findViewById(R.id.TextVewDialogPCTitle);
         if (step == subscribe) {
@@ -105,7 +116,6 @@ public class dialogProfileCompletion extends DialogFragment {
 
         AppCompatButton mOkButton = (AppCompatButton) rootView.findViewById(R.id.ButtonDialogPCButton);
 
-
         mOkButton.setText(btnText);
 
 
@@ -114,10 +124,42 @@ public class dialogProfileCompletion extends DialogFragment {
             mOkButton.setVisibility(View.GONE);
 
         }
+        if (step == 23) {
+
+
+            tvDesc.setVisibility(View.GONE);
+
+
+            TextView tvMessageCount = (TextView) rootView.findViewById(R.id.TextViewInterestRequestEmptyStateMessageCount);
+            if (!btnText.equals("0")) {
+                tvMessageCount.setVisibility(View.VISIBLE);
+                tvMessageCount.setText("You have " + btnText + " unread messages");
+            }
+
+
+            TextView tvTitle = (TextView) rootView.findViewById(R.id.TextViewInterestRequestEmptyStateTitle);
+            tvTitle.setText(Html.fromHtml(desc));
+            mOkButton.setVisibility(View.GONE);
+            LinearLayoutInterestsRequestsEmptyState.setVisibility(View.VISIBLE);
+            viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Priority Profile Listing.");
+            viewGenerator.generateTextViewWithIcon(llEmptySubItems, "View Verified Phone.");
+            viewGenerator.generateTextViewWithIcon(llEmptySubItems, " Send Messages.");
+            viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy Options.");
+            viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized Assistance.");
+            AppCompatButton ButtonDialogPCSubscribe = (AppCompatButton) rootView.findViewById(R.id.ButtonDialogPCSubscribe);
+            ButtonDialogPCSubscribe.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new MarryMax(getActivity()).subscribe();
+                    dialogProfileCompletion.this.getDialog().cancel();
+                }
+            });
+        }
+
 
         mOkButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
-//email verification request
+                //email verification request
                 if (step == 2) {
                     dialogProfileCompletion.this.getDialog().cancel();
                     //   emailVerificationRequest();

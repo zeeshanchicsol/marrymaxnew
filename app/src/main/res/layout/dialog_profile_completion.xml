@@ -55,23 +55,108 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutInterestsRequestsEmptyState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/ImageViewInterestRequestEmptyState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/ic_messages_empty_state" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/TextViewInterestRequestEmptyStateTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+
+                        android:gravity="center"
+                        android:text="Dear"
+                        android:textColor="@color/colorTextRed" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/TextViewInterestRequestEmptyState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+
+                        android:gravity="center"
+                        android:text="Please subscribe to send personalized message or view contact phone number."
+                        android:textColor="@color/colorTextRed" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/TextViewInterestRequestEmptyStateMessageCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:gravity="center"
+                        android:text="You have 1 unread messages"
+                        android:textColor="@color/colorTextRed"
+                        android:textSize="16sp"
+                        android:visibility="gone" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:gravity="center"
+                        android:text="As a Free member, you have limited options. We suggest upgrading your account to enjoy.Subscription benefits include," />
+
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutEmptySubItems"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="vertical">
+
+
+                    </LinearLayout>
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/ButtonDialogPCSubscribe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Subscribe"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+
+                        app:backgroundTint="@color/colorDefaultGreen" />
+
+
+                </LinearLayout>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/TextVewDialogPCDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-android:lineSpacingExtra="3dp"
-                        android:textSize="14sp"
+                        android:layout_marginBottom="5dp"
+                        android:lineSpacingExtra="3dp"
                         android:textColor="@color/colorBlack"
-                        android:layout_marginBottom="5dp"/>
+                        android:textSize="14sp" />
 
 
                     <android.support.v7.widget.AppCompatButton
