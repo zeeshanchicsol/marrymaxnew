@@ -90,7 +90,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
     private Context context;
     private LinearLayout llEmptySubItems;
     private int getNew_requests_count = 0;
-    private AppCompatButton btCompleteProfile, btOnSearch;
+    private AppCompatButton btCompleteProfile, btOnSearch, btSubscribe;
     private String Tag = "DashboardRequestsFragment";
 
     @Override
@@ -169,6 +169,8 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
         // tvInterestRequestEmptyState.setText("You have 0 requests");
         btOnSearch = (AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick);
 
+        btSubscribe = (AppCompatButton) view.findViewById(R.id.ButtonDInterestsSubscribe);
+
 
         llEmptySubItems = (LinearLayout) view.findViewById(R.id.LinearLayoutEmptySubItems);
         llEmptyState = (LinearLayout) view.findViewById(R.id.LinearLayoutInterestsRequestsEmptyState);
@@ -215,7 +217,12 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
             }
         });
 
-
+        btSubscribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MarryMax(getActivity()).subscribe();
+            }
+        });
     }
 
     @Override
@@ -369,7 +376,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy options.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need.");
 
-
+                                                btSubscribe.setVisibility(View.VISIBLE);
                                             }
                                             tvInterestRequestEmptyState.setText(htmlDescriptionText.toString());
 
@@ -470,7 +477,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy options.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need.");
 
-
+                                                btSubscribe.setVisibility(View.VISIBLE);
                                                 // htmlDescriptionText.append("&#8226; \n");
 
                                             }

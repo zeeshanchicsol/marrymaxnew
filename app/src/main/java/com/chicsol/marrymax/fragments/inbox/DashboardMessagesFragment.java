@@ -6,16 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -68,7 +67,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
     private LinearLayout llEmptySubItems;
     private String Tag = "DashboardMessagesFragment";
 
-    private AppCompatButton btCompleteProfile, btOnSearch;
+    private AppCompatButton btCompleteProfile, btOnSearch, btSubscribe;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -105,6 +104,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
 
         btCompleteProfile = (AppCompatButton) view.findViewById(R.id.ButtonMMatchesCompleteProfile);
         btOnSearch = (AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick);
+        btSubscribe = (AppCompatButton) view.findViewById(R.id.ButtonInboxMessageSubscribe);
 
         viewGenerator = new ViewGenerator(context);
 
@@ -135,6 +135,13 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
     }
 
     private void setListenders() {
+
+        btSubscribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MarryMax(getActivity()).subscribe();
+            }
+        });
         btOnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,6 +228,78 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                 }
 
                             } else {
+                                if (member.get_member_status() == 3) {
+
+
+                               /*    You have 0 unread messages
+                                    Free members have a complimentary limited messaging quota to read and write message.
+                                            Subscribe now to enjoy following benefits.
+                                            Priority Profile Listing.
+                                    Maximum interaction & quick connect with other members.
+                                            More Privacy options.
+                                    Personalized service from MarryMax when need.
+                                    Subscribe*/
+
+                                    htmlDescriptionText.append(" <b> You have " + new_messages_count + " unread messages  </b>  <br> Don't let your match keep waiting for you to respond. <br> ");
+                                    htmlDescriptionText.append("  Please subscribe to send personalized message or view contact phone number.<br>" +
+                                            " Subscription benefits include,<br> ");
+
+
+                                    viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Priority Profile Listing.");
+                                    viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Maximum interaction & quick connect with other members.");
+                                    viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy options.");
+                                    viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need.");
+
+                                    TextViewEmptyMessage.setText(Html.fromHtml(htmlDescriptionText.toString()));
+
+                                    btSubscribe.setVisibility(View.VISIBLE);
+
+
+                                    llEmptyState.setVisibility(View.VISIBLE);
+                                    recyclerView.setVisibility(View.GONE);
+                                } else {
+
+
+                                    if (jsonCountryStaeObj.length() > 0) {
+
+                                        llEmptyState.setVisibility(View.GONE);
+                                        recyclerView.setVisibility(View.VISIBLE);
+                                        Gson gson;
+                                        GsonBuilder gsonBuilder = new GsonBuilder();
+                                        gson = gsonBuilder.create();
+                                        Type listTypea = new TypeToken<List<mCommunication>>() {
+                                        }.getType();
+
+                                        List<mCommunication> dlist = (List<mCommunication>) gson.fromJson(jsonCountryStaeObj.toString(), listTypea);
+
+                                        if (dlist.size() > 0) {
+                                            recyclerAdapter.addAll(dlist);
+                                        }
+
+                                    } else {
+                                        if (new_messages_count == 0) {
+
+                                            llEmptyState.setVisibility(View.VISIBLE);
+                                            recyclerView.setVisibility(View.GONE);
+
+                                            htmlDescriptionText.append("<b> There are  " + new_messages_count + " Unread  messages.</b> <br>");
+                                            htmlDescriptionText.append(" Find Matches here and take initiative in sending a personalized message to know more. <br><br>" +
+                                                    "Start a conversation, with simple greetings or by asking a question or talk about a specific interest in a simple and short message.");
+                                            TextViewEmptyMessage.setText(Html.fromHtml(htmlDescriptionText.toString()));
+
+                                            btOnSearch.setVisibility(View.VISIBLE);
+
+                                        }
+                                    }
+
+                                }
+
+
+                            }
+
+
+
+                            /*else {
 
 
                                 if (jsonCountryStaeObj.length() == 0) {
@@ -229,14 +308,14 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                     if (member.get_member_status() == 3) {
 
 
-                              /*      You have 0 unread messages
+                              *//*      You have 0 unread messages
                                     Free members have a complimentary limited messaging quota to read and write message.
                                             Subscribe now to enjoy following benefits.
                                             Priority Profile Listing.
                                     Maximum interaction & quick connect with other members.
                                             More Privacy options.
                                     Personalized service from MarryMax when need.
-                                                   Subscribe*/
+                                                   Subscribe*//*
 
                                         htmlDescriptionText.append("  You have " + new_messages_count + " unread messages \n");
                                         htmlDescriptionText.append("  Please subscribe to send personalized message \n and connect with the potential matches immediately.\n" +
@@ -251,10 +330,10 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                         TextViewEmptyMessage.setText(htmlDescriptionText.toString());
 
                                     } else if (member.get_member_status() == 4) {
-                                    /*Find Matches here and take initiative in sending a personalized message to know more.
+                                    *//*Find Matches here and take initiative in sending a personalized message to know more.
                                     Start a conversation, with simple greetings or by asking a question or talk about a specific interest in a simple and short message.
 
-                                    Search*/
+                                    Search*//*
                                     }
 
 
@@ -266,7 +345,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
 
                                     if (member.get_member_status() == 3) {
 
-/*
+*//*
                                     You have 0 unread messages OR
                                     You have 1 unread messages
                                     You can send & read only one message per week.We suggest you to
@@ -280,10 +359,10 @@ Subscribe now to enjoy following benefits.
                                     ListingView Verified PhoneMore Privacy
                                     OptionsPersonalized Assistance
 
-                                    Subscribe*/
+                                    Subscribe*//*
                                     } else if (member.get_member_status() == 4) {
-                                 /*   You have 0unread messages   Or
-                                    You have 1unread messages*/
+                                 *//*   You have 0unread messages   Or
+                                    You have 1unread messages*//*
 
                                     }
 
@@ -304,7 +383,7 @@ Subscribe now to enjoy following benefits.
 
                                 }
 
-                            }
+                            }*/
                         } catch (
                                 JSONException e)
 

@@ -16,8 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
         android:visibility="gone"
         app:cardElevation="2dp"
         app:cardUseCompatPadding="true">
@@ -26,6 +26,8 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="40dp"
             android:gravity="center"
             android:orientation="vertical">
@@ -46,45 +48,56 @@
                 android:text="You don't have any message yet."
                 android:textColor="@color/colorGrey" />
 
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:gravity="center">
-                    <android.support.v7.widget.AppCompatButton
-                        android:id="@+id/ButtonOnSearchClick"
-                        style="@style/myCustomMaterialButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Go To Search"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorWhite"
-                        android:visibility="gone"
-                        app:backgroundTint="@color/colorUserProfileRed" />
-                    <android.support.v7.widget.AppCompatButton
-                        android:id="@+id/ButtonMMatchesCompleteProfile"
-                        style="@style/myCustomMaterialButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Complete Profile"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorWhite"
-                        android:visibility="gone"
-                        app:backgroundTint="@color/colorUserProfileRed" />
-
-
-                </LinearLayout>
-
-
-
             <LinearLayout
                 android:id="@+id/LinearLayoutEmptySubItems"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+
                 android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/ButtonOnSearchClick"
+                    style="@style/myCustomMaterialButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Go To Search"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/colorUserProfileRed" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/ButtonMMatchesCompleteProfile"
+                    style="@style/myCustomMaterialButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Complete Profile"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/colorUserProfileRed" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/ButtonInboxMessageSubscribe"
+                    style="@style/myCustomMaterialButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subscribe "
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/colorUserProfileRed" />
+
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -95,8 +108,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
         android:scrollbars="vertical" />
 
 

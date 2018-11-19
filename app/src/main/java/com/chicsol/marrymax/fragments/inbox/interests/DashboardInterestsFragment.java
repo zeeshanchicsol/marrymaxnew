@@ -92,7 +92,8 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
     private int getInterested_members_count = 0;
 
     ViewGenerator viewGenerator;
-    private AppCompatButton btCompleteProfile,btOnSearch;
+    private AppCompatButton btCompleteProfile, btOnSearch, btSubscribe;
+    ;
 
 
     private String Tag = "DashboardInterestsFragment";
@@ -182,6 +183,8 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
         llEmptyState = (LinearLayout) view.findViewById(R.id.LinearLayoutInterestsRequestsEmptyState);
         btCompleteProfile = (AppCompatButton) view.findViewById(R.id.ButtonDInterestsCompleteProfile);
         btOnSearch = (AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick);
+        btSubscribe = (AppCompatButton) view.findViewById(R.id.ButtonDInterestsSubscribe);
+
 
         llEmptySubItems = (LinearLayout) view.findViewById(R.id.LinearLayoutEmptySubItems);
 
@@ -229,6 +232,12 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
             }
         });
 
+        btSubscribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MarryMax(getActivity()).subscribe();
+            }
+        });
 
     }
 
@@ -380,7 +389,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy options.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need. ");
 
-
+                                                btSubscribe.setVisibility(View.VISIBLE);
                                             }
 
                                             recyclerView.setVisibility(View.GONE);

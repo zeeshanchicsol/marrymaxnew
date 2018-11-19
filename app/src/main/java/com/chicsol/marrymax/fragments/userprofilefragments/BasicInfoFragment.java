@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.widgets.mTextView;
 import com.crashlytics.android.Crashlytics;
 import com.google.android.flexbox.FlexboxLayout;
@@ -116,13 +117,17 @@ public class BasicInfoFragment extends Fragment {
 
         LinearLayoutDeclaration = (LinearLayout) view.findViewById(R.id.LinearLayoutDeclaration);
         if (myProfileCheck) {
-            LinearLayoutDeclaration.setVisibility(View.VISIBLE);
+            if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 3 && SharedPreferenceManager.getUserObject(getContext()).get_member_status() <= 4) {
+                LinearLayoutDeclaration.setVisibility(View.VISIBLE);
+            }
+
+
         } else {
             LinearLayoutDeclaration.setVisibility(View.GONE);
         }
 
 
-        WebView webView = (WebView)view. findViewById(R.id.WebViewBasicsyDeclaration);
+        WebView webView = (WebView) view.findViewById(R.id.WebViewBasicsyDeclaration);
         // displaying content in WebView from html file that stored in assets folder
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/" + "declaration.html");
