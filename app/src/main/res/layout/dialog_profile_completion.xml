@@ -74,9 +74,13 @@
                         android:visibility="gone"
                         app:srcCompat="@drawable/ic_messages_empty_state" />
 
+                    <!--  <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">-->
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/TextViewInterestRequestEmptyStateTitle"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="6dp"
 
@@ -84,15 +88,17 @@
                         android:text="Dear"
                         android:textColor="@color/colorTextRed" />
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/TextViewInterestRequestEmptyState"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="6dp"
+                    <!--  <android.support.v7.widget.AppCompatTextView
+                          android:id="@+id/TextViewInterestRequestEmptyState"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_margin="6dp"
 
-                        android:gravity="center"
-                        android:text="Please subscribe to send personalized message or view contact phone number."
-                        android:textColor="@color/colorTextRed" />
+                          android:gravity="center"
+                          android:text="Please subscribe to send personalized message or view contact phone number."
+                          android:textColor="@color/colorBlack" />-->
+                    <!-- </LinearLayout>-->
+
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/TextViewInterestRequestEmptyStateMessageCount"
@@ -104,14 +110,6 @@
                         android:textColor="@color/colorTextRed"
                         android:textSize="16sp"
                         android:visibility="gone" />
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="6dp"
-                        android:gravity="center"
-                        android:text="As a Free member, you have limited options. We suggest upgrading your account to enjoy.Subscription benefits include," />
 
 
                     <LinearLayout

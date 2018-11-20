@@ -65,6 +65,8 @@ public class dialogVerifyphone extends DialogFragment {
     private Context context;
     private String country_id;
 
+    TextView TextViewClickHereToEnterCode;
+
     public static dialogVerifyphone newInstance(String phone, String country_id, boolean ec) {
 
         dialogVerifyphone frag = new dialogVerifyphone();
@@ -118,9 +120,10 @@ public class dialogVerifyphone extends DialogFragment {
 
 
         tvContactSupport = (TextView) rootView.findViewById(R.id.TextViewInformSupport);
-
+        TextViewClickHereToEnterCode = (TextView) rootView.findViewById(R.id.TextViewClickHereToEnterCode);
 
         tvMobileNumber = (mTextView) rootView.findViewById(R.id.TextViewAccountSettingmcMobileNumber);
+
         etCode = (EditText) rootView.findViewById(R.id.EditTextAccountSettingMyContactVerifyCode);
         llSendVerification = (LinearLayout) rootView.findViewById(R.id.LinearlayoutAccountSettingMyContactSendVerificationCode);
 
@@ -158,6 +161,15 @@ public class dialogVerifyphone extends DialogFragment {
                 }
             }
         });
+        TextViewClickHereToEnterCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llSendVerification.setVisibility(View.GONE);
+                llVerifyCode.setVisibility(View.VISIBLE);
+                //mobCode= response;
+                llError.setVisibility(View.GONE);
+            }
+        });
 
 
         tvContactSupport.setOnClickListener(new View.OnClickListener() {
@@ -170,10 +182,14 @@ public class dialogVerifyphone extends DialogFragment {
                 JSONObject params = new JSONObject();
                 try {
 
-                    params.put("contact_phone", phone);
+
+                    String[] separated = phone.split("-");
+                    String phoneWithoutCountryCode = separated[1]; // this will contain "Fruit"
+
+                    params.put("contact_phone", phoneWithoutCountryCode);
                     params.put("contact_ip", "");
                     params.put("emailaddress", "");
-                    params.put("contact_category_id", "6");
+                    params.put("contact_category_id", "5");
                     params.put("contact_name", SharedPreferenceManager.getUserObject(context).get_personal_name());
 
                     params.put("contact_message", "I am unable to verify phone number. - Sent from Account Setting");

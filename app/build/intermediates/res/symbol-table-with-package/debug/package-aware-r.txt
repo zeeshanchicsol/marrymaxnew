@@ -1385,6 +1385,7 @@ id ButtonPicFragmentMain
 id ButtonPicFragmentMainPersonalProfile
 id ButtonRegister
 id ButtonRequestProfileUpdate
+id ButtonResetThis
 id ButtonSendAnswers
 id ButtonSendQuestions
 id ButtonSubmitForgetPassword
@@ -1848,6 +1849,7 @@ id TextViewChatListDate1
 id TextViewChatListText
 id TextViewChatListText1
 id TextViewChoiceCountriesTitle
+id TextViewClickHereToEnterCode
 id TextViewContactDialogContactName
 id TextViewContactDialogCountryName
 id TextViewContactDialogMobileNumber
@@ -2725,6 +2727,7 @@ layout adv_search_item_listview
 layout adv_search_main_activity
 layout app_bar_main
 layout app_bar_main_bottom_navigation
+layout button_reset_this
 layout card_input_widget
 layout content_main
 layout content_photo_upload
@@ -3527,6 +3530,7 @@ string path_password_strike_through
 string project_id
 string prompt_email
 string prompt_password
+string reset_sub_button_text
 string search_menu_title
 string section_format
 string status_bar_notification_info_overflow

@@ -9,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -429,14 +430,14 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                 //request receieved
                                 if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() > 4) {
                                     if (memberC.getRequesting_members_count() == 0) {
-                                        tvInterestRequestEmptyState.setText("There are " + getNew_requests_count + " requests. " +
-                                                "\nPlease complete & verify your profile to view the requests," +
-                                                "\n shown in you.");
+                                        tvInterestRequestEmptyState.setText(Html.fromHtml("<b>There are " + getNew_requests_count + " requests. </b>" +
+                                                "<br>Please complete & verify your profile to view the requests," +
+                                                "<br> shown in you."));
                                         btCompleteProfile.setVisibility(View.VISIBLE);
                                         //new count
                                     } else if (memberC.getRequesting_members_count() > 0) {
-                                        tvInterestRequestEmptyState.setText("There are " + getNew_requests_count + " requests, waiting for you to respond." +
-                                                "\nPlease complete & verify your profile to view all requests.");
+                                        tvInterestRequestEmptyState.setText(Html.fromHtml("There are " + getNew_requests_count + " requests, waiting for you to respond." +
+                                                "<br> Please complete & verify your profile to view all requests."));
                                         btCompleteProfile.setVisibility(View.VISIBLE);
 
                                         //new count
@@ -462,7 +463,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                     if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 || SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
                                         if (membersDataList.size() == 0) {
 
-                                            htmlDescriptionText.append(" You have 0 requests. \n");
+                                            htmlDescriptionText.append(" <b>You have 0 requests.</b> <br>");
                                             if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
                                                 htmlDescriptionText.append("Subscribe now to enjoy following benefits. ");
 
@@ -481,7 +482,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                                 // htmlDescriptionText.append("&#8226; \n");
 
                                             }
-                                            tvInterestRequestEmptyState.setText(htmlDescriptionText.toString());
+                                            tvInterestRequestEmptyState.setText(Html.fromHtml(htmlDescriptionText.toString()));
 
 
                                         } else if (membersDataList.size() > 0) {

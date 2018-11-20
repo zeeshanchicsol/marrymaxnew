@@ -355,7 +355,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
         if (!updateData) {
             if (!cbDeclaration.isChecked()) {
-                cbDeclaration.setError("Please read and confirm");
+                cbDeclaration.setError("Please complete all fields with valid information!");
+                Toast.makeText(this, "Please complete all fields with valid information!", Toast.LENGTH_SHORT).show();
                 cbDeclaration.requestFocus();
                 ck = true;
             }

@@ -609,7 +609,7 @@ public class MarryMax {
                     in.putExtra("objtype", 0);
                     in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(in);*/
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Message", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "!</font></b>.", member.get_accept_message() + "", 23);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Message", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>. Please subscribe to send personalized message or view contact phone number.", member.get_accept_message() + "", 23);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;

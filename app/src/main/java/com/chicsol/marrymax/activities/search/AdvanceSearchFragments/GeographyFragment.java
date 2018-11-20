@@ -262,8 +262,6 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     selectStatesGetCities(getComaSeparatedItemsFromMap(selectedStatesMap), getComaSeparatedItemsFromMap(selectedCitiesMap));
 
 
-
-
                 } else {
                     citiesAdapter.clear();
                     tvMsgCities.setVisibility(View.VISIBLE);

@@ -130,22 +130,22 @@ public class dialogProfileCompletion extends DialogFragment {
             tvDesc.setVisibility(View.GONE);
 
 
-            TextView tvMessageCount = (TextView) rootView.findViewById(R.id.TextViewInterestRequestEmptyStateMessageCount);
+         /*   TextView tvMessageCount = (TextView) rootView.findViewById(R.id.TextViewInterestRequestEmptyStateMessageCount);
             if (!btnText.equals("0")) {
                 tvMessageCount.setVisibility(View.VISIBLE);
                 tvMessageCount.setText("You have " + btnText + " unread messages");
-            }
+            }*/
 
 
             TextView tvTitle = (TextView) rootView.findViewById(R.id.TextViewInterestRequestEmptyStateTitle);
             tvTitle.setText(Html.fromHtml(desc));
             mOkButton.setVisibility(View.GONE);
             LinearLayoutInterestsRequestsEmptyState.setVisibility(View.VISIBLE);
-            viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Priority Profile Listing.");
+          /*  viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Priority Profile Listing.");
             viewGenerator.generateTextViewWithIcon(llEmptySubItems, "View Verified Phone.");
             viewGenerator.generateTextViewWithIcon(llEmptySubItems, " Send Messages.");
             viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy Options.");
-            viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized Assistance.");
+            viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized Assistance.");*/
             AppCompatButton ButtonDialogPCSubscribe = (AppCompatButton) rootView.findViewById(R.id.ButtonDialogPCSubscribe);
             ButtonDialogPCSubscribe.setOnClickListener(new View.OnClickListener() {
                 @Override

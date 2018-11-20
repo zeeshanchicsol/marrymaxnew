@@ -9,17 +9,36 @@
         android:layout_marginLeft="5dp"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <com.chicsol.marrymax.widgets.mTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Raised Where"
-            android:textColor="@color/colorUserProfileRed"
-            android:textSize="@dimen/text_size_adv_search_headings"
+            <com.chicsol.marrymax.widgets.mButton2
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:onClick="onResetButtonClicked"
+                android:tag="raisedwhere"
+                android:text="@string/reset_sub_button_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="italic" />
 
-            android:textStyle="bold" />
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Raised Where"
+                android:textColor="@color/colorUserProfileRed"
+                android:textSize="@dimen/text_size_adv_search_headings"
+
+                android:textStyle="bold" />
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/LinearLayoutAdvSearchRaisedWhere"
@@ -37,16 +56,39 @@
             android:layout_marginTop="5dp"
             android:background="#d7d7d7"></View>
 
-        <com.chicsol.marrymax.widgets.mTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="@dimen/text_size_adv_search_headings"
 
-            android:text="Hijab"
-            android:textColor="@color/colorUserProfileRed"
-            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.chicsol.marrymax.widgets.mButton2
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:onClick="onResetButtonClicked"
+                android:tag="hijab"
+                android:text="@string/reset_sub_button_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="italic" />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Hijab"
+
+                android:textColor="@color/colorUserProfileRed"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
 
         <LinearLayout
             android:id="@+id/LinearLayoutAdvSearchHijab"
@@ -63,16 +105,37 @@
             android:layout_marginTop="5dp"
             android:background="#d7d7d7"></View>
 
-        <com.chicsol.marrymax.widgets.mTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:textSize="@dimen/text_size_adv_search_headings"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            android:text="Family Value"
-            android:textColor="@color/colorUserProfileRed"
-            android:textStyle="bold" />
+            <com.chicsol.marrymax.widgets.mButton2
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:onClick="onResetButtonClicked"
+                android:tag="familyvalue"
+                android:text="@string/reset_sub_button_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="italic" />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Family Value"
+
+                android:textColor="@color/colorUserProfileRed"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
 
         <LinearLayout
             android:id="@+id/LinearLayoutAdvSearchFamilyValues"
@@ -89,16 +152,37 @@
             android:layout_marginTop="5dp"
             android:background="#d7d7d7"></View>
 
-        <com.chicsol.marrymax.widgets.mTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Living Arrangement"
-            android:textSize="@dimen/text_size_adv_search_headings"
 
-            android:textColor="@color/colorUserProfileRed"
-            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.chicsol.marrymax.widgets.mButton2
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:onClick="onResetButtonClicked"
+                android:tag="living_arrangement"
+                android:text="@string/reset_sub_button_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="italic" />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Living Arrangement"
+                android:textColor="@color/colorUserProfileRed"
+
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/LinearLayoutAdvSearchLivingArrangement"

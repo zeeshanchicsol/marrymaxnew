@@ -209,9 +209,9 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                 recyclerView.setVisibility(View.GONE);
                                 if (new_messages_count == 0) {
 
-                                    htmlDescriptionText.append(" There are  " + new_messages_count + "  messages. \n");
-                                    htmlDescriptionText.append(" Find your matches and start communicating. \n");
-                                    TextViewEmptyMessage.setText(htmlDescriptionText.toString());
+                                    htmlDescriptionText.append("<b> There are  " + new_messages_count + "  messages.</b> <br>");
+                                    htmlDescriptionText.append(" Find your matches and start communicating. <br>");
+                                    TextViewEmptyMessage.setText(Html.fromHtml(htmlDescriptionText.toString()));
 
                                     btOnSearch.setVisibility(View.VISIBLE);
 
@@ -220,9 +220,9 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                     //     new_messages_count>0
                              /*
                                        Complete Your Profile*/
-                                    htmlDescriptionText.append(" There are " + new_messages_count + "  unread messages. \n");
-                                    htmlDescriptionText.append(" Please complete & verify your profile to see your messages. \n");
-                                    TextViewEmptyMessage.setText(htmlDescriptionText.toString());
+                                    htmlDescriptionText.append(" <b>There are " + new_messages_count + "  unread messages. </b> <br>");
+                                    htmlDescriptionText.append(" Please complete & verify your profile to see your messages. <br>");
+                                    TextViewEmptyMessage.setText(Html.fromHtml(htmlDescriptionText.toString()));
                                     btCompleteProfile.setVisibility(View.VISIBLE);
 
                                 }

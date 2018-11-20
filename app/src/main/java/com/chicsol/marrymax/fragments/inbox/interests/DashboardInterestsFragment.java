@@ -9,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -435,9 +436,9 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                     if (memberC.getInterested_members_count() == 0) {
                                         recyclerView.setVisibility(View.GONE);
                                         llEmptyState.setVisibility(View.VISIBLE);
-                                        tvInterestRequestEmptyState.setText("There are " + getInterested_members_count + " interests." +
-                                                "\nPlease complete & verify your profile to view the interests," +
-                                                "\n shown in you.");
+                                        tvInterestRequestEmptyState.setText(Html.fromHtml("<b> There are " + getInterested_members_count + " interests.</b>" +
+                                                "<br> Please complete & verify your profile to view the interests," +
+                                                "<br> shown in you."));
                                         btCompleteProfile.setVisibility(View.VISIBLE);
                                     } else if (memberC.getInterested_members_count() > 0) {
                                         recyclerView.setVisibility(View.GONE);
@@ -453,7 +454,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
                                     if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 || SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
                                         if (membersDataList.size() == 0) {
-                                            htmlDescriptionText.append(" You have  " + getInterested_members_count + "  interests.\n");
+                                            htmlDescriptionText.append("<b> You have  " + getInterested_members_count + "  interests.</b> <br>");
 
                                             if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
                                                 //    htmlDescriptionText.append("&#8226; \n");
@@ -481,7 +482,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                             swipeRefresh.setRefreshing(false);
 
 
-                                            tvInterestRequestEmptyState.setText(htmlDescriptionText.toString());
+                                            tvInterestRequestEmptyState.setText(Html.fromHtml(htmlDescriptionText.toString()));
 
 
                                         } else if (membersDataList.size() > 0) {

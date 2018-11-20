@@ -12,17 +12,36 @@
 
         >
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <com.chicsol.marrymax.widgets.mTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="10dp"
+            <com.chicsol.marrymax.widgets.mButton2
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:onClick="onResetButtonClicked"
+                android:tag="ethnic_background"
+                android:text="@string/reset_sub_button_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="italic" />
 
-            android:text="Ethnic Background"
-            android:textColor="@color/colorUserProfileRed"
-            android:textSize="@dimen/text_size_adv_search_headings"
-            android:textStyle="bold" />
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="10dp"
+
+                android:text="Ethnic Background"
+                android:textColor="@color/colorUserProfileRed"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -41,16 +60,38 @@
             android:layout_marginTop="5dp"
             android:background="#d7d7d7"></View>
 
-        <com.chicsol.marrymax.widgets.mTextView
-            android:layout_width="wrap_content"
 
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="10dp"
-            android:text="Religious Sect"
-            android:textColor="@color/colorUserProfileRed"
-            android:textSize="@dimen/text_size_adv_search_headings"
-            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.chicsol.marrymax.widgets.mButton2
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:onClick="onResetButtonClicked"
+                android:tag="religious_sect"
+                android:text="@string/reset_sub_button_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="italic" />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="10dp"
+                android:text="Religious Sect"
+                android:textColor="@color/colorUserProfileRed"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
 
         <LinearLayout
             android:id="@+id/LinearLayoutAdvSearchReligiousSect"
@@ -67,22 +108,45 @@
             android:layout_marginTop="5dp"
             android:background="#d7d7d7"></View>
 
-        <com.chicsol.marrymax.widgets.mTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
 
-            android:layout_marginTop="10dp"
-            android:text="Caste"
-            android:textColor="@color/colorUserProfileRed"
-            android:textSize="@dimen/text_size_adv_search_headings"
-            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.chicsol.marrymax.widgets.mButton2
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:onClick="onResetButtonClicked"
+                android:tag="caste"
+                android:text="@string/reset_sub_button_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="italic" />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+
+                android:layout_marginTop="10dp"
+                android:text="Caste"
+                android:textColor="@color/colorUserProfileRed"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
 
         <EditText
             android:id="@+id/EditTextAdvSearchEthnicBackgrounCasteSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Search" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view_caste"
             android:layout_width="match_parent"

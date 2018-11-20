@@ -119,6 +119,115 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
     }
 
+    public void onResetButtonClicked(View v) {
+        // do whatever needs to be done. For example:
+        // Toast.makeText(getApplicationContext(), v.getTag() + "  profile_created_for", Toast.LENGTH_SHORT).show();
+        //============Basics=======================
+        if (v.getTag().equals("select_profile_with")) {
+            defaultSelectionsObj.set_pictureonly(0);
+            defaultSelectionsObj.set_opentopublic(0);
+        } else if (v.getTag().equals("profile_created_for")) {
+            defaultSelectionsObj.set_choice_profile_owner_Ids("");
+        } else if (v.getTag().equals("zodiac")) {
+            defaultSelectionsObj.set_choice_zodiac_sign_ids("");
+
+        }
+
+        //==============Appearance=====================
+        else if (v.getTag().equals("physique")) {
+            defaultSelectionsObj.set_choice_body_ids("");
+
+        } else if (v.getTag().equals("complexion")) {
+            defaultSelectionsObj.set_choice_complexion_ids("");
+
+        } else if (v.getTag().equals("eye_color")) {
+            defaultSelectionsObj.set_choice_eye_color_ids("");
+
+
+        } else if (v.getTag().equals("hair_color")) {
+            defaultSelectionsObj.set_choice_hair_color_ids("");
+
+        }
+        //==============MaritalStatus=====================
+
+
+        else if (v.getTag().equals("martial_status")) {
+            defaultSelectionsObj.set_choice_marital_status_ids("");
+
+
+        } else if (v.getTag().equals("children")) {
+            defaultSelectionsObj.set_choice_children_ids("");
+        }
+
+
+        //==============education occupation=====================
+        else if (v.getTag().equals("education")) {
+            defaultSelectionsObj.set_choice_education_ids("");
+        } else if (v.getTag().equals("occupation")) {
+            defaultSelectionsObj.set_choice_occupation_ids("");
+
+        }
+
+        //==============ethnic_background=====================
+        else if (v.getTag().equals("ethnic_background")) {
+            defaultSelectionsObj.set_choice_ethnic_bground_ids("");
+        } else if (v.getTag().equals("religious_sect")) {
+            defaultSelectionsObj.set_choice_religious_sect_ids("");
+        } else if (v.getTag().equals("caste")) {
+            defaultSelectionsObj.set_choice_caste_ids("");
+        }
+
+
+        //==============LifeStyle 1=====================
+        else if (v.getTag().equals("raisedwhere")) {
+            defaultSelectionsObj.set_choice_raised_ids("");
+        } else if (v.getTag().equals("hijab")) {
+            defaultSelectionsObj.set_choice_hijab_ids("");
+        } else if (v.getTag().equals("familyvalue")) {
+            defaultSelectionsObj.set_choice_family_values_ids("");
+        } else if (v.getTag().equals("living_arrangement")) {
+            defaultSelectionsObj.set_choice_living_arangment_ids("");
+        }
+
+
+        //==============LifeStyle2=====================
+        else if (v.getTag().equals("siblingposition")) {
+            defaultSelectionsObj.set_choice_sibling_ids("");
+
+        } else if (v.getTag().equals("smoking")) {
+            defaultSelectionsObj.set_choice_smoking_ids("");
+
+        } else if (v.getTag().equals("drink")) {
+            defaultSelectionsObj.set_choice_drink_ids("");
+
+        }
+        //==============Geography=====================
+        else if (v.getTag().equals("top_locations")) {
+            defaultSelectionsObj.set_choice_country_ids("");
+            defaultSelectionsObj.set_choice_state_ids("");
+            defaultSelectionsObj.set_choice_cities_ids("");
+
+        } else if (v.getTag().equals("country")) {
+            defaultSelectionsObj.set_choice_country_ids("");
+            defaultSelectionsObj.set_choice_state_ids("");
+            defaultSelectionsObj.set_choice_cities_ids("");
+
+
+        } else if (v.getTag().equals("state")) {
+            defaultSelectionsObj.set_choice_state_ids("");
+
+        } else if (v.getTag().equals("city")) {
+            defaultSelectionsObj.set_choice_cities_ids("");
+
+        } else if (v.getTag().equals("visa_status")) {
+            defaultSelectionsObj.set_choice_visa_status_ids("");
+
+        }
+
+
+        refreshViews();
+
+    }
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -330,19 +439,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
                     MarryMax marryMax = new MarryMax(SearchMainActivity.this);
                     marryMax.setHeighAgeChecks();
 
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    ft.replace(R.id.flDetailContainer, fragmentItem);
-                    ft.detach(fragmentItem);
-                    ft.attach(fragmentItem);
-                    ft.commit();
-
-
-                    fragmentItemListi = new ListViewAdvSearchFragment();
-                    FragmentTransaction fta = getSupportFragmentManager().beginTransaction();
-                    fta.replace(R.id.fragmentItemsList, fragmentItemListi);
-                    fta.detach(fragmentItemListi);
-                    fta.attach(fragmentItemListi);
-                    fta.commit();
+                    refreshViews();
 
                   /*  Fragment frg = null;
                     frg = getSupportFragmentManager().findFragmentByTag("ListViewAdvSearchFragment");
@@ -387,6 +484,23 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
             }
         });
 
+
+    }
+
+    private void refreshViews() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.flDetailContainer, fragmentItem);
+        ft.detach(fragmentItem);
+        ft.attach(fragmentItem);
+        ft.commit();
+
+
+        fragmentItemListi = new ListViewAdvSearchFragment();
+        FragmentTransaction fta = getSupportFragmentManager().beginTransaction();
+        fta.replace(R.id.fragmentItemsList, fragmentItemListi);
+        fta.detach(fragmentItemListi);
+        fta.attach(fragmentItemListi);
+        fta.commit();
 
     }
 
