@@ -124,13 +124,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
         adapter.addFragment(new DashboardMessagesFragment(), " My Messages ");
         adapter.addFragment(new DashboardMyInterestsMainFragment(), " Interests ");
         adapter.addFragment(new DashboardMyRequestsMainFragment(), " Requests ");
-
-
-        if(BuildConfig.FLAVOR.equals("marrymax")) {
-            adapter.addFragment(new DashboardQuestionsFragment(), " Questions ");
-        }
-        /*else if(BuildConfig.FLAVOR.equals("alfalah")) {
-        }*/
+        adapter.addFragment(new DashboardQuestionsFragment(), " Questions ");
 
 
 

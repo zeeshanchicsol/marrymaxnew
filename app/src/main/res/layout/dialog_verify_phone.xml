@@ -157,8 +157,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="If mobile number is correct then click &quot; Send Verification Code&quot;. \n
-Once you receive verification code, then enter the code on this page to verify your phone."
+                            android:text="\u2022 If mobile number is correct then click &quot; Send Verification Code&quot;. \n
+\u2022 Once you receive verification code, then enter the code on this page to verify your phone."
                             android:textColor="@color/colorBlack" />
 
                         <LinearLayout

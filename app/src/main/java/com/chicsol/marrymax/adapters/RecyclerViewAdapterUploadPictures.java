@@ -293,7 +293,7 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
 
 
                 if (SharedPreferenceManager.getUserObject(context).get_member_status() == 7 || SharedPreferenceManager.getUserObject(context).get_member_status() == 8) {
-                    Toast.makeText(context, "Please review notes as MarryMax team advised and update your profile", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Please review notes as MarryMax team advised and update your profile", Toast.LENGTH_LONG).show();
 
                 } else if (holder.imagePerView.getTag().equals("default_image_no")) {
                     // Toast.makeText(context, "default", Toast.LENGTH_SHORT).show();

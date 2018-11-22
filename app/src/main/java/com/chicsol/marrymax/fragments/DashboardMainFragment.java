@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
@@ -1165,7 +1166,15 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                             setWaitScreen(false);
                             swipeRefreshLayout.setRefreshing(false);
 
+                        } catch (NullPointerException nullPointerException) {
+                            nullPointerException.printStackTrace();
+                            //pDialog.dismiss();
+                            pDialog.setVisibility(View.INVISIBLE);
+                            setWaitScreen(false);
+                            swipeRefreshLayout.setRefreshing(false);
+
                         }
+
                         pDialog.setVisibility(View.INVISIBLE);
                         swipeRefreshLayout.setRefreshing(false);
                         setWaitScreen(false);
@@ -1338,6 +1347,12 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                         }
 
                         if (response.equals("5")) {
+                            MySingleton.getInstance(context).getRequestQueue().cancelAll(new RequestQueue.RequestFilter() {
+                                @Override
+                                public boolean apply(Request<?> request) {
+                                    return true;
+                                }
+                            });
 
                             UserSessionManager sessionManager = new UserSessionManager(context);
                             sessionManager.logoutUser();

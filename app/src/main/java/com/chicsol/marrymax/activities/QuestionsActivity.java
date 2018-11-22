@@ -295,7 +295,6 @@ public class QuestionsActivity extends AppCompatActivity {
     }
 
 
-
     private void getRequest() {
 
 
@@ -407,6 +406,9 @@ public class QuestionsActivity extends AppCompatActivity {
                             if (responseid >= 0) {
                                 Toast.makeText(QuestionsActivity.this, "Questions Sent", Toast.LENGTH_SHORT).show();
                                 finish();
+                            } else if (responseid == -1) {
+
+                                Toast.makeText(QuestionsActivity.this, "Your quota has expired. Please wait to resend request or upgrade your account to a subscriber.", Toast.LENGTH_LONG).show();
                             }
 
                         } catch (JSONException e) {

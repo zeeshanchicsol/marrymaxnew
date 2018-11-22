@@ -27,6 +27,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -104,14 +105,16 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
     private int selectedPosition = 0;
 
     private RecyclerView recyclerView;
+    private String type;
 
-    public RecyclerViewAdapterMyInterestsRequests(final Context context, FragmentManager frg, OnLoadMoreListener onLoadMoreListener, Fragment fragment, boolean interestCheck, OnUpdateListener onUpdateListener, boolean withdrawcheck) {
+    public RecyclerViewAdapterMyInterestsRequests(final Context context, FragmentManager frg, OnLoadMoreListener onLoadMoreListener, Fragment fragment, boolean interestCheck, OnUpdateListener onUpdateListener, boolean withdrawcheck, String type) {
         //this.items = items;
         marryMax = new MarryMax((Activity) context);
         marryMax.setWithdrawRequestCallBackInterface(RecyclerViewAdapterMyInterestsRequests.this);
         marryMax.setRequestCallBackInterface(RecyclerViewAdapterMyInterestsRequests.this);
 
 
+        this.type = type;
         this.withdrawCheck = withdrawcheck;
         this.onUpdateListener = onUpdateListener;
         this.interestCheck = interestCheck;
@@ -281,15 +284,29 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
 
             holder.tvEdu.setText(obj.getEducation_types());
             holder.tvMessage.setText(obj.getMessage());
-            holder.tvCountry.setText(obj.getCountry_name() + " ");
+            holder.tvCountry.setText(Html.fromHtml("<b>" + obj.getCountry_name() + "</b> "));
             holder.tvOccupation.setText(obj.getOccupation_types() + " | ");
             holder.tvDate.setText(obj.getMessage_date());
+            if (type.equals("interest")) {
 
+                holder.tvInterestedText.setVisibility(View.VISIBLE);
+
+            } else {
+                holder.tvInterestedText.setVisibility(View.GONE);
+            }
+
+
+            if (type.equals("interestsent")) {
+                holder.tvMessage.setText("- Your interest is expressed");
+
+
+            }
 
             if (withdrawCheck) {
                 holder.ll_No.setVisibility(View.GONE);
                 holder.ll_Yes.setVisibility(View.GONE);
                 holder.btWithdraw.setVisibility(View.VISIBLE);
+
 
             } else {
                 holder.ll_No.setVisibility(View.VISIBLE);
@@ -299,17 +316,18 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
             }
 
             if (!interestCheck) {
+
                 Log.e("obj.getRequest_id()", "" + obj.getRequest_type_id());
                 if (obj.getRequest_type_id() == 1) {
                     holder.tvYes.setText("Upload Image");
                 } else {
                     holder.tvYes.setText("Allow");
 
+
                 }
 
                 holder.tvNo.setText("Deny");
             }
-
 
             holder.tvAlias.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -645,7 +663,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvAlias, tvAge, tvEthnic, tvMessage, tvCountry, tvOccupation, tvEdu, tvDate, tvYes, tvNo;
+        public TextView tvAlias, tvAge, tvEthnic, tvMessage, tvCountry, tvOccupation, tvEdu, tvDate, tvYes, tvNo, tvInterestedText;
 
         public LinearLayout ll_Yes, ll_No;
         public AppCompatButton btWithdraw;
@@ -667,6 +685,8 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
 
             tvYes = (mTextView) itemView.findViewById(R.id.TextViewInterestRequestYes);
             tvNo = (mTextView) itemView.findViewById(R.id.TextViewInterestRequestNo);
+            tvInterestedText = (TextView) itemView.findViewById(R.id.TextViewInterestedText);
+
 
         }
     }

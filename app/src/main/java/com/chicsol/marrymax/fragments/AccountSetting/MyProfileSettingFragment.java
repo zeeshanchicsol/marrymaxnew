@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -32,7 +31,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.MatchAidActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
-import com.chicsol.marrymax.activities.registration.RegisterGeographicActivity;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
 import com.chicsol.marrymax.modal.Dashboards;
@@ -66,7 +64,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     RelativeLayout rlEmailVerified;
     TextView tvDesc, tvPhoneNumber;
     private Context context;
-    TextView tvTitleLiveNotLive;
+    TextView tvTitleLiveNotLive, tvAdminReviewTitle, tvAdminReviewTitleMain;
     private boolean addNumber = false;
     private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber, btMatchAid;
     //   btUpdateEmailz  btResendVerification
@@ -179,8 +177,15 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         String compUptoSSeventyText = "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, your profile is <b> <font color=#9a0606>Not Live </font></b> ";
 
         tvTitleLiveNotLive = (TextView) view.findViewById(R.id.TextViewMyProfileStatusTitle);
+        tvAdminReviewTitle = (TextView) view.findViewById(R.id.TextViewAdminReviewTitle);
+        tvAdminReviewTitleMain = (TextView) view.findViewById(R.id.TextViewAdminReviewTitleMain);
+
+        if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 7) {
+            tvAdminReviewTitle.setText(" (Please review admin notes and update your profile as suggested.)");
+            tvAdminReviewTitleMain.setText("Review completed");
 
 
+        }
 
 
      /*   if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
@@ -250,6 +255,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                 if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3) {
 
                     Toast.makeText(context, "Please complete and verify your profile details.", Toast.LENGTH_LONG).show();
+                } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 7 || SharedPreferenceManager.getUserObject(context).get_member_status() == 8) {
+
+                    Toast.makeText(context, "Please review notes as MarryMax team advised and update your profile", Toast.LENGTH_LONG).show();
                 } else {
 
                     Intent intent = new Intent(getActivity(), MatchAidActivity.class);
@@ -443,6 +451,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         MySingleton.getInstance(getActivity()).addToRequestQueue(req);
 
     }
+
     private void getProfileCompletion() {
         //   pDialog.setVisibility(View.VISIBLE);
         if (!((Activity) context).isFinishing()) {

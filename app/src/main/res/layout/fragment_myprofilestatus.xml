@@ -185,7 +185,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
-                            android:text=" (You can Add and Verify Number by clicking )"
+                            android:text=" (You can  'Add and Verify Number' by clicking the button, given below)"
                             android:textSize="10sp" />
                     </LinearLayout>
 
@@ -195,7 +195,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        android:visibility="visible">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -211,7 +211,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
-
+                                android:id="@+id/TextViewAdminReviewTitleMain"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Admin Review is pending "
@@ -221,7 +221,7 @@
                         </LinearLayout>
 
                         <TextView
-
+                            android:id="@+id/TextViewAdminReviewTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"

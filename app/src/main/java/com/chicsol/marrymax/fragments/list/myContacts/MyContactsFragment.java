@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -67,7 +68,7 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
     AppCompatButton btSearch;
 
     private LinearLayout llEmptyState;
-
+    private TextView tvEmptyMessage;
 
 
     @Override
@@ -110,7 +111,7 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
         super.onResume();
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
-      getData();
+            getData();
         }
 
     }
@@ -120,7 +121,7 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
         fragment = MyContactsFragment.this;
 
         llEmptyState = (LinearLayout) view.findViewById(R.id.LinearLayoutMMMatchesNotFound);
-
+        tvEmptyMessage = (TextView) view.findViewById(R.id.TextViewMyContactsEmptyMessage);
 
         dataList = new ArrayList<>();
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarMyContacts);
@@ -133,14 +134,25 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        boolean delete=false;
-        if(type.equals("sv") ){
-             delete=true;
+        boolean delete = false;
+        if (type.equals("sv")) {
+            delete = true;
 
         }
 
 
-        recyclerAdapter = new RecyclerViewAdapterMyContacts(getContext(), getFragmentManager(), fragment, MyContactsFragment.this,delete,type);
+        if (type.equals("sv")) {
+
+            tvEmptyMessage.setText("There are no Saved Contacts.");
+        } else if (type.equals("st")) {
+
+            tvEmptyMessage.setText("There are no Sent Contacts.");
+        } else {
+            tvEmptyMessage.setText("There are no Deleted Contacts.");
+        }
+
+
+        recyclerAdapter = new RecyclerViewAdapterMyContacts(getContext(), getFragmentManager(), fragment, MyContactsFragment.this, delete, type);
 
 
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
@@ -166,12 +178,13 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
             }
         });
     }
+
     private void getData() {
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("myContacts ", Urls.myContacts + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path() + "/"+type);
-        JsonArrayRequest req = new JsonArrayRequest(Urls.myContacts + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path() + "/"+type,
+        Log.e("myContacts ", Urls.myContacts + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path() + "/" + type);
+        JsonArrayRequest req = new JsonArrayRequest(Urls.myContacts + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path() + "/" + type,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -353,7 +366,7 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
     public void onUpdate(String msg) {
         Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
-           getData();
+            getData();
         }
 
     }

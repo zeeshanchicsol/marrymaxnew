@@ -187,7 +187,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
         LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyInterestsRequests(getContext(), getFragmentManager(), this, fragment, false, this, withdrawCheck);
+        recyclerAdapter = new RecyclerViewAdapterMyInterestsRequests(getContext(), getFragmentManager(), this, fragment, false, this, withdrawCheck, "");
 
 
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
@@ -350,8 +350,8 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                 if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() > 4) {
 
 
-                                    tvInterestRequestEmptyState.setText("You haven’t sent any request yet!  " +
-                                            "\n Find your matches and start communicating.");
+                                    tvInterestRequestEmptyState.setText(Html.fromHtml("<b>You haven’t sent any request yet!  </b>" +
+                                            "<br> Find your matches and start communicating."));
                                     btOnSearch.setVisibility(View.VISIBLE);
 
                                   /*  if (memberC.getRequesting_members_count() == 0) {
@@ -363,7 +363,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
                                     if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 || SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
                                         if (membersDataList.size() == 0) {
 
-                                            htmlDescriptionText.append(" You haven’t sent any request yet!\n");
+                                            htmlDescriptionText.append("<b> You haven’t sent any request yet!<b> <br>");
                                             if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
                                                 htmlDescriptionText.append(" Subscribe now to enjoy following benefits.");
 
@@ -379,7 +379,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                                                 btSubscribe.setVisibility(View.VISIBLE);
                                             }
-                                            tvInterestRequestEmptyState.setText(htmlDescriptionText.toString());
+                                            tvInterestRequestEmptyState.setText(Html.fromHtml(htmlDescriptionText.toString()));
 
 
                                         } else if (membersDataList.size() > 0) {

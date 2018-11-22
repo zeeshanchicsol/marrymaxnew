@@ -200,7 +200,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
         LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyInterestsRequests(getContext(), getFragmentManager(), this, fragment, true, this, withdrawCheck);
+        recyclerAdapter = new RecyclerViewAdapterMyInterestsRequests(getContext(), getFragmentManager(), this, fragment, true, this, withdrawCheck, type);
 
 
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
@@ -371,14 +371,14 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
                                     recyclerView.setVisibility(View.GONE);
                                     llEmptyState.setVisibility(View.VISIBLE);
-                                    tvInterestRequestEmptyState.setText("You haven’t shown interest in anyone yet!. " +
-                                            "\n Find your matches and start communicating.");
+                                    tvInterestRequestEmptyState.setText(Html.fromHtml("<b>You haven’t shown interest in anyone yet!. </b>" +
+                                            "<br> Find your matches and start communicating."));
                                     btOnSearch.setVisibility(View.VISIBLE);
                                 } else {
 
                                     if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 || SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
                                         if (membersDataList.size() == 0) {
-                                            htmlDescriptionText.append(" You haven’t shown interest in anyone yet! \n");
+                                            htmlDescriptionText.append("<b> You haven’t shown interest in anyone yet!</b> <br>");
 
                                             if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
 
@@ -398,7 +398,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                             swipeRefresh.setRefreshing(false);
 
 
-                                            tvInterestRequestEmptyState.setText(htmlDescriptionText.toString());
+                                            tvInterestRequestEmptyState.setText(Html.fromHtml(htmlDescriptionText.toString()));
 
 
                                         } else if (membersDataList.size() > 0) {   //   records with load more
@@ -443,9 +443,9 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                     } else if (memberC.getInterested_members_count() > 0) {
                                         recyclerView.setVisibility(View.GONE);
                                         llEmptyState.setVisibility(View.VISIBLE);
-                                        tvInterestRequestEmptyState.setText("There are " + getInterested_members_count + " interests, waiting for you to respond." +
-                                                "\nPlease complete & verify your profile to view the interests," +
-                                                "\n shown in you.");
+                                        tvInterestRequestEmptyState.setText(Html.fromHtml("<b>There are " + getInterested_members_count + " interests, waiting for you to respond.<b>" +
+                                                "<br>Please complete & verify your profile to view the interests," +
+                                                "<br> shown in you."));
                                         btCompleteProfile.setVisibility(View.VISIBLE);
 
                                     }
