@@ -17,6 +17,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchMartialStatus"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -24,10 +25,10 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
-                android:tag="martial_status"
-                android:minHeight="0dp"
+
                 android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:tag="martial_status"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
                 android:textSize="@dimen/text_size_adv_search_headings"
@@ -65,16 +66,17 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchChildren"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:minHeight="0dp"
-                android:minWidth="0dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+
                 android:tag="children"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"

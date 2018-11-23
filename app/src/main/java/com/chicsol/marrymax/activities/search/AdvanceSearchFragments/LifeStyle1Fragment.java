@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -26,11 +27,13 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
 
-public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
+public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private LinearLayout LinearLayoutAdvSearchRaisedWhere, LinearLayoutAdvSearchHijab, LinearLayoutAdvSearchFamilyValues, LinearLayoutAdvSearchLivingArrangement;
 
     private ViewGenerator viewGenerator;
     private OnChildFragmentInteractionListener fragmentInteractionListener;
+
+    private Button ButtonResetSearchRaisedWhere, ButtonResetSearchHijab, ButtonResetSearchFamilyValue,ButtonResetSearchLivingArrangement;
 
 
     @Override
@@ -64,6 +67,15 @@ public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnChe
         LinearLayoutAdvSearchFamilyValues = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchFamilyValues);
         LinearLayoutAdvSearchLivingArrangement = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchLivingArrangement);
 
+        ButtonResetSearchRaisedWhere = (Button) view.findViewById(R.id.ButtonResetSearchRaisedWhere);
+        ButtonResetSearchHijab = (Button) view.findViewById(R.id.ButtonResetSearchHijab);
+        ButtonResetSearchFamilyValue = (Button) view.findViewById(R.id.ButtonResetSearchFamilyValue);
+        ButtonResetSearchLivingArrangement = (Button) view.findViewById(R.id.ButtonResetSearchLivingArrangement);
+
+        ButtonResetSearchRaisedWhere.setOnClickListener(this);
+        ButtonResetSearchHijab.setOnClickListener(this);
+        ButtonResetSearchFamilyValue.setOnClickListener(this);
+        ButtonResetSearchLivingArrangement.setOnClickListener(this);
 
         Gson gsonc;
         GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -102,7 +114,6 @@ public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnChe
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchLivingArrangement, defaultSelectionsObj.get_choice_living_arangment_ids());
 
         }
-
 
 
     }
@@ -179,6 +190,20 @@ public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnChe
         } catch (ClassCastException e) {
             throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getTag().equals("raisedwhere")) {
+            defaultSelectionsObj.set_choice_raised_ids("");
+        } else if (v.getTag().equals("hijab")) {
+            defaultSelectionsObj.set_choice_hijab_ids("");
+        } else if (v.getTag().equals("familyvalue")) {
+            defaultSelectionsObj.set_choice_family_values_ids("");
+        } else if (v.getTag().equals("living_arrangement")) {
+            defaultSelectionsObj.set_choice_living_arangment_ids("");
+        }
+        setSelection();
     }
 
     public interface OnChildFragmentInteractionListener {

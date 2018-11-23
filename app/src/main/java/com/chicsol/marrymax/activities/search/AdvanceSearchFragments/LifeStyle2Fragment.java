@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -25,11 +26,15 @@ import java.util.List;
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
-public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
+public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private LinearLayout LinearLayoutAdvSearchSiblingPosition, LinearLayoutAdvSearchSmoking, LinearLayoutAdvSearchDrink;
 
     private ViewGenerator viewGenerator;
     private OnChildFragmentInteractionListener fragmentInteractionListener;
+
+    private Button ButtonResetSearchSiblingPosition, ButtonResetSearchSmoking, ButtonResetSearchDrink;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,16 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
         LinearLayoutAdvSearchSiblingPosition = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchSiblingPosition);
         LinearLayoutAdvSearchSmoking = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchSmoking);
         LinearLayoutAdvSearchDrink = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchDrink);
+
+
+        ButtonResetSearchSiblingPosition = (Button) view.findViewById(R.id.ButtonResetSearchSiblingPosition);
+        ButtonResetSearchSmoking = (Button) view.findViewById(R.id.ButtonResetSearchSmoking);
+        ButtonResetSearchDrink = (Button) view.findViewById(R.id.ButtonResetSearchDrink);
+
+        ButtonResetSearchSiblingPosition.setOnClickListener(this);
+        ButtonResetSearchSmoking.setOnClickListener(this);
+        ButtonResetSearchDrink.setOnClickListener(this);
+
 
 
         Gson gsonc;
@@ -166,6 +181,21 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
         } catch (ClassCastException e) {
             throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getTag().equals("siblingposition")) {
+            defaultSelectionsObj.set_choice_sibling_ids("");
+
+        } else if (v.getTag().equals("smoking")) {
+            defaultSelectionsObj.set_choice_smoking_ids("");
+
+        } else if (v.getTag().equals("drink")) {
+            defaultSelectionsObj.set_choice_drink_ids("");
+
+        }
+        setSelection();
     }
 
     public interface OnChildFragmentInteractionListener {

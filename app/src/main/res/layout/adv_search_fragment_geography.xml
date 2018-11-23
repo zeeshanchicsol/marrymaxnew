@@ -25,6 +25,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchTopLocations"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,27 +33,13 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="top_locations"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
                 android:textSize="@dimen/text_size_adv_search_headings"
                 android:textStyle="italic" />
 
-            <!--     <com.chicsol.marrymax.widgets.mButton2
-                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_alignParentEnd="true"
-                     android:layout_alignParentRight="true"
-                     android:layout_marginEnd="0dp"
-                     android:layout_marginRight="0dp"
-                     android:onClick="onResetButtonClicked"
-                     android:tag="physique"
-                     android:text="@string/reset_sub_button_text"
-                     android:textAllCaps="false"
-                     android:textSize="@dimen/text_size_adv_search_headings"
-                     android:textStyle="italic" />-->
             <com.chicsol.marrymax.widgets.mTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,6 +106,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchCountry"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,7 +114,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="country"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -178,6 +166,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchState"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -185,7 +174,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="state"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -247,6 +236,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchCity"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -254,7 +244,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="city"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -307,30 +297,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <com.chicsol.marrymax.widgets.mButton2
-            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            android:onClick="onResetButtonClicked"
-            android:tag="visa_status"
-            android:text="@string/reset_sub_button_text"
-            android:textAllCaps="false"
-            android:textSize="@dimen/text_size_adv_search_headings"
-            android:textStyle="italic" />
-        <com.chicsol.marrymax.widgets.mTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="10dp"
-            android:text="Visa Status"
+            <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchVisaStatus"
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
 
-            android:textColor="@color/colorUserProfileRed"
-            android:textSize="@dimen/text_size_adv_search_headings"
-            android:textStyle="bold" />
+                android:tag="visa_status"
+                android:text="@string/reset_sub_button_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="italic" />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="10dp"
+                android:text="Visa Status"
+
+                android:textColor="@color/colorUserProfileRed"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <LinearLayout

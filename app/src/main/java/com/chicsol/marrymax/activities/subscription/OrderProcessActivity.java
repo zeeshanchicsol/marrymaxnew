@@ -86,7 +86,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     Subscription subscription;
     //   JSONObject params;
     LinearLayout llMain, llErrorMessag;
-    TextView tvErrorDescription, tvErrorHeading, tvo1, tvo2, tvo3, tvo4;
+    TextView tvErrorDescription, tvErrorHeading, tvo1, tvo2, tvo3, tvo4, tvOrderNumber;
 
 
     @Override
@@ -161,6 +161,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         tvShortDesc = (TextView) findViewById(R.id.TextViewOrderProcessShortDescription);
         tvTotalPrice = (TextView) findViewById(R.id.TextViewOrderProcessTotalPrice);
         tvPrice = (TextView) findViewById(R.id.TextViewOrderProcessPrice);
+
+        tvOrderNumber = (TextView) findViewById(R.id.TextViewOrderProcessOrderNumber);
 
 
         tvo1 = (TextView) findViewById(R.id.OrderNumber1);
@@ -721,6 +723,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                             tvTotalPrice.setText(subscription.getItem_currency() + " " + format.format(subscription.getOrder_cost()) + "");
                             tvPrice.setText(subscription.getItem_currency() + " " + format.format(subscription.getItem_price()) + "");
                             String OrderId = "" + subscription.getTrans_order_id();
+                            tvOrderNumber.setText("Your Order Number is : " + OrderId);
                             tvo1.setText("Your Order Number is : " + OrderId);
                             tvo2.setText("Your Order Number is : " + OrderId);
                             tvo3.setText("Your Order Number is : " + OrderId);
@@ -827,7 +830,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
     @Override
     public void onApplyPromoCode(String s) {
-     //   Toast.makeText(this, "" + s, Toast.LENGTH_SHORT).show();
+        //   Toast.makeText(this, "" + s, Toast.LENGTH_SHORT).show();
         procode_code = s;
         generateCart(getParams(false));
     }

@@ -49,7 +49,7 @@ public class dialogShowInterest extends DialogFragment {
     public onCompleteListener mCompleteListener;
     String interested_id, image_view, phone_view, my_id;
     mCheckBox cbAllowPhone, cbAllowPics;
-    mTextView tvDesc;
+    mTextView tvDesc, tvDialogPhonePicsTitle;
     String userpath, alias;
     boolean replyCheck, subscribe = false;
 
@@ -132,6 +132,8 @@ public class dialogShowInterest extends DialogFragment {
         cbAllowPhone = (mCheckBox) rootView.findViewById(R.id.CheckBoxInterestAllowPhone);
         cbAllowPics = (mCheckBox) rootView.findViewById(R.id.CheckBoxInterestAllowPics);
         tvDesc = (mTextView) rootView.findViewById(R.id.TextViewDialogInterestDetails);
+        tvDialogPhonePicsTitle = (mTextView) rootView.findViewById(R.id.TextViewDialogPhonePicsTitle);
+
         Button mOkButton = (Button) rootView.findViewById(R.id.mButtonExpressWithDrawInterest);
         Log.e("MyId", "" + my_id);
 
@@ -146,10 +148,8 @@ public class dialogShowInterest extends DialogFragment {
 
             if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 3) {
 
-                desctxt = "<ul><li>Your complimentary contact limit is exhausted.</li>\n" +
-                        "<br><li>You need to wait 24 hours before you can send new request.</li>\n" +
-                        "<br><li>To maximize your options and communicate immediately, please subscribe.</li>\n" +
-                        "</ul>";
+                desctxt = "\u25CF Daily sent limit is reached.\n" +
+                        "\u25CF Please wait 24 hours before you can contact new  members.\n" ;
 
                 mOkButton.setText("Subscribe");
                 subscribe = true;
@@ -157,20 +157,16 @@ public class dialogShowInterest extends DialogFragment {
             } else if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 4) {
 
 
-                desctxt = "<ul><li>You have reached the contact limit.</li>\n" +
-                        "<br><li>Please wait 24 hours to send new request.</li>\n" +
-                        "</ul>";
+                desctxt = "You have reached the contact limit.\n" +
+                        "Please wait 24 hours to send new request.\n" ;
 
                 mOkButton.setVisibility(View.GONE);
             }
 
 
-            if (Build.VERSION.SDK_INT >= 24) {
-                // for 24 api and more
-                tvDesc.setText(Html.fromHtml(desctxt, Html.FROM_HTML_MODE_LEGACY));
-            } else {
-                tvDesc.setText(Html.fromHtml(desctxt));
-            }
+
+                tvDesc.setText(desctxt);
+
 
 
         } else if (my_id.equals("1")) {
@@ -190,6 +186,7 @@ public class dialogShowInterest extends DialogFragment {
                 if (image_view.equals("2")) {
                     if (!replyCheck) {
                         cbAllowPics.setVisibility(View.VISIBLE);
+                        tvDialogPhonePicsTitle.setVisibility(View.VISIBLE);
                     } else {
                         cbAllowPics.setVisibility(View.VISIBLE);
                         cbAllowPics.setText("Would you like to give permission to view your image?");
@@ -199,6 +196,7 @@ public class dialogShowInterest extends DialogFragment {
                 }
                 if (phone_view.equals("5")) {
                     if (!replyCheck) {
+                        tvDialogPhonePicsTitle.setVisibility(View.VISIBLE);
                         cbAllowPhone.setVisibility(View.VISIBLE);
                     } else {
                         cbAllowPhone.setVisibility(View.VISIBLE);
@@ -389,7 +387,7 @@ public class dialogShowInterest extends DialogFragment {
                         }
 
                         pDialog.dismiss();
-                     //   mCompleteListener.onComplete("");
+                        //   mCompleteListener.onComplete("");
                     }
                 }, new Response.ErrorListener() {
 

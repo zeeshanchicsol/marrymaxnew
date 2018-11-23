@@ -651,7 +651,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            String desc = "Are you sure to withdraw your interest for  <font color=#216917>" + member.getAlias() + "</font>";
+                            String desc = "Are you sure, you want to withdraw your interest for  <font color=#216917>" + member.getAlias() + "</font>";
                           //  withdrawInterest(params, "Withdraw Interest", desc);
 
                         } else if (member.get_interest_received() == 1) {

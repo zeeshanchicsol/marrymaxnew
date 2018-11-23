@@ -2,8 +2,6 @@ package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -49,7 +48,7 @@ import java.util.Map;
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
-public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCRAdapter.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
+public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCRAdapter.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private LinearLayout LinearLayoutAdvSearchVisaStatus;
     private RecyclerView rvCountries, rvStates, rvCities, rvTopCities, rvTopStates;
     private ViewGenerator viewGenerator;
@@ -70,6 +69,9 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     private EditText etCountrySearch, etStatesSearch, etCitySearch;
 
     private OnChildFragmentInteractionListener fragmentInteractionListener;
+
+    private Button ButtonResetSearchTopLocations, ButtonResetSearchCountry, ButtonResetSearchState, ButtonResetSearchCity, ButtonResetSearchVisaStatus;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,6 +128,17 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
         rvTopStates.setLayoutManager(new LinearLayoutManager(getActivity()));
         //    rvTopStates.setHasFixedSize(true);
 
+        ButtonResetSearchTopLocations = (Button) view.findViewById(R.id.ButtonResetSearchTopLocations);
+        ButtonResetSearchCountry = (Button) view.findViewById(R.id.ButtonResetSearchCountry);
+        ButtonResetSearchState = (Button) view.findViewById(R.id.ButtonResetSearchState);
+        ButtonResetSearchCity = (Button) view.findViewById(R.id.ButtonResetSearchCity);
+        ButtonResetSearchVisaStatus = (Button) view.findViewById(R.id.ButtonResetSearchVisaStatus);
+
+        ButtonResetSearchTopLocations.setOnClickListener(this);
+        ButtonResetSearchCountry.setOnClickListener(this);
+        ButtonResetSearchState.setOnClickListener(this);
+        ButtonResetSearchCity.setOnClickListener(this);
+        ButtonResetSearchVisaStatus.setOnClickListener(this);
 
         countriesDataList = new ArrayList<>();
         citiesDataList = new ArrayList<>();
@@ -784,6 +797,32 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
         } catch (ClassCastException e) {
             throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getTag().equals("top_locations")) {
+            defaultSelectionsObj.set_choice_country_ids("");
+            defaultSelectionsObj.set_choice_state_ids("");
+            defaultSelectionsObj.set_choice_cities_ids("");
+
+        } else if (v.getTag().equals("country")) {
+            defaultSelectionsObj.set_choice_country_ids("");
+            defaultSelectionsObj.set_choice_state_ids("");
+            defaultSelectionsObj.set_choice_cities_ids("");
+
+
+        } else if (v.getTag().equals("state")) {
+            defaultSelectionsObj.set_choice_state_ids("");
+
+        } else if (v.getTag().equals("city")) {
+            defaultSelectionsObj.set_choice_cities_ids("");
+
+        } else if (v.getTag().equals("visa_status")) {
+            defaultSelectionsObj.set_choice_visa_status_ids("");
+
+        }
+        setSelection();
     }
 
     public interface OnChildFragmentInteractionListener {

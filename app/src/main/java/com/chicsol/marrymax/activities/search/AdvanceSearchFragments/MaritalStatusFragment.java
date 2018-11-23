@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -27,13 +28,14 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
 
-public class MaritalStatusFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
+public class MaritalStatusFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     //private Item item_slider;
     private LinearLayout LinearLayoutAdvSearchMaritalStatus, LinearLayoutAdvSearchChildren;
 
     private ViewGenerator viewGenerator;
     private OnChildFragmentInteractionListener fragmentInteractionListener;
 
+    private Button ButtonResetSearchMartialStatus, ButtonResetSearchChildren;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
 
         return view;
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -62,6 +65,12 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
         viewGenerator = new ViewGenerator(getContext());
         LinearLayoutAdvSearchMaritalStatus = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchMaritalStatus);
         LinearLayoutAdvSearchChildren = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchChildren);
+
+        ButtonResetSearchMartialStatus = (Button) view.findViewById(R.id.ButtonResetSearchMartialStatus);
+        ButtonResetSearchChildren = (Button) view.findViewById(R.id.ButtonResetSearchChildren);
+
+        ButtonResetSearchMartialStatus.setOnClickListener(this);
+        ButtonResetSearchChildren.setOnClickListener(this);
 
         Gson gsonc;
         GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -83,14 +92,12 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
     }
 
     private void setSelection() {
-Log.e("set selection","sett selection");
+        Log.e("set selection", "sett selection");
         if (defaultSelectionsObj != null) {
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchMaritalStatus, defaultSelectionsObj.get_choice_marital_status_ids());
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchChildren, defaultSelectionsObj.get_choice_children_ids());
 
         }
-
-
 
 
     }
@@ -134,7 +141,6 @@ Log.e("set selection","sett selection");
     }*/
 
 
-
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
@@ -148,6 +154,18 @@ Log.e("set selection","sett selection");
         } catch (ClassCastException e) {
             throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getTag().equals("martial_status")) {
+            defaultSelectionsObj.set_choice_marital_status_ids("");
+
+
+        } else if (v.getTag().equals("children")) {
+            defaultSelectionsObj.set_choice_children_ids("");
+        }
+        setSelection();
     }
 
     public interface OnChildFragmentInteractionListener {

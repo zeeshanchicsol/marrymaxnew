@@ -74,6 +74,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchProfileWith"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,7 +82,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="select_profile_with"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -137,7 +138,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
-                android:id="@+id/ButtonResetThis"
+                android:id="@+id/ButtonResetProfileCreatedFor"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -145,7 +146,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="profile_created_for"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -187,6 +188,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetZodiacSign"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -194,7 +196,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="zodiac"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"

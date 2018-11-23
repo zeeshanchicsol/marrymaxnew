@@ -520,7 +520,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        String desc = "Are you sure to withdraw your interest for  <font color=#216917>" + member.getAlias() + "</font>";
+                        String desc = "Are you sure, you want to withdraw your interest for  <font color=#216917>" + member.getAlias() + "</font>";
                         marryMax.withdrawInterest(params, "Withdraw Interest", desc, null, fragmentManager, "5");
 
                     } else if (member.get_interest_received() == 1) {

@@ -123,7 +123,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         // do whatever needs to be done. For example:
         // Toast.makeText(getApplicationContext(), v.getTag() + "  profile_created_for", Toast.LENGTH_SHORT).show();
         //============Basics=======================
-        if (v.getTag().equals("select_profile_with")) {
+      /*  if (v.getTag().equals("select_profile_with")) {
             defaultSelectionsObj.set_pictureonly(0);
             defaultSelectionsObj.set_opentopublic(0);
         } else if (v.getTag().equals("profile_created_for")) {
@@ -131,10 +131,10 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         } else if (v.getTag().equals("zodiac")) {
             defaultSelectionsObj.set_choice_zodiac_sign_ids("");
 
-        }
+        }*/
 
         //==============Appearance=====================
-        else if (v.getTag().equals("physique")) {
+    /*     if (v.getTag().equals("physique")) {
             defaultSelectionsObj.set_choice_body_ids("");
 
         } else if (v.getTag().equals("complexion")) {
@@ -147,39 +147,39 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         } else if (v.getTag().equals("hair_color")) {
             defaultSelectionsObj.set_choice_hair_color_ids("");
 
-        }
+        }*/
         //==============MaritalStatus=====================
 
 
-        else if (v.getTag().equals("martial_status")) {
+      /*   if (v.getTag().equals("martial_status")) {
             defaultSelectionsObj.set_choice_marital_status_ids("");
 
 
         } else if (v.getTag().equals("children")) {
             defaultSelectionsObj.set_choice_children_ids("");
-        }
+        }*/
 
 
         //==============education occupation=====================
-        else if (v.getTag().equals("education")) {
+    /*     if (v.getTag().equals("education")) {
             defaultSelectionsObj.set_choice_education_ids("");
         } else if (v.getTag().equals("occupation")) {
             defaultSelectionsObj.set_choice_occupation_ids("");
 
-        }
+        }*/
 
         //==============ethnic_background=====================
-        else if (v.getTag().equals("ethnic_background")) {
+       /* if (v.getTag().equals("ethnic_background")) {
             defaultSelectionsObj.set_choice_ethnic_bground_ids("");
         } else if (v.getTag().equals("religious_sect")) {
             defaultSelectionsObj.set_choice_religious_sect_ids("");
         } else if (v.getTag().equals("caste")) {
             defaultSelectionsObj.set_choice_caste_ids("");
         }
-
+*/
 
         //==============LifeStyle 1=====================
-        else if (v.getTag().equals("raisedwhere")) {
+       /*  if (v.getTag().equals("raisedwhere")) {
             defaultSelectionsObj.set_choice_raised_ids("");
         } else if (v.getTag().equals("hijab")) {
             defaultSelectionsObj.set_choice_hijab_ids("");
@@ -188,10 +188,10 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         } else if (v.getTag().equals("living_arrangement")) {
             defaultSelectionsObj.set_choice_living_arangment_ids("");
         }
-
+*/
 
         //==============LifeStyle2=====================
-        else if (v.getTag().equals("siblingposition")) {
+   /*    if (v.getTag().equals("siblingposition")) {
             defaultSelectionsObj.set_choice_sibling_ids("");
 
         } else if (v.getTag().equals("smoking")) {
@@ -200,9 +200,9 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         } else if (v.getTag().equals("drink")) {
             defaultSelectionsObj.set_choice_drink_ids("");
 
-        }
+        }*/
         //==============Geography=====================
-        else if (v.getTag().equals("top_locations")) {
+       /*  if (v.getTag().equals("top_locations")) {
             defaultSelectionsObj.set_choice_country_ids("");
             defaultSelectionsObj.set_choice_state_ids("");
             defaultSelectionsObj.set_choice_cities_ids("");
@@ -222,10 +222,10 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         } else if (v.getTag().equals("visa_status")) {
             defaultSelectionsObj.set_choice_visa_status_ids("");
 
-        }
+        }*/
 
 
-        refreshViews();
+        // refreshViews();
 
     }
 

@@ -201,8 +201,6 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
         tvShortDescEmptyMessage.setText("No more wait, just take the initiative to connect with your potential matches, who are also interested in someone like you!");
 
 
-
-
         ((AppCompatButton) view.findViewById(R.id.ButtonOnSearchClick)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -496,7 +494,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
                                 } else {
                                     recyclerAdapter.clear();
                                     swipeRefresh.setRefreshing(false);
-                                    if (SharedPreferenceManager.getUserObject(context).get_member_status() >= 0 && SharedPreferenceManager.getUserObject(context).get_member_status() <= 2) {
+                                    if (SharedPreferenceManager.getUserObject(context).get_member_status() >= 0 && SharedPreferenceManager.getUserObject(context).get_member_status() <= 2 || SharedPreferenceManager.getUserObject(context).get_member_status() == 7) {
 
                                         Gson gsont;
                                         GsonBuilder gsonBuildert = new GsonBuilder();
@@ -511,7 +509,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
                                         tvComplProfioleTitle.setText("Matches Looking For Me");
 
 
-                                    } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+                                    } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 ) {
 
                                         GsonBuilder gsonBuildert = new GsonBuilder();
                                         Type membert = new TypeToken<Members>() {

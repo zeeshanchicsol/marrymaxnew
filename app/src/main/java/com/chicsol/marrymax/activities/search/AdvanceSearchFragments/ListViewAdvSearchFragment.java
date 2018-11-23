@@ -210,6 +210,9 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
       //    SearchMainActivity.set
 
     }
+    public  void selectSearchFragment( int position){
+        listener.onItemSelected(dataList.get(position));
+    }
 
 
     @Override

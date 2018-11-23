@@ -216,7 +216,8 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         if (obj.getAnswered() == 0 && obj.getSelf() == 1) {
             btSendAnswers.setText("Send Answer");
         } else {
-            btSendAnswers.setText("Send Message");
+          //  btSendAnswers.setText("Send Message");
+            btSendAnswers.setVisibility(View.GONE);
         }
 
 

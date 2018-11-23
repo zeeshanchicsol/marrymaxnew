@@ -14,6 +14,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchRaisedWhere"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -21,7 +22,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="raisedwhere"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -62,6 +63,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchHijab"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,7 +71,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="hijab"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -110,6 +112,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchFamilyValue"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -117,7 +120,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="familyvalue"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -158,6 +161,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchLivingArrangement"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -165,7 +169,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="living_arrangement"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"

@@ -500,7 +500,6 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         viewGenerator.selectSpinnerItemById(spinnerAScontactRelationShipWithMember, member.get_profile_owner_id(), relationshipDataList);
 
 
-
         Log.e("Evening aaaaa", "" + member.get_notes() + "===");
 
         viewGenerator.selectSpinnerItemByValue(spinnerMyAScontactConvTimeToCall, member.get_notes(), covenientTimetoCallDataList);
@@ -683,7 +682,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             public void onClick(View v) {
 
                 if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 0 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).getAlias() + "</font></b>, you need to complete your profile first before we send sms code.", "Complete Profile", 8);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).getAlias() + "</font></b>, please complete your profile first then we can send you verification code on your Mobile number.", "Complete Profile", 8);
                     dialogP.show(getFragmentManager(), "d");
 
                 } else {

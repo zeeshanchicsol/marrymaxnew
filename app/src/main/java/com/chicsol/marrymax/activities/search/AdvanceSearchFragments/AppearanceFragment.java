@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -31,13 +32,14 @@ import java.util.List;
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
-public class AppearanceFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
+public class AppearanceFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private LinearLayout llAdvSearchEyeColor, llAdvSearchHairColor, llAdvSearchComplexion, llAdvSearchPhysique;
     private ViewGenerator viewGenerator;
     private Spinner spAgeFrom, spAgeTo, spHeightFrom, spHeightTo;
     private MySpinnerAdapter spinnerAdapterAgeFrom, spinnerAdapterAgeTo, spinnerAdapterHeightFrom, spinnerAdapterHeightTo;
     private List<WebArd> agefromDataList, ageToDataList, heightFromDataList, heightToDataList;
-   private OnChildFragmentInteractionListener fragmentInteractionListener;
+    private OnChildFragmentInteractionListener fragmentInteractionListener;
+    private Button ButtonResetSearchPhysique, ButtonResetSearchComplexion, ButtonResetSearchEyeColor, ButtonResetSearchHairColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,17 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
         spAgeTo = (Spinner) view.findViewById(R.id.SpinnerAdvSearchAgeTo);
         spHeightFrom = (Spinner) view.findViewById(R.id.SpinnerAdvSearchHeightFrom);
         spHeightTo = (Spinner) view.findViewById(R.id.SpinnerAdvSearchHeightTo);
+
+
+        ButtonResetSearchPhysique = (Button) view.findViewById(R.id.ButtonResetSearchPhysique);
+        ButtonResetSearchComplexion = (Button) view.findViewById(R.id.ButtonResetSearchComplexion);
+        ButtonResetSearchEyeColor = (Button) view.findViewById(R.id.ButtonResetSearchEyeColor);
+        ButtonResetSearchHairColor = (Button) view.findViewById(R.id.ButtonResetSearchHairColor);
+
+        ButtonResetSearchPhysique.setOnClickListener(this);
+        ButtonResetSearchComplexion.setOnClickListener(this);
+        ButtonResetSearchEyeColor.setOnClickListener(this);
+        ButtonResetSearchHairColor.setOnClickListener(this);
 
         llAdvSearchEyeColor.removeAllViews();
 
@@ -343,6 +356,26 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
         } catch (ClassCastException e) {
             throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getTag().equals("physique")) {
+            defaultSelectionsObj.set_choice_body_ids("");
+
+        } else if (v.getTag().equals("complexion")) {
+            defaultSelectionsObj.set_choice_complexion_ids("");
+
+        } else if (v.getTag().equals("eye_color")) {
+            defaultSelectionsObj.set_choice_eye_color_ids("");
+
+
+        } else if (v.getTag().equals("hair_color")) {
+            defaultSelectionsObj.set_choice_hair_color_ids("");
+
+        }
+
+        setSelection();
     }
 
     public interface OnChildFragmentInteractionListener {

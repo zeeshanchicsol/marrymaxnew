@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <ProgressBar
                 android:id="@+id/ProgressbarSubscriptionPlan"
@@ -57,7 +57,16 @@
                     android:orientation="vertical"
                     android:padding="5dp">
 
+                    <TextView
+                        android:id="@+id/TextViewOrderProcessOrderNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
 
+                        android:layout_marginLeft="6dp"
+                        android:gravity="center"
+
+                        android:textColor="@color/colorBlack"
+                         />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

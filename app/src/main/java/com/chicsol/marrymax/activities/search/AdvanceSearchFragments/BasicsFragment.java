@@ -3,21 +3,18 @@ package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
-import com.chicsol.marrymax.dialogs.dialogShowInterest;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.utils.ViewGenerator;
@@ -36,7 +33,7 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
 
-public class BasicsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
+public class BasicsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     List<WebArd> dataListRegWithin;
     private LinearLayout LinearLayoutAdvSearchProfileCreatedFor, LinearLayoutAdvSearchZodiacSign;
     private ViewGenerator viewGenerator;
@@ -44,6 +41,7 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
     private MySpinnerAdapter spinnerAdapterRegisteredWithIn, spinnerAdapterLastLogin;
     private mCheckBox checkboxItemAdvSearchBasicsPicOnly, checkboxItemAdvSearchBasicsOpenToPub;
     private OnChildFragmentInteractionListener fragmentInteractionListener;
+    private Button btResetSearchProfileWith, btResetProfileCreatedFor, btResetZodiacSign;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +75,14 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
 
         LinearLayoutAdvSearchProfileCreatedFor = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchProfileCreatedFor);
         LinearLayoutAdvSearchZodiacSign = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchZodiacSign);
+
+        btResetSearchProfileWith = (Button) view.findViewById(R.id.ButtonResetSearchProfileWith);
+        btResetProfileCreatedFor = (Button) view.findViewById(R.id.ButtonResetProfileCreatedFor);
+        btResetZodiacSign = (Button) view.findViewById(R.id.ButtonResetZodiacSign);
+
+        btResetSearchProfileWith.setOnClickListener(this);
+        btResetProfileCreatedFor.setOnClickListener(this);
+        btResetZodiacSign.setOnClickListener(this);
 
         dataListRegWithin = new ArrayList<>();
         dataListRegWithin.add(new WebArd("0", "Select"));
@@ -317,6 +323,23 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
         } catch (ClassCastException e) {
             throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v.getTag().equals("select_profile_with")) {
+            defaultSelectionsObj.set_pictureonly(0);
+            defaultSelectionsObj.set_opentopublic(0);
+        } else if (v.getTag().equals("profile_created_for")) {
+            defaultSelectionsObj.set_choice_profile_owner_Ids("");
+        } else if (v.getTag().equals("zodiac")) {
+            defaultSelectionsObj.set_choice_zodiac_sign_ids("");
+
+        }
+
+        setSelection();
+
     }
 
     public interface OnChildFragmentInteractionListener {

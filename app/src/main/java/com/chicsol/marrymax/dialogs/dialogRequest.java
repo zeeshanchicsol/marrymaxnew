@@ -275,29 +275,25 @@ public class dialogRequest extends DialogFragment {
                                 if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 3) {
                                     mOkButton.setVisibility(View.GONE);
                                     btSubscribe.setVisibility(View.VISIBLE);
-                                    desctxt = "<ul><li>Your complimentary contact limit is exhausted.</li>\n" +
-                                            "<br><li>You need to wait 24 hours before you can send new request.</li>\n" +
-                                            "<br><li>To maximize your options and communicate immediately, please subscribe.</li>\n" +
-                                            "</ul>";
+                                    desctxt = "\u25CF Daily sent limit is reached.\n" +
+                                            "\u25CF Please wait 24 hours before you can contact new members.\n" +
+                                            "";
 
 
                                 } else if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 4) {
                                     mOkButton.setVisibility(View.GONE);
                                     btSubscribe.setVisibility(View.GONE);
 
-                                    desctxt = "<ul><li>You have reached the contact limit.</li>\n" +
-                                            "<br><li>Please wait 24 hours to send new request.</li>\n" +
-                                            "</ul>";
+                                    desctxt = "\u25CFYou have reached the contact limit.\n" +
+                                            "\u25CFPlease wait 24 hours to send new request.\n" +
+                                            "";
 
 
                                 }
 
-                                if (Build.VERSION.SDK_INT >= 24) {
-                                    // for 24 api and more
-                                    tvDesc.setText(Html.fromHtml(desctxt, Html.FROM_HTML_MODE_LEGACY));
-                                } else {
-                                    tvDesc.setText(Html.fromHtml(desctxt));
-                                }
+
+                                    tvDesc.setText(desctxt);
+
 
 
                             } else {

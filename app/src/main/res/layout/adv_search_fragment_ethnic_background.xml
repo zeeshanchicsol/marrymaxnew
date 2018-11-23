@@ -17,6 +17,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchEthnicBackground"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -24,7 +25,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="ethnic_background"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -66,6 +67,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchReligiousSect"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,7 +75,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
+
                 android:tag="religious_sect"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
@@ -114,6 +116,7 @@
             android:layout_height="wrap_content">
 
             <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchCaste"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,7 +124,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
-                android:onClick="onResetButtonClicked"
                 android:tag="caste"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"

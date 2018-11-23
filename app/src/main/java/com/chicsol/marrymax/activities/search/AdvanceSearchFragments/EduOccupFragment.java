@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -27,12 +28,13 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
 
-public class EduOccupFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
+public class EduOccupFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
     private LinearLayout LinearLayoutAdvSearchEducation, LinearLayoutAdvSearchOccupation;
 
     private ViewGenerator viewGenerator;
 
     private OnChildFragmentInteractionListener fragmentInteractionListener;
+    private Button ButtonResetSearchEducation, ButtonResetSearchReligiousSect;
 
 
     @Override
@@ -64,6 +66,13 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
         viewGenerator = new ViewGenerator(getContext());
         LinearLayoutAdvSearchEducation = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchEducation);
         LinearLayoutAdvSearchOccupation = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchOccupation);
+
+        ButtonResetSearchEducation = (Button) view.findViewById(R.id.ButtonResetSearchEducation);
+        ButtonResetSearchReligiousSect = (Button) view.findViewById(R.id.ButtonResetSearchOccupation);
+
+        ButtonResetSearchEducation.setOnClickListener(this);
+        ButtonResetSearchReligiousSect.setOnClickListener(this);
+
 
         Gson gsonc;
         GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -140,8 +149,6 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
     }
 
 
-
-
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
@@ -157,6 +164,17 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getTag().equals("education")) {
+            defaultSelectionsObj.set_choice_education_ids("");
+        } else if (v.getTag().equals("occupation")) {
+            defaultSelectionsObj.set_choice_occupation_ids("");
+
+        }
+        setSelection();
+    }
+
     public interface OnChildFragmentInteractionListener {
         void messageFromChildToParent();
     }
@@ -165,8 +183,6 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
         fragmentInteractionListener.messageFromChildToParent();
 
     }
-
-
 
 
 }

@@ -513,7 +513,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
                                 } else {
                                     recyclerAdapter.clear();
                                     swipeRefresh.setRefreshing(false);
-                                    if (SharedPreferenceManager.getUserObject(context).get_member_status() >= 0 && SharedPreferenceManager.getUserObject(context).get_member_status() <= 2) {
+                                    if (SharedPreferenceManager.getUserObject(context).get_member_status() >= 0 && SharedPreferenceManager.getUserObject(context).get_member_status() <= 2  || SharedPreferenceManager.getUserObject(context).get_member_status() == 7) {
 
                                         Gson gsont;
                                         GsonBuilder gsonBuildert = new GsonBuilder();
@@ -527,7 +527,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
                                         tvMatchesCountCp.setText(memberTotalPages.get_total_member_count() + "");
                                         tvComplProfioleTitle.setText("Members, Looking For Me!");
 
-                                    } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+                                    } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 ) {
 
                                         GsonBuilder gsonBuildert = new GsonBuilder();
                                         Type membert = new TypeToken<Members>() {

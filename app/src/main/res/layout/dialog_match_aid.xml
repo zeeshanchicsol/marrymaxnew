@@ -60,24 +60,24 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="vertical">
 
                         <com.chicsol.marrymax.widgets.mTextView
 
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="MarryMax.com team is always there to assist you in finding your match. "
+                            android:text="MarryMax.com team is always available to assist you and connect you. "
                             android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Please select an option to maximize your experience. "
+                            android:text="Please select an option how can we help, "
                             android:textColor="@color/colorDefaultGreen"
                             android:textStyle="bold"
 
@@ -101,35 +101,35 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="If other, then please describe the reason."
-                                android:inputType="text"
                                 android:imeOptions="actionDone"
-                                />
+                                android:inputType="text" />
                         </android.support.design.widget.TextInputLayout>
+
                         <com.chicsol.marrymax.widgets.mButton2
                             android:id="@+id/mButtonDialogMatchAidSubscribe"
+                            style="@style/myCustomMaterialButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
                             android:layout_marginTop="10dp"
-android:visibility="gone"
-                            app:backgroundTint="@color/colorDefaultGreen"
-                            style="@style/myCustomMaterialButton"
                             android:text="Subscribe"
                             android:textAllCaps="false"
-                            android:textColor="@color/colorWhite" />
+                            android:textColor="@color/colorWhite"
+                            android:visibility="gone"
+                            app:backgroundTint="@color/colorDefaultGreen" />
 
                         <com.chicsol.marrymax.widgets.mButton2
                             android:id="@+id/mButtonDialogMatchAid"
+                            style="@style/myCustomMaterialButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
-                            android:layout_marginTop="10dp"
 
-                            app:backgroundTint="@color/colorDefaultGreen"
-                            style="@style/myCustomMaterialButton"
+                            android:layout_marginTop="10dp"
                             android:text="Submit"
                             android:textAllCaps="false"
-                            android:textColor="@color/colorWhite" />
+                            android:textColor="@color/colorWhite"
+                            app:backgroundTint="@color/colorDefaultGreen" />
                     </LinearLayout>
 
 

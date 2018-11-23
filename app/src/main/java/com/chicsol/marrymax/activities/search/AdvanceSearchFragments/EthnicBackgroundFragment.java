@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -13,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -29,13 +29,12 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
-public class EthnicBackgroundFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, SearchCheckBoxAdapter.ContactsAdapterListener {
+public class EthnicBackgroundFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, SearchCheckBoxAdapter.ContactsAdapterListener, View.OnClickListener {
 
     private LinearLayout LinearLayoutAdvSearchEthnicBackground, LinearLayoutAdvSearchReligiousSect, LinearLayoutAdvSearchCaste;
 
@@ -45,6 +44,8 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
     private RecyclerView recycler_view_caste;
     private SearchCheckBoxAdapter mAdapter;
     private OnChildFragmentInteractionListener fragmentInteractionListener;
+
+    private Button ButtonResetSearchEthnicBackground, ButtonResetSearchReligiousSect, ButtonResetSearchCaste;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,14 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
 
         etCasteSearch = (EditText) view.findViewById(R.id.EditTextAdvSearchEthnicBackgrounCasteSearch);
         recycler_view_caste = (RecyclerView) view.findViewById(R.id.recycler_view_caste);
+
+        ButtonResetSearchEthnicBackground = (Button) view.findViewById(R.id.ButtonResetSearchEthnicBackground);
+        ButtonResetSearchReligiousSect = (Button) view.findViewById(R.id.ButtonResetSearchReligiousSect);
+        ButtonResetSearchCaste = (Button) view.findViewById(R.id.ButtonResetSearchCaste);
+
+        ButtonResetSearchEthnicBackground.setOnClickListener(this);
+        ButtonResetSearchReligiousSect.setOnClickListener(this);
+        ButtonResetSearchCaste.setOnClickListener(this);
 
 
         Gson gsonc;
@@ -136,7 +145,6 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchReligiousSect, defaultSelectionsObj.get_choice_religious_sect_ids());
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchCaste, defaultSelectionsObj.get_choice_caste_ids());
         }
-
 
 
     }
@@ -248,8 +256,6 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
     public void onContactSelected(List<WebArd> dataList) {
 
 
-
-
         StringBuilder sbSelectedVisaMyChoice = new StringBuilder();
 
         for (int i = 0; i < dataList.size(); i++) {
@@ -297,8 +303,6 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
     }
 
 
-
-
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
@@ -314,6 +318,18 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getTag().equals("ethnic_background")) {
+            defaultSelectionsObj.set_choice_ethnic_bground_ids("");
+        } else if (v.getTag().equals("religious_sect")) {
+            defaultSelectionsObj.set_choice_religious_sect_ids("");
+        } else if (v.getTag().equals("caste")) {
+            defaultSelectionsObj.set_choice_caste_ids("");
+        }
+        setSelection();
+    }
+
     public interface OnChildFragmentInteractionListener {
         void messageFromChildToParent();
     }
@@ -322,7 +338,6 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
         fragmentInteractionListener.messageFromChildToParent();
 
     }
-
 
 
 }

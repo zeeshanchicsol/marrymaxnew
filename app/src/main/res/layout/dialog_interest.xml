@@ -58,10 +58,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
                     <com.chicsol.marrymax.widgets.mTextView
@@ -69,8 +69,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textColor="@color/colorBlack" />
+                        android:textColor="@color/colorBlack"
+                       />
 
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_marginTop="3dp"
+                        android:id="@+id/TextViewDialogPhonePicsTitle"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="In addition to expressing interest, you can"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        />
                     <com.chicsol.marrymax.widgets.mCheckBox
                         android:id="@+id/CheckBoxInterestAllowPhone"
                         android:layout_width="match_parent"
@@ -91,14 +102,14 @@
 
                     <android.support.v7.widget.AppCompatButton
                         android:id="@+id/mButtonExpressWithDrawInterest"
+                        style="@style/myCustomMaterialButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
-                        app:backgroundTint="@color/colorDefaultGreen"
-                      style="@style/myCustomMaterialButton"
                         android:text="Express Interest"
                         android:textAllCaps="false"
-                        android:textColor="@color/colorWhite" />
+                        android:textColor="@color/colorWhite"
+                        app:backgroundTint="@color/colorDefaultGreen" />
                 </LinearLayout>
 
 
