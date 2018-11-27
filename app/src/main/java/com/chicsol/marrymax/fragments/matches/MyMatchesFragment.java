@@ -175,7 +175,7 @@ TextView tvMatchesCount;
             if (isVisibleToUser) {
                 Log.e("MY MATCHES" + isVisibleToUser, "created");
 
-                new MarryMax(null).getRawData(context, 0);
+              //  new MarryMax(null).getRawData(context, 0);
             }
         }
     }
@@ -615,8 +615,24 @@ TextView tvMatchesCount;
            Toast.makeText(getContext(), "Clicked", Toast.LENGTH_SHORT).show();
        }*/
     private void getRawData() {
+        Members memberSearchObj = DrawerActivity.rawSearchObj;
+        if (memberSearchObj != null) {
+            memberSearchObj.set_path(SharedPreferenceManager.getUserObject(context).get_path());
+            memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(context).get_member_status());
+            memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(context).get_phone_verified());
+            memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(context).get_email_verified());
+            //page and type
+            memberSearchObj.set_page_no(1);
+            memberSearchObj.set_type("");
 
-        Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + "/0");
+            Gson gson = new Gson();
+            params = gson.toJson(memberSearchObj);
+
+            recyclerAdapter.setMemResultsObj(memberSearchObj);
+
+            loadData(params, false);
+        }
+    /*    Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + "/0");
         JsonArrayRequest req = new JsonArrayRequest(Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + "/0",
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -675,7 +691,7 @@ TextView tvMatchesCount;
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(context).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(context).addToRequestQueue(req,Tag);*/
     }
 
     @Override

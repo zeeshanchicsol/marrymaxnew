@@ -118,9 +118,30 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             lastPage = 1;
             recyclerAdapter.setMoreLoading(false);
-            getRawData();
+       //     getRawData();
 
+            if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
+                Members memberSearchObj = DrawerActivity.rawSearchObj;
+                if (memberSearchObj != null) {
+                    memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                    memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getContext()).get_member_status());
+                    memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getContext()).get_phone_verified());
+                    memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getContext()).get_email_verified());
+                    //page and type
+                    memberSearchObj.set_page_no(1);
+                    memberSearchObj.set_type("pm");
 
+                    Gson gson = new Gson();
+                    String params = gson.toJson(memberSearchObj);
+                    this.params = params;
+
+                    recyclerAdapter.setMemResultsObj(memberSearchObj);
+
+                    loadData(params, false);
+                }
+            }
+
+            DrawerActivity.rawSearchObj = new Members();
         }
 
      /*   if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
@@ -149,7 +170,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
 
     }
 
-    @Override
+ /*   @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (getView() != null) {
@@ -160,7 +181,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
         }
 
 
-    }
+    }*/
 
 
  /*  @Override
@@ -216,8 +237,10 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
 
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
-            new MarryMax(null).getRawData(context, 1);
+        //    new MarryMax(null).getRawData(context, 1);
             Members memberSearchObj = DrawerActivity.rawSearchObj;
+
+
             if (memberSearchObj != null) {
                 memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getActivity()).get_path());
                 memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getContext()).get_member_status());
@@ -238,7 +261,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
             }
         }
 
-
+        DrawerActivity.rawSearchObj = new Members();
     }
 
     private void setListenders() {

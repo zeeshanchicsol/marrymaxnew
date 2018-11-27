@@ -374,6 +374,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Priority Profile Listing.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Maximum interaction & quick connect with other members.");
+                                                viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Send & Receive Messages.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy options.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need.");
 
@@ -475,6 +476,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Priority Profile Listing.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Maximum interaction & quick connect with other members.");
+                                                viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Send & Receive Messages.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "More Privacy options.");
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need.");
 

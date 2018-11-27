@@ -244,7 +244,7 @@
                                             android:id="@+id/mTextView4"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:text="My Choice Education"
+                                            android:text="My Choice Education  (Optional)"
                                             android:textColor="@color/colorSpinnerLabel"
                                             android:textSize="@dimen/text_size_spinner_label" />
 
@@ -492,7 +492,7 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="8dp"
-                                            android:text="My Choice Occupation"
+                                            android:text="My Choice Occupation (Optional)"
                                             android:textAppearance="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem"
                                             android:textColor="@color/colorBlack" />
 
@@ -1908,7 +1908,7 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/drawer_navigation_view" />
+      <!--  <include layout="@layout/drawer_navigation_view" />-->
 
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>

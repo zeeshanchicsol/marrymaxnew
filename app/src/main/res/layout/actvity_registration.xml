@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
             android:layout_weight="0.6"
             android:gravity="center"
             android:orientation="vertical">
@@ -62,9 +62,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="vertical">
 
 
@@ -90,8 +90,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:paddingBottom="10dp"
-                            android:paddingTop="10dp">
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
 
                             <com.chicsol.marrymax.widgets.mTextView
                                 android:layout_width="match_parent"
@@ -205,8 +205,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:paddingBottom="10dp"
-                            android:paddingTop="10dp">
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
 
                             <com.chicsol.marrymax.widgets.mTextView
                                 android:layout_width="match_parent"
@@ -251,8 +251,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
 
-                            android:layout_marginRight="20dp"
-                            android:layout_marginTop="10dp">
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="20dp">
 
 
                             <LinearLayout
@@ -263,8 +263,8 @@
                                 android:background="@drawable/gendercheckboxborderselected"
                                 android:gravity="center"
                                 android:orientation="horizontal"
-                                android:paddingBottom="9dp"
                                 android:paddingTop="9dp"
+                                android:paddingBottom="9dp"
                                 android:visibility="gone">
 
 
@@ -294,9 +294,9 @@
                                 android:background="@drawable/gendercheckboxbordernormal"
                                 android:gravity="center"
                                 android:orientation="horizontal"
-                                android:paddingBottom="9dp"
+                                android:paddingTop="9dp"
 
-                                android:paddingTop="9dp">
+                                android:paddingBottom="9dp">
 
 
                                 <com.chicsol.marrymax.widgets.faTextView
@@ -325,9 +325,9 @@
                                 android:background="@drawable/gendercheckboxbordernormal"
                                 android:gravity="center"
                                 android:orientation="horizontal"
-                                android:paddingBottom="9dp"
+                                android:paddingTop="9dp"
 
-                                android:paddingTop="9dp">
+                                android:paddingBottom="9dp">
 
 
                                 <com.chicsol.marrymax.widgets.faTextView
@@ -357,8 +357,8 @@
                                 android:background="@drawable/gendercheckboxborderselected"
                                 android:gravity="center"
                                 android:orientation="horizontal"
-                                android:paddingBottom="9dp"
                                 android:paddingTop="9dp"
+                                android:paddingBottom="9dp"
                                 android:visibility="gone">
 
 
@@ -383,24 +383,49 @@
                         </LinearLayout>
 
 
-                        <com.chicsol.marrymax.widgets.mTextView
+                  <!--      <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/mTextViewDatePicker"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginTop="15dp"
+                            android:layout_marginBottom="10dp"
                             android:text="Date of Birth "
                             android:textColor="@color/colorRegistrationFields"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:visibility="gone" />-->
 
-                        <DatePicker
-
+                 <!--       <DatePicker
                             android:id="@+id/datePicker"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:datePickerMode="spinner" />
+                            android:datePickerMode="spinner"
+                            android:visibility="visible" />-->
 
+
+                        <!--        <android.support.design.widget.TextInputLayout
+                                    android:layout_marginTop="15dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColorHint="@color/colorRegistrationFields">-->
+
+                        <com.chicsol.marrymax.widgets.mAutoCompleteTextView
+                            android:id="@+id/EditTextDateOfBirth"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:hint="Date Of Birth"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/colorRegistrationFields"
+                            app:backgroundTint="@color/colorUnderline"
+
+                            />
+
+                        <!--  </android.support.design.widget.TextInputLayout>-->
 
                         <LinearLayout
                             android:layout_width="match_parent"

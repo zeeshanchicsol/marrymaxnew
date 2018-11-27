@@ -408,7 +408,7 @@ public class MarryMax {
 
                 } else if (smember.get_member_status() >= 7) {
 
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile", "Complete Profile", 8);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.show(frgMngr, "d");
                     return false;
 
@@ -487,7 +487,7 @@ public class MarryMax {
 
                 } else if (smember.get_member_status() == 7 || smember.get_member_status() == 8) {
 
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile", "Complete Profile", 8);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
@@ -525,7 +525,7 @@ public class MarryMax {
 
                 } else if (smember.get_member_status() == 7 || smember.get_member_status() == 8) {
 
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile", "Complete Profile", 8);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
@@ -555,7 +555,7 @@ public class MarryMax {
                     viewRequestPhone(member, context, frgMngr, fragment, 4);
                     return false;
                 } else if (smember.get_member_status() == 7 || smember.get_member_status() == 8) {
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile", "Complete Profile", 8);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
@@ -584,7 +584,7 @@ public class MarryMax {
                     viewRequestPhoneDetail(member, context, frgMngr, fragment, 4);
                     return false;
                 } else if (smember.get_member_status() == 7 || smember.get_member_status() == 8) {
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile", "Complete Profile", 8);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;

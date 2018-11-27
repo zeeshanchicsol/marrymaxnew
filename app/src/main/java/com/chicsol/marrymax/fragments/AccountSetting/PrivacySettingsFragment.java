@@ -170,7 +170,9 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
 
         rgProfile.check(rgProfile.getChildAt(Integer.parseInt(dash.getPrivacy_profile())).getId());
         rgInterest.check(rgInterest.getChildAt(Integer.parseInt(dash.getPrivacy_interest())).getId());
+
         rgMessage.check(rgMessage.getChildAt(Integer.parseInt(dash.getPrivacy_message())).getId());
+
         rgPhone.check(rgPhone.getChildAt(Integer.parseInt(dash.getPrivacy_phone())).getId());
         rgPicture.check(rgPicture.getChildAt(Integer.parseInt(dash.getPrivacy_picture())).getId());
 

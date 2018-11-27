@@ -645,6 +645,7 @@ color colorDashboardMainIcon
 color colorDashboardMainMemberBoxBackground
 color colorDashboardMainNavIcons
 color colorDashboardMainNormalText
+color colorDashboardMainReviewBoxOrange
 color colorDashboardMainTableRow
 color colorDashboardMainTextRed
 color colorDashboardMainTextb1
@@ -1138,7 +1139,7 @@ drawable border_dash_main
 drawable border_dash_main_profile
 drawable border_dash_main_profilecombox
 drawable border_dash_main_profilecombox_green
-drawable border_dash_main_profilecombox_red
+drawable border_dash_main_profilecombox_orange
 drawable border_dash_main_userprofie_pics
 drawable border_dash_mymatches_orangebox
 drawable border_dash_user_profile_box
@@ -1455,6 +1456,7 @@ id EditTextConfirmNewPasswordCP
 id EditTextContactEmail
 id EditTextContactName
 id EditTextContactQuestion
+id EditTextDateOfBirth
 id EditTextDialogSaveSearch
 id EditTextEmail
 id EditTextEmailLogin
@@ -2205,6 +2207,7 @@ id all
 id always
 id ap1
 id ap2
+id ap212
 id ap3
 id ap4
 id app_bar_layout
@@ -2266,7 +2269,6 @@ id counterPanel
 id counterValuePanel
 id custom
 id customPanel
-id datePicker
 id decor_content_parent
 id default_activity_button
 id design_bottom_sheet
@@ -2366,6 +2368,7 @@ id imageView3
 id imageView4
 id imageViewDMCompleteProfile
 id imageViewDMReviewPending
+id imageViewDMReviewPendingOrange
 id imageViewDMVerifyEmail
 id imageViewDMVerifyPhone
 id imageViewNavDefaultImage
@@ -2430,7 +2433,6 @@ id mTextViewAccountSettingMyContactTitle
 id mTextViewAccountSettingPrefferedMatchingAppearance
 id mTextViewAccountSettingPrefferedMatchingGeography
 id mTextViewAccountSettingPrefferedMatchingLifestyle
-id mTextViewDatePicker
 id mTextViewLinearLayoutUserProfileShowInterestText
 id mTextViewMatchesNotFoundMain
 id mTextViewMatchesNotFoundSubHeading
@@ -3525,6 +3527,7 @@ string fa_icon_send
 string fa_icon_show_interest
 string fa_icon_star
 string fa_icon_subscription
+string fa_icon_subscription_envelope
 string fa_icon_thumbs_up
 string fa_icon_trash
 string fa_icon_uploadphoto

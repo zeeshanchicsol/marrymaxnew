@@ -156,7 +156,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
             if (isVisibleToUser) {
 
 
-                new MarryMax(null).getRawData(context, 2);
+             //   new MarryMax(null).getRawData(context, 2);
             }
         }
     }
@@ -397,7 +397,7 @@ public class WhoisLookingForMe extends Fragment implements RecyclerViewAdapterMy
         Log.e("lastPage", "" + lastPage);
         Members memberSearchObj = DrawerActivity.rawSearchObj;
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
-            new MarryMax(null).getRawData(context, 2);
+           // new MarryMax(null).getRawData(context, 2);
             if (memberSearchObj != null) {
 
                 memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());

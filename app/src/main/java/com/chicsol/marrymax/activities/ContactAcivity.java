@@ -171,8 +171,12 @@ public class ContactAcivity extends AppCompatActivity {
                     String mobNum = EditTextAScontactMobileNumber.getText().toString();
                     String countryCode = EditTextAScontactMobileNumber.getTag().toString();
 
-               Log.e(""+     Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.trim().substring(0, countryCode.length() ))+"" );
+            //   Log.e(""+     Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.trim().substring(0, countryCode.length() ))+"" );
 
+                    if (!TextUtils.isEmpty(mobNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.trim().length() - 1)))) {
+                        mobNum = mobNum.substring(countryCode.trim().length() - 1, mobNum.length());
+
+                    }
 
 
                     if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
@@ -218,12 +222,12 @@ public class ContactAcivity extends AppCompatActivity {
                             focusView = EditTextAScontactMobileNumber;
 
                             focusView.requestFocus();
-                        } else if (!countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.trim().substring(0, countryCode.length() - 2)))) {
+                        } /*else if (!countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.trim().substring(0, countryCode.length() - 2)))) {
                             EditTextAScontactMobileNumber.setError("Invalid Mobile Number");
                             focusView = EditTextAScontactMobileNumber;
                             focusView.requestFocus();
 
-                        } else if (!isPhone(mobNum)) {
+                        }*/ else if (!isPhone(mobNum)) {
                             EditTextAScontactMobileNumber.setError("Invalid  phone format");
                             focusView = EditTextAScontactMobileNumber;
                             focusView.requestFocus();

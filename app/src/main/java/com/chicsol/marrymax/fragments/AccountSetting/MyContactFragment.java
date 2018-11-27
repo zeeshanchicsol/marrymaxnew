@@ -241,6 +241,20 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                 String personName = EditTextAScontactPersonName.getText().toString();
 
+                if (!TextUtils.isEmpty(mobNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.trim().length() - 1)))) {
+                    mobNum = mobNum.substring(countryCode.trim().length() - 1, mobNum.length());
+
+                }
+
+            //    Log.e("111 mob number is", mobNum);
+
+                if (!TextUtils.isEmpty(landNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(landNum.substring(0, countryCode.trim().length() - 1)))) {
+                    landNum = landNum.substring(countryCode.trim().length() - 1, landNum.length());
+
+                }
+           //     Log.e("111 land number is", landNum);
+
+
               /*  tvMobile.setText(member.get_phone_mobile());
                 tvCountry.setText(member.get_country_name());
                 tvLandline.setText(member.get_phone_home());
@@ -266,7 +280,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     focusView = EditTextAScontactMobileNumber;
 
                     focusView.requestFocus();
-                } else if (!countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.length() - 1)))) {
+                }
+                /*else if (!countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.length() - 1)))) {
                     EditTextAScontactMobileNumber.setError("Invalid Mobile Number");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
@@ -281,7 +296,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     //  }
 
 
-                } else if (!isPhone(mobNum)) {
+                } */
+                else if (!isPhone(mobNum)) {
                     EditTextAScontactMobileNumber.setError("Invalid phone format");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
@@ -478,7 +494,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
     private boolean countryCodeCheck(int countryCode, int mobNum) {
 
-        Log.e("countryCodeCheck", countryCode + "   " + mobNum);
+        //     Log.e("countryCodeCheck", countryCode + "   " + mobNum);
 
         if (countryCode == mobNum) {
             return false;

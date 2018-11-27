@@ -257,9 +257,10 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                     Toast.makeText(context, "Please complete and verify your profile details.", Toast.LENGTH_LONG).show();
                 } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 7 || SharedPreferenceManager.getUserObject(context).get_member_status() == 8) {
 
-                    Toast.makeText(context, "Please review notes as MarryMax team advised and update your profile", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Please review notes as MarryMax team advised and update your profile or contact us for further assistance", Toast.LENGTH_LONG).show();
                 } else {
 
+                    //display screen
                     Intent intent = new Intent(getActivity(), MatchAidActivity.class);
                     startActivity(intent);
                 }

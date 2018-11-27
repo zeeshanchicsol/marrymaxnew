@@ -67,7 +67,8 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
     private String type = "";
     AppCompatButton btSearch;
 
-    private LinearLayout llEmptyState;
+    private LinearLayout llEmptyState, llSubscribeNow;
+
     private TextView tvEmptyMessage;
 
 
@@ -121,6 +122,9 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
         fragment = MyContactsFragment.this;
 
         llEmptyState = (LinearLayout) view.findViewById(R.id.LinearLayoutMMMatchesNotFound);
+
+        llSubscribeNow = (LinearLayout) view.findViewById(R.id.LinearLayoutMMMatchesNotFoundSubscribeNow);
+
         tvEmptyMessage = (TextView) view.findViewById(R.id.TextViewMyContactsEmptyMessage);
 
         dataList = new ArrayList<>();

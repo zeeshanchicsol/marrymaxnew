@@ -169,6 +169,26 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginRight="4dp"
+                                        android:text="@string/fa_icon_subscription_envelope"
+                                        android:textColor="@color/colorDefaultGreen" />
+
+                                    <com.chicsol.marrymax.widgets.mTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Send &amp; Receive Messages"
+                                        android:textColor="@color/colorBlack" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="5dp">
+
+                                    <com.chicsol.marrymax.widgets.faTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="4dp"
                                         android:text="@string/fa_icon_subscription"
                                         android:textColor="@color/colorDefaultGreen" />
 

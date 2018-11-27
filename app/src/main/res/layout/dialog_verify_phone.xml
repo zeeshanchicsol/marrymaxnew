@@ -157,49 +157,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="\u2022 If mobile number is correct then click &quot; Send Verification Code&quot;. \n
-\u2022 Once you receive verification code, then enter the code on this page to verify your phone."
+                            android:text="\u25CF  If mobile number is correct then click &quot; Send Verification Code&quot;. \n
+\u25CF  Once you receive verification code, then enter the code on this page to verify your phone."
                             android:textColor="@color/colorBlack" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text=" \u25CF  If you already have received verification code on your given mobile number then "
-                                android:textColor="@color/colorBlack" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/TextViewClickHereToEnterCode"
-                                    style="@style/Base.Widget.AppCompat.Button.Borderless"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="?attr/selectableItemBackground"
-                                    android:gravity="center"
-                                    android:text="CLICK HERE"
-                                    android:textColor="@color/colorDefaultGreen"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="to enter and verify."
-                                    android:textColor="@color/colorBlack" />
-                            </LinearLayout>
-
-
-                        </LinearLayout>
 
                         <android.support.v7.widget.AppCompatButton
                             android:id="@+id/ButtonAccountSettingmcSendVerificationCode"
@@ -213,6 +174,40 @@
                             android:textColor="@color/colorWhite"
 
                             app:backgroundTint="@color/colorDefaultGreen" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="To enter mobile verification code"
+                                    android:textColor="@color/colorBlack" />
+                                <TextView
+                                    android:id="@+id/TextViewClickHereToEnterCode"
+                                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:text="CLICK HERE"
+                                    android:textColor="@color/colorDefaultGreen"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout

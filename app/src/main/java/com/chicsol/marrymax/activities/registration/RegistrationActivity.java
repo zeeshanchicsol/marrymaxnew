@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.activities.registration;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -62,10 +63,13 @@ import org.json.JSONObject;
 import java.lang.reflect.Type;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -83,8 +87,8 @@ public class RegistrationActivity extends AppCompatActivity {
     private TextView tv_Title, tv_fa_male, tv_fa_female, tv_male, tv_female;
     private Spinner spinner_source, spinner_religion, spinner_profilefor;
     private LinearLayout ll_maleNormal, ll_maleSelected, ll_femaleNormal, ll_femaleSelected;
-    private EditText etPasswordView, etEmailView, etProfileName, etName;
-    private DatePicker datePicker;
+    private EditText etPasswordView, etEmailView, etProfileName, etName, etDOB;
+    // private DatePicker datePicker;
     private MySpinnerAdapter adapter_source, adapter_religion, adapter_profilefor;
     private List<WebArd> ProfileForDataList, ReligionDataList, SourceDataList;
     private Button bt_register_free;
@@ -94,6 +98,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private boolean updateData = false;
     private ProgressDialog pDialog;
+    Calendar myCalendar;
+    DatePickerDialog DatePickerDialoga;
+    //  DatePickerDialog.OnDateSetListener dateSetListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,6 +183,11 @@ public class RegistrationActivity extends AppCompatActivity {
         pDialog = new ProgressDialog(RegistrationActivity.this);
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
+
+
+        myCalendar = Calendar.getInstance();
+
+
         scrollMain = (NestedScrollView) findViewById(R.id.ScrollViewRegActivity);
         bt_register_free = (Button) findViewById(R.id.buttonRegisterFree);
         /*        Typeface tf = Typeface.createFromAsset(getAssets(), Constants.font_centurygothic);*/
@@ -188,16 +200,39 @@ public class RegistrationActivity extends AppCompatActivity {
         tv_fa_male = (TextView) findViewById(R.id.tv_fa_male);
         tv_male = (TextView) findViewById(R.id.TextViewMale);
         tv_female = (TextView) findViewById(R.id.TextViewFemale);
-        datePicker = (DatePicker) findViewById(R.id.datePicker);
+        //   datePicker = (DatePicker) findViewById(R.id.datePicker);
 
         Calendar cal = Calendar.getInstance();
         /*Date today = cal.getTime();*/
         int maxyear = cal.get(Calendar.YEAR) - 18;
         int minyear = cal.get(Calendar.YEAR) - 70;
+
+
+        myCalendar.set(Calendar.YEAR, maxyear);
+
+        DatePickerDialoga = new DatePickerDialog(RegistrationActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, month);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+
+                updateLabel();
+            }
+        }, myCalendar
+                .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH));
+
         cal.set(Calendar.YEAR, maxyear);
-        datePicker.setMaxDate(cal.getTimeInMillis());
+        DatePickerDialoga.getDatePicker().setMaxDate(cal.getTimeInMillis());
+        //   datePicker.setMaxDate(cal.getTimeInMillis());
         cal.set(Calendar.YEAR, minyear);
-        datePicker.setMinDate(cal.getTimeInMillis());
+        //     datePicker.setMinDate(cal.getTimeInMillis());
+        DatePickerDialoga.getDatePicker().setMinDate(cal.getTimeInMillis());
+
+
 /*
         tv_fa_male.setTypeface(tf_fa);
         tv_fa_female.setTypeface(tf_fa);
@@ -215,6 +250,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
         etName = (EditText) findViewById(R.id.EditTextName);
         etProfileName = (EditText) findViewById(R.id.EditTextProfileName);
+
+        etDOB = (EditText) findViewById(R.id.EditTextDateOfBirth);
 
         // tv_datepicker = (TextView) findViewById(R.id.mTextViewDatePicker);
 
@@ -272,7 +309,33 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void setListenders() {
+      /*  int maxyear = myCalendar.get(Calendar.YEAR) - 18;
+        int minyear = myCalendar.get(Calendar.YEAR) - 70;
+        myCalendar.set(Calendar.YEAR, maxyear);
 
+        myCalendar.set(Calendar.YEAR, minyear);*/
+
+        /*dateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                Toast.makeText(RegistrationActivity.this, ""+year, Toast.LENGTH_SHORT).show();
+                // TODO Auto-generated method stub
+
+            }
+
+        };*/
+
+        etDOB.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                DatePickerDialoga.show();
+
+            }
+        });
         etName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
@@ -476,8 +539,10 @@ public class RegistrationActivity extends AppCompatActivity {
                                                             String password = etPasswordView.getText().toString();
                                                             String name = etName.getText().toString();
                                                             String profilename = etProfileName.getText().toString();
-                                                            String other_info = datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth();
-
+                                                            String other_info = "";
+                                                            if (!etDOB.getText().toString().equals("")) {
+                                                                other_info = DatePickerDialoga.getDatePicker().getYear() + "-" + (DatePickerDialoga.getDatePicker().getMonth() + 1) + "-" + DatePickerDialoga.getDatePicker().getDayOfMonth();
+                                                            }
 
                                                             boolean cancel = false;
 
@@ -566,15 +631,11 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
                                                                 Toast.makeText(RegistrationActivity.this, "Please select gender !", Toast.LENGTH_SHORT).show();
-                                                            }
-                                                      /*  else if(other_info.equals("2000-4-10")){
+                                                            } else if (TextUtils.isEmpty(other_info)) {
 
 
-                                                            Toast.makeText(RegistrationActivity.this, "Please select date !", Toast.LENGTH_SHORT).show();
-                                                        }
-*/
-
-                                                            else {
+                                                                Toast.makeText(RegistrationActivity.this, "Please select Date Of Birth !", Toast.LENGTH_SHORT).show();
+                                                            } else {
                                                                 // Intent in = new Intent(RegistrationActivity.this, RegisterGeographicActivity.class);
                                                                 //   startActivity(in);
 
@@ -1025,5 +1086,12 @@ public class RegistrationActivity extends AppCompatActivity {
         if (pDialog != null && pDialog.isShowing()) {
             pDialog.dismiss();
         }
+    }
+
+    private void updateLabel() {
+        String myFormat = "dd-MM-yyyy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        etDOB.setText(sdf.format(myCalendar.getTime()));
     }
 }

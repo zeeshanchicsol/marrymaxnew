@@ -546,6 +546,33 @@
                             android:layout_height="wrap_content">
 
                             <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/ap212"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/ic_check_circle_black_24dp"
+
+
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/ap212"
+                                android:layout_marginLeft="20dp"
+                                android:text=" Send &amp; Receive Messages"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="16sp" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <android.support.v7.widget.AppCompatImageView
                                 android:id="@+id/ap3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

@@ -12,6 +12,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -27,18 +28,15 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.activities.DrawerActivity;
@@ -51,7 +49,6 @@ import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mDshCount;
 import com.chicsol.marrymax.other.MarryMax;
-import com.chicsol.marrymax.other.UserSessionManager;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -100,7 +97,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private ProgressBar pDialog;
     private TextView tvWIV, tvWVM, tvPMP, tvMWPU, tvMemLFM, tvMatchesLFM, tvNewMessages, tvNewRequests, tvNewInterests;
     private TextView tvAcceptedMembers, tvMyFavourites, tvMyNotes, tvRemoveFromSearch, tvBlocked, tvAaccMemCount, tvMFavCount, tvMyNotesCount, tvRecommenedMatchesCount, tvRemovedFromSearchCount, tvBlockedCount, tvProfileCompleteion;
-    private ImageView ivCompleleProfile, ivVerifyPhone, ivVerifyEmail, ivReviewPending;
+    private ImageView ivCompleleProfile, ivVerifyPhone, ivVerifyEmail, ivReviewPending,ivReviewPendingOrange;
     private CardView cardViewProfileCompletionStatus;
 
     private AppCompatButton btSubscribe;
@@ -213,7 +210,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         ivVerifyEmail = (ImageView) view.findViewById(R.id.imageViewDMVerifyEmail);
         ivVerifyPhone = (ImageView) view.findViewById(R.id.imageViewDMVerifyPhone);
         ivReviewPending = (ImageView) view.findViewById(R.id.imageViewDMReviewPending);
-
+        ivReviewPendingOrange = (ImageView) view.findViewById(R.id.imageViewDMReviewPendingOrange);
 
         tvWIV = (TextView) view.findViewById(R.id.TextViewDMWhomIviewedCount);
         tvWVM = (TextView) view.findViewById(R.id.TextViewDMWhomViewedMeCount);
@@ -366,7 +363,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private void LoadData() {
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
-            getStatus();
+          //  getStatus();
 
 
             getDashboardData();
@@ -397,7 +394,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
                 if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
-                    getStatus();
+                //    getStatus();
                     getDashboardData();
 
 
@@ -1124,8 +1121,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 pCOmpleteStatus = false;
                                 Log.e("mem status", member.get_member_status() + "");
                                 if (member.get_member_status() == 7) {
-                                    ivReviewPending.setImageResource(R.drawable.ver_step4);
-                                    ivReviewPending.setBackgroundResource(R.drawable.border_dash_main_profilecombox_red);
+                                    ivReviewPending.setVisibility(View.GONE);
+                                    ivReviewPendingOrange.setVisibility(View.VISIBLE);
+
+                                //    ivReviewPending.setImageResource(R.drawable.ver_step4);
+                                //    ivReviewPending.setBackgroundResource(R.drawable.border_dash_main_profilecombox_orange);
+
+
                                     getAdminNotes();
 
 
@@ -1328,7 +1330,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
     }
 
-    private void getStatus() {
+ /*   private void getStatus() {
 
 
         Log.e("getStatus ", "" + Urls.getStatus + SharedPreferenceManager.getUserObject(getContext()).get_path());
@@ -1375,7 +1377,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
             }
         };
         MySingleton.getInstance(context).addToRequestQueue(req, Tag);
-    }
+    }*/
 
     class ViewPagerAdapter1 extends FragmentStatePagerAdapter {
 

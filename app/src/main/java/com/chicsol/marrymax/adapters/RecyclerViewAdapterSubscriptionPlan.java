@@ -286,7 +286,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionYellow));
                 }
                 holder.tvPlanShortDescription.setText("75 Verified Phone Numbers ");
-                holder.tvPlanShortDescriptionMatchesCount.setText("125 Matches Communication ");
+                holder.tvPlanShortDescriptionMatchesCount.setText("150 Matches Communication ");
 
             }
             holder.itemView.setTag(obj);

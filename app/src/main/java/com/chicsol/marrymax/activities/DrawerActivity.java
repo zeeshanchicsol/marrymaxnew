@@ -21,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
@@ -102,33 +104,33 @@ DrawerActivity extends AppCompatActivity {
                 .considerExifParams(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
 
-             /*   .postProcessor(new BitmapProcessor() {
-                    @Override
-                    public Bitmap process(Bitmap bmp) {
+                /*   .postProcessor(new BitmapProcessor() {
+                       @Override
+                       public Bitmap process(Bitmap bmp) {
 
-                        Bitmap bmp_sticker;
-                        Display display =getContext().getWindowManager().getDefaultDisplay();
-                        DisplayMetrics metrics = new DisplayMetrics();
+                           Bitmap bmp_sticker;
+                           Display display =getContext().getWindowManager().getDefaultDisplay();
+                           DisplayMetrics metrics = new DisplayMetrics();
 
-                        display.getMetrics(metrics);
+                           display.getMetrics(metrics);
 
-                        int widthScreen = metrics.widthPixels;
-                        int heightScreen = metrics.heightPixels;
-                        if (widthScreen > heightScreen) {
-                            int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
-                            //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
-                            bmp_sticker = resizeImage(bmp, h);
-                        } else {
-                            int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
-                            //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
-                            bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
-                        }
+                           int widthScreen = metrics.widthPixels;
+                           int heightScreen = metrics.heightPixels;
+                           if (widthScreen > heightScreen) {
+                               int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
+                               //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
+                               Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                               bmp_sticker = resizeImage(bmp, h);
+                           } else {
+                               int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
+                               //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
+                               bmp_sticker = resizeImage(bmp, h);
+                               Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                           }
 
-                        return bmp_sticker;
-                    }
-                })*/.build();
+                           return bmp_sticker;
+                       }
+                   })*/.build();
 
 
         tcUserName = (mTextView) findViewById(R.id.TextViewNavUserName);
@@ -248,10 +250,8 @@ DrawerActivity extends AppCompatActivity {
             }*/
 
 
-
-
         if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
-        if (drawer != null) {
+            if (drawer != null) {
                 drawer.closeDrawers();
             }
 
@@ -266,21 +266,18 @@ DrawerActivity extends AppCompatActivity {
             }*/
 
 
+            if (member.get_member_status() == 0 || member.get_member_status() >= 7) {
 
-       if(     member.get_member_status() == 0 || member.get_member_status() >= 7){
 
+                MarryMax marryMax = new MarryMax(DrawerActivity.this);
+                marryMax.getProfileProgress(getApplicationContext(), member, DrawerActivity.this);
+            } else {
+                Intent intent = new Intent(DrawerActivity.this, MyProfileActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
 
-           MarryMax marryMax = new MarryMax(DrawerActivity.this);
-           marryMax.getProfileProgress(getApplicationContext(), member, DrawerActivity.this);
-       }
-       else {
-           Intent intent = new Intent(DrawerActivity.this, MyProfileActivity.class);
-           intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-           intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-
-           startActivity(intent);
-       }
-
+                startActivity(intent);
+            }
 
 
         }
@@ -406,14 +403,44 @@ DrawerActivity extends AppCompatActivity {
     public void getNotificationCount() {
 
 
-        Log.e(" Notification url", Urls.getNotificationCount + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        StringRequest req = new StringRequest(Urls.getNotificationCount + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        Log.e(" Notification url", Urls.getNotifyCntSta + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        StringRequest req = new StringRequest(Urls.getNotifyCntSta + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e("Notification Count==", "=======================  " + response);
+                        Log.e("Notification Count==", "=======================  " + response + " ===== " + "");
                         if (!response.equals(null) && !response.equals("")) {
-                            settNotificationCount(response);
+                            response = response.replace("\"", "");
+
+
+
+                            String[] data = response.split(",");
+                            String count = data[0];
+                            String status = data[1];
+
+                            settNotificationCount(count);
+
+                            Members member1 = SharedPreferenceManager.getUserObject(getApplicationContext());
+                            if (member1.get_member_status() != Long.parseLong(status)) {
+                                member1.set_member_status(Long.parseLong(status));
+                                SharedPreferenceManager.setUserObject(getApplicationContext(), member1);
+                                member = member1;
+                            }
+
+                            if (status.equals("5")) {
+                                MySingleton.getInstance(getApplicationContext()).getRequestQueue().cancelAll(new RequestQueue.RequestFilter() {
+                                    @Override
+                                    public boolean apply(Request<?> request) {
+                                        return true;
+                                    }
+                                });
+
+                                UserSessionManager sessionManager = new UserSessionManager(getApplicationContext());
+                                sessionManager.logoutUser();
+
+
+                            }
+
                         }
                     }
                 }, new Response.ErrorListener() {
