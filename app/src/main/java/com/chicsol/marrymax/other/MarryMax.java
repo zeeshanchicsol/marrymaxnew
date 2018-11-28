@@ -693,7 +693,7 @@ public class MarryMax {
                         }
                         getMobileInfo(params, member.getAlias(), context, fragment, frgMngr);
                     } else {
-                        dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, verified contact phone number is available to subscribers only. Please update your account.", "Subscribe", 9);
+                        dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, verified contact phone number is available to subscribers only. Please upgrade your account.", "Subscribe", 9);
                         dialogP.setTargetFragment(fragment, 0);
                         dialogP.show(frgMngr, "d");
 
@@ -777,7 +777,7 @@ public class MarryMax {
                 }
                 getMobileInfo(params, member.getAlias(), context, fragment, frgMngr);
             } else {
-                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, verified contact phone number is available to subscribers only. Please update your account.", "Subscribe", 9);
+                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, verified contact phone number is available to subscribers only. Please upgrade your account.", "Subscribe", 9);
                 dialogP.setTargetFragment(fragment, 0);
                 dialogP.show(frgMngr, "d");
 

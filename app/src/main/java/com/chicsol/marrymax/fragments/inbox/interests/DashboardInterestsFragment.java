@@ -476,7 +476,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                                 viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need.");
 
                                                 //     htmlDescriptionText.append(" Find your matches and start communicating.\n");
-
+                                                btSubscribe.setVisibility(View.VISIBLE);
 
                                             }
                                             recyclerView.setVisibility(View.GONE);

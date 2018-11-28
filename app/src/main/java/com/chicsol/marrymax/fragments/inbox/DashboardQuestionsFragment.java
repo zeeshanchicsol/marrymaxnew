@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ import com.chicsol.marrymax.adapters.RecyclerViewAdapterInBoxList;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mComCount;
 import com.chicsol.marrymax.modal.mCommunication;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -62,7 +64,7 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
     ViewGenerator viewGenerator;
     private LinearLayout llEmptySubItems;
     private String Tag = "DashboardMessagesFragment";
-
+    private Button btSubscribe;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,8 +105,7 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
         TextViewEmptyMessage = (TextView) view.findViewById(R.id.TextViewEmptyMessage);
 
         llEmptySubItems = (LinearLayout) view.findViewById(R.id.LinearLayoutEmptySubItems);
-
-
+        btSubscribe = (Button) view.findViewById(R.id.ButtonInboxMessageSubscribe);
 
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -119,7 +120,6 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
     }
 
 
-
     @Override
     public void onResume() {
         super.onResume();
@@ -130,6 +130,12 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
     }
 
     private void setListenders() {
+        btSubscribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MarryMax(getActivity()).subscribe();
+            }
+        });
 
       /*  ll_messagedetail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -226,6 +232,7 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
                                         viewGenerator.generateTextViewWithIcon(llEmptySubItems, "Personalized service from MarryMax when need.");
 
                                         TextViewEmptyMessage.setText(htmlDescriptionText.toString());
+                                        btSubscribe.setVisibility(View.VISIBLE);
 
                                     } else if (member.get_member_status() == 4) {
                                     /*Find Matches here and take initiative in sending a personalized message to know more.
@@ -318,8 +325,8 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
 
             Log.e(" objCom.request_type_id", "" + communication.getRequest_type_id());
 
-       //     Log.e(" getAnswered", "" + communication.getAnswered()+"  "+communication.getSelf());
-/**/
+            //     Log.e(" getAnswered", "" + communication.getAnswered()+"  "+communication.getSelf());
+            /**/
 
             Intent in = new Intent(getActivity(), DashboardQuestionsDetailActivity.class);
             Gson gson = new Gson();

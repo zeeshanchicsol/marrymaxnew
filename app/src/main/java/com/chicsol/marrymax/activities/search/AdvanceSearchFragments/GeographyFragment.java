@@ -237,6 +237,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
         }
 
 
+
     }
 
 
@@ -802,27 +803,44 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     @Override
     public void onClick(View v) {
         if (v.getTag().equals("top_locations")) {
-            defaultSelectionsObj.set_choice_country_ids("");
+            //  defaultSelectionsObj.set_choice_country_ids("");
             defaultSelectionsObj.set_choice_state_ids("");
             defaultSelectionsObj.set_choice_cities_ids("");
+
+            topCitiesAdapter.unCheckAll();
+            topStatesAdapter.unCheckAll();
+            citiesAdapter.unCheckAll();
+
 
         } else if (v.getTag().equals("country")) {
             defaultSelectionsObj.set_choice_country_ids("");
             defaultSelectionsObj.set_choice_state_ids("");
             defaultSelectionsObj.set_choice_cities_ids("");
 
+            topCitiesAdapter.unCheckAll();
+            topStatesAdapter.unCheckAll();
+
+            countriesAdapter.unCheckAll();
+
+          /*  citiesAdapter.unCheckAll();
+
+            statesAdapter.unCheckAll();*/
+
 
         } else if (v.getTag().equals("state")) {
             defaultSelectionsObj.set_choice_state_ids("");
+            statesAdapter.unCheckAll();
 
         } else if (v.getTag().equals("city")) {
             defaultSelectionsObj.set_choice_cities_ids("");
+            citiesAdapter.unCheckAll();
 
         } else if (v.getTag().equals("visa_status")) {
             defaultSelectionsObj.set_choice_visa_status_ids("");
 
         }
         setSelection();
+        updateDot();
     }
 
     public interface OnChildFragmentInteractionListener {
