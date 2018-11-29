@@ -45,18 +45,17 @@ public class dialogReplyOnAcceptInterest extends DialogFragment {
     mCheckBox cbAllowPhone, cbAllowPics;
     mTextView tvDesc;
     String userpath, alias;
- boolean   replyCheck;
+    boolean replyCheck;
     private onCompleteListener mCompleteListener;
+
     // private ListView lv_mycontacts;
-    public static dialogReplyOnAcceptInterest newInstance(Members member, String userpath, boolean replyCheck,Members member2) {
+    public static dialogReplyOnAcceptInterest newInstance(Members member, String userpath, boolean replyCheck, Members member2) {
 
         dialogReplyOnAcceptInterest frag = new dialogReplyOnAcceptInterest();
         Bundle args = new Bundle();
 
 
-
-
-        args.putBoolean("replyCheck",replyCheck);
+        args.putBoolean("replyCheck", replyCheck);
         args.putString("name", String.valueOf(member.get_interested_id()));
         args.putString("desc", String.valueOf(member2.get_image_view()));
         args.putString("param", String.valueOf(member2.get_phone_view()));
@@ -73,7 +72,7 @@ public class dialogReplyOnAcceptInterest extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle mArgs = getArguments();
-        replyCheck= mArgs.getBoolean("replyCheck");
+        replyCheck = mArgs.getBoolean("replyCheck");
         interested_id = mArgs.getString("name");
         image_view = mArgs.getString("desc");
         phone_view = mArgs.getString("param");
@@ -119,32 +118,32 @@ public class dialogReplyOnAcceptInterest extends DialogFragment {
         cbAllowPics = (mCheckBox) rootView.findViewById(R.id.CheckBoxAcceptInterestAllowPics);
         tvDesc = (mTextView) rootView.findViewById(R.id.TextViewDialogAcceptInterestDetails);
 
-            if (image_view.equals("2") || phone_view.equals("5")) {
-                String txt = "<font color='#9a0606'>"+alias+"</font>";
-                tvDesc.setText(Html.fromHtml("Great! You are interested in " +"<b>"+ txt.toUpperCase()+"</b>"));
 
-                if (image_view.equals("2")) {
+        String txt = "<font color='#9a0606'>" + alias + "</font>";
+        tvDesc.setText(Html.fromHtml("Great! You are interested in " + "<b>" + txt.toUpperCase() + "</b>"));
+        //     if (image_view.equals("2") || phone_view.equals("5")) {
 
-                  if(!replyCheck) {
-                      cbAllowPics.setVisibility(View.VISIBLE);
-                  }
-                    else {
 
-                      cbAllowPics.setVisibility(View.VISIBLE);
-                      cbAllowPics.setText("Would you like to give permission to view your image?");
-                  }
-                }
-                if (phone_view.equals("5")) {
-                    if(!replyCheck) {
-                        cbAllowPhone.setVisibility(View.VISIBLE);
-                    }
-                    else {
-                        cbAllowPhone.setVisibility(View.VISIBLE);
-                        cbAllowPhone.setText("Would you like to give permission to view your phone?");
-                    }
+        if (image_view.equals("2")) {
 
-                }
+            if (!replyCheck) {
+                cbAllowPics.setVisibility(View.VISIBLE);
+            } else {
+
+                cbAllowPics.setVisibility(View.VISIBLE);
+                cbAllowPics.setText("Would you like to give permission to view your image?");
             }
+        }
+        if (phone_view.equals("5")) {
+            if (!replyCheck) {
+                cbAllowPhone.setVisibility(View.VISIBLE);
+            } else {
+                cbAllowPhone.setVisibility(View.VISIBLE);
+                cbAllowPhone.setText("Would you like to give permission to view your phone?");
+            }
+
+        }
+        //    }
 
 
 
@@ -203,30 +202,30 @@ public class dialogReplyOnAcceptInterest extends DialogFragment {
                 JSONObject params = new JSONObject();
                 try {
 
-                        params.put("request_response_id","3" );
+                    params.put("request_response_id", "3");
 
-                        if (cbAllowPhone.isChecked()) {
+                    if (cbAllowPhone.isChecked()) {
 
-                            params.put("param", "1");
-                        } else {
-                           params.put("param", "0");
-                        }
-                        if (cbAllowPics.isChecked()) {
-
-                          params.put("desc", "1");
-                        } else {
-                            params.put("desc", "0");
-                        }
-
-                        params.put("blocked_member", "0");
-                        params.put("request_id", interested_id);
-                        params.put("type", "4");
-                        params.put("userpath", userpath);
-                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                        params.put("param", "1");
+                    } else {
+                        params.put("param", "0");
                     }
-                    Log.e("params",""+params);
+                    if (cbAllowPics.isChecked()) {
+
+                        params.put("desc", "1");
+                    } else {
+                        params.put("desc", "0");
+                    }
+
+                    params.put("blocked_member", "0");
+                    params.put("request_id", interested_id);
+                    params.put("type", "4");
+                    params.put("userpath", userpath);
+                    params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.e("params", "" + params);
 
 
                 query(params);
@@ -267,8 +266,6 @@ public class dialogReplyOnAcceptInterest extends DialogFragment {
     }
 
 
-
-
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
@@ -286,9 +283,6 @@ public class dialogReplyOnAcceptInterest extends DialogFragment {
     }
 
 
-
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -302,7 +296,6 @@ public class dialogReplyOnAcceptInterest extends DialogFragment {
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();
-
 
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -362,6 +355,7 @@ public class dialogReplyOnAcceptInterest extends DialogFragment {
         MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq);
 
     }
+
     public static interface onCompleteListener {
         public abstract void onComplete(String s);
     }
