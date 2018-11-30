@@ -336,7 +336,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                 AlertDialog.Builder builder = new AlertDialog.Builder(DashboardQuestionsDetailActivity.this);
 
                 builder.setTitle("Delete Questions");
-                builder.setMessage("AAre you sure you want to remove this questioning session between you and  " + objCom.getAlias() + " ?");
+                builder.setMessage("Are you sure you want to remove this questioning session between you and  " + objCom.getAlias() + " ?");
 
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 

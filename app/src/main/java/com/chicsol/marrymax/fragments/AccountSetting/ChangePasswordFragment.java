@@ -24,6 +24,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.other.UserSessionManager;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -142,8 +143,17 @@ public class ChangePasswordFragment extends Fragment {
         btSavePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("Loggggg", etOldPassword.getText().toString());
-                Log.e("Loggggg", SharedPreferenceManager.getUserObject(getContext()).get_password());
+
+
+                try {
+
+
+                    Log.e("Loggggg", etOldPassword.getText().toString());
+                    Log.e("Loggggg", SharedPreferenceManager.getUserObject(getContext()).get_password());
+                } catch (Exception e) {
+                    UserSessionManager sessionManager = new UserSessionManager(getContext());
+                    sessionManager.logoutUser();
+                }
                 View focusView = null;
                 String oldpass = etOldPassword.getText().toString();
                 String newpass = etNewPassword.getText().toString();
@@ -273,7 +283,7 @@ public class ChangePasswordFragment extends Fragment {
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -293,7 +303,6 @@ public class ChangePasswordFragment extends Fragment {
         MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
     }
-
 
 
 }

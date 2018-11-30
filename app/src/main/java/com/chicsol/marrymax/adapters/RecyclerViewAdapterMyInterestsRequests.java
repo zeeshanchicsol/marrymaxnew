@@ -400,7 +400,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
                     } else {
                         r = "request";
                     }
-                    String desc = "You are not anymore interested in   <font color=#216917>" + obj.getAlias() + "</font>Are you sure you want to withdraw " + r;
+                    String desc = "You are not anymore interested in   <font color=#216917>" + obj.getAlias() + "</font>Are you sure you want to withdraw " + r +" ?";
 
 
                     marryMax.withdrawInterest(params, "Withdraw Request", desc, fragment, frgMngr, "5");

@@ -810,8 +810,8 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
 
                                 if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
 
-                                    desctxt = "<ul><li>\\u25CF Daily sent limit is reached.</li>" +
-                                            "<br><li>\\u25CF Please wait 24 hours before you can contact new members.</li>" +
+                                    desctxt = "<ul><li> Daily sent limit is reached.</li>" +
+                                            "<br><li> Please wait 24 hours before you can contact new members.</li>" +
                                             "</ul>";
 
 

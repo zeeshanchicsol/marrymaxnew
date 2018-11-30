@@ -71,7 +71,7 @@ public class ActivityLogin extends AppCompatActivity {
 
     private ProgressDialog pDialog;
 
-  //  private FirebaseAnalytics mFirebaseAnalytics;
+    //  private FirebaseAnalytics mFirebaseAnalytics;
     private ArrayAdapter acAdapter;
 
 
@@ -85,7 +85,7 @@ public class ActivityLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_login);
-    //    mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        //    mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
 
@@ -109,7 +109,7 @@ public class ActivityLogin extends AppCompatActivity {
         Calendar cl2 = Calendar.getInstance();
 
         Long ticks = 621355968000000000L + cl2.getTimeInMillis() * 10000;
-        Log.e("ticks ", "ticks "+ticks + "   ms  "+ cl2.getTimeInMillis() );
+        Log.e("ticks ", "ticks " + ticks + "   ms  " + cl2.getTimeInMillis());
 
 
     }
@@ -135,7 +135,7 @@ public class ActivityLogin extends AppCompatActivity {
         //Find Matches
         btSearchBMatch = (mButton2) findViewById(R.id.buttonSearchYourBestMatch);
 
-       // Who Is Looking For Me
+        // Who Is Looking For Me
         btWhoIsLForMe = (mButton2) findViewById(R.id.buttonSearchWhoIsLooking);
 
 
@@ -328,7 +328,7 @@ public class ActivityLogin extends AppCompatActivity {
     }
 
 
-    private void LoginUser(final String email, String password) {
+    private void LoginUser(final String email, final String password) {
 
 
         pDialog.show();
@@ -377,6 +377,9 @@ public class ActivityLogin extends AppCompatActivity {
                                 //  Log.d("Alias", response.get("alias").toString());
                                 //   Log.d("member type", response.getInt("member_status") + "");
                                 Members member = SharedPreferenceManager.getUserObject(getApplication());
+                                member.set_password(password);
+
+                                SharedPreferenceManager.setUserObject(getApplicationContext(), member);
 
                                 checkUserStatus(member);
                                 //   Log.e("Reggggggggggg type",member.get_registration_within_id() + "");

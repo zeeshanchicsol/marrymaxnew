@@ -513,7 +513,7 @@ public class MarryMax {
                     return false;
 
                 } else if (smember.get_member_status() == 3) {
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, this feature is available to subscribers only.To communicate without limits and enjoy all the available features please subscribe.", "Subscribe", 9);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to upgrade your account and become a subscriber to use this feature.", "Subscribe", 9);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     /*you need to upgrade your account and become a subscriber to use this feature.*/
@@ -654,7 +654,7 @@ public class MarryMax {
                     return false;
 
                 } else if (smember.get_member_status() == 3) {
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, this feature is available to subscribers only.To communicate without limits and enjoy all the available features please subscribe.", "Subscribe", 9);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to upgrade your account and become a subscriber to use this feature.", "Subscribe", 9);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
 
