@@ -101,12 +101,21 @@ public class dialogProfileCompletion extends DialogFragment {
         llEmptySubItems = (LinearLayout) rootView.findViewById(R.id.LinearLayoutEmptySubItems);
 
         LinearLayoutInterestsRequestsEmptyState = (LinearLayout) rootView.findViewById(R.id.LinearLayoutInterestsRequestsEmptyState);
+        AppCompatButton mOkButton = (AppCompatButton) rootView.findViewById(R.id.ButtonDialogPCButton);
+
+
         tvDesc = (AppCompatTextView) rootView.findViewById(R.id.TextVewDialogPCDescription);
         tvTitle = (AppCompatTextView) rootView.findViewById(R.id.TextVewDialogPCTitle);
         if (step == subscribe) {
 
             tvDesc.setText(Html.fromHtml(desc));
-        } else if (step == 8 || step == 22) {
+        }
+        else if (step == 10 ) {
+            tvDesc.setText(Html.fromHtml(desc));
+            mOkButton.setVisibility(View.GONE);
+        }
+
+        else if (step == 8 || step == 22) {
 
             tvDesc.setText(Html.fromHtml(desc));
         } else {
@@ -114,9 +123,7 @@ public class dialogProfileCompletion extends DialogFragment {
         }
         tvTitle.setText(title);
 
-        AppCompatButton mOkButton = (AppCompatButton) rootView.findViewById(R.id.ButtonDialogPCButton);
-
-        mOkButton.setText(btnText);
+           mOkButton.setText(btnText);
 
 
         if (step == 4) {

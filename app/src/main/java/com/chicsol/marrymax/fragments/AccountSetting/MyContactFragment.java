@@ -241,15 +241,21 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                 String personName = EditTextAScontactPersonName.getText().toString();
 
-                if (!TextUtils.isEmpty(mobNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.trim().length() - 1)))) {
-                    mobNum = mobNum.substring(countryCode.trim().length() - 1, mobNum.length());
+                if (spinnerAScontactCountry.getSelectedItemPosition() != 0) {
+                    countryCode = countryCode.replace("+", "");
+                }
+
+
+                if (!TextUtils.isEmpty(mobNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.trim().length())))) {
+                    mobNum = mobNum.substring(countryCode.trim().length() , mobNum.length());
+
 
                 }
 
             //    Log.e("111 mob number is", mobNum);
 
-                if (!TextUtils.isEmpty(landNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(landNum.substring(0, countryCode.trim().length() - 1)))) {
-                    landNum = landNum.substring(countryCode.trim().length() - 1, landNum.length());
+                if (!TextUtils.isEmpty(landNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(landNum.substring(0, countryCode.trim().length())))) {
+                    landNum = landNum.substring(countryCode.trim().length() , landNum.length());
 
                 }
            //     Log.e("111 land number is", landNum);
@@ -264,11 +270,9 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 View focusView = null;
                 Log.e("length is ", mobNum.length() + "");
 
-                Log.e("Country Code is ", countryCode + " ppp");
+            //    Log.e("Country Code is ", countryCode + " ppp");
 
-                if (spinnerAScontactCountry.getSelectedItemPosition() != 0) {
-                    countryCode = countryCode.replace("+", "");
-                }
+
 
 
                 if (spinnerAScontactCountry.getSelectedItemPosition() == 0) {
@@ -373,15 +377,15 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     mobNum = mobNum.replaceAll("[/\\D/g]", "");
 
                     member.set_phone_mobile(mobNum);
-                    String landline = EditTextAScontactLandlineNumber.getText().toString();
+                  //  String landline = EditTextAScontactLandlineNumber.getText().toString();
 
-                    member.set_phone_home(landline);
+                    member.set_phone_home(landNum);
                     String PersonalName = EditTextAScontactPersonName.getText().toString();
                     member.set_personal_name(PersonalName);
 
                     Gson gson = new Gson();
 
-                    Log.e("Loggg", gson.toJson(member));
+                  //  Log.e("Loggg", gson.toJson(member));
                     try {
 
                         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
@@ -494,7 +498,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
     private boolean countryCodeCheck(int countryCode, int mobNum) {
 
-        //     Log.e("countryCodeCheck", countryCode + "   " + mobNum);
+           Log.e("countryCodeCheck", countryCode + "   " + mobNum);
 
         if (countryCode == mobNum) {
             return false;

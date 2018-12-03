@@ -593,7 +593,10 @@ public class MarryMax {
                 break;
 
             case sendMessage:
-                if (smember.get_member_status() < 3) {
+
+                Log.e("get_open_message", "" + member.get_open_message());
+
+                if (smember.get_member_status() < 3 || smember.get_member_status() >= 7) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
@@ -609,27 +612,36 @@ public class MarryMax {
                     in.putExtra("objtype", 0);
                     in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(in);*/
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Message", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>. Please subscribe to send personalized message or view contact phone number.", member.get_accept_message() + "", 23);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Message", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>. Please subscribe to send personalized message and connect with the potential matches immediately.", member.get_accept_message() + "", 23);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
-                } /*else if (smember.get_member_status() == 3 && member.get_open_message() == 0) {
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please subscribe to send personalized message and connect with the potential matches immediately.", "Subscribe", 9);
+                } /*else if (smember.get_member_status() ==4 && member.get_open_message() == 0) {
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, User accept message only from his own matches.", "Subscribe", 9);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
 
-                } */ else {
+                } */ else if (smember.get_member_status() == 4) {
 
-                    Intent in = new Intent(activity, DashboardMessagesDetailActivity.class);
-                    Gson gson = new Gson();
-                    String memString = gson.toJson(member);
-                    // in.putExtra("obj", memString);
-                    SharedPreferenceManager.setMessageObject(context, "");
-                    SharedPreferenceManager.setMessageObject(context, memString);
-                    in.putExtra("objtype", 0);
-                    in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(in);
-                    return false;
+                    if (member.get_open_message() == 0) {
+                        dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, User accept message only from his own matches.", "", 10);
+                        dialogP.setTargetFragment(fragment, 0);
+                        dialogP.show(frgMngr, "d");
+
+                    } else {
+
+                        Intent in = new Intent(activity, DashboardMessagesDetailActivity.class);
+                        Gson gson = new Gson();
+                        String memString = gson.toJson(member);
+                        // in.putExtra("obj", memString);
+                        SharedPreferenceManager.setMessageObject(context, "");
+                        SharedPreferenceManager.setMessageObject(context, memString);
+                        in.putExtra("objtype", 0);
+                        in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(in);
+
+                        return false;
+                    }
                 }
 
             case blockReportConcernMatchAidFavourite:

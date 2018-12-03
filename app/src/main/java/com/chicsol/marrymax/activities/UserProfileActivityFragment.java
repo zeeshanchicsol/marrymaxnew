@@ -573,10 +573,11 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             faAddToFavourites.setPressed(true);
         }
 
-       // Log.e("Saved Member", member.get_saved_member() + " ");
+        // Log.e("Saved Member", member.get_saved_member() + " ");
         if (member.get_open_message() == 0) {
-
-      llUPSendMessage.setBackgroundColor(getResources().getColor(R.color.colorGrey));
+            if (isAdded()) {
+                llUPSendMessage.setBackgroundColor(getResources().getColor(R.color.colorGrey));
+            }
         }
 
         //MenuItem menuItem1 = popupUp.getMenu().findItem(R.id.menu_up_request);
@@ -1439,7 +1440,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         Log.e("getProfileDetail", params.toString());
         Log.e("getProfileDetail ", Urls.getProfileDetail);
-        Log.e("getProfileDetail ", Constants.getHashMap()+"");
+        Log.e("getProfileDetail ", Constants.getHashMap() + "");
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getProfileDetail, params,
