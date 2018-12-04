@@ -225,12 +225,17 @@ public class RegistrationActivity extends AppCompatActivity {
                 .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                 myCalendar.get(Calendar.DAY_OF_MONTH));
 
-        cal.set(Calendar.YEAR, maxyear);
-        DatePickerDialoga.getDatePicker().setMaxDate(cal.getTimeInMillis());
+
         //   datePicker.setMaxDate(cal.getTimeInMillis());
         cal.set(Calendar.YEAR, minyear);
         //     datePicker.setMinDate(cal.getTimeInMillis());
         DatePickerDialoga.getDatePicker().setMinDate(cal.getTimeInMillis());
+
+
+
+        cal.set(Calendar.YEAR, maxyear);
+        DatePickerDialoga.getDatePicker().setMaxDate(cal.getTimeInMillis());
+
 
 
 /*

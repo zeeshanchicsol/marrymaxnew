@@ -245,20 +245,26 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     countryCode = countryCode.replace("+", "");
                 }
 
+                //   Log.e("111 countryCode ", Integer.parseInt(countryCode.trim() )+ "");
+                //   Log.e("111 land number is", Integer.parseInt(mobNum.substring(0, countryCode.trim().length())) + "");
 
-                if (!TextUtils.isEmpty(mobNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.trim().length())))) {
-                    mobNum = mobNum.substring(countryCode.trim().length() , mobNum.length());
+
+                if (!TextUtils.isEmpty(mobNum.trim()) && spinnerAScontactCountry.getSelectedItemPosition() != 0) {
+                    if (!countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.trim().length())))) {
+                        mobNum = mobNum.substring(countryCode.trim().length(), mobNum.length());
 
 
+                    }
                 }
 
-            //    Log.e("111 mob number is", mobNum);
+                //    Log.e("111 mob number is", mobNum);
+                if (!TextUtils.isEmpty(landNum.trim()) && spinnerAScontactCountry.getSelectedItemPosition() != 0) {
+                    if (!countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(landNum.substring(0, countryCode.trim().length())))) {
+                        landNum = landNum.substring(countryCode.trim().length(), landNum.length());
 
-                if (!TextUtils.isEmpty(landNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(landNum.substring(0, countryCode.trim().length())))) {
-                    landNum = landNum.substring(countryCode.trim().length() , landNum.length());
-
+                    }
                 }
-           //     Log.e("111 land number is", landNum);
+                //     Log.e("111 land number is", landNum);
 
 
               /*  tvMobile.setText(member.get_phone_mobile());
@@ -268,12 +274,6 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 tvRelationshipWithMember.setText(member.get_profile_owner());
                 tvConvenientCallTime.setText(member.get_notes());*/
                 View focusView = null;
-                Log.e("length is ", mobNum.length() + "");
-
-            //    Log.e("Country Code is ", countryCode + " ppp");
-
-
-
 
                 if (spinnerAScontactCountry.getSelectedItemPosition() == 0) {
                     Toast.makeText(getContext(), "Select Country", Toast.LENGTH_SHORT).show();
@@ -377,7 +377,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     mobNum = mobNum.replaceAll("[/\\D/g]", "");
 
                     member.set_phone_mobile(mobNum);
-                  //  String landline = EditTextAScontactLandlineNumber.getText().toString();
+                    //  String landline = EditTextAScontactLandlineNumber.getText().toString();
 
                     member.set_phone_home(landNum);
                     String PersonalName = EditTextAScontactPersonName.getText().toString();
@@ -385,7 +385,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                     Gson gson = new Gson();
 
-                  //  Log.e("Loggg", gson.toJson(member));
+                    //  Log.e("Loggg", gson.toJson(member));
                     try {
 
                         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
@@ -498,7 +498,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
     private boolean countryCodeCheck(int countryCode, int mobNum) {
 
-           Log.e("countryCodeCheck", countryCode + "   " + mobNum);
+        Log.e("countryCodeCheck", countryCode + "   " + mobNum);
 
         if (countryCode == mobNum) {
             return false;

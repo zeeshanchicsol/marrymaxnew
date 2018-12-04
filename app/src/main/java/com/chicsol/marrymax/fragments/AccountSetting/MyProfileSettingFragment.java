@@ -180,7 +180,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         tvAdminReviewTitle = (TextView) view.findViewById(R.id.TextViewAdminReviewTitle);
         tvAdminReviewTitleMain = (TextView) view.findViewById(R.id.TextViewAdminReviewTitleMain);
 
-        if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 7) {
+        if (SharedPreferenceManager.getUserObject(context).get_member_status() == 7) {
             tvAdminReviewTitle.setText(" (Please review admin notes and update your profile as suggested.)");
             tvAdminReviewTitleMain.setText("Review completed");
 
@@ -297,7 +297,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                     newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
                     newFragment.show(getFragmentManager(), "dialog");*/
 
-                    getValidCode(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                    getValidCode(SharedPreferenceManager.getUserObject(context).get_path());
 
 
                 }
@@ -494,7 +494,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             //   tvProfileCompleteion.setText(dashboards.getProfile_complete_status() + "% Complete");
 
 
-                            if (Integer.parseInt(dashboards.getProfile_complete_status()) < 70 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+                            if (Integer.parseInt(dashboards.getProfile_complete_status()) < 70 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
 
                                 String compUptoSSeventyText = "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, your profile is <b> <font color=#9a0606>Not Live </font></b> ";
                                 tvTitleLiveNotLive.setText(Html.fromHtml(compUptoSSeventyText));
