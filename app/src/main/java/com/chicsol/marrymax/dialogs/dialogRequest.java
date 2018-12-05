@@ -51,6 +51,7 @@ public class dialogRequest extends DialogFragment {
     String title, desc, params = null, btnTitle;
     Button mOkButton, btSubscribe;
     RequestCallbackInterface requestInterface;
+    Context context;
 
     public void setListener(RequestCallbackInterface listener) {
         requestInterface = listener;
@@ -75,9 +76,8 @@ public class dialogRequest extends DialogFragment {
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
+        context = activity;
         try {
-
-
             if (getTargetFragment() != null) {
                 mCompleteListener = (onCompleteListener) getTargetFragment();
             } else {
@@ -262,7 +262,7 @@ public class dialogRequest extends DialogFragment {
 
 
                             if (responseid == 0) {
-                                Toast.makeText(getContext(), "Request has not been sent successfully. ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Request has not been sent successfully. ", Toast.LENGTH_SHORT).show();
                             } else if (responseid == 1) {
 
                                 pDialog.dismiss();
@@ -272,7 +272,7 @@ public class dialogRequest extends DialogFragment {
                             } else if (responseid == -1) {
                                 String desctxt = "";
 
-                                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 3) {
+                                if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
                                     mOkButton.setVisibility(View.GONE);
                                     btSubscribe.setVisibility(View.VISIBLE);
                                     desctxt = "\u25CF Daily sent limit is reached.\n" +
@@ -280,7 +280,7 @@ public class dialogRequest extends DialogFragment {
                                             "";
 
 
-                                } else if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 4) {
+                                } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
                                     mOkButton.setVisibility(View.GONE);
                                     btSubscribe.setVisibility(View.GONE);
 
@@ -292,12 +292,11 @@ public class dialogRequest extends DialogFragment {
                                 }
 
 
-                                    tvDesc.setText(desctxt);
-
+                                tvDesc.setText(desctxt);
 
 
                             } else {
-                                Toast.makeText(getContext(), "Request has been sent successfully", Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, "Request has been sent successfully", Toast.LENGTH_LONG).show();
                                 pDialog.dismiss();
                                 dialogRequest.this.getDialog().cancel();
                                 //     mCompleteListener.onComplete(responseid + "");

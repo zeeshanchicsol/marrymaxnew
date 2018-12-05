@@ -54,7 +54,7 @@ public class dialogShowInterest extends DialogFragment {
     boolean replyCheck, subscribe = false;
 
     private UpdateMemberFromDialogFragment updateMember;
-
+    private Context context;
 
     public void setListener(UpdateMemberFromDialogFragment listener) {
         updateMember = listener;
@@ -93,7 +93,7 @@ public class dialogShowInterest extends DialogFragment {
     public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
-
+            context = activity;
 
             Log.e("getfragment manager", "======" + getTargetFragment());
             if (getTargetFragment() != null) {
@@ -146,27 +146,25 @@ public class dialogShowInterest extends DialogFragment {
 
             String desctxt = "";
 
-            if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 3) {
+            if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
 
                 desctxt = "\u25CF Daily sent limit is reached.\n" +
-                        "\u25CF Please wait 24 hours before you can contact new  members.\n" ;
+                        "\u25CF Please wait 24 hours before you can contact new  members.\n";
 
                 mOkButton.setText("Subscribe");
                 subscribe = true;
 
-            } else if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 4) {
+            } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
 
 
                 desctxt = "You have reached the contact limit.\n" +
-                        "Please wait 24 hours to send new request.\n" ;
+                        "Please wait 24 hours to send new request.\n";
 
                 mOkButton.setVisibility(View.GONE);
             }
 
 
-
-                tvDesc.setText(desctxt);
-
+            tvDesc.setText(desctxt);
 
 
         } else if (my_id.equals("1")) {
@@ -277,9 +275,9 @@ public class dialogShowInterest extends DialogFragment {
                         }
 
 
-                        params.put("alias", SharedPreferenceManager.getUserObject(getContext()).getAlias());
+                        params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
                         params.put("userpath", userpath);
-                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
 
                         Log.e("showInterest params ", "" + params);
                     } catch (JSONException e) {
@@ -362,20 +360,21 @@ public class dialogShowInterest extends DialogFragment {
 
                         Log.e("re  update interest", response + "");
 
-                        dialogShowInterest.this.getDialog().dismiss();
-
+                        if (dialogShowInterest.this.getDialog() != null) {
+                            dialogShowInterest.this.getDialog().dismiss();
+                        }
                         try {
                             int responseid = response.getInt("id");
 
 
                             if (responseid >= 1) {
-                                Toast.makeText(getContext(), "Interest Showed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Interest Showed", Toast.LENGTH_SHORT).show();
                                 pDialog.dismiss();
 
                                 updateMember.updateInterest(true);
                                 //  mCompleteListener.onComplete("done");
                             } else if (responseid == 0) {
-                                Toast.makeText(getContext(), " Interest has not been sent successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, " Interest has not been sent successfully", Toast.LENGTH_SHORT).show();
                                 pDialog.dismiss();
                                 //  mCompleteListener.onComplete("done");
                             }
