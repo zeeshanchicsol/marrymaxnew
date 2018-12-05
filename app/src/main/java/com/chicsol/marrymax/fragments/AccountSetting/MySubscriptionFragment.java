@@ -92,6 +92,7 @@ public class MySubscriptionFragment extends Fragment {
         setListeners();
 
 
+
         return rootView;
     }
 
@@ -99,6 +100,12 @@ public class MySubscriptionFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        loadData();
+
+    }
+
+
+    private void loadData(){
         long member_status = SharedPreferenceManager.getUserObject(context).get_member_status();
 
 
@@ -163,9 +170,7 @@ public class MySubscriptionFragment extends Fragment {
 
         }
 
-
     }
-
     private void initilize(View view) {
 
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarProjectMain);

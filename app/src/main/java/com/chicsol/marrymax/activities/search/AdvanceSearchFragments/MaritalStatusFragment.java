@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.WebArd;
@@ -28,7 +29,7 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
 
-public class MaritalStatusFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+public class MaritalStatusFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
     //private Item item_slider;
     private LinearLayout LinearLayoutAdvSearchMaritalStatus, LinearLayoutAdvSearchChildren;
 
@@ -69,8 +70,34 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
         ButtonResetSearchMartialStatus = (Button) view.findViewById(R.id.ButtonResetSearchMartialStatus);
         ButtonResetSearchChildren = (Button) view.findViewById(R.id.ButtonResetSearchChildren);
 
-        ButtonResetSearchMartialStatus.setOnClickListener(this);
-        ButtonResetSearchChildren.setOnClickListener(this);
+        ButtonResetSearchMartialStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //    resetSelections(v);
+
+                defaultSelectionsObj.set_choice_marital_status_ids("");
+                if (defaultSelectionsObj != null) {
+                    viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchMaritalStatus, defaultSelectionsObj.get_choice_marital_status_ids());
+
+                }
+            }
+        });
+        ButtonResetSearchChildren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //   Toast.makeText(getContext(), "clicked", Toast.LENGTH_SHORT).show();
+                //   resetSelections(v);
+
+                //    Log.e("before", "=  " + defaultSelectionsObj.get_choice_children_ids());
+                defaultSelectionsObj.set_choice_children_ids("");
+                //  Log.e("after", "=  " + defaultSelectionsObj.get_choice_children_ids());
+                if (defaultSelectionsObj != null) {
+                    viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchChildren, defaultSelectionsObj.get_choice_children_ids());
+
+
+                }
+            }
+        });
 
         Gson gsonc;
         GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -92,11 +119,19 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
     }
 
     private void setSelection() {
-        Log.e("set selection", "sett selection");
+
+
         if (defaultSelectionsObj != null) {
+            //   Log.e("set selection "+defaultSelectionsObj.get_choice_marital_status_ids(), "sett selection "+defaultSelectionsObj.get_choice_children_ids());
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchMaritalStatus, defaultSelectionsObj.get_choice_marital_status_ids());
+
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchChildren, defaultSelectionsObj.get_choice_children_ids());
 
+           /* if (defaultSelectionsObj.get_choice_marital_status_ids().equals("")) {
+                viewGenerator.resetCheckBoxes(LinearLayoutAdvSearchMaritalStatus);
+            } else if (defaultSelectionsObj.get_choice_children_ids().equals("")) {
+                viewGenerator.resetCheckBoxes(LinearLayoutAdvSearchChildren);
+            }*/
         }
 
 
@@ -156,8 +191,8 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
         }
     }
 
-    @Override
-    public void onClick(View v) {
+
+    private void resetSelections(View v) {
         if (v.getTag().equals("martial_status")) {
             defaultSelectionsObj.set_choice_marital_status_ids("");
 
@@ -165,8 +200,15 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
         } else if (v.getTag().equals("children")) {
             defaultSelectionsObj.set_choice_children_ids("");
         }
+        //   Log.e("defaultSelectionsObj", defaultSelectionsObj.get_choice_children_ids());
+
         setSelection();
     }
+
+    /*@Override
+    public void onClick(View v) {
+
+    }*/
 
     public interface OnChildFragmentInteractionListener {
         void messageFromChildToParent();

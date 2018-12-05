@@ -40,6 +40,11 @@ public class DashboardAccountSettingFragment extends Fragment implements Dashboa
     Typeface typeface;
     Fragment last;
     private Context context;
+    TabLayout tabLayout;
+    ViewPagerAdapter adapter;
+    View view1;
+    public static boolean initAccSettingstab = false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,19 +55,19 @@ public class DashboardAccountSettingFragment extends Fragment implements Dashboa
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_account_setting_main, container, false);
         initialize(rootView);
+        view1 = rootView;
         return rootView;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Members member= SharedPreferenceManager.getUserObject(context);
+        Members member = SharedPreferenceManager.getUserObject(context);
         if (member.get_member_status() < 3 || member.get_member_status() >= 7) {
             new MarryMax(null).updateStatus(context);
 
         }
     }
-
 
 
     @Override
@@ -72,10 +77,10 @@ public class DashboardAccountSettingFragment extends Fragment implements Dashboa
     }
 
 
-    private void initialize(View rootView){
+    private void initialize(View rootView) {
 
         typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/centurygothic.ttf");
-Log.e("inittt","inittttttttttttt=======");
+        Log.e("inittt", "inittttttttttttt=======");
 
         //  TextView mTitle = (TextView) toolbar.findViewById(R.id.text_toolbar_title);
         //  mTitle.setTypeface(typeface);
@@ -87,13 +92,20 @@ Log.e("inittt","inittttttttttttt=======");
         // Set up the ViewPager with the sections adapter.
 
 
-        TabLayout tabLayout = (TabLayout)rootView. findViewById(R.id.tabs_account_setting);
+        tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_account_setting);
 
-        tabLayout.setupWithViewPager(mViewPager);
+        adapter = new ViewPagerAdapter(getChildFragmentManager());
 
-        mViewPager = (ViewPager)rootView. findViewById(R.id.container_account_setting);
-        setupViewPager(mViewPager);
-        tabLayout = (TabLayout)rootView. findViewById(R.id.tabs_account_setting);
+
+        mViewPager = (ViewPager) rootView.findViewById(R.id.container_account_setting);
+
+        if (initAccSettingstab) {
+            setupTab();
+            initAccSettingstab = false;
+        }
+
+ /*       setupViewPager(mViewPager);
+        tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_account_setting);
         tabLayout.setupWithViewPager(mViewPager);
 
 
@@ -112,18 +124,44 @@ Log.e("inittt","inittttttttttttt=======");
 
             tab.setCustomView(relativeLayout);
             tab.select();
-        }
-
-
-
-
-
-
+        }*/
 
 
     }
+
+
+    private void setupTab() {
+
+        if (tabLayout != null) {
+
+            if (tabLayout.getTabCount() == 0) {
+                setupViewPager(mViewPager);
+                tabLayout.setupWithViewPager(mViewPager);
+
+
+                for (int i = tabLayout.getTabCount() - 1; i >= 0; i--) {
+                    TabLayout.Tab tab = tabLayout.getTabAt(i);
+                    LinearLayout relativeLayout = (LinearLayout)
+                            LayoutInflater.from(getContext()).inflate(R.layout.custom_tab_item, tabLayout, false);
+
+                    if (i == tabLayout.getTabCount() - 1) {
+                        View view1 = (View) relativeLayout.findViewById(R.id.tab_view_separator);
+                        view1.setVisibility(View.INVISIBLE);
+                    }
+                    TextView tabTextView = (TextView) relativeLayout.findViewById(R.id.tab_title);
+                    tabTextView.setText(tab.getText());
+                    //tabTextView.setTypeface(Typeface.create("sans-serif-light", Typeface.BOLD));
+
+                    tab.setCustomView(relativeLayout);
+                    tab.select();
+                }
+            }
+        }
+    }
+
+
     private void setupViewPager(ViewPager viewPager) {
-       ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
+
         adapter.addFragment(new MyContactFragment(), " My Contact ");
         adapter.addFragment(new MySubscriptionFragment(), " My Subscription ");
         adapter.addFragment(new MatchingAttributeFragment(), " Matching Attributes ");
@@ -138,6 +176,10 @@ Log.e("inittt","inittttttttttttt=======");
 
     @Override
     public void bottomNavSelected() {
+        if (!initAccSettingstab) {
+
+            setupTab();
+        }
 
     }
 

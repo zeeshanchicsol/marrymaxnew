@@ -36,6 +36,7 @@ import com.chicsol.marrymax.activities.PhotoUpload;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.dialogs.dialogRequestProfileUpdate;
+import com.chicsol.marrymax.fragments.DashboardAccountSettingFragment;
 import com.chicsol.marrymax.fragments.DashboardMatchesMainFragment;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.other.MarryMax;
@@ -407,6 +408,8 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
           /*  mViewPager.setCurrentItem(3);
             setTitle("My List");*/
         } else if (id == R.id.nav_main_myaccount) {
+            DashboardAccountSettingFragment.initAccSettingstab = true;
+
             Intent in = new Intent(BaseRegistrationActivity.this, DashboarMainActivityWithBottomNav.class);
             in.putExtra("name", 4);
             startActivity(in);
@@ -446,8 +449,7 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
         } else if (id == R.id.nav_main_faq) {
             Intent in = new Intent(BaseRegistrationActivity.this, FaqActivity.class);
             startActivity(in);
-        }
-        else if (id == R.id.nav_main_contact_us) {
+        } else if (id == R.id.nav_main_contact_us) {
             MarryMax max = new MarryMax(BaseRegistrationActivity.this);
             max.contact();
 
