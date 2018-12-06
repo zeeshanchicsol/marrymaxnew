@@ -322,6 +322,19 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
                     Gson gson = new Gson();
                     params = gson.toJson(memberSearchObj);
 
+
+                    LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getApplicationContext());
+                    recyclerView.setLayoutManager(mLayoutManager);
+
+                    recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchYourBestMatchResultsActivity.this, getSupportFragmentManager(), SearchYourBestMatchResultsActivity.this, SearchYourBestMatchResultsActivity.this, SearchYourBestMatchResultsActivity.this, TAG);
+                    recyclerAdapter.setLinearLayoutManager(mLayoutManager);
+
+                    recyclerAdapter.setRecyclerView(recyclerView);
+
+                    recyclerView.setAdapter(recyclerAdapter);
+
+
+
                     loadData(params, false);
                 }
 

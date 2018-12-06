@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -48,6 +49,7 @@ public class dialogReplyOnAcceptInterestInbox extends DialogFragment {
     String userpath, alias;
     boolean replyCheck;
     private onCompleteListener mCompleteListener;
+    private Context context;
 
     // private ListView lv_mycontacts;
     public static dialogReplyOnAcceptInterestInbox newInstance(mCommunication member, String userpath, boolean replyCheck, Members member2) {
@@ -180,7 +182,7 @@ public class dialogReplyOnAcceptInterestInbox extends DialogFragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.e("request params", "" + params);
+             //   Log.e("request params", "" + params);
 
 
                 query(params);
@@ -237,7 +239,7 @@ public class dialogReplyOnAcceptInterestInbox extends DialogFragment {
     public void onAttach(Context activity) {
         super.onAttach(activity);
         try {
-
+            context = activity;
             if (getTargetFragment() != null) {
                 mCompleteListener = (onCompleteListener) getTargetFragment();
             } else {
@@ -272,15 +274,18 @@ public class dialogReplyOnAcceptInterestInbox extends DialogFragment {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.e("re  update interest", response + "");
-                        dialogReplyOnAcceptInterestInbox.this.getDialog().cancel();
+                 //       Log.e("re  update interest", response + "");
+                        if (dialogReplyOnAcceptInterestInbox.this.getDialog() != null) {
+                            dialogReplyOnAcceptInterestInbox.this.getDialog().dismiss();
+                        }
+
                         try {
                             int responseid = response.getInt("id");
 
 
                             if (responseid == 1) {
 
-
+                                Toast.makeText(context, "Interest has been accepted successfully", Toast.LENGTH_SHORT).show();
                             }
 
 
