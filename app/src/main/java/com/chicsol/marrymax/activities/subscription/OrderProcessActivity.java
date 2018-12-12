@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.dialogs.dialogEnterPromoCode;
 import com.chicsol.marrymax.dialogs.dialogSelectPackage;
 import com.chicsol.marrymax.dialogs.dialogTermsConditions;
@@ -75,7 +77,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     LinearLayout llPromoCodeDiscount, llWesterUnion, llEasyPasa, llABL, llCash, llCC;
     RelativeLayout rlMain, rlDetailView;
     private ExpandOrCollapse mAnimationManager;
-    private AutoCompleteTextView etWhoHelped;
+  //  private AutoCompleteTextView etWhoHelped;
     private RadioButton radioOrderProcessStripe;
     View lastview = null;
     CardInputWidget mCardInputWidget;
@@ -87,6 +89,10 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     //   JSONObject params;
     LinearLayout llMain, llErrorMessag;
     TextView tvErrorDescription, tvErrorHeading, tvo1, tvo2, tvo3, tvo4, tvOrderNumber;
+    private Spinner spinner_religion;
+    private List<WebArd> ReligionDataList;
+    private MySpinnerAdapter adapter_religion;
+    private RadioGroup rgAssisted;
 
 
     @Override
@@ -111,6 +117,13 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         getSupportActionBar().setTitle("Order Summary");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mCardInputWidget = (CardInputWidget) findViewById(R.id.card_input_widget);
+
+        ReligionDataList = new ArrayList<>();
+
+        rgAssisted = (RadioGroup) findViewById(R.id.RadioGroupOrderProcessAssited);
+
+        RadioButton r = (RadioButton) rgAssisted.getChildAt(1);
+        r.setChecked(true);
 
 
         llMain = (LinearLayout) findViewById(R.id.LinearLayoutOrderProcessMain);
@@ -141,8 +154,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
         btPayThroughCreditCard = (Button) findViewById(R.id.ButtonPayThroughCreditCard);
 
-        etWhoHelped = (AutoCompleteTextView) findViewById(R.id.EditTextOrderProcessWhoHelped);
-        etWhoHelped.setThreshold(1);
+     //   etWhoHelped = (AutoCompleteTextView) findViewById(R.id.EditTextOrderProcessWhoHelped);
+     //   etWhoHelped.setThreshold(1);
 
         tvTermsConditions = (TextView) findViewById(R.id.TextViewTermsConditions);
 
@@ -169,6 +182,13 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         tvo2 = (TextView) findViewById(R.id.OrderNumber2);
         tvo3 = (TextView) findViewById(R.id.OrderNumber3);
         tvo4 = (TextView) findViewById(R.id.OrderNumber4);
+
+
+        spinner_religion = (Spinner) findViewById(R.id.sp_assisting_members);
+        adapter_religion = new MySpinnerAdapter(this,
+                android.R.layout.simple_spinner_item, ReligionDataList);
+        adapter_religion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_religion.setAdapter(adapter_religion);
 
 
         getPersonsList();
@@ -369,12 +389,12 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         });*/
 
 
-        etWhoHelped.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+       /* etWhoHelped.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 etWhoHelped.showDropDown();
             }
-        });
+        });*/
 
         tvTermsConditions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -407,20 +427,43 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         btPayThroughCreditCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Card cardToSave = mCardInputWidget.getCard();
-                if (cardToSave == null) {
+                String selectionRadioValue = "";
+
+                    int selectedId = rgAssisted.getCheckedRadioButtonId();
+
+                    // find the radiobutton by returned id
+                    RadioButton radioButtonSelected = (RadioButton) findViewById(selectedId);
+                    selectionRadioValue = radioButtonSelected.getTag().toString();
+                    Log.e("selectionRadioValue", selectionRadioValue);
+
+
+
+
+
+                if (selectionRadioValue.equals("yes") && spinner_religion.getSelectedItemId() == 0) {
+                    Toast.makeText(OrderProcessActivity.this, "Please Select Who Helped you ", Toast.LENGTH_SHORT).show();
+                } else if (cardToSave == null) {
                     Toast.makeText(OrderProcessActivity.this, "Invalid Card Data", Toast.LENGTH_SHORT).show();
                     // mErrorDialogHandler.showError("Invalid Card Data");
                 } else {
 
                     mPayments payments = new mPayments();
+
+                    if (selectionRadioValue.equals("yes")) {
+                        WebArd ObjWhoHelped = (WebArd) spinner_religion.getSelectedItem();
+                        payments.setHelp_person(ObjWhoHelped.getName());
+                    } else {
+                        payments.setHelp_person("N");
+                    }
+
+
                     payments.setCard_number(Long.parseLong(cardToSave.getNumber()));
                     payments.setCcv_number(Integer.parseInt(cardToSave.getCVC()));
                     payments.setYear(cardToSave.getExpYear());
                     payments.setMonth(cardToSave.getExpMonth());
                     payments.setDescription(subscription.getShort_description());
-                    payments.setHelp_person(etWhoHelped.getText().toString());
+
                     payments.setEmail(subscription.getEmail());
 
                     payments.setAlias(subscription.getAlias());
@@ -507,16 +550,17 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                             Type listType = new TypeToken<List<WebArd>>() {
                             }.getType();
                             List<WebArd> personsDataList = (List<WebArd>) gsonc.fromJson(jsonarrayData.toString(), listType);
+                            personsDataList.add(0, new WebArd("-1", "Please Select "));
 
-
-                            ArrayList mcList = new ArrayList();
+                      /*      ArrayList mcList = new ArrayList();
                             for (WebArd value : personsDataList) {
                                 mcList.add(value.getName());
 
-                            }
-                            acAdapter = new ArrayAdapter<String>(OrderProcessActivity.this, android.R.layout.simple_list_item_1, mcList);
+                            }*/
+                            //  acAdapter = new ArrayAdapter<String>(OrderProcessActivity.this, android.R.layout.simple_list_item_1, mcList);
 
-                            etWhoHelped.setAdapter(acAdapter);
+                            //    etWhoHelped.setAdapter(acAdapter);
+                            adapter_religion.updateDataList(personsDataList);
 
                             Log.e("json length", jsonarrayData.length() + "");
 

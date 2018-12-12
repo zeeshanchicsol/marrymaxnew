@@ -555,6 +555,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                             if (!addNumber) {
                                 btAddNumber.setVisibility(View.GONE);
+
+
+
                                 btUpdateNumber.setVisibility(View.VISIBLE);
                                 btVerifyNumber.setVisibility(View.VISIBLE);
 
@@ -575,7 +578,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
                             } else {
-// if
+                                // if
                                 llASPhone.setVisibility(View.VISIBLE);
                                 llVerifyPhone.setVisibility(View.VISIBLE);
 

@@ -1473,7 +1473,6 @@ id EditTextNewPasswordCP
 id EditTextNumOfBoyz
 id EditTextNumOfGirls
 id EditTextOldPasswordCP
-id EditTextOrderProcessWhoHelped
 id EditTextOtherReason
 id EditTextPassword
 id EditTextPasswordLogin
@@ -1756,6 +1755,7 @@ id RadioGroupHijab
 id RadioGroupLiving
 id RadioGroupMarriage
 id RadioGroupMartial
+id RadioGroupOrderProcessAssited
 id RadioGroupOrderProcessMain
 id RadioGroupPhysicque
 id RadioGroupQuestionAnswers
@@ -2552,6 +2552,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id sp_assisting_members
 id sp_bestmatch_country
 id sp_bestmatch_education
 id sp_bestmatch_ethnic_background

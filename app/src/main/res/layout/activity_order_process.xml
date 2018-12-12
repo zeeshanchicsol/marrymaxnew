@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <ProgressBar
                 android:id="@+id/ProgressbarSubscriptionPlan"
@@ -65,8 +65,8 @@
                         android:layout_marginLeft="6dp"
                         android:gravity="center"
 
-                        android:textColor="@color/colorBlack"
-                         />
+                        android:textColor="@color/colorBlack" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -295,13 +295,70 @@
                             android:focusable="true"
                             android:focusableInTouchMode="true"
                             android:gravity="center"
-                            android:text="Did Anyone Helped you?"
+                            android:text="Is anyone from support assisting you?"
 
                             android:textColor="@color/colorBlack"
                             android:textSize="10sp"
                             android:textStyle="bold" />
 
+                        <RadioGroup
+                            android:id="@+id/RadioGroupOrderProcessAssited"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:tag="yes"
+                                android:text="Yes" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+
+                                android:tag="no"
+                                android:text="No" />
+                        </RadioGroup>
+
                         <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <!--  <com.chicsol.marrymax.widgets.mTextView
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:text="Religion"
+                                  android:textColor="@color/colorSpinnerLabel"
+                                  android:textSize="@dimen/text_size_spinner_label" />-->
+
+                            <android.support.v7.widget.AppCompatSpinner
+                                android:id="@+id/sp_assisting_members"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+
+                                />
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="1dp"
+                                android:background="#d7d7d7"
+
+                                ></View>
+                        </LinearLayout>
+
+                 <!--       <LinearLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -321,7 +378,7 @@
                                 android:textColor="@color/colorBlack" />
 
 
-                        </LinearLayout>
+                        </LinearLayout>-->
 
 
                     </LinearLayout>
