@@ -77,7 +77,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     LinearLayout llPromoCodeDiscount, llWesterUnion, llEasyPasa, llABL, llCash, llCC;
     RelativeLayout rlMain, rlDetailView;
     private ExpandOrCollapse mAnimationManager;
-  //  private AutoCompleteTextView etWhoHelped;
+    //  private AutoCompleteTextView etWhoHelped;
     private RadioButton radioOrderProcessStripe;
     View lastview = null;
     CardInputWidget mCardInputWidget;
@@ -93,7 +93,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     private List<WebArd> ReligionDataList;
     private MySpinnerAdapter adapter_religion;
     private RadioGroup rgAssisted;
-
+    private LinearLayout llSpAssisted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +126,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         r.setChecked(true);
 
 
+        llSpAssisted = (LinearLayout) findViewById(R.id.LinearLayoutOrderProcessSpinner);
+        llSpAssisted.setVisibility(View.INVISIBLE);
         llMain = (LinearLayout) findViewById(R.id.LinearLayoutOrderProcessMain);
         llErrorMessag = (LinearLayout) findViewById(R.id.LinearLayoutOrderProcessError);
 
@@ -154,8 +156,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
         btPayThroughCreditCard = (Button) findViewById(R.id.ButtonPayThroughCreditCard);
 
-     //   etWhoHelped = (AutoCompleteTextView) findViewById(R.id.EditTextOrderProcessWhoHelped);
-     //   etWhoHelped.setThreshold(1);
+        //   etWhoHelped = (AutoCompleteTextView) findViewById(R.id.EditTextOrderProcessWhoHelped);
+        //   etWhoHelped.setThreshold(1);
 
         tvTermsConditions = (TextView) findViewById(R.id.TextViewTermsConditions);
 
@@ -236,6 +238,20 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     }
 
     private void setListeners() {
+        rgAssisted.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+
+                if (checkedId == 1) {
+
+                    llSpAssisted.setVisibility(View.VISIBLE);
+                } else {
+
+                    llSpAssisted.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
        /* radioOrderProcessStripe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -430,15 +446,11 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                 Card cardToSave = mCardInputWidget.getCard();
                 String selectionRadioValue = "";
 
-                    int selectedId = rgAssisted.getCheckedRadioButtonId();
+                int selectedId = rgAssisted.getCheckedRadioButtonId();
 
-                    // find the radiobutton by returned id
-                    RadioButton radioButtonSelected = (RadioButton) findViewById(selectedId);
-                    selectionRadioValue = radioButtonSelected.getTag().toString();
-                    Log.e("selectionRadioValue", selectionRadioValue);
-
-
-
+                // find the radiobutton by returned id
+                RadioButton radioButtonSelected = (RadioButton) findViewById(selectedId);
+                selectionRadioValue = radioButtonSelected.getTag().toString();
 
 
                 if (selectionRadioValue.equals("yes") && spinner_religion.getSelectedItemId() == 0) {
