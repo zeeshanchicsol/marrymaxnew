@@ -15,6 +15,7 @@ import android.widget.Spinner;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
+import com.chicsol.marrymax.modal.MatchesCountUpdateEvent;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.utils.ViewGenerator;
@@ -23,6 +24,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
 
 import java.lang.reflect.Type;
@@ -279,6 +281,8 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
             }
             if (buttonView.getTag().equals("zodiacsign")) {
                 defaultSelectionsObj.set_choice_zodiac_sign_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchZodiacSign));
+
+
             }
 
         }

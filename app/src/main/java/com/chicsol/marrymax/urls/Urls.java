@@ -139,6 +139,8 @@ public class Urls {
 
 
     public static String searchProfiles = baseUrl + "/api/WebArd/SearchProfiles";//search profiles
+    public static String searchedCount = baseUrl + "/api/WebArd/SearchedCount";//search profiles count
+
 
     public static String listProfiles = baseUrl + "/api/WebArd/ListProfiles";//list profiles
 

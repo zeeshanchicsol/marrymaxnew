@@ -20,7 +20,10 @@ import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.adapters.AdvSearchAdapter;
+import com.chicsol.marrymax.modal.MatchesCountUpdateEvent;
 import com.chicsol.marrymax.modal.mAdvSearchListing;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -206,11 +209,12 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
         //  listener.onItemSelected(dataList.get(0));
 
 
-    //  getActivity().setMenuUpdateListener
-      //    SearchMainActivity.set
+        //  getActivity().setMenuUpdateListener
+        //    SearchMainActivity.set
 
     }
-    public  void selectSearchFragment( int position){
+
+    public void selectSearchFragment(int position) {
         listener.onItemSelected(dataList.get(position));
     }
 
@@ -355,8 +359,8 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
 
 
         advSearchAdapter.notifyDataSetChanged();
+        EventBus.getDefault().postSticky(new MatchesCountUpdateEvent("getCount"));
     }
-
 
 
     public interface OnItemSelectedListener {

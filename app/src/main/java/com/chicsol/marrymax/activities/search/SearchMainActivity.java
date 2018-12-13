@@ -24,6 +24,13 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.ActivityLogin;
 import com.chicsol.marrymax.activities.DrawerActivity;
@@ -32,10 +39,29 @@ import com.chicsol.marrymax.activities.search.AdvanceSearchFragments.ListViewAdv
 import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchResultsActivity;
 import com.chicsol.marrymax.dialogs.dialogLoginToContinue;
 import com.chicsol.marrymax.dialogs.dialogSaveSearch;
+import com.chicsol.marrymax.modal.MatchesCountUpdateEvent;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mAdvSearchListing;
 import com.chicsol.marrymax.other.MarryMax;
+import com.chicsol.marrymax.preferences.SharedPreferenceManager;
+import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
+import com.chicsol.marrymax.utils.Constants;
+import com.chicsol.marrymax.utils.MySingleton;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
 
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 
@@ -112,6 +138,68 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         onMenuUpdatedListener = listener;
     }
 */
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onEvent(MatchesCountUpdateEvent event) {
+
+        //  Log.e("event", "" + event.getMessage());
+
+        if (event.getMessage().equals("getCount")) {
+            String params;
+            Members memberSearchObj = defaultSelectionsObj;
+            if (bestMatchCheck) {
+              /*  Intent intent = new Intent(SearchMainActivity.this, SearchYourBestMatchResultsActivity.class);
+                startActivity(intent);*/
+                if (memberSearchObj != null) {
+                    memberSearchObj.set_page_no(1);
+                    memberSearchObj.set_type("");
+
+                    Gson gson = new Gson();
+                    params = gson.toJson(memberSearchObj);
+
+                    loadCounter(params);
+
+                }
+
+            } else {
+               /* Intent intent = new Intent(SearchMainActivity.this, SearchResultsActivity.class);
+                startActivity(intent);*/
+
+                memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
+                memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
+                memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+                //page and type
+                memberSearchObj.set_page_no(1);
+                memberSearchObj.set_type("");
+
+                Gson gson = new Gson();
+                params = gson.toJson(memberSearchObj);
+
+                loadCounter(params);
+            }
+
+            //loadCounter();
+        } else {
+            getSupportActionBar().setTitle("Advance Search - " + event.getMessage() + " Matches");
+
+        }
+
+        ///    Toast.makeText(this, "" + event.getMessage(), Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onResume() {
@@ -557,6 +645,81 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
 
     }
+
+
+    private void loadCounter(String paramsString) {
+
+
+        //  pDialog.setVisibility(View.VISIBLE);
+        //      setLoader(true);
+        //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
+
+        JSONObject params = null;
+        try {
+            params = new JSONObject(paramsString);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Log.e("Params search" + " " + Urls.searchedCount, "" + params);
+
+        //Log.e("Params search" + " " + Urls.searchProfiles, "");
+        final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                Urls.searchedCount, params,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("re  serrr appearance", response + "");
+                        try {
+                            int id = Math.round(Float.parseFloat(response.get("id").toString()));
+                            EventBus.getDefault().postSticky(new MatchesCountUpdateEvent(id + ""));
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        //  if (!refresh) {
+                        // pDialog.dismiss();
+                        //   pDialog.setVisibility(View.INVISIBLE);
+                        //   setLoader(false);
+                        //  }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                VolleyLog.e("res err", "Error: " + error);
+                //   if (!refresh) {
+                //pDialog.dismiss();
+                //   pDialog.setVisibility(View.INVISIBLE);
+                //           // setLoader(false);
+                //    }
+                // LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
+                //  findViewById(R.id.ButtonOnSearchClick).setVisibility(View.GONE);
+            }
+
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+
+// Adding request to request queue
+        ///   rq.add(jsonObjReq);
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
+
+    }
+
+
+
 
 /*    private void setHeighAgeChecks() {
         if (defaultSelectionsObj.get_choice_age_from() == 0) {
