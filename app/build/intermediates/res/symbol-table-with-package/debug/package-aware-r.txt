@@ -657,6 +657,7 @@ color colorDialogHeadButtons
 color colorGreenButtonHighlight
 color colorGreenButtonNormal
 color colorGrey
+color colorLightGrey
 color colorMMButtonShowInterest
 color colorPrimary
 color colorPrimaryDark
@@ -1136,6 +1137,7 @@ drawable bg_nav_patern
 drawable boder_bt_subscribe_dash_main_border
 drawable border_accountsetting_subscription_packages_box
 drawable border_dash_main
+drawable border_dash_main_green
 drawable border_dash_main_profile
 drawable border_dash_main_profilecombox
 drawable border_dash_main_profilecombox_green

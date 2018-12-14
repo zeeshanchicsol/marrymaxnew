@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -24,10 +25,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Search By Profile Name"
-            android:textColor="@color/colorBlack"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"/>
+            android:layout_marginRight="8dp"
+            android:text="Search By Profile Name"
+            android:textColor="@color/colorBlack" />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/EditTextAdvSearchMainProfileSearch"
@@ -65,7 +66,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorUserProfileRed"
+
 
         android:orientation="vertical"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
@@ -130,8 +131,7 @@
 
             </LinearLayout>-->
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:id="@+id/LinearLayout1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -166,65 +166,223 @@
 
         </LinearLayout>
 
+        <!--      <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1.3"
+                  android:background="@color/colorWhite"
+                  android:orientation="vertical">
+
+                  <LinearLayout
+
+                      android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:background="@color/colorDefaultGreen"
+                      android:gravity="center">
+
+                      <LinearLayout
+                          android:id="@+id/LinearLayoutAdvSearchMainSearch"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginRight="5dp"
+                          android:background="?attr/selectableItemBackgroundBorderless"
+
+                          android:clickable="true"
+
+                          android:gravity="center"
+                          android:orientation="horizontal">
+
+                          <ImageView
+                              android:layout_width="wrap_content"
+                              android:layout_height="18sp"
+                              android:src="@drawable/ic_search_nav"
+                              android:textColor="@color/colorWhite" />
+
+                          <com.chicsol.marrymax.widgets.mTextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="view 654 matches"
+                              android:textAllCaps="true"
+                              android:textColor="@color/colorWhite" />
+                      </LinearLayout>
+                  </LinearLayout>
+
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:background="@color/colorTextRed"
+                      android:orientation="horizontal"
+                      android:weightSum="10">
+
+                      <LinearLayout
+                          android:id="@+id/LinearLayoutAdvSearchMainResetSearch"
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:layout_weight="5"
+                          android:background="?attr/selectableItemBackgroundBorderless"
+
+                          android:clickable="true"
+
+
+                          android:orientation="vertical">
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:gravity="center"
+                              android:orientation="horizontal">
+
+                              <ImageView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="18sp"
+                                  android:src="@drawable/ic_reset_icon" />
+
+                              <com.chicsol.marrymax.widgets.mTextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginLeft="8dp"
+                                  android:text="Reset"
+                                  android:textColor="@color/colorWhite" />
+
+                          </LinearLayout>
+                      </LinearLayout>
+
+                      <View
+                          android:layout_width="1dp"
+                          android:layout_height="match_parent"
+                          android:background="#A56A6A"></View>
+                      &lt;!&ndash;     <LinearLayout
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:layout_marginTop="3dp"
+                               android:layout_marginBottom="3dp"
+                               android:layout_weight="0.5"
+                               android:gravity="center">
+
+                               <View
+                                   android:layout_width="1dp"
+                                   android:layout_height="match_parent"
+                                   android:background="#A56A6A"></View>
+
+                           </LinearLayout>&ndash;&gt;
+
+                      <LinearLayout
+
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:layout_weight="5"
+
+                          android:orientation="vertical">
+
+                          <LinearLayout
+                              android:id="@+id/LinearLayoutAdvSearchMainSaveSearch"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginRight="5dp"
+                              android:background="?attr/selectableItemBackgroundBorderless"
+                              android:clickable="true"
+
+                              android:gravity="center"
+
+
+                              android:orientation="horizontal">
+
+                              <ImageView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="18sp"
+                                  android:src="@drawable/ic_save_search" />
+
+                              <com.chicsol.marrymax.widgets.mTextView
+                                  android:id="@+id/mTextView22"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginLeft="8dp"
+                                  android:gravity="center"
+                                  android:text="Save"
+                                  android:textColor="@color/colorWhite" />
+                          </LinearLayout>
+                      </LinearLayout>
+
+                      <View
+                          android:layout_width="1dp"
+                          android:layout_height="match_parent"
+                          android:background="#A56A6A"></View>
+                      &lt;!&ndash;    <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_marginTop="3dp"
+                              android:layout_marginBottom="3dp"
+                              android:layout_weight="0.5"
+                              android:gravity="center">
+
+                              <View
+                                  android:layout_width="1dp"
+                                  android:layout_height="match_parent"
+                                  android:background="#A56A6A"></View>
+
+                          </LinearLayout>&ndash;&gt;
+
+                      &lt;!&ndash;        <LinearLayout
+
+
+                                  android:layout_width="0dp"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:layout_weight="3"
+                                  android:clickable="true"
+                                  android:orientation="vertical">
+
+                                  <LinearLayout
+                                      android:id="@+id/LinearLayoutAdvSearchMainSearch"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="wrap_content"
+                                      android:layout_marginRight="5dp"
+                                      android:clickable="true"
+                                      android:gravity="center"
+                                      android:orientation="horizontal">
+
+                                      <ImageView
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content"
+                                          android:src="@drawable/ic_search_nav"
+                                          android:textColor="@color/colorWhite" />
+
+                                      <com.chicsol.marrymax.widgets.mTextView
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content"
+                                          android:text="Search(1000)"
+                                          android:textColor="@color/colorWhite" />
+                                  </LinearLayout>
+                              </LinearLayout>&ndash;&gt;
+                  </LinearLayout>
+
+
+              </LinearLayout>-->
+
+        <!--old-->
+
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+
+            android:background="@drawable/border_dash_main_green"
             android:orientation="horizontal"
             android:weightSum="10">
 
 
             <LinearLayout
-                android:id="@+id/LinearLayoutAdvSearchMainResetSearch"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="3"
-                android:clickable="true"
-
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_reset_icon" />
-
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Reset"
-                        android:textColor="@color/colorWhite" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
-                android:layout_weight="0.5"
-                android:gravity="center">
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#A56A6A"></View>
-
-            </LinearLayout>
-
-            <LinearLayout
 
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="3"
+                android:layout_weight="2.5"
 
                 android:orientation="vertical">
 
@@ -233,6 +391,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -240,6 +399,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:tint="@color/colorTextRed"
                         android:src="@drawable/ic_save_search" />
 
                     <com.chicsol.marrymax.widgets.mTextView
@@ -248,46 +408,61 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Save"
-                        android:textColor="@color/colorWhite" />
+                        android:textColor="@color/colorTextRed" />
                 </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
+            <View
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="3dp"
-                android:layout_weight="0.5"
-                android:gravity="center">
+                android:background="@color/colorDefaultGreen"></View>
+        <!--    <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="#A56A6A"></View>-->
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#A56A6A"></View>
+            <!--  <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_marginTop="3dp"
+                  android:layout_marginBottom="3dp"
+                  android:layout_weight="0.5"
+                  android:gravity="center">
 
-            </LinearLayout>
+                  <View
+                      android:layout_width="1dp"
+                      android:layout_height="match_parent"
+                      android:background="#A56A6A"></View>
+
+              </LinearLayout>-->
 
             <LinearLayout
-
-
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="3"
+                android:layout_weight="5"
                 android:clickable="true"
                 android:orientation="vertical">
 
                 <LinearLayout
+
                     android:id="@+id/LinearLayoutAdvSearchMainSearch"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
+
+
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
+                        android:tint="@color/colorTextRed"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_search_nav"
                         android:textColor="@color/colorWhite" />
@@ -295,63 +470,66 @@
                     <com.chicsol.marrymax.widgets.mTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Search"
-                        android:textColor="@color/colorWhite" />
+                        android:text="view 445 matches"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorTextRed"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/colorDefaultGreen"></View>
 
-            <!--        <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:gravity="right|center"
+            <!-- <LinearLayout
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+                 android:layout_marginTop="3dp"
+                 android:layout_marginBottom="3dp"
+                 android:layout_weight="0.5"
+                 android:gravity="center">
 
-                        android:orientation="horizontal">
+                 <View
+                     android:layout_width="1dp"
+                     android:layout_height="match_parent"
+                     android:background="#A56A6A"></View>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
-                            android:clickable="true"
-                            android:gravity="center"
-                            android:orientation="vertical">
+             </LinearLayout>-->
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_save_search"
-                 />
+            <LinearLayout
+                android:id="@+id/LinearLayoutAdvSearchMainResetSearch"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="2.5"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:orientation="vertical">
 
-                            <com.chicsol.marrymax.widgets.mTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Save Search"
-                                android:textColor="@color/colorWhite" />
-                        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="5dp"
-                            android:clickable="true"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                    <ImageView
+                        android:tint="@color/colorTextRed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                            android:src="@drawable/ic_search_nav"
-                                android:textColor="@color/colorWhite"
-                          />
+                        android:src="@drawable/ic_reset_icon" />
 
-                            <com.chicsol.marrymax.widgets.mTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Search"
-                                android:textColor="@color/colorWhite" />
-                        </LinearLayout>
-                    </LinearLayout>-->
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reset"
+                        android:textColor="@color/colorTextRed" />
+
+                </LinearLayout>
+            </LinearLayout>
 
 
         </LinearLayout>

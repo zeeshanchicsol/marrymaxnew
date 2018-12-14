@@ -194,7 +194,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
             //loadCounter();
         } else {
-            getSupportActionBar().setTitle("Advance Search - " + event.getMessage() + " Matches");
+          //  getSupportActionBar().setTitle("Search - " + event.getMessage() + " Matches");
 
         }
 
@@ -330,7 +330,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
-        toolbar.setTitle("Advance Search");
+        toolbar.setTitle("Search");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
