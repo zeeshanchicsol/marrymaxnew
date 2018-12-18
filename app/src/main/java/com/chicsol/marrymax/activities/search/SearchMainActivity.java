@@ -22,6 +22,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -82,6 +83,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
     private boolean bestMatchCheck;
     private View.OnTouchListener onTouchListener;
     //   private OnMenuUpdatedListener onMenuUpdatedListener;
+    private TextView tvCounter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,7 +196,8 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
             //loadCounter();
         } else {
-          //  getSupportActionBar().setTitle("Search - " + event.getMessage() + " Matches");
+            //  getSupportActionBar().setTitle("Search - " + event.getMessage() + " Matches");
+            tvCounter.setText("View " + event.getMessage() + " Matches");
 
         }
 
@@ -341,6 +344,9 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         llSaveSearch = (LinearLayout) findViewById(R.id.LinearLayoutAdvSearchMainSaveSearch);
         llResetSearch = (LinearLayout) findViewById(R.id.LinearLayoutAdvSearchMainResetSearch);
         llSearch = (LinearLayout) findViewById(R.id.LinearLayoutAdvSearchMainSearch);
+
+        tvCounter = (TextView) findViewById(R.id.TextViewAdvanceSearchCounter);
+
 
         //    mManagerFragment = new ListViewAdvSearchFragment().newInstance();
         onTouchListener = new View.OnTouchListener() {
