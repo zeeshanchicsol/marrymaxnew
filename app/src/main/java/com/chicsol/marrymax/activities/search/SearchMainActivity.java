@@ -84,6 +84,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
     private View.OnTouchListener onTouchListener;
     //   private OnMenuUpdatedListener onMenuUpdatedListener;
     private TextView tvCounter;
+    public static int filterCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,7 +160,14 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
         //  Log.e("event", "" + event.getMessage());
 
-        if (event.getMessage().equals("getCount")) {
+
+        if (event.getMessage().equals("filterCount")) {
+            if (filterCount == 0) {
+                getSupportActionBar().setTitle("Filter Results");
+            } else {
+                getSupportActionBar().setTitle("Filter Results (" + filterCount + ")");
+            }
+        } else if (event.getMessage().equals("getCount")) {
             String params;
             Members memberSearchObj = defaultSelectionsObj;
             if (bestMatchCheck) {
@@ -196,7 +204,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
             //loadCounter();
         } else {
-            //  getSupportActionBar().setTitle("Search - " + event.getMessage() + " Matches");
+            //
             tvCounter.setText("View " + event.getMessage() + " Matches");
 
         }
@@ -333,7 +341,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
-        toolbar.setTitle("Search");
+        toolbar.setTitle("Filter Results");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

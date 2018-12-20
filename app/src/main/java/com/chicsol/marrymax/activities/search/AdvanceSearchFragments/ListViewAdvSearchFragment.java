@@ -369,13 +369,15 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
 
 
     private void updateAllSelectionsAccordingToSearchCategories() {
-
+    //    EventBus.getDefault().postSticky(new MatchesCountUpdateEvent("getCount"));
+        int filterCount=0;
         if (defaultSelectionsObj != null) {
 
 //===============Basics=======================
 
             if (defaultSelectionsObj.get_pictureonly() != 0 || defaultSelectionsObj.get_opentopublic() != 0 || defaultSelectionsObj.get_registration_within_id() != 0 || defaultSelectionsObj.get_last_login_date_id() != 0 || checkStringWith0andNull(defaultSelectionsObj.get_choice_profile_owner_Ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_zodiac_sign_ids())) {
                 basicsSelected = true;
+                filterCount++;
             } else {
                 basicsSelected = false;
             }
@@ -385,45 +387,56 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
             if (defaultSelectionsObj.get_choice_age_from() != 18 || defaultSelectionsObj.get_choice_age_upto() != 70 || defaultSelectionsObj.get_choice_height_from_id() != 1 || defaultSelectionsObj.get_choice_height_to_id() != 31 || checkStringWith0andNull(defaultSelectionsObj.get_choice_body_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_complexion_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_hair_color_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_eye_color_ids())
                     ) {
                 appearanceSelected = true;
+                filterCount++;
             } else {
                 appearanceSelected = false;
             }
 //================Marital Status===============
             if (checkStringWith0andNull(defaultSelectionsObj.get_choice_marital_status_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_children_ids())) {
                 maritalSelected = true;
+                filterCount++;
             } else {
                 maritalSelected = false;
             }
 //================Edu Occupation===============
             if (checkStringWith0andNull(defaultSelectionsObj.get_choice_education_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_occupation_ids())) {
                 eduOccuSelected = true;
+                filterCount++;
             } else {
                 eduOccuSelected = false;
             }
 //================Ethnic Background===============
             if (checkStringWith0andNull(defaultSelectionsObj.get_choice_ethnic_bground_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_religious_sect_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_caste_ids())) {
                 ethnicSelected = true;
+                filterCount++;
             } else {
                 ethnicSelected = false;
             }
 //================Lifestyle 1 ===============
             if (checkStringWith0andNull(defaultSelectionsObj.get_choice_raised_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_hijab_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_family_values_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_living_arangment_ids())) {
                 lifestyle1Selected = true;
+                filterCount++;
             } else {
                 lifestyle1Selected = false;
             }
 //================Lifestyle 2 ===============
             if (checkStringWith0andNull(defaultSelectionsObj.get_choice_sibling_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_smoking_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_drink_ids())) {
                 lifestyle2Selected = true;
+                filterCount++;
             } else {
                 lifestyle2Selected = false;
             }
 //================Geography  ===============
             if (checkStringWith0andNull(defaultSelectionsObj.get_choice_country_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_state_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_cities_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_visa_status_ids())) {
                 geographySelected = true;
+                filterCount++;
             } else {
                 geographySelected = false;
             }
+
+            SearchMainActivity.filterCount=filterCount;
+            EventBus.getDefault().postSticky(new MatchesCountUpdateEvent("filterCount"));
+
 
         }
     }
