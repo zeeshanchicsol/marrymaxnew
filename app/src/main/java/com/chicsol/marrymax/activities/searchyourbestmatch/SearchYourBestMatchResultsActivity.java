@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,6 +29,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.ActivityLogin;
+import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeResultsActivity;
 import com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsSearchActivity;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
@@ -86,6 +88,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
     Context activity;
     private Toolbar toolbar;
     private Spinner spinner_bride_groom;
+    private TextView tvMatchesCount;
     String TAG = "SearchYourBestMatchResultsActivity";
 
     @Override
@@ -208,7 +211,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
             //ListViewAdvSearchFragment.defaultSelectionsObj
         }*/
         if (result != 0) {
-            Toast.makeText(getApplicationContext(), "val: " + result, Toast.LENGTH_SHORT).show();
+         //   Toast.makeText(getApplicationContext(), "val: " + result, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -222,9 +225,20 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
     private void initilize() {
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
+
+
         toolbar.setTitle("Search");
+        if (SearchMainActivity.filterCount > 0) {
+
+            toolbar.setTitle("Filter (" + SearchMainActivity.filterCount + ")");
+        }
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        tvMatchesCount = (TextView) findViewById(R.id.TextViewMatchesTotalCount);
+
+
         // fragment = SearchResultsActivity.this;
         spinner_bride_groom = (Spinner) findViewById(R.id.sp_bestmatch_results_bride_groom);
 
@@ -533,7 +547,9 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
                                     }.getType();
                                     Members memberTotalPages = (Members) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), membert);
 
-                                    toolbar.setTitle(memberTotalPages.get_total_member_count() + " - Matches Found");
+                               //     toolbar.setTitle();
+                                    tvMatchesCount.setVisibility(View.VISIBLE);
+                                    tvMatchesCount.setText(memberTotalPages.get_total_member_count() + " - Matches Found");
                                     totalPages = memberTotalPages.get_total_pages();
                                     lastPage = 1;
 

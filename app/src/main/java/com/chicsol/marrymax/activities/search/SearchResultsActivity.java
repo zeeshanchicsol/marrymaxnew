@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -83,14 +84,13 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     private Toolbar toolbar;
     private long totalMatchesCount = 0;
     private String TAG = "SearchResultsActivity ";
+    private TextView tvMatchesCount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.fragment_dashboard_mymatches);
-
-
 
 
         initilize();
@@ -230,9 +230,13 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
 
     private void initilize() {
 
+
+        tvMatchesCount = (TextView) findViewById(R.id.TextViewMatchesTotalCount);
+
+
         if (defaultSelectionsObj != null) {
 
-            if (defaultSelectionsObj.getAlias()!=null) {
+            if (defaultSelectionsObj.getAlias() != null) {
                 if (!defaultSelectionsObj.getAlias().equals("")) {
 
                     TAG = "searchByAlias";
@@ -243,7 +247,12 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
 
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
+
         toolbar.setTitle("Search");
+        if (SearchMainActivity.filterCount > 0) {
+
+            toolbar.setTitle("Filter (" + SearchMainActivity.filterCount + ")");
+        }
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // fragment = SearchResultsActivity.this;
@@ -485,7 +494,11 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
                                     }.getType();
                                     Members memberTotalPages = (Members) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), membert);
 
-                                    toolbar.setTitle(memberTotalPages.get_total_member_count() + " - Matches Found");
+
+                                    tvMatchesCount.setVisibility(View.VISIBLE);
+
+                                    tvMatchesCount.setText(memberTotalPages.get_total_member_count() + " Matches Found");
+
                                     totalMatchesCount = memberTotalPages.get_total_member_count();
                                     totalPages = memberTotalPages.get_total_pages();
                                     lastPage = 1;
@@ -723,7 +736,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     @Override
     public void onUpdateMatchCount(boolean count) {
         totalMatchesCount--;
-        toolbar.setTitle(totalMatchesCount + " - Matches Found");
+        tvMatchesCount.setText(totalMatchesCount + " - Matches Found");
 
     }
 
