@@ -41,6 +41,7 @@ public class dialogMatchAidFeedback extends DialogFragment {
     public onCompleteListener mCompleteListener;
     String userpath, jsarray;
     mLfm lfm;
+    EditText etFeedback;
 
     public static dialogMatchAidFeedback newInstance(mLfm obj) {
 
@@ -87,44 +88,46 @@ public class dialogMatchAidFeedback extends DialogFragment {
         final AppCompatRatingBar mRbar = (AppCompatRatingBar) rootView.findViewById(R.id.dialog_ratingbar);
 
 
-        final EditText etFeedback = (EditText) rootView.findViewById(R.id.EditTextMatchAidFeedbackText);
+        etFeedback = (EditText) rootView.findViewById(R.id.EditTextMatchAidFeedbackText);
+
         Button mOkButton = (Button) rootView.findViewById(R.id.mButtonDialogMatchAidUPViewProgress);
         mOkButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
                 Log.e("stars", mRbar.getRating() + "" + etFeedback.getText().toString());
 
 
-                if (mRbar.getRating() >= 1) {
-
-
-                    JSONObject params = new JSONObject();
-                    try {
+                if (!checkSelections()) {
+                    if (mRbar.getRating() >= 1) {
 
                         String fb = etFeedback.getText().toString();
 
-                        if (!TextUtils.isEmpty(fb.trim())) {
+                        JSONObject params = new JSONObject();
+                        try {
 
-                            params.put("id", lfm.getId());
-                            params.put("id2", mRbar.getNumStars());
-                            params.put("text", fb);
-                            Log.e("addFeedback", Urls.addFeedback + "   " + params);
-                         addFeedback(params);
-                        } else {
 
-                            Toast.makeText(getContext(), "Enter Feedback Text ", Toast.LENGTH_SHORT).show();
+                            if (!TextUtils.isEmpty(fb.trim())) {
+
+                                params.put("id", lfm.getId());
+                                params.put("id2", mRbar.getNumStars());
+                                params.put("text", fb);
+                                Log.e("addFeedback", Urls.addFeedback + "   " + params);
+                                addFeedback(params);
+                            } else {
+
+                                Toast.makeText(getContext(), "Enter Feedback Text ", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+                        // mCompleteListener.onComplete("asdsa");
+                    } else {
 
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                        Toast.makeText(getContext(), "Please rate your feedback", Toast.LENGTH_SHORT).show();
                     }
-                    // mCompleteListener.onComplete("asdsa");
-                } else {
 
-                    Toast.makeText(getContext(), "Please rate your feedback", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
 
@@ -141,6 +144,20 @@ public class dialogMatchAidFeedback extends DialogFragment {
         return rootView;
     }
 
+    private boolean checkSelections() {
+
+        boolean ck = false;
+        if (!TextUtils.isEmpty(etFeedback.getText().toString().trim())) {
+            if (etFeedback.getText().length() > 200) {
+                etFeedback.setError(" max 200 char");
+
+                etFeedback.requestFocus();
+                ck = true;
+
+            }
+        }
+        return ck;
+    }
 
     @Override
     public void onStart() {
