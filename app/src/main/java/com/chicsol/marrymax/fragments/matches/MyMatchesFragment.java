@@ -62,7 +62,7 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
  * Created by Android on 11/3/2016.
  */
 
-public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener,  dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface {
+public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface {
     public static int result = 0;
     LinearLayout LinearLayoutMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -79,7 +79,7 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
     public String params;
     Context context;
     private long totalMatchesCount = 0;
-TextView tvMatchesCount;
+    TextView tvMatchesCount;
 
 
     private String Tag = "MyMatchesFragment";
@@ -125,10 +125,7 @@ TextView tvMatchesCount;
         lastPage = 1;
         recyclerAdapter.setMoreLoading(false);
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
-
             getRawData();
-
-
         }
 
 
@@ -175,7 +172,7 @@ TextView tvMatchesCount;
             if (isVisibleToUser) {
                 Log.e("MY MATCHES" + isVisibleToUser, "created");
 
-              //  new MarryMax(null).getRawData(context, 0);
+                //  new MarryMax(null).getRawData(context, 0);
             }
         }
     }
@@ -195,7 +192,7 @@ TextView tvMatchesCount;
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment,this,this,Tag);
+        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this, Tag);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);
@@ -271,7 +268,7 @@ TextView tvMatchesCount;
                 pDialog.setVisibility(View.GONE);
             }
         });
-        MySingleton.getInstance(getContext()).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
     }
 
 
@@ -521,7 +518,7 @@ TextView tvMatchesCount;
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -601,7 +598,7 @@ TextView tvMatchesCount;
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -699,15 +696,18 @@ TextView tvMatchesCount;
         totalMatchesCount--;
         setMatchesCount();
     }
+
     private void setMatchesCount() {
 
         tvMatchesCount.setText(totalMatchesCount + " Matches Found");
 
     }
+
     @Override
     public void onRefreshMatch() {
         onRefresh();
     }
+
     @Override
     public void onStop() {
         super.onStop();

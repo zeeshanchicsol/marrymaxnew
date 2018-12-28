@@ -237,7 +237,6 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
         }
 
 
-
     }
 
 
@@ -317,6 +316,14 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 } else {
                     tvMsgCities.setVisibility(View.VISIBLE);
                     citiesAdapter.clear();
+                    //to uncheck
+                    removeCityByStateID(selectedCitiesMap, Objcsc.getId());
+                    topCitiesAdapter.unCheckAll();
+                    topCitiesAdapter.selectItem(getComaSeparatedItemsFromMap(selectedCitiesMap));
+
+                    Log.e("selectedCitiesMap", "" + getComaSeparatedItemsFromMap(selectedCitiesMap)+"=====");
+                    defaultSelectionsObj.set_choice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
+
                     defaultSelectionsObj.set_choice_state_ids(selectedIds);
                 }
                 break;
@@ -339,7 +346,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 //top cities selection
 
                 if (isChecked) {
-                    selectedCitiesMap.put(Objcsc.getId(), Objcsc.getId());
+                    selectedCitiesMap.put(Objcsc.getId(), Objcsc.getSid());
                     selectedStatesMap.put(Objcsc.getSid(), Objcsc.getSid());
                     selectedCountriesMap.put(Objcsc.getCid(), Objcsc.getCid());
 
@@ -470,6 +477,20 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
     }
 
+    public void removeCityByStateID(Map<String, String> map, String stateId) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+
+            String key = entry.getKey();
+            String value = entry.getValue();
+
+            if (value.equals(stateId)) {
+                selectedCitiesMap.remove(key);
+            }
+        }
+
+    }
+
     public String getComaSeparatedItemsFromMap(Map<String, String> map) {
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -479,7 +500,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
             if (stringBuilder.length() > 0)
                 stringBuilder.append(",");
-            stringBuilder.append(value);
+            stringBuilder.append(key);
 
         }
         return stringBuilder.toString();

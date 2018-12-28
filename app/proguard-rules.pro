@@ -32,3 +32,10 @@
 #-keep class * {
  #   public private *;
 #}
+
+
+-keepattributes *Annotation*
+-keepclassmembers class ** {
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }
