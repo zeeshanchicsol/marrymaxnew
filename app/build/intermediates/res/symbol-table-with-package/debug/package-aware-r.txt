@@ -1344,6 +1344,8 @@ id ButtonContactDialogCancel
 id ButtonContactSubmit
 id ButtonDInterestsCompleteProfile
 id ButtonDInterestsSubscribe
+id ButtonDashboardDismissBanner
+id ButtonDashboardGetOfferNow
 id ButtonDashboardInterestReceivedCount
 id ButtonDashboardInterestSentCount
 id ButtonDashboardPermissionSentCount
@@ -1912,6 +1914,7 @@ id TextViewDashboardCount1
 id TextViewDashboardCount2
 id TextViewDashboardCount3
 id TextViewDashboardCount4
+id TextViewDashboardPromoMessage
 id TextViewDescribePersonality
 id TextViewDialogAcceptInterestDetails
 id TextViewDialogDeclineInterestDetails
@@ -3503,6 +3506,7 @@ string error_invalid_password
 string expiry_date_hint
 string fa_icon_ac_setting
 string fa_icon_accepted
+string fa_icon_bell
 string fa_icon_block
 string fa_icon_camera
 string fa_icon_cross

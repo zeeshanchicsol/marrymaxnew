@@ -73,6 +73,7 @@ public class Urls {
     public static String getAdminNotes = baseUrl + "/api/WebArd/GetAdminNotes/";
     public static String getStatus = baseUrl + "/api/WebArd/GetStatus/";
 
+
     //UserProfile Activity
     public static String getProfileDetail = baseUrl + "/api/WebArd/ProfileDetail";
     public static String mobileInfo = baseUrl + "/api/WebArd/MobileInfo";

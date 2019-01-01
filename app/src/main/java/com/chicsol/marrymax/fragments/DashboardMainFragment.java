@@ -12,12 +12,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.CardView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -101,7 +101,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private TextView tvWIV, tvWVM, tvPMP, tvMWPU, tvMemLFM, tvMatchesLFM, tvNewMessages, tvNewRequests, tvNewInterests;
     private TextView tvAcceptedMembers, tvMyFavourites, tvMyNotes, tvRemoveFromSearch, tvBlocked, tvAaccMemCount, tvMFavCount, tvMyNotesCount, tvRecommenedMatchesCount, tvRemovedFromSearchCount, tvBlockedCount, tvProfileCompleteion;
     private ImageView ivCompleleProfile, ivVerifyPhone, ivVerifyEmail, ivReviewPending, ivReviewPendingOrange;
-    private CardView cardViewProfileCompletionStatus;
+    private CardView cardViewProfileCompletionStatus, cvPromoCode;
 
     private AppCompatButton btSubscribe;
     private NestedScrollView NvScreenMain;
@@ -112,7 +112,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
     private AppCompatButton btPhoneRecievedCount, btRequestecievedCount, btInterestRecievedCount, btPermissionsRecievedCount, btPhoneSentCount, btInterestSentCount, btRequestSentCount, btPermissionsSentCount;
 
-    private TextView tvCount1, tvCount2, tvCount3, tvCount4;
+    private TextView tvCount1, tvCount2, tvCount3, tvCount4, tvPromoMessageTitle;
     private RelativeLayout rlAcceptedMem, rlMyFav, rlMyNotes, rlRemoveFromSearch, rlBlocked, rlRecommededMatches;
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -121,6 +121,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     ViewPagerAdapter1 adapterMemFragment;
     private ViewPager viewPagerMemFragment;
     TabLayout tabLayoutMemFragment;
+
+    private AppCompatButton btDashboardGetOfferNow, btDashboardDismissBanner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -162,6 +164,9 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarDashMain1);
         pDialog.setVisibility(View.GONE);
 
+        btDashboardGetOfferNow = (AppCompatButton) view.findViewById(R.id.ButtonDashboardGetOfferNow);
+        btDashboardDismissBanner = (AppCompatButton) view.findViewById(R.id.ButtonDashboardDismissBanner);
+
 
         btPhoneRecievedCount = (AppCompatButton) view.findViewById(R.id.ButtonDashboardPhoneReceivedCount);
         btRequestecievedCount = (AppCompatButton) view.findViewById(R.id.ButtonDashboardRequestReceivedCount);
@@ -175,6 +180,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
         cardViewProfileCompletionStatus = (CardView) view.findViewById(R.id.CardViewProfileCompletionStatus);
+        cvPromoCode = (CardView) view.findViewById(R.id.CardViewPromoCode);
+
         coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.coordinatorLayoutDashMainFragment);
         FrameLayoutDashMainContainer = (FrameLayout) view.findViewById(R.id.FrameLayoutDashMainContainer);
 
@@ -229,6 +236,9 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         tvCount2 = (TextView) view.findViewById(R.id.TextViewDashboardCount2);
         tvCount3 = (TextView) view.findViewById(R.id.TextViewDashboardCount3);
         tvCount4 = (TextView) view.findViewById(R.id.TextViewDashboardCount4);
+
+
+        tvPromoMessageTitle = (TextView) view.findViewById(R.id.TextViewDashboardPromoMessage);
 
 
         tvAcceptedMembers = (TextView) view.findViewById(R.id.TextViewAcceptedMemCount);
@@ -366,7 +376,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private void LoadData() {
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
-          //  getStatus();
+            //  getStatus();
 
 
             getDashboardData();
@@ -385,6 +395,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                 cardViewProfileCompletionStatus.setVisibility(View.GONE);
             }
             setupViewPager();
+
+
 
         }
     }
@@ -853,6 +865,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     //  GetDashboardData
     private void getDashboardData() {
 
+
+
     /*    if (btReset.getVisibility() == View.VISIBLE) {
             btReset.setVisibility(View.INVISIBLE);
 
@@ -988,6 +1002,20 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 if (Integer.parseInt(dash.getBlocked_members()) == 0) {
                                     rlBlocked.setClickable(false);
                                 }
+
+
+                                if (! dash.getDetail().equals("")) {
+                                    if (member.get_member_status() == 2 || member.get_member_status() == 3) {
+
+                                        cvPromoCode.setVisibility(View.VISIBLE);
+                                        tvPromoMessageTitle.setText(Html.fromHtml( dash.getDetail()));
+
+
+                                    }
+                                }
+
+
+
 
                                 setSentReceivedCount(jsonArray);
 
@@ -1480,6 +1508,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
     }
+
+
 
     @Override
     public void onStop() {
