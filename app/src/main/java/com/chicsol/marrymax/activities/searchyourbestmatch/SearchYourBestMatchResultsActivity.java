@@ -156,7 +156,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
 
         Members memberSearchObj = defaultSelectionsObj;
 
-        if (memberSearchObj != null) {
+      /*  if (memberSearchObj != null) {
             ///  memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
 
             // memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
@@ -172,7 +172,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
             loadData(params, false);
 
 
-        }
+        }*/
 /*
 
             else {
@@ -211,7 +211,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
             //ListViewAdvSearchFragment.defaultSelectionsObj
         }*/
         if (result != 0) {
-         //   Toast.makeText(getApplicationContext(), "val: " + result, Toast.LENGTH_SHORT).show();
+            //   Toast.makeText(getApplicationContext(), "val: " + result, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -253,6 +253,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
         spinner_bride_groom.setAdapter(spAdapterBrideGroom);
 
 
+
         if (defaultSelectionsObj.get_gender() != null) {
 
             if (defaultSelectionsObj.get_gender().equals("M")) {
@@ -290,7 +291,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
         recyclerView = (RecyclerView) findViewById(R.id.RecyclerViewDashMainMyMatches);
 
 
-        LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getApplicationContext());
+        LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchYourBestMatchResultsActivity.this, getSupportFragmentManager(), this, this, this, TAG);
@@ -315,7 +316,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
                 // Toast.makeText(activity, ""+brideGroomDataList.get(position).getName(), Toast.LENGTH_SHORT).show();
 
                 //  Toast.makeText(getApplicationContext(), "" + position, Toast.LENGTH_SHORT).show();
-
+                tvMatchesCount.setVisibility(View.GONE);
                 if (position == 0) {
                     defaultSelectionsObj.set_gender("F");
                 } else {
@@ -337,7 +338,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
                     params = gson.toJson(memberSearchObj);
 
 
-                    LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getApplicationContext());
+                    LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getApplicationContext());
                     recyclerView.setLayoutManager(mLayoutManager);
 
                     recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(SearchYourBestMatchResultsActivity.this, getSupportFragmentManager(), SearchYourBestMatchResultsActivity.this, SearchYourBestMatchResultsActivity.this, SearchYourBestMatchResultsActivity.this, TAG);
@@ -346,7 +347,6 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
                     recyclerAdapter.setRecyclerView(recyclerView);
 
                     recyclerView.setAdapter(recyclerAdapter);
-
 
 
                     loadData(params, false);
@@ -494,7 +494,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
 
     private void loadData(String paramsString, final boolean refresh) {
 
-
+        tvMatchesCount.setVisibility(View.GONE);
         pDialog.setVisibility(View.VISIBLE);
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
@@ -547,7 +547,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
                                     }.getType();
                                     Members memberTotalPages = (Members) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), membert);
 
-                               //     toolbar.setTitle();
+                                    //     toolbar.setTitle();
                                     tvMatchesCount.setVisibility(View.VISIBLE);
                                     tvMatchesCount.setText(memberTotalPages.get_total_member_count() + " - Matches Found");
                                     totalPages = memberTotalPages.get_total_pages();

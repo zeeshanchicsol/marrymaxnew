@@ -216,7 +216,7 @@ public class AccountDeactivationFragment extends Fragment {
 
 
                                 //  Log.e(""+ Urls.accountDeactivate, "" + params);
-                                     deactivateRequest(params);
+                                deactivateRequest(params);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -263,6 +263,7 @@ public class AccountDeactivationFragment extends Fragment {
                                 Toast.makeText(context, "Account Deactivated", Toast.LENGTH_SHORT).show();
 
                             } else {
+                                btDeactiveAccount.setEnabled(true);
                                 Toast.makeText(context, "Account did not deactivate. Check your password. Please try again.", Toast.LENGTH_SHORT).show();
                             }
 

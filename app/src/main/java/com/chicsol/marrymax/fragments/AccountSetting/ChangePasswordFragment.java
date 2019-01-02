@@ -240,8 +240,12 @@ public class ChangePasswordFragment extends Fragment {
                             int responseid = response.getInt("id");
                             if (responseid == 1) {
                                 Toast.makeText(getContext(), "Password Updated", Toast.LENGTH_SHORT).show();
-                                SharedPreferenceManager.getUserObject(getContext()).set_password(password);
-                                SharedPreferenceManager.setUserObject(getContext(), params);
+
+
+                                Members member = SharedPreferenceManager.getUserObject(getContext());
+                                member.set_password(password);
+
+                                SharedPreferenceManager.setUserObject(getContext(), member);
 
                                 etNewPassword.setText("");
                                 etOldPassword.setText("");
