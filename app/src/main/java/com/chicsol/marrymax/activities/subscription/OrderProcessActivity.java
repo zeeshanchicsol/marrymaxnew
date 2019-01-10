@@ -242,8 +242,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-
-                if (checkedId == 1) {
+                if (checkedId == R.id.RadioButtonOrderYes) {
 
                     llSpAssisted.setVisibility(View.VISIBLE);
                 } else {
@@ -482,7 +481,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                     payments.setPersonal_name(subscription.getName());
 
                     payments.setTranspath(subscription.getTranspath());
-                    payments.setAmount((int) subscription.getTotal_cost());
+                    payments.setAmount( subscription.getTotal_cost());
 
 
                     Gson gson = new Gson();
@@ -740,9 +739,10 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         //    path,item_id,member_ip,procode_code,checkout_email_address,payment_method,pp_paykey
 
 
-        final ProgressDialog pDialog = new ProgressDialog(OrderProcessActivity.this);
+/*        final ProgressDialog pDialog = new ProgressDialog(OrderProcessActivity.this);
         pDialog.setMessage("Loading...");
-        pDialog.show();
+        pDialog.show();*/
+        pDialog.setVisibility(View.VISIBLE);
         Log.e("generateCart", params.toString());
         Log.e("generateCart params", Urls.generateCart);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -810,12 +810,13 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            //    pDialog.dismiss();
+                            pDialog.setVisibility(View.GONE);
                             e.printStackTrace();
                         }
 
-
-                        pDialog.dismiss();
+                        pDialog.setVisibility(View.GONE);
+                        //   pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -824,7 +825,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.dismiss();
+                //   pDialog.dismiss();
+                pDialog.setVisibility(View.GONE);
             }
 
 
@@ -894,11 +896,11 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
     private void getPackages() {
 
-        final ProgressDialog pDialog = new ProgressDialog(OrderProcessActivity.this);
+      /*  final ProgressDialog pDialog = new ProgressDialog(OrderProcessActivity.this);
         pDialog.setMessage("Loading...");
-        pDialog.show();
+        pDialog.show();*/
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
-
+        pDialog.setVisibility(View.VISIBLE);
         JSONObject params = new JSONObject();
         try {
 
@@ -944,11 +946,13 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            //   pDialog.dismiss();
+                            pDialog.setVisibility(View.GONE);
                             e.printStackTrace();
                         }
 
-                        pDialog.dismiss();
+                        pDialog.setVisibility(View.GONE);
+                        // pDialog.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -958,8 +962,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
-
-                pDialog.dismiss();
+                pDialog.setVisibility(View.GONE);
+                //  pDialog.dismiss();
             }
 
 

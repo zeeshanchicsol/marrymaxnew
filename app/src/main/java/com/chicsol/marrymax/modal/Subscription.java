@@ -33,7 +33,7 @@ public class Subscription {
     @SerializedName("trans_order_id")
     public long trans_order_id;
     @SerializedName("total_cost")
-    public long total_cost;
+    public float total_cost;
     @SerializedName("member_id")
     public long member_id;
     @SerializedName("path")
@@ -61,9 +61,9 @@ public class Subscription {
     @SerializedName("item_price")
     public long item_price;
     @SerializedName("order_cost")
-    public long order_cost;
+    public float order_cost;
     @SerializedName("discount_amount")
-    public long discount_amount;
+    public float discount_amount;
     @SerializedName("item_currency")
     public String item_currency;
     @SerializedName("promocode_info")
@@ -206,11 +206,11 @@ public class Subscription {
         this.trans_order_id = trans_order_id;
     }
 
-    public long getTotal_cost() {
+    public float getTotal_cost() {
         return total_cost;
     }
 
-    public void setTotal_cost(long total_cost) {
+    public void setTotal_cost(float total_cost) {
         this.total_cost = total_cost;
     }
 
@@ -318,19 +318,19 @@ public class Subscription {
         this.item_price = item_price;
     }
 
-    public long getOrder_cost() {
+    public float getOrder_cost() {
         return order_cost;
     }
 
-    public void setOrder_cost(long order_cost) {
+    public void setOrder_cost(float order_cost) {
         this.order_cost = order_cost;
     }
 
-    public long getDiscount_amount() {
+    public float getDiscount_amount() {
         return discount_amount;
     }
 
-    public void setDiscount_amount(long discount_amount) {
+    public void setDiscount_amount(float discount_amount) {
         this.discount_amount = discount_amount;
     }
 

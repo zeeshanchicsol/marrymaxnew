@@ -477,6 +477,97 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.CardView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:lineSpacingExtra="5dp"
+                        android:text="  How committed are you to yourself ?"
+                        android:textColor="@color/colorTextRed"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:lineSpacingExtra="5dp"
+                        android:text="If you don't pay for something, you rarely pay attention.  \nMost people want stuff that's free. But if you get something for free, you rarely prize that thing. You rarely take it seriously. \nHow much do you invest in yourself? \nIf you aren't investing in yourself, than you don't have any skin in the game of your own life. "
+                        android:textColor="#666"
+
+
+                        />
+
+                    <!--  <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:clickable="true"
+                          android:gravity="left"
+                          android:lineSpacingExtra="5dp"
+                          android:text="Most people want stuff that's free. But if you get something for free, you rarely prize that thing. You rarely take it seriously."
+                          android:textColor="@color/colorBlack"
+                          android:textSize="13sp"
+
+                          />
+
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="5dp"
+                          android:clickable="true"
+                          android:gravity="left"
+                          android:lineSpacingExtra="5dp"
+                          android:text="How much do you invest in yourself?"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="13sp"
+
+
+                          />
+
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:clickable="true"
+                          android:gravity="left"
+                          android:lineSpacingExtra="5dp"
+                          android:text="If you aren't investing in yourself, than you don't have any skin in the game of your own life."
+                          android:textColor="@color/colorBlack"
+                          android:textSize="13sp"
+
+                          />-->
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
         <!--<android.support.v7.widget.AppCompatButton
 
             android:id="@+id/SubscriptionPlanPackageDetails"

@@ -310,6 +310,7 @@
                             android:orientation="horizontal">
 
                             <RadioButton
+                                android:id="@+id/RadioButtonOrderYes"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
 
@@ -317,6 +318,7 @@
                                 android:text="Yes" />
 
                             <RadioButton
+                                android:id="@+id/RadioButtonOrderNo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"

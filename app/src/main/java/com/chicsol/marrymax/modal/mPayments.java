@@ -23,7 +23,7 @@ public class mPayments {
     @SerializedName("year")
     public int year;
     @SerializedName("amount")
-    public int amount;
+    public float amount;
     @SerializedName("email")
     public String email;
     @SerializedName("alias")
@@ -91,11 +91,11 @@ public class mPayments {
         this.year = year;
     }
 
-    public int getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 

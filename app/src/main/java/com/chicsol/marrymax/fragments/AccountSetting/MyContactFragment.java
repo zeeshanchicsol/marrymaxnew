@@ -712,6 +712,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                 }
             }
+
+
         });
 
 
