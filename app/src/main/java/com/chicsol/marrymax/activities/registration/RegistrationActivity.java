@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.activities.registration;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -100,6 +101,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     Calendar myCalendar;
     DatePickerDialog DatePickerDialoga;
+
     //  DatePickerDialog.OnDateSetListener dateSetListener;
 
     @Override
@@ -210,7 +212,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         myCalendar.set(Calendar.YEAR, maxyear);
 
-        DatePickerDialoga = new DatePickerDialog(RegistrationActivity.this, new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialoga = new DatePickerDialog(RegistrationActivity.this,AlertDialog.THEME_DEVICE_DEFAULT_LIGHT, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 

@@ -119,7 +119,7 @@ public class MarryMax {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        //     Log.e("res progress", response + "");
+                           Log.e("res progress", response + "");
                         try {
 
 
@@ -175,6 +175,12 @@ public class MarryMax {
                                         activity.finish();
                                     } else if (registration_within_id == 90) {
                                         Intent intent = new Intent(activity, RegisterInterest.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        context.startActivity(intent);
+                                        activity.finish();
+                                    }
+                                    else {
+                                        Intent intent = new Intent(activity, RegisterGeographicActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                         context.startActivity(intent);
                                         activity.finish();

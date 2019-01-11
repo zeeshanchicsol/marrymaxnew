@@ -831,11 +831,16 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         viewGenerator.selectSpinnerItemById(spMyGraduationYear, members_obj.get_about_type_id(), graduationYearDataList);
         viewGenerator.selectSpinnerItemById(spMyAnnualIncomeLevel, members_obj.get_income_level_id(), incomeDataList);
 
+        Log.e("choice_economy_ids " + members_obj.get_economy_id(), "" + members_obj.get_choice_economy_ids());
 
         Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
         if (member.get_member_status() >= 2 && member.get_member_status() < 7) {
             spMyEducation.setEnabled(false);
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgEconomy, members_obj.get_economy_id(), llcbViewEconomy, members_obj.get_choice_economy_ids());
+
+
+            if (!members_obj.get_choice_economy_ids().equals("") && !members_obj.get_choice_economy_ids().equals("0")) {
+                viewGenerator.selectCheckRadioWithDisabledRadio(rgEconomy, members_obj.get_economy_id(), llcbViewEconomy, members_obj.get_choice_economy_ids());
+            }
             viewGenerator.selectCheckRadioWithDisabledRadio(rgReligious, members_obj.get_religious_sect_id(), llcbViewReligious, members_obj.get_choice_religious_sect_ids());
             viewGenerator.selectCheckRadioWithDisabledRadio(rgEthnic, members_obj.get_ethnic_background_id(), llcbViewEthnic, members_obj.get_choice_ethnic_bground_ids());
             viewGenerator.selectCheckRadioWithDisabledRadio(rgMarital, members_obj.get_marital_status_id(), llcbViewMarital, members_obj.get_choice_marital_status_ids());
@@ -1275,9 +1280,6 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                                 etGraduatedFrom.setText(members_obj.get_about_type());
                                 spMyGraduationYear.setSelection(0);
                                 btRemoveSchool.setVisibility(View.GONE);
-
-
-
 
 
                             } else {
