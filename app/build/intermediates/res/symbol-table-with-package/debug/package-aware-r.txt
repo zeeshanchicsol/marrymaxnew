@@ -1407,6 +1407,7 @@ id ButtonResetSearchHijab
 id ButtonResetSearchLivingArrangement
 id ButtonResetSearchMartialStatus
 id ButtonResetSearchOccupation
+id ButtonResetSearchPhysicalChallenges
 id ButtonResetSearchPhysique
 id ButtonResetSearchProfileWith
 id ButtonResetSearchRaisedWhere
@@ -1567,6 +1568,7 @@ id LinearLayoutAdvSearchMainSaveSearch
 id LinearLayoutAdvSearchMainSearch
 id LinearLayoutAdvSearchMaritalStatus
 id LinearLayoutAdvSearchOccupation
+id LinearLayoutAdvSearchPhysicalChallenges
 id LinearLayoutAdvSearchPhysique
 id LinearLayoutAdvSearchProfileCreatedFor
 id LinearLayoutAdvSearchProfileWith
@@ -1638,6 +1640,7 @@ id LinearLayoutMyChoiceHijab
 id LinearLayoutMyChoiceLiving
 id LinearLayoutMyChoiceMarriage
 id LinearLayoutMyChoiceMartial
+id LinearLayoutMyChoicePhysicalChallenges
 id LinearLayoutMyChoicePhysicque
 id LinearLayoutMyChoiceRaisedWhere
 id LinearLayoutMyChoiceReligious
@@ -1766,6 +1769,7 @@ id RadioGroupMarriage
 id RadioGroupMartial
 id RadioGroupOrderProcessAssited
 id RadioGroupOrderProcessMain
+id RadioGroupPhysicalChallenges
 id RadioGroupPhysicque
 id RadioGroupQuestionAnswers
 id RadioGroupRaisedWhere
@@ -2127,6 +2131,7 @@ id TextViewUPChoiceHijab
 id TextViewUPChoiceLivingArrangements
 id TextViewUPChoiceMaritalStatus
 id TextViewUPChoiceOccupationDetail
+id TextViewUPChoicePhysicalChallenges
 id TextViewUPChoicePhysique
 id TextViewUPChoiceRaised
 id TextViewUPChoiceReligiousSect
@@ -2155,6 +2160,7 @@ id TextViewUPMostThankful
 id TextViewUPMyStrengths
 id TextViewUPOccupation
 id TextViewUPOccupationDetail
+id TextViewUPPhysicalChallenges
 id TextViewUPPhysique
 id TextViewUPProfileFor
 id TextViewUPRaised
@@ -2429,6 +2435,7 @@ id mTextView12
 id mTextView14
 id mTextView15
 id mTextView16
+id mTextView17
 id mTextView2
 id mTextView20
 id mTextView21

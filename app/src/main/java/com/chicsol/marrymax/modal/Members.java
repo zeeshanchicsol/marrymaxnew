@@ -538,7 +538,7 @@ public class Members {
     @SerializedName("interest_response")
     private long _interest_response;
     @SerializedName("interested_id")
-    private long _interested_id=0;
+    private long _interested_id = 0;
     @SerializedName("interest_received")
     private long _interest_received;
     @SerializedName("image_count")
@@ -586,6 +586,51 @@ public class Members {
 
     @SerializedName("privilege_type_id")
     private long _privilege_type_id;
+
+    @SerializedName("physic_id")
+    private int physic_id;
+
+    @SerializedName("choice_physic_ids")
+    private String choice_physic_ids;
+
+    @SerializedName("physics_types")
+    private String physics_types;
+
+    public int getPhysic_id() {
+        return physic_id;
+    }
+
+    public void setPhysic_id(int physic_id) {
+        this.physic_id = physic_id;
+    }
+
+    public String getChoice_physic_ids() {
+        return choice_physic_ids;
+    }
+
+    public void setChoice_physic_ids(String choice_physic_ids) {
+        this.choice_physic_ids = choice_physic_ids;
+    }
+
+    public String getPhysics_types() {
+        return physics_types;
+    }
+
+    public void setPhysics_types(String physics_types) {
+        this.physics_types = physics_types;
+    }
+
+    public String getChoice_physics() {
+        return choice_physics;
+    }
+
+    public void setChoice_physics(String choice_physics) {
+        this.choice_physics = choice_physics;
+    }
+
+    @SerializedName("choice_physics")
+
+    private String choice_physics;
 
 
     public void setUserpath(String userpath) {

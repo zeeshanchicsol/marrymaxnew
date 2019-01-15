@@ -49,10 +49,10 @@ import java.util.Map;
 
 public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
     private Button bt_register_free, bt_back;
-    private LinearLayout llcbViewFamilyValues, llcbViewLivingArrangements, llcbViewRaisedWhere, llcbViewHijab, llcbViewSmoke, llcbViewDrink;
-    private RadioGroup rgFamilyValues, rgLivingArrangements, rgRaisedWhere, rgHijab, rgSmoke, rgDrink;
+    private LinearLayout llcbViewFamilyValues, llcbViewLivingArrangements, llcbViewRaisedWhere, llcbViewHijab, llcbViewSmoke, llcbViewDrink, llcbViewPhysicalChallenges;
+    private RadioGroup rgFamilyValues, rgLivingArrangements, rgRaisedWhere, rgHijab, rgSmoke, rgDrink, rgPhysicalChallenges;
 
-    private List<WebArd> familyValuesDataList, livingArrangementsDataList, raisedWhereDataList, hijabDataList, smokeDataList, drinkDataList, siblingDataList;
+    private List<WebArd> familyValuesDataList, livingArrangementsDataList, raisedWhereDataList, hijabDataList, smokeDataList, drinkDataList, siblingDataList, physicalChallengesDataList;
 
     private Members members_obj;
     private Spinner spMySiblingPosition;
@@ -82,6 +82,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
 
     }
 
+    //  Physical Challenges
     private void initialize() {
 
         pDialog = new ProgressDialog(this);
@@ -107,6 +108,10 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
         rgDrink = (RadioGroup) findViewById(R.id.RadioGroupDrink);
         llcbViewDrink = (LinearLayout) findViewById(R.id.LinearLayoutMyChoiceDrink);
 
+
+        rgPhysicalChallenges = (RadioGroup) findViewById(R.id.RadioGroupPhysicalChallenges);
+        llcbViewPhysicalChallenges = (LinearLayout) findViewById(R.id.LinearLayoutMyChoicePhysicalChallenges);
+
         fabLifeStyle1 = (FloatingActionButton) findViewById(R.id.fabLifeStyle1);
         fabLifeStyle2 = (FloatingActionButton) findViewById(R.id.fabLifeStyle2);
 
@@ -114,13 +119,12 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
         livingArrangementsDataList = new ArrayList<>();
 
         raisedWhereDataList = new ArrayList<>();
-        drinkDataList = new ArrayList<>();
 
 
         hijabDataList = new ArrayList<>();
         smokeDataList = new ArrayList<>();
         drinkDataList = new ArrayList<>();
-
+        physicalChallengesDataList = new ArrayList<>();
 
         spMySiblingPosition = (Spinner) findViewById(R.id.SpinnerSiblingPosition);
 
@@ -199,6 +203,10 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                     String choice_smoking_ids = vg.getSelectionFromCheckbox(llcbViewSmoke);
 
 
+                    String physic_id = String.valueOf(rgPhysicalChallenges.getCheckedRadioButtonId());
+                    String choice_physic_ids = vg.getSelectionFromCheckbox(llcbViewPhysicalChallenges);
+
+
                     JSONObject params = new JSONObject();
                     try {
 
@@ -230,6 +238,8 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                         params.put("drink_id", drink_id);
                         params.put("choice_drink_ids", choice_drink_ids);
 
+                        params.put("physic_id", physic_id);
+                        params.put("choice_physic_ids", choice_physic_ids);
 
                         params.put("smoking_id", smoking_id);
                         params.put("choice_smoking_ids", choice_smoking_ids);
@@ -290,13 +300,13 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
             viewGenerator.selectCheckRadioWithDisabledRadio(rgDrink, members_obj.get_drink_id(), llcbViewDrink, members_obj.get_choice_drink_ids());
             viewGenerator.selectCheckRadioWithDisabledRadio(rgRaisedWhere, members_obj.get_raised_id(), llcbViewRaisedWhere, members_obj.get_choice_raised_ids());
 
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgPhysicalChallenges, members_obj.getPhysic_id(), llcbViewPhysicalChallenges, members_obj.getChoice_physic_ids());
 
         } else {
-
             viewGenerator.selectCheckRadio(rgSmoke, members_obj.get_smoking_id(), llcbViewSmoke, members_obj.get_choice_smoking_ids());
             viewGenerator.selectCheckRadio(rgDrink, members_obj.get_drink_id(), llcbViewDrink, members_obj.get_choice_drink_ids());
             viewGenerator.selectCheckRadio(rgRaisedWhere, members_obj.get_raised_id(), llcbViewRaisedWhere, members_obj.get_choice_raised_ids());
-
+            viewGenerator.selectCheckRadio(rgPhysicalChallenges, members_obj.getPhysic_id(), llcbViewPhysicalChallenges, members_obj.getChoice_physic_ids());
 
         }
 
@@ -341,6 +351,10 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
             Snackbar.make(v, "Please select Drink", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
             ck = true;
+        } else if (rgPhysicalChallenges.getCheckedRadioButtonId() == -1) {
+            Snackbar.make(v, "Please select Physical Challenges", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
+            ck = true;
         }
         return ck;
     }
@@ -373,6 +387,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
     private void GetLifeStyleData() {
 
         pDialog.show();
+        Log.e("url", "" + Urls.RegGetLifeStyle1Url2 + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 Urls.RegGetLifeStyle1Url2 + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(), null,
                 new Response.Listener<JSONObject>() {
@@ -389,6 +404,8 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                             JSONArray jsonArraySmoke = response.getJSONArray("smoking");
                             JSONArray jsonArrayDrink = response.getJSONArray("drink");
                             JSONArray jsonArraySibling = response.getJSONArray("sibling");
+                            JSONArray jsonArrayPhysic = response.getJSONArray("physic");
+
 
                             Gson gsonc;
 
@@ -407,6 +424,8 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
 
                             smokeDataList = (List<WebArd>) gsonc.fromJson(jsonArraySmoke.toString(), listType);
                             drinkDataList = (List<WebArd>) gsonc.fromJson(jsonArrayDrink.toString(), listType);
+                            physicalChallengesDataList = (List<WebArd>) gsonc.fromJson(jsonArrayPhysic.toString(), listType);
+
 
                             siblingDataList = (List<WebArd>) gsonc.fromJson(jsonArraySibling.toString(), listType);
                             siblingDataList.add(0, new WebArd("-1", "Please select"));
@@ -448,6 +467,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                             viewGenerator.addDynamicCheckRdioButtons(hijabDataList, rgHijab, llcbViewHijab);
                             viewGenerator.addDynamicCheckRdioButtons(smokeDataList, rgSmoke, llcbViewSmoke);
                             viewGenerator.addDynamicCheckRdioButtons(drinkDataList, rgDrink, llcbViewDrink);
+                            viewGenerator.addDynamicCheckRdioButtons(physicalChallengesDataList, rgPhysicalChallenges, llcbViewPhysicalChallenges);
 
                             selectFormData(members_obj);
 
@@ -458,6 +478,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                             viewGenerator.addDynamicCheckRdioButtons(hijabDataList, rgHijab, llcbViewHijab);
                             viewGenerator.addDynamicCheckRdioButtons(smokeDataList, rgSmoke, llcbViewSmoke);
                             viewGenerator.addDynamicCheckRdioButtons(drinkDataList, rgDrink, llcbViewDrink);
+                            viewGenerator.addDynamicCheckRdioButtons(physicalChallengesDataList, rgPhysicalChallenges, llcbViewPhysicalChallenges);
                         }
 
                         pDialog.dismiss();

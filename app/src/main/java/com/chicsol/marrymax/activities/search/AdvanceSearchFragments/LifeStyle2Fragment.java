@@ -27,12 +27,12 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
 public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
-    private LinearLayout LinearLayoutAdvSearchSiblingPosition, LinearLayoutAdvSearchSmoking, LinearLayoutAdvSearchDrink;
+    private LinearLayout LinearLayoutAdvSearchSiblingPosition, LinearLayoutAdvSearchSmoking, LinearLayoutAdvSearchDrink, LinearLayoutAdvSearchPhysicalChallenges;
 
     private ViewGenerator viewGenerator;
     private OnChildFragmentInteractionListener fragmentInteractionListener;
 
-    private Button ButtonResetSearchSiblingPosition, ButtonResetSearchSmoking, ButtonResetSearchDrink;
+    private Button ButtonResetSearchSiblingPosition, ButtonResetSearchSmoking, ButtonResetSearchDrink,ButtonResetSearchPhysicalChallenges;
 
 
 
@@ -65,11 +65,16 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
         LinearLayoutAdvSearchSiblingPosition = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchSiblingPosition);
         LinearLayoutAdvSearchSmoking = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchSmoking);
         LinearLayoutAdvSearchDrink = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchDrink);
+        LinearLayoutAdvSearchPhysicalChallenges = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchPhysicalChallenges);
+
+
 
 
         ButtonResetSearchSiblingPosition = (Button) view.findViewById(R.id.ButtonResetSearchSiblingPosition);
         ButtonResetSearchSmoking = (Button) view.findViewById(R.id.ButtonResetSearchSmoking);
         ButtonResetSearchDrink = (Button) view.findViewById(R.id.ButtonResetSearchDrink);
+        ButtonResetSearchPhysicalChallenges = (Button) view.findViewById(R.id.ButtonResetSearchPhysicalChallenges);
+
 
         ButtonResetSearchSiblingPosition.setOnClickListener(this);
         ButtonResetSearchSmoking.setOnClickListener(this);
@@ -94,6 +99,9 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
 
             List<WebArd> dataList2 = (List<WebArd>) gsonc.fromJson(jsonArraySearch.getJSONArray(4).toString(), listType);
             viewGenerator.generateDynamicCheckBoxesLLWithTag(dataList2, LinearLayoutAdvSearchDrink, "drink");
+
+           /* List<WebArd> dataList2 = (List<WebArd>) gsonc.fromJson(jsonArraySearch.getJSONArray(4).toString(), listType);
+            viewGenerator.generateDynamicCheckBoxesLLWithTag(dataList2, LinearLayoutAdvSearchDrink, "drink");*/
 
         } catch (JSONException e) {
             e.printStackTrace();

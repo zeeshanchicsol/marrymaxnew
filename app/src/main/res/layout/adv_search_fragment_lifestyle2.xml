@@ -147,10 +147,55 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d7d7d7"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.chicsol.marrymax.widgets.mButton2
+                android:id="@+id/ButtonResetSearchPhysicalChallenges"
+                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+
+                android:tag="drink"
+                android:text="@string/reset_sub_button_text"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="italic" />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/mTextView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="10dp"
+                android:text="Physical Challenges"
+
+
+                android:textColor="@color/colorUserProfileRed"
+                android:textSize="@dimen/text_size_adv_search_headings"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAdvSearchPhysicalChallenges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
 
     </LinearLayout>
 

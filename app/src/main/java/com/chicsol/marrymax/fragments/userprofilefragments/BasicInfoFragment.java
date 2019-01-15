@@ -35,8 +35,8 @@ public class BasicInfoFragment extends Fragment {
     private Members member, memberChoice;
     private mTextView tvDesc, tvMostThankful, tvWhatIdoFor, tvMyStrengths, tvABoutMyChoice, tvAge, tvHeight, tvPhysique, tvComplexion, tvEyeColor, tvHairColor, tvChoiceAge,
             tvChoiceHeight, tvChoicePhysique, tvChoiceComplexion, tvChoiceEyeColor, tvChoiceHairColor;
-    private mTextView tvMyEducation, tvMyEducationField, tvGraduated, tvOccupation, tvEconomy, tvIncome, tvCastSurname, tvRaised, tvFamilyValues, tvHijab, tvLiving, tvMaritalStatus, tvChildren, tvChildrenDetail, tvEthnicity, tvReligiousSect, tvBrothers, tvSisters, tvSiblingPosiiton, tvSmoke, tvDrink,
-            tvChoiceMyEducation, tvChoiceOccupation, tvChoiceEconomy, tvChoiceRaised, tvChoiceFamilyValues, tvChoiceHijab, tvChoiceLiving, tvChoiceMaritalStatus, tvChoiceChildren, tvChoiceEthnicity, tvChoiceReligiousSect, tvChoiceCountry, tvChoiceVisaStatus, tvChoiceSmoke, tvChoiceDrink;
+    private mTextView tvMyEducation, tvMyEducationField, tvGraduated, tvOccupation, tvEconomy, tvIncome, tvCastSurname, tvRaised, tvFamilyValues, tvHijab, tvLiving, tvMaritalStatus, tvChildren, tvChildrenDetail, tvEthnicity, tvReligiousSect, tvBrothers, tvSisters, tvSiblingPosiiton, tvSmoke, tvDrink, tvPhysicalChallenges,
+            tvChoiceMyEducation, tvChoiceOccupation, tvChoiceEconomy, tvChoiceRaised, tvChoiceFamilyValues, tvChoiceHijab, tvChoiceLiving, tvChoiceMaritalStatus, tvChoiceChildren, tvChoiceEthnicity, tvChoiceReligiousSect, tvChoiceCountry, tvChoiceVisaStatus, tvChoiceSmoke, tvChoiceDrink, tvChoicePhysicalChallenges;
 
     private TextView pref1, pref2, pref3, pref4;
 
@@ -180,6 +180,7 @@ public class BasicInfoFragment extends Fragment {
         tvSiblingPosiiton = (mTextView) view.findViewById(R.id.TextViewUPSiblingPosition);
         tvSmoke = (mTextView) view.findViewById(R.id.TextViewUPSmoke);
         tvDrink = (mTextView) view.findViewById(R.id.TextViewUPDrink);
+        tvPhysicalChallenges = (mTextView) view.findViewById(R.id.TextViewUPPhysicalChallenges);
 
         //choice
         tvChoiceMyEducation = (mTextView) view.findViewById(R.id.TextViewUPChoiceEducationDetail);
@@ -202,6 +203,7 @@ public class BasicInfoFragment extends Fragment {
         tvChoiceSmoke = (mTextView) view.findViewById(R.id.TextViewUPChoiceSmoke);
         tvChoiceDrink = (mTextView) view.findViewById(R.id.TextViewUPChoiceDrink);
 
+        tvChoicePhysicalChallenges = (mTextView) view.findViewById(R.id.TextViewUPChoicePhysicalChallenges);
 
         //==========Layouts
 
@@ -388,6 +390,7 @@ public class BasicInfoFragment extends Fragment {
             tvSiblingPosiiton.setText(member.get_sibling_types());
             tvSmoke.setText(member.get_smoking_types());
             tvDrink.setText(member.get_drinks_types());
+            tvPhysicalChallenges.setText(member.getPhysics_types());
 
             tvChoiceMyEducation.setText(memberChoice.get_choice_education());
 
@@ -406,6 +409,10 @@ public class BasicInfoFragment extends Fragment {
             tvChoiceVisaStatus.setText(memberChoice.get_choice_visa_status());
             tvChoiceSmoke.setText(memberChoice.get_choice_smoking());
             tvChoiceDrink.setText(memberChoice.get_choice_drinks());
+
+            tvChoicePhysicalChallenges.setText(memberChoice.getChoice_physics());
+
+
         } catch (Exception e) {
             getActivity().finish();
         }

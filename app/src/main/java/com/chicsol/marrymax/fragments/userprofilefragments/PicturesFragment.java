@@ -142,16 +142,18 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
         JSONArray objectsArray1 = null;
 
         try {
-            jsonArray = new JSONArray(jsArray);
-            objectsArray1 = jsonArray.getJSONArray(4);
-            JSONArray memArray = jsonArray.getJSONArray(0);
-            Gson gson;
-            GsonBuilder gsonBuilder = new GsonBuilder();
-            gson = gsonBuilder.create();
-            Type mem = new TypeToken<Members>() {
-            }.getType();
-            member = (Members) gson.fromJson(memArray.getJSONObject(0).toString(), mem);
+            if (jsArray != null) {
 
+                jsonArray = new JSONArray(jsArray);
+                objectsArray1 = jsonArray.getJSONArray(4);
+                JSONArray memArray = jsonArray.getJSONArray(0);
+                Gson gson;
+                GsonBuilder gsonBuilder = new GsonBuilder();
+                gson = gsonBuilder.create();
+                Type mem = new TypeToken<Members>() {
+                }.getType();
+                member = (Members) gson.fromJson(memArray.getJSONObject(0).toString(), mem);
+            }
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -242,7 +244,9 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
     @Override
     public void onResume() {
         super.onResume();
-        loadData(userProfileConstants.jsonArryaResponse);
+        if (userProfileConstants.jsonArryaResponse != null) {
+            loadData(userProfileConstants.jsonArryaResponse);
+        }
     }
 
     private void setListeners() {
@@ -265,7 +269,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
                 String type = null, title = null, btTitile = null, desc = null;
 
 
-                boolean checkStatus = marryMax.statusBaseChecks(member, getContext(), 2, getFragmentManager(), PicturesFragment.this, v, null, null,null,null);
+                boolean checkStatus = marryMax.statusBaseChecks(member, getContext(), 2, getFragmentManager(), PicturesFragment.this, v, null, null, null, null);
 
                 if (checkStatus) {
                     if (member.get_image_count() == 0) {
