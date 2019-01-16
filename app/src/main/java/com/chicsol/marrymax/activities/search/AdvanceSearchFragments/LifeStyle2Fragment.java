@@ -32,8 +32,7 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
     private ViewGenerator viewGenerator;
     private OnChildFragmentInteractionListener fragmentInteractionListener;
 
-    private Button ButtonResetSearchSiblingPosition, ButtonResetSearchSmoking, ButtonResetSearchDrink,ButtonResetSearchPhysicalChallenges;
-
+    private Button ButtonResetSearchSiblingPosition, ButtonResetSearchSmoking, ButtonResetSearchDrink, ButtonResetSearchPhysicalChallenges;
 
 
     @Override
@@ -68,8 +67,6 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
         LinearLayoutAdvSearchPhysicalChallenges = (LinearLayout) view.findViewById(R.id.LinearLayoutAdvSearchPhysicalChallenges);
 
 
-
-
         ButtonResetSearchSiblingPosition = (Button) view.findViewById(R.id.ButtonResetSearchSiblingPosition);
         ButtonResetSearchSmoking = (Button) view.findViewById(R.id.ButtonResetSearchSmoking);
         ButtonResetSearchDrink = (Button) view.findViewById(R.id.ButtonResetSearchDrink);
@@ -79,7 +76,6 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
         ButtonResetSearchSiblingPosition.setOnClickListener(this);
         ButtonResetSearchSmoking.setOnClickListener(this);
         ButtonResetSearchDrink.setOnClickListener(this);
-
 
 
         Gson gsonc;
@@ -100,8 +96,8 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
             List<WebArd> dataList2 = (List<WebArd>) gsonc.fromJson(jsonArraySearch.getJSONArray(4).toString(), listType);
             viewGenerator.generateDynamicCheckBoxesLLWithTag(dataList2, LinearLayoutAdvSearchDrink, "drink");
 
-           /* List<WebArd> dataList2 = (List<WebArd>) gsonc.fromJson(jsonArraySearch.getJSONArray(4).toString(), listType);
-            viewGenerator.generateDynamicCheckBoxesLLWithTag(dataList2, LinearLayoutAdvSearchDrink, "drink");*/
+            List<WebArd> dataList3 = (List<WebArd>) gsonc.fromJson(jsonArraySearch.getJSONArray(28).toString(), listType);
+            viewGenerator.generateDynamicCheckBoxesLLWithTag(dataList3, LinearLayoutAdvSearchPhysicalChallenges, "physicalChallenges");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -115,6 +111,7 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchSiblingPosition, defaultSelectionsObj.get_choice_sibling_ids());
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchSmoking, defaultSelectionsObj.get_choice_smoking_ids());
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchDrink, defaultSelectionsObj.get_choice_drink_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchPhysicalChallenges, defaultSelectionsObj.getChoice_physic_ids());
 
         }
 
@@ -150,6 +147,16 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
             }
         }
 
+        {
+            int childcount = LinearLayoutAdvSearchPhysicalChallenges.getChildCount();
+            for (int i = 0; i < childcount; i++) {
+                View sv = LinearLayoutAdvSearchPhysicalChallenges.getChildAt(i);
+                if (sv instanceof CheckBox) {
+                    ((CheckBox) sv).setOnCheckedChangeListener(this);
+                }
+            }
+        }
+
 
     }
 
@@ -168,6 +175,9 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
             }
             if (buttonView.getTag().equals("drink")) {
                 defaultSelectionsObj.set_choice_drink_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchDrink));
+            }
+            if (buttonView.getTag().equals("physicalChallenges")) {
+                defaultSelectionsObj.setChoice_physic_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchPhysicalChallenges));
             }
 
 
@@ -201,6 +211,10 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
 
         } else if (v.getTag().equals("drink")) {
             defaultSelectionsObj.set_choice_drink_ids("");
+
+        }
+        else if (v.getTag().equals("physicalChallenges")) {
+            defaultSelectionsObj.setChoice_physic_ids("");
 
         }
         setSelection();

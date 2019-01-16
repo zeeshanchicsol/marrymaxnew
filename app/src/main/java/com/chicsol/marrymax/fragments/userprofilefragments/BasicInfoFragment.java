@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
+import com.chicsol.marrymax.widgets.faTextView;
 import com.chicsol.marrymax.widgets.mTextView;
 import com.crashlytics.android.Crashlytics;
 import com.google.android.flexbox.FlexboxLayout;
@@ -46,6 +47,8 @@ public class BasicInfoFragment extends Fragment {
     public String jsona = "";
     boolean myProfileCheck;
     LinearLayout LinearLayoutDeclaration;
+
+    private faTextView faUPPhysicalChallenges, faUPChoicePhysicalChallenges;
 
     public BasicInfoFragment() {
         // Required empty public constructor
@@ -132,6 +135,9 @@ public class BasicInfoFragment extends Fragment {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/" + "declaration.html");
 
+
+        faUPPhysicalChallenges = (faTextView) view.findViewById(R.id.faTextViewUPPhysicalChallenges);
+        faUPChoicePhysicalChallenges = (faTextView) view.findViewById(R.id.faTextViewUPChoicePhysicalChallenges);
 
         tvDesc = (mTextView) view.findViewById(R.id.TextViewUPDescription);
         tvMostThankful = (mTextView) view.findViewById(R.id.TextViewUPMostThankful);
@@ -391,6 +397,12 @@ public class BasicInfoFragment extends Fragment {
             tvSmoke.setText(member.get_smoking_types());
             tvDrink.setText(member.get_drinks_types());
             tvPhysicalChallenges.setText(member.getPhysics_types());
+            if(member.getPhysics_types().equals("No") || member.getPhysics_types().equals("Any") ){
+                faUPPhysicalChallenges.setVisibility(View.GONE);
+            }else {
+                faUPPhysicalChallenges.setVisibility(View.GONE);
+            }
+
 
             tvChoiceMyEducation.setText(memberChoice.get_choice_education());
 
@@ -412,8 +424,16 @@ public class BasicInfoFragment extends Fragment {
 
             tvChoicePhysicalChallenges.setText(memberChoice.getChoice_physics());
 
+            if(memberChoice.getChoice_physics().equals("No") || memberChoice.getChoice_physics().equals("Any") ){
+                faUPChoicePhysicalChallenges.setVisibility(View.GONE);
+            }else {
+                faUPChoicePhysicalChallenges.setVisibility(View.GONE);
+            }
+
 
         } catch (Exception e) {
+            e.printStackTrace();
+
             getActivity().finish();
         }
     }

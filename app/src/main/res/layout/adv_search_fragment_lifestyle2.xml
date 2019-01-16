@@ -169,7 +169,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
 
-                android:tag="drink"
+                android:tag="physicalChallenges"
                 android:text="@string/reset_sub_button_text"
                 android:textAllCaps="false"
                 android:textSize="@dimen/text_size_adv_search_headings"
@@ -181,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:layout_marginTop="10dp"
-                android:text="Physical Challenges"
+                android:text="Physical Disability"
 
 
                 android:textColor="@color/colorUserProfileRed"

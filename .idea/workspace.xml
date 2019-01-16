@@ -18,7 +18,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Search" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
@@ -30,27 +29,27 @@
   <component name="ChangeListManager">
     <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_register_lifestyle_step2.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_register_lifestyle_step2.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_adv_search_fragment_lifestyle2.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_adv_search_fragment_lifestyle2.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_userprpfile_basic_info.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_userprpfile_basic_info.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterLifeStyleActivity2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterLifeStyleActivity2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/LifeStyle2Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/LifeStyle2Fragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/PicturesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/PicturesFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_lifestyle_step2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_lifestyle_step2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/adv_search_fragment_lifestyle2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/adv_search_fragment_lifestyle2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_userprpfile_basic_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_userprpfile_basic_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -86,36 +85,70 @@
       <file leaf-file-name="LifeStyle2Fragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/LifeStyle2Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="92" column="82" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="82" />
+            <state relative-caret-position="120">
+              <caret line="46" column="63" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DrawerActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java">
+      <file leaf-file-name="WhoIsLookingForMeResultsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeResultsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="456" column="10" selection-start-line="456" selection-start-column="10" selection-end-line="456" selection-end-column="10" />
+            <state relative-caret-position="119">
+              <caret line="206" column="16" selection-start-line="206" selection-start-column="16" selection-end-line="206" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BasicInfoFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="399" column="63" selection-start-line="399" selection-start-column="63" selection-end-line="399" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="adv_search_fragment_lifestyle2.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adv_search_fragment_lifestyle2.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="162" column="50" selection-start-line="162" selection-start-column="50" selection-end-line="162" selection-end-column="50" />
+            <state relative-caret-position="293">
+              <caret line="177" column="12" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="12" />
               <folding>
                 <element signature="e#4088#5502#0" />
-                <element signature="e#6630#6661#0" expanded="true" />
-                <element signature="e#6739#6777#0" expanded="true" />
-                <element signature="e#7259#7297#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_userprpfile_basic_info.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_userprpfile_basic_info.xml">
           <provider editor-type-id="android-designer2">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="1688" column="81" selection-start-line="1688" selection-start-column="45" selection-end-line="1688" selection-end-column="81" />
+              <folding>
+                <element signature="e#4389#4421#0" expanded="true" />
+                <element signature="e#10426#10450#0" expanded="true" />
+                <element signature="e#17875#17899#0" expanded="true" />
+                <element signature="e#26189#27079#0" />
+                <element signature="e#36927#37790#0" />
+                <element signature="e#38029#38057#0" expanded="true" />
+                <element signature="e#40454#40478#0" expanded="true" />
+                <element signature="e#43312#43336#0" expanded="true" />
+                <element signature="e#50723#50747#0" expanded="true" />
+                <element signature="e#63650#64574#0" />
+                <element signature="e#65223#65251#0" expanded="true" />
+                <element signature="e#66381#66409#0" expanded="true" />
+                <element signature="e#68785#68809#0" expanded="true" />
+                <element signature="e#72553#72592#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -132,10 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ProgressDialog pDialog</find>
-      <find>pDialog</find>
-      <find>llSpAssisted</find>
-      <find>ec</find>
       <find>enterCode</find>
       <find>saveSearch</find>
       <find>llSaveSearch</find>
@@ -162,6 +191,10 @@
       <find>Physic</find>
       <find>jsonArraySearch</find>
       <find>LinearLayoutAdvSearchDrink</find>
+      <find>ProfilesCount</find>
+      <find>Physical Challenges</find>
+      <find>Disability</find>
+      <find>PhysicalChallenges</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments</dir>
@@ -2697,7 +2730,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_as_my_contact.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/matches/MyMatchesFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/GeographyFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/urls/Urls.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashboardMainFragment.java" />
@@ -2717,13 +2749,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/webconfig/webconfig.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchResultsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/PicturesFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register_lifestyle_step2.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/LifeStyle2Fragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterLifeStyleActivity2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/adv_search_fragment_lifestyle2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register_lifestyle_step2.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_userprpfile_basic_info.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/adv_search_fragment_lifestyle2.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/LifeStyle2Fragment.java" />
       </list>
     </option>
   </component>
@@ -2739,19 +2772,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="marrymax" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2813,6 +2833,17 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="marrymax" type="462c0819:PsiDirectoryNode" />
               <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="registration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
+              <item name="marrymax" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="marrymax" type="462c0819:PsiDirectoryNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
               <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2856,6 +2887,28 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
+              <item name="marrymax" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="values" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="marrymax" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -2873,7 +2926,7 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="device.picker.selection" value="ed486f02" />
+    <property name="device.picker.selection" value="Nexus_5X_API_23" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments" />
     <property name="settings.editor.selected.configurable" value="instant.run" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1536303285852" />
@@ -3036,13 +3089,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1532684130521</updated>
-    </task>
-    <task id="LOCAL-00063" summary="updated to 28 sdk">
-      <created>1538577191941</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1538577191941</updated>
     </task>
     <task id="LOCAL-00064" summary="updated to 28 sdk">
       <created>1538736378286</created>
@@ -3380,7 +3426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547219738626</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="discount bug fixed">
+      <created>1547565833291</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1547565833293</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3397,14 +3450,14 @@
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.3286219" />
       <window_info id="Build Variants" order="2" sideWeight="0.50058895" side_tool="true" weight="0.13631523" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50532484" side_tool="true" weight="0.27444053" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="7" sideWeight="0.4946752" visible="true" weight="0.41813898" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5058573" side_tool="true" weight="0.40047115" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="7" sideWeight="0.4941427" visible="true" weight="0.58892816" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.5553781" weight="0.028268551" />
       <window_info id="Structure" order="1" sideWeight="0.50058895" side_tool="true" weight="0.13631523" />
-      <window_info anchor="right" id="Device File Explorer" order="10" side_tool="true" weight="0.32960597" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5037274" weight="0.39693758" />
+      <window_info anchor="right" id="Device File Explorer" order="10" side_tool="true" weight="0.32960597" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988507" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
@@ -3414,8 +3467,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.35714287" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5266241" weight="0.32988507" />
       <window_info id="Captures" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49941108" visible="true" weight="0.16453674" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.50532484" weight="0.56301534" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49941108" visible="true" weight="0.21192758" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.50532484" weight="0.590106" />
       <window_info anchor="right" id="Gradle" order="5" weight="0.32960597" />
       <window_info anchor="right" id="Fabric" order="9" weight="0.32960597" />
       <window_info anchor="right" id="Theme Preview" order="6" />
@@ -3505,31 +3558,19 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_notifications_none_black_192dp.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_notifications_black_24dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="122" column="30" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="104" column="82" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="82" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashboardMainFragment.java">
@@ -3561,13 +3602,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_order_process.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3945">
           <caret line="263" selection-start-line="263" selection-end-line="264" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/AppearanceFragment.java">
@@ -3585,13 +3626,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_subscription_plan.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8595">
           <caret line="573" column="69" selection-start-line="573" selection-start-column="69" selection-end-line="573" selection-end-column="69" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/ChangePasswordFragment.java">
@@ -3734,13 +3775,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_mymatches.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/inbox/DashboardMessagesDetailActivity.java">
@@ -3771,24 +3812,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="400" column="67" lean-forward="true" selection-start-line="400" selection-start-column="67" selection-end-line="400" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="95" selection-start-line="95" selection-end-line="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterLifeStyleActivity2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="354" column="53" selection-start-line="354" selection-start-column="53" selection-end-line="354" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -3813,49 +3840,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_userprpfile_basic_info.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="1468" column="75" selection-start-line="1468" selection-start-column="41" selection-end-line="1468" selection-end-column="75" />
-          <folding>
-            <element signature="e#26189#27079#0" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_lifestyle_step2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="1309" column="61" selection-start-line="1309" selection-start-column="61" selection-end-line="1309" selection-end-column="61" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="593" column="36" selection-start-line="593" selection-start-column="19" selection-end-line="593" selection-end-column="36" />
-          <folding>
-            <element signature="e#18918#18919#0" expanded="true" />
-            <element signature="e#18950#18951#0" expanded="true" />
-            <element signature="e#18997#18998#0" expanded="true" />
-            <element signature="e#19039#19040#0" expanded="true" />
-            <element signature="e#19083#19084#0" expanded="true" />
-            <element signature="e#19123#19124#0" expanded="true" />
-            <element signature="e#19287#19288#0" expanded="true" />
-            <element signature="e#19323#19324#0" expanded="true" />
-            <element signature="e#19381#19382#0" expanded="true" />
-            <element signature="e#19431#19432#0" expanded="true" />
-            <element signature="e#19472#19473#0" expanded="true" />
-            <element signature="e#19509#19510#0" expanded="true" />
-            <element signature="e#19569#19570#0" expanded="true" />
-            <element signature="e#19621#19622#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3873,33 +3861,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adv_search_fragment_lifestyle2.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="162" column="50" selection-start-line="162" selection-start-column="50" selection-end-line="162" selection-end-column="50" />
-          <folding>
-            <element signature="e#4088#5502#0" />
-            <element signature="e#6630#6661#0" expanded="true" />
-            <element signature="e#6739#6777#0" expanded="true" />
-            <element signature="e#7259#7297#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="566">
+          <caret line="153" column="45" selection-start-line="153" selection-start-column="45" selection-end-line="153" selection-end-column="45" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterLifeStyleActivity2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_lifestyle_step2.xml">
       <provider editor-type-id="android-designer2">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="1320" column="38" lean-forward="true" selection-start-line="1320" selection-start-column="38" selection-end-line="1320" selection-end-column="38" />
+          <folding>
+            <element signature="e#5094#5118#0" expanded="true" />
+            <element signature="e#7093#7117#0" expanded="true" />
+            <element signature="e#9894#9926#0" expanded="true" />
+            <element signature="e#63292#63320#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/LifeStyle2Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="92" column="82" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="82" />
+        <state relative-caret-position="120">
+          <caret line="46" column="63" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="456" column="10" selection-start-line="456" selection-start-column="10" selection-end-line="456" selection-end-column="10" />
+        <state>
+          <caret line="437" column="6" selection-start-line="437" selection-start-column="6" selection-end-line="437" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/whoislookingformesearch/WhoIsLookingForMeResultsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="206" column="16" selection-start-line="206" selection-start-column="16" selection-end-line="206" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/adv_search_fragment_lifestyle2.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="177" column="12" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="12" />
+          <folding>
+            <element signature="e#4088#5502#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_userprpfile_basic_info.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="1688" column="81" selection-start-line="1688" selection-start-column="45" selection-end-line="1688" selection-end-column="81" />
+          <folding>
+            <element signature="e#4389#4421#0" expanded="true" />
+            <element signature="e#10426#10450#0" expanded="true" />
+            <element signature="e#17875#17899#0" expanded="true" />
+            <element signature="e#26189#27079#0" />
+            <element signature="e#36927#37790#0" />
+            <element signature="e#38029#38057#0" expanded="true" />
+            <element signature="e#40454#40478#0" expanded="true" />
+            <element signature="e#43312#43336#0" expanded="true" />
+            <element signature="e#50723#50747#0" expanded="true" />
+            <element signature="e#63650#64574#0" />
+            <element signature="e#65223#65251#0" expanded="true" />
+            <element signature="e#66381#66409#0" expanded="true" />
+            <element signature="e#68785#68809#0" expanded="true" />
+            <element signature="e#72553#72592#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="399" column="63" selection-start-line="399" selection-start-column="63" selection-end-line="399" selection-end-column="63" />
         </state>
       </provider>
     </entry>

@@ -681,28 +681,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="Physical Challenges: "
-                        android:textColor="@color/colorBlack" />
-
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewUPPhysicalChallenges"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -957,6 +935,44 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Physical Disability: "
+                        android:textColor="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:id="@+id/faTextViewUPPhysicalChallenges"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:background="@color/colorASBlue"
+                            android:text="@string/fa_icon_wheelchair"
+                            android:textColor="@color/colorWhite"
+                            android:visibility="visible" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewUPPhysicalChallenges"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -1453,27 +1469,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="Physical Challenges : "
-                        android:textColor="@color/colorBlack" />
-
-                    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewUPChoicePhysicalChallenges"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1639,8 +1634,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="15dp">
+                    android:layout_marginTop="10dp">
 
                     <com.chicsol.marrymax.widgets.mTextView
                         android:layout_width="wrap_content"
@@ -1657,6 +1651,58 @@
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold" />
 
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:text="@string/fa_icon_wheelchair"
+                            android:textColor="@color/colorTextRed"
+                            android:visibility="gone" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Physical Disability : "
+                            android:textColor="@color/colorBlack" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:id="@+id/faTextViewUPChoicePhysicalChallenges"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:background="@color/colorASBlue"
+                            android:text="@string/fa_icon_wheelchair"
+                            android:textColor="@color/colorWhite"
+                            android:visibility="visible" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewUPChoicePhysicalChallenges"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
                 </LinearLayout>
 

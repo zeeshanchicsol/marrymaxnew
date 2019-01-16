@@ -352,7 +352,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                     .setAction("Action", null).show();
             ck = true;
         } else if (rgPhysicalChallenges.getCheckedRadioButtonId() == -1) {
-            Snackbar.make(v, "Please select Physical Challenges", Snackbar.LENGTH_SHORT)
+            Snackbar.make(v, "Please select Physical Disability", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
             ck = true;
         }
