@@ -67,6 +67,14 @@
 
 
 
+
+    <!--    chips -->
+    <dimen name="padding_top">5dp</dimen>
+    <dimen name="remove_icon_dimen">24dp</dimen>
+    <dimen name="remove_icon_margin">4dp</dimen>
+    <dimen name="icon_height">36dp</dimen>
+    <dimen name="icon_height2">20dp</dimen>
+
 <!--    <dimen name="design_bottom_navigation_text_size" tools:override="true">30sp</dimen>
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">30sp</dimen>-->
 

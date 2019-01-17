@@ -12,6 +12,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -354,13 +355,17 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
         LoadData();
 
-       /* DashMembersFragment frg = new DashMembersFragment();
 
+        Bundle argsRequest = new Bundle();
+        argsRequest.putString("type", "mymatches");
+        argsRequest.putString("msg", "We haven’t found any match.");
+        DashMembersFragment frg = new DashMembersFragment();
+        frg.setArguments(argsRequest);
         FragmentManager manager = getFragmentManager();
-        transaction = manager.beginTransaction();
-        transaction.add(R.id.FrameLayoutMyMatchesContainer, frg, "Frag_Top_tag");
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.FrameMainFeatureContainer, frg, "Frag_Top_tagg");
 
-        transaction.commit();*/
+        transaction.commit();
 
 
         final Handler handler = new Handler();
@@ -395,7 +400,6 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                 cardViewProfileCompletionStatus.setVisibility(View.GONE);
             }
             setupViewPager();
-
 
 
         }
@@ -1004,17 +1008,15 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 }
 
 
-                                if (! dash.getDetail().equals("")) {
+                                if (!dash.getDetail().equals("")) {
                                     if (member.get_member_status() == 2 || member.get_member_status() == 3) {
 
                                         cvPromoCode.setVisibility(View.VISIBLE);
-                                        tvPromoMessageTitle.setText(Html.fromHtml( dash.getDetail()));
+                                        tvPromoMessageTitle.setText(Html.fromHtml(dash.getDetail()));
 
 
                                     }
                                 }
-
-
 
 
                                 setSentReceivedCount(jsonArray);
@@ -1508,7 +1510,6 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
     }
-
 
 
     @Override

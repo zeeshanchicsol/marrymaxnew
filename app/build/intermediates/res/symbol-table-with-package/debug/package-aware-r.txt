@@ -939,6 +939,8 @@ dimen hint_alpha_material_dark
 dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
 dimen hint_pressed_alpha_material_light
+dimen icon_height
+dimen icon_height2
 dimen interest_margin_bottom
 dimen interest_margin_left
 dimen interest_margin_right
@@ -1011,10 +1013,13 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen padding_top
 dimen reg_circle_text
 dimen reg_title_text
 dimen reg_top_bar_text
 dimen reg_tv_heading
+dimen remove_icon_dimen
+dimen remove_icon_margin
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
@@ -1199,6 +1204,7 @@ drawable ic_clear_white_24dp
 drawable ic_contact_mail_black_24dp
 drawable ic_credit_card_black_24dp
 drawable ic_creditcard
+drawable ic_crown
 drawable ic_cvc
 drawable ic_cvc_amex
 drawable ic_dashboard_black_24dp
@@ -1216,6 +1222,7 @@ drawable ic_error_amex
 drawable ic_exit_to_app_black_24dp
 drawable ic_filter_list_black_24dp
 drawable ic_filter_white_24dp
+drawable ic_grade_black_24dp
 drawable ic_highlight_off_black_18dp
 drawable ic_home_black_24dp
 drawable ic_incognito_white_24dp
@@ -1301,6 +1308,7 @@ drawable payment_cnf_logo
 drawable radio_checked
 drawable radio_unchecked
 drawable radiobutton_drawable_dialog
+drawable rounded_textview
 drawable shape_chip_drawable
 drawable spinner_border
 drawable splash_marrymax
@@ -1499,6 +1507,7 @@ id FloatingActionButtonRecommendedMatchesMenu
 id FrameLayoutChatListSendMessage
 id FrameLayoutDashMainContainer
 id FrameMainContainer
+id FrameMainFeatureContainer
 id GridlayoutAccountSettingPrefferedMatchingAppearance
 id GridlayoutAccountSettingPrefferedMatchingGeography
 id GridlayoutAccountSettingPrefferedMatchingLifeStyle
@@ -2081,6 +2090,7 @@ id TextViewRecommendedMatchMaritalReligious
 id TextViewRecommendedMatchMaritalStatus
 id TextViewRecommendedMatchRecomdBy
 id TextViewRecommendedP
+id TextViewRecyclerSelectedItem
 id TextViewRegTopAppearance
 id TextViewRegTopGeography
 id TextViewRegTopInterest
@@ -2393,6 +2403,7 @@ id imageViewDMVerifyPhone
 id imageViewNavDefaultImage
 id imageViewPhotoUploadPerview
 id imageViewQuestionsUser
+id imageViewStar
 id imageViewUserProfileSlider
 id info
 id italic
