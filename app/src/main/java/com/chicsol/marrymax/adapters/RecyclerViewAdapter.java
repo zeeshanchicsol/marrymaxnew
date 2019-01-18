@@ -16,11 +16,15 @@
 
 package com.chicsol.marrymax.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +70,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     RecyclerView recyclerView;
+    String type;
+    int cvWidth = 0;
 
     public void setMemResultsObj(Members memResultsObj) {
         this.memResultsObj = memResultsObj;
@@ -73,7 +79,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private Members memResultsObj;
 
-    public RecyclerViewAdapter(final Context context, OnLoadMoreListener onLoadMoreListener) {
+    public RecyclerViewAdapter(final Context context, OnLoadMoreListener onLoadMoreListener, String type) {
+        this.type = type;
         items = new ArrayList<>();
         this.context = context;
         this.onLoadMoreListener = onLoadMoreListener;
@@ -120,6 +127,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     }
                 }).*/build();
         items = new ArrayList<>();
+
+        Activity activity = (Activity) context;
+        Display display = activity.getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        // int height = size.y;
+     //   Log.e("Width" +, "" + width);
+        cvWidth = (int) (width - width * .50);
+        //  Log.e("height", "" + height);
 
     }
 
@@ -171,6 +188,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (holder1 instanceof ViewHolderM) {
 
             final ViewHolderM holder = ((ViewHolderM) holder1);
+
+
+            if (type.equals("featured")) {
+
+
+                ViewGroup.LayoutParams layoutParams = holder.cvMain.getLayoutParams();
+                layoutParams.width = cvWidth;
+                holder.cvMain.setLayoutParams(layoutParams);
+
+            }
             holder.alias.setText(item.getAlias());
             holder.age.setText("( " + item.get_age() + " )");
             holder.eduMaritalStatus.setText(item.get_education_types() + " | " + item.get_marital_status_types());
@@ -259,6 +286,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         public mTextView country;
         public int position;
         public LinearLayout llCardMain;
+        public CardView cvMain;
 
 
         public ViewHolderM(View itemView) {
@@ -270,6 +298,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             eduMaritalStatus = (mTextView) itemView.findViewById(R.id.TextViewMemberEducationMartialStatusDashMain);
             country = (mTextView) itemView.findViewById(R.id.TextViewMemberCountryDashMain);
             aboutme = (mTextView) itemView.findViewById(R.id.TextViewMemberAboutMe);
+            cvMain = (CardView) itemView.findViewById(R.id.CardViewDashMainMembersItem);
 
         }
     }

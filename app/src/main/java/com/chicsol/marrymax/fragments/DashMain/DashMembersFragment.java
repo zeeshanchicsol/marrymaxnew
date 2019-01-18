@@ -72,7 +72,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
     // private Button btLoadMore, btReset;
 
-    private LinearLayout llMatchesNotFoundMSLW, llMyMatchesBottomBar;
+    private LinearLayout llMatchesNotFoundMSLW;
     private String type = "", msg = "";
 
     private String Tag = "DashMembersFragment";
@@ -151,25 +151,32 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         btChangeMatchingAttributeMSLW = (AppCompatButton) view.findViewById(R.id.ButtonDashboardonChangeMatchingAttributeMSLL);
 
         llMatchesNotFoundMSLW = (LinearLayout) view.findViewById(R.id.LinearLayoutMemberDMMatchesNotAvailable);
-        llMyMatchesBottomBar = (LinearLayout) view.findViewById(R.id.LinearLayoutDMMyMatchesBottomBarMSLL);
+        // llMyMatchesBottomBar = (LinearLayout) view.findViewById(R.id.LinearLayoutDMMyMatchesBottomBarMSLL);
 
         recyclerViewMSLW = (RecyclerView) view.findViewById(R.id.RecyclerViewLastLoginMatches);
         //  recyclerViewMSLW.setLayoutManager();
 
 
-/*        NpaGridLayoutManager gridLayoutManager = new NpaGridLayoutManager(getContext(), 2);*/
+        /*        NpaGridLayoutManager gridLayoutManager = new NpaGridLayoutManager(getContext(), 2);*/
 
-        NpaGridLayoutManager gridLayoutManager = new NpaGridLayoutManager(getContext(), 2);
-       /* LinearLayoutManager layoutManager
-                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-*/
+
+        NpaGridLayoutManager gridLayoutManager;
+        if (type.equals("featured")) {
+
+            gridLayoutManager = new NpaGridLayoutManager(getContext(), 1, GridLayoutManager.HORIZONTAL, false);
+            recyclerViewMSLW.setHorizontalScrollBarEnabled(true);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            recyclerViewMSLW.setLayoutParams(lp);
+        } else {
+            gridLayoutManager = new NpaGridLayoutManager(getContext(), 2);
+        }
+
 
   /*      recyclerAdapterMSLW = new RecyclerViewAdapter();
         recyclerAdapterMSLW.setOnItemClickListener(DashMembersFragment.this);
         recyclerViewMSLW.setAdapter(recyclerAdapterMSLW);*/
 
-
-        recyclerAdapterMSLW = new RecyclerViewAdapter(context, this);
+        recyclerAdapterMSLW = new RecyclerViewAdapter(context, this, type);
         recyclerAdapterMSLW.setLinearLayoutManager(gridLayoutManager);
         recyclerViewMSLW.setLayoutManager(gridLayoutManager);
 
@@ -396,24 +403,24 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
                                 lastPage = 1;
 
 
-                                if (totalPagesMSLW == 0 || totalPagesMSLW == 1) {
+                               /* if (totalPagesMSLW == 0 || totalPagesMSLW == 1) {
                                     llMyMatchesBottomBar.setVisibility(View.GONE);
                                 } else if (totalPagesMSLW > 1) {
                                     llMyMatchesBottomBar.setVisibility(View.VISIBLE);
-                                }
+                                }*/
 
 
                                 if (membersDataListMSLW.size() == 0) {
                                     recyclerViewMSLW.setVisibility(View.GONE);
                                     llMatchesNotFoundMSLW.setVisibility(View.VISIBLE);
-                                    llMyMatchesBottomBar.setVisibility(View.GONE);
+                                    // llMyMatchesBottomBar.setVisibility(View.GONE);
                                 }
 
                             } else {
                                 //no data
                                 recyclerViewMSLW.setVisibility(View.GONE);
                                 llMatchesNotFoundMSLW.setVisibility(View.VISIBLE);
-                                llMyMatchesBottomBar.setVisibility(View.GONE);
+                                //   llMyMatchesBottomBar.setVisibility(View.GONE);
 
                             }
                             //  pDialog.dismiss();
@@ -455,7 +462,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
 
     private void getMembersListbyTypeByPageMSLW(int pageNumber) {
-       recyclerAdapterMSLW.setProgressMore(true);
+        recyclerAdapterMSLW.setProgressMore(true);
         // btReset.setVisibility(View.VISIBLE);
         JSONObject params = new JSONObject();
         try {
@@ -604,8 +611,8 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         startActivity(intent);*/
 
         Log.e("position", "position: " + position);
-      //  items.clear();
-      //  items.add(members);
+        //  items.clear();
+        //  items.add(members);
 
         Activity activity = (Activity) getContext();
         MarryMax marryMax = new MarryMax(getActivity());

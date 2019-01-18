@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
+    android:id="@+id/CardViewDashMainMembersItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
@@ -108,10 +106,10 @@
                     android:id="@+id/TextViewMemberEducationMartialStatusDashMain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:text="Master Degree | Never married"
                     android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/text_size_mlw" />
+                    android:textSize="@dimen/text_size_mlw"
+                    android:textStyle="bold" />
 
 
                 <com.chicsol.marrymax.widgets.mTextView
@@ -124,7 +122,6 @@
                     android:textSize="@dimen/text_size_mlw" />
 
 
-
             </LinearLayout>
 
 
@@ -134,9 +131,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="5dp">
+            android:layout_marginBottom="5dp">
 
             <!--   <com.chicsol.marrymax.widgets.mButton2
                    android:id="@+id/ButtonViewProfile"

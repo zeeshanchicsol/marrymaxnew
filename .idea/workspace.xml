@@ -28,44 +28,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_crown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_grade_black_24dp.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rounded_textview.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_add_circle_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_photo_camera_black_24dp.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/fabric/res/debug/values/com_crashlytics_build_id.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/fabric/res/debug/values/com_crashlytics_build_id.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi-v2/values.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable_shape_chip_drawable.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable_shape_chip_drawable.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_dash_members.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_dash_members.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_dashboard_main.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_dashboard_main.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values_values.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_item_recycler_member_dash_main_new.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_item_recycler_member_dash_main_new.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/25.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/25.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/30.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/30.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/5.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/6.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/7.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/7.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/8.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/8.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/9.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/9.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashboardMainFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashboardMainFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/shape_chip_drawable.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shape_chip_drawable.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_members.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_members.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_recycler_member_dash_main_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_recycler_member_dash_main_new.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -101,76 +89,44 @@
       <file leaf-file-name="DashboardMainFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashboardMainFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="359" column="51" selection-start-line="359" selection-start-column="51" selection-end-line="359" selection-end-column="51" />
-              <folding>
-                <element signature="e#17253#17635#0" expanded="true" />
-                <element signature="e#17634#17635#0" expanded="true" />
-                <element signature="e#18501#18679#0" expanded="true" />
-                <element signature="e#18678#18679#0" expanded="true" />
-                <element signature="e#20568#20873#0" expanded="true" />
-                <element signature="e#20872#20873#0" expanded="true" />
-                <element signature="e#20925#21255#0" expanded="true" />
-                <element signature="e#21254#21255#0" expanded="true" />
-                <element signature="e#21307#21637#0" expanded="true" />
-                <element signature="e#21636#21637#0" expanded="true" />
-                <element signature="e#21691#22021#0" expanded="true" />
-                <element signature="e#22020#22021#0" expanded="true" />
-                <element signature="e#22078#22408#0" expanded="true" />
-                <element signature="e#22407#22408#0" expanded="true" />
-                <element signature="e#22455#22781#0" expanded="true" />
-                <element signature="e#22780#22781#0" expanded="true" />
-                <element signature="e#22831#23157#0" expanded="true" />
-                <element signature="e#23156#23157#0" expanded="true" />
-                <element signature="e#23206#23532#0" expanded="true" />
-                <element signature="e#23531#23532#0" expanded="true" />
-                <element signature="e#23585#23911#0" expanded="true" />
-                <element signature="e#23910#23911#0" expanded="true" />
-                <element signature="e#24002#24149#0" expanded="true" />
-                <element signature="e#24148#24149#0" expanded="true" />
-                <element signature="e#24191#24338#0" expanded="true" />
-                <element signature="e#24337#24338#0" expanded="true" />
-                <element signature="e#24382#24602#0" expanded="true" />
-                <element signature="e#24601#24602#0" expanded="true" />
-                <element signature="e#24640#24999#0" expanded="true" />
-                <element signature="e#24998#24999#0" expanded="true" />
-                <element signature="e#25035#25313#0" expanded="true" />
-                <element signature="e#25312#25313#0" expanded="true" />
-                <element signature="e#25378#25652#0" expanded="true" />
-                <element signature="e#25651#25652#0" expanded="true" />
-                <element signature="e#25690#25964#0" expanded="true" />
-                <element signature="e#25963#25964#0" expanded="true" />
-                <element signature="e#26005#26280#0" expanded="true" />
-                <element signature="e#26279#26280#0" expanded="true" />
-                <element signature="e#26330#26605#0" expanded="true" />
-                <element signature="e#26604#26605#0" expanded="true" />
-                <element signature="e#26655#26930#0" expanded="true" />
-                <element signature="e#26929#26930#0" expanded="true" />
-                <element signature="e#26970#27245#0" expanded="true" />
-                <element signature="e#27244#27245#0" expanded="true" />
-                <element signature="e#27314#27588#0" expanded="true" />
-                <element signature="e#27587#27588#0" expanded="true" />
-                <element signature="e#27635#27909#0" expanded="true" />
-                <element signature="e#27908#27909#0" expanded="true" />
-                <element signature="e#27955#28229#0" expanded="true" />
-                <element signature="e#28228#28229#0" expanded="true" />
-                <element signature="e#28288#28667#0" expanded="true" />
-                <element signature="e#28666#28667#0" expanded="true" />
-                <element signature="e#28722#28997#0" expanded="true" />
-                <element signature="e#28996#28997#0" expanded="true" />
-                <element signature="e#29050#29453#0" expanded="true" />
-                <element signature="e#29452#29453#0" expanded="true" />
-                <element signature="e#29505#29907#0" expanded="true" />
-                <element signature="e#29906#29907#0" expanded="true" />
-                <element signature="e#30285#30676#0" expanded="true" />
-                <element signature="e#30675#30676#0" expanded="true" />
-                <element signature="e#30721#31112#0" expanded="true" />
-                <element signature="e#31111#31112#0" expanded="true" />
-                <element signature="e#31156#31555#0" expanded="true" />
-                <element signature="e#31554#31555#0" expanded="true" />
-                <element signature="e#31601#32159#0" expanded="true" />
-                <element signature="e#32158#32159#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="87">
+              <caret line="1503" column="57" selection-start-line="1503" selection-start-column="57" selection-end-line="1503" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DashboarMainActivityWithBottomNav.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="209" column="71" selection-start-line="209" selection-start-column="71" selection-end-line="209" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Urls.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/urls/Urls.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="596">
+              <caret line="191" column="81" selection-start-line="191" selection-start-column="66" selection-end-line="191" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DashMembersFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="265" column="65" selection-start-line="265" selection-start-column="65" selection-end-line="265" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecyclerViewAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="133" column="30" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -178,29 +134,51 @@
       <file leaf-file-name="MainDirectiveActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/directive/MainDirectiveActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="204" selection-start-line="204" selection-end-line="209" selection-end-column="37" />
+            <state relative-caret-position="274">
+              <caret line="196" selection-start-line="196" selection-end-line="196" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragment_dash_members.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_members.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
-              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="fragment_dashboard_main.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="2009" column="62" selection-start-line="2009" selection-start-column="62" selection-end-line="2009" selection-end-column="62" />
+            <state relative-caret-position="314">
+              <caret line="640" column="71" selection-start-line="640" selection-start-column="71" selection-end-line="640" selection-end-column="71" />
+              <folding>
+                <element signature="e#4466#4488#0" expanded="true" />
+                <element signature="e#37057#38746#0" />
+                <element signature="e#41934#41972#0" expanded="true" />
+                <element signature="e#43472#43510#0" expanded="true" />
+                <element signature="e#45473#45511#0" expanded="true" />
+                <element signature="e#47529#47567#0" expanded="true" />
+                <element signature="e#50078#50116#0" expanded="true" />
+                <element signature="e#52156#52194#0" expanded="true" />
+                <element signature="e#65525#65553#0" expanded="true" />
+                <element signature="e#66602#66640#0" expanded="true" />
+                <element signature="e#69172#69201#0" expanded="true" />
+                <element signature="e#70219#70257#0" expanded="true" />
+                <element signature="e#72893#72918#0" expanded="true" />
+                <element signature="e#74122#74160#0" expanded="true" />
+                <element signature="e#78643#78669#0" expanded="true" />
+                <element signature="e#78817#78855#0" expanded="true" />
+                <element signature="e#79812#79850#0" expanded="true" />
+                <element signature="e#84318#84345#0" expanded="true" />
+                <element signature="e#84493#84531#0" expanded="true" />
+                <element signature="e#85576#85614#0" expanded="true" />
+                <element signature="e#89990#90013#0" expanded="true" />
+                <element signature="e#90161#90199#0" expanded="true" />
+                <element signature="e#91125#91163#0" expanded="true" />
+                <element signature="e#95211#95234#0" expanded="true" />
+                <element signature="e#95382#95420#0" expanded="true" />
+                <element signature="e#96357#96395#0" expanded="true" />
+                <element signature="e#100658#100682#0" expanded="true" />
+                <element signature="e#100830#100868#0" expanded="true" />
+                <element signature="e#101828#101866#0" expanded="true" />
+                <element signature="e#106014#106037#0" expanded="true" />
+                <element signature="e#106185#106223#0" expanded="true" />
+                <element signature="e#107151#107189#0" expanded="true" />
+              </folding>
             </state>
           </provider>
           <provider editor-type-id="android-designer2">
@@ -208,11 +186,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ic_crown.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_crown.xml">
+      <file leaf-file-name="ic_add_circle_black_24dp.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_add_circle_black_24dp.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shape_chip_drawable.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/shape_chip_drawable.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -230,9 +217,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>contactUs</find>
-      <find>dialogVerifyphone</find>
-      <find>total_cost</find>
       <find>amount</find>
       <find>order_cost</find>
       <find>_cost</find>
@@ -260,6 +244,9 @@
       <find>viewPagerMemFragment</find>
       <find>DashMem</find>
       <find>DashMembersFragment</find>
+      <find>llMyMatchesBottomBar</find>
+      <find>GetNotificationCount</find>
+      <find>noti</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments</dir>
@@ -2771,11 +2758,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/BasicsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/border_dash_main_green.xml" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_btn_outline_green.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-v21/bg_btn_outline_green.xml" />
@@ -2817,10 +2799,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_crown.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/shape_chip_drawable.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_members.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashboardMainFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_recycler_member_dash_main_new.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_members.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_photo_camera_black_24dp.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/shape_chip_drawable.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_add_circle_black_24dp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml" />
       </list>
     </option>
@@ -2837,7 +2824,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2849,7 +2835,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2953,6 +2938,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2966,7 +2953,7 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="device.picker.selection" value="Nexus_5X_API_23" />
+    <property name="device.picker.selection" value="ZX1G22Q6XQ" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments" />
     <property name="settings.editor.selected.configurable" value="instant.run" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1536303285852" />
@@ -3129,13 +3116,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1532684130521</updated>
-    </task>
-    <task id="LOCAL-00065" summary="updated to 28 sdk">
-      <created>1538745799118</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1538745799118</updated>
     </task>
     <task id="LOCAL-00066" summary="updated to 28 sdk">
       <created>1539166394598</created>
@@ -3473,7 +3453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547650478226</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="discount bug fixed">
+      <created>1547736510879</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1547736510880</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3490,27 +3477,28 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.3286219" />
+      <window_info id="Build Variants" order="2" sideWeight="0.50058895" side_tool="true" weight="0.13631523" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50692225" side_tool="true" weight="0.43345112" />
+      <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.49307775" visible="true" weight="0.04122497" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.5553781" weight="0.35217902" />
+      <window_info id="Structure" order="1" sideWeight="0.50058895" side_tool="true" weight="0.13631523" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5037274" weight="0.39693758" />
+      <window_info anchor="right" id="Device File Explorer" order="10" side_tool="true" weight="0.32960597" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988507" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
-      <window_info id="Build Variants" order="2" sideWeight="0.50058895" side_tool="true" weight="0.13631523" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5063898" side_tool="true" weight="0.40047115" />
-      <window_info anchor="right" id="Preview" order="7" visible="true" weight="0.46112886" />
+      <window_info active="true" anchor="right" id="Preview" order="7" visible="true" weight="0.36368477" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48509052" weight="0.45700824" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.35714287" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5266241" weight="0.32988507" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="7" sideWeight="0.49361023" visible="true" weight="0.40636042" />
       <window_info id="Captures" order="2" weight="0.32960597" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49941108" visible="true" weight="0.16134185" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.5553781" weight="0.028268551" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49941108" visible="true" weight="0.15548456" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.50532484" weight="0.42167255" />
       <window_info anchor="right" id="Gradle" order="5" weight="0.32960597" />
-      <window_info id="Structure" order="1" sideWeight="0.50058895" side_tool="true" weight="0.13631523" />
       <window_info anchor="right" id="Fabric" order="9" weight="0.32960597" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5037274" weight="0.39693758" />
-      <window_info anchor="right" id="Device File Explorer" order="10" side_tool="true" weight="0.32960597" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Assistant" order="8" weight="0.32960597" />
@@ -3520,7 +3508,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.50532484" weight="0.590106" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3599,34 +3586,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyProfileSettingFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="72" column="50" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogSaveSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
-          <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/mPayments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Subscription.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3390">
-          <caret line="332" column="40" selection-start-line="332" selection-start-column="40" selection-end-line="332" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyContactFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -3642,13 +3601,6 @@
     <entry file="file://$PROJECT_DIR$/app/app.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4620">
-          <caret line="356" column="31" selection-start-line="356" selection-start-column="31" selection-end-line="356" selection-end-column="31" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegistrationActivity.java">
@@ -3769,13 +3721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/urls/Urls.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="45" column="91" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/modal/Members.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -3825,13 +3770,6 @@
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="437" column="6" selection-start-line="437" selection-start-column="6" selection-end-line="437" selection-end-column="6" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_userprpfile_basic_info.xml">
@@ -3933,30 +3871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/shape_chip_drawable.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="44" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_members.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1182">
-          <caret line="137" column="59" selection-start-line="137" selection-start-column="59" selection-end-line="137" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_preffered_matching.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -3967,92 +3881,134 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/directive/MainDirectiveActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashMain/DashMembersFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="204" selection-start-line="204" selection-end-line="209" selection-end-column="37" />
+        <state relative-caret-position="296">
+          <caret line="265" column="65" selection-start-line="265" selection-start-column="65" selection-end-line="265" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashboardMainFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="359" column="51" selection-start-line="359" selection-start-column="51" selection-end-line="359" selection-end-column="51" />
-          <folding>
-            <element signature="e#17253#17635#0" expanded="true" />
-            <element signature="e#17634#17635#0" expanded="true" />
-            <element signature="e#18501#18679#0" expanded="true" />
-            <element signature="e#18678#18679#0" expanded="true" />
-            <element signature="e#20568#20873#0" expanded="true" />
-            <element signature="e#20872#20873#0" expanded="true" />
-            <element signature="e#20925#21255#0" expanded="true" />
-            <element signature="e#21254#21255#0" expanded="true" />
-            <element signature="e#21307#21637#0" expanded="true" />
-            <element signature="e#21636#21637#0" expanded="true" />
-            <element signature="e#21691#22021#0" expanded="true" />
-            <element signature="e#22020#22021#0" expanded="true" />
-            <element signature="e#22078#22408#0" expanded="true" />
-            <element signature="e#22407#22408#0" expanded="true" />
-            <element signature="e#22455#22781#0" expanded="true" />
-            <element signature="e#22780#22781#0" expanded="true" />
-            <element signature="e#22831#23157#0" expanded="true" />
-            <element signature="e#23156#23157#0" expanded="true" />
-            <element signature="e#23206#23532#0" expanded="true" />
-            <element signature="e#23531#23532#0" expanded="true" />
-            <element signature="e#23585#23911#0" expanded="true" />
-            <element signature="e#23910#23911#0" expanded="true" />
-            <element signature="e#24002#24149#0" expanded="true" />
-            <element signature="e#24148#24149#0" expanded="true" />
-            <element signature="e#24191#24338#0" expanded="true" />
-            <element signature="e#24337#24338#0" expanded="true" />
-            <element signature="e#24382#24602#0" expanded="true" />
-            <element signature="e#24601#24602#0" expanded="true" />
-            <element signature="e#24640#24999#0" expanded="true" />
-            <element signature="e#24998#24999#0" expanded="true" />
-            <element signature="e#25035#25313#0" expanded="true" />
-            <element signature="e#25312#25313#0" expanded="true" />
-            <element signature="e#25378#25652#0" expanded="true" />
-            <element signature="e#25651#25652#0" expanded="true" />
-            <element signature="e#25690#25964#0" expanded="true" />
-            <element signature="e#25963#25964#0" expanded="true" />
-            <element signature="e#26005#26280#0" expanded="true" />
-            <element signature="e#26279#26280#0" expanded="true" />
-            <element signature="e#26330#26605#0" expanded="true" />
-            <element signature="e#26604#26605#0" expanded="true" />
-            <element signature="e#26655#26930#0" expanded="true" />
-            <element signature="e#26929#26930#0" expanded="true" />
-            <element signature="e#26970#27245#0" expanded="true" />
-            <element signature="e#27244#27245#0" expanded="true" />
-            <element signature="e#27314#27588#0" expanded="true" />
-            <element signature="e#27587#27588#0" expanded="true" />
-            <element signature="e#27635#27909#0" expanded="true" />
-            <element signature="e#27908#27909#0" expanded="true" />
-            <element signature="e#27955#28229#0" expanded="true" />
-            <element signature="e#28228#28229#0" expanded="true" />
-            <element signature="e#28288#28667#0" expanded="true" />
-            <element signature="e#28666#28667#0" expanded="true" />
-            <element signature="e#28722#28997#0" expanded="true" />
-            <element signature="e#28996#28997#0" expanded="true" />
-            <element signature="e#29050#29453#0" expanded="true" />
-            <element signature="e#29452#29453#0" expanded="true" />
-            <element signature="e#29505#29907#0" expanded="true" />
-            <element signature="e#29906#29907#0" expanded="true" />
-            <element signature="e#30285#30676#0" expanded="true" />
-            <element signature="e#30675#30676#0" expanded="true" />
-            <element signature="e#30721#31112#0" expanded="true" />
-            <element signature="e#31111#31112#0" expanded="true" />
-            <element signature="e#31156#31555#0" expanded="true" />
-            <element signature="e#31554#31555#0" expanded="true" />
-            <element signature="e#31601#32159#0" expanded="true" />
-            <element signature="e#32158#32159#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="87">
+          <caret line="1503" column="57" selection-start-line="1503" selection-start-column="57" selection-end-line="1503" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/urls/Urls.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="191" column="81" selection-start-line="191" selection-start-column="66" selection-end-line="191" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="424" column="82" selection-start-line="424" selection-start-column="82" selection-end-line="424" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_recycler_member_dash_main_new.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="48" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="48" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dash_members.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="44" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="44" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_photo_camera_black_24dp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DashboarMainActivityWithBottomNav.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="209" column="71" selection-start-line="209" selection-start-column="71" selection-end-line="209" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/shape_chip_drawable.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/directive/MainDirectiveActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="196" selection-start-line="196" selection-end-line="196" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="133" column="30" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_add_circle_black_24dp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="2009" column="62" selection-start-line="2009" selection-start-column="62" selection-end-line="2009" selection-end-column="62" />
+        <state relative-caret-position="314">
+          <caret line="640" column="71" selection-start-line="640" selection-start-column="71" selection-end-line="640" selection-end-column="71" />
+          <folding>
+            <element signature="e#4466#4488#0" expanded="true" />
+            <element signature="e#37057#38746#0" />
+            <element signature="e#41934#41972#0" expanded="true" />
+            <element signature="e#43472#43510#0" expanded="true" />
+            <element signature="e#45473#45511#0" expanded="true" />
+            <element signature="e#47529#47567#0" expanded="true" />
+            <element signature="e#50078#50116#0" expanded="true" />
+            <element signature="e#52156#52194#0" expanded="true" />
+            <element signature="e#65525#65553#0" expanded="true" />
+            <element signature="e#66602#66640#0" expanded="true" />
+            <element signature="e#69172#69201#0" expanded="true" />
+            <element signature="e#70219#70257#0" expanded="true" />
+            <element signature="e#72893#72918#0" expanded="true" />
+            <element signature="e#74122#74160#0" expanded="true" />
+            <element signature="e#78643#78669#0" expanded="true" />
+            <element signature="e#78817#78855#0" expanded="true" />
+            <element signature="e#79812#79850#0" expanded="true" />
+            <element signature="e#84318#84345#0" expanded="true" />
+            <element signature="e#84493#84531#0" expanded="true" />
+            <element signature="e#85576#85614#0" expanded="true" />
+            <element signature="e#89990#90013#0" expanded="true" />
+            <element signature="e#90161#90199#0" expanded="true" />
+            <element signature="e#91125#91163#0" expanded="true" />
+            <element signature="e#95211#95234#0" expanded="true" />
+            <element signature="e#95382#95420#0" expanded="true" />
+            <element signature="e#96357#96395#0" expanded="true" />
+            <element signature="e#100658#100682#0" expanded="true" />
+            <element signature="e#100830#100868#0" expanded="true" />
+            <element signature="e#101828#101866#0" expanded="true" />
+            <element signature="e#106014#106037#0" expanded="true" />
+            <element signature="e#106185#106223#0" expanded="true" />
+            <element signature="e#107151#107189#0" expanded="true" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2">

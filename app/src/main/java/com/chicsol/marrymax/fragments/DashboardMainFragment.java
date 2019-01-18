@@ -356,16 +356,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         LoadData();
 
 
-        Bundle argsRequest = new Bundle();
-        argsRequest.putString("type", "mymatches");
-        argsRequest.putString("msg", "We haven’t found any match.");
-        DashMembersFragment frg = new DashMembersFragment();
-        frg.setArguments(argsRequest);
-        FragmentManager manager = getFragmentManager();
+
+
+   /*     FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.FrameMainFeatureContainer, frg, "Frag_Top_tagg");
 
-        transaction.commit();
+        transaction.commit();*/
 
 
         final Handler handler = new Handler();
@@ -1507,6 +1504,20 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
             //    TabLayout.Tab tabs = tabLayout1.getTabAt(lastSelectedPage);
             //   tabs.select();
         }
+
+
+
+
+        Bundle argsRequest1 = new Bundle();
+        argsRequest1.putString("type", "featured");
+        argsRequest1.putString("msg", "We haven’t found any match.");
+        DashMembersFragment frg = new DashMembersFragment();
+        frg.setArguments(argsRequest1);
+
+        android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.FrameMainFeatureContainer, frg);
+        fragmentTransaction.commit();
 
 
     }
