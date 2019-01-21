@@ -146,6 +146,9 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         type = getArguments().getString("type");
         msg = getArguments().getString("msg");
 
+
+        Tag = type;
+
         TextView tvError = (TextView) view.findViewById(R.id.TextViewMemberFragmentError);
         tvError.setText(msg);
         btChangeMatchingAttributeMSLW = (AppCompatButton) view.findViewById(R.id.ButtonDashboardonChangeMatchingAttributeMSLL);

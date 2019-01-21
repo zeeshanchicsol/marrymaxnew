@@ -372,7 +372,39 @@ public class ViewGenerator {
 
         return clearCommarEnd(sbSelectedVisaMyChoice).toString();
     }
+    public String getSelectionFromPhysicCheckbox(LinearLayout llCheckboxView) {
 
+        StringBuilder sbSelectedVisaMyChoice = new StringBuilder();
+        int childcount = llCheckboxView.getChildCount();
+        for (int i = 0; i < childcount; i++) {
+
+            View sv = llCheckboxView.getChildAt(i);
+            if (sv instanceof CheckBox) {
+
+                if (((CheckBox) sv).isChecked()) {
+                    sbSelectedVisaMyChoice.append(((CheckBox) sv).getId());
+                    if (i != childcount - 1) {
+                        sbSelectedVisaMyChoice.append(",");
+                    }
+                }
+
+            }
+        }
+        if (sbSelectedVisaMyChoice.length() == 0) {
+
+            return "1";
+        }
+
+        Character ch = new Character(',');
+        if (sbSelectedVisaMyChoice.length() > 0) {
+            if (sbSelectedVisaMyChoice.charAt(sbSelectedVisaMyChoice.length() - 1) == ch) {
+                sbSelectedVisaMyChoice.deleteCharAt(sbSelectedVisaMyChoice.length() - 1);
+            }
+
+        }
+
+        return clearCommarEnd(sbSelectedVisaMyChoice).toString();
+    }
 
     public String getSelectionFromCheckbox(GridLayout llCheckboxView) {
 

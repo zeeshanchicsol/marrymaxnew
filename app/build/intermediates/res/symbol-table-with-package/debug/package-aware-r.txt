@@ -1312,6 +1312,7 @@ drawable radio_unchecked
 drawable radiobutton_drawable_dialog
 drawable rounded_textview
 drawable shape_chip_drawable
+drawable shape_chip_drawable_home_page_upgrade
 drawable spinner_border
 drawable splash_marrymax
 drawable startuplogo
@@ -1817,6 +1818,7 @@ id RelativeLayoutDashMyFavourites
 id RelativeLayoutDashMyNotes
 id RelativeLayoutDashRecommendedMatch
 id RelativeLayoutDashRemoveFromSearch
+id RelativeLayoutDashUpgrade
 id RelativeLayoutHeadSubItem
 id RelativeLayoutVerifyEmail
 id RoundedImageViewChatListUserImage
@@ -1925,6 +1927,9 @@ id TextViewDMRecommendedMatchesCount
 id TextViewDMRemFromSearchCount
 id TextViewDMWhomIviewedCount
 id TextViewDMWhomViewedMeCount
+id TextViewDashMainAccStatus
+id TextViewDashMainAddPhoto
+id TextViewDashMainEditProfile
 id TextViewDashNotificationDescription
 id TextViewDashNotificationUserName
 id TextViewDashboardCount1

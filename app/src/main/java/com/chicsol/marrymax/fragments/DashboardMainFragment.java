@@ -12,7 +12,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -45,6 +44,7 @@ import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.MyProfileActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
+import com.chicsol.marrymax.activities.subscription.SubscriptionPlanActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapter;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.fragments.DashMain.DashMembersFragment;
@@ -122,8 +122,10 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     ViewPagerAdapter1 adapterMemFragment;
     private ViewPager viewPagerMemFragment;
     TabLayout tabLayoutMemFragment;
+    TextView tvEditProfile, tvViewProfile, tvAccStatus;
 
     private AppCompatButton btDashboardGetOfferNow, btDashboardDismissBanner;
+    private RelativeLayout rlUpgrade;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -211,6 +213,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         rlRemoveFromSearch = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashRemoveFromSearch);
         rlBlocked = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashBlocked);
         rlRecommededMatches = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashRecommendedMatch);
+        rlUpgrade = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashUpgrade);
 
 
         llNewMessages = (LinearLayout) view.findViewById(R.id.LinearLayoutDMNewMessages);
@@ -237,6 +240,11 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         tvCount2 = (TextView) view.findViewById(R.id.TextViewDashboardCount2);
         tvCount3 = (TextView) view.findViewById(R.id.TextViewDashboardCount3);
         tvCount4 = (TextView) view.findViewById(R.id.TextViewDashboardCount4);
+
+
+        tvEditProfile = (TextView) view.findViewById(R.id.TextViewDashMainEditProfile);
+        tvViewProfile = (TextView) view.findViewById(R.id.TextViewDashMainAddPhoto);
+        tvAccStatus = (TextView) view.findViewById(R.id.TextViewDashMainAccStatus);
 
 
         tvPromoMessageTitle = (TextView) view.findViewById(R.id.TextViewDashboardPromoMessage);
@@ -353,6 +361,19 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         viewPagerMemFragment = (ViewPager) view.findViewById(R.id.viewpagerMembersFragment);
 
 
+        if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+
+            rlUpgrade.setVisibility(View.VISIBLE);
+        }
+
+
+        if (SharedPreferenceManager.getUserObject(context).get_member_status() != 4) {
+            tvAccStatus.setVisibility(View.VISIBLE);
+        } else {
+            tvAccStatus.setVisibility(View.GONE);
+        }
+
+
         LoadData();
 
 
@@ -444,6 +465,34 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
     public void setListener() {
+        rlUpgrade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), SubscriptionPlanActivity.class);
+                startActivity(in);
+            }
+        });
+        tvEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarryMax marryMax = new MarryMax(getActivity());
+                marryMax.getProfileProgress(context, member, getActivity());
+
+            }
+        });
+        tvViewProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                     viewProfile();
+              /*  MarryMax marryMax = new MarryMax(getActivity());
+                if (marryMax.uploadPhotoCheck(context)) {
+                    Intent in = new Intent(context, PhotoUpload.class);
+                    startActivity(in);
+                }*/
+            }
+        });
+
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -1504,8 +1553,6 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
             //    TabLayout.Tab tabs = tabLayout1.getTabAt(lastSelectedPage);
             //   tabs.select();
         }
-
-
 
 
         Bundle argsRequest1 = new Bundle();

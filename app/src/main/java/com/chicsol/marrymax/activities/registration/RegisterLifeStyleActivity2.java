@@ -204,7 +204,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
 
 
                     String physic_id = String.valueOf(rgPhysicalChallenges.getCheckedRadioButtonId());
-                    String choice_physic_ids = vg.getSelectionFromCheckbox(llcbViewPhysicalChallenges);
+                    String choice_physic_ids = vg.getSelectionFromPhysicCheckbox(llcbViewPhysicalChallenges);
 
 
                     JSONObject params = new JSONObject();
@@ -219,6 +219,10 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                         if (TextUtils.isEmpty(sisters_count)) {
                             sisters_count = "0";
                         }
+
+
+                        Log.e("choice_physic_ids", "" + choice_physic_ids);
+
                         params.put("brothers_count", brothers_count);
 
                         params.put("sisters_count", sisters_count);
@@ -252,7 +256,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                     }
                     if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
 
-                        updateLifestyle(params);
+                  updateLifestyle(params);
 
                     }
                 }

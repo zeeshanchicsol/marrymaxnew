@@ -425,7 +425,7 @@ public class MarryMax {
 
 
                     Log.e("Tag is", TAG + "==");
-                    if (TAG.equals("SavedNotes") || TAG.equals("AccpetedMembers") || TAG.equals("FavouriteMembers") || TAG.equals("searchByAlias")) {
+                    if (TAG.equals("SavedNotes") || TAG.equals("AccpetedMembers") || TAG.equals("FavouriteMembers") || TAG.equals("searchByAlias")|| TAG.equals("featured")) {
 
 
                         Gson gsonc;
@@ -600,7 +600,7 @@ public class MarryMax {
 
             case sendMessage:
 
-                Log.e("get_open_message", "" + member.get_open_message());
+
 
                 if (smember.get_member_status() < 3 || smember.get_member_status() >= 7) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);

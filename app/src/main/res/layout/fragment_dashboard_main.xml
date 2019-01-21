@@ -528,6 +528,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="7.2">
@@ -535,6 +536,7 @@
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
+                                        android:gravity="center_vertical"
                                         android:layout_marginLeft="10dp"
                                         android:orientation="vertical">
 
@@ -564,22 +566,69 @@
 
                                         </LinearLayout>
 
-                                        <TextView
-                                            android:layout_width="wrap_content"
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:fontFamily="sans-serif"
-                                            android:text="Edit Profile | View Profile"
-                                            android:textColor="@color/colorASBlue" />
+                                            android:layout_marginTop="3dp">
 
+                                            <TextView
+                                                android:id="@+id/TextViewDashMainEditProfile"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="?selectableItemBackground"
+                                                android:clickable="true"
+                                                android:fontFamily="sans-serif"
+                                                android:text="Edit "
+                                                android:textColor="@color/colorASBlue"
+                                                android:textStyle="bold" />
 
-                                        <TextView
-                                            android:layout_width="wrap_content"
+                                            <!--     <TextView
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="wrap_content"
+                                                     android:fontFamily="sans-serif"
+                                                     android:text=""
+                                                     android:textColor="@color/colorASBlue" />-->
+
+                                            <TextView
+                                                android:id="@+id/TextViewDashMainAddPhoto"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="?selectableItemBackground"
+                                                android:clickable="true"
+                                                android:fontFamily="sans-serif"
+                                                android:text="  |  View Profile"
+                                                android:textColor="@color/colorASBlue"
+                                                android:textStyle="bold" />
+
+                                        </LinearLayout>
+
+                                        <!--             <TextView
+                                                         android:layout_width="wrap_content"
+                                                         android:layout_height="wrap_content"
+                                                         android:fontFamily="sans-serif"
+                                                         android:text="Edit Profile | View Profile"
+                                                         android:textColor="@color/colorASBlue" />
+             -->
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:fontFamily="sans-serif"
-                                            android:text="Account Status - Free "
-                                            android:textColor="@color/colorDashboardMainNormalText"
+                                            android:orientation="horizontal">
 
-                                            />
+                                            <TextView
+                                                android:id="@+id/TextViewDashMainAccStatus"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="3dp"
+                                                android:fontFamily="sans-serif"
+                                                android:text="Free Member"
+                                                android:textColor="@color/colorDashboardMainNormalText"
+                                                android:visibility="gone"
+
+                                                />
+
+
+                                        </LinearLayout>
                                         <!--       <LinearLayout
                                                    android:id="@+id/LinearlayoutDMWhomIviewedCount"
                                                    android:layout_width="match_parent"
@@ -634,14 +683,16 @@
                                                </LinearLayout>-->
 
                                         <RelativeLayout
+                                            android:id="@+id/RelativeLayoutDashUpgrade"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
 
-                                            android:layout_margin="5dp"
-                                        android:layout_marginLeft="30dp"
-                                            android:layout_marginBottom="8dp"
-                                            android:background="@drawable/shape_chip_drawable"
-                                            android:clickable="true">
+
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@drawable/shape_chip_drawable_home_page_upgrade"
+                                            android:clickable="true"
+                                            android:visibility="gone">
 
                                             <!--    <de.hdodenhof.circleimageview.CircleImageView
                                                     android:id="@+id/icon"
@@ -664,13 +715,13 @@
                                             <ImageView
                                                 android:id="@+id/imageViewStar"
                                                 android:layout_width="wrap_content"
-                                                android:layout_height="14sp"
+                                                android:layout_height="15sp"
                                                 android:layout_centerVertical="true"
                                                 android:layout_marginLeft="10dp"
                                                 android:clickable="true"
                                                 android:contentDescription="@null"
 
-                                                app:srcCompat="@drawable/ic_crown" />
+                                                app:srcCompat="@drawable/ic_star_black_24dp" />
 
                                             <TextView
                                                 android:id="@+id/TextViewRecyclerSelectedItem"
@@ -680,8 +731,8 @@
                                                 android:layout_marginRight="12dp"
                                                 android:layout_toRightOf="@id/imageViewStar"
                                                 android:fontFamily="sans-serif"
-                                                android:text="Upgrade "
-                                                android:textColor="@color/colorWhite"
+                                                android:text=" Upgrade "
+                                                android:textColor="@color/colorDefaultGreen"
                                                 android:textSize="14sp" />
 
                                         </RelativeLayout>
