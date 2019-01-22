@@ -849,7 +849,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        pDialog.setCancelable(false);
+        pDialog.setCancelable(true);
         Log.e("showInterest params", params.toString());
         Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,

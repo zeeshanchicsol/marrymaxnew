@@ -17,8 +17,7 @@
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-           >
+            android:layout_height="wrap_content">
 
             <include
                 layout="@layout/toolbar_dashboard"
@@ -48,7 +47,6 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:orientation="vertical">
-
 
 
                         <LinearLayout
@@ -92,7 +90,6 @@
                                     android:layout_height="0dp"
                                     android:layout_gravity="center"
                                     android:layout_weight="0.8">
-
 
 
                                     <android.support.design.widget.FloatingActionButton
@@ -166,16 +163,11 @@
                         </LinearLayout>
 
 
-
-
-
-
-
                         <LinearLayout
-                            android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                                          android:orientation="vertical">
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
 
                             <android.support.v7.widget.CardView
                                 android:layout_width="match_parent"
@@ -205,9 +197,9 @@
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginBottom="10dp"
                                         android:layout_marginLeft="10dp"
                                         android:layout_marginRight="10dp"
+                                        android:layout_marginBottom="10dp"
                                         android:orientation="vertical">
 
                                         <com.chicsol.marrymax.widgets.mTextView
@@ -601,11 +593,11 @@
                             android:orientation="vertical">
 
                             <android.support.v7.widget.CardView
-                                card_view:cardBackgroundColor="@android:color/white"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@android:color/white"
-                                app:cardElevation="8dp">
+                                app:cardElevation="8dp"
+                                card_view:cardBackgroundColor="@android:color/white">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -740,11 +732,11 @@
                             android:orientation="vertical">
 
                             <android.support.v7.widget.CardView
-                                card_view:cardBackgroundColor="@android:color/white"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@android:color/white"
-                                app:cardElevation="8dp">
+                                app:cardElevation="8dp"
+                                card_view:cardBackgroundColor="@android:color/white">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -879,11 +871,11 @@
                             android:orientation="vertical">
 
                             <android.support.v7.widget.CardView
-                                card_view:cardBackgroundColor="@android:color/white"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@android:color/white"
-                                app:cardElevation="8dp">
+                                app:cardElevation="8dp"
+                                card_view:cardBackgroundColor="@android:color/white">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -1019,11 +1011,11 @@
                             android:orientation="vertical">
 
                             <android.support.v7.widget.CardView
-                                card_view:cardBackgroundColor="@android:color/white"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@android:color/white"
-                                app:cardElevation="8dp">
+                                app:cardElevation="8dp"
+                                card_view:cardBackgroundColor="@android:color/white">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -1148,54 +1140,76 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginBottom="60dp"
                             android:layout_marginTop="20dp"
+                            android:layout_marginBottom="60dp"
 
                             android:orientation="vertical">
 
                             <android.support.v7.widget.CardView
-                                card_view:cardBackgroundColor="@android:color/white"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@android:color/white"
-                                app:cardElevation="8dp">
+                                app:cardElevation="8dp"
+                                card_view:cardBackgroundColor="@android:color/white">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:orientation="vertical">
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
 
-                                    android:orientation="horizontal">
-                                    <com.chicsol.marrymax.widgets.faTextView
-
+                                    <RelativeLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginLeft="4dp"
-                                        android:layout_marginTop="5dp"
-                                        android:padding="2dp"
-                                        android:background="@color/colorASBlue"
-                                        android:layout_marginRight="4dp"
-                                        android:text="@string/fa_icon_wheelchair"
-                                        android:textColor="@color/colorWhite"
-                                        android:visibility="visible" />
 
-                                    <com.chicsol.marrymax.widgets.mTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="5dp"
-                                        android:layout_marginTop="5dp"
-                                        android:text="Physical Disability"
-                                        android:textColor="@android:color/black"
+                                        android:orientation="horizontal">
 
-                                        android:textStyle="bold" />
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentLeft="true"
+                                            android:orientation="horizontal">
 
-                                </LinearLayout>
+                                            <com.chicsol.marrymax.widgets.faTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="4dp"
+                                                android:layout_marginTop="5dp"
+                                                android:layout_marginRight="4dp"
+                                                android:background="@color/colorASBlue"
+                                                android:padding="2dp"
+                                                android:text="@string/fa_icon_wheelchair"
+                                                android:textColor="@color/colorWhite"
+                                                android:visibility="visible" />
+
+                                            <com.chicsol.marrymax.widgets.mTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginTop="5dp"
+                                                android:text="Physical Disability"
+                                                android:textColor="@android:color/black"
+
+                                                android:textStyle="bold" />
+
+                                        </LinearLayout>
+
+
+                                        <ImageView
+                                            android:id="@+id/ImageViewPhysicialDisablity"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_marginRight="5dp"
+                                            android:clickable="true"
+                                            android:background="?selectableItemBackground"
+                                            app:srcCompat="@drawable/ic_info_24dp" />
+
+
+                                    </RelativeLayout>
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -1342,7 +1356,7 @@
 
         </android.support.design.widget.AppBarLayout>
 
-  <include layout="@layout/drawer_navigation_view" />
+     <include layout="@layout/drawer_navigation_view" />
 
     </android.support.v4.widget.DrawerLayout>
 

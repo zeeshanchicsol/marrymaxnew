@@ -2,6 +2,7 @@ package com.chicsol.marrymax.activities.registration;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -60,7 +62,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
     private boolean updateData = true;
     private EditText etNoOfSisters, etNoOfBrothers;
     private ProgressDialog pDialog;
-
+private ImageView ivPhysicalDisablityInfo;
 
     private FloatingActionButton fabLifeStyle1, fabLifeStyle2;
 
@@ -115,6 +117,9 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
         fabLifeStyle1 = (FloatingActionButton) findViewById(R.id.fabLifeStyle1);
         fabLifeStyle2 = (FloatingActionButton) findViewById(R.id.fabLifeStyle2);
 
+        ivPhysicalDisablityInfo = (ImageView) findViewById(R.id.ImageViewPhysicialDisablity);
+
+
         familyValuesDataList = new ArrayList<>();
         livingArrangementsDataList = new ArrayList<>();
 
@@ -154,6 +159,15 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
     }
 
     private void setListeners() {
+
+
+        ivPhysicalDisablityInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "You may need to provide proof for physically disability and may get discount if you deserve.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         fabLifeStyle1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

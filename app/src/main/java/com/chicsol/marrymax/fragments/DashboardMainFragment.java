@@ -1564,7 +1564,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.FrameMainFeatureContainer, frg);
-        fragmentTransaction.commit();
+     //   fragmentTransaction.commit();
+        fragmentTransaction.commitAllowingStateLoss();
 
 
     }

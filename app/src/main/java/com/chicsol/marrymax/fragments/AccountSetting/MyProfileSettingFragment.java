@@ -404,8 +404,8 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     }
 
     private void getValidCode(final String path) {
-        final ProgressDialog pDialog = new ProgressDialog(getContext());
-        pDialog.setMessage("Loading...");
+       /* final ProgressDialog pDialog = new ProgressDialog(getContext());
+        pDialog.setMessage("Loading...");*/
         pDialog.show();
         Log.e("path", "" + Urls.getValidCode + path);
         StringRequest req = new StringRequest(Urls.getValidCode + path,
