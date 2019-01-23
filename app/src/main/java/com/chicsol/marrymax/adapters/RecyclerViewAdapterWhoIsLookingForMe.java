@@ -170,7 +170,9 @@ public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<R
         } else if (idkey.equals("drink_id")) {
             viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_drink_id(), dataList);
         }
-
+        else if (idkey.equals("physic_id")) {
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getPhysic_id(), dataList);
+        }
 
         //
 

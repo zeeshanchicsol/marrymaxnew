@@ -1311,7 +1311,7 @@ public class MarryMax {
         MySingleton.getInstance(context).addToRequestQueue(req);
     }
 
-    public void updateStatus(final Context context) {
+  /*  public void updateStatus(final Context context) {
 
         // pDialog.show();
         Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
@@ -1340,18 +1340,18 @@ public class MarryMax {
                             if (dashboards.getAdmin_approved_status().equals("1") && members.get_member_status() < 3) {
                                 if (members.get_member_status() == 1) {
                                     if (dashboards.getEmail_complete_status().equals("1") && dashboards.getPhone_complete_status().equals("1") && dashboards.getProfile_complete_status().equals("100")) {
-                                        members.set_member_status(3);
+                                       *//* members.set_member_status(3);
 
-                                        SharedPreferenceManager.setUserObject(context, members);
+                                        SharedPreferenceManager.setUserObject(context, members);*//*
                                     } else {
-                                        members.set_member_status(2);
-                                        SharedPreferenceManager.setUserObject(context, members);
+                                       *//* members.set_member_status(2);
+                                        SharedPreferenceManager.setUserObject(context, members);*//*
                                     }
 
                                 } else if (members.get_member_status() == 2) {
                                     if (dashboards.getEmail_complete_status().equals("1") && dashboards.getPhone_complete_status().equals("1") && dashboards.getProfile_complete_status().equals("100")) {
-                                        members.set_member_status(3);
-                                        SharedPreferenceManager.setUserObject(context, members);
+                                       *//* members.set_member_status(3);
+                                        SharedPreferenceManager.setUserObject(context, members);*//*
                                     }
 
                                 }
@@ -1384,7 +1384,7 @@ public class MarryMax {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(context).addToRequestQueue(req);
-    }
+    }*/
 
 
     public boolean getUpdateCheck(Context context) {

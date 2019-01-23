@@ -62,11 +62,11 @@ public class DashboardAccountSettingFragment extends Fragment implements Dashboa
     @Override
     public void onResume() {
         super.onResume();
-        Members member = SharedPreferenceManager.getUserObject(context);
+    /*    Members member = SharedPreferenceManager.getUserObject(context);
         if (member.get_member_status() < 3 || member.get_member_status() >= 7) {
-            new MarryMax(null).updateStatus(context);
+        new MarryMax(null).updateStatus(context);
 
-        }
+        }*/
     }
 
 

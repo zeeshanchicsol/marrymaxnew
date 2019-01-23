@@ -539,28 +539,36 @@ private ImageView ivPhysicalDisablityInfo;
         pDialog.show();
 
 
-        Log.e("Params", "" + params);
+      //  Log.e("Params",    Urls.updateLifestyleUrl2+"  " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateLifestyleUrl2, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                     //   Log.e("updateLifestyle update", response + "");
                         try {
                             int responseid = response.getInt("id");
 
 
                             if (responseid == 1) {
 
+
+
                                 //updating status
                                 Members member = SharedPreferenceManager.getUserObject(getApplication());
 
 
-                                if (member.get_member_status() == 0) {
-                                    member.set_member_status(1);
-                                    SharedPreferenceManager.setUserObject(getApplicationContext(), member);
-                                }
+                                    if (member.get_member_status() == 0) {
+                                        int status = response.getInt("name");
+                                        member.set_member_status(status);
+                                        SharedPreferenceManager.setUserObject(getApplicationContext(), member);
+                                    }
+
+
+
+
+
 
 
                                 if (!marryMax.getUpdateCheck(getApplicationContext())) {

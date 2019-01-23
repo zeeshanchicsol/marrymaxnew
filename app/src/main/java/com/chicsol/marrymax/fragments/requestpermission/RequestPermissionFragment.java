@@ -1,6 +1,7 @@
 package com.chicsol.marrymax.fragments.requestpermission;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -54,6 +55,7 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
     boolean permissioncheck;
     TextView tvTitle;
     private ProgressBar pDialog;
+    private Context context;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -82,9 +84,9 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
         mPermissionDataList = new ArrayList<>();
         recyclerViewRequest = (RecyclerView) view.findViewById(R.id.RecyclerViewRPRequest);
 
-        recyclerViewRequest.setLayoutManager(new GridLayoutManager((getContext()), 1));
+        recyclerViewRequest.setLayoutManager(new GridLayoutManager((context), 1));
 
-        recyclerAdapterRequest = new RecyclerViewAdapterRequestPermissions(mRequestDataList, getContext(), permissioncheck, member.getUserpath(), getActivity(), this, member.getAlias(),member);
+        recyclerAdapterRequest = new RecyclerViewAdapterRequestPermissions(mRequestDataList, context, permissioncheck, member.getUserpath(), getActivity(), this, member.getAlias(), member);
 
         recyclerViewRequest.setAdapter(recyclerAdapterRequest);
 
@@ -99,6 +101,13 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
         requestPermission();
 
 
+    }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
     }
 
     @Override
@@ -122,7 +131,7 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
 
 
             params.put("userpath", member.getUserpath());
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
 
 
         } catch (JSONException e) {
@@ -170,12 +179,12 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
 
 
                         } catch (JSONException e) {
-                           // pDialog.dismiss();
+                            // pDialog.dismiss();
 
                             pDialog.setVisibility(View.GONE);
                             e.printStackTrace();
                         }
-                    //    pDialog.dismiss();
+                        //    pDialog.dismiss();
                         pDialog.setVisibility(View.GONE);
                     }
                 }, new Response.ErrorListener() {
@@ -185,9 +194,9 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
 
 
                 VolleyLog.e("res err", "Error: " + error);
-               Toast.makeText(getContext(), "Error Occured.  !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Error Occured.  !", Toast.LENGTH_SHORT).show();
                 pDialog.setVisibility(View.GONE);
-             //   pDialog.dismiss();
+                //   pDialog.dismiss();
             }
 
 
@@ -204,7 +213,7 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq);
+        MySingleton.getInstance(context).addToRequestQueue(jsonObjReq);
 
     }
 }

@@ -369,8 +369,8 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
 
 
     private void updateAllSelectionsAccordingToSearchCategories() {
-    //    EventBus.getDefault().postSticky(new MatchesCountUpdateEvent("getCount"));
-        int filterCount=0;
+        //    EventBus.getDefault().postSticky(new MatchesCountUpdateEvent("getCount"));
+        int filterCount = 0;
         if (defaultSelectionsObj != null) {
 
 //===============Basics=======================
@@ -420,7 +420,7 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
                 lifestyle1Selected = false;
             }
 //================Lifestyle 2 ===============
-            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_sibling_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_smoking_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_drink_ids())) {
+            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_sibling_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_smoking_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_drink_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_physic_ids())) {
                 lifestyle2Selected = true;
                 filterCount++;
             } else {
@@ -434,7 +434,7 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
                 geographySelected = false;
             }
 
-            SearchMainActivity.filterCount=filterCount;
+            SearchMainActivity.filterCount = filterCount;
             EventBus.getDefault().postSticky(new MatchesCountUpdateEvent("filterCount"));
 
 

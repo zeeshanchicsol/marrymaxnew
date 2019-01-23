@@ -207,7 +207,7 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
                 BottomNavSelected fragment = (BottomNavSelected) adapter.instantiateItem(mViewPager, position);
                 if (fragment != null) {
                     //if (selectedTab != 2) {
-                    DashboarMainActivityWithBottomNav.super.getNotificationCount();
+                    DashboarMainActivityWithBottomNav.super.  getNotificationCount();
                     fragment.bottomNavSelected();
                     //}
                 }
