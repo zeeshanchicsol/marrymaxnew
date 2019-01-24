@@ -2,11 +2,11 @@ package com.chicsol.marrymax.activities.search;
 
 import android.content.Context;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -28,7 +28,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchResultsActivity;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatchesSearch;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
@@ -38,7 +38,6 @@ import com.chicsol.marrymax.dialogs.dialogShowInterest;
 import com.chicsol.marrymax.interfaces.MatchesRefreshCallBackInterface;
 import com.chicsol.marrymax.interfaces.UpdateMatchesCountCallback;
 import com.chicsol.marrymax.modal.Members;
-import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -84,7 +83,9 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     private Toolbar toolbar;
     private long totalMatchesCount = 0;
     private String TAG = "SearchResultsActivity ";
-    private TextView tvMatchesCount;
+    private TextView tvMatchesCount, tvMatchesCountCp, tvComplProfioleTitle, tvComplProfioleTitle2, tvComplProfioleTitleCompProfile, tvMatchesCountSubscribeNow;
+    private Context context;
+    LinearLayout llMMMatchesNotFoundCompleteProfile, llSubscribeNow;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -230,9 +231,18 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
 
     private void initilize() {
 
+        context = getApplicationContext();
 
         tvMatchesCount = (TextView) findViewById(R.id.TextViewMatchesTotalCount);
+        tvComplProfioleTitle = (TextView) findViewById(R.id.TextViewMMMatchesCountCompleteProfile);
+        tvMatchesCountCp = (TextView) findViewById(R.id.TextViewMMMatchesCountCompleteProfile);
+        tvMatchesCountSubscribeNow = (TextView) findViewById(R.id.TextViewMMMatchesCountSubscribeNow);
+        //title 2 above heading
+        tvComplProfioleTitle2 = (TextView) findViewById(R.id.TextViewMMMatchesTitle2);
 
+        tvComplProfioleTitleCompProfile = (TextView) findViewById(R.id.TextViewMMMatchesTitleCompleteProfile);
+        llMMMatchesNotFoundCompleteProfile = (LinearLayout) findViewById(R.id.LinearLayoutMMMatchesNotFoundCompleteProfile);
+        //    tvSubscribeNowTitle = (TextView) findViewById(R.id.TextViewMMMatchesTitleSubscribeNow);
 
         if (defaultSelectionsObj != null) {
 
@@ -282,6 +292,21 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     }
 
     private void setListenders() {
+        ((AppCompatButton) findViewById(R.id.ButtonMMonCompleteProfile)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+               /* MarryMax marryMax = new MarryMax(getActivity());
+                marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
+*/
+                Intent in = new Intent(SearchResultsActivity.this, MainDirectiveActivity.class);
+                in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                in.putExtra("type", 22);
+                startActivity(in);
+
+            }
+        });
 
     }
 
@@ -508,8 +533,45 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
                                 } else {
                                     recyclerAdapter.clear();
                                     swipeRefresh.setRefreshing(false);
-                                    LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
+                                    //  LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
                                     findViewById(R.id.ButtonOnSearchClick).setVisibility(View.GONE);
+
+
+                                    if (SharedPreferenceManager.getUserObject(context).get_member_status() >= 0 && SharedPreferenceManager.getUserObject(context).get_member_status() <= 2 || SharedPreferenceManager.getUserObject(context).get_member_status() == 7) {
+
+                                        Gson gsont;
+                                        GsonBuilder gsonBuildert = new GsonBuilder();
+                                        gsont = gsonBuildert.create();
+                                        Type membert = new TypeToken<Members>() {
+                                        }.getType();
+                                        Members memberTotalPages = (Members) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), membert);
+
+
+                                        tvComplProfioleTitle2.setVisibility(View.VISIBLE);
+                                        tvComplProfioleTitle2.setText("Not Connected With Your Matches Yet?");
+
+                                        llMMMatchesNotFoundCompleteProfile.setVisibility(View.VISIBLE);
+                                        tvMatchesCountCp.setText(memberTotalPages.get_total_member_count() + "");
+                                        tvComplProfioleTitle.setText("0");
+                                        tvComplProfioleTitleCompProfile.setText("Matches Not Found");
+
+                                    }/* else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+
+                                        GsonBuilder gsonBuildert = new GsonBuilder();
+                                        Type membert = new TypeToken<Members>() {
+                                        }.getType();
+                                        Members memberTotalPages = (Members) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), membert);
+
+
+                                        llSubscribeNow.setVisibility(View.VISIBLE);
+                                        tvMatchesCountSubscribeNow.setText(memberTotalPages.get_total_member_count() + "");
+                                      //  tvSubscribeNowTitle.setText("Members, Looking For Me!");
+
+
+                                    }*/ else {
+                                        LinearLayoutMMMatchesNotFound.setVisibility(View.VISIBLE);
+                                    }
+
 
                                 }
 

@@ -305,14 +305,16 @@
                                     android:textColor="@color/colorTextRed"
                                     android:textSize="19sp" />
 
-                                <!-- <com.chicsol.marrymax.widgets.mTextView
+                                <com.chicsol.marrymax.widgets.mTextView
+                                    android:visibility="gone"
+                                    android:id="@+id/TextViewMMMatchesTitle2"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
                                         android:gravity="center"
-                                        android:text=""
+                                        android:text="asdasdasdad"
                                         android:textColor="#272a30"
-                                        android:textSize="18sp" />-->
+                                        android:textSize="18sp" />
 
                             </LinearLayout>
                         </LinearLayout>

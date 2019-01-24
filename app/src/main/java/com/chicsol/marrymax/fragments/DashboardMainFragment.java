@@ -1248,6 +1248,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 memberObj.set_member_status(3);
                                 SharedPreferenceManager.setUserObject(context, memberObj);*/
                             }
+                            NvScreenMain.setFocusable(true);
 
 
                         } catch (JSONException e) {
@@ -1368,12 +1369,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
     // Enables or disables the "please wait" screen.
     void setWaitScreen(boolean set) {
-        NvScreenMain.setVisibility(set ? View.GONE : View.VISIBLE);
-        llScreenWait.setVisibility(set ? View.VISIBLE : View.GONE);
+      /*  NvScreenMain.setVisibility(set ? View.GONE : View.VISIBLE);
+        llScreenWait.setVisibility(set ? View.VISIBLE : View.GONE);*/
     }
 
 
     private void getAdminNotes() {
+
 
 
     /*    final ProgressDialog pDialog = new ProgressDialog(getContext());
