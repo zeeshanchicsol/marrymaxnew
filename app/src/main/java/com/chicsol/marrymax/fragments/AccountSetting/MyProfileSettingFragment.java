@@ -8,12 +8,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -60,12 +63,13 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
     String Tag = "MyProfileSettingFragment";
     private ProgressDialog pDialog;
-    LinearLayout llCompleteProfile, llVeriyEmail, llVerifyPhone, llAdminReview, llPhoneVerified;
+    LinearLayout llCompleteProfile, llVeriyEmail, llVerifyPhone, llAdminReview, llPhoneVerified, llPhoneNotVerified;
     RelativeLayout rlEmailVerified;
-    TextView tvDesc, tvPhoneNumber;
+    TextView tvDesc, tvPhoneNumber, tvlandNumber;
     private Context context;
     TextView tvTitleLiveNotLive, tvAdminReviewTitle, tvAdminReviewTitleMain;
     private boolean addNumber = false;
+    private boolean addLandline = false;
     private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber, btMatchAid;
     //   btUpdateEmailz  btResendVerification
 
@@ -82,8 +86,16 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private String country_id = "";
+    private boolean phoneNotVerified = false;
     // ===========================
     TextView tvSubscriberOnly;
+
+    private CardView cvlandline;
+    LinearLayout llPhoneVerifyLandline;
+    AppCompatTextView tvPhoneVerifyLandline;
+    ImageView ivPhoneVerifyLandline;
+
+
 
     public MyProfileSettingFragment() {
         // Required empty public constructor
@@ -145,12 +157,18 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         }
 */
 
+
+        cvlandline = (CardView) view.findViewById(R.id.CardViewProfileSettingsLandline);
+
         btAddNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusAddNumber);
         btVerifyNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusVerifyNumber);
         btUpdateNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdateNumber);
 
         btMatchAid = (AppCompatButton) view.findViewById(R.id.ButtonMatchAid);
 
+        llPhoneVerifyLandline = (LinearLayout) view.findViewById(R.id.LinearLayoutAccountSettingMyContactVerifyLandline);
+        ivPhoneVerifyLandline = (ImageView) view.findViewById(R.id.ImageViewASContactLandLineNumberVerify);
+        tvPhoneVerifyLandline = (AppCompatTextView) view.findViewById(R.id.TextViewASContactLandLineNumberVerify);
 
         //  btResendVerification = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusResend);
         //  btUpdateEmailz = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdate);
@@ -162,13 +180,15 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         llAdminReview = (LinearLayout) view.findViewById(R.id.LinearLayoutMyProfileStatusAdminApproval);
 
         llPhoneVerified = (LinearLayout) view.findViewById(R.id.LinearLayoutVerifyMobile);
+        llPhoneNotVerified = (LinearLayout) view.findViewById(R.id.LinearLayoutAccountSettingMyContactNotVerified);
+
         rlEmailVerified = (RelativeLayout) view.findViewById(R.id.RelativeLayoutVerifyEmail);
 
 
         tvDesc = (TextView) view.findViewById(R.id.TextViewMyProfileStatusDesc);
 
         tvPhoneNumber = (TextView) view.findViewById(R.id.TextViewMyProfileStatusMobileNumber);
-
+        tvlandNumber = (TextView) view.findViewById(R.id.TextViewMyProfileStatusLandNumber);
 
         // llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutMyProfileStatusEmail);
         llASPhone = (LinearLayout) view.findViewById(R.id.LinearlayoutMyProfileStatusPhone);
@@ -453,7 +473,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
     }
 
-    private void getProfileCompletion() {
+    private void getProfileCompletion(final JSONObject objPhone) {
         //   pDialog.setVisibility(View.VISIBLE);
         if (!((Activity) context).isFinishing()) {
 
@@ -557,7 +577,6 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                 btAddNumber.setVisibility(View.GONE);
 
 
-
                                 btUpdateNumber.setVisibility(View.VISIBLE);
                                 btVerifyNumber.setVisibility(View.VISIBLE);
 
@@ -569,6 +588,160 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             }
 
 
+                         /*   if (member.get_phone_verified() == 3) {
+                                llPhoneNotVerified.setVisibility(View.VISIBLE);
+                                llEnterCode.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.GONE);
+                                llVerifyPhone.setVisibility(View.GONE);
+                            }
+                            if (member.get_phone_verified() == 2) {
+                                llPhoneVerified.setVisibility(View.VISIBLE);
+                                llEnterCode.setVisibility(View.GONE);
+                                llPhoneNotVerified.setVisibility(View.GONE);
+                                llVerifyPhone.setVisibility(View.GONE);
+                            }
+                            if (member.get_phone_verified() == 1) {
+                                llVerifyPhone.setVisibility(View.VISIBLE);
+                                llEnterCode.setVisibility(View.VISIBLE);
+                                llPhoneNotVerified.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.GONE);
+
+                                //blue icon
+
+                            }*/
+
+//========================================================================================================
+                            //Mobile Number
+
+                            //not verified
+                            if (objPhone.get("mobile_status").toString().equals("3")) {
+                                btVerifyNumber.setVisibility(View.GONE);
+                                llASPhone.setVisibility(View.VISIBLE);
+                                llPhoneNotVerified.setVisibility(View.VISIBLE);
+                            }
+                            // verified
+                            else if (objPhone.get("mobile_status").toString().equals("2")) {
+                                llVerifyPhone.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.VISIBLE);
+                                llASPhone.setVisibility(View.GONE);
+                            }
+
+                            // not added
+                            else if (objPhone.get("mobile_status").toString().equals("0")) {
+
+                                llASPhone.setVisibility(View.VISIBLE);
+                                llVerifyPhone.setVisibility(View.VISIBLE);
+                            }
+
+
+//========================================================================================================
+
+
+//========================================================================================================
+                            //Lanline Checks
+                            if (!addLandline) {
+                                cvlandline.setVisibility(View.GONE);
+
+                            } else {
+                                cvlandline.setVisibility(View.VISIBLE);
+
+
+
+                                if (objPhone.get("landline_status").toString().equals("1")) {
+                                    llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                                    tvPhoneVerifyLandline.setText("Not Verified");
+                                    ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+                                    //pending
+
+
+                                } else     if (objPhone.get("landline_status").toString().equals("2")) {
+
+                                    //verified
+                                    llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                                    tvPhoneVerifyLandline.setText("Verified");
+                                    ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
+
+                                } else   if (objPhone.get("landline_status").toString().equals("3")) {
+                                    llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                                    tvPhoneVerifyLandline.setText("Not Verified");
+                                    ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+                                    //not verified
+
+                                }
+
+
+                            }
+
+
+//========================================================================================================
+
+
+                            //Lanline Checks
+
+                       /*     if (member.get_phone_view() == 1) {
+                                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                                tvPhoneVerifyLandline.setText("Not Verified");
+                                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+                                //pending
+
+
+                            } else if (member.get_phone_view() == 2) {
+
+                                //verified
+                                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                                tvPhoneVerifyLandline.setText("Verified");
+                                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
+
+                            } else if (member.get_phone_view() == 3) {
+                                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                                tvPhoneVerifyLandline.setText("Not Verified");
+                                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+                                //not verified
+
+                            }*/
+
+
+
+
+
+
+
+
+
+                           /* if (dashboards.getPhone_complete_status().equals("1")) {
+                                llVerifyPhone.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.VISIBLE);
+                                llASPhone.setVisibility(View.GONE);
+                                //verfied
+
+                            } else if (phoneNotVerified) {
+                                btVerifyNumber.setVisibility(View.GONE);
+                                llASPhone.setVisibility(View.VISIBLE);
+                                llPhoneNotVerified.setVisibility(View.VISIBLE);
+                            } else {
+                                // if
+
+                                llASPhone.setVisibility(View.VISIBLE);
+                                llVerifyPhone.setVisibility(View.VISIBLE);
+
+                            }*/
+
+                     /*   if (dashboards.getPhone_complete_status().equals("1")) {
+                                //hide update email
+
+                                llASPhone.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.VISIBLE);
+
+                            } else {
+                                //show
+                                llASPhone.setVisibility(View.GONE);
+                                llPhoneVerified.setVisibility(View.VISIBLE);
+
+                            }*/
+
+
+//==============================================
+/*
                             if (dashboards.getPhone_complete_status().equals("1")) {
                                 llVerifyPhone.setVisibility(View.GONE);
                                 llPhoneVerified.setVisibility(View.VISIBLE);
@@ -581,19 +754,6 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                 // if
                                 llASPhone.setVisibility(View.VISIBLE);
                                 llVerifyPhone.setVisibility(View.VISIBLE);
-
-                            }
-
-                     /*   if (dashboards.getPhone_complete_status().equals("1")) {
-                                //hide update email
-
-                                llASPhone.setVisibility(View.GONE);
-                                llPhoneVerified.setVisibility(View.VISIBLE);
-
-                            } else {
-                                //show
-                                llASPhone.setVisibility(View.GONE);
-                                llPhoneVerified.setVisibility(View.VISIBLE);
 
                             }*/
 
@@ -656,26 +816,70 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     private void getPhoneNumber() {
 
 
-        Log.e(" Notification url", Urls.getPhn + SharedPreferenceManager.getUserObject(context).get_path());
-        StringRequest req = new StringRequest(Urls.getPhn + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e(" Notification url", Urls.getPhnV + SharedPreferenceManager.getUserObject(context).get_path());
+        StringRequest req = new StringRequest(Urls.getPhnV + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e("getPhoneNumber ", "=======================  " + response.equalsIgnoreCase(response));
+                      /*  Log.e("getPhoneNumber ", "=======================  " + response.equalsIgnoreCase(response));
                         Log.e("getPhoneNumber ", "=======================  " + response.replaceAll("^\"|\"$", ""));
-
+*/
                         swipeRefreshLayout.setRefreshing(false);
 
                         // result=result.replaceAll("^\"|\"$", "");
-                        response = response.replaceAll("^\"|\"$", "");
+                      /*  response = response.replaceAll("^\"|\"$", "");
 
-                        if (!response.toString().equals("0")) {
-                            tvPhoneNumber.setText(response);
+
+                        String[] val = response.split(",");
+
+                       String pNumber =val[0];
+                        String phoneVerifiedstatus =val[1];
+
+                        if(phoneVerifiedstatus.equals("3")) {
+                            phoneNotVerified=true;
+                        }
+                        if (!pNumber.equals("0")) {
+                            tvPhoneNumber.setText(pNumber);
                             addNumber = false;
                         } else {
                             addNumber = true;
+                        }*/
+
+                        String pNumber, lNumber;
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+
+                            pNumber = jsonObject.get("mobile_phone").toString();
+                            lNumber = jsonObject.get("landline_phone").toString();
+
+
+                            Log.e("landline_phone ", "=======================  " +lNumber);
+
+
+                            if (!pNumber.equals("null")) {
+                                tvPhoneNumber.setText(pNumber);
+                                addNumber = false;
+                            } else {
+                                addNumber = true;
+                            }
+
+
+                            if (!lNumber.equals("")) {
+                                tvlandNumber.setText(lNumber);
+                                addLandline = true;
+                            } else {
+                                addLandline = false;
+                            }
+
+
+                            getProfileCompletion(jsonObject);
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                        getProfileCompletion();
+
+
                     }
 
                 }, new Response.ErrorListener() {

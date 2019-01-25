@@ -1392,6 +1392,7 @@ id ButtonMessageDetailSubscribe
 id ButtonMyContatsSearch
 id ButtonMyMatchesSubscribeClick
 id ButtonMyProfileStatusAddNumber
+id ButtonMyProfileStatusUpdateLandline
 id ButtonMyProfileStatusUpdateNumber
 id ButtonMyProfileStatusVerifyNumber
 id ButtonMySaveSearchSearch
@@ -1439,6 +1440,7 @@ id CTRL
 id CardViewAmenities
 id CardViewDashMainMembersItem
 id CardViewProfileCompletionStatus
+id CardViewProfileSettingsLandline
 id CardViewPromoCode
 id CheckBoxAcceptInterestAllowPhone
 id CheckBoxAcceptInterestAllowPics
@@ -1717,6 +1719,7 @@ id LinearlayoutChatListSelf
 id LinearlayoutChatListTo
 id LinearlayoutDMWhomIviewedCount
 id LinearlayoutDMWhomViewedMeCount
+id LinearlayoutMyProfileStatusLandline
 id LinearlayoutMyProfileStatusPhone
 id LinearlayoutOrderProcessABL
 id LinearlayoutOrderProcessCCDetailView
@@ -1986,6 +1989,7 @@ id TextViewListPhoneNumber
 id TextViewListSavSearchDate
 id TextViewListSavSearchName
 id TextViewListUsername
+id TextViewMMAboutMe
 id TextViewMMAge
 id TextViewMMMatchesCountCompleteProfile
 id TextViewMMMatchesCountSubscribeNow
@@ -2027,6 +2031,7 @@ id TextViewMyContactListCallTime
 id TextViewMyContactsEmptyMessage
 id TextViewMyInterestRequestsUsername
 id TextViewMyProfileStatusDesc
+id TextViewMyProfileStatusLandNumber
 id TextViewMyProfileStatusMobileNumber
 id TextViewMyProfileStatusTitle
 id TextViewMySaveSearchesHeader

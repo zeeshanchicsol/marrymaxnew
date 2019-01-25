@@ -29,6 +29,7 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,6 +38,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -47,7 +49,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.activities.UserProfileActivityFragment;
 import com.chicsol.marrymax.dialogs.dialogAddNotes;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
 import com.chicsol.marrymax.dialogs.dialogRequest;
@@ -88,8 +89,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import static java.security.AccessController.getContext;
 
 public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, UpdateMemberFromDialogFragment, RemoveMember, RequestCallbackInterface, PhoneRequestCallBackInterface, WithdrawRequestCallBackInterface {
     private final int VIEW_ITEM = 1;
@@ -335,6 +334,8 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
             holder.alias.setText(member.getAlias());
             holder.age.setText("( " + member.get_age() + " Years)");
+            holder.tvAboutMe.setText(Html.fromHtml("<b>About: </b>"+member.get_about_member()));
+
             holder.pref1.setText(member.get_pref1() + ": ");
             holder.pref2.setText(member.get_pref2() + ": ");
             holder.pref3.setText(member.get_pref3() + ": ");
@@ -344,8 +345,10 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
             holder.prefValue2.setText(member.get_prefvalue2());
             holder.prefValue3.setText(member.get_prefvalue3());
             holder.prefValue4.setText(member.get_prefvalue4());
-            if (member.get_image_count() > 0) {
-                holder.imageCount.setText(member.get_image_count() + "");
+
+            if (member.get_photo_count() > 0) {
+                holder.imageCount.setText(member.get_photo_count() + "");
+
             } else {
                 holder.ll_image_count.setVisibility(View.GONE);
             }
@@ -926,7 +929,6 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
         }*/
 
 
-
         if (isProgress) {
 
             items.add(null);
@@ -966,7 +968,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
         items.clear();
         items.addAll(lst);
         notifyDataSetChanged();
-     //   Log.e("item size in adapter", items.size() + "");
+        //   Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<Members> lst) {
@@ -1077,7 +1079,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
         public mTextView alias, imageCount, age, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvShowInterestText;
         public faTextView tvBtMenu, faRemoveFromSearch, faInterestIcon, faNotes;  //faAddToFav
         public ImageView ivCountryFlag, ivViewPhone;
-
+        public TextView tvAboutMe;
         public LinearLayoutCompat bt_ShowInterest, ll_user_profile, ll_image_count;
         //    public mTextView country;
 
@@ -1101,6 +1103,8 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
             prefValue3 = (mTextView) itemView.findViewById(R.id.TextViewMMPrefValue3);
             prefValue4 = (mTextView) itemView.findViewById(R.id.TextViewMMPrefValue4);
             tvShowInterestText = (mTextView) itemView.findViewById(R.id.TextViewMMShowInterestText);
+
+            tvAboutMe = (TextView) itemView.findViewById(R.id.TextViewMMAboutMe);
 
 
             tvBtMenu = (faTextView) itemView.findViewById(R.id.TextViewBtsDropDownMyMatche);

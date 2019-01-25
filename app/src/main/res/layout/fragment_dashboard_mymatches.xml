@@ -148,7 +148,7 @@
                                     android:id="@+id/mTextViewMatchesNotFoundMain"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="No Matches are found."
+                                    android:text="Not connected with your matches yet?"
                                     android:textColor="#272a30"
                                     android:textSize="18sp" />
 
@@ -181,7 +181,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="We suggest to alter your search and find Matches. "
+                                    android:text="Don't sit back, talk to us and we will help you in getting connected with your matches. "
                                     android:textColor="@color/colorUserProfileTextGreen" />
 
 

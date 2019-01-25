@@ -28,6 +28,7 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,6 +37,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -301,17 +303,20 @@ private RecyclerView recyclerView;
 
             holder.alias.setText(member.getAlias());
             holder.age.setText("( " + member.get_age() + " Years)");
+            holder.tvAboutMe.setText(Html.fromHtml("<b>About: </b>"+member.get_about_member()));
+
             holder.pref1.setText(member.get_pref1() + ": ");
             holder.pref2.setText(member.get_pref2() + ": ");
             holder.pref3.setText(member.get_pref3() + ": ");
             holder.pref4.setText(member.get_pref4() + ": ");
 
+
             holder.prefValue1.setText(member.get_prefvalue1());
             holder.prefValue2.setText(member.get_prefvalue2());
             holder.prefValue3.setText(member.get_prefvalue3());
             holder.prefValue4.setText(member.get_prefvalue4());
-            if (member.get_image_count() > 0) {
-                holder.imageCount.setText(member.get_image_count() + "");
+            if (member.get_photo_count() > 0) {
+                holder.imageCount.setText(member.get_photo_count() + "");
             } else {
                 holder.ll_image_count.setVisibility(View.GONE);
             }
@@ -1064,6 +1069,7 @@ private RecyclerView recyclerView;
         public mTextView alias, imageCount, age, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvShowInterestText;
         public faTextView tvBtMenu, faRemoveFromSearch, faInterest, faNotes;  //faAddToFav
         public ImageView ivCountryFlag, ivViewPhone;
+        public TextView tvAboutMe;
 
         public LinearLayoutCompat bt_ShowInterest, ll_user_profile, ll_image_count;
         //    public mTextView country;
@@ -1087,6 +1093,7 @@ private RecyclerView recyclerView;
             prefValue4 = (mTextView) itemView.findViewById(R.id.TextViewMMPrefValue4);
             tvShowInterestText = (mTextView) itemView.findViewById(R.id.TextViewMMShowInterestText);
 
+            tvAboutMe = (TextView) itemView.findViewById(R.id.TextViewMMAboutMe);
 
             tvBtMenu = (faTextView) itemView.findViewById(R.id.TextViewBtsDropDownMyMatche);
             faRemoveFromSearch = (faTextView) itemView.findViewById(R.id.faTextViewMMRemove);

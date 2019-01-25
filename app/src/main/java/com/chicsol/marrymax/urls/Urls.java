@@ -298,6 +298,8 @@ public class Urls {
 
     //===============My Profile Status ==================
     public static String getPhn = baseUrl + "/api/WebArd/GetPhn/";
+    public static String getPhnV = baseUrl + "/api/WebArd/GetPhnV/";
+
 
 
     //===============Questions ==================

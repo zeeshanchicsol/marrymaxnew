@@ -360,18 +360,6 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         viewPagerMemFragment = (ViewPager) view.findViewById(R.id.viewpagerMembersFragment);
 
 
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
-
-            rlUpgrade.setVisibility(View.VISIBLE);
-        }
-
-
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() != 4) {
-            tvAccStatus.setVisibility(View.VISIBLE);
-        } else {
-            tvAccStatus.setVisibility(View.GONE);
-        }
-
 
         LoadData();
 
@@ -396,6 +384,23 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     }
 
     private void LoadData() {
+        if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+
+            rlUpgrade.setVisibility(View.VISIBLE);
+        }
+
+
+        if (SharedPreferenceManager.getUserObject(context).get_member_status() != 4) {
+            tvAccStatus.setVisibility(View.VISIBLE);
+        } else {
+            tvAccStatus.setVisibility(View.GONE);
+        }
+
+
+
+
+
+
 
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
