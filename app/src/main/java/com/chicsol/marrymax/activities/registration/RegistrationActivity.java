@@ -43,6 +43,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
+import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.other.ConnectionDetector;
 import com.chicsol.marrymax.other.MarryMax;
@@ -999,7 +1000,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
-    private void LoginUser(String email, String password) {
+    private void LoginUser(String email, final String password) {
 
 
         pDialog.show();
@@ -1033,6 +1034,15 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
                                 session.createUserLoginSession(response.getJSONObject("data").get("alias").toString(), response.getJSONObject("data").getString("path") + "", response.getJSONObject("data").getInt("member_status") + "");
+
+
+
+
+                                Members member = SharedPreferenceManager.getUserObject(getApplication());
+                                member.set_password(password);
+
+                                SharedPreferenceManager.setUserObject(getApplicationContext(), member);
+
 
 
                                 Intent intent = new Intent(RegistrationActivity.this, RegisterGeographicActivity.class);

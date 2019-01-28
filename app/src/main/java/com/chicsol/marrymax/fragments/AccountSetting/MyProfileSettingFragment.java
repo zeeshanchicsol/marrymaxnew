@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
@@ -45,6 +46,7 @@ import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.chicsol.marrymax.widgets.faTextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -78,7 +80,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     private String mParam1;
     private String mParam2;
     //=============EMAIL=============
-    private AppCompatButton btAlreadyHaveCode, btResendVerificationEmail, btUpdateEmail, btEmailCancel;
+    private AppCompatButton btAlreadyHaveCode, btResendVerificationEmail, btUpdateEmail, btUpdateLandline, btEmailCancel;
     private EditText etAsEmail;
     boolean emailEnabled = false;
     private Members member = null;
@@ -94,8 +96,10 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     LinearLayout llPhoneVerifyLandline;
     AppCompatTextView tvPhoneVerifyLandline;
     ImageView ivPhoneVerifyLandline;
+    private faTextView faLandIcon;
 
-
+    private Snackbar snackbarNotVerified;
+    String snackBarToolTip = "Unable to Verify. Please contact marrymax support";
 
     public MyProfileSettingFragment() {
         // Required empty public constructor
@@ -148,6 +152,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         pDialog.setMessage("Loading...");
 
 
+        snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTip, Snackbar.LENGTH_SHORT);
+
+
     /*    tvSubscriberOnly = (TextView) view.findViewById(R.id.TextViewMatchAidSubscribersOnly);
         if (SharedPreferenceManager.getUserObject(context).get_member_status() <= 3) {
             tvSubscriberOnly.setVisibility(View.VISIBLE);
@@ -193,6 +200,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         // llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutMyProfileStatusEmail);
         llASPhone = (LinearLayout) view.findViewById(R.id.LinearlayoutMyProfileStatusPhone);
 
+        faLandIcon = (faTextView) view.findViewById(R.id.faland1);
 
         String compUptoSSeventyText = "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, your profile is <b> <font color=#9a0606>Not Live </font></b> ";
 
@@ -221,6 +229,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
         btResendVerificationEmail = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingResendVerificationEmail);
         btUpdateEmail = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingUpdateEmail);
+
+        btUpdateLandline = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdateLandline);
+
         btEmailCancel = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingUpdateEmailCancel);
         etAsEmail = (EditText) view.findViewById(R.id.EditTextAScontactEmail);
         llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
@@ -267,7 +278,12 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     }
 
     private void setListeners() {
-
+        llPhoneNotVerified.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbarNotVerified.show();
+            }
+        });
         btMatchAid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -325,6 +341,16 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             }
         });
         btUpdateNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in = new Intent(context, MainDirectiveActivity.class);
+                in.putExtra("type", 23);
+                startActivity(in);
+
+            }
+        });
+        btUpdateLandline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -573,14 +599,24 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             // if (dashboards.getPhone_complete_status().equals("0")) {}
 
 
+                         /*   if (!pNumber.equals("null")) {
+                                tvPhoneNumber.setText(pNumber);
+                                addNumber = false;
+                            } else {
+                                addNumber = true;
+                            }
+                            */
+
                             if (!addNumber) {
+
+                                //verify and update number visible
+
                                 btAddNumber.setVisibility(View.GONE);
 
 
-                                btUpdateNumber.setVisibility(View.VISIBLE);
-                                btVerifyNumber.setVisibility(View.VISIBLE);
-
                             } else {
+                                //show add number
+                                //verify and update number HIDE
                                 btUpdateNumber.setVisibility(View.GONE);
                                 btVerifyNumber.setVisibility(View.GONE);
 
@@ -613,18 +649,38 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 //========================================================================================================
                             //Mobile Number
 
+                            btUpdateLandline.setVisibility(View.VISIBLE);
                             //not verified
                             if (objPhone.get("mobile_status").toString().equals("3")) {
                                 btVerifyNumber.setVisibility(View.GONE);
                                 llASPhone.setVisibility(View.VISIBLE);
                                 llPhoneNotVerified.setVisibility(View.VISIBLE);
+                                btUpdateNumber.setVisibility(View.VISIBLE);
+                                snackBarToolTip = "Unable to verify. Please contact MarryMax support.";
                             }
                             // verified
                             else if (objPhone.get("mobile_status").toString().equals("2")) {
                                 llVerifyPhone.setVisibility(View.GONE);
                                 llPhoneVerified.setVisibility(View.VISIBLE);
                                 llASPhone.setVisibility(View.GONE);
+                                btUpdateLandline.setVisibility(View.GONE);
+                            } else if (objPhone.get("mobile_status").toString().equals("1")) {
+                                if (objPhone.get("accept_message").toString().equals("1")) {
+                                    btUpdateNumber.setVisibility(View.VISIBLE);
+                                    btVerifyNumber.setVisibility(View.VISIBLE);
+
+
+                                } else {
+                                    snackBarToolTip = "Mobile verification is pending. Please contact MarryMax support.";
+                                    btVerifyNumber.setVisibility(View.GONE);
+                                    llASPhone.setVisibility(View.VISIBLE);
+                                    llPhoneNotVerified.setVisibility(View.VISIBLE);
+                                    btUpdateNumber.setVisibility(View.GONE);
+
+                                }
+
                             }
+
 
                             // not added
                             else if (objPhone.get("mobile_status").toString().equals("0")) {
@@ -639,6 +695,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 //========================================================================================================
                             //Lanline Checks
+
+                            faLandIcon.setVisibility(View.GONE);
+
                             if (!addLandline) {
                                 cvlandline.setVisibility(View.GONE);
 
@@ -646,25 +705,32 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                 cvlandline.setVisibility(View.VISIBLE);
 
 
-
                                 if (objPhone.get("landline_status").toString().equals("1")) {
                                     llPhoneVerifyLandline.setVisibility(View.VISIBLE);
                                     tvPhoneVerifyLandline.setText("Not Verified");
                                     ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+
                                     //pending
 
 
-                                } else     if (objPhone.get("landline_status").toString().equals("2")) {
+                                } else if (objPhone.get("landline_status").toString().equals("2")) {
 
                                     //verified
                                     llPhoneVerifyLandline.setVisibility(View.VISIBLE);
                                     tvPhoneVerifyLandline.setText("Verified");
-                                    ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
+                                    faLandIcon.setVisibility(View.VISIBLE);
+                                    ivPhoneVerifyLandline.setVisibility(View.GONE);
+                                    btUpdateLandline.setVisibility(View.GONE);
 
-                                } else   if (objPhone.get("landline_status").toString().equals("3")) {
+                                    //ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
+
+
+                                } else if (objPhone.get("landline_status").toString().equals("3")) {
                                     llPhoneVerifyLandline.setVisibility(View.VISIBLE);
                                     tvPhoneVerifyLandline.setText("Not Verified");
                                     ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+                                    btUpdateLandline.setVisibility(View.VISIBLE);
+
                                     //not verified
 
                                 }
@@ -741,7 +807,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
 //==============================================
-/*
+
                             if (dashboards.getPhone_complete_status().equals("1")) {
                                 llVerifyPhone.setVisibility(View.GONE);
                                 llPhoneVerified.setVisibility(View.VISIBLE);
@@ -755,7 +821,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                 llASPhone.setVisibility(View.VISIBLE);
                                 llVerifyPhone.setVisibility(View.VISIBLE);
 
-                            }*/
+                            }
 
 
                             if (dashboards.getAdmin_approved_status().equals("0")) {
@@ -853,7 +919,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             lNumber = jsonObject.get("landline_phone").toString();
 
 
-                            Log.e("landline_phone ", "=======================  " +lNumber);
+                            Log.e("landline_phone ", "=======================  " + lNumber);
 
 
                             if (!pNumber.equals("null")) {
@@ -864,7 +930,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             }
 
 
-                            if (!lNumber.equals("")) {
+                            if (!lNumber.equals("") && !lNumber.equals("null")) {
                                 tvlandNumber.setText(lNumber);
                                 addLandline = true;
                             } else {

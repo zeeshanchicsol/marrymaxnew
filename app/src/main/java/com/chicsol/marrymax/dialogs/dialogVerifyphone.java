@@ -141,7 +141,7 @@ public class dialogVerifyphone extends DialogFragment {
         btnSendVerificaitonCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getmobileCode(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                getmobileCode(SharedPreferenceManager.getUserObject(context).get_path());
 
             }
         });
@@ -150,10 +150,10 @@ public class dialogVerifyphone extends DialogFragment {
             public void onClick(View v) {
 
                 if (etCode.getText().toString().equals("")) {
-                    Toast.makeText(getContext(), "Pleas Enter Code First", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Pleas Enter Code First", Toast.LENGTH_SHORT).show();
 
                 } else if (!isCodeValid(etCode.getText().toString())) {
-                    Toast.makeText(getContext(), "Enter Valid Code", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Enter Valid Code", Toast.LENGTH_SHORT).show();
                 } else {
                     validateMobile(etCode.getText().toString());
 
@@ -281,7 +281,7 @@ public class dialogVerifyphone extends DialogFragment {
 
 
     private void getmobileCode(final String path) {
-        final ProgressDialog pDialog = new ProgressDialog(getContext());
+        final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
         Log.e("path", "" + Urls.getMobileCode + path);
@@ -299,7 +299,7 @@ public class dialogVerifyphone extends DialogFragment {
 
 
                             } else {
-                                Toast.makeText(getContext(), "Your mobile verification code has been send successfully.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Your mobile verification code has been send successfully.", Toast.LENGTH_SHORT).show();
 
                                 llSendVerification.setVisibility(View.GONE);
                                 llVerifyCode.setVisibility(View.VISIBLE);
@@ -345,7 +345,7 @@ public class dialogVerifyphone extends DialogFragment {
         try {
 
             params.put("postal_code", postalcode);
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -371,11 +371,11 @@ public class dialogVerifyphone extends DialogFragment {
 
 
                             //    mCompleteListener.onComplete("");
-                            Members mem2 = SharedPreferenceManager.getUserObject(getContext());
+                            Members mem2 = SharedPreferenceManager.getUserObject(context);
 
                             if (mem.get_request_profile_view() != mem2.get_member_status()) {
                                 mem2.set_member_status(mem.get_request_profile_view());
-                                SharedPreferenceManager.setUserObject(getContext(), mem2);
+                                SharedPreferenceManager.setUserObject(context, mem2);
 
                                 dialogVerifyphone.this.getDialog().cancel();
 
@@ -384,7 +384,7 @@ public class dialogVerifyphone extends DialogFragment {
                             mCompleteListener.onComplete("");
 
                         } else if (mem.get_phone_verified() == 0) {
-                            Toast.makeText(getContext(), "Phone Not Verified", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Phone Not Verified", Toast.LENGTH_SHORT).show();
                             mCompleteListener.onComplete("");
                         }
 
@@ -456,7 +456,7 @@ public class dialogVerifyphone extends DialogFragment {
     private void contactUs(JSONObject params) {
 
         Log.e("params", "" + params);
-        final ProgressDialog pDialog = new ProgressDialog(getContext());
+        final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
 
@@ -478,7 +478,7 @@ public class dialogVerifyphone extends DialogFragment {
                             int responseid = response.getInt("id");
 
                             if (responseid == 1) {
-                                Toast.makeText(getContext(), "Thank you for contacting us. MarryMax support will contact you to verify your phone number.\n", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Thank you for contacting us. MarryMax support will contact you to verify your phone number.\n", Toast.LENGTH_SHORT).show();
                                 dialogVerifyphone.this.getDialog().cancel();
 
                             }

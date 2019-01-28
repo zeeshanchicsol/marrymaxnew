@@ -113,6 +113,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     AppCompatTextView tvPhoneVerifyLandline;
     ImageView ivPhoneVerifyLandline;
 
+String snackBarToolTip="Unable to Verify. Please contact marrymax support";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -401,7 +402,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
         }
-        snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), "Unable to Verify. Please contact marrymax support", Snackbar.LENGTH_SHORT);
+        snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTip, Snackbar.LENGTH_SHORT);
 
 /* email
         etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
@@ -837,7 +838,6 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                             if (jsonData.length() != 0) {
 
 
-                                LinearlayoutAccountSettingMyContactEdiDelete.setVisibility(View.VISIBLE);
                                 Log.d("length 0", jsonData.length() + "");
                                 Gson gsonc;
                                 GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -846,18 +846,23 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                                 }.getType();
                                 member = new Members();
                                 member = (Members) gsonc.fromJson(jsonData.getJSONObject(0).toString(), listType);
-                                Log.e("Phone Verified", "" + member.get_phone_verified());
+                                Log.e("Phone Verified " + member.get_phone_view(), "" + member.get_phone_verified());
 
-                                if (member.get_phone_verified() == 2) {
-                                    LinearlayoutAccountSettingMyContactEdiDelete.setVisibility(View.GONE);
-                                    //edit and delte buttons hide
-                                }
 
-                                if (member.get_phone_verified() == 1) {
+                                //      phone_verified!=2 && phone_view!=2  // show
+
+                                if (member.get_phone_verified() != 2 && member.get_phone_view() != 2) {
 
                                     //edit and delte buttons visible
                                     LinearlayoutAccountSettingMyContactEdiDelete.setVisibility(View.VISIBLE);
                                 }
+
+
+                               /* if (member.get_phone_verified() == 2 ) {
+                                    LinearlayoutAccountSettingMyContactEdiDelete.setVisibility(View.GONE);
+                                    //edit and delete buttons hide
+                                }
+*/
 
 
                                 setValues(member);
@@ -1029,6 +1034,9 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         about_type_id = member.get_about_type_id();
 
         if (member.get_phone_verified() == 3) {
+            //message to show
+            // Unable to verify. Please contact MarryMax support.
+            snackBarToolTip="Unable to verify. Please contact MarryMax support.";
             llPhoneNotVerified.setVisibility(View.VISIBLE);
             llEnterCode.setVisibility(View.GONE);
             llPhoneVerified.setVisibility(View.GONE);
@@ -1042,15 +1050,24 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         }
         if (member.get_phone_verified() == 1) {
 
-/*          [4/19/17, 12:08:19 PM] Waqar Afzal: accept_message==1
-                    [4/19/17, 12:08:25 PM] Waqar Afzal: verify now
-[4/19/17, 12:08:38 PM] Waqar Afzal: phone_verified==1 && accept_message==0
-                    [4/19/17, 12:08:50 PM] Waqar Afzal: Mobile verification is pending. Please contact MarryMax support.*/
+            if (member.get_accept_message() == 1) {
 
-            llVerifyPhone.setVisibility(View.VISIBLE);
-            llEnterCode.setVisibility(View.VISIBLE);
-            llPhoneNotVerified.setVisibility(View.GONE);
-            llPhoneVerified.setVisibility(View.GONE);
+//verify now
+                llVerifyPhone.setVisibility(View.VISIBLE);
+                llEnterCode.setVisibility(View.VISIBLE);
+                llPhoneNotVerified.setVisibility(View.GONE);
+                llPhoneVerified.setVisibility(View.GONE);
+            } else {
+                //message show
+                // Mobile verification is pending. Please contact MarryMax support.
+                snackBarToolTip="Mobile verification is pending. Please contact MarryMax support.";
+
+
+                llPhoneVerified.setVisibility(View.VISIBLE);
+                llEnterCode.setVisibility(View.GONE);
+                llPhoneNotVerified.setVisibility(View.GONE);
+                llVerifyPhone.setVisibility(View.GONE);
+            }
 
             //blue icon
 

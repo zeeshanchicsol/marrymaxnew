@@ -227,8 +227,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
             }*/
 
-            Log.e("interested id", member.get_interested_id() + "");
-            Log.e("interested receieved", member.get_interest_received() + "");
+        //    Log.e("interested id", member.get_interested_id() + "");
+       //     Log.e("interested receieved", member.get_interest_received() + "");
             if (member.get_interested_id() == 0) {
                 tvInterest.setText("Show Interest");
                 llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorUserProfileTextGreenLight));

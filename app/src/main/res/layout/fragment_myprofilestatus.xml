@@ -606,21 +606,33 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="5dp"
-                                    android:text="Add Mobile Number "
+                                    android:text="Add Landline Number "
                                     android:textColor="@color/colorBlack"
                                     android:textSize="18sp" />
 
 
                             </LinearLayout>
+
                             <LinearLayout
-                                android:layout_centerVertical="true"
                                 android:id="@+id/LinearLayoutAccountSettingMyContactVerifyLandline"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
                                 android:clickable="true"
                                 android:orientation="horizontal"
                                 android:visibility="gone">
+
+                                <com.chicsol.marrymax.widgets.faTextView
+                                    android:id="@+id/faland1"
+                                    android:layout_width="20dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/fa_icon_accepted"
+                                    android:textColor="@color/colorDefaultGreen"
+                                    android:textStyle="bold"
+                                    android:visibility="gone" />
+
 
                                 <ImageView
                                     android:id="@+id/ImageViewASContactLandLineNumberVerify"
@@ -649,6 +661,7 @@
 
 
                             <android.support.v7.widget.AppCompatButton
+
                                 android:id="@+id/ButtonMyProfileStatusUpdateLandline"
                                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                 android:layout_width="wrap_content"
@@ -774,11 +787,12 @@
 
                             >
 
+
                             <com.chicsol.marrymax.widgets.faTextView
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
                                 android:layout_toLeftOf="@+id/tvVerified"
-                                android:gravity="center"
                                 android:text="@string/fa_icon_accepted"
                                 android:textColor="@color/colorDefaultGreen"
                                 android:textStyle="bold" />
