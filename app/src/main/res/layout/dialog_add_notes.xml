@@ -98,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="top|left"
                         android:inputType="textMultiLine"
-                        android:maxLength="200"
+                        android:maxLength="300"
                         android:scrollbars="vertical" />
 
                     <android.support.v7.widget.AppCompatButton

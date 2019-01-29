@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -97,7 +98,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     private AppCompatButton btSave, btCancel;
     private long about_type_id = 0;
     private Members member = null;
-    private Snackbar snackbarNotVerified;
+    private Snackbar snackbarNotVerified, snackbarNotVerifiedLandLine;
     RelativeLayout tvHeading;
     private String country_id = "";
     private ProgressBar pDialog;
@@ -113,7 +114,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     AppCompatTextView tvPhoneVerifyLandline;
     ImageView ivPhoneVerifyLandline;
 
-String snackBarToolTip="Unable to Verify. Please contact marrymax support";
+    String snackBarToolTip = "";
+    String snackBarToolTipLandLine = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -403,6 +405,7 @@ String snackBarToolTip="Unable to Verify. Please contact marrymax support";
             getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
         }
         snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTip, Snackbar.LENGTH_SHORT);
+        snackbarNotVerifiedLandLine = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTip, Snackbar.LENGTH_SHORT);
 
 /* email
         etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
@@ -698,6 +701,14 @@ String snackBarToolTip="Unable to Verify. Please contact marrymax support";
                 snackbarNotVerified.show();
             }
         });
+        llPhoneVerifyLandline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbarNotVerifiedLandLine.show();
+            }
+        });
+
+
         llVerifyPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1006,6 +1017,12 @@ String snackBarToolTip="Unable to Verify. Please contact marrymax support";
             llPhoneVerifyLandline.setVisibility(View.VISIBLE);
             tvPhoneVerifyLandline.setText("Not Verified");
             ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+
+            snackBarToolTipLandLine = "Verification Pending - MarryMax Support will call to verify";
+            TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
+            tvSnackbarText.setText(snackBarToolTipLandLine);
+            llPhoneVerifyLandline.setClickable(true);
+
             //pending
 
 
@@ -1015,11 +1032,18 @@ String snackBarToolTip="Unable to Verify. Please contact marrymax support";
             llPhoneVerifyLandline.setVisibility(View.VISIBLE);
             tvPhoneVerifyLandline.setText("Verified");
             ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
+            llPhoneVerifyLandline.setClickable(false);
 
         } else if (member.get_phone_view() == 3) {
             llPhoneVerifyLandline.setVisibility(View.VISIBLE);
             tvPhoneVerifyLandline.setText("Not Verified");
             ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+
+            snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
+            TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
+            tvSnackbarText.setText(snackBarToolTipLandLine);
+            llPhoneVerifyLandline.setClickable(true);
+
             //not verified
 
         }
@@ -1036,7 +1060,11 @@ String snackBarToolTip="Unable to Verify. Please contact marrymax support";
         if (member.get_phone_verified() == 3) {
             //message to show
             // Unable to verify. Please contact MarryMax support.
-            snackBarToolTip="Unable to verify. Please contact MarryMax support.";
+            snackBarToolTip = "Unable to verify. Please contact MarryMax support.";
+            TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
+            tvSnackbarText.setText(snackBarToolTip);
+
+
             llPhoneNotVerified.setVisibility(View.VISIBLE);
             llEnterCode.setVisibility(View.GONE);
             llPhoneVerified.setVisibility(View.GONE);
@@ -1060,7 +1088,9 @@ String snackBarToolTip="Unable to Verify. Please contact marrymax support";
             } else {
                 //message show
                 // Mobile verification is pending. Please contact MarryMax support.
-                snackBarToolTip="Mobile verification is pending. Please contact MarryMax support.";
+                snackBarToolTip = "Mobile verification is pending. Please contact MarryMax support.";
+                TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
+                tvSnackbarText.setText(snackBarToolTip);
 
 
                 llPhoneVerified.setVisibility(View.VISIBLE);
