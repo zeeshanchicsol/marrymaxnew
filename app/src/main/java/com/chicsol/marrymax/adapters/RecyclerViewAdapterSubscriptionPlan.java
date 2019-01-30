@@ -47,6 +47,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.subscription.OrderProcessActivity;
 import com.chicsol.marrymax.modal.Subscription;
+import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
@@ -243,16 +244,20 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 @Override
                 public void onClick(View v) {
 
+                    if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
 
-                    String currency = obj.getItem_currency().charAt(0) + "";
-                    Intent intent = new Intent(context, OrderProcessActivity.class);
-                    intent.putExtra("item_id", obj.getItem_id() + "");
-                    intent.putExtra("other_item_id", obj.getOther_item_id() + "");
-                    intent.putExtra("currency", currency.toLowerCase());
 
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
-                    Log.e("currency", obj.getOther_item_id() + " " + currency);
+                        String currency = obj.getItem_currency().charAt(0) + "";
+                        Intent intent = new Intent(context, OrderProcessActivity.class);
+                        intent.putExtra("item_id", obj.getItem_id() + "");
+                        intent.putExtra("other_item_id", obj.getOther_item_id() + "");
+                        intent.putExtra("currency", currency.toLowerCase());
+
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                    }
+
+                    //  Log.e("currency", obj.getOther_item_id() + " " + currency);
                 }
             });
 

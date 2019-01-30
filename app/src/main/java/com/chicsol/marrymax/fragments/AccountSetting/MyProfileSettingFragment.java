@@ -141,6 +141,8 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         pDialog = new ProgressDialog(context);
         pDialog.setCancelable(false);
         pDialog.setMessage("Loading...");
+
+        loadData();
     }
 
     private void initilize(View view) {
@@ -250,10 +252,13 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         }
 */
 
-        loadData();
+
 
 
     }
+
+
+
 
 
     private void loadData() {
@@ -653,9 +658,14 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                 if (!pNumber.equals("null") && (Integer.parseInt(objPhone.get("mobile_status").toString()) <= 1 || objPhone.get("mobile_status").toString().equals("3"))) { //  Update Number
                                     //  Update Number
                                     btUpdateNumber.setVisibility(View.VISIBLE);
+                                  btAddNumber.setVisibility(View.GONE);
+                                    btVerifyNumber.setVisibility(View.GONE);
+
                                 } else if (pNumber.equals("null") && Integer.parseInt(objPhone.get("mobile_status").toString()) <= 1) {
                                     //    Add Number
                                     btAddNumber.setVisibility(View.VISIBLE);
+                                    btUpdateNumber.setVisibility(View.GONE);
+                                    btVerifyNumber.setVisibility(View.GONE);
                                 }
                             }
 
@@ -919,13 +929,14 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             lNumber = jsonObject.get("landline_phone").toString();
 
 
-                            Log.e("landline_phone ", "=======================  " + lNumber);
+                    //        Log.e("landline_phone ", "=======================  " + lNumber);
 
 
                             if (!pNumber.equals("null") && !pNumber.equals("")) {
                                 tvPhoneNumber.setText(pNumber);
                                 addNumber = false;
                             } else {
+                                tvPhoneNumber.setText("Add Mobile Number");
                                 addNumber = true;
                             }
 

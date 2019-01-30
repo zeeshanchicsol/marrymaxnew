@@ -56,6 +56,7 @@ import com.chicsol.marrymax.utils.MySingleton;
 import com.crashlytics.android.Crashlytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
@@ -73,6 +74,8 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -82,6 +85,8 @@ import java.util.regex.Pattern;
  */
 
 public class RegistrationActivity extends AppCompatActivity {
+    private Timer timer = new Timer();
+    private final long DELAY = 1000; // in ms
 
     String gender = null;
     //0 for male and 1 for female
@@ -213,7 +218,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         myCalendar.set(Calendar.YEAR, maxyear);
 
-        DatePickerDialoga = new DatePickerDialog(RegistrationActivity.this,AlertDialog.THEME_DEVICE_DEFAULT_LIGHT, new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialoga = new DatePickerDialog(RegistrationActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_LIGHT, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
@@ -233,7 +238,6 @@ public class RegistrationActivity extends AppCompatActivity {
         cal.set(Calendar.YEAR, minyear);
         //     datePicker.setMinDate(cal.getTimeInMillis());
         DatePickerDialoga.getDatePicker().setMinDate(cal.getTimeInMillis());
-
 
 
         cal.set(Calendar.YEAR, maxyear);
@@ -316,6 +320,22 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    private void validateProfileName() {
+
+
+        if (!etProfileName.getText().toString().trim().isEmpty() && etProfileName.getText().toString().trim().length() >= 5 && etProfileName.getText().toString().trim().length() <= 12) {
+            JSONObject params = new JSONObject();
+            try {
+                params.put("name", "" + etProfileName.getText().toString());
+                ValidateAlias(params);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
     private void setListenders() {
       /*  int maxyear = myCalendar.get(Calendar.YEAR) - 18;
         int minyear = myCalendar.get(Calendar.YEAR) - 70;
@@ -388,15 +408,28 @@ public class RegistrationActivity extends AppCompatActivity {
 
             }
         });
+        etProfileName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    //  Toast.makeText(getApplicationContext(), "Got the focus", Toast.LENGTH_LONG).show();
+                } else {
+                    //  Toast.makeText(getApplicationContext(), "Lost the focus", Toast.LENGTH_LONG).show();
+                    validateProfileName();
 
+                }
+            }
+        });
 
-        etProfileName.addTextChangedListener(new TextWatcher() {
+     /*   etProfileName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (timer != null)
+                    timer.cancel();
             }
 
             @Override
@@ -405,11 +438,41 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (!isProfileNameValid(etProfileName.getText().toString())) {
                     etProfileName.setError("Invalid profile name format");
 
+                } else {
+                    //avoid triggering event when text is too short
+                    if (s.length() >= 5 && s.length() <= 12) {
+
+                        timer = new Timer();
+                        timer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                // TODO: do what you need here (refresh list)
+                                // you will probably need to use
+                                // runOnUiThread(Runnable action) for some specific
+                                // actions
+                                // serviceConnector.getStopPoints(s.toString());
+
+                                if (!etProfileName.getText().toString().trim().isEmpty()) {
+                                    JSONObject params = new JSONObject();
+                                    try {
+                                        params.put("name", "" + etProfileName.getText().toString());
+                                        ValidateAlias(params);
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+
+                        }, DELAY);
+                    }
+
+
                 }
 
 
             }
-        });
+        });*/
 
 
         etEmailView.addTextChangedListener(new TextWatcher() {
@@ -471,7 +534,29 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
+        spinner_religion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                validateProfileName();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinner_source.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                validateProfileName();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         spinner_profilefor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -479,18 +564,20 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
                 if (ProfileForDataList.get(position).getId().equals("2") || ProfileForDataList.get(position).getId().equals("4")) {
-                    Log.e("mmmmmm", "mmmmmmmm");
+                    //   Log.e("mmmmmm", "mmmmmmmm");
                     selectmale();
                     disbaleGenderClickListeners();
                 } else if (ProfileForDataList.get(position).getId().equals("3") || ProfileForDataList.get(position).getId().equals("5")) {
 
                     selectfemale();
-                    Log.e("ffffff", "fffffffff");
+                    //      Log.e("ffffff", "fffffffff");
                     disbaleGenderClickListeners();
                 } else {
                     enableGenderClickListeners();
 
                 }
+
+                validateProfileName();
             }
 
             @Override
@@ -738,6 +825,8 @@ public class RegistrationActivity extends AppCompatActivity {
         ll_femaleSelected.setVisibility(View.GONE);
         ll_femaleNormal.setVisibility(View.VISIBLE);
         gender = "M";
+
+        validateProfileName();
     }
 
     private void selectfemale() {
@@ -746,6 +835,7 @@ public class RegistrationActivity extends AppCompatActivity {
         ll_femaleNormal.setVisibility(View.GONE);
         ll_femaleSelected.setVisibility(View.VISIBLE);
         gender = "F";
+        validateProfileName();
     }
 
 
@@ -783,6 +873,12 @@ public class RegistrationActivity extends AppCompatActivity {
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
         return (password.length() >= 8 && password.length() <= 15);
+    }
+
+
+    private boolean isProfileNameLengthValid(String prfileName) {
+        //TODO: Replace this with your own logic
+        return (prfileName.length() <= 10);
     }
 
     @Override
@@ -917,6 +1013,94 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    private void ValidateAlias(JSONObject params) {
+
+
+        ///    pDialog.show();
+        //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
+        Log.e("validateAlias url", Urls.validateAlias + "  ==  " + params);
+
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                Urls.validateAlias, params,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("validateAlias", response + "");
+                        //    pDialog.dismiss();
+
+                        try {
+                            int responseid = response.getInt("id");
+                            //
+                            if (responseid == 6) {
+
+                                Toast.makeText(RegistrationActivity.this, "Please Change your Profile Name again", Toast.LENGTH_SHORT).show();
+                            } else {
+                                String name = response.getString("name");
+                                etProfileName.setText(name);
+                            }
+
+       /*                     if (responseid == 1) {
+                                //   Toast.makeText(RegistrationActivity.this, "Account Created Successfully", Toast.LENGTH_SHORT).show();
+                                //    LoginUser(email, password);
+                            } else if (responseid == 3) {
+                                Toast.makeText(RegistrationActivity.this, "Some field is incomplete", Toast.LENGTH_SHORT).show();
+                            } else if (responseid == 4) {
+
+                                Toast.makeText(RegistrationActivity.this, "Error Occurred", Toast.LENGTH_SHORT).show();
+
+                            } else if (responseid == 5) {
+                                Toast.makeText(RegistrationActivity.this, "Email Already Exists", Toast.LENGTH_SHORT).show();
+                            } else if (responseid == 6) {
+                                Toast.makeText(RegistrationActivity.this, "Profile Name Already Exists", Toast.LENGTH_SHORT).show();
+                            } else if (responseid == 7) {
+                                Toast.makeText(RegistrationActivity.this, "Email Not Valid", Toast.LENGTH_SHORT).show();
+                            } else if (responseid == 8) {
+                                Toast.makeText(RegistrationActivity.this, "Profile Name Not Valid", Toast.LENGTH_SHORT).show();
+                            }*/
+                            //        Log.e("Response id", responseid + "");
+                            //    Log.d("Alias", response.get("alias").toString());
+                            ///   Log.d("member status", response.getInt("member_status") + "");
+                                       /*   Intent in = new Intent(RegistrationActivity.this, RegisterGeographicActivity.class);
+                                                            startActivity(in);*/
+
+
+                        } catch (JSONException e) {
+                            //    pDialog.dismiss();
+                            e.printStackTrace();
+                        }
+
+                        //    pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                VolleyLog.e("res err", "Error: " + error);
+                // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
+                //pDialog.dismiss();
+            }
+
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+
+// Adding request to request queue
+        ///   rq.add(jsonObjReq);
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(this).addToRequestQueue(jsonObjReq);
+
+    }
 
     private void RegisterUser(final String email, final String password, JSONObject params) {
 
@@ -1036,13 +1220,10 @@ public class RegistrationActivity extends AppCompatActivity {
                                 session.createUserLoginSession(response.getJSONObject("data").get("alias").toString(), response.getJSONObject("data").getString("path") + "", response.getJSONObject("data").getInt("member_status") + "");
 
 
-
-
                                 Members member = SharedPreferenceManager.getUserObject(getApplication());
                                 member.set_password(password);
 
                                 SharedPreferenceManager.setUserObject(getApplicationContext(), member);
-
 
 
                                 Intent intent = new Intent(RegistrationActivity.this, RegisterGeographicActivity.class);

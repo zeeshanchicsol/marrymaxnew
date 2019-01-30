@@ -173,7 +173,16 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
 
         rgMessage.check(rgMessage.getChildAt(Integer.parseInt(dash.getPrivacy_message())).getId());
 
-        rgPhone.check(rgPhone.getChildAt(Integer.parseInt(dash.getPrivacy_phone())).getId());
+        if (dash.getPrivacy_phone().equals("0")) {
+            rgPhone.check(rgPhone.getChildAt(1).getId());
+        }else {
+            rgPhone.check(rgPhone.getChildAt(0).getId());
+
+        }
+
+
+
+
         rgPicture.check(rgPicture.getChildAt(Integer.parseInt(dash.getPrivacy_picture())).getId());
 
 
@@ -186,7 +195,7 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
 
         if (SharedPreferenceManager.getUserObject(context).get_member_status() < 4) {
             tvSubOpt1.setVisibility(View.VISIBLE);
-          //  tvSubOpt2.setVisibility(View.VISIBLE);
+            //  tvSubOpt2.setVisibility(View.VISIBLE);
             tvSubOpt3.setVisibility(View.VISIBLE);
             tvSubOpt4.setVisibility(View.VISIBLE);
 
@@ -198,12 +207,12 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
 
         } else {
             tvSubOpt1.setVisibility(View.GONE);
-       //     tvSubOpt2.setVisibility(View.GONE);
+            //     tvSubOpt2.setVisibility(View.GONE);
             tvSubOpt3.setVisibility(View.GONE);
             tvSubOpt4.setVisibility(View.GONE);
 
             enableeSubscribersRadios(rgProfile);
-        //    enableeSubscribersRadios(rgMessage);
+            //    enableeSubscribersRadios(rgMessage);
             enableeSubscribersRadios(rgInterest);
             enableeSubscribersRadios(rgPhone);
         }

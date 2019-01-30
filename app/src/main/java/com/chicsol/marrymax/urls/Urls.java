@@ -20,6 +20,8 @@ public class Urls {
     public static String reg_Listing = baseUrl + "/api/WebArd/GetRegisterListings";
 
     public static String RegistrationUrl = baseUrl + "/api/WebArd/Registration";
+    public static String validateAlias = baseUrl + "/api/WebArd/ValidateAlias";
+
 
     //geography
     public static String RegisterGeography = baseUrl + "/api/WebArd/GetProfileData/";
