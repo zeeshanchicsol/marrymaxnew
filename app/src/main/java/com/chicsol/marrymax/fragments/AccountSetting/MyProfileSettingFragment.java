@@ -719,7 +719,8 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                             faLandIcon.setVisibility(View.GONE);
                             if (dashboards.getPhone_complete_status().equals("0")) {
-                                if (!lNumber.equals("null") && (Integer.parseInt(objPhone.get("landline_status").toString()) <= 1 || objPhone.get("landline_status").toString().equals("3"))) { //  Update Number
+                                if (!lNumber.equals("null") && (Integer.parseInt(objPhone.get("landline_status").toString()) <= 1 || objPhone.get("landline_status").toString().equals("3"))) {
+                                    //  Update Number
                                     btUpdateLandline.setVisibility(View.VISIBLE);
                                     llPhoneVerifyLandline.setClickable(true);
                                 }

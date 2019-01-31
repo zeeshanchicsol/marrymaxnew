@@ -4,7 +4,17 @@
             "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/7027f2421be17afed20b27ae8f318224/res/values-v16/values-v16.xml",
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/f520bd0be94bd47263f36716c75d137b/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a1644e96e33f29132bc9143541a27aca/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,16 +30,6 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/7fb85aed56f4cc0190b14123278d5a49/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]

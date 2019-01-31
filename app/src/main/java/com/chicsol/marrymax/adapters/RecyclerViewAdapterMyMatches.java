@@ -81,6 +81,7 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.nostra13.universalimageloader.core.process.BitmapProcessor;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -334,7 +335,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
             holder.alias.setText(member.getAlias());
             holder.age.setText("( " + member.get_age() + " Years)");
-            holder.tvAboutMe.setText(Html.fromHtml("<b>About: </b>"+member.get_about_member()));
+            holder.tvAboutMe.setText(Html.fromHtml("<b>About: </b>" + member.get_about_member()));
 
             holder.pref1.setText(member.get_pref1() + ": ");
             holder.pref2.setText(member.get_pref2() + ": ");
@@ -410,7 +411,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 
                 } else {
-// addd photo count
+
                     holder.tvBtMenu.setVisibility(View.GONE);
                 }
             } else {

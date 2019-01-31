@@ -117,6 +117,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     String snackBarToolTip = "";
     String snackBarToolTipLandLine = "";
 
+    Context context;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -499,7 +501,11 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }*/
 
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
     private boolean countryCodeCheck(int countryCode, int mobNum) {
 
         Log.e("countryCodeCheck", countryCode + "   " + mobNum);
@@ -1125,6 +1131,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                             if (res != 0) {
                                 dismissKeyboard();
                                 getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                            }else {
+                                Toast.makeText(context, "Unable to add phone number. Please contact MarryMax support", Toast.LENGTH_SHORT).show();
                             }
                          /*   Gson gson;
                             GsonBuilder gsonBuilder = new GsonBuilder();

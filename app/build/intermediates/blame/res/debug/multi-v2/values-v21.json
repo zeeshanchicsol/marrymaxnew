@@ -4,26 +4,7 @@
             "outputFile": "/Users/marrymaxandroid/AndroidStudioProjects/marrymax/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/8f40d2944cb2a1c01d5f0ddc91c077b5/res/values-v21/values-v21.xml",
-                    "from": {
-                        "startLines": "2,10,18,26",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,484,910,1333",
-                        "endLines": "9,17,25,33",
-                        "endColumns": "10,10,10,10",
-                        "endOffsets": "479,905,1328,1763"
-                    },
-                    "to": {
-                        "startLines": "336,344,352,360",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "23349,23778,24204,24627",
-                        "endLines": "343,351,359,367",
-                        "endColumns": "10,10,10,10",
-                        "endOffsets": "23773,24199,24622,25057"
-                    }
-                },
-                {
-                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ecc7f03ffd9f91c74aac830c1436e2d3/res/values-v21/values-v21.xml",
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/193a7cbc8831be7cec15cc1000c8838d/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,5,8,11",
                         "startColumns": "4,4,4,4",
@@ -42,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/7fb85aed56f4cc0190b14123278d5a49/res/values-v21/values-v21.xml",
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/f520bd0be94bd47263f36716c75d137b/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -61,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/7027f2421be17afed20b27ae8f318224/res/values-v21/values-v21.xml",
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a1644e96e33f29132bc9143541a27aca/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,19,20,21,22,24,26,27,28,29,30,32,34,36,38,40,42,43,48,50,52,53,54,56,58,59,60,61,62,63,107,110,154,157,160,162,164,166,169,171,174,175,176,179,180,181,182,183,184,187,188,190,192,194,196,200,202,203,204,205,207,211,213,215,216,217,218,219,221,222,223,233,234,235,247",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -96,6 +77,25 @@
                         "endLines": "9,18,25,251,258,261,278,319,378,396",
                         "endColumns": "12,12,12,12,12,12,12,12,12,12",
                         "endOffsets": "563,1039,1400,18303,18659,18763,19661,22182,25585,26621"
+                    }
+                },
+                {
+                    "source": "/Users/marrymaxandroid/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/a36dc5ab4948b77486f09275017e64f4/res/values-v21/values-v21.xml",
+                    "from": {
+                        "startLines": "2,10,18,26",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,484,910,1333",
+                        "endLines": "9,17,25,33",
+                        "endColumns": "10,10,10,10",
+                        "endOffsets": "479,905,1328,1763"
+                    },
+                    "to": {
+                        "startLines": "336,344,352,360",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "23349,23778,24204,24627",
+                        "endLines": "343,351,359,367",
+                        "endColumns": "10,10,10,10",
+                        "endOffsets": "23773,24199,24622,25057"
                     }
                 }
             ]
