@@ -506,6 +506,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         super.onAttach(context);
         this.context = context;
     }
+
     private boolean countryCodeCheck(int countryCode, int mobNum) {
 
         Log.e("countryCodeCheck", countryCode + "   " + mobNum);
@@ -1019,39 +1020,67 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         AppCompatTextView tvPhoneVerifyLandline;
         ImageView ivPhoneVerifyLandline;
         */
-        if (member.get_phone_view() == 1) {
-            llPhoneVerifyLandline.setVisibility(View.VISIBLE);
-            tvPhoneVerifyLandline.setText("Not Verified");
-            ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
-
-            snackBarToolTipLandLine = "Verification Pending - MarryMax Support will call to verify";
-            TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
-            tvSnackbarText.setText(snackBarToolTipLandLine);
-            llPhoneVerifyLandline.setClickable(true);
-
-            //pending
 
 
-        } else if (member.get_phone_view() == 2) {
+        if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
 
-            //verified
-            llPhoneVerifyLandline.setVisibility(View.VISIBLE);
-            tvPhoneVerifyLandline.setText("Verified");
-            ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
-            llPhoneVerifyLandline.setClickable(false);
 
-        } else if (member.get_phone_view() == 3) {
-            llPhoneVerifyLandline.setVisibility(View.VISIBLE);
-            tvPhoneVerifyLandline.setText("Not Verified");
-            ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+            if (member.get_phone_view() == 1) {
+                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                tvPhoneVerifyLandline.setText("Not Verified");
+                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
 
-            snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
-            TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
-            tvSnackbarText.setText(snackBarToolTipLandLine);
-            llPhoneVerifyLandline.setClickable(true);
+                snackBarToolTipLandLine = "Verification Pending - MarryMax Support will call to verify";
+                TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
+                tvSnackbarText.setText(snackBarToolTipLandLine);
+                llPhoneVerifyLandline.setClickable(true);
 
-            //not verified
+                //pending
 
+
+            } else if (member.get_phone_view() == 2) {
+
+                //verified
+                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                tvPhoneVerifyLandline.setText("Verified");
+                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
+                llPhoneVerifyLandline.setClickable(false);
+
+            } else if (member.get_phone_view() == 3) {
+                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                tvPhoneVerifyLandline.setText("Not Verified");
+                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+
+                snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
+                TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
+                tvSnackbarText.setText(snackBarToolTipLandLine);
+                llPhoneVerifyLandline.setClickable(true);
+
+                //not verified
+
+            }
+
+        } else {
+            if (member.get_phone_view() == 2) {
+
+                //verified
+                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                tvPhoneVerifyLandline.setText("Verified");
+                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
+                llPhoneVerifyLandline.setClickable(false);
+
+            } else {
+                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                tvPhoneVerifyLandline.setText("Not Verified");
+                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+
+                snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
+                TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
+                tvSnackbarText.setText(snackBarToolTipLandLine);
+                llPhoneVerifyLandline.setClickable(true);
+
+                //not verified
+            }
         }
 
 
@@ -1063,49 +1092,79 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         tvConvenientCallTime.setText(member.get_notes());
         about_type_id = member.get_about_type_id();
 
-        if (member.get_phone_verified() == 3) {
-            //message to show
-            // Unable to verify. Please contact MarryMax support.
-            snackBarToolTip = "Unable to verify. Please contact MarryMax support.";
-            TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
-            tvSnackbarText.setText(snackBarToolTip);
+
+        if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
 
 
-            llPhoneNotVerified.setVisibility(View.VISIBLE);
-            llEnterCode.setVisibility(View.GONE);
-            llPhoneVerified.setVisibility(View.GONE);
-            llVerifyPhone.setVisibility(View.GONE);
-        }
-        if (member.get_phone_verified() == 2) {
-            llPhoneVerified.setVisibility(View.VISIBLE);
-            llEnterCode.setVisibility(View.GONE);
-            llPhoneNotVerified.setVisibility(View.GONE);
-            llVerifyPhone.setVisibility(View.GONE);
-        }
-        if (member.get_phone_verified() == 1) {
+            if (member.get_phone_verified() == 3) {
+                //message to show
+                // Unable to verify. Please contact MarryMax support.
 
-            if (member.get_accept_message() == 1) {
-
-//verify now
-                llVerifyPhone.setVisibility(View.VISIBLE);
-                llEnterCode.setVisibility(View.VISIBLE);
-                llPhoneNotVerified.setVisibility(View.GONE);
-                llPhoneVerified.setVisibility(View.GONE);
-            } else {
-                //message show
-                // Mobile verification is pending. Please contact MarryMax support.
-                snackBarToolTip = "Mobile verification is pending. Please contact MarryMax support.";
+                //phone not verified
+                snackBarToolTip = "Unable to verify. Please contact MarryMax support.";
                 TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
                 tvSnackbarText.setText(snackBarToolTip);
 
 
+                llPhoneNotVerified.setVisibility(View.VISIBLE);
+                llEnterCode.setVisibility(View.GONE);
+                llPhoneVerified.setVisibility(View.GONE);
+                llVerifyPhone.setVisibility(View.GONE);
+            }
+            if (member.get_phone_verified() == 2) {
+                //verified
                 llPhoneVerified.setVisibility(View.VISIBLE);
                 llEnterCode.setVisibility(View.GONE);
                 llPhoneNotVerified.setVisibility(View.GONE);
                 llVerifyPhone.setVisibility(View.GONE);
             }
+            if (member.get_phone_verified() == 1) {
 
-            //blue icon
+                if (member.get_accept_message() == 1) {
+
+//verify now
+                    llVerifyPhone.setVisibility(View.VISIBLE);
+                    llEnterCode.setVisibility(View.VISIBLE);
+                    llPhoneNotVerified.setVisibility(View.GONE);
+                    llPhoneVerified.setVisibility(View.GONE);
+                } else {
+                    //message show
+                    // Mobile verification is pending. Please contact MarryMax support.
+                    snackBarToolTip = "Mobile verification is pending. Please contact MarryMax support.";
+                    TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
+                    tvSnackbarText.setText(snackBarToolTip);
+
+
+                    llPhoneVerified.setVisibility(View.VISIBLE);
+                    llEnterCode.setVisibility(View.GONE);
+                    llPhoneNotVerified.setVisibility(View.GONE);
+                    llVerifyPhone.setVisibility(View.GONE);
+                }
+
+                //blue icon
+
+
+            }
+
+        } else {
+            if (member.get_phone_verified() == 2) {
+                //verified
+                llPhoneVerified.setVisibility(View.VISIBLE);
+                llEnterCode.setVisibility(View.GONE);
+                llPhoneNotVerified.setVisibility(View.GONE);
+                llVerifyPhone.setVisibility(View.GONE);
+            } else {
+                snackBarToolTip = "Unable to verify. Please contact MarryMax support.";
+                TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
+                tvSnackbarText.setText(snackBarToolTip);
+
+
+                llPhoneNotVerified.setVisibility(View.VISIBLE);
+                llEnterCode.setVisibility(View.GONE);
+                llPhoneVerified.setVisibility(View.GONE);
+                llVerifyPhone.setVisibility(View.GONE);
+            }
+
 
         }
         //Log.e("get_phone_home", member.get_phone_verified() + "");
@@ -1131,7 +1190,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                             if (res != 0) {
                                 dismissKeyboard();
                                 getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
-                            }else {
+                            } else {
                                 Toast.makeText(context, "Unable to add phone number. Please contact MarryMax support", Toast.LENGTH_SHORT).show();
                             }
                          /*   Gson gson;
@@ -1363,9 +1422,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                         }
                         pDialog.dismiss();
                     }
-                }, new Response.ErrorListener()
-
-        {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());

@@ -126,7 +126,7 @@
                                 android:id="@+id/EditTextName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Your Name"
+                                android:hint="Enter Your Name"
                                 android:inputType="text"
                                 android:maxLength="30"
                                 android:singleLine="true"
@@ -148,7 +148,7 @@
                                 android:id="@+id/EditTextEmail"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/prompt_email"
+                                android:hint="@string/prompt_email_reg"
                                 android:inputType="textEmailAddress"
                                 android:maxLines="1"
                                 android:singleLine="true"
@@ -239,7 +239,7 @@
                             <com.chicsol.marrymax.widgets.mTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Please selects your religion."
+                                android:text="  Please select religion, you are creating this profile for"
                                 android:textColor="@color/colorSpinnerLabel"
                                 android:textSize="@dimen/text_size_spinner_label" />
 
@@ -269,9 +269,15 @@
                             <com.chicsol.marrymax.widgets.mTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Your Gender"
+                                android:text="Gender"
                                 android:textColor="@color/colorRegistrationFields"
                                 android:textSize="18sp" />
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="  Please select gender, you are creating this profile for"
+                                android:textColor="@color/colorSpinnerLabel"
+                                android:textSize="@dimen/text_size_spinner_label" />
                         </android.support.design.widget.TextInputLayout>
 
                         <LinearLayout

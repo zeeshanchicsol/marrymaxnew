@@ -37,6 +37,7 @@ import com.chicsol.marrymax.dialogs.dialogWithdrawInterest;
 import com.chicsol.marrymax.interfaces.MatchesRefreshCallBackInterface;
 import com.chicsol.marrymax.interfaces.UpdateMatchesCountCallback;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -56,6 +57,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
 
 /**
@@ -611,8 +613,42 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
        public void onArticleSelected(int position) {
            Toast.makeText(getContext(), "Clicked", Toast.LENGTH_SHORT).show();
        }*/
+
+    public Members setHeighAgeChecks(Members memberSearchObj) {
+        if (jsonArraySearch != null) {
+            if (memberSearchObj.get_choice_age_from() == 0) {
+                memberSearchObj.set_choice_age_from(18);
+            }
+            if (memberSearchObj.get_choice_age_upto() == 0) {
+                memberSearchObj.set_choice_age_upto(70);
+            }
+
+            Gson gsonc;
+            GsonBuilder gsonBuilderc = new GsonBuilder();
+            gsonc = gsonBuilderc.create();
+            Type listType = new TypeToken<List<WebArd>>() {
+            }.getType();
+            List<WebArd> dataListHeight = new ArrayList<>();
+            try {
+                dataListHeight = (List<WebArd>) gsonc.fromJson(jsonArraySearch.getJSONArray(10).toString(), listType);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (dataListHeight.size() > 0) {
+                if (memberSearchObj.get_choice_height_from_id() == 0) {
+                    memberSearchObj.set_choice_height_from_id(Long.parseLong(dataListHeight.get(0).getId()));
+                }
+                if (memberSearchObj.get_choice_height_to_id() == 0) {
+                    memberSearchObj.set_choice_height_to_id(Long.parseLong(dataListHeight.get(dataListHeight.size() - 1).getId()));
+                }
+            }
+        }
+        return memberSearchObj;
+    }
+
+
     private void getRawData() {
-        Members memberSearchObj = DrawerActivity.rawSearchObj;
+    /*    Members memberSearchObj = DrawerActivity.rawSearchObj;
         if (memberSearchObj != null) {
             memberSearchObj.set_path(SharedPreferenceManager.getUserObject(context).get_path());
             memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(context).get_member_status());
@@ -622,14 +658,18 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
             memberSearchObj.set_page_no(1);
             memberSearchObj.set_type("");
 
+         //   memberSearchObj= setHeighAgeChecks(memberSearchObj);
+
             Gson gson = new Gson();
             params = gson.toJson(memberSearchObj);
 
             recyclerAdapter.setMemResultsObj(memberSearchObj);
 
             loadData(params, false);
-        }
-    /*    Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + "/0");
+        }*/
+
+
+   //     Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + "/0");
         JsonArrayRequest req = new JsonArrayRequest(Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + "/0",
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -647,10 +687,10 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
                             Type listType = new TypeToken<Members>() {
                             }.getType();
 
-                            DrawerActivity.rawSearchObj = gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+                            //  DrawerActivity.rawSearchObj = gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+                            Members memberSearchObj = gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
 
 
-                            Members memberSearchObj = DrawerActivity.rawSearchObj;
                             if (memberSearchObj != null) {
                                 memberSearchObj.set_path(SharedPreferenceManager.getUserObject(context).get_path());
                                 memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(context).get_member_status());
@@ -688,7 +728,7 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(context).addToRequestQueue(req,Tag);*/
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }
 
     @Override

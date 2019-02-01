@@ -253,12 +253,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 */
 
 
-
-
     }
-
-
-
 
 
     private void loadData() {
@@ -490,9 +485,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                         }
                         pDialog.dismiss();
                     }
-                }, new Response.ErrorListener()
-
-        {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
@@ -652,99 +645,148 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
 //========================================================================================================
-                            //Mobile Number
-                            //how to display update Number button and Add number button with Mobile number
-                            if (dashboards.getPhone_complete_status().equals("0")) {
-                                if (!pNumber.equals("null") && (Integer.parseInt(objPhone.get("mobile_status").toString()) <= 1 || objPhone.get("mobile_status").toString().equals("3"))) { //  Update Number
-                                    //  Update Number
-                                    btUpdateNumber.setVisibility(View.VISIBLE);
-                                  btAddNumber.setVisibility(View.GONE);
-                                    btVerifyNumber.setVisibility(View.GONE);
 
-                                } else if (pNumber.equals("null") && Integer.parseInt(objPhone.get("mobile_status").toString()) <= 1) {
-                                    //    Add Number
-                                    btAddNumber.setVisibility(View.VISIBLE);
-                                    btUpdateNumber.setVisibility(View.GONE);
-                                    btVerifyNumber.setVisibility(View.GONE);
+                            if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
+
+                                //Mobile Number
+                                //how to display update Number button and Add number button with Mobile number
+                                if (dashboards.getPhone_complete_status().equals("0")) {
+                                    if (!pNumber.equals("null") && (Integer.parseInt(objPhone.get("mobile_status").toString()) <= 1 || objPhone.get("mobile_status").toString().equals("3"))) { //  Update Number
+                                        //  Update Number
+                                        btUpdateNumber.setVisibility(View.VISIBLE);
+                                        btAddNumber.setVisibility(View.GONE);
+                                        btVerifyNumber.setVisibility(View.GONE);
+
+                                    } else if (pNumber.equals("null") && Integer.parseInt(objPhone.get("mobile_status").toString()) <= 1) {
+                                        //    Add Number
+                                        btAddNumber.setVisibility(View.VISIBLE);
+                                        btUpdateNumber.setVisibility(View.GONE);
+                                        btVerifyNumber.setVisibility(View.GONE);
+                                    }
                                 }
-                            }
 
 
-                            //not verified
-                            if (objPhone.get("mobile_status").toString().equals("3")) {
-                                btVerifyNumber.setVisibility(View.GONE);
-                                llASPhone.setVisibility(View.VISIBLE);
-                                llPhoneNotVerified.setVisibility(View.VISIBLE);
+                                //not verified
+                                if (objPhone.get("mobile_status").toString().equals("3")) {
+                                    btVerifyNumber.setVisibility(View.GONE);
+                                    llASPhone.setVisibility(View.VISIBLE);
+                                    llPhoneNotVerified.setVisibility(View.VISIBLE);
                                /* if (!hideUpdateButtons) {
                                     btUpdateNumber.setVisibility(View.VISIBLE);
                                 }*/
 
-                                snackBarToolTip = "Unable to verify. Please contact MarryMax support.";
-                                TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
-                                tvSnackbarText.setText(snackBarToolTip);
-                            }
-                            // verified
-                            else if (objPhone.get("mobile_status").toString().equals("2")) {
-                                llVerifyPhone.setVisibility(View.GONE);
-                                llPhoneVerified.setVisibility(View.VISIBLE);
-                                llASPhone.setVisibility(View.GONE);
 
-                            } else if (objPhone.get("mobile_status").toString().equals("1")) {
-                                if (objPhone.get("accept_message").toString().equals("1")) {
-
-                                    btVerifyNumber.setVisibility(View.VISIBLE);
-                                } else {
-                                    snackBarToolTip = "Mobile verification is pending. Please contact MarryMax support.";
+                                    snackBarToolTip = "Unable to verify. Please contact MarryMax support.";
                                     TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
                                     tvSnackbarText.setText(snackBarToolTip);
+                                }
+                                // verified
+                                else if (objPhone.get("mobile_status").toString().equals("2")) {
+                                    llVerifyPhone.setVisibility(View.GONE);
+                                    llPhoneVerified.setVisibility(View.VISIBLE);
+                                    llASPhone.setVisibility(View.GONE);
 
+                                } else if (objPhone.get("mobile_status").toString().equals("1")) {
+                                    if (objPhone.get("accept_message").toString().equals("1")) {
+
+                                        btVerifyNumber.setVisibility(View.VISIBLE);
+                                    } else {
+                                        snackBarToolTip = "Mobile verification is pending. Please contact MarryMax support.";
+                                        TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
+                                        tvSnackbarText.setText(snackBarToolTip);
+
+                                        btVerifyNumber.setVisibility(View.GONE);
+                                        llASPhone.setVisibility(View.VISIBLE);
+                                        llPhoneNotVerified.setVisibility(View.VISIBLE);
+                                        Log.e("NotVerified", "Not Verified");
+
+                                    }
+                                }
+                                // not added
+                                else if (objPhone.get("mobile_status").toString().equals("0")) {
+                                    llASPhone.setVisibility(View.VISIBLE);
+                                    llVerifyPhone.setVisibility(View.VISIBLE);
+                                }
+
+                            } else {
+                                if (objPhone.get("mobile_status").toString().equals("2")) {
+                                    llVerifyPhone.setVisibility(View.GONE);
+                                    llPhoneVerified.setVisibility(View.VISIBLE);
+                                    llASPhone.setVisibility(View.GONE);
+
+                                } else {
                                     btVerifyNumber.setVisibility(View.GONE);
                                     llASPhone.setVisibility(View.VISIBLE);
                                     llPhoneNotVerified.setVisibility(View.VISIBLE);
+                               /* if (!hideUpdateButtons) {
+                                    btUpdateNumber.setVisibility(View.VISIBLE);
+                                }*/
 
+
+                                    snackBarToolTip = "Unable to verify. Please contact MarryMax support.";
+                                    TextView tvSnackbarText = snackbarNotVerified.getView().findViewById(android.support.design.R.id.snackbar_text);
+                                    tvSnackbarText.setText(snackBarToolTip);
                                 }
-                            }
-                            // not added
-                            else if (objPhone.get("mobile_status").toString().equals("0")) {
-                                llASPhone.setVisibility(View.VISIBLE);
-                                llVerifyPhone.setVisibility(View.VISIBLE);
-                            }
 
-
+                            }
 //========================================================================================================
 
 
 //========================================================================================================
                             //Lanline Checks
+                            if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
 
-                            faLandIcon.setVisibility(View.GONE);
-                            if (dashboards.getPhone_complete_status().equals("0")) {
-                                if (!lNumber.equals("null") && (Integer.parseInt(objPhone.get("landline_status").toString()) <= 1 || objPhone.get("landline_status").toString().equals("3"))) {
-                                    //  Update Number
-                                    btUpdateLandline.setVisibility(View.VISIBLE);
-                                    llPhoneVerifyLandline.setClickable(true);
+
+                                faLandIcon.setVisibility(View.GONE);
+                                if (dashboards.getPhone_complete_status().equals("0")) {
+                                    if (!lNumber.equals("null") && (Integer.parseInt(objPhone.get("landline_status").toString()) <= 1 || objPhone.get("landline_status").toString().equals("3"))) {
+                                        //  Update Number
+                                        btUpdateLandline.setVisibility(View.VISIBLE);
+                                        llPhoneVerifyLandline.setClickable(true);
+                                    }
                                 }
-                            }
 
 
-                            if (!addLandline) {
-                                cvlandline.setVisibility(View.GONE);
+                                if (!addLandline) {
+                                    cvlandline.setVisibility(View.GONE);
 
-                            } else {
-                                cvlandline.setVisibility(View.VISIBLE);
-
-
-                                if (objPhone.get("landline_status").toString().equals("1")) {
-                                    //pending
-                                    llPhoneVerifyLandline.setVisibility(View.VISIBLE);
-                                    tvPhoneVerifyLandline.setText("Not Verified");
-                                    ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
-
-                                    snackBarToolTipLandLine = " Verification Pending - MarryMax Support will call to verify";
-                                    snackbarNotVerifiedLandLine = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTipLandLine, Snackbar.LENGTH_SHORT);
+                                } else {
+                                    cvlandline.setVisibility(View.VISIBLE);
 
 
-                                } else if (objPhone.get("landline_status").toString().equals("2")) {
+                                    if (objPhone.get("landline_status").toString().equals("1")) {
+                                        //pending
+                                        llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                                        tvPhoneVerifyLandline.setText("Not Verified");
+                                        ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+
+                                        snackBarToolTipLandLine = " Verification Pending - MarryMax Support will call to verify";
+                                        snackbarNotVerifiedLandLine = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTipLandLine, Snackbar.LENGTH_SHORT);
+
+
+                                    } else if (objPhone.get("landline_status").toString().equals("2")) {
+
+                                        //verified
+                                        llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                                        tvPhoneVerifyLandline.setText("Verified");
+                                        faLandIcon.setVisibility(View.VISIBLE);
+                                        ivPhoneVerifyLandline.setVisibility(View.GONE);
+                                        btUpdateLandline.setVisibility(View.GONE);
+                                        llPhoneVerifyLandline.setClickable(false);
+                                        //ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
+
+
+                                    } else if (objPhone.get("landline_status").toString().equals("3")) {
+                                        //not verified
+                                        llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                                        tvPhoneVerifyLandline.setText("Not Verified");
+                                        ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+                                        snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
+                                        snackbarNotVerifiedLandLine = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTipLandLine, Snackbar.LENGTH_SHORT);
+                                    }
+                                }
+                            }else {
+                                if (objPhone.get("landline_status").toString().equals("2")) {
 
                                     //verified
                                     llPhoneVerifyLandline.setVisibility(View.VISIBLE);
@@ -756,7 +798,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                     //ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
 
 
-                                } else if (objPhone.get("landline_status").toString().equals("3")) {
+                                }else {
                                     //not verified
                                     llPhoneVerifyLandline.setVisibility(View.VISIBLE);
                                     tvPhoneVerifyLandline.setText("Not Verified");
@@ -764,8 +806,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                     snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
                                     snackbarNotVerifiedLandLine = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTipLandLine, Snackbar.LENGTH_SHORT);
                                 }
-                            }
 
+
+                            }
 
 //========================================================================================================
 
@@ -857,9 +900,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
                     }
-                }, new Response.ErrorListener()
-
-        {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
@@ -869,9 +910,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
             }
-        })
-
-        {
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 return Constants.getHashMap();
@@ -930,7 +969,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             lNumber = jsonObject.get("landline_phone").toString();
 
 
-                    //        Log.e("landline_phone ", "=======================  " + lNumber);
+                            //        Log.e("landline_phone ", "=======================  " + lNumber);
 
 
                             if (!pNumber.equals("null") && !pNumber.equals("")) {

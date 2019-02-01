@@ -968,7 +968,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                             JSONArray profile_owner_array = response.getJSONArray("profile_owner");
                             ProfileForDataList = (List<WebArd>) gsonc.fromJson(profile_owner_array.toString(), listType);
-                            ProfileForDataList.add(0, new WebArd("-1", "Select Profile For"));
+                            ProfileForDataList.add(0, new WebArd("-1", "Who is this Profile For"));
                             adapter_profilefor.updateDataList(ProfileForDataList);
 
 
