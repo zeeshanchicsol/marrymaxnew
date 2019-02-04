@@ -60,14 +60,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="vertical">
 
                         <com.chicsol.marrymax.widgets.mTextView
-
+                            android:id="@+id/TextViewMAUnderProgressDesc1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="MarryMax team is already working on your previous request."
@@ -75,15 +75,13 @@
                             android:textStyle="bold" />
 
                         <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewMAUnderProgressDesc2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="You need to wait until your previously submitted request is served, before you can submit a new request.
 To View Progress, click View Progress below "
-                            android:textColor="@color/colorBlack"
-
-
-                            />
+                            android:textColor="@color/colorBlack" />
 
 
                         <android.support.design.widget.TextInputLayout
@@ -110,9 +108,9 @@ To View Progress, click View Progress below "
 
                             <android.support.v7.widget.AppCompatButton
                                 android:id="@+id/mButtonDialogMatchAidUPViewProgress"
+                                style="@style/myCustomMaterialButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/myCustomMaterialButton"
                                 android:layout_marginTop="10dp"
                                 android:layout_toLeftOf="@+id/mButtonDialogMatchAidUPCancel"
                                 android:backgroundTint="@color/colorDefaultGreen"
@@ -123,17 +121,17 @@ To View Progress, click View Progress below "
 
                             <android.support.v7.widget.AppCompatButton
                                 android:id="@+id/mButtonDialogMatchAidUPCancel"
+                                style="@style/myCustomMaterialButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
                                 android:backgroundTint="@color/colorGrey"
-                                style="@style/myCustomMaterialButton"
                                 android:paddingRight="5dp"
                                 android:text="Close"
                                 android:textAllCaps="false"
-                                android:textColor="@color/colorWhite"
-                                android:layout_alignParentBottom="true"
-                                android:layout_alignParentRight="true"
-                                android:layout_alignParentEnd="true" />
+                                android:textColor="@color/colorWhite" />
 
                         </RelativeLayout>
 

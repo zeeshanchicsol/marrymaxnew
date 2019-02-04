@@ -1989,6 +1989,8 @@ id TextViewListPhoneNumber
 id TextViewListSavSearchDate
 id TextViewListSavSearchName
 id TextViewListUsername
+id TextViewMAUnderProgressDesc1
+id TextViewMAUnderProgressDesc2
 id TextViewMMAboutMe
 id TextViewMMAge
 id TextViewMMMatchesCountCompleteProfile
@@ -3619,6 +3621,7 @@ string reset_sub_button_text
 string search_menu_title
 string section_format
 string status_bar_notification_info_overflow
+string subscription_plan_commited_text
 string title_activity_photo_upload
 string tv_name_reg_geogrphic
 string updatechoice

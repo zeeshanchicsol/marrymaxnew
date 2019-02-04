@@ -227,8 +227,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
             }*/
 
-        //    Log.e("interested id", member.get_interested_id() + "");
-       //     Log.e("interested receieved", member.get_interest_received() + "");
+            //    Log.e("interested id", member.get_interested_id() + "");
+            //     Log.e("interested receieved", member.get_interest_received() + "");
             if (member.get_interested_id() == 0) {
                 tvInterest.setText("Show Interest");
                 llshowInterest.setBackgroundColor(context.getResources().getColor(R.color.colorUserProfileTextGreenLight));
@@ -1117,8 +1117,15 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                     dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).get_member_status());
                                     newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
                                     newFragment.show(getFragmentManager(), "dialog");
-                                } else {
-                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath);
+                                } else if (res == 1) {
+                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
+                                    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                    newFragment.show(getFragmentManager(), "dialog");
+                                } else if (res == -1) {
+
+                                    //
+
+                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
                                     newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
                                     newFragment.show(getFragmentManager(), "dialog");
                                 }
@@ -1126,26 +1133,20 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
                         } catch (
-                                JSONException e)
-
-                        {
+                                JSONException e) {
                             e.printStackTrace();
                         }
 
 
                         pDialog.dismiss();
                     }
-                }, new Response.ErrorListener()
-
-        {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
                 pDialog.dismiss();
             }
-        })
-
-        {
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 return Constants.getHashMap();

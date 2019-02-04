@@ -519,7 +519,7 @@
                         android:clickable="true"
                         android:gravity="center"
                         android:lineSpacingExtra="5dp"
-                        android:text="If you don't pay for something, you rarely pay attention.  \n \nHow much do you invest in yourself? \nIf you aren't investing in yourself, than you don't have any skin in the game of your own life. "
+                        android:text="@string/subscription_plan_commited_text"
                         android:textColor="#666"
 
 

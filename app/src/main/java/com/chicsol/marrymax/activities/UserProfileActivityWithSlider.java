@@ -21,7 +21,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.ProfilePagerAdapter;
-import com.chicsol.marrymax.adapters.ProfileSliderPagerAdapter;
+
 import com.chicsol.marrymax.fragments.inbox.DashboardQuestionsFragment;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -46,7 +46,7 @@ import java.util.Map;
 
 public class UserProfileActivityWithSlider extends AppCompatActivity {
     private ViewPager viewPagerProfileSlider;
-    private ProfileSliderPagerAdapter profileSliderPagerAdapter;
+  //  private ProfileSliderPagerAdapter profileSliderPagerAdapter;
     int selectedposition = -1;
     private String params;
     public List<Members> membersDataList;

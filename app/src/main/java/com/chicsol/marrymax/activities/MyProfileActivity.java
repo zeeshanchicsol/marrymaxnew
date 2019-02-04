@@ -944,7 +944,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                                 dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
                                 newFragment.show(getSupportFragmentManager(), "dialog");
                             } else {
-                                dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath);
+                                dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath,1);
                                 newFragment.show(getSupportFragmentManager(), "dialog");
                             }
 

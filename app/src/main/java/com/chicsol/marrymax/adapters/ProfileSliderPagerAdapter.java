@@ -38,6 +38,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.UserProfileActivityFragment;
 import com.chicsol.marrymax.dialogs.dialogBlock;
 import com.chicsol.marrymax.dialogs.dialogDeclineInterest;
 import com.chicsol.marrymax.dialogs.dialogMatchAid;
@@ -292,7 +293,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
             public void onClick(View v) {
 
 
-                marryMax.statusBaseChecks(member, context, 5, fragmentManager, null, v, null, null,null,null);
+                marryMax.statusBaseChecks(member, context, 5, fragmentManager, null, v, null, null, null, null);
 
             }
         });
@@ -336,7 +337,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
             @Override
             public void onClick(View v) {
 
-                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null,null);
+                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null, null, null);
                 if (bcheck3) {
                     matchAid();
                 }
@@ -349,7 +350,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                 //   Toast.makeText(UserProfileActivity.context, "Clicked", Toast.LENGTH_SHORT).show();
                 //    Log.e("Saved Member", member.get_saved_member() + " ");
 
-                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null,null);
+                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null, null, null);
                 if (bcheck3) {
                     if (member.get_saved_member() == 1) {
                         JSONObject params = new JSONObject();
@@ -429,7 +430,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                                 break;*/
                             case R.id.menu_up_block:
 
-                                boolean bcheck = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null,null);
+                                boolean bcheck = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null, null, null);
                                 if (bcheck) {
                                     blockUser();
                                 }
@@ -437,7 +438,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                             case R.id.menu_up_remove:
 
 
-                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, fragmentManager, null, v, null, null,null,null);
+                                boolean checkStatus = marryMax.statusBaseChecks(member, context, 3, fragmentManager, null, v, null, null, null, null);
 
                                 if (checkStatus) {
                                     JSONObject params = new JSONObject();
@@ -454,7 +455,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                                 break;
 
                             case R.id.menu_up_report_concern:
-                                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null,null,null);
+                                boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, fragmentManager, null, v, null, null, null, null);
                                 if (bcheck3) {
                                     reportConcern();
                                 }
@@ -479,7 +480,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
 
     private void sendMessage(View v) {
 
-        marryMax.statusBaseChecks(member, context, 6, fragmentManager, null, v, null, null,null,null);
+        marryMax.statusBaseChecks(member, context, 6, fragmentManager, null, v, null, null, null, null);
 
     }
 
@@ -501,7 +502,7 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
         Log.e(functions.checkProfileCompleteStatus(member) + "" + member.get_member_status(), "checcccccccccccccccccccc");
 
 
-        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, fragmentManager, null, v, null, null,null,null);
+        boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, fragmentManager, null, v, null, null, null, null);
 
         if (checkStatus) {
             if (functions.checkProfileCompleteStatus(sessionObj)) {
@@ -688,13 +689,25 @@ public class ProfileSliderPagerAdapter extends PagerAdapter {
                         try {
                             int res = response.getJSONArray(1).getJSONObject(0).getInt("id");
                             Log.e("ressss", "" + res + "");
-                            if (res == 0) {
+
+                         /*   if (SharedPreferenceManager.getUserObject(context).get_member_status() != 4) {
                                 dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).get_member_status());
-                                newFragment.show(fragmentManager, "dialog");
-                            } else {
-                                dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath);
-                                newFragment.show(fragmentManager, "dialog");
-                            }
+                                newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                newFragment.show(context.getFragmentManager(), "dialog");
+
+                            } else {*/
+
+                                if (res == 0) {
+                                    dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).get_member_status());
+                                    newFragment.show(fragmentManager, "dialog");
+                                } else if (res == 1) {
+                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, 1);
+                                    newFragment.show(fragmentManager, "dialog");
+                                } else if (res == -1) {
+                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, -1);
+                                    newFragment.show(fragmentManager, "dialog");
+                                }
+                         //   }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
