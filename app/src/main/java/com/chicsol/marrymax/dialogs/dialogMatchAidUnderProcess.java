@@ -93,9 +93,9 @@ public class dialogMatchAidUnderProcess extends DialogFragment {
         tvDesc2 = (TextView) rootView.findViewById(R.id.TextViewMAUnderProgressDesc2);
 
         if(response==-1){
-            tvDesc1.setText("MarryMax team had already worked on your previous request.");
-            tvDesc2.setText("You need to wait 7 days from your previously submitted request, before you can submit a new request.");
-            mOkButton.setVisibility(View.GONE);
+            tvDesc1.setText("Please wait few more days, before you can submit a new Match-Aid request.");
+            tvDesc2.setText("Only one Match-Aid request is served within a week.");
+
 
         }
 
