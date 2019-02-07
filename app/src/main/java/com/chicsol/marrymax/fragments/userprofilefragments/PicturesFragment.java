@@ -1,5 +1,6 @@
 package com.chicsol.marrymax.fragments.userprofilefragments;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,7 +60,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
 
     private RequestCallbackInterface requestCallbackInterface;
     String json = null;
-
+private  Context context;
     public PicturesFragment() {
         // Required empty public constructor
     }
@@ -68,6 +69,11 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
         this.requestCallbackInterface = requestCallbackInterface;
 
 
+    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
     }
 
     @Override
@@ -125,7 +131,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
         llPicsNotAvailableMyProfile = (LinearLayout) view.findViewById(R.id.LinearLayoutMemberUPPicsNotAvailablePersonalProfile);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.RecyclerViewMemberUPPictures);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+        recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
 
 
         Bundle bundle = getArguments();
@@ -176,7 +182,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
                 membersDataList = (List<Members>) gson.fromJson(objectsArray.toString(), membert);
 
 
-                recyclerAdapter = new RecyclerViewAdapterUPPictures(membersDataList, getContext());
+                recyclerAdapter = new RecyclerViewAdapterUPPictures(membersDataList, context);
                 recyclerAdapter.setOnItemClickListener(PicturesFragment.this);
                 recyclerView.setAdapter(recyclerAdapter);
 
@@ -269,7 +275,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
                 String type = null, title = null, btTitile = null, desc = null;
 
 
-                boolean checkStatus = marryMax.statusBaseChecks(member, getContext(), 2, getFragmentManager(), PicturesFragment.this, v, null, null, null, null);
+                boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, getFragmentManager(), PicturesFragment.this, v, null, null, null, null);
 
                 if (checkStatus) {
                     if (member.get_image_count() == 0) {
@@ -293,7 +299,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
                             try {
 
                                 params.put("userpath", member.getUserpath());
-                                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                                params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
                                 params.put("interested_id", member.get_photo_upload_request_id());
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -324,7 +330,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
                             try {
 
                                 params.put("userpath", member.getUserpath());
-                                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                                params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
                                 params.put("interested_id", member.get_photo_request_id());
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -356,7 +362,7 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
 
 
         AlertDialog.Builder imageDialog = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
 
         View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
                 (ViewGroup) view.findViewById(R.id.layout_root));
@@ -390,10 +396,10 @@ public class PicturesFragment extends Fragment implements RecyclerViewAdapterUPP
 
         JSONObject params = new JSONObject();
         try {
-            params.put("alias", SharedPreferenceManager.getUserObject(getContext()).getAlias());
+            params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
             params.put("type", type);
             params.put("userpath", member.getUserpath());
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
         } catch (JSONException e) {
             e.printStackTrace();
         }
