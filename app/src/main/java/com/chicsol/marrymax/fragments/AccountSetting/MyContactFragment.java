@@ -1026,20 +1026,21 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
             if (member.get_phone_view() == 1) {
-                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
-                tvPhoneVerifyLandline.setText("Not Verified");
-                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+                if (!landline.equals("")) {
 
-                snackBarToolTipLandLine = "Verification Pending - MarryMax Support will call to verify";
-                TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
-                tvSnackbarText.setText(snackBarToolTipLandLine);
-                llPhoneVerifyLandline.setClickable(true);
+                    llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                    tvPhoneVerifyLandline.setText("Not Verified");
+                    ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
 
+                    snackBarToolTipLandLine = "Verification Pending - MarryMax Support will call to verify";
+                    TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
+                    tvSnackbarText.setText(snackBarToolTipLandLine);
+                    llPhoneVerifyLandline.setClickable(true);
+                }
                 //pending
 
 
             } else if (member.get_phone_view() == 2) {
-
                 //verified
                 llPhoneVerifyLandline.setVisibility(View.VISIBLE);
                 tvPhoneVerifyLandline.setText("Verified");
@@ -1047,20 +1048,26 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 llPhoneVerifyLandline.setClickable(false);
 
             } else if (member.get_phone_view() == 3) {
-                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
-                tvPhoneVerifyLandline.setText("Not Verified");
-                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
 
-                snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
-                TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
-                tvSnackbarText.setText(snackBarToolTipLandLine);
-                llPhoneVerifyLandline.setClickable(true);
+                if (!landline.equals("")) {
 
+
+                    llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                    tvPhoneVerifyLandline.setText("Not Verified");
+                    ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+
+                    snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
+                    TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
+                    tvSnackbarText.setText(snackBarToolTipLandLine);
+                    llPhoneVerifyLandline.setClickable(true);
+                }
                 //not verified
 
             }
 
         } else {
+
+
             if (member.get_phone_view() == 2) {
 
                 //verified
@@ -1070,15 +1077,17 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 llPhoneVerifyLandline.setClickable(false);
 
             } else {
-                llPhoneVerifyLandline.setVisibility(View.VISIBLE);
-                tvPhoneVerifyLandline.setText("Not Verified");
-                ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
+                if (!landline.equals("")) {
 
-                snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
-                TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
-                tvSnackbarText.setText(snackBarToolTipLandLine);
-                llPhoneVerifyLandline.setClickable(true);
+                    llPhoneVerifyLandline.setVisibility(View.VISIBLE);
+                    tvPhoneVerifyLandline.setText("Not Verified");
+                    ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
 
+                    snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
+                    TextView tvSnackbarText = snackbarNotVerifiedLandLine.getView().findViewById(android.support.design.R.id.snackbar_text);
+                    tvSnackbarText.setText(snackBarToolTipLandLine);
+                    llPhoneVerifyLandline.setClickable(true);
+                }
                 //not verified
             }
         }
