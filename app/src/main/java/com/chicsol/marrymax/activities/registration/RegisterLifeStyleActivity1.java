@@ -838,7 +838,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             spMyEducation.setEnabled(false);
 
 
-            if (!members_obj.get_choice_economy_ids().equals("") && !members_obj.get_choice_economy_ids().equals("0")) {
+            if (members_obj.get_economy_id() != 0) {
                 viewGenerator.selectCheckRadioWithDisabledRadio(rgEconomy, members_obj.get_economy_id(), llcbViewEconomy, members_obj.get_choice_economy_ids());
             }
             viewGenerator.selectCheckRadioWithDisabledRadio(rgReligious, members_obj.get_religious_sect_id(), llcbViewReligious, members_obj.get_choice_religious_sect_ids());
