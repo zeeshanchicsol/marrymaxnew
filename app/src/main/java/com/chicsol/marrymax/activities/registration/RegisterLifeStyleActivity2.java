@@ -62,7 +62,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
     private boolean updateData = true;
     private EditText etNoOfSisters, etNoOfBrothers;
     private ProgressDialog pDialog;
-private ImageView ivPhysicalDisablityInfo;
+    private ImageView ivPhysicalDisablityInfo;
 
     private FloatingActionButton fabLifeStyle1, fabLifeStyle2;
 
@@ -264,13 +264,13 @@ private ImageView ivPhysicalDisablityInfo;
 
 
                         params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                        Log.e("params", "" + params);
+                        //   Log.e("params", "" + params);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
 
-                  updateLifestyle(params);
+                        updateLifestyle(params);
 
                     }
                 }
@@ -539,14 +539,14 @@ private ImageView ivPhysicalDisablityInfo;
         pDialog.show();
 
 
-      //  Log.e("Params",    Urls.updateLifestyleUrl2+"  " + params);
+        Log.e("Params", Urls.updateLifestyleUrl2 + "  " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateLifestyleUrl2, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                     //   Log.e("updateLifestyle update", response + "");
+                        //   Log.e("updateLifestyle update", response + "");
                         try {
                             int responseid = response.getInt("id");
 
@@ -554,21 +554,15 @@ private ImageView ivPhysicalDisablityInfo;
                             if (responseid == 1) {
 
 
-
                                 //updating status
                                 Members member = SharedPreferenceManager.getUserObject(getApplication());
 
 
-                                    if (member.get_member_status() == 0) {
-                                        int status = response.getInt("name");
-                                        member.set_member_status(status);
-                                        SharedPreferenceManager.setUserObject(getApplicationContext(), member);
-                                    }
-
-
-
-
-
+                                if (member.get_member_status() == 0) {
+                                    int status = response.getInt("name");
+                                    member.set_member_status(status);
+                                    SharedPreferenceManager.setUserObject(getApplicationContext(), member);
+                                }
 
 
                                 if (!marryMax.getUpdateCheck(getApplicationContext())) {
