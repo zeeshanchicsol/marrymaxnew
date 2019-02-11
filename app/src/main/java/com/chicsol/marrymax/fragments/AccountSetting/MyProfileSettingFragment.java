@@ -737,7 +737,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
                             if (!lNumber.equals("") && !lNumber.equals("null")) {
-                                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+                                if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
 
 
                                     faLandIcon.setVisibility(View.GONE);

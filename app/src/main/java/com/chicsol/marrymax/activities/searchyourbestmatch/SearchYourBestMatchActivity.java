@@ -288,7 +288,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
 
                         Gson gson = new Gson();
                         String params = gson.toJson(defaultSelectionsObj);
-                        Log.e("params  ", params + "");
+                     //   Log.e("params  ", params + "");
 
                         // SharedPreferenceManager.setDefaultSelectionsObj(getApplicationContext(),defaultSelectionsObj);
 
@@ -328,7 +328,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
                 WebArd waMyChoiceAgeFrom = (WebArd) spMyChoiceAgeFrom.getSelectedItem();
                 WebArd waMyChoiceAgeTo = (WebArd) spMyChoiceAgeTo.getSelectedItem();
                 if (!waMyChoiceAgeFrom.getId().equals("-1")) {
-                    Log.e("id is", waMyChoiceAgeFrom.getId());
+                  //  Log.e("id is", waMyChoiceAgeFrom.getId());
                     if (Integer.parseInt(waMyChoiceAgeTo.getId()) < Integer.parseInt(waMyChoiceAgeFrom.getId())) {
                         spMyChoiceAgeTo.setSelection(0);
                         Toast.makeText(SearchYourBestMatchActivity.this, "Please Select Valid Age To", Toast.LENGTH_SHORT).show();
@@ -570,9 +570,10 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
     private void getRegistrationData() {
 
         String url = Urls.reg_Listing;
-        Log.e("Url", "" + url);
+     //   Log.e("Url", "" + url);
         final ProgressDialog pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading...");
+        pDialog.setCancelable(false);
         pDialog.show();
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
@@ -583,7 +584,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         //religious
 
-                        Log.d("res", response.toString());
+                      //  Log.d("res", response.toString());
                         try {
                             JSONArray religionarray = response.getJSONArray("religion");
                             JSONArray religioussectarray = response.getJSONArray("religious");
@@ -598,7 +599,7 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
 
                             religionDatalist = (List<WebArd>) gsonc.fromJson(religionarray.toString(), listType);
                             religionDatalist.add(0, new WebArd("-1", "Select"));
-                            Log.e("size", "" + religionDatalist.size());
+                         //   Log.e("size", "" + religionDatalist.size());
                             adapter_religion.updateDataList(religionDatalist);
 
                             relgiousSectDatalist = (List<WebArd>) gsonc.fromJson(religioussectarray.toString(), listType);
@@ -652,12 +653,12 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
         //  String.Max
 //pDialog.setMessage("getMessage");
         //  pDialog.show();
-        Log.e("Search Lists url", Urls.getSearchListsAdv + 0);
+   //     Log.e("Search Lists url", Urls.getSearchListsAdv + 0);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchListsAdv + 0,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("response", response.toString());
+                      //  Log.e("response", response.toString());
                         Constants.jsonArraySearch = response;
                         //   pDialog.dismiss();
                     }

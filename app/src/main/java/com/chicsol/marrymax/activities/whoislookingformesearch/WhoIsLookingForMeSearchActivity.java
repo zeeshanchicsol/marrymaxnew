@@ -573,6 +573,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
         Log.e("Url", "" + url);
         final ProgressDialog pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading...");
+        pDialog.setCancelable(false);
         pDialog.show();
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
