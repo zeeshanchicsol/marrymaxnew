@@ -83,7 +83,6 @@
                 android:gravity="right">
 
 
-
                 <com.chicsol.marrymax.widgets.mTextView
                     android:id="@+id/TextViewMatchAid"
                     android:layout_width="wrap_content"
@@ -196,8 +195,8 @@
                                 android:id="@+id/imageButtonUPArrowRight"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
                                 android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="10dp"
                                 android:background="@null"
@@ -210,10 +209,10 @@
                                 android:id="@+id/LinearLayoutImagesCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
-                                android:layout_marginRight="8dp"
+                                android:layout_alignParentRight="true"
                                 android:layout_marginTop="12dp"
+                                android:layout_marginRight="8dp"
                                 android:background="#DB9E26"
                                 android:orientation="horizontal"
                                 android:padding="5dp"
@@ -344,8 +343,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
 
                         android:orientation="horizontal">
 
@@ -405,8 +404,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
                         android:orientation="horizontal">
 
                         <!--     <com.chicsol.marrymax.widgets.mTextView
@@ -441,8 +440,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
                         android:orientation="horizontal">
 
                         <com.chicsol.marrymax.widgets.mTextView
@@ -468,8 +467,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
                         android:orientation="horizontal">
 
                         <com.chicsol.marrymax.widgets.mTextView
@@ -496,8 +495,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:orientation="horizontal">
 
                         <com.chicsol.marrymax.widgets.mTextView
@@ -524,8 +523,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:orientation="horizontal">
 
                         <com.chicsol.marrymax.widgets.mTextView
@@ -552,8 +551,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:orientation="horizontal">
 
                         <com.chicsol.marrymax.widgets.mTextView
@@ -580,8 +579,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        app:tabMaxWidth="0dp"
                         app:tabGravity="fill"
+                        app:tabMaxWidth="0dp"
                         app:tabMode="fixed" />
 
                     <android.support.v4.view.ViewPager
@@ -653,8 +652,8 @@
                                 <com.chicsol.marrymax.widgets.mTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
                                     android:layout_marginTop="3dp"
+                                    android:layout_marginBottom="5dp"
                                     android:text="Send Message"
                                     android:textColor="#3E3E3E" />
 
@@ -728,4 +727,12 @@
 
     </LinearLayout>
 
+<!--    <ImageView
+        android:id="@+id/ImageViewSwipeInstructions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:scaleType="fitXY"
+        android:src="@drawable/swipeicon"
+        android:visibility="gone" />-->
 </FrameLayout>

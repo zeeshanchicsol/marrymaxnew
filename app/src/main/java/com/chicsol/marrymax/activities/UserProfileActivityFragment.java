@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -16,9 +15,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,7 +53,6 @@ import com.chicsol.marrymax.dialogs.dialogReplyOnAcceptInterest;
 import com.chicsol.marrymax.dialogs.dialogReportConcern;
 import com.chicsol.marrymax.dialogs.dialogRequestPhone;
 import com.chicsol.marrymax.dialogs.dialogShowInterest;
-import com.chicsol.marrymax.fragments.inbox.DashboardQuestionsFragment;
 import com.chicsol.marrymax.fragments.userprofilefragments.BasicInfoFragment;
 import com.chicsol.marrymax.fragments.userprofilefragments.PicturesFragment;
 import com.chicsol.marrymax.interfaces.PhoneRequestCallBackInterface;
@@ -126,6 +122,10 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private Context context;
     private View rview;
 
+    private boolean tutorialCheck;
+
+    ImageView ivSwipeInstructions;
+
     public static UserProfileActivityFragment newInstance(String userpath) {
         UserProfileActivityFragment f = new UserProfileActivityFragment();
 
@@ -194,6 +194,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     public void onResume() {
         super.onResume();
 
+     /*   tutorialCheck = SharedPreferenceManager.getTutorialCheck(context);
+
+        if(!tutorialCheck){
+            ivSwipeInstructions.setVisibility(View.VISIBLE);
+        }*/
+
         JSONObject params = new JSONObject();
         try {
             params.put("userpath", userpath);
@@ -217,6 +223,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     }
 
     private void setInterestButtonText() {
+
+
         Members sessionObj = SharedPreferenceManager.getUserObject(context);
         Log.e(functions.checkProfileCompleteStatus(member) + "" + member.get_member_status(), "checcccccccccccccccccccc");
         if (functions.checkProfileCompleteStatus(sessionObj)) {
@@ -356,6 +364,15 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         //      llScreenWait = (LinearLayout) view.findViewById(R.id.LinearLayoutscreen_wait);
         //  llScreenMain = (LinearLayout) view.findViewById(R.id.LinearLayoutUserProfileMainlayout);
 //
+
+
+      /*  ivSwipeInstructions = (ImageView) view.findViewById(R.id.ImageViewSwipeInstructions);
+*/
+
+
+
+
+
         tabLayout1 = (TabLayout) view.findViewById(R.id.tabs1);
 
         viewPager1 = (ViewPager) view.findViewById(R.id.viewpager1);
@@ -613,6 +630,17 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     }
 
     private void setListenders() {
+
+      /*  ivSwipeInstructions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferenceManager.setTutorialCheck(context,true);
+                ivSwipeInstructions.setVisibility(View.GONE);
+
+            }
+        });
+*/
+
 
         llBottomSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override

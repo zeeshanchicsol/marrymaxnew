@@ -216,7 +216,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 WebArd ard = (WebArd) spMyCountry.getSelectedItem();
                 if (position != -1 && position != 0) {
                     cModel c = MyCountryDataList2.get(position - 1);
-                    Log.e("country data code", "" + c.getCode());
+                 //   Log.e("country data code", "" + c.getCode());
 
                     getCountryCode(c.getCode());
 

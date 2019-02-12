@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -68,10 +70,18 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
    private Members memberSearchObj;
 
+    private boolean tutorialCheck;
+
+    ImageView ivSwipeInstructions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile_with_slider);
+
+
+
+
 
         viewPagerProfileSlider = (ViewPager) findViewById(R.id.viewPagerUserProfilesLeftRight);
         // viewPagerProfileSlider.setOffscreenPageLimit(1);
@@ -89,6 +99,26 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         selectedposition = Integer.parseInt(getIntent().getExtras().getString("selectedposition"));
 
         selectedUserPath = getIntent().getExtras().getString("userpath");
+
+
+
+        ivSwipeInstructions = (ImageView) findViewById(R.id.ImageViewSwipeInstructions);
+
+        ivSwipeInstructions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferenceManager.setTutorialCheck(getApplicationContext(),true);
+                ivSwipeInstructions.setVisibility(View.GONE);
+
+            }
+        });
+
+
+        tutorialCheck = SharedPreferenceManager.getTutorialCheck(getApplicationContext());
+
+        if(!tutorialCheck){
+            ivSwipeInstructions.setVisibility(View.VISIBLE);
+        }
 
 
         if (selectedposition != -1) {

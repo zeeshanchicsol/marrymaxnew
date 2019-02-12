@@ -33,6 +33,10 @@ public class SharedPreferenceManager {
 
     public static final String USER_QUESTION_OBJ = "user_question_object";
 
+    public static final String TUTORIAL_CHECK = "tutorial_check";
+
+
+
 
     public static Members getUserObject(Context context) {
 
@@ -202,6 +206,29 @@ public class SharedPreferenceManager {
         Members members = gson.fromJson(sharedPreferences.getString(MEM_RESULTS_OBJECT, null), Members.class);
         return members;
     }
+
+
+
+
+
+
+    public static boolean getTutorialCheck(Context context) {
+
+        SharedPreferences sharedPreferences = context
+                .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
+
+        return sharedPreferences.getBoolean(TUTORIAL_CHECK, false);
+
+    }
+
+    public static void setTutorialCheck(Context context, boolean userObject) {
+        SharedPreferences sharedPreferences = context
+                .getSharedPreferences(MARRYMAX_MAIN_PREFER_NAME, PRIVATE_MODE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(TUTORIAL_CHECK, userObject);
+        editor.commit();
+    }
+
 
 
 }
