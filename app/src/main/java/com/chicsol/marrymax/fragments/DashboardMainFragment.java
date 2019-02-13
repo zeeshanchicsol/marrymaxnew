@@ -312,7 +312,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                    })*/.build();
 
 
-      Members  member = SharedPreferenceManager.getUserObject(getActivity().getApplicationContext());
+        Members member = SharedPreferenceManager.getUserObject(getActivity().getApplicationContext());
 
         // ll_blocked = (LinearLayout) view.findViewById(R.id.LinearLayoutdmBlocked);
         // ll_removed_from_search = (LinearLayout) view.findViewById(R.id.LinearLayoutdmRemovedFromSearch);
@@ -360,7 +360,6 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         viewPagerMemFragment = (ViewPager) view.findViewById(R.id.viewpagerMembersFragment);
 
 
-
         LoadData();
 
 
@@ -397,11 +396,6 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         }
 
 
-
-
-
-
-
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
             //  getStatus();
@@ -409,11 +403,11 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
             getDashboardData();
 
-            Members  member = SharedPreferenceManager.getUserObject(context);
+            Members member = SharedPreferenceManager.getUserObject(context);
 
             Log.e("Completion Status", member.get_member_status() + "");
             if (member.get_member_status() < 3 || member.get_member_status() >= 7) {
-               // new MarryMax(null).updateStatus(context);
+                // new MarryMax(null).updateStatus(context);
 
 
                 getProfileCompletion();
@@ -440,12 +434,12 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
                     //    getStatus();
                     getDashboardData();
-                    Members  member = SharedPreferenceManager.getUserObject(context);
+                    Members member = SharedPreferenceManager.getUserObject(context);
 
                     Log.e("Completion Status", member.get_member_status() + "");
                     if (member.get_member_status() < 3 || member.get_member_status() >= 7) {
 
-                     //   new MarryMax(null).updateStatus(getContext());
+                        //   new MarryMax(null).updateStatus(getContext());
                         //updateStatus();
                         getProfileCompletion();
 
@@ -481,7 +475,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         tvEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Members  member = SharedPreferenceManager.getUserObject(context);
+                Members member = SharedPreferenceManager.getUserObject(context);
                 MarryMax marryMax = new MarryMax(getActivity());
                 marryMax.getProfileProgress(context, member, getActivity());
 
@@ -803,7 +797,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         llReviewPending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Members  member = SharedPreferenceManager.getUserObject(context);
+                Members member = SharedPreferenceManager.getUserObject(context);
                 String reviewStatus = "";
                 if (member.get_member_status() == 7) {
                     reviewStatus = "Review Notes";
@@ -956,7 +950,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                         Log.d("getdash  update data", response + "");
 
                         try {
-                            Members  member = SharedPreferenceManager.getUserObject(context);
+                            Members member = SharedPreferenceManager.getUserObject(context);
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 0) {
@@ -1135,7 +1129,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.e("Response", response.toString());
-                        Members  member = SharedPreferenceManager.getUserObject(context);
+                        Members member = SharedPreferenceManager.getUserObject(context);
 
                         try {
                             swipeRefreshLayout.setRefreshing(false);
@@ -1340,7 +1334,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     }
 
     private void viewProfile() {
-        Members  member = SharedPreferenceManager.getUserObject(context);
+        Members member = SharedPreferenceManager.getUserObject(context);
       /*  if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
             if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() != 0) {
