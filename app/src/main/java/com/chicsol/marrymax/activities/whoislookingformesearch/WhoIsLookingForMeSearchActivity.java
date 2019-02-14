@@ -82,6 +82,15 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
+            getSearchListData();
+        }
+
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
@@ -178,9 +187,6 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
         spinner_ethnic.setAdapter(adapter_ethnic);
 
 
-        if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
-            getSearchListData();
-        }
 
     }
 

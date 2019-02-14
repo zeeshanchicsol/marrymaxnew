@@ -67,6 +67,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
     private EditText etAboutMyChoice, etAboutMe, etMyStrength, etMostThankfulFor, etWhatIdoFor;
     private mTextView tvDosDont;
     private CheckBox cbDeclaration;
+    ProgressDialog pDialog;
 
 
     @Override
@@ -422,17 +423,14 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
     private void getDosDonts() {
 
 
-        final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
-        pDialog.setCancelable(false);
-        pDialog.show();
+        showProgressDialog();
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getPersonalityDosDonts,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.e("Response", response.toString());
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                         //        try {
                         dialogDosDonts newFragment = dialogDosDonts.newInstance(response.toString());
                         newFragment.show(getSupportFragmentManager(), "dialog");
@@ -460,13 +458,13 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                             e.printStackTrace();
                         }*/
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
         }) {
             @Override
@@ -479,10 +477,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
 
     private void GetPersonalityData() {
-        final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
-        pDialog.setCancelable(false);
-        pDialog.show();
+        showProgressDialog();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 Urls.getPersonalityUrl + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(), null,
                 new Response.Listener<JSONObject>() {
@@ -491,7 +486,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                     public void onResponse(JSONObject response) {
                         //  Log.e("res mainnnnnnnnnnn", response + "");
                         try {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
 
                             JSONArray jsonArrayInterest = response.getJSONArray("personality");
 
@@ -520,7 +515,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
@@ -568,7 +563,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                         }
 
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -578,8 +573,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
-
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -603,10 +597,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
     private void updatePersonality(JSONObject params) {
 
-        final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
-        pDialog.setCancelable(false);
-        pDialog.show();
+    showProgressDialog();
 
 
         Log.e("Params " + Urls.updatePersonalityUrl, "" + params);
@@ -645,12 +636,12 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                             }
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -661,7 +652,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -700,4 +691,29 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
         }
     }
+
+
+    @Override
+    public void onDestroy() {
+        dismissProgressDialog();
+        super.onDestroy();
+    }
+
+    private void showProgressDialog() {
+        if (pDialog == null) {
+            pDialog = new ProgressDialog(RegisterPersonalityActivity.this);
+            pDialog.setMessage("Loading. Please wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+        }
+        pDialog.show();
+    }
+
+    private void dismissProgressDialog() {
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
+
+
 }

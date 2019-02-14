@@ -45,10 +45,9 @@ import java.util.List;
 import java.util.Map;
 
 
-
 public class UserProfileActivityWithSlider extends AppCompatActivity {
     private ViewPager viewPagerProfileSlider;
-  //  private ProfileSliderPagerAdapter profileSliderPagerAdapter;
+    //  private ProfileSliderPagerAdapter profileSliderPagerAdapter;
     int selectedposition = -1;
     private String params;
     public List<Members> membersDataList;
@@ -68,7 +67,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
     int lastSelectedPosition = 0;
 
-   private Members memberSearchObj;
+    private Members memberSearchObj;
 
     private boolean tutorialCheck;
 
@@ -78,9 +77,6 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile_with_slider);
-
-
-
 
 
         viewPagerProfileSlider = (ViewPager) findViewById(R.id.viewPagerUserProfilesLeftRight);
@@ -101,13 +97,12 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         selectedUserPath = getIntent().getExtras().getString("userpath");
 
 
-
         ivSwipeInstructions = (ImageView) findViewById(R.id.ImageViewSwipeInstructions);
 
         ivSwipeInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferenceManager.setTutorialCheck(getApplicationContext(),true);
+                SharedPreferenceManager.setTutorialCheck(getApplicationContext(), true);
                 ivSwipeInstructions.setVisibility(View.GONE);
 
             }
@@ -116,7 +111,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
         tutorialCheck = SharedPreferenceManager.getTutorialCheck(getApplicationContext());
 
-        if(!tutorialCheck){
+        if (!tutorialCheck) {
             ivSwipeInstructions.setVisibility(View.VISIBLE);
         }
 
@@ -386,7 +381,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
             if (spos != -1) {
 
 
-                viewPagerProfileSlider.setCurrentItem(spos, true);
+                viewPagerProfileSlider.setCurrentItem(spos, false);
             }
         }
     }
@@ -628,7 +623,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
                                 if (pathDataList.size() > 0) {
 
-                                    viewPagerProfileSlider.setCurrentItem(lastSelectedPosition + pathDataList.size(), true);
+                                    viewPagerProfileSlider.setCurrentItem(lastSelectedPosition + pathDataList.size(), false);
                                 }
 
                             }

@@ -28,6 +28,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity;
 import com.chicsol.marrymax.activities.registration.RegistrationActivity;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.adapters.MySpinnerAdapterContactUS;
@@ -171,7 +172,7 @@ public class ContactAcivity extends AppCompatActivity {
                     String mobNum = EditTextAScontactMobileNumber.getText().toString();
                     String countryCode = EditTextAScontactMobileNumber.getTag().toString();
 
-            //   Log.e(""+     Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.trim().substring(0, countryCode.length() ))+"" );
+                    //   Log.e(""+     Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.trim().substring(0, countryCode.length() ))+"" );
 
                     if (!TextUtils.isEmpty(mobNum.trim()) && !countryCodeCheck(Integer.parseInt(countryCode.trim()), Integer.parseInt(mobNum.substring(0, countryCode.trim().length() - 1)))) {
                         mobNum = mobNum.substring(countryCode.trim().length() - 1, mobNum.length());
@@ -269,7 +270,7 @@ public class ContactAcivity extends AppCompatActivity {
                                 }
 
 
-                               contactUs(params);
+                                contactUs(params);
 
 
                             } else {
@@ -298,9 +299,7 @@ public class ContactAcivity extends AppCompatActivity {
 
 
                     }
-                } catch (Exception e)
-
-                {
+                } catch (Exception e) {
                     Log.e("e", e.toString());
                     Crashlytics.logException(e);
                     Toast.makeText(ContactAcivity.this, "There is system error Please try again", Toast.LENGTH_SHORT).show();
@@ -508,9 +507,7 @@ public class ContactAcivity extends AppCompatActivity {
     private void getContactsData() {
 
 
-        final ProgressDialog pDialog = new ProgressDialog(ContactAcivity.this);
-        pDialog.setMessage("Loading...");
-        pDialog.show();
+        showProgressDialog();
         Log.e("api path", "" + Urls.getContactList);
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getContactList,
@@ -547,13 +544,13 @@ public class ContactAcivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
         }) {
             @Override
@@ -570,7 +567,7 @@ public class ContactAcivity extends AppCompatActivity {
         Log.e("params", "" + params);
 
 
-        pDialog.show();
+        showProgressDialog();
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
         Log.e("params url", Urls.contactUs + "  ==  " + params);
 
@@ -582,7 +579,7 @@ public class ContactAcivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.e("res", response + "");
-                        pDialog.dismiss();
+                        dismissProgressDialog();
 
                         try {
                             int responseid = response.getInt("id");
@@ -593,11 +590,11 @@ public class ContactAcivity extends AppCompatActivity {
                             }
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -608,7 +605,7 @@ public class ContactAcivity extends AppCompatActivity {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -676,5 +673,29 @@ public class ContactAcivity extends AppCompatActivity {
         }
         return null;
     }
+
+
+    @Override
+    public void onDestroy() {
+        dismissProgressDialog();
+        super.onDestroy();
+    }
+
+    private void showProgressDialog() {
+        if (pDialog == null) {
+            pDialog = new ProgressDialog(ContactAcivity.this);
+            pDialog.setMessage("Loading. Please wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+        }
+        pDialog.show();
+    }
+
+    private void dismissProgressDialog() {
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
+
 
 }
