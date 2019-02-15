@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity;
 import com.chicsol.marrymax.adapters.ProfilePagerAdapter;
 
 import com.chicsol.marrymax.fragments.inbox.DashboardQuestionsFragment;
@@ -72,6 +73,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
     private boolean tutorialCheck;
 
     ImageView ivSwipeInstructions;
+    ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -466,11 +468,10 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        final ProgressDialog pDialog = new ProgressDialog(UserProfileActivityWithSlider.this);
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-        Log.e(TAG + "listProfiles", params.toString());
-        Log.e(TAG + "listProfilespath", Urls.listProfiles);
+
+        showProgressDialog();
+//        Log.e(TAG + "listProfiles", params.toString());
+        //       Log.e(TAG + "listProfilespath", Urls.listProfiles);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.listProfiles, params,
                 new Response.Listener<JSONObject>() {
@@ -542,12 +543,12 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -556,7 +557,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -584,29 +585,27 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        final ProgressDialog pDialog = new ProgressDialog(UserProfileActivityWithSlider.this);
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-        Log.e(TAG + "listProfiles", params.toString());
-        Log.e(TAG + "listProfilespath", Urls.listProfiles);
+        showProgressDialog();
+        //    Log.e(TAG + "listProfiles", params.toString());
+        //    Log.e(TAG + "listProfilespath", Urls.listProfiles);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.listProfiles, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  listProfiles ", response + "");
+                        //   Log.e("Res  listProfiles ", response + "");
 
                         try {
                             // JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
                             int page_num = response.getInt("page_no");
-                            Log.e(TAG + "listProfiles page_num", "" + page_num);
+                            ///   Log.e(TAG + "listProfiles page_num", "" + page_num);
                             int count = response.getInt("count");
-                            Log.e(TAG + " listProfiles", "" + count);
+                            ///   Log.e(TAG + " listProfiles", "" + count);
 
                             total_pages = Math.round(count / 12);
 
-                            Log.e(TAG + "total_pages aa", total_pages + "");
+                            //    Log.e(TAG + "total_pages aa", total_pages + "");
                             JSONArray jsonArray = response.getJSONArray("prfids");
 
                             ArrayList<String> pathDataList = new ArrayList<>();
@@ -614,7 +613,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 pathDataList.add(jsonArray.get(i).toString());
 
-                                Log.e(TAG + "listProfiles size", "" + jsonArray.get(i).toString() + "====================");
+                                //   Log.e(TAG + "listProfiles size", "" + jsonArray.get(i).toString() + "====================");
                             }
 
                             adapter.addItemMore(pathDataList, addBackward);
@@ -658,12 +657,12 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -672,7 +671,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -690,5 +689,21 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
     }
 
+
+    private void showProgressDialog() {
+        if (pDialog == null) {
+            pDialog = new ProgressDialog(UserProfileActivityWithSlider.this);
+            pDialog.setMessage("Loading. Please wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+        }
+        pDialog.show();
+    }
+
+    private void dismissProgressDialog() {
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
 
 }
