@@ -691,8 +691,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
     @Override
     public void onCompleteLogin(String s) {
         // Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(SearchYourBestMatchResultsActivity.this, ActivityLogin.class);
-        startActivity(intent);
+
     }
 
  /*   @Override

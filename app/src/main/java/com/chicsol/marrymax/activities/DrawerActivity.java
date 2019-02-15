@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.se.omapi.Session;
 import android.support.annotation.LayoutRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -40,6 +41,7 @@ import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.widgets.mTextView;
+import com.crashlytics.android.Crashlytics;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -394,8 +396,13 @@ DrawerActivity extends AppCompatActivity {
     }
 
     private void settNotificationCount(String c) {
-        count = Integer.parseInt(c);
-        invalidateOptionsMenu();
+        try {
+            count = Integer.parseInt(c);
+            invalidateOptionsMenu();
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            Crashlytics.logException(e);
+        }
     }
     //......................................
 
@@ -411,7 +418,6 @@ DrawerActivity extends AppCompatActivity {
                         Log.e("Notification Count==", "=======================  " + response + " ===== " + "");
                         if (!response.equals(null) && !response.equals("")) {
                             response = response.replace("\"", "");
-
 
 
                             String[] data = response.split(",");

@@ -12,11 +12,13 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.ActivityForgetPassword;
 import com.chicsol.marrymax.activities.ActivityLogin;
 import com.chicsol.marrymax.activities.registration.RegistrationActivity;
+import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchResultsActivity;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.widgets.faTextView;
 import com.chicsol.marrymax.widgets.mButton2;
@@ -29,7 +31,7 @@ import com.chicsol.marrymax.widgets.mButton2;
 public class dialogLoginToContinue extends DialogFragment {
 
     EditText etOtherReason;
-   // String userpath, selectdlist, jsarray;
+    // String userpath, selectdlist, jsarray;
     int abtypeid = -1;
     private onCompleteLoginListener mCompleteLoginListener;
 
@@ -73,13 +75,19 @@ public class dialogLoginToContinue extends DialogFragment {
         etOtherReason = (EditText) rootView.findViewById(R.id.EditTextBlockDialgOtherReason);
 
 
-
-
         Button mOkButton = (Button) rootView.findViewById(R.id.mButtonDialogBlock);
         mOkButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
-                mCompleteLoginListener.onCompleteLogin("");
+
                 dialogLoginToContinue.this.getDialog().cancel();
+
+                Intent intent = new Intent(getContext(), ActivityLogin.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                // Add new Flag to start new Activity
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
 
                 getActivity().finish();
 
@@ -88,33 +96,34 @@ public class dialogLoginToContinue extends DialogFragment {
         });
 
 
-
         Button btRegister = (Button) rootView.findViewById(R.id.mButtonDialogRegister);
         btRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
 
 
+                //  if (ConnectCheck.isConnected(getContext().findViewById(android.R.id.content))) {
 
-
-              //  if (ConnectCheck.isConnected(getContext().findViewById(android.R.id.content))) {
-
-                    mCompleteLoginListener.onCompleteLogin("");
-                    dialogLoginToContinue.this.getDialog().cancel();
-
-                    getActivity().finish();
-
+                //   mCompleteLoginListener.onCompleteLogin("");
+                dialogLoginToContinue.this.getDialog().cancel();
 
 
                 Intent intent = new Intent(getContext(), RegistrationActivity.class);
+                //      intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP );
+                // Closing all the Activities
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                // Add new Flag to start new Activity
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra("updateData", false);
                 startActivity(intent);
-             //   }
 
+
+                //   }
 
 
             }
         });
-
 
 
         faTextView cancelButton = (faTextView) rootView.findViewById(R.id.mButtonDismissDialogBlock);
@@ -135,7 +144,6 @@ public class dialogLoginToContinue extends DialogFragment {
 
         getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
-
 
 
     public static interface onCompleteLoginListener {
