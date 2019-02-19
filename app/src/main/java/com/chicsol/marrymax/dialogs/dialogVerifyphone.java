@@ -297,7 +297,6 @@ public class dialogVerifyphone extends DialogFragment {
                                 btnVerifyPhone.setVisibility(View.GONE);
                                 llError.setVisibility(View.VISIBLE);
 
-
                             } else {
                                 Toast.makeText(context, "Your mobile verification code has been send successfully.", Toast.LENGTH_SHORT).show();
 

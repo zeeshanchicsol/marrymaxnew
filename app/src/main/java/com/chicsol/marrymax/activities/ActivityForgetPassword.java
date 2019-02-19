@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity;
 import com.chicsol.marrymax.other.ConnectionDetector;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
@@ -41,6 +42,8 @@ public class ActivityForgetPassword extends AppCompatActivity {
     Button buttonHomePage, ButtonSubmitForgetPassword;
     EditText etEmail;
     private ConnectionDetector connectionDetector;
+
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -93,7 +96,7 @@ public class ActivityForgetPassword extends AppCompatActivity {
     }
 
 
-    private void CheckData(){
+    private void CheckData() {
 
         View focusView = null;
 
@@ -120,7 +123,6 @@ public class ActivityForgetPassword extends AppCompatActivity {
             if (connectionDetector.isConnectingToInternet()) {
 
 
-
                 LoginUser(email);
 
             }
@@ -130,13 +132,11 @@ public class ActivityForgetPassword extends AppCompatActivity {
     }
 
 
-
-
     private void LoginUser(String email) {
 
-        final ProgressDialog pDialog = new ProgressDialog(ActivityForgetPassword.this);
-        pDialog.setMessage("Loading...");
-        pDialog.show();
+
+        showProgressDialog();
+
         JSONObject params = new JSONObject();
         try {
             params.put("email", email);
@@ -166,12 +166,12 @@ public class ActivityForgetPassword extends AppCompatActivity {
 
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -182,7 +182,7 @@ public class ActivityForgetPassword extends AppCompatActivity {
                 //VolleyLog.e("res err", "Error: " +networkResponse);
                 Toast.makeText(ActivityForgetPassword.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
         }) {
             @Override
@@ -206,4 +206,27 @@ public class ActivityForgetPassword extends AppCompatActivity {
         return matcher.matches();
 
     }
+
+    @Override
+    public void onDestroy() {
+        dismissProgressDialog();
+        super.onDestroy();
+    }
+
+    private void showProgressDialog() {
+        if (pDialog == null) {
+            pDialog = new ProgressDialog(ActivityForgetPassword.this);
+            pDialog.setMessage("Loading. Please wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+        }
+        pDialog.show();
+    }
+
+    private void dismissProgressDialog() {
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
+
 }

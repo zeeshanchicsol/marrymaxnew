@@ -397,9 +397,9 @@ public class BasicInfoFragment extends Fragment {
             tvSmoke.setText(member.get_smoking_types());
             tvDrink.setText(member.get_drinks_types());
             tvPhysicalChallenges.setText(member.getPhysics_types());
-            if(member.getPhysics_types().equals("No") || member.getPhysics_types().equals("Any") ){
+            if (member.getPhysics_types().equals("No") || member.getPhysics_types().equals("Any")) {
                 faUPPhysicalChallenges.setVisibility(View.GONE);
-            }else {
+            } else {
                 faUPPhysicalChallenges.setVisibility(View.GONE);
             }
 
@@ -424,9 +424,9 @@ public class BasicInfoFragment extends Fragment {
 
             tvChoicePhysicalChallenges.setText(memberChoice.getChoice_physics());
 
-            if(memberChoice.getChoice_physics().equals("No") || memberChoice.getChoice_physics().equals("Any") ){
+            if (memberChoice.getChoice_physics().equals("No") || memberChoice.getChoice_physics().equals("Any")) {
                 faUPChoicePhysicalChallenges.setVisibility(View.GONE);
-            }else {
+            } else {
                 faUPChoicePhysicalChallenges.setVisibility(View.GONE);
             }
 

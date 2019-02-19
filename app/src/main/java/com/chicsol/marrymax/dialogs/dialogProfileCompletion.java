@@ -48,6 +48,7 @@ public class dialogProfileCompletion extends DialogFragment {
     private ViewGenerator viewGenerator;
     private LinearLayout LinearLayoutInterestsRequestsEmptyState;
 
+    private Context context;
 
     public static dialogProfileCompletion newInstance(String title, String desc, String btnText, int step) {
 
@@ -66,6 +67,7 @@ public class dialogProfileCompletion extends DialogFragment {
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
+        context = activity;
         try {
 
             // Log.e("getfragment manager", "======" + getTargetFragment());
@@ -97,7 +99,7 @@ public class dialogProfileCompletion extends DialogFragment {
         final View rootView = inflater.inflate(R.layout.dialog_profile_completion, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-        viewGenerator = new ViewGenerator(getContext());
+        viewGenerator = new ViewGenerator(context);
         llEmptySubItems = (LinearLayout) rootView.findViewById(R.id.LinearLayoutEmptySubItems);
 
         LinearLayoutInterestsRequestsEmptyState = (LinearLayout) rootView.findViewById(R.id.LinearLayoutInterestsRequestsEmptyState);
@@ -109,13 +111,10 @@ public class dialogProfileCompletion extends DialogFragment {
         if (step == subscribe) {
 
             tvDesc.setText(Html.fromHtml(desc));
-        }
-        else if (step == 10 ) {
+        } else if (step == 10) {
             tvDesc.setText(Html.fromHtml(desc));
             mOkButton.setVisibility(View.GONE);
-        }
-
-        else if (step == 8 || step == 22) {
+        } else if (step == 8 || step == 22) {
 
             tvDesc.setText(Html.fromHtml(desc));
         } else {
@@ -123,7 +122,7 @@ public class dialogProfileCompletion extends DialogFragment {
         }
         tvTitle.setText(title);
 
-           mOkButton.setText(btnText);
+        mOkButton.setText(btnText);
 
 
         if (step == 4) {
@@ -177,7 +176,7 @@ public class dialogProfileCompletion extends DialogFragment {
                     intent.putExtra("searchcheck", true);
                     context.startActivity(intent);*/
                     dialogProfileCompletion.this.getDialog().cancel();
-                    Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                    Intent in = new Intent(context, MainDirectiveActivity.class);
                     in.putExtra("type", 22);
                     startActivity(in);
 
@@ -206,7 +205,7 @@ public class dialogProfileCompletion extends DialogFragment {
                 else if (step == 11) {
                     dialogProfileCompletion.this.getDialog().cancel();
                     MarryMax marryMax = new MarryMax(null);
-                    marryMax.getProfileProgress(getContext(), SharedPreferenceManager.getUserObject(getContext()), getActivity());
+                    marryMax.getProfileProgress(context, SharedPreferenceManager.getUserObject(context), getActivity());
 
 
                 } else if (step == 3) {
@@ -259,13 +258,13 @@ public class dialogProfileCompletion extends DialogFragment {
     private void emailVerificationRequest() {
 
 
-        final ProgressDialog pDialog = new ProgressDialog(getContext());
+        final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
         pDialog.setCancelable(false);
-        Log.e("api path", "" + Urls.getEmailCode + SharedPreferenceManager.getUserObject(getContext()).get_path());
+        Log.e("api path", "" + Urls.getEmailCode + SharedPreferenceManager.getUserObject(context).get_path());
 
-        StringRequest req = new StringRequest(Urls.getEmailCode + SharedPreferenceManager.getUserObject(getContext()).get_path(),
+        StringRequest req = new StringRequest(Urls.getEmailCode + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -277,11 +276,11 @@ public class dialogProfileCompletion extends DialogFragment {
 
                         if (responseid == 1) {
 
-                            Toast.makeText(getContext(), "Your email verification code has been send successfully. Please check your inbox/spam\n", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "Your email verification code has been send successfully. Please check your inbox/spam\n", Toast.LENGTH_LONG).show();
                             dialogProfileCompletion.this.getDialog().cancel();
                         } else {
 
-                            Toast.makeText(getContext(), "Failed, Try again", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "Failed, Try again", Toast.LENGTH_LONG).show();
                             dialogProfileCompletion.this.getDialog().cancel();
                         }
                       /*  } catch (JSONException e) {
@@ -301,7 +300,7 @@ public class dialogProfileCompletion extends DialogFragment {
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(getContext()).addToRequestQueue(req);
+        MySingleton.getInstance(context).addToRequestQueue(req);
     }
 
 }

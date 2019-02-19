@@ -403,7 +403,6 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                         }
 
 
-                        Log.e("params", "" + params);
                         submitRequest(params, buttonView, obj);
                     }
 
@@ -782,7 +781,8 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-
+    //    Log.e("params", "" + params);
+     //   Log.e("url", "" + Urls.submitRequest);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.submitRequest, params,

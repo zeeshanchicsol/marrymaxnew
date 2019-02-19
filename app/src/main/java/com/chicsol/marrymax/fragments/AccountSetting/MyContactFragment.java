@@ -772,7 +772,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                                         Members member = new Members();
                                         member.set_request_id(about_type_id);
 
-                                        member.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                                        member.set_path(SharedPreferenceManager.getUserObject(context).get_path());
 
                                         Gson gson = new Gson();
 
@@ -1267,8 +1267,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                         //if(res!=0){
 
-                        Toast.makeText(getContext(), "Contact Details Updated", Toast.LENGTH_SHORT).show();
-                        getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                        Toast.makeText(context, "Contact Details Updated", Toast.LENGTH_SHORT).show();
+                        getRequest(SharedPreferenceManager.getUserObject(context).get_path());
                         // }
                          /*   Gson gson;
                             GsonBuilder gsonBuilder = new GsonBuilder();

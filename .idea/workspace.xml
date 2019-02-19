@@ -18,7 +18,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
@@ -28,13 +28,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="last update">
+    <list default="true" id="f36885de-62fe-4a60-8b16-0ee97058c899" name="Default" comment="bug fixes">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchResultsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchResultsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogLoginToContinue.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogLoginToContinue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/ActivityForgetPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/ActivityForgetPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterRequestPermissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterRequestPermissions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogProfileCompletion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogProfileCompletion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogVerifyphone.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogVerifyphone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyContactFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyContactFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,8 +71,9 @@
     <session id="-537905214">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="27" />
+          <entry key="project.closed" value="28" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.16" value="2" />
@@ -82,22 +86,22 @@
           <entry key="project.open.time.5" value="4" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="28" />
+          <entry key="project.opened" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="5" />
-          <entry key="java" value="1085" />
-          <entry key="txt" value="21" />
+          <entry key="java" value="1186" />
+          <entry key="txt" value="32" />
           <entry key="xml" value="291" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="5" />
-          <entry key="JAVA" value="1085" />
-          <entry key="PLAIN_TEXT" value="21" />
+          <entry key="JAVA" value="1186" />
+          <entry key="PLAIN_TEXT" value="32" />
           <entry key="XML" value="291" />
         </counts>
       </usages-collector>
@@ -105,7 +109,7 @@
         <counts>
           <entry key="class" value="2" />
           <entry key="gradle" value="14" />
-          <entry key="java" value="163" />
+          <entry key="java" value="179" />
           <entry key="xml" value="30" />
         </counts>
       </usages-collector>
@@ -113,19 +117,100 @@
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="Groovy" value="14" />
-          <entry key="JAVA" value="163" />
+          <entry key="JAVA" value="179" />
           <entry key="XML" value="30" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="426" column="57" lean-forward="true" selection-start-line="426" selection-start-column="57" selection-end-line="426" selection-end-column="57" />
+            <state relative-caret-position="336">
+              <caret line="107" column="31" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/MyProfileActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="533" column="28" selection-start-line="533" selection-start-column="28" selection-end-line="533" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyContactFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="1277" column="40" selection-start-line="1277" selection-start-column="40" selection-end-line="1277" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterRequestPermissions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="784" column="7" selection-start-line="784" selection-start-column="7" selection-end-line="784" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="252" column="21" selection-start-line="252" selection-start-column="21" selection-end-line="252" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogRequestPhone.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="193" column="35" selection-start-line="193" selection-start-column="35" selection-end-line="193" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="314" column="30" selection-start-line="314" selection-start-column="30" selection-end-line="314" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogVerifyphone.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="298" selection-start-line="298" selection-end-line="298" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/ContactAcivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="177" column="40" selection-start-line="177" selection-start-column="40" selection-end-line="177" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/urls/Urls.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="70">
+              <caret line="155" column="25" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -143,36 +228,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>memresult</find>
-      <find>onResum</find>
-      <find>tutorialCheck</find>
-      <find>memberSearchObj</find>
-      <find>ivSwipeInstructions</find>
-      <find>dialogMatchAidFeedback</find>
-      <find>setupViewPager</find>
-      <find>getResources</find>
-      <find>Snackbar.make</find>
-      <find>isF</find>
-      <find>AdapterView</find>
-      <find>checkRange</find>
-      <find>setSpan</find>
-      <find>27</find>
-      <find>pDialog.show()</find>
-      <find>pDialog.dismiss()</find>
-      <find>dismiss</find>
-      <find>onDestroy</find>
-      <find>getSearchListData</find>
-      <find>member</find>
-      <find>current_page</find>
-      <find>pageNumber</find>
-      <find>viewPagerProfileSlider</find>
-      <find>editCon</find>
       <find>getRegistrationData</find>
       <find>params</find>
       <find>login</find>
       <find>mButtonDialogBlock</find>
       <find>context</find>
+      <find>count</find>
+      <find>member</find>
+      <find>getProfileDetail</find>
       <find>pDialog</find>
+      <find>onDestroy</find>
+      <find>saved</find>
+      <find>getC</find>
+      <find>getc</find>
+      <find>substring</find>
+      <find>getIpAddress</find>
+      <find>Delete_Contact</find>
+      <find>getIPAddress</find>
+      <find>onAttachFragment</find>
+      <find>onAttach</find>
+      <find>DeleteContact</find>
+      <find>MobileVerificationCode</find>
+      <find>LinearlayoutAccountSettingMCDeleteContact</find>
+      <find>GetMobileCode</find>
+      <find>memberChoice</find>
+      <find>getMobileCode</find>
+      <find>dialogRequest</find>
+      <find>SubmitRequest</find>
+      <find>onAtt</find>
+      <find>deleteContact</find>
+      <find>submitRequest</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments</dir>
@@ -2684,14 +2769,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/other/MarryMax.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterWhoIsLookingForMe.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments/ListViewAdvSearchFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/SearchResultsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterMyMatchesSearch.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_mymatches.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/ChangePasswordFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogVerifyphone.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_as_my_contact.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_add_notes.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_myprofilestatus.xml" />
@@ -2713,14 +2793,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogMatchAidUnderProcess.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/PicturesFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyContactFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterLifeStyleActivity1.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterLifeStyleActivity2.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterGeographicActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/preferences/SharedPreferenceManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_user_profile_with_slider.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_user_profile.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegistrationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/DashboardMainFragment.java" />
@@ -2735,12 +2813,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/searchyourbestmatch/SearchYourBestMatchResultsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogLoginToContinue.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/ActivityForgetPassword.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogProfileCompletion.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyContactFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogVerifyphone.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterRequestPermissions.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="23" />
+    <option name="y" value="29" />
     <option name="width" value="1920" />
     <option name="height" value="946" />
   </component>
@@ -2751,6 +2835,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="marrymax" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2811,17 +2908,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="marrymax" type="462c0819:PsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="searchyourbestmatch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
-              <item name="marrymax" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="marrymax" type="462c0819:PsiDirectoryNode" />
               <item name="fragments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2833,7 +2919,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="marrymax" type="462c0819:PsiDirectoryNode" />
               <item name="fragments" type="462c0819:PsiDirectoryNode" />
-              <item name="DashMain" type="462c0819:PsiDirectoryNode" />
+              <item name="AccountSetting" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
@@ -2843,7 +2929,19 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="marrymax" type="462c0819:PsiDirectoryNode" />
-              <item name="other" type="462c0819:PsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+              <item name="inbox" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
+              <item name="marrymax" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="marrymax" type="462c0819:PsiDirectoryNode" />
+              <item name="fragments" type="462c0819:PsiDirectoryNode" />
+              <item name="userprofilefragments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
@@ -2854,6 +2952,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="marrymax" type="462c0819:PsiDirectoryNode" />
               <item name="preferences" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
+              <item name="marrymax" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="marrymax" type="462c0819:PsiDirectoryNode" />
+              <item name="urls" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="marrymax" type="b2602c69:ProjectViewProjectNode" />
@@ -2877,19 +2985,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="marrymax" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2908,7 +3003,7 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="device.picker.selection" value="ZX1G22Q6XQ" />
+    <property name="device.picker.selection" value="ed486f02" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/AdvanceSearchFragments" />
     <property name="settings.editor.selected.configurable" value="instant.run" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1536303285852" />
@@ -3050,13 +3145,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1532684130521</updated>
-    </task>
-    <task id="LOCAL-00091" summary="www change and bug fixes">
-      <created>1543848725762</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1543848725763</updated>
     </task>
     <task id="LOCAL-00092" summary="www change and bug fixes">
       <created>1543926982030</created>
@@ -3394,7 +3482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550218010663</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="bug fixes">
+      <created>1550232552411</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1550232552411</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3407,10 +3502,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="23" width="1920" height="946" extended-state="0" />
+    <frame x="0" y="29" width="1920" height="946" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4964871" visible="true" weight="0.31309903" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4964871" visible="true" weight="0.25292864" />
       <window_info id="Structure" order="1" sideWeight="0.50058895" side_tool="true" weight="0.13631523" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" sideWeight="0.50351286" side_tool="true" weight="0.2657082" />
@@ -3419,16 +3514,16 @@
       <window_info id="Captures" order="6" side_tool="true" weight="0.32960597" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.50479233" weight="0.53512883" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48509052" weight="0.4560185" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.50479233" weight="0.323185" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48509052" weight="0.45550352" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5037274" weight="0.24121779" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988507" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.50745475" weight="0.6159251" />
       <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.3286219" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.49627262" side_tool="true" weight="0.3290398" />
-      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.5037274" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.4968051" side_tool="true" weight="0.264637" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="10" sideWeight="0.50319487" visible="true" weight="0.14051522" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.35714287" />
       <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.5266241" weight="0.26112413" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -3470,7 +3565,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="update" />
     <MESSAGE value="last update" />
-    <option name="LAST_COMMIT_MESSAGE" value="last update" />
+    <MESSAGE value="bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3520,69 +3616,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-24/android/app/Dialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="708" selection-start-line="708" selection-end-line="708" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.volley/volley/1.1.0/65ed7df4af0e83a626f383ff49c3403342659aa9/volley-1.1.0-sources.jar!/com/android/volley/DefaultRetryPolicy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-24/android/net/Uri.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="436" selection-start-line="436" selection-end-line="436" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.volley/volley/1.1.0/65ed7df4af0e83a626f383ff49c3403342659aa9/volley-1.1.0-sources.jar!/com/android/volley/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.volley/volley/1.1.0/65ed7df4af0e83a626f383ff49c3403342659aa9/volley-1.1.0-sources.jar!/com/android/volley/toolbox/JsonRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.volley/volley/1.1.0/65ed7df4af0e83a626f383ff49c3403342659aa9/volley-1.1.0-sources.jar!/com/android/volley/toolbox/JsonArrayRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-24/android/text/TextUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="456" selection-start-line="456" selection-end-line="456" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/utils/ViewGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-620">
-          <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterLifeStyleActivity1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11805">
-          <caret line="842" column="13" selection-start-line="842" selection-start-column="13" selection-end-line="842" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/utils/MySingleton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
@@ -3623,13 +3656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/urls/Urls.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="147" column="75" selection-start-line="147" selection-start-column="63" selection-end-line="147" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/search/SearchResultsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -3642,13 +3668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8205">
-          <caret line="633" column="8" selection-start-line="633" selection-start-column="6" selection-end-line="641" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -3696,13 +3715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/AccountDeactivationFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1935">
-          <caret line="179" column="93" selection-start-line="179" selection-start-column="93" selection-end-line="179" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegistrationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16500">
@@ -3721,13 +3733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22275">
           <caret line="1572" column="107" selection-start-line="1572" selection-start-column="107" selection-end-line="1572" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/ContactAcivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9045">
-          <caret line="680" column="23" selection-start-line="680" selection-start-column="14" selection-end-line="680" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -3773,13 +3778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyContactFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16695">
-          <caret line="1188" column="41" selection-start-line="1188" selection-start-column="41" selection-end-line="1188" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/matches/MyFavouriteMatches.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7185">
@@ -3805,13 +3803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
           <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogProfileCompletion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="72" selection-start-line="71" selection-end-line="72" />
         </state>
       </provider>
     </entry>
@@ -3862,17 +3853,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterPersonalityActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="703" column="19" selection-start-line="703" selection-start-column="12" selection-end-line="703" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/DrawerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="426" column="57" lean-forward="true" selection-start-line="426" selection-start-column="57" selection-end-line="426" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/registration/RegisterPersonalityActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="708" column="15" selection-start-line="708" selection-start-column="8" selection-end-line="708" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/ActivityForgetPassword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1236">
+          <caret line="210" column="25" selection-start-line="210" selection-start-column="16" selection-end-line="210" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogProfileCompletion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="217" column="44" lean-forward="true" selection-start-line="216" selection-start-column="44" selection-end-line="217" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/AccountDeactivationFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="179" column="93" lean-forward="true" selection-start-line="179" selection-start-column="93" selection-end-line="179" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/inbox/interests/DashboardInterestsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="313" column="86" lean-forward="true" selection-start-line="313" selection-start-column="86" selection-end-line="313" selection-end-column="86" />
+          <folding>
+            <element signature="e#10106#10107#0" expanded="true" />
+            <element signature="e#10133#10134#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/subscription/OrderProcessActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="496" lean-forward="true" selection-start-line="496" selection-end-line="496" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/ContactAcivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="177" column="40" selection-start-line="177" selection-start-column="40" selection-end-line="177" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/AccountSetting/MyContactFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="1277" column="40" selection-start-line="1277" selection-start-column="40" selection-end-line="1277" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/fragments/userprofilefragments/BasicInfoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="314" column="30" selection-start-line="314" selection-start-column="30" selection-end-line="314" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogVerifyphone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="298" selection-start-line="298" selection-end-line="298" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogRequestPhone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="193" column="35" selection-start-line="193" selection-start-column="35" selection-end-line="193" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/MyProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="533" column="28" selection-start-line="533" selection-start-column="28" selection-end-line="533" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/activities/UserProfileActivityFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="107" column="31" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/urls/Urls.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="155" column="25" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/dialogs/dialogRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="252" column="21" selection-start-line="252" selection-start-column="21" selection-end-line="252" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/chicsol/marrymax/adapters/RecyclerViewAdapterRequestPermissions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="784" column="7" selection-start-line="784" selection-start-column="7" selection-end-line="784" selection-end-column="7" />
         </state>
       </provider>
     </entry>
