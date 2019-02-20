@@ -858,9 +858,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
             if (Integer.parseInt(dash0.getReceived_count()) == 0) {
                 btPhoneRecievedCount.setClickable(false);
+            } else {
+                btPhoneRecievedCount.setClickable(true);
             }
             if (Integer.parseInt(dash0.getSent_count()) == 0) {
                 btPhoneSentCount.setClickable(false);
+            } else {
+                btPhoneSentCount.setClickable(true);
             }
 
 
