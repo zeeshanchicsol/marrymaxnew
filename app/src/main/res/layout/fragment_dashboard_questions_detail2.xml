@@ -26,9 +26,7 @@
         android:layout_below="@+id/linearLayout3"
         android:orientation="vertical">
 
-        <include
-            layout="@layout/progressbar"
-            android:visibility="gone"></include>
+
 
         <LinearLayout
             android:id="@+id/linearLayout5"

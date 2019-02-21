@@ -27,6 +27,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity;
 import com.chicsol.marrymax.adapters.ParentAdapter;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mChild;
@@ -75,7 +76,7 @@ public class QuestionsActivity extends AppCompatActivity {
     private int height = 0;
 
     LinearLayout llProfile;
-
+    ProgressDialog pDialog;
     private LayoutInflater inflater;
 
     @Override
@@ -86,6 +87,29 @@ public class QuestionsActivity extends AppCompatActivity {
         userpath = getIntent().getStringExtra("userpath");
         initialize();
         setListeners();
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        // Save UI state changes to the savedInstanceState.
+        // This bundle will be passed to onCreate if the process is
+        // killed and restarted.
+
+        savedInstanceState.putString("userpath",userpath);
+        // etc.
+    }
+
+
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // Restore UI state from the savedInstanceState.
+        // This bundle has also been passed to onCreate.
+
+         userpath = savedInstanceState.getString("userpath");
     }
 
 
@@ -387,9 +411,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
     private void sendQuestion(JSONObject params) {
 
-        final ProgressDialog pDialog = new ProgressDialog(QuestionsActivity.this);
-        pDialog.setMessage("Loading...");
-        pDialog.show();
+     showProgressDialog();
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
 
@@ -412,11 +434,11 @@ public class QuestionsActivity extends AppCompatActivity {
                             }
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -426,8 +448,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
-
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -464,9 +485,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
     private void getMemberData(JSONObject params) {
 
-        final ProgressDialog pDialog = new ProgressDialog(QuestionsActivity.this);
-        pDialog.setMessage("Loading...");
-        pDialog.show();
+      showProgressDialog();
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
 
@@ -500,7 +519,7 @@ public class QuestionsActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        pDialog.dismiss();
+                      dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -511,7 +530,7 @@ public class QuestionsActivity extends AppCompatActivity {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -571,5 +590,33 @@ public class QuestionsActivity extends AppCompatActivity {
         }
         return resizedImage;
     }
+
+
+
+
+
+    @Override
+    public void onDestroy() {
+        dismissProgressDialog();
+        super.onDestroy();
+    }
+
+    private void showProgressDialog() {
+        if (pDialog == null) {
+            pDialog = new ProgressDialog(QuestionsActivity.this);
+            pDialog.setMessage("Loading. Please wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+        }
+        pDialog.show();
+    }
+
+    private void dismissProgressDialog() {
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
+
+
 
 }

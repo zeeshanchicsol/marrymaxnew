@@ -32,6 +32,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.QuestionsActivity;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterQuestionsList;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterChatList;
@@ -71,7 +72,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
     LinearLayout ll_DeleteChat, llMessageDetail, llReadQuota;
 
     mCommunication objCom;
-    private ProgressBar pDialog;
+    private ProgressDialog pDialog;
     private TextView tvReadQuotaHeading, tvReadQuotaSubHeading, tvSubject;
     AppCompatButton btSubscribe;
     MarryMax marryMax;
@@ -87,7 +88,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
         String obh = SharedPreferenceManager.getQuestionObject(getApplicationContext());
 
-    //    Log.e(" obh", "" + obh);
+        //    Log.e(" obh", "" + obh);
 
         int objtype = 0;
         //getIntent().getIntExtra("objtype", 0);
@@ -129,8 +130,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        pDialog = (ProgressBar) findViewById(R.id.ProgressbarProjectMain);
-        pDialog.setVisibility(View.GONE);
+
         ll_DeleteChat = (LinearLayout) findViewById(R.id.LinearLayoutMessageDetailDeleteChat);
         llMessageDetail = (LinearLayout) findViewById(R.id.LinearLayoutMessageDetailData);
         llReadQuota = (LinearLayout) findViewById(R.id.LinearLayoutMMessagesReadQuota);
@@ -216,7 +216,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         if (obj.getAnswered() == 0 && obj.getSelf() == 1) {
             btSendAnswers.setText("Send Answer");
         } else {
-          //  btSendAnswers.setText("Send Message");
+            //  btSendAnswers.setText("Send Message");
             btSendAnswers.setVisibility(View.GONE);
         }
 
@@ -379,10 +379,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
     private void putSendAnswer(JSONObject params) {
 
-        final ProgressDialog pDialog1 = new ProgressDialog(DashboardQuestionsDetailActivity.this);
-        pDialog1.setMessage("Loading...");
-        pDialog1.setCancelable(false);
-        pDialog1.show();
+        showProgressDialog();
 
 
         Log.e("Params", Urls.sendAnswer + "    " + params);
@@ -410,7 +407,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                             }
 
                         } catch (JSONException e) {
-                            pDialog.setVisibility(View.GONE);
+                            dismissProgressDialog();
 
                             e.printStackTrace();
                         }
@@ -462,7 +459,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                             pDialog1.hide();
                         }*/
 
-                        pDialog1.hide();
+                        dismissProgressDialog();
 
                     }
                 }, new Response.ErrorListener() {
@@ -471,7 +468,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
-                pDialog1.hide();
+                dismissProgressDialog();
 
             }
 
@@ -494,7 +491,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
     }
 
     private void deleteQuestion(JSONObject params) {
-        pDialog.setVisibility(View.VISIBLE);
+        showProgressDialog();
 
 
         Log.e("Params", Urls.deleteQuestion + "    " + params);
@@ -522,12 +519,12 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                             }
 
                         } catch (JSONException e) {
-                            pDialog.setVisibility(View.GONE);
+                            dismissProgressDialog();
 
                             e.printStackTrace();
                         }
 
-                        pDialog.setVisibility(View.GONE);
+                        dismissProgressDialog();
 
                     }
                 }, new Response.ErrorListener() {
@@ -539,7 +536,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.setVisibility(View.GONE);
+                dismissProgressDialog();
             }
 
 
@@ -564,12 +561,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         final List<List<mIceBreak>> QuestionChoiceList = new ArrayList<>();
         final List<mIceBreak> QuestionsList = new ArrayList<>();
 
-        final ProgressDialog pDialog = new ProgressDialog(DashboardQuestionsDetailActivity.this);
-        pDialog.setMessage("Loading...");
-        pDialog.setCancelable(false);
-        pDialog.show();
-
-
+        showProgressDialog();
         Log.e("Params", Urls.questionDetails + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.questionDetails, params,
@@ -664,7 +656,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
                             Log.e("Exception here", "Exception");
                             e.printStackTrace();
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                         }/* catch (TransactionTooLargeException e)
                         {
                             Log.e("Exception here","Exception");
@@ -672,7 +664,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                             pDialog.dismiss();
                         }*/
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -683,7 +675,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -748,5 +740,29 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         MySingleton.getInstance(getApplicationContext()).cancelPendingRequests(Tag);
 
     }
+
+
+    @Override
+    public void onDestroy() {
+        dismissProgressDialog();
+        super.onDestroy();
+    }
+
+    private void showProgressDialog() {
+        if (pDialog == null) {
+            pDialog = new ProgressDialog(DashboardQuestionsDetailActivity.this);
+            pDialog.setMessage("Loading. Please wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+        }
+        pDialog.show();
+    }
+
+    private void dismissProgressDialog() {
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
+
 
 }
