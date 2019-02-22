@@ -105,6 +105,7 @@ public class dialogBlock extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.dialog_block, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
         final TextInputLayout textInputLayout = (TextInputLayout) rootView.findViewById(R.id.EditTextBlockDialgTextInputLayout);
 
         etOtherReason = (EditText) rootView.findViewById(R.id.EditTextBlockDialgOtherReason);
@@ -114,7 +115,7 @@ public class dialogBlock extends DialogFragment {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-
+                 //  Log.e("generateDynamicRadi",""+checkedId);
                 abtypeid = checkedId;
                 if (checkedId == 35) {
 
@@ -153,7 +154,7 @@ public class dialogBlock extends DialogFragment {
                     try {
                         if (abtypeid == 35) {
 
-                            if (!TextUtils.isEmpty(etOtherReason.getText().toString().trim()) ) {
+                            if (!TextUtils.isEmpty(etOtherReason.getText().toString().trim())) {
                                 params.put("notes", etOtherReason.getText().toString());
                                 params.put("id", abtypeid + "");
                                 ccehck = true;
@@ -177,8 +178,7 @@ public class dialogBlock extends DialogFragment {
                     // 
                     if (ccehck) {
                         query(params);
-                    }
-                    else {
+                    } else {
                         Toast.makeText(getContext(), "Please enter other reason", Toast.LENGTH_SHORT).show();
                     }
                 } else {
@@ -213,7 +213,7 @@ public class dialogBlock extends DialogFragment {
         pDialog.setMessage("Loading...");
         pDialog.show();
 
-        Log.e("params" + "  " + Urls.blockReason, "" + params);
+        Log.e("blockReason" + "  " + Urls.blockReason, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.blockReason, params,
                 new Response.Listener<JSONObject>() {

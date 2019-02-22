@@ -187,7 +187,6 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
         spinner_ethnic.setAdapter(adapter_ethnic);
 
 
-
     }
 
     private void setListenders() {
@@ -529,18 +528,14 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
     }*/
 
 
-    private void disbaleGenderClickListeners()
-
-    {
+    private void disbaleGenderClickListeners() {
         ll_maleNormal.setEnabled(false);
         ll_maleSelected.setEnabled(false);
         ll_femaleSelected.setEnabled(false);
         ll_femaleNormal.setEnabled(false);
     }
 
-    private void enableGenderClickListeners()
-
-    {
+    private void enableGenderClickListeners() {
         ll_maleNormal.setEnabled(true);
         ll_maleSelected.setEnabled(true);
         ll_femaleSelected.setEnabled(true);

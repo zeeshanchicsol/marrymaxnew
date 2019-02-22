@@ -366,11 +366,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 //
 
 
-      /*  ivSwipeInstructions = (ImageView) view.findViewById(R.id.ImageViewSwipeInstructions);
-*/
-
-
-
+        /*  ivSwipeInstructions = (ImageView) view.findViewById(R.id.ImageViewSwipeInstructions);
+         */
 
 
         tabLayout1 = (TabLayout) view.findViewById(R.id.tabs1);
@@ -1042,7 +1039,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
     private void blockUser() {
         pDialog.show();
-
+        Log.e("blockUser", "" + Urls.getBlockReasonData);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getBlockReasonData,
                 new Response.Listener<JSONArray>() {
                     @Override

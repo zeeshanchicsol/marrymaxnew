@@ -237,7 +237,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             @Override
             public void onClick(View v) {
 
-
+                boolean landlineAdded = false;
                 String mobNum = EditTextAScontactMobileNumber.getText().toString();
                 String countryCode = EditTextAScontactMobileNumber.getTag().toString();
 
@@ -355,6 +355,9 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                             EditTextAScontactLandlineNumber.setError("Invalid landline format");
                             focusView = EditTextAScontactLandlineNumber;
                             focusView.requestFocus();
+
+                        } else {
+                            landlineAdded = true;
                         }
 
 
@@ -394,7 +397,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     try {
 
                         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
-                            putRequest(new JSONObject(gson.toJson(member)));
+                            putRequest(new JSONObject(gson.toJson(member)), landlineAdded);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -1180,7 +1183,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     }
 
 
-    private void putRequest(JSONObject params) {
+    private void putRequest(JSONObject params, final boolean landlineAdded) {
 
         pDialog.setVisibility(View.VISIBLE);
         Log.e("params", params.toString());
@@ -1193,12 +1196,33 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     public void onResponse(JSONObject response) {
                         Log.e("Response ", response.toString() + "");
 
+                        //phone_verified   ==> 1 mobile was add/update, 0 if no add/update,  -1 if no add, update and not verified
+                        //landline_verified   ==> 1 landline was add/update, 0 if no add/update,  -1 if no update , update and not verified
+
                         try {
+
+                            int phone_verified = response.getInt("phone_verified");
+                            int landline_verified = response.getInt("landline_verified");
+
+                            Log.e("aphone_verified", "" + phone_verified);
+                            Log.e("alandline_verified", "" + landline_verified);
+
                             int res = response.getInt("about_type_id");
 
                             if (res != 0) {
+
                                 dismissKeyboard();
+                                if (phone_verified == 0 || phone_verified == -1) {
+                                    Toast.makeText(context, "Unable to Add Mobile Number. Please contact MarryMax support", Toast.LENGTH_SHORT).show();
+                                }
+                                if (landlineAdded) {
+                                    if (landline_verified == 0 || landline_verified == -1) {
+                                        Toast.makeText(context, "Unable to Add Landline Number. Please contact MarryMax support", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
                                 getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+
                             } else {
                                 Toast.makeText(context, "Unable to add phone number. Please contact MarryMax support", Toast.LENGTH_SHORT).show();
                             }
