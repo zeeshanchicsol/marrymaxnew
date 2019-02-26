@@ -165,8 +165,8 @@
             android:layout_height="wrap_content"
             android:background="#eee"
 
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp">
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -190,23 +190,27 @@
                 android:layout_weight="1"
                 android:gravity="right">
 
-                <!--                <com.chicsol.marrymax.widgets.faTextView
+                <com.chicsol.marrymax.widgets.faTextView
+                    android:id="@+id/faTextViewMyContactItemFeedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/fa_icon_feedback"
+                    android:textColor="#777"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="4dp"
 
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginRight="10dp"
-                                    android:text="@string/fa_icon_profile_setting"
-                                    android:textColor="@color/colorDefaultGreen"
-                                    android:textSize="16sp"
+                    android:visibility="gone"
 
-                                    />
+                    />
 
-                                <View
-                                    android:layout_width="1dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="4dp"
-                                    android:layout_marginRight="4dp"
-                                    android:background="#888"></View>-->
+            <!--    <View
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:background="#888"></View>-->
+
 
                 <com.chicsol.marrymax.widgets.faTextView
                     android:id="@+id/faTextViewMyContactItemRemove"

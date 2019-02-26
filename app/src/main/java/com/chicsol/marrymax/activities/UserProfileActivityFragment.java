@@ -137,6 +137,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         return f;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,7 +178,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         // userpath = getArguments().getString("userpath");
 
-
+        //  userpath = (savedInstanceState != null) ? savedInstanceState.getString(userpath) : "null";
 
         /*     dialogGeoInfo newFragment = dialogGeoInfo.newInstance(response.toString());
         newFragment.show(getFragmentManager(), "dialog");
@@ -1811,14 +1812,21 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        // below line to be commented to prevent crash on nougat.
-        // http://blog.sqisland.com/2016/09/transactiontoolargeexception-crashes-nougat.html
-        //
-        //super.onSaveInstanceState(outState);
-    }
+    /*  @Override
+      public void onSaveInstanceState(Bundle savedInstanceState) {
+          // below line to be commented to prevent crash on nougat.
+          // http://blog.sqisland.com/2016/09/transactiontoolargeexception-crashes-nougat.html
+          //
+          //super.onSaveInstanceState(outState);
 
+          savedInstanceState.putString("userpath", userpath);
+      }
+      @Override
+      public void onViewStateRestored(Bundle savedInstanceState) {
+          super.onViewStateRestored(savedInstanceState);
+          userpath = (savedInstanceState != null) ? savedInstanceState.getString("userpath") : "null";
+
+      }*/
     @Override
     public void onStop() {
         super.onStop();

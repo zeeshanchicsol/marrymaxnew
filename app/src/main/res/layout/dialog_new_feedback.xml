@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/LinearLayoutMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:elevation="10dp"
+        app:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorTextRed"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Feedback "
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:id="@+id/dismissBtnMatchAidUPCC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+
+                            android:textColor="@color/colorWhite"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rate the assistance provided by MarryMax Team! "
+                            android:textColor="@color/colorBlack" />
+
+                        <!--    <android.support.v7.widget.AppCompatRatingBar
+                                android:id="@+id/dialog_ratingbar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginTop="10dp"
+
+                                android:isIndicator="false"
+                                android:numStars="5"
+
+                                android:stepSize="1.0" />-->
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/EditTextMatchAidFeedbackText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Feedback....."
+                            android:inputType="textMultiLine"
+                            android:minLines="2" />
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/EditTextBlockDialgTextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone">
+
+                            <com.chicsol.marrymax.widgets.mEditText
+
+                                android:id="@+id/EditTextBlockDialgOtherReason"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="If other, then please describe the reason."
+                                android:imeOptions="actionDone"
+                                android:inputType="text" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            >
+
+                            <android.support.v7.widget.AppCompatButton
+                                android:id="@+id/mButtonDialogMatchAidUPViewProgress"
+                                style="@style/myCustomMaterialButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_toLeftOf="@+id/mButtonDialogMatchAidUPCancel"
+                                android:backgroundTint="@color/colorDefaultGreen"
+
+                                android:text="Submit "
+                                android:textAllCaps="false"
+                                android:textColor="@color/colorWhite" />
+
+                            <android.support.v7.widget.AppCompatButton
+                                android:id="@+id/mButtonDialogMatchAidUPCancel"
+                                style="@style/myCustomMaterialButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:backgroundTint="@color/colorGrey"
+                                android:paddingRight="5dp"
+                                android:text="Close"
+                                android:textAllCaps="false"
+                                android:textColor="@color/colorWhite" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

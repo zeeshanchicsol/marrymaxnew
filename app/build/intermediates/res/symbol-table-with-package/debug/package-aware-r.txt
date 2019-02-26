@@ -2359,6 +2359,7 @@ id faTextViewListSavSearchBlocked
 id faTextViewListSavSearcheClick
 id faTextViewMMNotes
 id faTextViewMMRemove
+id faTextViewMyContactItemFeedback
 id faTextViewMyContactItemRemove
 id faTextViewMyMatchesInterestIcon
 id faTextViewRemoveSearchesUnremove
@@ -2848,6 +2849,7 @@ layout dialog_login_to_continue
 layout dialog_match_aid
 layout dialog_match_aid_underprocess
 layout dialog_multi_choice
+layout dialog_new_feedback
 layout dialog_payment_terms
 layout dialog_profile_completion
 layout dialog_profilefor
@@ -3556,6 +3558,7 @@ string fa_icon_date
 string fa_icon_delete
 string fa_icon_edit
 string fa_icon_favourite
+string fa_icon_feedback
 string fa_icon_female
 string fa_icon_gallery
 string fa_icon_logout
@@ -3842,6 +3845,7 @@ style FabCustom
 style FullHeightDialog
 style GreenButton
 style MainScreenTheme
+style MyDialogTheme
 style NavigationTab
 style NavigationTabTextAppeareance
 style Platform_AppCompat

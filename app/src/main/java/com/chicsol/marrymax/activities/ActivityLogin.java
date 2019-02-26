@@ -2,6 +2,8 @@ package com.chicsol.marrymax.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -27,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.registration.RegistrationActivity;
 import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchActivity;
@@ -154,7 +157,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
         if (SharedPreferenceManager.getEmailSuggestionList(getApplicationContext()) == null) {
-            Log.e("array null", "null");
+        //    Log.e("array null", "null");
         } else {
             emailSuggestionList.addAll(SharedPreferenceManager.getEmailSuggestionList(getApplicationContext()));
             // mcList.add("zeeshan40@gmail.com");
@@ -164,6 +167,9 @@ public class ActivityLogin extends AppCompatActivity {
                 etEmail.setAdapter(acAdapter);
             }
         }
+
+        getAppVersion();
+
     }
 
     private void setListeners() {
@@ -479,6 +485,46 @@ public class ActivityLogin extends AppCompatActivity {
 
 
     }
+
+
+    private void getAppVersion() {
+
+
+        Log.e(" Notification url", Urls.getAppVersion );
+        StringRequest req = new StringRequest(Urls.getAppVersion ,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("getAppVersion ==", "=======================  " + response);
+
+                        String remoteVersionName = "1.0";
+                        //   String version = data[2];
+
+                        MarryMax max = new MarryMax(ActivityLogin.this);
+
+                        max.checkVersionUpdate(remoteVersionName);
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(req);
+    }
+
+
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic

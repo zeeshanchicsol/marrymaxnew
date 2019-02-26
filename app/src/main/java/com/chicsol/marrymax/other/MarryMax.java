@@ -3,9 +3,14 @@ package com.chicsol.marrymax.other;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -18,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.ContactAcivity;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
@@ -119,7 +125,7 @@ public class MarryMax {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                           Log.e("res progress", response + "");
+                        Log.e("res progress", response + "");
                         try {
 
 
@@ -178,8 +184,7 @@ public class MarryMax {
                                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                         context.startActivity(intent);
                                         activity.finish();
-                                    }
-                                    else {
+                                    } else {
                                         Intent intent = new Intent(activity, RegisterGeographicActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                         context.startActivity(intent);
@@ -425,7 +430,7 @@ public class MarryMax {
 
 
                     Log.e("Tag is", TAG + "==");
-                    if (TAG.equals("SavedNotes") || TAG.equals("AccpetedMembers") || TAG.equals("FavouriteMembers") || TAG.equals("searchByAlias")|| TAG.equals("featured")) {
+                    if (TAG.equals("SavedNotes") || TAG.equals("AccpetedMembers") || TAG.equals("FavouriteMembers") || TAG.equals("searchByAlias") || TAG.equals("featured")) {
 
 
                         Gson gsonc;
@@ -599,7 +604,6 @@ public class MarryMax {
                 break;
 
             case sendMessage:
-
 
 
                 if (smember.get_member_status() < 3 || smember.get_member_status() >= 7) {
@@ -1508,5 +1512,54 @@ public class MarryMax {
         }
     }
 
+    public void checkVersionUpdate(String remoteVersionName) {
+
+        try {
+            PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
+            String localVersion = pInfo.versionName;
+
+            if (!remoteVersionName.equals(localVersion)) {
+                //   Log.e("updatev now", remoteVersionName);
+                updateVersion();
+            }
+
+
+            //   Log.e("versionName", "" + version);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+//==================================================Update===========================================================
+
+    public void updateVersion() {
+        AlertDialog dialog = new AlertDialog.Builder(activity, R.style.MyDialogTheme)
+                .setTitle("New version available")
+                .setCancelable(false)
+                .setMessage("Please, update app to new version to continue .")
+                .setPositiveButton("Update",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //redirectStore(updateUrl);
+
+                                final String appPackageName = activity.getPackageName(); // getPackageName() from Context or Activity object
+                                try {
+                                    activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                                } catch (android.content.ActivityNotFoundException anfe) {
+                                    activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                                }
+
+                            }
+                        }).setNegativeButton("Cancel ",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                activity.finish();
+                            }
+                        }).create();
+        dialog.show();
+
+    }
 
 }

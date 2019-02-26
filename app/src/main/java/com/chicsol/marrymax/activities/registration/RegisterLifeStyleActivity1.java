@@ -539,10 +539,23 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
 
                     if (children_id.equals("2") || children_id.equals("3")) {
-                        girls_count = etNoOfGirls.getText().toString();
-                        boys_count = etNoOfBoys.getText().toString();
-                        min_age = etMinAge.getText().toString();
-                        max_age = etMaxAge.getText().toString();
+
+
+                        if (!etNoOfGirls.getText().toString().isEmpty()) {
+                            girls_count = etNoOfGirls.getText().toString();
+                        }
+
+                        if (!etNoOfBoys.getText().toString().isEmpty()) {
+                            boys_count = etNoOfBoys.getText().toString();
+                        }
+                        if (!etMinAge.getText().toString().isEmpty()) {
+                            min_age = etMinAge.getText().toString();
+                        }
+                        if (!etMaxAge.getText().toString().isEmpty()) {
+                            max_age = etMaxAge.getText().toString();
+                        }
+
+
                     }
 
 
@@ -630,7 +643,6 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         boolean ck = false;
 
 /*
-
         if (BuildConfig.FLAVOR.equals("alfalah")) {
 
             if (spMyLanguage.getSelectedItemId() == 0) {
@@ -638,16 +650,12 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                 errorText.setError("");
                 errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
                 errorText.setText("Please select Language");
-
          */
 /*   Snackbar.make(v, "Please select Education", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
 *//*
-
                 ck = true;
             }
-
-
         }
 */
 

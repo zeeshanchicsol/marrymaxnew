@@ -19,7 +19,9 @@ public class Urls {
     public static String LoginUrl = baseUrl + "/api/WebArd/Login";
     public static String reg_Listing = baseUrl + "/api/WebArd/GetRegisterListings";
 
+    public static String getAppVersion = baseUrl + "/api/WebArd/GetAppVersion";
     public static String RegistrationUrl = baseUrl + "/api/WebArd/Registration";
+
     public static String validateAlias = baseUrl + "/api/WebArd/ValidateAlias";
 
 
@@ -187,6 +189,7 @@ public class Urls {
     public static String interestRequestType = baseUrl + "/api/WebArd/InterestRequestType";
     //  public static String responseInterest = baseUrl + "/api/WebArd/ResponseInterest";
     public static String deleteMessages = baseUrl + "/api/WebArd/DeleteMessages";
+    public static String getFeedbackData = baseUrl + "/api/WebArd/GetFeedbackData/";
 
 
     //=====================Notifications=========================
@@ -301,7 +304,6 @@ public class Urls {
     //===============My Profile Status ==================
     public static String getPhn = baseUrl + "/api/WebArd/GetPhn/";
     public static String getPhnV = baseUrl + "/api/WebArd/GetPhnV/";
-
 
 
     //===============Questions ==================

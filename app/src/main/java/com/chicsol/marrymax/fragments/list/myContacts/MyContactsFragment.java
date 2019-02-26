@@ -24,6 +24,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyContacts;
+import com.chicsol.marrymax.dialogs.dialogFeedback;
 import com.chicsol.marrymax.modal.mContacts;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -46,7 +47,7 @@ import java.util.Map;
  * Created by Android on 11/3/2016.
  */
 
-public class MyContactsFragment extends Fragment implements RecyclerViewAdapterMyContacts.OnUpdateListener {
+public class MyContactsFragment extends Fragment implements RecyclerViewAdapterMyContacts.OnUpdateListener, dialogFeedback.onCompleteListener {
     public static int result = 0;
     LinearLayout LinearLayoutMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -372,6 +373,11 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             getData();
         }
+
+    }
+
+    @Override
+    public void onComplete(String s) {
 
     }
 

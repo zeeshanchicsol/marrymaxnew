@@ -45,6 +45,8 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
+import com.chicsol.marrymax.dialogs.dialogFeedback;
+import com.chicsol.marrymax.dialogs.dialogMatchAidFeedback;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mContacts;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -239,7 +241,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
 
         if (holder1 instanceof MMViewHolder) {
             MMViewHolder holder = ((MMViewHolder) holder1);
-            holder.tvAlias.setText(obj.getAlias()+" ");
+            holder.tvAlias.setText(obj.getAlias() + " ");
             holder.tvAge.setText("( " + obj.getMin_age() + " Years )");
 
             holder.tvPhone.setText(obj.getPhone_mobile());
@@ -253,6 +255,12 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                 holder.llCallTime.setVisibility(View.VISIBLE);
             }
 
+
+            if (type.equals("sv")) {
+                holder.faFeedback.setVisibility(View.VISIBLE);
+            } else {
+                holder.faFeedback.setVisibility(View.GONE);
+            }
             holder.tvDate.setText(obj.getStart_date());
 
 
@@ -327,6 +335,28 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
+                }
+            });
+
+
+            holder.faFeedback.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    dialogFeedback newFragment = dialogFeedback.newInstance("");
+                    newFragment.setTargetFragment(fragment, 0);
+                    newFragment.show(frgMngr, "dialog");
+                   /* JSONObject jsonObject = new JSONObject();
+                    try {
+                        jsonObject.put("id", obj.getPhone_request_id());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+
+                        deleteMyContact(jsonObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }*/
 
                 }
             });
@@ -500,7 +530,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
         public ImageView image;
 
         public TextView tvAlias, tvAge, tvPhone, tvPreferedCallTime, tvCountry, tvDate;
-        public faTextView faRemove;
+        public faTextView faRemove, faFeedback;
         LinearLayout llCallTime, llPhoneNumber;
 
         public MMViewHolder(View itemView) {
@@ -513,6 +543,8 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
 
             tvDate = (TextView) itemView.findViewById(R.id.TextViewListDate);
             faRemove = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemRemove);
+            faFeedback = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemFeedback);
+
 
             llCallTime = (LinearLayout) itemView.findViewById(R.id.LinearLayoutAccountSettingMyContactCallTime);
             llPhoneNumber = (LinearLayout) itemView.findViewById(R.id.LinearLayoutAccountSettingMyContactPhoneNumber);

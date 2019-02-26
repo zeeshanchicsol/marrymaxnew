@@ -189,6 +189,10 @@
         <item name="android:singleLine">true</item>
     </style>
 
+
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimary</item>
+    </style>
     <!--    <style name="Autocomplete" parent="Widget.AppCompat.Light.AutoCompleteTextView">
         <item_image_slider name="android:background">@color/colorWhite</item_image_slider>
         <item_image_slider name="colorControlNormal">@color/colorBlack</item_image_slider>

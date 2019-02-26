@@ -353,8 +353,8 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
     private void settHeader() {
         //    tvAlias,tvDesc,tvLocation,tvProfileFor,tvReligion,tvEducation,tvOccupation,tvMaritalStatus;
 
-      //  Log.e("alias", member.getAlias());
-     //   tvAlias.setText(member.getAlias());
+        //  Log.e("alias", member.getAlias());
+        //   tvAlias.setText(member.getAlias());
         tvAlias.setText(SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
         tvAge.setText("( " + member.get_age() + " Years )");
         String location = "";
@@ -555,7 +555,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                     }
                     String desc = "Are you sure to withdraw your  request for <b> <font color=#216917>" + member.getAlias() + "</font></b>";
 
-                   // withdrawInterest(params, "Withdraw Contact Details", desc);
+                    // withdrawInterest(params, "Withdraw Contact Details", desc);
 
                 }
             }
@@ -652,7 +652,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                                 e.printStackTrace();
                             }
                             String desc = "Are you sure, you want to withdraw your interest for  <font color=#216917>" + member.getAlias() + "</font>";
-                          //  withdrawInterest(params, "Withdraw Interest", desc);
+                            //  withdrawInterest(params, "Withdraw Interest", desc);
 
                         } else if (member.get_interest_received() == 1) {
                             replyOnInterest(v);
@@ -944,7 +944,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                                 dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
                                 newFragment.show(getSupportFragmentManager(), "dialog");
                             } else {
-                                dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath,1);
+                                dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, 1);
                                 newFragment.show(getSupportFragmentManager(), "dialog");
                             }
 
@@ -969,7 +969,6 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         };
         MySingleton.getInstance(this).addToRequestQueue(req);
     }
-
 
 
     private void replyOnAcceptInterest(JSONObject params, final boolean replyCheck) {
@@ -1127,14 +1126,14 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                                 member.set_removed_member(responseid);
                                 Toast.makeText(MyProfileActivity.this, "User has been Removed successfully ", Toast.LENGTH_SHORT).show();
 
-                              /*  MenuItem menuItem = addRemoveBlockMenu.getMenu().findItem(R.id.menu_up_remove);
-                              */
+                                /*  MenuItem menuItem = addRemoveBlockMenu.getMenu().findItem(R.id.menu_up_remove);
+                                 */
                                 menuItem.setTitle("Unremove");
                             } else {
                                 member.set_removed_member(responseid);
                                 Toast.makeText(MyProfileActivity.this, "User has been unremoved successfully ", Toast.LENGTH_SHORT).show();
-                            /*    MenuItem menuItem = addRemoveBlockMenu.getMenu().findItem(R.id.menu_up_remove);
-                               */
+                                /*    MenuItem menuItem = addRemoveBlockMenu.getMenu().findItem(R.id.menu_up_remove);
+                                 */
                                 menuItem.setTitle("Remove");
                             }
 

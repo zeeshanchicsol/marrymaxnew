@@ -1,14 +1,19 @@
 package com.chicsol.marrymax.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.se.omapi.Session;
 import android.support.annotation.LayoutRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -423,6 +428,15 @@ DrawerActivity extends AppCompatActivity {
                             String[] data = response.split(",");
                             String count = data[0];
                             String status = data[1];
+                            String remoteVersionName = "1.0";
+                            //   String version = data[2];
+
+                            MarryMax max = new MarryMax(DrawerActivity.this);
+
+                            max.checkVersionUpdate(remoteVersionName);
+
+
+                            //    Toast.makeText(DrawerActivity.this, "version :" + version, Toast.LENGTH_SHORT).show();
 
                             settNotificationCount(count);
 
