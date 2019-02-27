@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/TextViewQuestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="6"
+            android:backgroundTint="#f1f1f1"
+            android:fontFamily="sans-serif"
+            android:text="Q1 : What were you like as a kid?"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- <TextView
+             android:id="@+id/TextViewQuestionAnswer"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:backgroundTint="#f1f1f1"
+             android:text="Q1 : What were you like as a kid?"
+             android:textColor="@color/colorBlack"
+             android:textSize="16sp"
+
+             android:visibility="gone" />-->
+
+
+        <RadioGroup
+
+            android:id="@+id/RadioGroupQuestionAnswers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:tag="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:tag="0"
+                android:text="No" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+</LinearLayout>

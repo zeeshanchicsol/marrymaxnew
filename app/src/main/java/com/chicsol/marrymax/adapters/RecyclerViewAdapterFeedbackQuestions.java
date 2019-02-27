@@ -31,6 +31,7 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.WebArd;
@@ -65,16 +66,16 @@ public class RecyclerViewAdapterFeedbackQuestions extends RecyclerView.Adapter<R
     HashMap<String, String> mCheckedAnswersList;
     ViewGenerator viewGenerator;
 
-  /*  public void setQuestionChoiceList(List<WebArd> questionChoiceList) {
+  /* public void setQuestionChoiceList(List<WebArd> questionChoiceList) {
         QuestionChoiceList = questionChoiceList;
-    }*/
-
+    }
+*/
     List<List<mIceBreak>> QuestionChoiceList;
 
-    public RecyclerViewAdapterFeedbackQuestions(final Context context, Activity activity) {
+    public RecyclerViewAdapterFeedbackQuestions(final Context context) {
         //this.items = items;
         mCheckedAnswersList = new HashMap<>();
-
+        Activity activity = (Activity) context;
         marryMax = new MarryMax(activity);
         this.fragment = fragment;
         this.context = context;
@@ -99,7 +100,7 @@ public class RecyclerViewAdapterFeedbackQuestions extends RecyclerView.Adapter<R
 
     @Override
     public MMViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_list_question_answers, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_list_feedback, parent, false);
         v.setOnClickListener(this);
 
 /*        int w = parent.getMeasuredWidth() / 2;
@@ -119,10 +120,10 @@ public class RecyclerViewAdapterFeedbackQuestions extends RecyclerView.Adapter<R
     @Override
     public void onBindViewHolder(MMViewHolder holder, int position) {
         final WebArd obj = items.get(position);
-
+        holder.tvQuestionTitle.setText(obj.getName());
        /* int q = position + 1;
 
-        holder.tvQuestionTitle.setText("Q" + q + " : " + obj.getQuestion());
+
         if (!obj.getAnswer().equals("")) {
             holder.tvAnswer.setVisibility(View.VISIBLE);
             holder.tvAnswer.setText("Ans : " + obj.getAnswer());
@@ -131,13 +132,24 @@ public class RecyclerViewAdapterFeedbackQuestions extends RecyclerView.Adapter<R
             holder.tvAnswer.setVisibility(View.GONE);
         }
 
+        */
+
         holder.rgMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                //  Toast.makeText(context, "" + checkedId, Toast.LENGTH_SHORT).show();
-                mCheckedAnswersList.put(obj.getQuestion_id(), checkedId + "");
+
+
+                int radioButtonID = group.getCheckedRadioButtonId();
+                View radioButton = group.findViewById(radioButtonID);
+                int idx = group.indexOfChild(radioButton);
+
+                RadioButton r = (RadioButton) group.getChildAt(idx);
+
+                //     Toast.makeText(context, obj.getId() + "  "+r.getTag(), Toast.LENGTH_SHORT).show();
+
+                mCheckedAnswersList.put(obj.getId(), r.getTag() + "");
             }
-        });*/
+        });
 
         holder.itemView.setTag(obj);
 
@@ -189,7 +201,7 @@ public class RecyclerViewAdapterFeedbackQuestions extends RecyclerView.Adapter<R
             super(itemView);
 
             tvQuestionTitle = (TextView) itemView.findViewById(R.id.TextViewQuestion);
-            tvAnswer = (TextView) itemView.findViewById(R.id.TextViewQuestionAnswer);
+            //tvAnswer = (TextView) itemView.findViewById(R.id.TextViewQuestionAnswer);
             rgMain = (RadioGroup) itemView.findViewById(R.id.RadioGroupQuestionAnswers);
 
           /*  ll_self = (LinearLayout) itemView.findViewById(R.id.LinearlayoutChatListSelf);

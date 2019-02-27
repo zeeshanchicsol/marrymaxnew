@@ -281,7 +281,7 @@ public class Urls {
 
 
     public static String addFeedback = baseUrl + "/api/WebArd/AddFeedback";
-
+    public static String updFeedback = baseUrl + "/api/WebArd/UpdFeedback";
 
     //================Member Saved List==================
     public static String membersList = baseUrl + "/api/WebArd/MembersList";

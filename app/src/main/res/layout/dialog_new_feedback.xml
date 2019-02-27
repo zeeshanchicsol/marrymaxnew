@@ -60,42 +60,42 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical">
 
 
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/RecyclerViewFeedbackQuestions"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@id/asdsaasddfasd"
+
+                            android:background="@color/colorWhite">
+
+                        </android.support.v7.widget.RecyclerView>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rate the assistance provided by MarryMax Team! "
-                            android:textColor="@color/colorBlack" />
+                            android:layout_gravity="right"
+                            android:text="Please Select All Options"
+                            android:textColor="@color/colorTextRed" />
 
-                        <!--    <android.support.v7.widget.AppCompatRatingBar
-                                android:id="@+id/dialog_ratingbar"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginBottom="10dp"
-                                android:layout_marginTop="10dp"
 
-                                android:isIndicator="false"
-                                android:numStars="5"
-
-                                android:stepSize="1.0" />-->
 
                         <android.support.v7.widget.AppCompatEditText
                             android:id="@+id/EditTextMatchAidFeedbackText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Enter Feedback....."
+                            android:hint="If other, then please describe the reason."
                             android:inputType="textMultiLine"
                             android:minLines="2" />
 
 
-                        <android.support.design.widget.TextInputLayout
+                      <!--  <android.support.design.widget.TextInputLayout
                             android:id="@+id/EditTextBlockDialgTextInputLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -109,7 +109,28 @@
                                 android:hint="If other, then please describe the reason."
                                 android:imeOptions="actionDone"
                                 android:inputType="text" />
-                        </android.support.design.widget.TextInputLayout>
+                        </android.support.design.widget.TextInputLayout>-->
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Rate the assistance provided by MarryMax Team! "
+                            android:textColor="@color/colorBlack" />
+
+                        <android.support.v7.widget.AppCompatRatingBar
+                            android:id="@+id/dialog_ratingbar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+
+                            android:isIndicator="false"
+                            android:numStars="5"
+
+                            android:stepSize="1.0" />
+
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
@@ -126,7 +147,7 @@
                                 android:layout_toLeftOf="@+id/mButtonDialogMatchAidUPCancel"
                                 android:backgroundTint="@color/colorDefaultGreen"
 
-                                android:text="Submit "
+                                android:text="Feedback"
                                 android:textAllCaps="false"
                                 android:textColor="@color/colorWhite" />
 

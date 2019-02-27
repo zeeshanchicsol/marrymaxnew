@@ -1803,6 +1803,7 @@ id RecyclerViewAdvSearchItemTopCities
 id RecyclerViewAdvSearchItemTopStates
 id RecyclerViewDashMainMyMatches
 id RecyclerViewDiualogMultChoice
+id RecyclerViewFeedbackQuestions
 id RecyclerViewInboxListInterests
 id RecyclerViewInboxListMain
 id RecyclerViewLastLoginMatches
@@ -2911,6 +2912,7 @@ layout item_progress
 layout item_recycler_amenitie
 layout item_recycler_inbox_my_contacts
 layout item_recycler_inbox_my_interests
+layout item_recycler_list_feedback
 layout item_recycler_list_my_inbox
 layout item_recycler_list_my_message_chat
 layout item_recycler_list_notification_archive
