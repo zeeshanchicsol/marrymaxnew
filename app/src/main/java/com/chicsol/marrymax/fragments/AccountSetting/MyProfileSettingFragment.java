@@ -34,7 +34,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.MatchAidActivity;
+import com.chicsol.marrymax.activities.UserProfileActivityFragment;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
+import com.chicsol.marrymax.dialogs.dialogAddNotes;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
 import com.chicsol.marrymax.modal.Dashboards;
@@ -251,6 +253,11 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             llASEmail.setVisibility(View.GONE);
         }
 */
+
+
+        dialogMatchingAttributeFragment dialogFragment = dialogMatchingAttributeFragment.newInstance("asd");
+        //     newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+        dialogFragment.show(getFragmentManager(), "dialog");
 
 
     }
@@ -764,7 +771,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                             ivPhoneVerifyLandline.setImageDrawable(context.getResources().getDrawable(R.drawable.no_number_icon_60));
 
                                             snackBarToolTipLandLine = " Verification Pending - MarryMax Support will call to verify";
-                                            if (getActivity()!=null) {
+                                            if (getActivity() != null) {
                                                 snackbarNotVerifiedLandLine = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTipLandLine, Snackbar.LENGTH_SHORT);
 
                                             }
@@ -789,7 +796,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                             ivPhoneVerifyLandline.setImageDrawable(context.getResources().getDrawable(R.drawable.no_number_icon_60));
                                             snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
 
-                                            if (getActivity()!=null) {
+                                            if (getActivity() != null) {
                                                 snackbarNotVerifiedLandLine = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTipLandLine, Snackbar.LENGTH_SHORT);
                                             }
 
@@ -815,7 +822,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                         ivPhoneVerifyLandline.setImageDrawable(context.getResources().getDrawable(R.drawable.no_number_icon_60));
                                         snackBarToolTipLandLine = "Unable to verify. Please contact MarryMax support.";
 
-                                        if (getActivity()!=null) {
+                                        if (getActivity() != null) {
                                             snackbarNotVerifiedLandLine = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTipLandLine, Snackbar.LENGTH_SHORT);
                                         }
                                     }

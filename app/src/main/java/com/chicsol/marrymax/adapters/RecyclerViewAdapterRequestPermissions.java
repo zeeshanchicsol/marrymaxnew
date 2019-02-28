@@ -166,7 +166,20 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
         holder.llDenyPermission.setVisibility(View.GONE);
         holder.llWithdrawRequest.setVisibility(View.GONE);
 
+
+
+
+
+
         if (!permissioncheck) {
+
+            if (SharedPreferenceManager.getUserObject(context).get_member_status() != 4) {
+                holder.actionSwitch.setEnabled(false);
+            } else {
+                holder.actionSwitch.setEnabled(true);
+            }
+
+
             if (obj.getName().equals("PUBLIC")) {
                 holder.status.setText("Available to View");
                 holder.actionSwitch.setVisibility(View.GONE);
@@ -206,6 +219,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                     }
                 }
             }
+
         } else {
 //ask for permissions
 
@@ -351,6 +365,8 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
 
             }
         });
+
+
         holder.actionSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -380,6 +396,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                             params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
                             params.put("userpath", userPath);
                             params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                            params.put("status", SharedPreferenceManager.getUserObject(context).get_member_status());
 
 
                         } catch (JSONException e) {
@@ -781,8 +798,8 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-    //    Log.e("params", "" + params);
-     //   Log.e("url", "" + Urls.submitRequest);
+        //    Log.e("params", "" + params);
+        //   Log.e("url", "" + Urls.submitRequest);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.submitRequest, params,

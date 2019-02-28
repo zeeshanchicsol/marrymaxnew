@@ -1644,6 +1644,7 @@ id LinearLayoutMemberUPPicsNotAvailablePersonalProfile
 id LinearLayoutMessageDetail
 id LinearLayoutMessageDetailData
 id LinearLayoutMessageDetailDeleteChat
+id LinearLayoutMessageDetailFeedback
 id LinearLayoutMultiChoiceMaina
 id LinearLayoutMyChoiceChildren
 id LinearLayoutMyChoiceComplexion
@@ -2200,6 +2201,7 @@ id TextViewUPSisters
 id TextViewUPSmoke
 id TextViewUPWhatIdo
 id TextViewUserProfileDeleteMessage
+id TextViewUserProfileFeedback
 id TextViewWhoIsTitle
 id TextViewdmAlias
 id TextiewDialogWithdrawRequestTitle
@@ -2849,6 +2851,7 @@ layout dialog_interest
 layout dialog_login_to_continue
 layout dialog_match_aid
 layout dialog_match_aid_underprocess
+layout dialog_matching_attributes
 layout dialog_multi_choice
 layout dialog_new_feedback
 layout dialog_payment_terms

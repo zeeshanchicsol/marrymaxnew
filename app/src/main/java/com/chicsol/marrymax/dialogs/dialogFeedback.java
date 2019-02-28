@@ -66,15 +66,16 @@ public class dialogFeedback extends DialogFragment {
     RecyclerView recyclerView;
     List<WebArd> questionsDataList;
     private RecyclerViewAdapterFeedbackQuestions recyclerAdapter;
+    private String id = "";
 
 
-    public static dialogFeedback newInstance(String userpath) {
+    public static dialogFeedback newInstance(String userpath, String id) {
 
         Gson gson = new Gson();
         dialogFeedback frag = new dialogFeedback();
         Bundle args = new Bundle();
         args.putString("userpath", userpath);
-
+        args.putString("id", id);
         frag.setArguments(args);
         return frag;
     }
@@ -101,6 +102,7 @@ public class dialogFeedback extends DialogFragment {
         super.onCreate(savedInstanceState);
         Bundle mArgs = getArguments();
         userpath = mArgs.getString("userpath");
+        id = mArgs.getString("id");
 
       /*  Gson gson = new Gson();
 
@@ -187,7 +189,7 @@ public class dialogFeedback extends DialogFragment {
 
 
                         Log.e("addFeedback", Urls.updFeedback + "   " + params);
-                       addFeedback(params);
+                        addFeedback(params);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -294,7 +296,7 @@ public class dialogFeedback extends DialogFragment {
 
         //Log.e("api path", "" + Urls.getFeedbackData );
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getFeedbackData,
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getFeedbackData+"/"+id,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

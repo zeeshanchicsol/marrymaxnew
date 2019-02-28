@@ -19,7 +19,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -35,6 +34,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterChatList;
+import com.chicsol.marrymax.dialogs.dialogFeedback;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mCommunication;
 import com.chicsol.marrymax.other.MarryMax;
@@ -59,13 +59,13 @@ import java.util.Map;
  * Created by Android on 11/3/2016.
  */
 
-public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener {
+public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener,dialogFeedback.onCompleteListener {
     private TextView tvAge, tvAlias, tvEthnic, tvReligious, tvMarital, tvCountry;
     RecyclerView recyclerView;
     private RecyclerViewAdapterChatList recyclerAdapter;
     private List<mCommunication> items;
     private FrameLayout fl_send_message;
-    LinearLayout ll_DeleteChat, llMessageDetail, llReadQuota;
+    LinearLayout ll_DeleteChat, llFeedback, llMessageDetail, llReadQuota;
     EditText etSendMessage;
     mCommunication objCom;
     private ProgressBar pDialog;
@@ -75,8 +75,6 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
     private LinearLayout llEmptySubItems;
 
     private String Tag = "DashboardMessagesDetailActivity";
-
-
 
 
     @Override
@@ -129,12 +127,14 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         pDialog = (ProgressBar) findViewById(R.id.ProgressbarProjectMain);
         pDialog.setVisibility(View.GONE);
         ll_DeleteChat = (LinearLayout) findViewById(R.id.LinearLayoutMessageDetailDeleteChat);
+
+        llFeedback = (LinearLayout) findViewById(R.id.LinearLayoutMessageDetailFeedback);
+
+
         llMessageDetail = (LinearLayout) findViewById(R.id.LinearLayoutMessageDetailData);
         llReadQuota = (LinearLayout) findViewById(R.id.LinearLayoutMMessagesReadQuota);
 
         btSubscribe = (AppCompatButton) findViewById(R.id.ButtonMessageDetailSubscribe);
-
-
 
 
         fl_send_message = (FrameLayout) findViewById(R.id.FrameLayoutChatListSendMessage);
@@ -254,7 +254,14 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
             }
         });
-
+        llFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogFeedback newFragment = dialogFeedback.newInstance(objCom.getUserpath(),"2");
+              //  newFragment.setTargetFragment(fragment, 0);
+                newFragment.show(getSupportFragmentManager(), "dialog");
+            }
+        });
 
         ll_DeleteChat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -611,4 +618,8 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
     }
 
+    @Override
+    public void onComplete(String s) {
+
+    }
 }

@@ -345,7 +345,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                 public void onClick(View v) {
 
 
-                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath());
+                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(),"1");
                     newFragment.setTargetFragment(fragment, 0);
                     newFragment.show(frgMngr, "dialog");
                    /* JSONObject jsonObject = new JSONObject();
