@@ -155,6 +155,15 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         DrawerActivity.rawSearchObj = new Members();
     }
 
+    private final void focusOnView() {
+        NvScreenMain.post(new Runnable() {
+            @Override
+            public void run() {
+                NvScreenMain.scrollTo(0, cardViewProfileCompletionStatus.getTop());
+            }
+        });
+    }
+
     private void initilize(View view) {
   /*      pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");*/
@@ -383,6 +392,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     }
 
     private void LoadData() {
+        rlUpgrade.setVisibility(View.GONE);
         if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
 
             rlUpgrade.setVisibility(View.VISIBLE);
@@ -1250,8 +1260,10 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                /* Members memberObj = SharedPreferenceManager.getUserObject(context);
                                 memberObj.set_member_status(3);
                                 SharedPreferenceManager.setUserObject(context, memberObj);*/
+                            } else {
+                                focusOnView();
                             }
-                            NvScreenMain.setFocusable(true);
+                            //    NvScreenMain.setFocusable(true);
 
 
                         } catch (JSONException e) {

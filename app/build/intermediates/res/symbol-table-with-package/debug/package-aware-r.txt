@@ -1234,6 +1234,7 @@ drawable ic_logo_stripe
 drawable ic_mail_outline_black_24dp
 drawable ic_mastercard
 drawable ic_messages_empty_state
+drawable ic_mobicash
 drawable ic_monetization_on_black_24dp
 drawable ic_more_vert_black_24dp
 drawable ic_more_vert_black_24dp_file
@@ -1728,6 +1729,7 @@ id LinearlayoutOrderProcessABL
 id LinearlayoutOrderProcessCCDetailView
 id LinearlayoutOrderProcessCash
 id LinearlayoutOrderProcessEasypasaView
+id LinearlayoutOrderProcessJazzCashView
 id LinearlayoutOrderProcessWDetailView
 id ListViewBlocked
 id ListViewMySavedList
@@ -1745,6 +1747,7 @@ id OrderNumber1
 id OrderNumber2
 id OrderNumber3
 id OrderNumber4
+id OrderNumberJazzCash
 id PrefChoice1
 id PrefChoice2
 id PrefChoice3
@@ -1764,6 +1767,7 @@ id RadioButtonOrderNo
 id RadioButtonOrderProcessABL
 id RadioButtonOrderProcessCash
 id RadioButtonOrderProcessEasyPasa
+id RadioButtonOrderProcessJazzCash
 id RadioButtonOrderProcessWesternUnion
 id RadioButtonOrderYes
 id RadioGroupAccountSettingPrivacyInterest
@@ -3609,6 +3613,8 @@ string google_crash_reporting_api_key
 string google_storage_bucket
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
+string jc_desc
+string jc_desc2
 string joda_time_android_date_time
 string joda_time_android_preposition_for_date
 string joda_time_android_preposition_for_time

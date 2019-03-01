@@ -851,6 +851,78 @@
                         </LinearLayout>
 
 
+
+
+                        <RadioButton
+                            android:id="@+id/RadioButtonOrderProcessJazzCash"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:drawableTop="@drawable/ic_mobicash"
+                            android:gravity="top" />
+
+
+                        <LinearLayout
+
+                            android:id="@+id/LinearlayoutOrderProcessJazzCashView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="JazzCash (Pakistan Only)"
+                                android:textColor="@color/colorTextRed"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/OrderNumberJazzCash"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+
+                                android:textColor="@color/colorTextRed" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/jc_desc"
+                                android:textColor="@color/colorBlack" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" " />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/jc_desc2"
+                                android:textColor="@color/colorBlack" />
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/colorGrey"></View>
+
+
+                        </LinearLayout>
+
+
+
+
+
                         <RadioButton
                             android:id="@+id/RadioButtonOrderProcessABL"
                             android:layout_width="match_parent"

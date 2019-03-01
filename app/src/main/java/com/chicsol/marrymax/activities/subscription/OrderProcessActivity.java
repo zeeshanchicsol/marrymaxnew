@@ -74,7 +74,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     String procode_code = "", status = "";
     TextView tvName, tvAlias, tvEmail, tvCountry, tvShortDesc, tvTotalPrice, tvPrice, tvPromoCodeName, tvTermsConditions, tvPromoCodeDiscountAmount, tvPromoCodeDiscountName, tvPromoCodeDiscountPercent;
     private boolean isVisible = false;
-    LinearLayout llPromoCodeDiscount, llWesterUnion, llEasyPasa, llABL, llCash, llCC;
+    LinearLayout llPromoCodeDiscount, llWesterUnion, llEasyPasa, llJazzCash, llABL, llCash, llCC;
     RelativeLayout rlMain, rlDetailView;
     private ExpandOrCollapse mAnimationManager;
     //  private AutoCompleteTextView etWhoHelped;
@@ -88,7 +88,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     Subscription subscription;
     //   JSONObject params;
     LinearLayout llMain, llErrorMessag;
-    TextView tvErrorDescription, tvErrorHeading, tvo1, tvo2, tvo3, tvo4, tvOrderNumber;
+    TextView tvErrorDescription, tvErrorHeading, tvo1, tvo2, tvo3, tvo4, tvOrderNumber, tvOrderNumberJazzCash;
     private Spinner spinner_religion;
     private List<WebArd> ReligionDataList;
     private MySpinnerAdapter adapter_religion;
@@ -144,7 +144,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
         llCC = (LinearLayout) findViewById(R.id.LinearlayoutOrderProcessCCDetailView);
 
-
+        llJazzCash = (LinearLayout) findViewById(R.id.LinearlayoutOrderProcessJazzCashView);
         llEasyPasa = (LinearLayout) findViewById(R.id.LinearlayoutOrderProcessEasypasaView);
         llABL = (LinearLayout) findViewById(R.id.LinearlayoutOrderProcessABL);
         llCash = (LinearLayout) findViewById(R.id.LinearlayoutOrderProcessCash);
@@ -179,6 +179,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
         tvOrderNumber = (TextView) findViewById(R.id.TextViewOrderProcessOrderNumber);
 
+
+        tvOrderNumberJazzCash = (TextView) findViewById(R.id.OrderNumberJazzCash);
 
         tvo1 = (TextView) findViewById(R.id.OrderNumber1);
         tvo2 = (TextView) findViewById(R.id.OrderNumber2);
@@ -343,6 +345,15 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         lastview = llEasyPasa;
                         generatewithoutCC();
                         break;
+                    case R.id.RadioButtonOrderProcessJazzCash:
+
+                        collapaseView();
+                        mAnimationManager.expand1(llJazzCash);
+                        lastview = llJazzCash;
+                        generatewithoutCC();
+                        break;
+
+
                     case R.id.RadioButtonOrderProcessCash:
                         //   Toast.makeText(OrderProcessActivity.this, "cash", Toast.LENGTH_SHORT).show();
                         collapaseView();
@@ -481,7 +492,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                     payments.setPersonal_name(subscription.getName());
 
                     payments.setTranspath(subscription.getTranspath());
-                    payments.setAmount( subscription.getTotal_cost());
+                    payments.setAmount(subscription.getTotal_cost());
 
 
                     Gson gson = new Gson();
@@ -784,6 +795,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                             tvo2.setText("Your Order Number is : " + OrderId);
                             tvo3.setText("Your Order Number is : " + OrderId);
                             tvo4.setText("Your Order Number is : " + OrderId);
+                            tvOrderNumberJazzCash.setText("Your Order Number is : " + OrderId);
 
                             if (subscription.getPromocode_info() != "") {
 
@@ -930,7 +942,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                             JSONArray responseArray = response.getJSONArray("data").getJSONArray(0);
 
                             if (responseArray.length() > 0
-                                    ) {
+                            ) {
                                 if (cc) {
                                     dialogSelectPackage newFragment = dialogSelectPackage.newInstance(responseArray.toString(), other_item_id, "", "", true);
                                     newFragment.show(getSupportFragmentManager(), "dialog");
