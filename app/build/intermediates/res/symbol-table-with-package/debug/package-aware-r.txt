@@ -674,7 +674,9 @@ color colorSpinnerLabel
 color colorSpinnerunderLine
 color colorSubscriptionBlue
 color colorSubscriptionDarkGrey
+color colorSubscriptionGolden
 color colorSubscriptionGreen
+color colorSubscriptionPlatinum
 color colorSubscriptionYellow
 color colorTabBackground
 color colorTextRed
@@ -1665,6 +1667,7 @@ id LinearLayoutMyChoiceRaisedWhere
 id LinearLayoutMyChoiceReligious
 id LinearLayoutMyChoiceSmoke
 id LinearLayoutMyChoiceVisa
+id LinearLayoutMyContactItemFeedback
 id LinearLayoutMyMessagesEmptyState
 id LinearLayoutMyProfileStatusAdminApproval
 id LinearLayoutMyProfileStatusCompleteProfile
@@ -2916,6 +2919,7 @@ layout item_matchaid_subitem
 layout item_member_list
 layout item_multi_choice
 layout item_progress
+layout item_progress_empty
 layout item_recycler_amenitie
 layout item_recycler_inbox_my_contacts
 layout item_recycler_inbox_my_interests

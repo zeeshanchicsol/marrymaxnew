@@ -134,7 +134,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         display.getSize(size);
         int width = size.x;
         // int height = size.y;
-     //   Log.e("Width" +, "" + width);
+        //   Log.e("Width" +, "" + width);
         cvWidth = (int) (width - width * .50);
         //  Log.e("height", "" + height);
 
@@ -143,7 +143,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private Bitmap resizeImage(final Bitmap image, int maxHeight) {
         Bitmap resizedImage = null;
         if (image != null) {
-            //  int maxHeight = 80; //actual image height coming from internet
+            //  int maxHeight = 80; //actual image height coming from internetpBar
             int maxWidth = 300; //actual image width coming from internet
 
             int imageHeight = image.getHeight();
@@ -171,7 +171,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (viewType == VIEW_ITEM) {
             return new ViewHolderM(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_member_dash_main_new, parent, false));
         } else {
-            return new ProgressViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_progress, parent, false));
+            return new ProgressViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_progress_empty, parent, false));
         }
 
 
@@ -338,7 +338,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public ProgressViewHolder(View v) {
             super(v);
-            pBar = (ProgressBar) v.findViewById(R.id.pBar);
+            //   pBar = (ProgressBar) v.findViewById(R.id.pBar);
         }
     }
 

@@ -275,20 +275,20 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
 
             } else if (obj.getItem_name().equals("Gold")) {
 
-                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGreen));
-                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGreen));
+                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGolden));
+                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGolden));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionGreen));
+                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionGolden));
                 }
                 holder.tvPlanShortDescription.setText("50 Verified Phone Numbers ");
                 holder.tvPlanShortDescriptionMatchesCount.setText("100 Matches Communication ");
 
             } else if (obj.getItem_name().equals("Platinum")
                     ) {
-                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionYellow));
-                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionYellow));
+                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
+                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionYellow));
+                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionPlatinum));
                 }
                 holder.tvPlanShortDescription.setText("75 Verified Phone Numbers ");
                 holder.tvPlanShortDescriptionMatchesCount.setText("150 Matches Communication ");

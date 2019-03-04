@@ -256,10 +256,10 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
             }
 
 
-            if (type.equals("sv")) {
-                holder.faFeedback.setVisibility(View.VISIBLE);
+            if (type.equals("sv") || type.equals("st")) {
+                holder.llFeedback.setVisibility(View.VISIBLE);
             } else {
-                holder.faFeedback.setVisibility(View.GONE);
+                holder.llFeedback.setVisibility(View.GONE);
             }
             holder.tvDate.setText(obj.getStart_date());
 
@@ -340,12 +340,12 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
             });
 
 
-            holder.faFeedback.setOnClickListener(new View.OnClickListener() {
+            holder.llFeedback.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
 
-                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(),"1");
+                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), "1");
                     newFragment.setTargetFragment(fragment, 0);
                     newFragment.show(frgMngr, "dialog");
                    /* JSONObject jsonObject = new JSONObject();
@@ -531,7 +531,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
 
         public TextView tvAlias, tvAge, tvPhone, tvPreferedCallTime, tvCountry, tvDate;
         public faTextView faRemove, faFeedback;
-        LinearLayout llCallTime, llPhoneNumber;
+        LinearLayout llCallTime, llPhoneNumber, llFeedback;
 
         public MMViewHolder(View itemView) {
             super(itemView);
@@ -545,7 +545,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
             faRemove = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemRemove);
             faFeedback = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemFeedback);
 
-
+            llFeedback = (LinearLayout) itemView.findViewById(R.id.LinearLayoutMyContactItemFeedback);
             llCallTime = (LinearLayout) itemView.findViewById(R.id.LinearLayoutAccountSettingMyContactCallTime);
             llPhoneNumber = (LinearLayout) itemView.findViewById(R.id.LinearLayoutAccountSettingMyContactPhoneNumber);
 
