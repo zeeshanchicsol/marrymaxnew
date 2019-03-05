@@ -157,6 +157,13 @@ public class Urls {
     /*submit request for imageview phoneview */
     public static String submitRequest = baseUrl + "/api/WebArd/SubmitRequest ";
 
+//Feedback ==============================
+
+
+    public static String getUsrFeedbacks = baseUrl + "/api/WebArd/GetUsrFeedbacks"; // Feedback
+    public static String usrFeedback = baseUrl + "/api/WebArd/UsrFeedback";
+
+
 //Account Settingsss==============================
 
     public static String updatePassword = baseUrl + "/api/WebArd/UpdatePassword";

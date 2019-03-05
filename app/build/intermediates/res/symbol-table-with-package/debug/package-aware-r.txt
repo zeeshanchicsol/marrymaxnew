@@ -1535,6 +1535,7 @@ id ImageViewCountryFlag
 id ImageViewDashMainNotificaitonIcon
 id ImageViewDefaultImage
 id ImageViewDeleteNotes
+id ImageViewFeedbackProfile
 id ImageViewInboxListUserImage
 id ImageViewInterestRequestEmptyState
 id ImageViewInterestRequestUserProfileImage
@@ -1621,6 +1622,7 @@ id LinearLayoutDos
 id LinearLayoutDrawerMyProfile
 id LinearLayoutEmptyBlockedList
 id LinearLayoutEmptySubItems
+id LinearLayoutFeedbackViewDetail
 id LinearLayoutFemaleNormal
 id LinearLayoutFemaleSelected
 id LinearLayoutImagesCount
@@ -1877,6 +1879,7 @@ id TextInputLayoutAsClose
 id TextInputLayoutAsPassword
 id TextVewDialogPCDescription
 id TextVewDialogPCTitle
+id TextVewFeedbackAlias
 id TextVewMMAlias
 id TextViewASContactCallTime
 id TextViewASContactCountry
@@ -1966,6 +1969,16 @@ id TextViewDosDont
 id TextViewEmptyMessage
 id TextViewFavourite
 id TextViewFavourite_ic
+id TextViewFeedbackAboutMe
+id TextViewFeedbackAge
+id TextViewFeedbackPref1
+id TextViewFeedbackPref2
+id TextViewFeedbackPref3
+id TextViewFeedbackPref4
+id TextViewFeedbackPrefValue1
+id TextViewFeedbackPrefValue2
+id TextViewFeedbackPrefValue3
+id TextViewFeedbackPrefValue4
 id TextViewFemale
 id TextViewHeadingRemoveFromSerch
 id TextViewImagesCount
@@ -2861,6 +2874,7 @@ layout dialog_match_aid_underprocess
 layout dialog_matching_attributes
 layout dialog_multi_choice
 layout dialog_new_feedback
+layout dialog_new_feedback_detail
 layout dialog_payment_terms
 layout dialog_profile_completion
 layout dialog_profilefor
@@ -2895,6 +2909,7 @@ layout fragment_dashboard_questions_detail2
 layout fragment_dashboard_requests
 layout fragment_inbox_interests_main
 layout fragment_inbox_main
+layout fragment_list_my_feedbacks
 layout fragment_main
 layout fragment_matches_main
 layout fragment_mylist_main
@@ -2921,6 +2936,7 @@ layout item_multi_choice
 layout item_progress
 layout item_progress_empty
 layout item_recycler_amenitie
+layout item_recycler_feedback_list
 layout item_recycler_inbox_my_contacts
 layout item_recycler_inbox_my_interests
 layout item_recycler_list_feedback

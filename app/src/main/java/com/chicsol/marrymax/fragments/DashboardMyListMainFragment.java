@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
+import com.chicsol.marrymax.fragments.list.MyFeedbackFragment;
 import com.chicsol.marrymax.fragments.list.MySavedListsFragment;
 import com.chicsol.marrymax.fragments.list.MySavedSearchesFragment;
 import com.chicsol.marrymax.fragments.list.RecommendedMatches;
@@ -129,6 +130,7 @@ private Context context;
         adapter.addFragment(new MySavedSearchesFragment(), " My Saved Searches ");
         adapter.addFragment(new RemovedFromSearchFragment(), " Removed From Search ");
         adapter.addFragment(new RecommendedMatches(), " Recommended Matches ");
+        adapter.addFragment(new MyFeedbackFragment(), "Feedback");
         viewPager.setAdapter(adapter);
 
     }
