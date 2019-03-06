@@ -476,57 +476,57 @@
                                     android:gravity="center"
                                     android:orientation="vertical">
 
-                                   <!-- <FrameLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">-->
+                                    <!-- <FrameLayout
+                                         android:layout_width="match_parent"
+                                         android:layout_height="wrap_content">-->
 
-                                        <de.hdodenhof.circleimageview.CircleImageView
-                                            android:id="@+id/ImageViewDefaultImage"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center_vertical"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="5dp"
-                                            android:scaleType="centerCrop"
-                                            android:clickable="true"
-                                            android:src="@mipmap/ic_launcher" />
-
-                                        <!--       <ImageView
-                                                   android:layout_width="wrap_content"
-                                                   android:layout_height="wrap_content"
-
-                                                   android:layout_gravity="bottom|center"
-
-                                                   app:srcCompat="@drawable/ic_add_circle_black_24dp" />-->
-
-
-                                 <!--   </FrameLayout>-->
-
-                                  <!--  <LinearLayout
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/ImageViewDefaultImage"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:background="?selectableItemBackgroundBorderless"
-                                        android:gravity="center"
-                                        android:orientation="horizontal"
-                                        android:visibility="gone">
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp"
+                                        android:clickable="true"
+                                        android:scaleType="centerCrop"
+                                        android:src="@mipmap/ic_launcher" />
 
-                                        <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="13sp"
-                                            app:srcCompat="@drawable/ic_photo_camera_black_24dp" />
+                                    <!--       <ImageView
+                                               android:layout_width="wrap_content"
+                                               android:layout_height="wrap_content"
 
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="5dp"
-                                            android:clickable="true"
-                                            android:fontFamily="sans-serif"
-                                            android:text="Upload"
-                                            android:textColor="@color/colorASBlue"
-                                            android:textSize="13sp"
-                                            android:textStyle="bold" />
-                                    </LinearLayout>-->
+                                               android:layout_gravity="bottom|center"
+
+                                               app:srcCompat="@drawable/ic_add_circle_black_24dp" />-->
+
+
+                                    <!--   </FrameLayout>-->
+
+                                    <!--  <LinearLayout
+                                          android:layout_width="match_parent"
+                                          android:layout_height="wrap_content"
+                                          android:background="?selectableItemBackgroundBorderless"
+                                          android:gravity="center"
+                                          android:orientation="horizontal"
+                                          android:visibility="gone">
+
+                                          <ImageView
+                                              android:layout_width="wrap_content"
+                                              android:layout_height="13sp"
+                                              app:srcCompat="@drawable/ic_photo_camera_black_24dp" />
+
+                                          <TextView
+                                              android:layout_width="wrap_content"
+                                              android:layout_height="wrap_content"
+                                              android:layout_marginTop="5dp"
+                                              android:layout_marginBottom="5dp"
+                                              android:clickable="true"
+                                              android:fontFamily="sans-serif"
+                                              android:text="Upload"
+                                              android:textColor="@color/colorASBlue"
+                                              android:textSize="13sp"
+                                              android:textStyle="bold" />
+                                      </LinearLayout>-->
 
                                 </LinearLayout>
 
@@ -2193,6 +2193,36 @@
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
 
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutDashMainMatchPreference"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="14sp"
+                            android:layout_gravity="center_vertical"
+                            android:tint="@color/colorBlack"
+                            app:srcCompat="@drawable/ic_profile_settings_24dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="sans-serif"
+                            android:text="Match Preferences"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"

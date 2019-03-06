@@ -35,6 +35,7 @@ import com.chicsol.marrymax.activities.MyProfileActivity;
 import com.chicsol.marrymax.activities.PhotoUpload;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.activities.search.SearchMainActivity;
+import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogRequestProfileUpdate;
 import com.chicsol.marrymax.fragments.DashboardAccountSettingFragment;
 import com.chicsol.marrymax.fragments.DashboardMatchesMainFragment;
@@ -64,7 +65,7 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
  * Created by Android on 1/12/2017.
  */
 
-public class BaseRegistrationActivity extends DrawerActivity implements NavigationView.OnNavigationItemSelectedListener, dialogRequestProfileUpdate.onCompleteListener {
+public class BaseRegistrationActivity extends DrawerActivity implements NavigationView.OnNavigationItemSelectedListener, dialogRequestProfileUpdate.onCompleteListener,dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
     public LinearLayout geographicView, appearanceView, lifestyleView, interestView, personalityView;
     public FloatingActionButton fabAppearance, fabGeographic, fabLifestyle, fabInterest, fabPersonality;
     public mTextView tvGeogrphic, tvAppearance, tvLifestyle, tvPersonality, tvInterest;
@@ -80,7 +81,7 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
     private LayoutInflater inflater;
     private boolean visible = false;
     public TextView tvFabCount1, tvFabCount2, tvFabCount3, tvFabCount4, tvFabCount5;
-
+    LinearLayout llMatchPreference;
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
@@ -137,6 +138,8 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
         fabInterest = (FloatingActionButton) findViewById(R.id.fabInterest);
         fabPersonality = (FloatingActionButton) findViewById(R.id.fabPersonality);
         llRequestProfileUpdaye = (LinearLayout) findViewById(R.id.LinearLayoutRequestProfileUpdate);
+
+        llMatchPreference = (LinearLayout) findViewById(R.id.LinearLayoutEditProfileMatchPreference);
 
         btRequestProfileUpdate = (AppCompatButton) findViewById(R.id.ButtonRequestProfileUpdate);
         btExpandRequestUpdateLayout = (AppCompatImageButton) findViewById(R.id.ImageButtonRequestUpdateExpand);
@@ -267,7 +270,14 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
     }
 
     private void setListeners() {
-
+        llMatchPreference.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogMatchingAttributeFragment dialogFragment = dialogMatchingAttributeFragment.newInstance("asd");
+                //     newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                dialogFragment.show(getSupportFragmentManager(), "dialog");
+            }
+        });
         btExpandRequestUpdateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -540,6 +550,11 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
             llRequestProfileUpdaye.setVisibility(View.VISIBLE);
             visible = true;
         }
+
+    }
+
+    @Override
+    public void onPreferenceComplete(String s) {
 
     }
 }

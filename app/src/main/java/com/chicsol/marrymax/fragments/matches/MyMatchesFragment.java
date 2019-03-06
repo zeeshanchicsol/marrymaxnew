@@ -28,12 +28,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatches;
+import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
 import com.chicsol.marrymax.dialogs.dialogRequest;
 import com.chicsol.marrymax.dialogs.dialogRequestPhone;
 import com.chicsol.marrymax.dialogs.dialogShowInterest;
 import com.chicsol.marrymax.dialogs.dialogWithdrawInterest;
+import com.chicsol.marrymax.fragments.DashboardMainFragment;
 import com.chicsol.marrymax.interfaces.MatchesRefreshCallBackInterface;
 import com.chicsol.marrymax.interfaces.UpdateMatchesCountCallback;
 import com.chicsol.marrymax.modal.Members;
@@ -85,7 +87,7 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
 
 
     private String Tag = "MyMatchesFragment";
-
+    private LinearLayout llMatchPreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -181,6 +183,9 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
 
 
     private void initilize(View view) {
+
+        llMatchPreference = (LinearLayout) view.findViewById(R.id.LinearLayoutMatchesMatchPreference);
+
         tvMatchesCount = (TextView) view.findViewById(R.id.TextViewMatchesTotalCount);
         fragment = MyMatchesFragment.this;
         membersDataList = new ArrayList<>();
@@ -217,7 +222,19 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
 
 
     private void setListenders() {
-
+        llMatchPreference.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llMatchPreference.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogMatchingAttributeFragment dialogFragment = dialogMatchingAttributeFragment.newInstance("asd");
+                        dialogFragment.setTargetFragment(MyMatchesFragment.this, 0);
+                        dialogFragment.show(getFragmentManager(), "dialog");
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -669,7 +686,7 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
         }*/
 
 
-   //     Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + "/0");
+        //     Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + "/0");
         JsonArrayRequest req = new JsonArrayRequest(Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + "/0",
                 new Response.Listener<JSONArray>() {
                     @Override

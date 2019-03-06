@@ -86,7 +86,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     private TextView tvMatchesCount, tvMatchesCountCp, tvComplProfioleTitle, tvComplProfioleTitle2, tvComplProfioleTitleCompProfile, tvMatchesCountSubscribeNow;
     private Context context;
     LinearLayout llMMMatchesNotFoundCompleteProfile, llSubscribeNow;
-
+    private LinearLayout llMatchPreference;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -230,6 +230,9 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     }
 
     private void initilize() {
+
+        llMatchPreference = (LinearLayout) findViewById(R.id.LinearLayoutMatchesMatchPreference);
+        llMatchPreference.setVisibility(View.GONE);
 
         context = getApplicationContext();
 

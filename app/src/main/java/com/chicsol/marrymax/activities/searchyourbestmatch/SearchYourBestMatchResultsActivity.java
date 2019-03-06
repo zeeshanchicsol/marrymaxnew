@@ -90,6 +90,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
     private Spinner spinner_bride_groom;
     private TextView tvMatchesCount;
     String TAG = "SearchYourBestMatchResultsActivity";
+    private LinearLayout llMatchPreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -223,6 +224,9 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
     }
 
     private void initilize() {
+        llMatchPreference = (LinearLayout) findViewById(R.id.LinearLayoutMatchesMatchPreference);
+        llMatchPreference.setVisibility(View.GONE);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
 
@@ -251,7 +255,6 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
                 android.R.layout.simple_spinner_item, brideGroomDataList);
         spAdapterBrideGroom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_bride_groom.setAdapter(spAdapterBrideGroom);
-
 
 
         if (defaultSelectionsObj.get_gender() != null) {

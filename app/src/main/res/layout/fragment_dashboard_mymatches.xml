@@ -69,16 +69,54 @@
                 android:indeterminateTintMode="src_in"
                 android:visibility="invisible" />
 
-            <TextView
-                android:id="@+id/TextViewMatchesTotalCount"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="2dp"
-                android:text=""
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:visibility="gone" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/TextViewMatchesTotalCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="2dp"
+                    android:text="12"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutMatchesMatchPreference"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="14sp"
+                        android:layout_gravity="center_vertical"
+                        android:tint="@color/colorBlack"
+                        app:srcCompat="@drawable/ic_profile_settings_24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="sans-serif"
+                        android:text="Match Preferences"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/RecyclerViewDashMainMyMatches"
@@ -306,15 +344,15 @@
                                     android:textSize="19sp" />
 
                                 <com.chicsol.marrymax.widgets.mTextView
-                                    android:visibility="gone"
                                     android:id="@+id/TextViewMMMatchesTitle2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="5dp"
-                                        android:gravity="center"
-                                        android:text="asdasdasdad"
-                                        android:textColor="#272a30"
-                                        android:textSize="18sp" />
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center"
+                                    android:text="asdasdasdad"
+                                    android:textColor="#272a30"
+                                    android:textSize="18sp"
+                                    android:visibility="gone" />
 
                             </LinearLayout>
                         </LinearLayout>

@@ -88,7 +88,7 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
     private Spinner spinner_bride_groom;
     private TextView tvMatchesCountSub, tvTitle;
     private AppCompatButton btMyMatchesSubscribeClick;
-
+    private LinearLayout llMatchPreference;
 
     String TAG = "SearchYourBestMatchResultsActivity";
 
@@ -151,6 +151,8 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
     @Override
     public void onResume() {
         super.onResume();
+
+
         //if (searchKey != -1) {
 
         //  Toast.makeText(getApplicationContext(), "Searchkey not  Null :"+searchKey, Toast.LENGTH_SHORT).show();
@@ -224,6 +226,11 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
     }
 
     private void initilize() {
+
+        llMatchPreference = (LinearLayout) findViewById(R.id.LinearLayoutMatchesMatchPreference);
+        llMatchPreference.setVisibility(View.GONE);
+
+
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         toolbar.setVisibility(View.VISIBLE);
         toolbar.setTitle("Who Is Looking For Me");
@@ -281,7 +288,7 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
         recyclerView = (RecyclerView) findViewById(R.id.RecyclerViewDashMainMyMatches);
 
 
-        LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getApplicationContext());
+        LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         recyclerAdapter = new RecyclerViewAdapterMyMatchesSearch(WhoIsLookingForMeResultsActivity.this, getSupportFragmentManager(), this, this, this, TAG);
@@ -659,27 +666,27 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
     }*/
 
 
-  @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.registration_searchyourbestmatch_menu, menu);
 
-      for (int i = 0; i < menu.size(); i++) {
-          MenuItem item = menu.getItem(i);
-          if (item.getItemId() == R.id.action_filter_results) {
-              View itemChooser = item.getActionView();
-              if (itemChooser != null) {
-                  itemChooser.setOnClickListener(new View.OnClickListener() {
-                      @Override
-                      public void onClick(View v) {
-                          Intent intent = new Intent(WhoIsLookingForMeResultsActivity.this, WhoIsSearchActivity.class);
-                          startActivity(intent);
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem item = menu.getItem(i);
+            if (item.getItemId() == R.id.action_filter_results) {
+                View itemChooser = item.getActionView();
+                if (itemChooser != null) {
+                    itemChooser.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(WhoIsLookingForMeResultsActivity.this, WhoIsSearchActivity.class);
+                            startActivity(intent);
 
-                      }
-                  });
-              }
-          }
-      }
+                        }
+                    });
+                }
+            }
+        }
         return true;
     }
 

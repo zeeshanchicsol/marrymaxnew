@@ -46,6 +46,7 @@ import com.chicsol.marrymax.activities.MyProfileActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.activities.subscription.SubscriptionPlanActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapter;
+import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.fragments.DashMain.DashMembersFragment;
 import com.chicsol.marrymax.modal.Dashboards;
@@ -82,7 +83,7 @@ import java.util.Map;
  * Created by Android on 11/3/2016.
  */
 
-public class DashboardMainFragment extends Fragment implements RecyclerViewAdapter.OnItemClickListener, DashboarMainActivityWithBottomNav.BottomNavSelected {
+public class DashboardMainFragment extends Fragment implements RecyclerViewAdapter.OnItemClickListener, DashboarMainActivityWithBottomNav.BottomNavSelected, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
 
     String Tag = "DashboardMainFragment";
     public ImageLoader imageLoader;
@@ -125,6 +126,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
     private AppCompatButton btDashboardGetOfferNow, btDashboardDismissBanner;
     private RelativeLayout rlUpgrade;
+    private LinearLayout llMatchPreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -212,6 +214,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         llMatchesWithPhotoUpdate = (LinearLayout) view.findViewById(R.id.LinearLayoutDMMatchesWithPhotoUpdateCount);
         llMembersLookingForMe = (LinearLayout) view.findViewById(R.id.LinearLayoutDMMembersLookingForMeCount);
         llMatchesLookingForMe = (LinearLayout) view.findViewById(R.id.LinearLayoutDMMatchesLookingForMeCount);
+        llMatchPreference = (LinearLayout) view.findViewById(R.id.LinearLayoutDashMainMatchPreference);
 
 
         // ,,,,;
@@ -475,6 +478,17 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
     public void setListener() {
+
+        llMatchPreference.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogMatchingAttributeFragment dialogFragment = dialogMatchingAttributeFragment.newInstance("asd");
+                dialogFragment.setTargetFragment(DashboardMainFragment.this, 0);
+                dialogFragment.show(getFragmentManager(), "dialog");
+            }
+        });
+
+
         rlUpgrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1435,6 +1449,11 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
             }
         };
         MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
+    }
+
+    @Override
+    public void onPreferenceComplete(String s) {
+           setupViewPager();
     }
 
     /*private void getStatus() {

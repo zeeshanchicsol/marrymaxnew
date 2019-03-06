@@ -1,11 +1,11 @@
-package com.chicsol.marrymax.fragments.AccountSetting;
+package com.chicsol.marrymax.dialogs;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.GridLayout;
 import android.util.Log;
@@ -31,7 +31,6 @@ import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.activities.registration.RegisterAppearanceActivity;
 import com.chicsol.marrymax.activities.registration.RegisterGeographicActivity;
 import com.chicsol.marrymax.activities.registration.RegisterLifeStyleActivity1;
-import com.chicsol.marrymax.dialogs.dialogAddNotes;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.PrefMatching;
 import com.chicsol.marrymax.other.MarryMax;
@@ -68,9 +67,10 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
     private ProgressBar pDialog;
     private mTextView tvLifeStyleSetting, tvGeographySetting, tvAppearanceSetting;
-    String selectedIds = null;
-
+    private String selectedIds = null;
+    private onMatchPreferenceCompleteListener mCompleteListener;
     private String Tag = "dialogMatchingAttributeFragment";
+    private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,6 +97,22 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
         return rootView;
     }
 
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+            context=activity;
+
+            if (getTargetFragment() != null) {
+                mCompleteListener = (onMatchPreferenceCompleteListener) getTargetFragment();
+            } else {
+                mCompleteListener = (onMatchPreferenceCompleteListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
+        }
+    }
+
 /*
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -115,7 +131,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
 
     private void initilize(View view) {
-        viewGenerator = new ViewGenerator(getContext());
+        viewGenerator = new ViewGenerator(context);
         glLifeStyle = (GridLayout) view.findViewById(R.id.GridlayoutAccountSettingPrefferedMatchingLifeStyle);
         glAppearance = (GridLayout) view.findViewById(R.id.GridlayoutAccountSettingPrefferedMatchingAppearance);
         glGeography = (GridLayout) view.findViewById(R.id.GridlayoutAccountSettingPrefferedMatchingGeography);
@@ -167,17 +183,15 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
                     String[] arrayList = selectedIds.split(",");
 
                     if (arrayList.length < 4) {
+                        Toast.makeText(context, "minimium four matching attributes should be selected", Toast.LENGTH_SHORT).show();
 
-                        Snackbar snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), "minimium four matching attributes should be selected", Snackbar.LENGTH_SHORT);
-                        snackbarNotVerified.show();
                     } else if (arrayList.length > 4) {
+                        Toast.makeText(context, "Max four matching attributes should be selected", Toast.LENGTH_SHORT).show();
 
-                        Snackbar snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), "Max four matching attributes should be selected", Snackbar.LENGTH_SHORT);
-                        snackbarNotVerified.show();
                     } else if (!selectedIds.equals("")) {
 
                         Members mem = new Members();
-                        mem.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                        mem.set_path(SharedPreferenceManager.getUserObject(context).get_path());
                         mem.set_choice_preferences_ids(selectedIds);
                         Gson gson = new Gson();
                         String memString = gson.toJson(mem);
@@ -191,7 +205,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
                     } else {
 
-                        Toast.makeText(getContext(), "Please check some boxes first.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Please check some boxes first.", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -206,7 +220,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
 
                 Class cls = RegisterLifeStyleActivity1.class;
-                new MarryMax(getActivity()).getProfileProgress(cls, getActivity(), getContext(), SharedPreferenceManager.getUserObject(getContext()));
+                new MarryMax(getActivity()).getProfileProgress(cls, getActivity(), context, SharedPreferenceManager.getUserObject(context));
             }
         });
         tvGeographySetting.setOnClickListener(new View.OnClickListener() {
@@ -215,7 +229,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
 
                 Class cls = RegisterGeographicActivity.class;
-                new MarryMax(getActivity()).getProfileProgress(cls, getActivity(), getContext(), SharedPreferenceManager.getUserObject(getContext()));
+                new MarryMax(getActivity()).getProfileProgress(cls, getActivity(), context, SharedPreferenceManager.getUserObject(context));
 
             }
         });
@@ -224,7 +238,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
             public void onClick(View v) {
 
                 Class cls = RegisterAppearanceActivity.class;
-                new MarryMax(getActivity()).getProfileProgress(cls, getActivity(), getContext(), SharedPreferenceManager.getUserObject(getContext()));
+                new MarryMax(getActivity()).getProfileProgress(cls, getActivity(), context, SharedPreferenceManager.getUserObject(context));
 
             }
         });
@@ -247,8 +261,8 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(getContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getPreferences + SharedPreferenceManager.getUserObject(getContext()).get_path(),
+        Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(context).get_path());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getPreferences + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -267,7 +281,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
                             List<PrefMatching> dataList = (List<PrefMatching>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
                             Log.e("Response", dataList.size() + "");
-                            ViewGenerator viewGenerator = new ViewGenerator(getContext());
+                            ViewGenerator viewGenerator = new ViewGenerator(context);
                             Point size = new Point();
                             if (getActivity() != null) {
                                 getActivity().getWindowManager().getDefaultDisplay().getSize(size);
@@ -319,7 +333,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
     }
 
 
@@ -347,7 +361,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
 
             if (arrayList.length > 4) {
-                Toast.makeText(getContext(), " Only four matching attributes can be selected. To change matching attributes, un-check any selected one and then select attribute of your choice and adjust your preferences accordingly.", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, " Only four matching attributes can be selected. To change matching attributes, un-check any selected one and then select attribute of your choice and adjust your preferences accordingly.", Toast.LENGTH_LONG).show();
                 compoundButton.setChecked(!b);
                 // Snackbar snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), " Only four matching attributes can be selected. To change matching attributes, un-check any selected one and then select attribute of your choice and adjust your preferences accordingly.", Snackbar.LENGTH_SHORT);
                 // snackbarNotVerified.show();
@@ -414,10 +428,12 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
                             int responseid = response.getInt("id");
 
                             if (responseid == 1) {
-                                Toast.makeText(getContext(), "Matching Preference Successfully Updated", Toast.LENGTH_SHORT).show();
+                                mCompleteListener.onPreferenceComplete("");
+                                Toast.makeText(context, "Matching Preference Successfully Updated", Toast.LENGTH_SHORT).show();
                                 dialogMatchingAttributeFragment.this.getDialog().cancel();
+
                             } else {
-                                Toast.makeText(getContext(), "Error Occurred. Try again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Error Occurred. Try again", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
@@ -450,7 +466,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
+        MySingleton.getInstance(context).addToRequestQueue(jsonObjReq, Tag);
     }
 
     @Override
@@ -460,4 +476,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
     }
 
+    public static interface onMatchPreferenceCompleteListener {
+        public abstract void onPreferenceComplete(String s);
+    }
 }

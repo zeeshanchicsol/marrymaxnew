@@ -264,7 +264,9 @@ public class dialogFeedbackDetail extends DialogFragment {
 
         mRbar = (AppCompatRatingBar) rootView.findViewById(R.id.dialog_ratingbar);
         mRbar.setRating(obj.getRating());
-        mRbar.setClickable(false);
+    //    mRbar.setClickable(false);
+        mRbar.setIsIndicator(true);
+
         tvAlias.setText(obj.getAlias() + " ");
         tvAge.setText("( " + obj.getAge() + " Years )");
 

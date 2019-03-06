@@ -34,9 +34,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.MatchAidActivity;
-import com.chicsol.marrymax.activities.UserProfileActivityFragment;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
-import com.chicsol.marrymax.dialogs.dialogAddNotes;
+import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
 import com.chicsol.marrymax.modal.Dashboards;
@@ -255,9 +254,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 */
 
 
-        dialogMatchingAttributeFragment dialogFragment = dialogMatchingAttributeFragment.newInstance("asd");
-        //     newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
-        dialogFragment.show(getFragmentManager(), "dialog");
+
 
 
     }
