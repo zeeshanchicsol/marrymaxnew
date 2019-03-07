@@ -27,11 +27,13 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatches;
+import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
 import com.chicsol.marrymax.dialogs.dialogRequest;
 import com.chicsol.marrymax.dialogs.dialogRequestPhone;
 import com.chicsol.marrymax.dialogs.dialogShowInterest;
+import com.chicsol.marrymax.fragments.AccountSetting.MatchingAttributeFragment;
 import com.chicsol.marrymax.interfaces.MatchesRefreshCallBackInterface;
 import com.chicsol.marrymax.interfaces.UpdateMatchesCountCallback;
 import com.chicsol.marrymax.modal.Members;
@@ -61,7 +63,7 @@ import static java.security.AccessController.getContext;
  * Created by Android on 11/3/2016.
  */
 
-public class PrefferedMatchingProfileFragment extends Fragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface {
+public class PrefferedMatchingProfileFragment extends BaseMatchesFragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
     public static int result = 0;
     LinearLayout LinearLayoutMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -89,6 +91,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
         setHasOptionsMenu(true);
     }
 
+/*
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, container, false);
@@ -99,6 +102,26 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
 
         return rootView;
     }
+*/
+
+
+    @Override
+    public View provideYourFragmentView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, parent, false);
+
+        initilize(rootView);
+        setListenders();
+        //Now specific components here (you can initialize Buttons etc)
+
+        return rootView;
+    }
+
+    @Override
+    public Fragment getChildFragment() {
+        return PrefferedMatchingProfileFragment.this;
+    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -118,7 +141,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             lastPage = 1;
             recyclerAdapter.setMoreLoading(false);
-       //     getRawData();
+            //     getRawData();
 
             if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
                 Members memberSearchObj = DrawerActivity.rawSearchObj;
@@ -197,6 +220,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
 
     private void initilize(View view) {
 
+
         tvMatchesCount = (TextView) view.findViewById(R.id.TextViewMatchesTotalCount);
 
         fragment = PrefferedMatchingProfileFragment.this;
@@ -208,15 +232,13 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
         recyclerView = (RecyclerView) view.findViewById(R.id.RecyclerViewDashMainMyMatches);
 
 
+        //   LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
 
-     //   LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-
-        LinearLayoutManager mLayoutManager =   new WrapContentLinearLayoutManager(getContext());
+        LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
         recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this, Tag);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
-
 
 
         recyclerAdapter.setRecyclerView(recyclerView);
@@ -237,7 +259,7 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
 
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
-        //    new MarryMax(null).getRawData(context, 1);
+            //    new MarryMax(null).getRawData(context, 1);
             Members memberSearchObj = DrawerActivity.rawSearchObj;
 
 
@@ -728,5 +750,10 @@ public class PrefferedMatchingProfileFragment extends Fragment implements Recycl
         super.onStop();
         MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
+    }
+
+    @Override
+    public void onPreferenceComplete(String s) {
+        loadData(params, false);
     }
 }

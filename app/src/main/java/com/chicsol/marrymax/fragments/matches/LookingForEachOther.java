@@ -13,9 +13,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -30,6 +32,7 @@ import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatches;
+import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
 import com.chicsol.marrymax.dialogs.dialogRequest;
@@ -64,7 +67,7 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
  * Created by Android on 11/3/2016.
  */
 
-public class LookingForEachOther extends Fragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, DashboardMatchesMainFragment.MatchesMainFragmentInterface, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface {
+public class LookingForEachOther extends BaseMatchesFragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, DashboardMatchesMainFragment.MatchesMainFragmentInterface, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
     public static int result = 0;
     LinearLayout llMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -87,12 +90,14 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
     private String Tag = "LookingForEachOther";
     TextView tvShortDescEmptyMessage;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
 
+/*
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, container, false);
@@ -103,6 +108,23 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
 
         return rootView;
     }
+*/
+
+    @Override
+    public View provideYourFragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, container, false);
+
+        initilize(rootView);
+        setListenders();
+
+
+        return rootView;
+    }
+    @Override
+    public Fragment getChildFragment() {
+        return LookingForEachOther.this;
+    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -121,6 +143,8 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
     @Override
     public void onResume() {
         super.onResume();
+
+
         lastPage = 1;
         recyclerAdapter.setMoreLoading(false);
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
@@ -166,7 +190,8 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
     }
 
     private void initilize(View view) {
-        fragment = LookingForEachOther.this;
+
+         fragment = LookingForEachOther.this;
         membersDataList = new ArrayList<>();
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarMyMatches);
 
@@ -235,9 +260,11 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
         });
 
 
+
     }
 
     private void setListenders() {
+
 
     }
 
@@ -509,7 +536,7 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
                                         tvComplProfioleTitle.setText("Matches Looking For Me");
 
 
-                                    } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 ) {
+                                    } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
 
                                         GsonBuilder gsonBuildert = new GsonBuilder();
                                         Type membert = new TypeToken<Members>() {
@@ -686,5 +713,10 @@ public class LookingForEachOther extends Fragment implements RecyclerViewAdapter
         super.onStop();
         MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
+    }
+
+    @Override
+    public void onPreferenceComplete(String s) {
+        loadData(params, false);
     }
 }

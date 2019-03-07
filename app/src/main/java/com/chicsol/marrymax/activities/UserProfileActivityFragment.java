@@ -1467,7 +1467,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         Log.e("getProfileDetail", params.toString());
         Log.e("getProfileDetail ", Urls.getProfileDetail);
-        Log.e("getProfileDetail ", Constants.getHashMap() + "");
+    //    Log.e("getProfileDetail ", Constants.getHashMap() + "");
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getProfileDetail, params,

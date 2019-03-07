@@ -28,6 +28,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatches;
+import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
 import com.chicsol.marrymax.dialogs.dialogRequest;
@@ -64,7 +65,7 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
  * Created by Android on 11/3/2016.
  */
 
-public class MatchesWithPhotoUpdate2Fragment extends Fragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, DashboardMatchesMainFragment.MatchesMainFragmentInterface, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface {
+public class MatchesWithPhotoUpdate2Fragment extends BaseMatchesFragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, DashboardMatchesMainFragment.MatchesMainFragmentInterface, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener  {
     public static int result = 0;
     LinearLayout LinearLayoutMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -83,14 +84,13 @@ public class MatchesWithPhotoUpdate2Fragment extends Fragment implements Recycle
     private long totalMatchesCount = 0;
     private String Tag = "MatchesWithPhotoUpdate2Fragment";
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
 
-    @Override
+/*    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, container, false);
         Log.e("created", "created");
@@ -99,7 +99,24 @@ public class MatchesWithPhotoUpdate2Fragment extends Fragment implements Recycle
         setListenders();
 
         return rootView;
+    }*/
+
+
+    @Override
+    public View provideYourFragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, container, false);
+
+        initilize(rootView);
+        setListenders();
+
+
+        return rootView;
     }
+    @Override
+    public Fragment getChildFragment() {
+        return MatchesWithPhotoUpdate2Fragment.this;
+    }
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -189,6 +206,8 @@ public class MatchesWithPhotoUpdate2Fragment extends Fragment implements Recycle
     }
 
     private void initilize(View view) {
+
+
         fragment = MatchesWithPhotoUpdate2Fragment.this;
         membersDataList = new ArrayList<>();
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarMyMatches);
@@ -225,7 +244,6 @@ public class MatchesWithPhotoUpdate2Fragment extends Fragment implements Recycle
     }
 
     private void setListenders() {
-
 
     }
 
@@ -633,5 +651,10 @@ public class MatchesWithPhotoUpdate2Fragment extends Fragment implements Recycle
         super.onStop();
         MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
+    }
+
+    @Override
+    public void onPreferenceComplete(String s) {
+        loadData(params, false);
     }
 }

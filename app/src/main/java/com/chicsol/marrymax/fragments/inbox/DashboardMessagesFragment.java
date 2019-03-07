@@ -438,7 +438,7 @@ Subscribe now to enjoy following benefits.
        /* final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-        Log.e("url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path());
+        Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<JSONArray>() {
                     @Override

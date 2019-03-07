@@ -100,9 +100,9 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
     private ProgressBar pDialog;
     private TextView tvWIV, tvWVM, tvPMP, tvMWPU, tvMemLFM, tvMatchesLFM, tvNewMessages, tvNewRequests, tvNewInterests;
-    private TextView tvAcceptedMembers, tvMyFavourites, tvMyNotes, tvRemoveFromSearch, tvBlocked, tvAaccMemCount, tvMFavCount, tvMyNotesCount, tvRecommenedMatchesCount, tvRemovedFromSearchCount, tvBlockedCount, tvProfileCompleteion;
+    private TextView tvAcceptedMembers, tvMyFavourites, tvMyNotes, tvRemoveFromSearch, tvBlocked, tvAaccMemCount, tvMFavCount, tvMyNotesCount, tvRecommenedMatchesCount, tvRemovedFromSearchCount, tvBlockedCount, tvProfileCompleteion, tvFeedbackPending;
     private ImageView ivCompleleProfile, ivVerifyPhone, ivVerifyEmail, ivReviewPending, ivReviewPendingOrange;
-    private CardView cardViewProfileCompletionStatus, cvPromoCode;
+    private CardView cardViewProfileCompletionStatus, cvPromoCode, cvFeedbackPending;
 
     private AppCompatButton btSubscribe;
     private NestedScrollView NvScreenMain;
@@ -111,7 +111,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private Context context;
 
 
-    private AppCompatButton btPhoneRecievedCount, btRequestecievedCount, btInterestRecievedCount, btPermissionsRecievedCount, btPhoneSentCount, btInterestSentCount, btRequestSentCount, btPermissionsSentCount;
+    private AppCompatButton btPhoneRecievedCount, btRequestecievedCount, btInterestRecievedCount, btPermissionsRecievedCount, btPhoneSentCount, btInterestSentCount, btRequestSentCount, btPermissionsSentCount, btGiveFeedback;
 
     private TextView tvCount1, tvCount2, tvCount3, tvCount4, tvPromoMessageTitle;
     private RelativeLayout rlAcceptedMem, rlMyFav, rlMyNotes, rlRemoveFromSearch, rlBlocked, rlRecommededMatches;
@@ -127,6 +127,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private AppCompatButton btDashboardGetOfferNow, btDashboardDismissBanner;
     private RelativeLayout rlUpgrade;
     private LinearLayout llMatchPreference;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -191,9 +192,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         btRequestSentCount = (AppCompatButton) view.findViewById(R.id.ButtonDashboardRequestSentCount);
         btPermissionsSentCount = (AppCompatButton) view.findViewById(R.id.ButtonDashboardPermissionSentCount);
 
+        btGiveFeedback = (AppCompatButton) view.findViewById(R.id.ButtonDashMainFeedbackPending);
+
 
         cardViewProfileCompletionStatus = (CardView) view.findViewById(R.id.CardViewProfileCompletionStatus);
         cvPromoCode = (CardView) view.findViewById(R.id.CardViewPromoCode);
+        cvFeedbackPending = (CardView) view.findViewById(R.id.CardViewDashMainFeedbackPending);
+
 
         coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.coordinatorLayoutDashMainFragment);
         FrameLayoutDashMainContainer = (FrameLayout) view.findViewById(R.id.FrameLayoutDashMainContainer);
@@ -246,6 +251,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         tvNewMessages = (TextView) view.findViewById(R.id.TextViewDMNewMessagesCount);
         tvNewRequests = (TextView) view.findViewById(R.id.TextViewDMNewRequestsCount);
         tvNewInterests = (TextView) view.findViewById(R.id.TextViewDMNewInteretsCount);
+
+        tvFeedbackPending = (TextView) view.findViewById(R.id.TextViewDashMainFeedbackPending);
 
         tvCount1 = (TextView) view.findViewById(R.id.TextViewDashboardCount1);
         tvCount2 = (TextView) view.findViewById(R.id.TextViewDashboardCount2);
@@ -1453,7 +1460,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
     @Override
     public void onPreferenceComplete(String s) {
-           setupViewPager();
+        setupViewPager();
     }
 
     /*private void getStatus() {

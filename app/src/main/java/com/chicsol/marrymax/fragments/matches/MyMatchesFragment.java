@@ -66,7 +66,7 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
  * Created by Android on 11/3/2016.
  */
 
-public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface {
+public class MyMatchesFragment extends BaseMatchesFragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
     public static int result = 0;
     LinearLayout LinearLayoutMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -87,7 +87,7 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
 
 
     private String Tag = "MyMatchesFragment";
-    private LinearLayout llMatchPreference;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -101,7 +101,7 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
 
            // You can do your animation here because we are visible! (make sure onViewCreated has been called too and the Layout has been laid. Source for another question but you get the idea.
        }*/
-    @Override
+ /*   @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, container, false);
 
@@ -109,6 +109,22 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
         setListenders();
 
         return rootView;
+    }*/
+
+    @Override
+    public View provideYourFragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, container, false);
+
+        initilize(rootView);
+        setListenders();
+
+
+        return rootView;
+    }
+
+    @Override
+    public Fragment getChildFragment() {
+        return MyMatchesFragment.this;
     }
 
     @Override
@@ -184,7 +200,6 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
 
     private void initilize(View view) {
 
-        llMatchPreference = (LinearLayout) view.findViewById(R.id.LinearLayoutMatchesMatchPreference);
 
         tvMatchesCount = (TextView) view.findViewById(R.id.TextViewMatchesTotalCount);
         fragment = MyMatchesFragment.this;
@@ -222,19 +237,7 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
 
 
     private void setListenders() {
-        llMatchPreference.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                llMatchPreference.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogMatchingAttributeFragment dialogFragment = dialogMatchingAttributeFragment.newInstance("asd");
-                        dialogFragment.setTargetFragment(MyMatchesFragment.this, 0);
-                        dialogFragment.show(getFragmentManager(), "dialog");
-                    }
-                });
-            }
-        });
+
     }
 
     @Override
@@ -770,5 +773,10 @@ public class MyMatchesFragment extends Fragment implements RecyclerViewAdapterMy
         super.onStop();
         MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
+    }
+
+    @Override
+    public void onPreferenceComplete(String s) {
+        loadData(params, false);
     }
 }

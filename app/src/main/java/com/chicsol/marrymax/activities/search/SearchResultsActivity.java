@@ -30,6 +30,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatchesSearch;
+import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
 import com.chicsol.marrymax.dialogs.dialogRequest;
@@ -63,7 +64,7 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
  * Created by Android on 11/3/2016.
  */
 
-public class SearchResultsActivity extends AppCompatActivity implements RecyclerViewAdapterMyMatchesSearch.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface {
+public class SearchResultsActivity extends AppCompatActivity implements RecyclerViewAdapterMyMatchesSearch.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
     public static int result = 0;
     LinearLayout LinearLayoutMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -87,6 +88,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     private Context context;
     LinearLayout llMMMatchesNotFoundCompleteProfile, llSubscribeNow;
     private LinearLayout llMatchPreference;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -232,7 +234,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     private void initilize() {
 
         llMatchPreference = (LinearLayout) findViewById(R.id.LinearLayoutMatchesMatchPreference);
-        llMatchPreference.setVisibility(View.GONE);
+        // llMatchPreference.setVisibility(View.GONE);
 
         context = getApplicationContext();
 
@@ -295,6 +297,16 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     }
 
     private void setListenders() {
+        llMatchPreference.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                dialogMatchingAttributeFragment dialogFragment = dialogMatchingAttributeFragment.newInstance("asd");
+                //   dialogFragment.setTargetFragment(, 0);
+                dialogFragment.show(getSupportFragmentManager(), "dialog");
+            }
+        });
         ((AppCompatButton) findViewById(R.id.ButtonMMonCompleteProfile)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -808,5 +820,10 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
     @Override
     public void onRefreshMatch() {
         onRefresh();
+    }
+
+    @Override
+    public void onPreferenceComplete(String s) {
+        loadData(params, false);
     }
 }

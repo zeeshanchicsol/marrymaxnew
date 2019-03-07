@@ -28,6 +28,7 @@ import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyMatches;
+import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
 import com.chicsol.marrymax.dialogs.dialogRequest;
@@ -63,7 +64,7 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
  * Created by Android on 11/3/2016.
  */
 
-public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, DashboardMatchesMainFragment.MatchesMainFragmentInterface, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface {
+public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdapterMyMatches.OnLoadMoreListener, SwipeRefreshLayout.OnRefreshListener, dialogShowInterest.onCompleteListener, dialogRequestPhone.onCompleteListener, DashboardMatchesMainFragment.MatchesMainFragmentInterface, dialogRequest.onCompleteListener, dialogProfileCompletion.onCompleteListener, dialogRemoveFromSearch.onCompleteListener, UpdateMatchesCountCallback, MatchesRefreshCallBackInterface, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
     public static int result = 0;
     LinearLayout LinearLayoutMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -85,13 +86,16 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
 
     private String Tag = "WhoViewedMe";
 
+  //  private LinearLayout llMatchPreference;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
 
-    @Override
+  /*  @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, container, false);
         Log.e("created", "created");
@@ -100,7 +104,25 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
         setListenders();
 
         return rootView;
+    }*/
+
+
+    @Override
+    public View provideYourFragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_dashboard_mymatches, container, false);
+
+        initilize(rootView);
+        setListenders();
+
+
+        return rootView;
     }
+
+    @Override
+    public Fragment getChildFragment() {
+        return WhoViewedMe.this;
+    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -163,6 +185,9 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
     }
 
     private void initilize(View view) {
+
+     //   llMatchPreference = (LinearLayout) view.findViewById(R.id.LinearLayoutMatchesMatchPreference);
+
         fragment = WhoViewedMe.this;
         membersDataList = new ArrayList<>();
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarMyMatches);
@@ -183,10 +208,10 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
         recyclerView = (RecyclerView) view.findViewById(R.id.RecyclerViewDashMainMyMatches);
 
 
-        LinearLayoutManager mLayoutManager =  new WrapContentLinearLayoutManager(getContext());
+        LinearLayoutManager mLayoutManager = new WrapContentLinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this,Tag);
+        recyclerAdapter = new RecyclerViewAdapterMyMatches(getContext(), getFragmentManager(), this, fragment, this, this, Tag);
         recyclerAdapter.setLinearLayoutManager(mLayoutManager);
 
         recyclerAdapter.setRecyclerView(recyclerView);
@@ -284,7 +309,7 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
                 pDialog.setVisibility(View.GONE);
             }
         });
-        MySingleton.getInstance(getContext()).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
     }
 
 
@@ -524,7 +549,7 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -604,7 +629,7 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
 
     }
 
@@ -635,5 +660,10 @@ public class WhoViewedMe extends Fragment implements RecyclerViewAdapterMyMatche
         super.onStop();
         MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
+    }
+
+    @Override
+    public void onPreferenceComplete(String s) {
+        loadData(params, false);
     }
 }

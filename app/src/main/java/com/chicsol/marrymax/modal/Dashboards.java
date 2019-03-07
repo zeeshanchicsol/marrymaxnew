@@ -91,9 +91,20 @@ public class Dashboards {
     public String typereceived;
 
 
+    @SerializedName("feedback_pending")
+    public String feedback_pending;
+
+
     @SerializedName("recommendcount")
     public String recommendcount;
 
+    public String getFeedback_pending() {
+        return feedback_pending;
+    }
+
+    public void setFeedback_pending(String feedback_pending) {
+        this.feedback_pending = feedback_pending;
+    }
 
     public String getId() {
         return id;
