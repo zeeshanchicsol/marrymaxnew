@@ -40,6 +40,7 @@ import com.chicsol.marrymax.modal.mCommunication;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
+import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.google.gson.Gson;
@@ -59,7 +60,7 @@ import java.util.Map;
  * Created by Android on 11/3/2016.
  */
 
-public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener,dialogFeedback.onCompleteListener {
+public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener, dialogFeedback.onCompleteListener {
     private TextView tvAge, tvAlias, tvEthnic, tvReligious, tvMarital, tvCountry;
     RecyclerView recyclerView;
     private RecyclerViewAdapterChatList recyclerAdapter;
@@ -257,8 +258,8 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         llFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogFeedback newFragment = dialogFeedback.newInstance(objCom.getUserpath(),"2");
-              //  newFragment.setTargetFragment(fragment, 0);
+                dialogFeedback newFragment = dialogFeedback.newInstance(objCom.getUserpath(), "2");
+                //  newFragment.setTargetFragment(fragment, 0);
                 newFragment.show(getSupportFragmentManager(), "dialog");
             }
         });
@@ -318,7 +319,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         pDialog1.show();
 
 
-        Log.e("Params", Urls.sendMessage + "    " + params);
+        Log.e("sendMessage Params", Urls.sendMessage + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.sendMessage, params,
                 new Response.Listener<JSONObject>() {
@@ -342,6 +343,8 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                             //  Log.e("list size", "" + dlist.size());
                             if (dlist.size() > 0) {
                                 mCommunication mCommunication = dlist.get(0);
+
+
                                 if (mCommunication.write_quota == 0) {
                                     if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 4) {
 
@@ -360,6 +363,29 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                     params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
                                     params1.put("userpath", objCom.getUserpath());
                                     getChatRequest(params1);
+                                }
+/*
+
+                                0            Don't do anything
+                                1            Phone is public,give option to show phone number
+                                2            Phone is protected, give option to send request to view phone number
+*/
+
+                                mCommunication.setId(1);
+                                if (mCommunication.getId() == 1) {
+                                    //     Phone is public,give option to show phone number
+                                    if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
+                                        // selectedPosition = position;
+                                     //   marryMax.statusBaseChecks(null, getApplicationContext(), 4, getSupportFragmentManager(), null, null, null, null, null, null);
+                                    }
+
+
+                                } else if (mCommunication.getId() == 2) {
+                                    //     Phone is protected, give option to send request to view phone number
+                                    if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
+                                        // selectedPosition = position;
+                                     //   marryMax.statusBaseChecks(null, getApplicationContext(), 4, getSupportFragmentManager(), null, null, null, null, null, null);
+                                    }
                                 }
 
                             }

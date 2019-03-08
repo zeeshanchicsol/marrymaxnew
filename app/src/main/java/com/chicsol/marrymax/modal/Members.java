@@ -596,6 +596,20 @@ public class Members {
     @SerializedName("physics_types")
     private String physics_types;
 
+
+
+
+    @SerializedName("feedback_pending")
+    public String feedback_pending;
+
+    public String getFeedback_pending() {
+        return feedback_pending;
+    }
+
+    public void setFeedback_pending(String feedback_pending) {
+        this.feedback_pending = feedback_pending;
+    }
+
     public int getPhysic_id() {
         return physic_id;
     }

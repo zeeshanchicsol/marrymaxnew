@@ -23,6 +23,7 @@ import com.chicsol.marrymax.fragments.inbox.interests.DashboardMyInterestsMainFr
 import com.chicsol.marrymax.fragments.inbox.permissions.DashboardMyPermissionsMainFragment;
 import com.chicsol.marrymax.fragments.inbox.requests.DashboardMyRequestsMainFragment;
 import com.chicsol.marrymax.fragments.list.BlockedListFragment;
+import com.chicsol.marrymax.fragments.list.MyFeedbackFragment;
 import com.chicsol.marrymax.fragments.list.RecommendedMatches;
 import com.chicsol.marrymax.fragments.list.RemovedFromSearchFragment;
 import com.chicsol.marrymax.fragments.list.myContacts.MyContactsMainFragment;
@@ -194,10 +195,13 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
                 break;
 
             case 24:
-
                 getSupportActionBar().setTitle("Matches");
                 fragment = new MyMatchesFragment();
+                break;
 
+            case 25:
+                getSupportActionBar().setTitle("Feedback");
+                fragment = new MyFeedbackFragment();
                 break;
         }
 

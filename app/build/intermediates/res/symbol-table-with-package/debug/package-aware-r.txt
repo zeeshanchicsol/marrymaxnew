@@ -1359,6 +1359,7 @@ id ButtonContactDialogCancel
 id ButtonContactSubmit
 id ButtonDInterestsCompleteProfile
 id ButtonDInterestsSubscribe
+id ButtonDashMainFeedbackPending
 id ButtonDashboardDismissBanner
 id ButtonDashboardGetOfferNow
 id ButtonDashboardInterestReceivedCount
@@ -1370,6 +1371,8 @@ id ButtonDashboardPhoneSentCount
 id ButtonDashboardRequestReceivedCount
 id ButtonDashboardRequestSentCount
 id ButtonDashboardonChangeMatchingAttributeMSLL
+id ButtonDialogFeedBackPendingClose
+id ButtonDialogFeedBackPendingGiveFeedBack
 id ButtonDialogPCButton
 id ButtonDialogPCDismiss
 id ButtonDialogPCSubscribe
@@ -1442,6 +1445,7 @@ id ButtonSubscriptionPurchase
 id ButtonViewProfile
 id CTRL
 id CardViewAmenities
+id CardViewDashMainFeedbackPending
 id CardViewDashMainMembersItem
 id CardViewProfileCompletionStatus
 id CardViewProfileSettingsLandline
@@ -1951,6 +1955,7 @@ id TextViewDMWhomViewedMeCount
 id TextViewDashMainAccStatus
 id TextViewDashMainAddPhoto
 id TextViewDashMainEditProfile
+id TextViewDashMainFeedbackPending
 id TextViewDashNotificationDescription
 id TextViewDashNotificationUserName
 id TextViewDashboardCount1
@@ -1961,6 +1966,7 @@ id TextViewDashboardPromoMessage
 id TextViewDescribePersonality
 id TextViewDialogAcceptInterestDetails
 id TextViewDialogDeclineInterestDetails
+id TextViewDialogFeedBackPendingText
 id TextViewDialogInterestDetails
 id TextViewDialogPhonePicsTitle
 id TextViewDialogRemoveFromSearch
@@ -2869,6 +2875,7 @@ layout dialog_contact_details
 layout dialog_decline
 layout dialog_enter_promo_code
 layout dialog_feedback
+layout dialog_feedback_pending
 layout dialog_geo_info
 layout dialog_interest
 layout dialog_login_to_continue

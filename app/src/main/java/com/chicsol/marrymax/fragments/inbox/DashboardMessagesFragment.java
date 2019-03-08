@@ -27,6 +27,9 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterInBoxList;
+import com.chicsol.marrymax.dialogs.dialogFeedBackPending;
+import com.chicsol.marrymax.dialogs.dialogVerifyphone;
+import com.chicsol.marrymax.fragments.AccountSetting.MyProfileSettingFragment;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mComCount;
 import com.chicsol.marrymax.modal.mCommunication;
@@ -386,25 +389,19 @@ Subscribe now to enjoy following benefits.
 
                             }*/
                         } catch (
-                                JSONException e)
-
-                        {
+                                JSONException e) {
                             e.printStackTrace();
                         }
 
                         pDialog.setVisibility(View.GONE);
                     }
-                }, new Response.ErrorListener()
-
-        {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
                 pDialog.setVisibility(View.GONE);
             }
-        })
-
-        {
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 return Constants.getHashMap();
@@ -456,6 +453,26 @@ Subscribe now to enjoy following benefits.
 
                             Log.e("ressssss", comCount.getNew_interests_count() + "");
                             new_messages_count = (int) comCount.getNew_messages_count();
+
+                            Members member = SharedPreferenceManager.getUserObject(context);
+                            String alias = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
+
+                            if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+
+                            } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+
+                            }
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();

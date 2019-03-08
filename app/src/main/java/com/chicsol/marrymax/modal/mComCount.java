@@ -41,6 +41,18 @@ public class mComCount {
         this.new_questions_count = new_questions_count;
     }
 
+    public String getFeedback_pending() {
+        return feedback_pending;
+    }
+
+    public void setFeedback_pending(String feedback_pending) {
+        this.feedback_pending = feedback_pending;
+    }
+
+
+    @SerializedName("feedback_pending")
+    public String feedback_pending;
+
     @SerializedName("new_messages_count")
     public long new_messages_count;
     @SerializedName("new_interests_count")

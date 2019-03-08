@@ -46,6 +46,7 @@ import com.chicsol.marrymax.dialogs.dialogAddNotes;
 import com.chicsol.marrymax.dialogs.dialogAddtoList;
 import com.chicsol.marrymax.dialogs.dialogBlock;
 import com.chicsol.marrymax.dialogs.dialogDeclineInterest;
+import com.chicsol.marrymax.dialogs.dialogFeedBackPending;
 import com.chicsol.marrymax.dialogs.dialogMatchAid;
 import com.chicsol.marrymax.dialogs.dialogMatchAidUnderProcess;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
@@ -1467,7 +1468,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         Log.e("getProfileDetail", params.toString());
         Log.e("getProfileDetail ", Urls.getProfileDetail);
-    //    Log.e("getProfileDetail ", Constants.getHashMap() + "");
+        //    Log.e("getProfileDetail ", Constants.getHashMap() + "");
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getProfileDetail, params,
@@ -1494,6 +1495,29 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             member = (Members) gson.fromJson(firstJsonObj.toString(), type);
                             //      ((AppCompatActivity)getActivity()).  getSupportActionBar().setTitle(member.getAlias());
                             toolbar.setTitle(member.getAlias());
+                          /*  0            Don't do anything
+                            1            Show poup feedback is pending
+                            2            Show poup feedbacks are pending. Disable background*/
+
+
+                            Members samember = SharedPreferenceManager.getUserObject(context);
+                            String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
+
+                            if (Integer.parseInt(member.getFeedback_pending()) == 1) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+
+                            } else if (Integer.parseInt(member.getFeedback_pending()) == 2) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+
+                            }
 
 
                             if (SharedPreferenceManager.getUserObject(context).get_path() != null && member.get_path() != null) {

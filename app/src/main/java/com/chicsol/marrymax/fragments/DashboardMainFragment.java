@@ -333,6 +333,11 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
         Members member = SharedPreferenceManager.getUserObject(getActivity().getApplicationContext());
 
+
+        String txt = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
+        tvFeedbackPending.setText(Html.fromHtml("Dear " + "<b>" + txt.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks"));
+
+
         // ll_blocked = (LinearLayout) view.findViewById(R.id.LinearLayoutdmBlocked);
         // ll_removed_from_search = (LinearLayout) view.findViewById(R.id.LinearLayoutdmRemovedFromSearch);
         tv_alias = (mTextView) view.findViewById(R.id.TextViewdmAlias);
@@ -485,6 +490,16 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
     public void setListener() {
+
+        btGiveFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 25);
+                // in.putExtra("subtype", "received");
+                startActivity(in);
+            }
+        });
 
         llMatchPreference.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -999,6 +1014,20 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 Type membert = new TypeToken<Dashboards>() {
                                 }.getType();
                                 Dashboards dash = (Dashboards) gson.fromJson(jsonObj.toString(), membert);
+
+
+                                if (Integer.parseInt(dash.getFeedback_pending()) == 1) {
+                                    cvFeedbackPending.setVisibility(View.VISIBLE);
+
+                                } else if (Integer.parseInt(dash.getFeedback_pending()) == 2) {
+                                    cvFeedbackPending.setVisibility(View.VISIBLE);
+                                } else {
+
+                                    // 0 hide
+                                    cvFeedbackPending.setVisibility(View.GONE);
+
+                                }
+
 
                                 tvWIV.setClickable(true);
                                 tvWIV.setText("Whom I Viewed (" + dash.getVisited_members_count() + ")");
