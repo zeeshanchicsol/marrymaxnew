@@ -30,6 +30,26 @@ public class mContacts {
     public String default_image;
     @SerializedName("min_age")
     public long min_age;
+    @SerializedName("match_id")
+    public String match_id;
+    @SerializedName("feedback_id")
+    public int feedback_id;
+
+    public String getMatch_id() {
+        return match_id;
+    }
+
+    public void setMatch_id(String match_id) {
+        this.match_id = match_id;
+    }
+
+    public int getFeedback_id() {
+        return feedback_id;
+    }
+
+    public void setFeedback_id(int feedback_id) {
+        this.feedback_id = feedback_id;
+    }
 
     public String getAlias() {
         return alias;

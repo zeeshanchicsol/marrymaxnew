@@ -50,7 +50,7 @@ import java.util.Map;
  * Created by Android on 11/3/2016.
  */
 
-public class MyFeedbackFragment extends Fragment implements RecyclerViewAdapterMyFeedbacks.OnUpdateListener, dialogFeedbackDetail.onCompleteListener {
+public class MyFeedbackFragment extends Fragment implements RecyclerViewAdapterMyFeedbacks.OnUpdateListener, dialogFeedbackDetail.onCompleteListener, dialogFeedback.onCompleteListener {
     public static int result = 0;
     LinearLayout LinearLayoutMMMatchesNotFound;
     //private Button bt_loadmore;
@@ -143,9 +143,7 @@ public class MyFeedbackFragment extends Fragment implements RecyclerViewAdapterM
         recyclerView.setLayoutManager(mLayoutManager);
 
 
-
         tvEmptyMessage.setText("There are no  Feedbacks.");
-
 
 
         recyclerAdapter = new RecyclerViewAdapterMyFeedbacks(getContext(), getFragmentManager(), fragment, MyFeedbackFragment.this);
@@ -179,8 +177,8 @@ public class MyFeedbackFragment extends Fragment implements RecyclerViewAdapterM
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("myContacts ", Urls.getUsrFeedbacks +"/"+ SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getUsrFeedbacks  +"/"+ SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path(),
+        Log.e("myContacts ", Urls.getUsrFeedbacks + "/" + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getUsrFeedbacks + "/" + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -369,7 +367,9 @@ public class MyFeedbackFragment extends Fragment implements RecyclerViewAdapterM
 
     @Override
     public void onComplete(String s) {
-
+        if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
+            getData();
+        }
     }
 
 /*    private void loadMoreData(String paramsString) {

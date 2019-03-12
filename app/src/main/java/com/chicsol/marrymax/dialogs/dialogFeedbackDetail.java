@@ -69,7 +69,7 @@ import java.util.Map;
 public class dialogFeedbackDetail extends DialogFragment {
 
     public onCompleteListener mCompleteListener;
-    String userpath, jsarray;
+    String userpath, params;
     mLfm lfm;
 
     AppCompatRatingBar mRbar;
@@ -79,19 +79,19 @@ public class dialogFeedbackDetail extends DialogFragment {
     private RecyclerViewAdapterFeedbackAnswerDetails recyclerAdapter;
     private String id = "";
 
-    private TextView tvAlias, tvAge, tvCountry, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvAboutMe;
+    private TextView tvAlias, tvAge, tvDate, tvCountry, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvAboutMe;
     private ImageView image;
     public ImageLoader imageLoader;
     private DisplayImageOptions options, optionsNormalImage;
     private LayoutInflater inflater;
     private int height = 0;
 
-    public static dialogFeedbackDetail newInstance(String jsarray) {
+    public static dialogFeedbackDetail newInstance(String params) {
 
         Gson gson = new Gson();
         dialogFeedbackDetail frag = new dialogFeedbackDetail();
         Bundle args = new Bundle();
-        args.putString("jsarray", jsarray);
+        args.putString("params", params);
 
         frag.setArguments(args);
         return frag;
@@ -118,7 +118,16 @@ public class dialogFeedbackDetail extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle mArgs = getArguments();
-        jsarray = mArgs.getString("jsarray");
+
+        params = mArgs.getString("params");
+
+
+        try {
+            getUserFeedback(new JSONObject(params));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         int heightScreen = metrics.heightPixels;
@@ -217,37 +226,11 @@ public class dialogFeedbackDetail extends DialogFragment {
         final View rootView = inflater.inflate(R.layout.dialog_new_feedback_detail, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-        mUsrFeedback obj = new mUsrFeedback();
-        Gson gson;
-        GsonBuilder gsonBuildert = new GsonBuilder();
-        gson = gsonBuildert.create();
-
-        JSONObject responsArray = null;
-        try {
-          /*  Type mUsFdbk = new TypeToken<mUsrFeedback>() {
-            }.getType();*/
-            responsArray = new JSONObject(jsarray);
-
-            obj = (mUsrFeedback) gson.fromJson(responsArray.getJSONArray("jdata").getJSONArray(0).getJSONObject(0).toString(), mUsrFeedback.class);
-
-            JSONArray jsonCountryStaeObj = responsArray.getJSONArray("jdata").getJSONArray(1);
-
-
-            Gson gsonc;
-            GsonBuilder gsonBuilderc = new GsonBuilder();
-            gsonc = gsonBuilderc.create();
-            Type listType = new TypeToken<List<cModel>>() {
-            }.getType();
-            questionsDataList = (List<cModel>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
         image = (ImageView) rootView.findViewById(R.id.ImageViewFeedbackProfile);
         tvAlias = (TextView) rootView.findViewById(R.id.TextVewFeedbackAlias);
         tvAge = (TextView) rootView.findViewById(R.id.TextViewFeedbackAge);
+        tvDate = (TextView) rootView.findViewById(R.id.TextViewFeedbackDate);
 
         pref1 = (mTextView) rootView.findViewById(R.id.TextViewFeedbackPref1);
         pref2 = (mTextView) rootView.findViewById(R.id.TextViewFeedbackPref2);
@@ -263,60 +246,6 @@ public class dialogFeedbackDetail extends DialogFragment {
 
 
         mRbar = (AppCompatRatingBar) rootView.findViewById(R.id.dialog_ratingbar);
-        mRbar.setRating(obj.getRating());
-    //    mRbar.setClickable(false);
-        mRbar.setIsIndicator(true);
-
-        tvAlias.setText(obj.getAlias() + " ");
-        tvAge.setText("( " + obj.getAge() + " Years )");
-
-
-        pref1.setText("Marital Status: ");
-        pref2.setText("Religious Sect: ");
-        pref3.setText("Ethnicity: ");
-        pref4.setText("Education: ");
-
-        prefValue1.setText(obj.getMarital_type());
-        prefValue2.setText(obj.getReligious_type());
-        prefValue3.setText(obj.getEthnic_type());
-        prefValue4.setText(obj.getEducation_type());
-
-        tvAboutMe.setText(obj.getNotes());
-
-
-        image.setMinimumHeight(height);
-        imageLoader.displayImage(Urls.baseUrl + "/" + obj.getDefault_image(),
-                image, options,
-                new SimpleImageLoadingListener() {
-
-                    @Override
-                    public void onLoadingStarted(String imageUri, View view) {
-                        //  holder.progressBar.setVisibility(View.VISIBLE);
-                        // holder.RLprogress1.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onLoadingFailed(String imageUri, View view,
-                                                FailReason failReason) {
-                        // holder.RLprogress1.setVisibility(View.GONE);
-                        //   holder.progressBar.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onLoadingComplete(String imageUri,
-                                                  View view, Bitmap loadedImage) {
-                        // holder.progressBar.setVisibility(View.GONE);
-                        // holder.RLprogress1.setVisibility(View.GONE);
-                        //   holder.progressBar.setVisibility(View.GONE);
-                    }
-                }, new ImageLoadingProgressListener() {
-                    @Override
-                    public void onProgressUpdate(String imageUri,
-                                                 View view, int current, int total) {
-                        // holder.RLprogress1.setProgress(Math.round(100.0f
-                        // * current / total));
-                    }
-                });
 
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.RecyclerViewFeedbackQuestions);
@@ -332,10 +261,7 @@ public class dialogFeedbackDetail extends DialogFragment {
         recyclerAdapter = new RecyclerViewAdapterFeedbackAnswerDetails(context);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
         recyclerView.setAdapter(recyclerAdapter);
-        //  recyclerAdapter.setOnItemClickListener(dialogFeedback.this);
 
-
-        recyclerAdapter.addAll(questionsDataList);
 
         Button cancelButton = (Button) rootView.findViewById(R.id.mButtonDialogMatchAidUPCancel);
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -432,6 +358,136 @@ public class dialogFeedbackDetail extends DialogFragment {
         return resizedImage;
     }
 
+    private void getUserFeedback(JSONObject params) {
+
+        final ProgressDialog pDialog = new ProgressDialog(context);
+        pDialog.setMessage("Loading...");
+        pDialog.setCancelable(false);
+        pDialog.show();
+        Log.e("params", params.toString());
+        Log.e("profile path", Urls.usrFeedback);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                Urls.usrFeedback, params,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("usrFeedback ", response + "");
+
+                        mUsrFeedback obj = new mUsrFeedback();
+                        Gson gson;
+                        GsonBuilder gsonBuildert = new GsonBuilder();
+                        gson = gsonBuildert.create();
+
+
+                        try {
+          /*  Type mUsFdbk = new TypeToken<mUsrFeedback>() {
+            }.getType();*/
+
+
+                            obj = (mUsrFeedback) gson.fromJson(response.getJSONArray("jdata").getJSONArray(0).getJSONObject(0).toString(), mUsrFeedback.class);
+
+                            JSONArray jsonCountryStaeObj = response.getJSONArray("jdata").getJSONArray(1);
+
+
+                            Gson gsonc;
+                            GsonBuilder gsonBuilderc = new GsonBuilder();
+                            gsonc = gsonBuilderc.create();
+                            Type listType = new TypeToken<List<cModel>>() {
+                            }.getType();
+                            questionsDataList = (List<cModel>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+
+                            mRbar.setRating(obj.getRating());
+                            //    mRbar.setClickable(false);
+                            mRbar.setIsIndicator(true);
+
+                            tvAlias.setText(obj.getAlias() + " ");
+                            tvAge.setText("( " + obj.getAge() + " Years )");
+                            tvDate.setText(obj.getDate());
+
+                            pref1.setText("Marital Status: ");
+                            pref2.setText("Religious Sect: ");
+                            pref3.setText("Ethnicity: ");
+                            pref4.setText("Education: ");
+
+                            prefValue1.setText(obj.getMarital_type());
+                            prefValue2.setText(obj.getReligious_type());
+                            prefValue3.setText(obj.getEthnic_type());
+                            prefValue4.setText(obj.getEducation_type());
+
+                            tvAboutMe.setText(obj.getNotes());
+
+
+                            image.setMinimumHeight(height);
+                            imageLoader.displayImage(Urls.baseUrl + "/" + obj.getDefault_image(),
+                                    image, options,
+                                    new SimpleImageLoadingListener() {
+
+                                        @Override
+                                        public void onLoadingStarted(String imageUri, View view) {
+                                            //  holder.progressBar.setVisibility(View.VISIBLE);
+                                            // holder.RLprogress1.setVisibility(View.VISIBLE);
+                                        }
+
+                                        @Override
+                                        public void onLoadingFailed(String imageUri, View view,
+                                                                    FailReason failReason) {
+                                            // holder.RLprogress1.setVisibility(View.GONE);
+                                            //   holder.progressBar.setVisibility(View.GONE);
+                                        }
+
+                                        @Override
+                                        public void onLoadingComplete(String imageUri,
+                                                                      View view, Bitmap loadedImage) {
+                                            // holder.progressBar.setVisibility(View.GONE);
+                                            // holder.RLprogress1.setVisibility(View.GONE);
+                                            //   holder.progressBar.setVisibility(View.GONE);
+                                        }
+                                    }, new ImageLoadingProgressListener() {
+                                        @Override
+                                        public void onProgressUpdate(String imageUri,
+                                                                     View view, int current, int total) {
+                                            // holder.RLprogress1.setProgress(Math.round(100.0f
+                                            // * current / total));
+                                        }
+                                    });
+
+
+                            //  recyclerAdapter.setOnItemClickListener(dialogFeedback.this);
+
+
+                            recyclerAdapter.addAll(questionsDataList);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // onUpdateListener.onUpdate("Error occurred, Try again.");
+
+                VolleyLog.e("res err", "Error: " + error);
+                pDialog.dismiss();
+            }
+
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        // Adding request to request queue
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(context).addToRequestQueue(jsonObjReq);
+    }
 
 }
 

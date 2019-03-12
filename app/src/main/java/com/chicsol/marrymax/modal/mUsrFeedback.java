@@ -4,8 +4,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class mUsrFeedback {
 
-    @SerializedName("id")
-    public String id;
+
+    @SerializedName("match_id")
+    public String match_id;
+
+
+
+    @SerializedName("feedback_id")
+    public int feedback_id;
 
     @SerializedName("alias")
     public String alias;
@@ -55,12 +61,21 @@ public class mUsrFeedback {
     @SerializedName("date")
     public String date;
 
-    public String getId() {
-        return id;
+
+    public String getMatch_id() {
+        return match_id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setMatch_id(String match_id) {
+        this.match_id = match_id;
+    }
+
+    public int getFeedback_id() {
+        return feedback_id;
+    }
+
+    public void setFeedback_id(int feedback_id) {
+        this.feedback_id = feedback_id;
     }
 
     public String getAlias() {

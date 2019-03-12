@@ -1629,6 +1629,7 @@ id LinearLayoutEditProfileMatchPreference
 id LinearLayoutEmptyBlockedList
 id LinearLayoutEmptySubItems
 id LinearLayoutFeedbackViewDetail
+id LinearLayoutFeedbackViewGiveFeedback
 id LinearLayoutFemaleNormal
 id LinearLayoutFemaleSelected
 id LinearLayoutImagesCount
@@ -1677,6 +1678,7 @@ id LinearLayoutMyChoiceReligious
 id LinearLayoutMyChoiceSmoke
 id LinearLayoutMyChoiceVisa
 id LinearLayoutMyContactItemFeedback
+id LinearLayoutMyContactItemViewFeedback
 id LinearLayoutMyMessagesEmptyState
 id LinearLayoutMyProfileStatusAdminApproval
 id LinearLayoutMyProfileStatusCompleteProfile
@@ -1980,6 +1982,7 @@ id TextViewFavourite
 id TextViewFavourite_ic
 id TextViewFeedbackAboutMe
 id TextViewFeedbackAge
+id TextViewFeedbackDate
 id TextViewFeedbackPref1
 id TextViewFeedbackPref2
 id TextViewFeedbackPref3
@@ -2393,6 +2396,7 @@ id faTextViewMMNotes
 id faTextViewMMRemove
 id faTextViewMyContactItemFeedback
 id faTextViewMyContactItemRemove
+id faTextViewMyContactItemViewFeedback
 id faTextViewMyMatchesInterestIcon
 id faTextViewRemoveSearchesUnremove
 id faTextViewUPChoicePhysicalChallenges

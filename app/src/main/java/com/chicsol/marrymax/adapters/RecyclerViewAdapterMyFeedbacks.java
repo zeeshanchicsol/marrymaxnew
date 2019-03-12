@@ -243,7 +243,7 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
             MMViewHolder holder = ((MMViewHolder) holder1);
             holder.tvAlias.setText(obj.getAlias() + " ");
             holder.tvAge.setText("( " + obj.getAge() + " Years )");
-
+            holder.tvDate.setText(obj.getDate());
 
             holder.pref1.setText("Marital Status: ");
             holder.pref2.setText("Religious Sect: ");
@@ -257,6 +257,16 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
 
             holder.tvAboutMe.setText(obj.getNotes());
 
+            holder.llViewGiveFeedback.setVisibility(View.GONE);
+            holder.llViewDetail.setVisibility(View.GONE);
+
+
+            if (obj.getFeedback_id() == 0) {
+                holder.llViewGiveFeedback.setVisibility(View.VISIBLE);
+            } else {
+                holder.llViewDetail.setVisibility(View.VISIBLE);
+            }
+
 
             holder.llViewDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -264,14 +274,29 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
 
                     JSONObject jsonObject = new JSONObject();
                     try {
-                        jsonObject.put("id", obj.getId());
+                        jsonObject.put("id", obj.getMatch_id());
+                        jsonObject.put("my_id", obj.getFeedback_id());
                         jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
 
-                        getUserFeedback(jsonObject);
+                        dialogFeedbackDetail newFragment = dialogFeedbackDetail.newInstance(jsonObject.toString());
+                        newFragment.setTargetFragment(fragment, 0);
+                        newFragment.show(frgMngr, "dialog");
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
+                }
+            });
+
+
+            holder.llViewGiveFeedback.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id());
+                    newFragment.setTargetFragment(fragment, 0);
+                    newFragment.show(frgMngr, "dialog");
                 }
             });
 
@@ -404,72 +429,6 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
     }
 
 
-    private void getUserFeedback(JSONObject params) {
-
-        final ProgressDialog pDialog = new ProgressDialog(context);
-        pDialog.setMessage("Loading...");
-        pDialog.setCancelable(false);
-        pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.usrFeedback);
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.usrFeedback, params,
-                new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.e("Res ", response + "");
-
-
-                        dialogFeedbackDetail newFragment = dialogFeedbackDetail.newInstance(response.toString());
-                        newFragment.setTargetFragment(fragment, 0);
-                        newFragment.show(frgMngr, "dialog");
-                      /*  try {
-                            int responseid = response.getInt("id");
-
-                            if (responseid == 1) {
-
-                                onUpdateListener.onUpdate("Contact deleted successfully");
-
-
-                            } else {
-                                onUpdateListener.onUpdate("Error occurred, Try again.");
-
-                            }
-
-                        } catch (JSONException e) {
-                            pDialog.dismiss();
-                            e.printStackTrace();
-                        }*/
-
-
-                        pDialog.dismiss();
-                    }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                onUpdateListener.onUpdate("Error occurred, Try again.");
-
-                VolleyLog.e("res err", "Error: " + error);
-                pDialog.dismiss();
-            }
-
-
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                return Constants.getHashMap();
-            }
-        };
-        // Adding request to request queue
-        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
-                0,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(context).addToRequestQueue(jsonObjReq);
-    }
-
     public void setProgressMore(final boolean isProgress) {
         if (isProgress) {
 
@@ -527,9 +486,9 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvAlias, tvAge, tvCountry, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvAboutMe;
+        public TextView tvAlias, tvAge, tvDate, tvCountry, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvAboutMe;
         //  public faTextView faRemove, faFeedback;
-        LinearLayoutCompat llViewDetail;
+        LinearLayoutCompat llViewDetail, llViewGiveFeedback;
 
         public MMViewHolder(View itemView) {
             super(itemView);
@@ -551,6 +510,10 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
 
             llViewDetail = (LinearLayoutCompat) itemView.findViewById(R.id.LinearLayoutFeedbackViewDetail);
 
+            llViewGiveFeedback = (LinearLayoutCompat) itemView.findViewById(R.id.LinearLayoutFeedbackViewGiveFeedback);
+
+
+            tvDate = (TextView) itemView.findViewById(R.id.TextViewFeedbackDate);
             //   tvPhone = (TextView) itemView.findViewById(R.id.TextViewListPhoneNumber);
             //    tvPreferedCallTime = (TextView) itemView.findViewById(R.id.TextViewMyContactListCallTime);
 

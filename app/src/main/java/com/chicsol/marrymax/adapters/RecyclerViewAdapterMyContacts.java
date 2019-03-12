@@ -46,6 +46,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.dialogs.dialogFeedback;
+import com.chicsol.marrymax.dialogs.dialogFeedbackDetail;
 import com.chicsol.marrymax.dialogs.dialogMatchAidFeedback;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mContacts;
@@ -258,8 +259,21 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
 
             if (type.equals("sv") || type.equals("st")) {
                 holder.llFeedback.setVisibility(View.VISIBLE);
+
+                holder.llFeedback.setVisibility(View.GONE);
+                holder.llViewFeedback.setVisibility(View.GONE);
+
+
+                if (obj.getFeedback_id() == 0) {
+                    holder.llFeedback.setVisibility(View.VISIBLE);
+                } else {
+                    holder.llViewFeedback.setVisibility(View.VISIBLE);
+                }
+
+
             } else {
                 holder.llFeedback.setVisibility(View.GONE);
+                holder.llViewFeedback.setVisibility(View.GONE);
             }
             holder.tvDate.setText(obj.getStart_date());
 
@@ -345,7 +359,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                 public void onClick(View v) {
 
 
-                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), "1");
+                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id());
                     newFragment.setTargetFragment(fragment, 0);
                     newFragment.show(frgMngr, "dialog");
                    /* JSONObject jsonObject = new JSONObject();
@@ -358,6 +372,25 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                         e.printStackTrace();
                     }*/
 
+                }
+            });
+
+            holder.llViewFeedback.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    JSONObject jsonObject = new JSONObject();
+                    try {
+                        jsonObject.put("id", obj.getMatch_id());
+                        jsonObject.put("my_id", obj.getFeedback_id());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+
+                        dialogFeedbackDetail newFragment = dialogFeedbackDetail.newInstance(jsonObject.toString());
+                        newFragment.setTargetFragment(fragment, 0);
+                        newFragment.show(frgMngr, "dialog");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
 
@@ -531,7 +564,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
 
         public TextView tvAlias, tvAge, tvPhone, tvPreferedCallTime, tvCountry, tvDate;
         public faTextView faRemove, faFeedback;
-        LinearLayout llCallTime, llPhoneNumber, llFeedback;
+        LinearLayout llCallTime, llPhoneNumber, llFeedback, llViewFeedback;
 
         public MMViewHolder(View itemView) {
             super(itemView);
@@ -546,6 +579,10 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
             faFeedback = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemFeedback);
 
             llFeedback = (LinearLayout) itemView.findViewById(R.id.LinearLayoutMyContactItemFeedback);
+
+
+            llViewFeedback = (LinearLayout) itemView.findViewById(R.id.LinearLayoutMyContactItemViewFeedback);
+
             llCallTime = (LinearLayout) itemView.findViewById(R.id.LinearLayoutAccountSettingMyContactCallTime);
             llPhoneNumber = (LinearLayout) itemView.findViewById(R.id.LinearLayoutAccountSettingMyContactPhoneNumber);
 

@@ -214,7 +214,37 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Feedback"
+                        android:text="Give Feedback"
+                        android:textColor="@color/colorWhite" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutMyContactItemViewFeedback"
+                    style="@style/myCustomMaterialButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorTextRed"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:id="@+id/faTextViewMyContactItemViewFeedback"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/fa_icon_feedback"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"></com.chicsol.marrymax.widgets.faTextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View Feedback"
                         android:textColor="@color/colorWhite" />
 
 

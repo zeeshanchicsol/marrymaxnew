@@ -62,10 +62,10 @@
 
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:gravity="center"
+
                     android:orientation="horizontal">
                     <!-- android:layout_height="@dimen/text_size_mymatches_desc"-->
                     <!--     <ImageView
@@ -99,15 +99,17 @@
                         android:textColor="#7c7c7c"
                         android:textSize="@dimen/text_size_mymatches_desc2" />
 
-                    <ImageView
-                        android:id="@+id/ImageViewMMViewPhone"
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:id="@+id/TextViewFeedbackDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="right"
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="6dp"
+                        android:text="Date"
 
-                        />
+                        android:textColor="#7c7c7c"
+                        android:textSize="@dimen/text_size_mymatches_desc2" />
                     <!--@dimen/text_size_mymatches_desc-->
 
                 </LinearLayout>
@@ -268,12 +270,47 @@
                 android:gravity="right|center_vertical">
 
                 <android.support.v7.widget.LinearLayoutCompat
+                    android:id="@+id/LinearLayoutFeedbackViewGiveFeedback"
+                    style="@style/myCustomMaterialButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:clickable="true"
+                    android:visibility="gone">
+
+                    <!--   <com.chicsol.marrymax.widgets.faTextView
+                           android:id="@+id/faTextViewMyMatchesInterestIcon"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="5dp"
+                           android:layout_marginRight="6dp"
+                           android:gravity="center"
+                           android:text="@string/fa_icon_feedback"
+                           android:textColor="@color/colorWhite"
+
+                           android:textSize="@dimen/text_size_mymatches_desc" />-->
+
+                    <com.chicsol.marrymax.widgets.mTextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center"
+                        android:text=" Give Feedback  "
+                        android:textColor="#ffff"
+                        android:textSize="@dimen/text_size_mymatches_desc" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
                     android:id="@+id/LinearLayoutFeedbackViewDetail"
                     style="@style/myCustomMaterialButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
-                    android:clickable="true">
+                    android:backgroundTint="@color/colorTextRed"
+                    android:clickable="true"
+                    android:visibility="gone">
 
                     <!--   <com.chicsol.marrymax.widgets.faTextView
                            android:id="@+id/faTextViewMyMatchesInterestIcon"

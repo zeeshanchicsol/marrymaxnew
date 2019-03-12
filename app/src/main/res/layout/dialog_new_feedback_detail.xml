@@ -120,10 +120,10 @@
 
 
                                     <LinearLayout
-                                        android:layout_width="wrap_content"
+                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
 
-                                        android:gravity="center"
+
                                         android:orientation="horizontal">
                                         <!-- android:layout_height="@dimen/text_size_mymatches_desc"-->
                                         <!--     <ImageView
@@ -157,15 +157,16 @@
                                             android:textColor="#7c7c7c"
                                             android:textSize="@dimen/text_size_mymatches_desc2" />
 
-                                        <ImageView
-                                            android:id="@+id/ImageViewMMViewPhone"
-
-                                            android:layout_width="wrap_content"
+                                        <com.chicsol.marrymax.widgets.mTextView
+                                            android:id="@+id/TextViewFeedbackDate"
+                                            android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_marginLeft="6dp"
+                                            android:layout_marginRight="5dp"
+                                            android:gravity="right"
+                                            android:text="d"
+                                            android:textColor="#7c7c7c"
+                                            android:textSize="@dimen/text_size_mymatches_desc2" />
 
-                                            />
                                         <!--@dimen/text_size_mymatches_desc-->
 
                                     </LinearLayout>
@@ -377,18 +378,18 @@
 
                             >
 
-                          <!--  <android.support.v7.widget.AppCompatButton
-                                android:id="@+id/mButtonDialogMatchAidUPViewProgress"
-                                style="@style/myCustomMaterialButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_toLeftOf="@+id/mButtonDialogMatchAidUPCancel"
-                                android:backgroundTint="@color/colorDefaultGreen"
+                            <!--  <android.support.v7.widget.AppCompatButton
+                                  android:id="@+id/mButtonDialogMatchAidUPViewProgress"
+                                  style="@style/myCustomMaterialButton"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="10dp"
+                                  android:layout_toLeftOf="@+id/mButtonDialogMatchAidUPCancel"
+                                  android:backgroundTint="@color/colorDefaultGreen"
 
-                                android:text="Feedback"
-                                android:textAllCaps="false"
-                                android:textColor="@color/colorWhite" />-->
+                                  android:text="Feedback"
+                                  android:textAllCaps="false"
+                                  android:textColor="@color/colorWhite" />-->
 
                             <android.support.v7.widget.AppCompatButton
                                 android:id="@+id/mButtonDialogMatchAidUPCancel"

@@ -27,15 +27,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.activities.ActivityLogin;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterFeedbackQuestions;
-import com.chicsol.marrymax.adapters.RecyclerViewAdapterQuestionsList;
 import com.chicsol.marrymax.modal.WebArd;
-import com.chicsol.marrymax.modal.mCountryCode;
 import com.chicsol.marrymax.modal.mLfm;
-import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
@@ -66,16 +61,16 @@ public class dialogFeedback extends DialogFragment {
     RecyclerView recyclerView;
     List<WebArd> questionsDataList;
     private RecyclerViewAdapterFeedbackQuestions recyclerAdapter;
-    private String id = "";
+    private String match_id = "";
 
 
-    public static dialogFeedback newInstance(String userpath, String id) {
+    public static dialogFeedback newInstance(String userpath, String match_id) {
 
         Gson gson = new Gson();
         dialogFeedback frag = new dialogFeedback();
         Bundle args = new Bundle();
         args.putString("userpath", userpath);
-        args.putString("id", id);
+        args.putString("match_id", match_id);
         frag.setArguments(args);
         return frag;
     }
@@ -102,7 +97,7 @@ public class dialogFeedback extends DialogFragment {
         super.onCreate(savedInstanceState);
         Bundle mArgs = getArguments();
         userpath = mArgs.getString("userpath");
-        id = mArgs.getString("id");
+        match_id = mArgs.getString("match_id");
 
       /*  Gson gson = new Gson();
 
@@ -182,14 +177,27 @@ public class dialogFeedback extends DialogFragment {
                     try {
                         params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
                         params.put("userpath", userpath);
-                        params.put("text", fb);
-                        params.put("id2", mRbar.getNumStars());
+                        params.put("match_id", match_id);
 
-                        params.put("type", anserString.toString());
+                        params.put("notes", fb);
+                        params.put("rating", mRbar.getNumStars());
+
+                        params.put("que_ans", anserString.toString());
 
 
-                        Log.e("addFeedback", Urls.updFeedback + "   " + params);
-                        addFeedback(params);
+
+               /*         path
+                                userpath
+                        match_id       (match_id)
+                        notes          (notes)
+                        rating          (rating)
+                        que_ans        (question:answers,)   e.g  1:1,2:0,3:0,4:1
+
+                        In Reponse you will get feedback_id*/
+
+
+                      //  Log.e("updFeedback", Urls.updFeedback + "   " + params);
+                        updFeedback(params);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -214,8 +222,8 @@ public class dialogFeedback extends DialogFragment {
                                 params.put("id", lfm.getId());
                                 params.put("id2", mRbar.getNumStars());
                                 params.put("text", fb);
-                                Log.e("addFeedback", Urls.addFeedback + "   " + params);
-                                addFeedback(params);
+                                Log.e("updFeedback", Urls.updFeedback + "   " + params);
+                                updFeedback(params);
                             } else {
 
                                 Toast.makeText(getContext(), "Enter Feedback Text ", Toast.LENGTH_SHORT).show();
@@ -296,7 +304,7 @@ public class dialogFeedback extends DialogFragment {
 
         //Log.e("api path", "" + Urls.getFeedbackData );
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getFeedbackData+"/"+id,
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getFeedbackData+"/"+match_id,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -344,7 +352,7 @@ public class dialogFeedback extends DialogFragment {
     }
 
 
-    private void addFeedback(JSONObject params) {
+    private void updFeedback(JSONObject params) {
 
         final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
@@ -359,7 +367,7 @@ public class dialogFeedback extends DialogFragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  addFeedback ", response + "");
+                        Log.e("re  updFeedback ", response + "");
 
                         try {
                             int responseid = response.getInt("id");
