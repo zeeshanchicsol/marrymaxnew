@@ -277,6 +277,7 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
                         jsonObject.put("id", obj.getMatch_id());
                         jsonObject.put("my_id", obj.getFeedback_id());
                         jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        jsonObject.put("userpath", obj.getUserpath());
 
                         dialogFeedbackDetail newFragment = dialogFeedbackDetail.newInstance(jsonObject.toString());
                         newFragment.setTargetFragment(fragment, 0);

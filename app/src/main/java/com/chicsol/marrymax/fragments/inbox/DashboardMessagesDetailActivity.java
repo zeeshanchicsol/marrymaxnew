@@ -35,6 +35,7 @@ import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterChatList;
 import com.chicsol.marrymax.dialogs.dialogFeedback;
+import com.chicsol.marrymax.dialogs.dialogFeedbackDetail;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mCommunication;
 import com.chicsol.marrymax.other.MarryMax;
@@ -43,6 +44,7 @@ import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.chicsol.marrymax.widgets.faTextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -60,7 +62,7 @@ import java.util.Map;
  * Created by Android on 11/3/2016.
  */
 
-public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener, dialogFeedback.onCompleteListener {
+public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener, dialogFeedback.onCompleteListener, dialogFeedbackDetail.onCompleteListener {
     private TextView tvAge, tvAlias, tvEthnic, tvReligious, tvMarital, tvCountry;
     RecyclerView recyclerView;
     private RecyclerViewAdapterChatList recyclerAdapter;
@@ -70,10 +72,13 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
     EditText etSendMessage;
     mCommunication objCom;
     private ProgressBar pDialog;
-    private TextView tvReadQuotaHeading, tvReadQuotaSubHeading;
+    private TextView tvReadQuotaHeading, tvReadQuotaSubHeading, tvFeedback;
+    private faTextView faFeedback;
     AppCompatButton btSubscribe;
     MarryMax marryMax;
     private LinearLayout llEmptySubItems;
+    long match_id = 0;
+    long feedback_id = 0;
 
     private String Tag = "DashboardMessagesDetailActivity";
 
@@ -147,6 +152,9 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         tvCountry = (TextView) findViewById(R.id.TextViewMessageDetailLivingCountry);
         tvReadQuotaHeading = (TextView) findViewById(R.id.TextViewReadQuotaHeading);
         tvReadQuotaSubHeading = (TextView) findViewById(R.id.TextViewReadQuotaSubHeading);
+
+        tvFeedback = (TextView) findViewById(R.id.TextViewUserProfileFeedback);
+        faFeedback = (faTextView) findViewById(R.id.faUserProfileFeedback);
 
         llEmptySubItems = (LinearLayout) findViewById(R.id.LinearLayoutEmptySubItems);
 
@@ -258,9 +266,31 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         llFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogFeedback newFragment = dialogFeedback.newInstance(objCom.getUserpath(), "2");
-                //  newFragment.setTargetFragment(fragment, 0);
-                newFragment.show(getSupportFragmentManager(), "dialog");
+
+                if (feedback_id == 0) {
+                    //  Give Feedback"
+                    dialogFeedback newFragment = dialogFeedback.newInstance(objCom.getUserpath(), "2");
+                    //  newFragment.setTargetFragment(fragment, 0);
+                    newFragment.show(getSupportFragmentManager(), "dialog");
+
+                } else {
+                    // ViewFeedback
+                    JSONObject jsonObject = new JSONObject();
+                    try {
+                        jsonObject.put("id", match_id);
+                        jsonObject.put("my_id", feedback_id);
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        jsonObject.put("userpath", objCom.getUserpath());
+                        dialogFeedbackDetail newFragment = dialogFeedbackDetail.newInstance(jsonObject.toString());
+                        //  newFragment.setTargetFragment(getSupportFragmentManager(), 0);
+                        newFragment.show(getSupportFragmentManager(), "dialog");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
             }
         });
 
@@ -376,7 +406,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                     //     Phone is public,give option to show phone number
                                     if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
                                         // selectedPosition = position;
-                                     //   marryMax.statusBaseChecks(null, getApplicationContext(), 4, getSupportFragmentManager(), null, null, null, null, null, null);
+                                        //   marryMax.statusBaseChecks(null, getApplicationContext(), 4, getSupportFragmentManager(), null, null, null, null, null, null);
                                     }
 
 
@@ -384,7 +414,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                     //     Phone is protected, give option to send request to view phone number
                                     if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
                                         // selectedPosition = position;
-                                     //   marryMax.statusBaseChecks(null, getApplicationContext(), 4, getSupportFragmentManager(), null, null, null, null, null, null);
+                                        //   marryMax.statusBaseChecks(null, getApplicationContext(), 4, getSupportFragmentManager(), null, null, null, null, null, null);
                                     }
                                 }
 
@@ -527,9 +557,40 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                             List<mCommunication> dlist2 = (List<mCommunication>) gsonc.fromJson(jsonObj.getJSONArray(1).toString(), listType);
 
 
+                            if (dlist2.size() > 0) {
+                                mCommunication mCom = dlist2.get(0);
+
+                                match_id = mCom.getId();
+                                feedback_id = mCom.getRequest_type_id();
+                                Log.e("mmatch_id", match_id + " == " + feedback_id);
+
+                                if (match_id != 0) {
+                                    llFeedback.setVisibility(View.VISIBLE);
+                                    if (feedback_id == 0) {
+                                        //  holder.llFeedback.setVisibility(View.VISIBLE);
+                                        tvFeedback.setText("Give Feedback");
+                                        tvFeedback.setTextColor(getResources().getColor(R.color.colorTextRed));
+                                        faFeedback.setTextColor(getResources().getColor(R.color.colorTextRed));
+
+                                    } else {
+                                        // holder.llViewFeedback.setVisibility(View.VISIBLE);
+                                        tvFeedback.setText("View Feedback");
+                                        tvFeedback.setTextColor(getResources().getColor(R.color.colorGrey));
+                                        faFeedback.setTextColor(getResources().getColor(R.color.colorGrey));
+
+                                    }
+                                } else {
+                                    llFeedback.setVisibility(View.GONE);
+
+                                }
+                            }
+
+
                             if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 3) {
                                 if (dlist2.size() > 0) {
                                     mCommunication mCom = dlist2.get(0);
+
+
                                     if (mCom.read_quota == 0 && mCom.count > 0) {
                                         llReadQuota.setVisibility(View.VISIBLE);
                                         String headertxt = "<b>" + mCom.getCount() + "</b> unread messages from <font color='#9a0606'>" + "<b>" + objCom.getAlias().toUpperCase() + "</b></font>";
@@ -542,7 +603,10 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
                                     }
                                 }
-                            } else {
+                            }/* else if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 4) {
+
+
+                            } */ else {
                                 llReadQuota.setVisibility(View.GONE);
 
                             }

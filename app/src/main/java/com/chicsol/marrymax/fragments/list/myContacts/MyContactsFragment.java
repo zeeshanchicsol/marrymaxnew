@@ -379,7 +379,9 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
 
     @Override
     public void onComplete(String s) {
-
+        if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
+            getData();
+        }
     }
 
 /*    private void loadMoreData(String paramsString) {

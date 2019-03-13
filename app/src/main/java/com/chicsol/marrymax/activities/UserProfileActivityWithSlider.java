@@ -214,8 +214,8 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                Log.e(TAG + "ff onPage position", "" + position);
-                Log.e(TAG + "ff adapter.getCount()", "" + adapter.getCount());
+           //     Log.e(TAG + "ff onPage position", "" + position);
+          //      Log.e(TAG + "ff adapter.getCount()", "" + adapter.getCount());
 
                 if (position == (adapter.getCount() - 1) && current_page < total_pages) {
                     Log.e("ff in", "in ");

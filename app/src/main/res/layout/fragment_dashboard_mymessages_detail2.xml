@@ -67,12 +67,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="3dp"
                     android:clickable="true"
                     android:gravity="right|center_vertical"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <com.chicsol.marrymax.widgets.faTextView
+                        android:id="@+id/faUserProfileFeedback"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginRight="3dp"
@@ -87,7 +88,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="15dp"
                         android:gravity="center"
-                        android:text="Feedback"
+                        android:text="Give Feedback"
                         android:textColor="@color/colorUserProfileRed"
                         android:textSize="13sp" />
 
@@ -97,7 +98,7 @@
                     android:id="@+id/LinearLayoutMessageDetailDeleteChat"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="2dp"
                     android:layout_marginRight="10dp"
                     android:clickable="true"
                     android:gravity="right|center_vertical"

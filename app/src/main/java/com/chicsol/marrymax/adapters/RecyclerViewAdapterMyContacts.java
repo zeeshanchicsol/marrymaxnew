@@ -258,19 +258,18 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
 
 
             if (type.equals("sv") || type.equals("st")) {
-                holder.llFeedback.setVisibility(View.VISIBLE);
 
                 holder.llFeedback.setVisibility(View.GONE);
                 holder.llViewFeedback.setVisibility(View.GONE);
 
+                if (obj.getMatch_id() != 0) {
+                    if (obj.getFeedback_id() == 0) {
+                        holder.llFeedback.setVisibility(View.VISIBLE);
+                    } else {
+                        holder.llViewFeedback.setVisibility(View.VISIBLE);
+                    }
 
-                if (obj.getFeedback_id() == 0) {
-                    holder.llFeedback.setVisibility(View.VISIBLE);
-                } else {
-                    holder.llViewFeedback.setVisibility(View.VISIBLE);
                 }
-
-
             } else {
                 holder.llFeedback.setVisibility(View.GONE);
                 holder.llViewFeedback.setVisibility(View.GONE);
@@ -359,7 +358,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                 public void onClick(View v) {
 
 
-                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id());
+                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id() + "");
                     newFragment.setTargetFragment(fragment, 0);
                     newFragment.show(frgMngr, "dialog");
                    /* JSONObject jsonObject = new JSONObject();
@@ -382,6 +381,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                     try {
                         jsonObject.put("id", obj.getMatch_id());
                         jsonObject.put("my_id", obj.getFeedback_id());
+                        jsonObject.put("userpath", obj.getUserpath());
                         jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
 
                         dialogFeedbackDetail newFragment = dialogFeedbackDetail.newInstance(jsonObject.toString());
