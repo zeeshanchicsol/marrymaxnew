@@ -295,16 +295,27 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
                 @Override
                 public void onClick(View v) {
 
-                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id());
-                    newFragment.setTargetFragment(fragment, 0);
-                    newFragment.show(frgMngr, "dialog");
+
+
+                    JSONObject params = new JSONObject();
+                    try {
+                        params.put("userpath", obj.getUserpath());
+                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+
+                        dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id() + "", params.toString());
+                        newFragment.setTargetFragment(fragment, 0);
+                        newFragment.show(frgMngr, "dialog");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
 
 
             //   imageLoader.displayImage(Urls.baseUrl + "/images/flags/" + member.getDefault_image() + ".gif", holder.ivCountryFlag, optionsNormalImage);
 
-            Log.e("bj.getDefault_image()", "" + obj.getDefault_image());
+
             holder.image.setMinimumHeight(height);
             imageLoader.displayImage(Urls.baseUrl + "/" + obj.getDefault_image(),
                     holder.image, options,

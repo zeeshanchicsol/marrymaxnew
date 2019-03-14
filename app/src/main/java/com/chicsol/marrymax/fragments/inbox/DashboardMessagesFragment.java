@@ -71,6 +71,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
     private String Tag = "DashboardMessagesFragment";
 
     private AppCompatButton btCompleteProfile, btOnSearch, btSubscribe;
+    private boolean _hasLoadedOnce = false; // your boolean field
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,6 +98,31 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
 
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isFragmentVisible_) {
+        super.setUserVisibleHint(true);
+        _hasLoadedOnce = isFragmentVisible_;
+
+
+        if (isFragmentVisible_) {
+        /*   if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
+            getCommunicationCount();
+            getRequest();
+             }*/
+        }
+
+/*
+        if (this.isVisible()) {
+            // we check that the fragment is becoming visible
+            if (isFragmentVisible_ && !_hasLoadedOnce) {
+                if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
+                    getCommunicationCount();
+                    getRequest();
+                }
+                _hasLoadedOnce = true;
+            }
+        }*/
+    }
 
     private void initilize(View view) {
 
@@ -131,6 +157,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
     @Override
     public void onResume() {
         super.onResume();
+
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             getCommunicationCount();
             getRequest();
@@ -179,9 +206,9 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
         pDialog.setMessage("Loading...");
         pDialog.show();*/
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(getContext()).get_path());
+        Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).get_path());
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getMessagesList + SharedPreferenceManager.getUserObject(getContext()).get_path(),
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -407,11 +434,7 @@ Subscribe now to enjoy following benefits.
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(
-
-                getContext()).
-
-                addToRequestQueue(req, Tag);
+        MySingleton.getInstance(context).addToRequestQueue(req, Tag);
 
     }
 
@@ -425,7 +448,7 @@ Subscribe now to enjoy following benefits.
             Gson gson = new Gson();
             String memString = gson.toJson(communication);
             //in.putExtra("obj", memString);
-            SharedPreferenceManager.setMessageObject(getContext(), memString);
+            SharedPreferenceManager.setMessageObject(context, memString);
             in.putExtra("objtype", 1);
             startActivity(in);
         }
@@ -454,25 +477,27 @@ Subscribe now to enjoy following benefits.
                             Log.e("ressssss", comCount.getNew_interests_count() + "");
                             new_messages_count = (int) comCount.getNew_messages_count();
 
-                            Members member = SharedPreferenceManager.getUserObject(context);
-                            String alias = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
-                            if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+                            if (_hasLoadedOnce) {
+                                Members member = SharedPreferenceManager.getUserObject(context);
+                                String alias = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
-                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                                newFragment.show(getFragmentManager(), "dialog");
+                                if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
+                                    String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
 
-                            } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks";
+                                    dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
+                                    //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                    newFragment.show(getFragmentManager(), "dialog");
 
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
-                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                                newFragment.show(getFragmentManager(), "dialog");
+                                } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
+                                    String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks";
 
+                                    dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
+                                    //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                    newFragment.show(getFragmentManager(), "dialog");
+
+                                }
                             }
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -500,7 +525,7 @@ Subscribe now to enjoy following benefits.
     @Override
     public void onStop() {
         super.onStop();
-        MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
+        MySingleton.getInstance(context).cancelPendingRequests(Tag);
 
     }
 

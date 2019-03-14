@@ -79,7 +79,7 @@ public class dialogFeedbackDetail extends DialogFragment {
     private RecyclerViewAdapterFeedbackAnswerDetails recyclerAdapter;
     private String id = "";
 
-    private TextView tvAlias, tvAge, tvDate, tvCountry, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvAboutMe;
+    private TextView tvAlias, tvAge, tvDate, tvCountry, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvAboutMe, tvFeedbackRating;
     private ImageView image;
     public ImageLoader imageLoader;
     private DisplayImageOptions options, optionsNormalImage;
@@ -243,6 +243,8 @@ public class dialogFeedbackDetail extends DialogFragment {
         prefValue4 = (mTextView) rootView.findViewById(R.id.TextViewFeedbackPrefValue4);
 
         tvAboutMe = (TextView) rootView.findViewById(R.id.TextViewFeedbackAboutMe);
+
+        tvFeedbackRating = (TextView) rootView.findViewById(R.id.TextViewFeedbackRating);
 
 
         mRbar = (AppCompatRatingBar) rootView.findViewById(R.id.dialog_ratingbar);
@@ -416,6 +418,7 @@ public class dialogFeedbackDetail extends DialogFragment {
                             prefValue4.setText(obj.getEducation_type());
 
                             tvAboutMe.setText(obj.getNotes());
+                            tvFeedbackRating.setText("Rating "+obj.getRating() + " out of 5");
 
 
                             image.setMinimumHeight(height);

@@ -268,10 +268,21 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
             public void onClick(View v) {
 
                 if (feedback_id == 0) {
-                    //  Give Feedback"
-                    dialogFeedback newFragment = dialogFeedback.newInstance(objCom.getUserpath(), "2");
-                    //  newFragment.setTargetFragment(fragment, 0);
-                    newFragment.show(getSupportFragmentManager(), "dialog");
+
+
+                    JSONObject params = new JSONObject();
+                    try {
+                        params.put("userpath", objCom.getUserpath());
+                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+
+                        dialogFeedback newFragment = dialogFeedback.newInstance(objCom.getUserpath(), match_id + "", params.toString());
+                        //newFragment.setTargetFragment(fragment, 0);
+                        newFragment.show(getSupportFragmentManager(), "dialog");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
 
                 } else {
                     // ViewFeedback

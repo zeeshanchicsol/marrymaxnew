@@ -170,7 +170,7 @@ public class RecyclerViewAdapterFeedbackAnswerDetails extends RecyclerView.Adapt
         items.addAll(lst);
         notifyDataSetChanged();
 
-        Log.e("item size in adapter", items.size() + "");
+      //  Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<cModel> lst) {

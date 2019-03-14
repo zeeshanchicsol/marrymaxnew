@@ -356,11 +356,18 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
             holder.llFeedback.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    JSONObject params = new JSONObject();
+                    try {
+                        params.put("userpath", obj.getUserpath());
+                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
 
+                        dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id() + "", params.toString());
+                        newFragment.setTargetFragment(fragment, 0);
+                        newFragment.show(frgMngr, "dialog");
 
-                    dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id() + "");
-                    newFragment.setTargetFragment(fragment, 0);
-                    newFragment.show(frgMngr, "dialog");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                    /* JSONObject jsonObject = new JSONObject();
                     try {
                         jsonObject.put("id", obj.getPhone_request_id());

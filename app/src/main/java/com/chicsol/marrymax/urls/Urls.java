@@ -196,7 +196,7 @@ public class Urls {
     public static String interestRequestType = baseUrl + "/api/WebArd/InterestRequestType";
     //  public static String responseInterest = baseUrl + "/api/WebArd/ResponseInterest";
     public static String deleteMessages = baseUrl + "/api/WebArd/DeleteMessages";
-    public static String getFeedbackData = baseUrl + "/api/WebArd/GetFeedbackData/";
+    public static String usrGiveFeedback = baseUrl + "/api/WebArd/UsrGiveFeedback";
 
 
     //=====================Notifications=========================
