@@ -262,36 +262,37 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
             });
 
 
-            if (obj.getItem_name().equals("Silver")) {
+        /*    if (obj.getItem_name().equals("Silver")) {
 
                 holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionBlue));
                 holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionBlue));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionBlue));
                 }
-                holder.tvPlanShortDescription.setText("25 Verified Phone Numbers ");
-                holder.tvPlanShortDescriptionMatchesCount.setText("50 Matches Communication ");
+                holder.tvPlanShortDescription.setText("10 Matches / Rishtay ");
+                //     holder.tvPlanShortDescriptionMatchesCount.setText("50 Matches Communication ");
 
 
-            } else if (obj.getItem_name().equals("Gold")) {
+            } else */
+            if (obj.getItem_name().equals("Gold")) {
 
                 holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGolden));
                 holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGolden));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionGolden));
                 }
-                holder.tvPlanShortDescription.setText("50 Verified Phone Numbers ");
-                holder.tvPlanShortDescriptionMatchesCount.setText("100 Matches Communication ");
+                holder.tvPlanShortDescription.setText("10 Matches / Rishtay ");
+                //   holder.tvPlanShortDescriptionMatchesCount.setText("100 Matches Communication ");
 
             } else if (obj.getItem_name().equals("Platinum")
-                    ) {
+            ) {
                 holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
                 holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionPlatinum));
                 }
-                holder.tvPlanShortDescription.setText("75 Verified Phone Numbers ");
-                holder.tvPlanShortDescriptionMatchesCount.setText("150 Matches Communication ");
+                holder.tvPlanShortDescription.setText("20 Matches / Rishtay ");
+                //   holder.tvPlanShortDescriptionMatchesCount.setText("150 Matches Communication ");
 
             }
             holder.itemView.setTag(obj);
@@ -368,7 +369,8 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvPlanName, tvRecomm, tvPlanDuration, tvPlanTitle, tvPlanShortDescription, tvPlanShortDescriptionMatchesCount;
+        public TextView tvPlanName, tvRecomm, tvPlanDuration, tvPlanTitle, tvPlanShortDescription;
+        //   tvPlanShortDescriptionMatchesCount
 
         AppCompatButton btPurchase;
 
@@ -380,7 +382,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
             tvPlanDuration = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanDuration);
             tvPlanTitle = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanTitleDetail);
             tvPlanShortDescription = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescription);
-            tvPlanShortDescriptionMatchesCount = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescriptionMatchesCount);
+            // tvPlanShortDescriptionMatchesCount = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescriptionMatchesCount);
 
             btPurchase = (AppCompatButton) itemView.findViewById(R.id.ButtonSubscriptionPurchase);
             tvRecomm = (TextView) itemView.findViewById(R.id.TextViewRecommendedP);

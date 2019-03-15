@@ -103,7 +103,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="14sp"
                         android:layout_gravity="center_vertical"
-                        android:tint="@color/colorBlack"
+                        android:tint="@color/colorASBlue"
                         app:srcCompat="@drawable/ic_profile_settings_24dp" />
 
                     <TextView
@@ -112,7 +112,7 @@
                         android:layout_gravity="center_vertical"
                         android:fontFamily="sans-serif"
                         android:text="Match Preferences"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorASBlue"
                         android:textSize="13sp" />
 
                 </LinearLayout>

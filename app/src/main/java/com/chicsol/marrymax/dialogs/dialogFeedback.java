@@ -366,7 +366,7 @@ public class dialogFeedback extends DialogFragment {
 
         } else {
             Toast.makeText(context, "Please enter the reason", Toast.LENGTH_SHORT).show();
-
+            ck = true;
         }
         if (mRbar.getRating() >= 1) {
 
@@ -403,8 +403,8 @@ public class dialogFeedback extends DialogFragment {
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-     //   Log.e("getUserFeedbackData", params.toString());
-     //
+        //   Log.e("getUserFeedbackData", params.toString());
+        //
         //   Log.e("getUserFeedbackData ", Urls.usrGiveFeedback);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.usrGiveFeedback, params,
@@ -439,10 +439,6 @@ public class dialogFeedback extends DialogFragment {
                             recyclerAdapter.addAll(questionsDataList);
 
 
-                            mRbar.setRating(obj.getRating());
-                            //    mRbar.setClickable(false);
-                            mRbar.setIsIndicator(true);
-
                             tvAlias.setText(obj.getAlias() + " ");
                             tvAge.setText("( " + obj.getAge() + " Years )");
                             tvDate.setText(obj.getDate());
@@ -456,8 +452,6 @@ public class dialogFeedback extends DialogFragment {
                             prefValue2.setText(obj.getReligious_type());
                             prefValue3.setText(obj.getEthnic_type());
                             prefValue4.setText(obj.getEducation_type());
-
-
 
 
                             image.setMinimumHeight(height);

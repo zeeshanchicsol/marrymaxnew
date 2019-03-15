@@ -1503,6 +1503,9 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             Members samember = SharedPreferenceManager.getUserObject(context);
                             String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
 
+
+
+
                             if (Integer.parseInt(member.getFeedback_pending()) == 1) {
                                 String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
 

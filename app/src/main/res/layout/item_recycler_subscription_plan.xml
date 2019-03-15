@@ -83,7 +83,6 @@
                         android:orientation="vertical">
 
 
-
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -101,13 +100,14 @@
                                 android:textColor="@color/colorBlack"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
+
                             <TextView
                                 android:id="@+id/TextViewRecommendedP"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
                                 android:text=" (Recommended) "
                                 android:textColor="@color/colorBlack"
-                                android:layout_gravity="center_vertical"
                                 android:textStyle="bold"
                                 android:visibility="gone" />
 
@@ -155,19 +155,19 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginTop="5dp"
+                                android:textColor="@color/colorSubscriptionGreen"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
-                                android:textColor="@color/colorSubscriptionDarkGrey"
-                                android:textSize="15sp" />
+                            <!--  <TextView
+                                  android:id="@+id/TextViewSubscriptionPlanShortDescriptionMatchesCount"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginLeft="5dp"
+                                  android:layout_marginTop="5dp"
 
-                            <TextView
-                                android:id="@+id/TextViewSubscriptionPlanShortDescriptionMatchesCount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="5dp"
-
-                                android:textColor="@color/colorSubscriptionDarkGrey"
-                                android:textSize="15sp" />
+                                  android:textColor="@color/colorSubscriptionDarkGrey"
+                                  android:textSize="15sp" />-->
 
 
                         </LinearLayout>
