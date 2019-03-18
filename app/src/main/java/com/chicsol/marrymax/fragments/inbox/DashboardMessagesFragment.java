@@ -478,27 +478,26 @@ Subscribe now to enjoy following benefits.
                             new_messages_count = (int) comCount.getNew_messages_count();
 
 
-                            if (_hasLoadedOnce) {
-                                Members member = SharedPreferenceManager.getUserObject(context);
-                                String alias = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
+                         /*   Members member = SharedPreferenceManager.getUserObject(context);
+                            String alias = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
 
-                                if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
-                                    String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+                            if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
 
-                                    dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
-                                    //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                                    newFragment.show(getFragmentManager(), "dialog");
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
 
-                                } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
-                                    String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks";
+                            } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks";
 
-                                    dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
-                                    //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                                    newFragment.show(getFragmentManager(), "dialog");
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
 
-                                }
-                            }
+                            }*/
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();

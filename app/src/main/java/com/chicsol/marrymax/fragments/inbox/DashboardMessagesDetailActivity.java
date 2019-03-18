@@ -36,6 +36,8 @@ import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterChatList;
 import com.chicsol.marrymax.dialogs.dialogFeedback;
 import com.chicsol.marrymax.dialogs.dialogFeedbackDetail;
+import com.chicsol.marrymax.dialogs.dialogRequestPhone;
+import com.chicsol.marrymax.interfaces.PhoneRequestCallBackInterface;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mCommunication;
 import com.chicsol.marrymax.other.MarryMax;
@@ -62,7 +64,7 @@ import java.util.Map;
  * Created by Android on 11/3/2016.
  */
 
-public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener, dialogFeedback.onCompleteListener, dialogFeedbackDetail.onCompleteListener {
+public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener, dialogFeedback.onCompleteListener, dialogFeedbackDetail.onCompleteListener, PhoneRequestCallBackInterface, dialogRequestPhone.onCompleteListener {
     private TextView tvAge, tvAlias, tvEthnic, tvReligious, tvMarital, tvCountry;
     RecyclerView recyclerView;
     private RecyclerViewAdapterChatList recyclerAdapter;
@@ -406,19 +408,41 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                     getChatRequest(params1);
                                 }
 /*
-
                                 0            Don't do anything
                                 1            Phone is public,give option to show phone number
                                 2            Phone is protected, give option to send request to view phone number
 */
 
-                                mCommunication.setId(1);
+                              //  mCommunication.setId(1);
                                 if (mCommunication.getId() == 1) {
                                     //     Phone is public,give option to show phone number
-                                    if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
-                                        // selectedPosition = position;
-                                        //   marryMax.statusBaseChecks(null, getApplicationContext(), 4, getSupportFragmentManager(), null, null, null, null, null, null);
-                                    }
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(DashboardMessagesDetailActivity.this);
+                                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            switch (which) {
+                                                case DialogInterface.BUTTON_POSITIVE:
+
+                                                    JSONObject params = new JSONObject();
+                                                    try {
+                                                        params.put("userpath", objCom.getUserpath());
+                                                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                                    } catch (JSONException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    marryMax.getMobileInfo(params, objCom.getAlias(), getApplicationContext(), null, getSupportFragmentManager());
+                                                    break;
+
+                                                case DialogInterface.BUTTON_NEGATIVE:
+                                                    dialog.dismiss();
+                                                    break;
+                                            }
+                                        }
+                                    };
+
+
+                                    builder.setMessage("Do you want to see contact details of " + objCom.getAlias() + " ?").setPositiveButton("Yes", dialogClickListener)
+                                            .setNegativeButton("No", dialogClickListener).show();
 
 
                                 } else if (mCommunication.getId() == 2) {
@@ -426,6 +450,28 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                     if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
                                         // selectedPosition = position;
                                         //   marryMax.statusBaseChecks(null, getApplicationContext(), 4, getSupportFragmentManager(), null, null, null, null, null, null);
+
+
+                                        JSONObject params = new JSONObject();
+                                        try {
+                                            params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
+                                            params.put("type", "5");
+                                            params.put("userpath", objCom.getUserpath());
+                                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                        String desc = "Request <b> <font color=#216917>" + objCom.getAlias() + "</font></b>" + " for  Contact Details";
+
+                                        dialogRequestPhone newFragment = dialogRequestPhone.newInstance(params.toString(), "Request Contact Details", desc);
+                                        newFragment.setListener(DashboardMessagesDetailActivity.this);
+                                    /*    if (fragment != null) {
+                                            newFragment.setTargetFragment(fragment, 0);
+                                        }*/
+                                        newFragment.show(getSupportFragmentManager(), "dialog");
+
+
                                     }
                                 }
 
@@ -721,6 +767,11 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
     @Override
     public void onComplete(String s) {
+
+    }
+
+    @Override
+    public void onPhoneViewRequestComplete(String requestid) {
 
     }
 }

@@ -56,7 +56,7 @@ public class dialogFeedBackPending extends DialogFragment {
     private String text = null;
     private TextView tvText;
     private AppCompatButton btGiveFeedback, btClose;
- ///  public onCompleteListener mCompleteListener;
+    ///  public onCompleteListener mCompleteListener;
     private boolean disabled = false;
     private Context context;
     faTextView cancelButton;
@@ -78,10 +78,10 @@ public class dialogFeedBackPending extends DialogFragment {
         super.onCreate(savedInstanceState);
         Bundle mArgs = getArguments();
         text = mArgs.getString("text");
-        disabled = mArgs.getBoolean("enterCode");
+        disabled = mArgs.getBoolean("disabled");
 
 
-       // Log.e("text", text);
+        // Log.e("text", text);
 
 
     }
@@ -126,6 +126,7 @@ public class dialogFeedBackPending extends DialogFragment {
                 in.putExtra("type", 25);
                 // in.putExtra("subtype", "received");
                 startActivity(in);
+
             }
         });
 
@@ -143,9 +144,11 @@ public class dialogFeedBackPending extends DialogFragment {
             }
         });
 
+        Log.e("disabled", disabled + "");
 
         if (disabled) {
-            getDialog().setCancelable(false);
+            //    getDialog().setCancelable(false);
+            setCancelable(false);
             btClose.setClickable(false);
             cancelButton.setClickable(false);
         }

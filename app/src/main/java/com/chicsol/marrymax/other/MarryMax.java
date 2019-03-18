@@ -863,7 +863,7 @@ public class MarryMax {
 
     }
 
-    private void getMobileInfo(JSONObject params, final String alias, Context context, final Fragment fragment, final FragmentManager frgMngr) {
+    public void getMobileInfo(JSONObject params, final String alias, Context context, final Fragment fragment, final FragmentManager frgMngr) {
 
         final ProgressDialog pDialog = new ProgressDialog(activity);
         pDialog.setMessage("Loading...");

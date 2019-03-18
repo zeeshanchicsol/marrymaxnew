@@ -18,6 +18,7 @@ import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.fragments.AccountSetting.MatchingAttributeFragment;
 import com.chicsol.marrymax.fragments.AccountSetting.MyContactFragment;
 import com.chicsol.marrymax.fragments.AccountSetting.MyProfileSettingFragment;
+import com.chicsol.marrymax.fragments.DashboardInboxMainFragment;
 import com.chicsol.marrymax.fragments.inbox.DashboardMessagesFragment;
 import com.chicsol.marrymax.fragments.inbox.interests.DashboardMyInterestsMainFragment;
 import com.chicsol.marrymax.fragments.inbox.permissions.DashboardMyPermissionsMainFragment;
@@ -161,11 +162,19 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
 
                 break;
             case 18:
-                getSupportActionBar().setTitle("Interests");
+              /*  getSupportActionBar().setTitle("Interests");
                 fragment = new DashboardMyInterestsMainFragment();
                 if (subType != null) {
                     fragment.setArguments(data);
+                }*/
+
+
+                getSupportActionBar().setTitle("Interests");
+                fragment = new DashboardInboxMainFragment();
+                if (subType != null) {
+                    fragment.setArguments(data);
                 }
+
                 break;
             case 19:
                 getSupportActionBar().setTitle("Requests");
