@@ -123,9 +123,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private Context context;
     private View rview;
 
-    private boolean tutorialCheck;
 
-    ImageView ivSwipeInstructions;
+    //  boolean mUserVisibleHint = false;
 
     public static UserProfileActivityFragment newInstance(String userpath) {
         UserProfileActivityFragment f = new UserProfileActivityFragment();
@@ -143,8 +142,16 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        setUserVisibleHint(false);
         userpath = getArguments().getString("userpath");
     }
+
+   /* @Override
+    public void setMenuVisibility(final boolean visible) {
+        super.setMenuVisibility(visible);
+        mUserVisibleHint = visible;
+
+    }*/
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -364,7 +371,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
         //      llScreenWait = (LinearLayout) view.findViewById(R.id.LinearLayoutscreen_wait);
-        //  llScreenMain = (LinearLayout) view.findViewById(R.id.LinearLayoutUserProfileMainlayout);
+        llScreenMain = (LinearLayout) view.findViewById(R.id.LinearLayoutUserProfileMainlayout);
 //
 
 
@@ -629,6 +636,9 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     }
 
     private void setListenders() {
+
+
+
 
       /*  ivSwipeInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1478,6 +1488,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                     public void onResponse(JSONObject response) {
                         Log.e("re  update lifestyle", response + "");
 
+
                         try {
 
 
@@ -1495,32 +1506,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             member = (Members) gson.fromJson(firstJsonObj.toString(), type);
                             //      ((AppCompatActivity)getActivity()).  getSupportActionBar().setTitle(member.getAlias());
                             toolbar.setTitle(member.getAlias());
-                          /*  0            Don't do anything
-                            1            Show poup feedback is pending
-                            2            Show poup feedbacks are pending. Disable background*/
-
-
-                            Members samember = SharedPreferenceManager.getUserObject(context);
-                            String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
-
-
-
-
-                            if (Integer.parseInt(member.getFeedback_pending()) == 1) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
-
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
-                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                                newFragment.show(getFragmentManager(), "dialog");
-
-                            } else if (Integer.parseInt(member.getFeedback_pending()) == 2) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks";
-
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
-                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                                newFragment.show(getFragmentManager(), "dialog");
-
-                            }
 
 
                             if (SharedPreferenceManager.getUserObject(context).get_path() != null && member.get_path() != null) {
@@ -1542,6 +1527,41 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                             setupViewPager(viewPager1, responsArray.toString());
                             // Log.e("Member checkedTextView", "" + member.getAlias());
+
+
+                  /*            *//*  0            Don't do anything
+                            1            Show poup feedback is pending
+                            2            Show poup feedbacks are pending. Disable background*//*
+
+
+                            Members samember = SharedPreferenceManager.getUserObject(context);
+                            String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
+
+
+                            if (Integer.parseInt(member.getFeedback_pending()) == 1) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+
+                                newFragment.show(getFragmentManager(), "dialog");
+
+
+                            } else if (Integer.parseInt(member.getFeedback_pending()) == 2) {
+
+                                blockTouch(true);
+
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                if (getFragmentManager() != null) {
+
+                                    newFragment.show(getFragmentManager(), "dialog");
+
+                                }
+                            }*/
+
 
                         } catch (JSONException e) {
                             setWaitScreen(false);
@@ -1761,6 +1781,38 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         }
         progressBar.setVisibility(set ? View.VISIBLE : View.GONE);
     }
+
+    void blockTouch(boolean set) {
+        llBottomshowInterest.setEnabled(false);
+
+        ivPhoneVerified.setClickable(false);
+        llBottomSendMessage.setClickable(false);
+        viewPager1.setClickable(false);
+        tvMatchAid.setClickable(false);
+        faAddToFavourites.setClickable(false);
+        llUPSendMessage.setClickable(false);
+        llshowInterest.setClickable(false);
+
+        ibSwipeRight.setClickable(false);
+        ibSwipeLeft.setClickable(false);
+        faUserDropdown.setClickable(false);
+
+        tabLayout1.clearOnTabSelectedListeners();
+
+    /*    for (int i = 0; i < llScreenMain.getChildCount(); i++) {
+            View child = llScreenMain.getChildAt(i);
+            child.setEnabled(false);
+        }*/
+      /*  if (set) {
+            ((Activity) context).getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+
+        } else {
+            ((Activity) context).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        }*/
+
+    }
+
 
     private void forwardMemberRequest() {
 

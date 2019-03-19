@@ -146,12 +146,12 @@ public class dialogFeedBackPending extends DialogFragment {
 
         Log.e("disabled", disabled + "");
 
-        if (disabled) {
+      /*  if (disabled) {
             //    getDialog().setCancelable(false);
             setCancelable(false);
             btClose.setClickable(false);
             cancelButton.setClickable(false);
-        }
+        }*/
 
 
         return rootView;

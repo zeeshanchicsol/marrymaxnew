@@ -65,7 +65,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setUserVisibleHint(false);
+
     }
 
     @Nullable
@@ -81,12 +81,12 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     public void onResume() {
         super.onResume();
 
-        if (!getUserVisibleHint()) {
+     /*   if (!getUserVisibleHint()) {
             return;
         }
-
+*/
         Log.e("called", "called");
-        getCommunicationCount();
+    //    getCommunicationCount();
 
 
       /*  Members member = SharedPreferenceManager.getUserObject(context);
@@ -178,10 +178,10 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
         //  getCommunicationCount();
     }
 
-    private void getCommunicationCount() {
-       /* final ProgressDialog pDialog = new ProgressDialog(getContext());
+ /*   private void getCommunicationCount() {
+       *//* final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
-        pDialog.show();*/
+        pDialog.show();*//*
         Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path(),
                 new Response.Listener<JSONArray>() {
@@ -243,7 +243,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
             }
         };
         MySingleton.getInstance(context).addToRequestQueue(req, "DashboardInboxMainFragment");
-    }
+    }*/
 
     /**
      * A {@link FragmentStatePagerAdapter} that returns a fragment corresponding to
