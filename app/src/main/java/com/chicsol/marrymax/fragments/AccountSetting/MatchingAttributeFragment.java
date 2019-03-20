@@ -149,8 +149,8 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
                     } else if (!selectedIds.equals("")) {
 
                         Members mem = new Members();
-                        mem.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
-                        mem.set_choice_preferences_ids(selectedIds);
+                        mem.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
+                        mem.setChoice_preferences_ids(selectedIds);
                         Gson gson = new Gson();
                         String memString = gson.toJson(mem);
                         try {
@@ -219,8 +219,8 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(getContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getPreferences + SharedPreferenceManager.getUserObject(getContext()).get_path(),
+        Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(getContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getPreferences + SharedPreferenceManager.getUserObject(getContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

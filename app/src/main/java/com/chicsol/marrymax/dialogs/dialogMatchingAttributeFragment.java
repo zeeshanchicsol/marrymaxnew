@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.GridLayout;
@@ -191,8 +190,8 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
                     } else if (!selectedIds.equals("")) {
 
                         Members mem = new Members();
-                        mem.set_path(SharedPreferenceManager.getUserObject(context).get_path());
-                        mem.set_choice_preferences_ids(selectedIds);
+                        mem.setPath(SharedPreferenceManager.getUserObject(context).getPath());
+                        mem.setChoice_preferences_ids(selectedIds);
                         Gson gson = new Gson();
                         String memString = gson.toJson(mem);
                         try {
@@ -261,8 +260,8 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(context).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getPreferences + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(context).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getPreferences + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

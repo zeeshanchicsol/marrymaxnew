@@ -206,8 +206,8 @@ private  Context context;
             String txt = "<font color='#9a0606'>" + member.getAlias() + "</font>";
 
 
-            if (member.get_image_count() == 0) {
-                if (member.get_photo_upload_request_id() == 0) {
+            if (member.getImage_count() == 0) {
+                if (member.getPhoto_upload_request_id() == 0) {
                     //request  photo view
                     Log.e("Request Photo", "Request Photo Upload");
                     tvEmptyStateMessage.setText(Html.fromHtml("Currently no pictures of " + "<b>" + txt.toUpperCase() + "</b> are available."));
@@ -215,7 +215,7 @@ private  Context context;
                     btEmptyState.setText("Request Photo Upload");
 
                     //popup.getMenu().getItem(0).setTitle("Request Photo");
-                } else if (member.get_photo_upload_request_id() > 0) {
+                } else if (member.getPhoto_upload_request_id() > 0) {
                     // popup.getMenu().getItem(0).setTitle("Withdraw Request");
 
                     tvEmptyStateMessage.setText(Html.fromHtml("Your request to view pictures of " + "<b>" + txt.toUpperCase() + "</b>  is waiting for approval."));
@@ -224,15 +224,15 @@ private  Context context;
                     btEmptyState.setText("Withdraw Request");
                 }
 
-            } else if (member.get_image_count() > 0 && member.get_hide_photo() > 0) {
-                if (member.get_photo_request_id() == 0) {
+            } else if (member.getImage_count() > 0 && member.getHide_photo() > 0) {
+                if (member.getPhoto_request_id() == 0) {
                     //request  photo view
                     // popup.getMenu().getItem(0).setTitle("Request Photo View");
                     //     Log.e("Request Photo View ", "Request Photo View");
                     tvEmptyStateMessage.setText(Html.fromHtml("Pictures of " + "<b>" + txt.toUpperCase() + "</b> are private. Request to view them."));
 
                     btEmptyState.setText("Request to View Photo");
-                } else if (member.get_photo_request_id() > 0) {
+                } else if (member.getPhoto_request_id() > 0) {
                     // popup.getMenu().getItem(0).setTitle("Withdraw Request");
                     //   Log.e("Withdraw Request ", "Withdraw Request");
                     tvEmptyStateMessage.setText(Html.fromHtml("Your request to view pictures of " + "<b>" + txt.toUpperCase() + "</b>  is waiting for approval."));
@@ -278,8 +278,8 @@ private  Context context;
                 boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, getFragmentManager(), PicturesFragment.this, v, null, null, null, null);
 
                 if (checkStatus) {
-                    if (member.get_image_count() == 0) {
-                        if (member.get_photo_upload_request_id() == 0) {
+                    if (member.getImage_count() == 0) {
+                        if (member.getPhoto_upload_request_id() == 0) {
                             //request  photo view
                             Log.e("Request Photo", "Request Photo Upload");
 
@@ -292,15 +292,15 @@ private  Context context;
                             request(member, title, desc, btTitile, type);
 
 
-                        } else if (member.get_photo_upload_request_id() > 0) {
+                        } else if (member.getPhoto_upload_request_id() > 0) {
 
                             Log.e("Withdraw Request ", "Withdraw Request");
                             JSONObject params = new JSONObject();
                             try {
 
                                 params.put("userpath", member.getUserpath());
-                                params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                                params.put("interested_id", member.get_photo_upload_request_id());
+                                params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+                                params.put("interested_id", member.getPhoto_upload_request_id());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -311,8 +311,8 @@ private  Context context;
 
                         }
 
-                    } else if (member.get_image_count() > 0 && member.get_hide_photo() > 0) {
-                        if (member.get_photo_request_id() == 0) {
+                    } else if (member.getImage_count() > 0 && member.getHide_photo() > 0) {
+                        if (member.getPhoto_request_id() == 0) {
                             //request  photo view
 
                             Log.e("Request Photo View ", "Request Photo View");
@@ -323,15 +323,15 @@ private  Context context;
                             request(member, title, desc, btTitile, type);
 
 
-                        } else if (member.get_photo_request_id() > 0) {
+                        } else if (member.getPhoto_request_id() > 0) {
 
                             //Log.e("Withdraw Request ", "Withdraw Request");
                             JSONObject params = new JSONObject();
                             try {
 
                                 params.put("userpath", member.getUserpath());
-                                params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                                params.put("interested_id", member.get_photo_request_id());
+                                params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+                                params.put("interested_id", member.getPhoto_request_id());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -399,7 +399,7 @@ private  Context context;
             params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
             params.put("type", type);
             params.put("userpath", member.getUserpath());
-            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -467,25 +467,25 @@ private  Context context;
        /* int id = Integer.parseInt(requestid);
         switch (id) {
             case 1:
-                member.set_photo_upload_request_id(0);
+                member.setPhoto_upload_request_id(0);
                 if (json != null) {
                     loadData(json);
                 }
                 break;
             case 2:
-                member.set_photo_request_id(0);
+                member.setPhoto_request_id(0);
                 if (json != null) {
                     loadData(json);
                 }
                 break;
       *//*       case 3:
-                items.get(selectedPosition).set_profile_request_id(0);
+                items.get(selectedPosition).setProfile_request_id(0);
                 break;
             case 4:
-                items.get(selectedPosition).set_phone_request_id(0);
+                items.get(selectedPosition).setPhone_request_id(0);
                 break;*//*
             case 5:
-                //  items.get(selectedPosition).set_interested_id(0);
+                //  items.get(selectedPosition).setInterested_id(0);
                 break;
 
         }*/

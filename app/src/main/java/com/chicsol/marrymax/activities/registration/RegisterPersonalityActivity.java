@@ -7,11 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayout;
-import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.BulletSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -268,8 +264,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                         params.put("for_fun", etWhatIdoFor.getText().toString());
                         params.put("good_quality", etMyStrength.getText().toString());
                         params.put("most_thankfull", etMostThankfulFor.getText().toString());
-                        params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                         // Log.e("ppp", " param " + params);
                         if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
                             updatePersonality(params);
@@ -408,15 +404,15 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
         ViewGenerator viewGenerator = new ViewGenerator(RegisterPersonalityActivity.this);
 
-        if (members_obj.get_personality_ids() != "") {
-            viewGenerator.selectCheckRadioFromGridLayout(gridLayout, members_obj.get_personality_ids());
+        if (members_obj.getPersonality_ids() != "") {
+            viewGenerator.selectCheckRadioFromGridLayout(gridLayout, members_obj.getPersonality_ids());
         }
 
-        etAboutMe.setText(members_obj.get_other_info() + "");
+        etAboutMe.setText(members_obj.getOther_info() + "");
         etAboutMyChoice.setText(members_obj.getAbout_my_choice() + "");
-        etWhatIdoFor.setText(members_obj.get_for_fun() + "");
-        etMyStrength.setText(members_obj.get_good_quality() + "");
-        etMostThankfulFor.setText(members_obj.get_most_thankfull() + "");
+        etWhatIdoFor.setText(members_obj.getFor_fun() + "");
+        etMyStrength.setText(members_obj.getGood_quality() + "");
+        etMostThankfulFor.setText(members_obj.getMost_thankfull() + "");
     }
 
 
@@ -479,7 +475,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
     private void GetPersonalityData() {
         showProgressDialog();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                Urls.getPersonalityUrl + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(), null,
+                Urls.getPersonalityUrl + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -511,7 +507,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                             gson = gsonBuilder.create();
                             //  Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
                             members_obj = gson.fromJson(jsonGrography.get(0).toString(), Members.class);
-                            // Log.e("Aliaaaaaaaasss", members_obj.get_country_id() + "");
+                            // Log.e("Aliaaaaaaaasss", members_obj.getCountry_id() + "");
 
 
                         } catch (JSONException e) {
@@ -523,8 +519,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
                         ViewGenerator viewGenerator = new ViewGenerator(RegisterPersonalityActivity.this);
 
-                        Log.e("Perssssssssss", members_obj.get_personality_ids() + "");
-                        if (members_obj.get_personality_ids().equals("")) {
+                        Log.e("Perssssssssss", members_obj.getPersonality_ids() + "");
+                        if (members_obj.getPersonality_ids().equals("")) {
                             updateData = false;
 
                         } else {
@@ -616,8 +612,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
 
                                 Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-                                if (member.get_member_status() == 0) {
-                                    member.set_member_status(1);
+                                if (member.getMember_status() == 0) {
+                                    member.setMember_status(1);
                                     SharedPreferenceManager.setUserObject(getApplicationContext(), member);
                                 }
 

@@ -1,19 +1,13 @@
 package com.chicsol.marrymax.activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.se.omapi.Session;
 import android.support.annotation.LayoutRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -145,11 +139,11 @@ DrawerActivity extends AppCompatActivity {
 
 
         m_adapter = new NotificationSpinnerAdapter(this, R.layout.item_spinner_notifications, m_NotificationDataList);
-        tcUserName.setText(member.get_personal_name());
+        tcUserName.setText(member.getPersonal_name());
 
 
         iv_profile = (ImageView) findViewById(R.id.imageViewNavDefaultImage);
-        imageLoader.displayImage(Urls.baseUrl + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_default_image(),
+        imageLoader.displayImage(Urls.baseUrl + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).getDefault_image(),
                 iv_profile, options,
                 new SimpleImageLoadingListener() {
 
@@ -232,16 +226,16 @@ DrawerActivity extends AppCompatActivity {
     private void viewProfile() {
 
     /*    if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
-         if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() != 0) {
-                if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() != 0 || SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() != 7) {
+         if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() != 0) {
+                if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() != 0 || SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() != 7) {
 
                     if (drawer != null) {
                         drawer.closeDrawers();
                     }
-                    if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_path() != null && SharedPreferenceManager.getUserObject(getApplicationContext()).get_path() != "") {
+                    if (SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() != null && SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() != "") {
                         Intent intent = new Intent(DrawerActivity.this, MyProfileActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
                         startActivity(intent);
                     } else {
@@ -267,13 +261,13 @@ DrawerActivity extends AppCompatActivity {
             if (acheck) {
                 Intent intent = new Intent(DrawerActivity.this, MyProfileActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
                 startActivity(intent);
             }*/
 
 
-            if (member.get_member_status() == 0 || member.get_member_status() >= 7) {
+            if (member.getMember_status() == 0 || member.getMember_status() >= 7) {
 
 
                 MarryMax marryMax = new MarryMax(DrawerActivity.this);
@@ -281,7 +275,7 @@ DrawerActivity extends AppCompatActivity {
             } else {
                 Intent intent = new Intent(DrawerActivity.this, MyProfileActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
                 startActivity(intent);
             }
@@ -415,8 +409,8 @@ DrawerActivity extends AppCompatActivity {
     public void getNotificationCount() {
 
 
-        Log.e(" Notification url", Urls.getNotifyCntSta + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        StringRequest req = new StringRequest(Urls.getNotifyCntSta + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        Log.e(" Notification url", Urls.getNotifyCntSta + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        StringRequest req = new StringRequest(Urls.getNotifyCntSta + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -441,8 +435,8 @@ DrawerActivity extends AppCompatActivity {
                             settNotificationCount(count);
 
                             Members member1 = SharedPreferenceManager.getUserObject(getApplicationContext());
-                            if (member1.get_member_status() != Long.parseLong(status)) {
-                                member1.set_member_status(Long.parseLong(status));
+                            if (member1.getMember_status() != Long.parseLong(status)) {
+                                member1.setMember_status(Long.parseLong(status));
                                 SharedPreferenceManager.setUserObject(getApplicationContext(), member1);
                                 member = member1;
                             }
@@ -484,8 +478,8 @@ DrawerActivity extends AppCompatActivity {
 
     private void getSearchListData() {
 
-        Log.e("Search Lists url", Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        Log.e("Search Lists url", Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

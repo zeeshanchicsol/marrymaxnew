@@ -304,7 +304,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             public void onClick(View view) {
                 JSONObject params = new JSONObject();
                 try {
-                    params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
                     removeSchool(params);
                 } catch (JSONException e) {
@@ -319,7 +319,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
             public void onClick(View view) {
                 JSONObject params = new JSONObject();
                 try {
-                    params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
                     params.put("id", removeChildrenMyid);
 
@@ -391,7 +391,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                 if (checkedId == 5) {
                     rgMarriage.clearCheck();
                     Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-                    if (member.get_member_status() >= 2 && member.get_member_status() < 7) {
+                    if (member.getMember_status() >= 2 && member.getMember_status() < 7) {
                         llMainSecondMarriage.setVisibility(View.GONE);
                     } else {
                         llMainSecondMarriage.setVisibility(View.VISIBLE);
@@ -617,7 +617,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                         params.put("second_marriage_reason_id", second_marriage_reason_id);
 
 
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
                         Log.e("params", "" + params);
 
@@ -807,7 +807,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
     private void selectFormData(Members members_obj) {
         btRemoveChildren.setVisibility(View.GONE);
-        removeChildrenMyid = members_obj.get_my_id();
+        removeChildrenMyid = members_obj.getMy_id();
         //   Log.e("removeChildrenMyid", "" + removeChildrenMyid);
         if (removeChildrenMyid != 0) {
 
@@ -818,10 +818,10 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         }
 
 
-        Log.e("get_about_type", "" + members_obj.get_about_type() + "  --   " + members_obj.get_about_type_id());
+        Log.e("getAbout_type", "" + members_obj.getAbout_type() + "  --   " + members_obj.getAbout_type_id());
 
-        //  if (members_obj.get_about_type() != "" || members_obj.get_about_type_id() != 0) {
-        if ((members_obj.get_about_type() != "" && members_obj.get_about_type() != null) || members_obj.get_about_type_id() != 0) {
+        //  if (members_obj.getAbout_type() != "" || members_obj.getAbout_type_id() != 0) {
+        if ((members_obj.getAbout_type() != "" && members_obj.getAbout_type() != null) || members_obj.getAbout_type_id() != 0) {
             btRemoveSchool.setVisibility(View.VISIBLE);
         } else {
             btRemoveSchool.setVisibility(View.GONE);
@@ -829,77 +829,77 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
 
         ViewGenerator viewGenerator = new ViewGenerator(RegisterLifeStyleActivity1.this);
-        my_id = members_obj.get_my_id();
+        my_id = members_obj.getMy_id();
 
-        about_member_id = String.valueOf(members_obj.get_about_member_id());
-        Log.e("eddddddddd", "" + members_obj.get_about_type_id());
-        viewGenerator.selectSpinnerItemById(spMyEducation, members_obj.get_education_id(), myEducationDataList);
-        viewGenerator.selectSpinnerItemById(spMyEducationalField, members_obj.get_education_field_id(), educationFieldDataList);
-        viewGenerator.selectSpinnerItemById(spMyOccupation, members_obj.get_occupation_id(), myOccupationDataList);
-        viewGenerator.selectSpinnerItemById(spMyGraduationYear, members_obj.get_about_type_id(), graduationYearDataList);
-        viewGenerator.selectSpinnerItemById(spMyAnnualIncomeLevel, members_obj.get_income_level_id(), incomeDataList);
+        about_member_id = String.valueOf(members_obj.getAbout_member_id());
+        Log.e("eddddddddd", "" + members_obj.getAbout_type_id());
+        viewGenerator.selectSpinnerItemById(spMyEducation, members_obj.getEducation_id(), myEducationDataList);
+        viewGenerator.selectSpinnerItemById(spMyEducationalField, members_obj.getEducation_field_id(), educationFieldDataList);
+        viewGenerator.selectSpinnerItemById(spMyOccupation, members_obj.getOccupation_id(), myOccupationDataList);
+        viewGenerator.selectSpinnerItemById(spMyGraduationYear, members_obj.getAbout_type_id(), graduationYearDataList);
+        viewGenerator.selectSpinnerItemById(spMyAnnualIncomeLevel, members_obj.getIncome_level_id(), incomeDataList);
 
-        Log.e("choice_economy_ids " + members_obj.get_economy_id(), "" + members_obj.get_choice_economy_ids());
+        Log.e("choice_economy_ids " + members_obj.getEconomy_id(), "" + members_obj.getChoice_economy_ids());
 
         Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-        if (member.get_member_status() >= 2 && member.get_member_status() < 7) {
+        if (member.getMember_status() >= 2 && member.getMember_status() < 7) {
             spMyEducation.setEnabled(false);
 
 
-            if (members_obj.get_economy_id() != 0) {
-                viewGenerator.selectCheckRadioWithDisabledRadio(rgEconomy, members_obj.get_economy_id(), llcbViewEconomy, members_obj.get_choice_economy_ids());
+            if (members_obj.getEconomy_id() != 0) {
+                viewGenerator.selectCheckRadioWithDisabledRadio(rgEconomy, members_obj.getEconomy_id(), llcbViewEconomy, members_obj.getChoice_economy_ids());
             }
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgReligious, members_obj.get_religious_sect_id(), llcbViewReligious, members_obj.get_choice_religious_sect_ids());
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgEthnic, members_obj.get_ethnic_background_id(), llcbViewEthnic, members_obj.get_choice_ethnic_bground_ids());
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgMarital, members_obj.get_marital_status_id(), llcbViewMarital, members_obj.get_choice_marital_status_ids());
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgChildren, members_obj.get_children_id(), llcbViewChildren, members_obj.get_choice_children_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgReligious, members_obj.getReligious_sect_id(), llcbViewReligious, members_obj.getChoice_religious_sect_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgEthnic, members_obj.getEthnic_background_id(), llcbViewEthnic, members_obj.getChoice_ethnic_bground_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgMarital, members_obj.getMarital_status_id(), llcbViewMarital, members_obj.getChoice_marital_status_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgChildren, members_obj.getChildren_id(), llcbViewChildren, members_obj.getChoice_children_ids());
 
 
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgMarriage, members_obj.getSecond_marriage_reason_id(), llcbViewMarital, members_obj.get_choice_children_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgMarriage, members_obj.getSecond_marriage_reason_id(), llcbViewMarital, members_obj.getChoice_children_ids());
 
 
         } else {
-            viewGenerator.selectCheckRadio(rgEconomy, members_obj.get_economy_id(), llcbViewEconomy, members_obj.get_choice_economy_ids());
+            viewGenerator.selectCheckRadio(rgEconomy, members_obj.getEconomy_id(), llcbViewEconomy, members_obj.getChoice_economy_ids());
 
-            viewGenerator.selectCheckRadio(rgReligious, members_obj.get_religious_sect_id(), llcbViewReligious, members_obj.get_choice_religious_sect_ids());
+            viewGenerator.selectCheckRadio(rgReligious, members_obj.getReligious_sect_id(), llcbViewReligious, members_obj.getChoice_religious_sect_ids());
 
-            viewGenerator.selectCheckRadio(rgEthnic, members_obj.get_ethnic_background_id(), llcbViewEthnic, members_obj.get_choice_ethnic_bground_ids());
+            viewGenerator.selectCheckRadio(rgEthnic, members_obj.getEthnic_background_id(), llcbViewEthnic, members_obj.getChoice_ethnic_bground_ids());
 
-            viewGenerator.selectCheckRadio(rgMarital, members_obj.get_marital_status_id(), llcbViewMarital, members_obj.get_choice_marital_status_ids());
+            viewGenerator.selectCheckRadio(rgMarital, members_obj.getMarital_status_id(), llcbViewMarital, members_obj.getChoice_marital_status_ids());
 
-            viewGenerator.selectCheckRadio(rgChildren, members_obj.get_children_id(), llcbViewChildren, members_obj.get_choice_children_ids());
-            viewGenerator.selectCheckRadio(rgMarriage, members_obj.getSecond_marriage_reason_id(), llcbViewMarital, members_obj.get_choice_children_ids());
+            viewGenerator.selectCheckRadio(rgChildren, members_obj.getChildren_id(), llcbViewChildren, members_obj.getChoice_children_ids());
+            viewGenerator.selectCheckRadio(rgMarriage, members_obj.getSecond_marriage_reason_id(), llcbViewMarital, members_obj.getChoice_children_ids());
 
 
         }
 
         ((RadioButton) rgChildren.getChildAt(0)).setEnabled(true);
 
-        if (members_obj.get_children_id() == 2 || members_obj.get_children_id() == 3) {
+        if (members_obj.getChildren_id() == 2 || members_obj.getChildren_id() == 3) {
 
             ((RadioButton) rgChildren.getChildAt(0)).setEnabled(false);
             btRemoveChildren.setVisibility(View.VISIBLE);
 
-            if (members_obj.get_girls_count() == 0 && members_obj.get_boys_count() == 0 && members_obj.get_min_age() == 0 && members_obj.get_max_age() == 0) {
+            if (members_obj.getGirls_count() == 0 && members_obj.getBoys_count() == 0 && members_obj.getMin_age() == 0 && members_obj.getMax_age() == 0) {
                 btRemoveChildren.setVisibility(View.GONE);
                 ((RadioButton) rgChildren.getChildAt(0)).setEnabled(true);
                 //    llChildren.setVisibility(View.GONE);
             } else {
-                etNoOfGirls.setText(members_obj.get_girls_count() + "");
-                etNoOfBoys.setText(+members_obj.get_boys_count() + "");
-                etMinAge.setText("" + members_obj.get_min_age());
-                etMaxAge.setText("" + members_obj.get_max_age());
+                etNoOfGirls.setText(members_obj.getGirls_count() + "");
+                etNoOfBoys.setText(+members_obj.getBoys_count() + "");
+                etMinAge.setText("" + members_obj.getMin_age());
+                etMaxAge.setText("" + members_obj.getMax_age());
             }
 
 
         }
 
-        etGraduatedFrom.setText(members_obj.get_about_type());
-        acMyCaste.setText(members_obj.get_caste_name());
+        etGraduatedFrom.setText(members_obj.getAbout_type());
+        acMyCaste.setText(members_obj.getCaste_name());
 
-        if (!members_obj.get_caste_name().equals("")) {
+        if (!members_obj.getCaste_name().equals("")) {
 
-            int pos = getCastePos(members_obj.get_caste_name());
+            int pos = getCastePos(members_obj.getCaste_name());
 
             if (pos == -1) {
                 tvCasteErrorMsg.setVisibility(View.VISIBLE);
@@ -913,10 +913,10 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         }
 
 
-        Log.e("caste id", "castt  " + members_obj.get_caste_id() + "  lllll");
-        if (members_obj.get_caste_id() != 0) {
+        Log.e("caste id", "castt  " + members_obj.getCaste_id() + "  lllll");
+        if (members_obj.getCaste_id() != 0) {
 
-            Log.e("caste id", "castt  " + members_obj.get_caste_id() + "  zzzzzzzzzzz");
+            Log.e("caste id", "castt  " + members_obj.getCaste_id() + "  zzzzzzzzzzz");
 
             //  acMyCaste.setText(members_obj.get_caste);
         }
@@ -924,8 +924,8 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
         ///=================choice education
         {
-            Log.e("choice Education", members_obj.get_choice_education_ids());
-            String[] cids = members_obj.get_choice_education_ids().split(",");
+            Log.e("choice Education", members_obj.getChoice_education_ids());
+            String[] cids = members_obj.getChoice_education_ids().split(",");
             //multi choice selection
 
             for (int i = 0; i < cids.length; i++) {
@@ -962,8 +962,8 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 //=-====================================================================
 
         {
-            Log.e("choice Ocu", members_obj.get_choice_occupation_ids());
-            String[] cids = members_obj.get_choice_occupation_ids().split(",");
+            Log.e("choice Ocu", members_obj.getChoice_occupation_ids());
+            String[] cids = members_obj.getChoice_occupation_ids().split(",");
             //multi choice selection
             selectedOccupationDataList.clear();
             for (int i = 0; i < cids.length; i++) {
@@ -1026,10 +1026,10 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
         pDialog.show();
 
-        Log.e("GetLifeStyleData par", "" + Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        Log.e("GetLifeStyleData par", "" + Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(), null,
+                Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -1118,7 +1118,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                             gson = gsonBuilder.create();
                             Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
                             members_obj = gson.fromJson(jsonGrography.get(0).toString(), Members.class);
-                            Log.e("Aliaaaaaaaasss", members_obj.get_country_id() + "");
+                            Log.e("Aliaaaaaaaasss", members_obj.getCountry_id() + "");
 
 
                         } catch (JSONException e) {
@@ -1130,7 +1130,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
                         ViewGenerator viewGenerator = new ViewGenerator(RegisterLifeStyleActivity1.this);
 
-                        if (members_obj.get_education_id() == 0) {
+                        if (members_obj.getEducation_id() == 0) {
                             updateData = false;
 
                         } else {
@@ -1283,9 +1283,9 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                                 Toast.makeText(RegisterLifeStyleActivity1.this, "Removed", Toast.LENGTH_SHORT).show();
 
 
-                                members_obj.set_about_type("");
-                                members_obj.set_about_type_id(0);
-                                etGraduatedFrom.setText(members_obj.get_about_type());
+                                members_obj.setAbout_type("");
+                                members_obj.setAbout_type_id(0);
+                                etGraduatedFrom.setText(members_obj.getAbout_type());
                                 spMyGraduationYear.setSelection(0);
                                 btRemoveSchool.setVisibility(View.GONE);
 

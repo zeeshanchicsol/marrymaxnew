@@ -82,7 +82,7 @@ public class RemovedFromSearchesListAdapter extends ArrayAdapter<WebArdList> {
                 try {
                     //  params.put("id", "1");
                     params.put("userpath", item.getUserpath());
-                    params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -164,8 +164,8 @@ public class RemovedFromSearchesListAdapter extends ArrayAdapter<WebArdList> {
         final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("url", Urls.getRemovedList + SharedPreferenceManager.getUserObject(getContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getRemovedList + SharedPreferenceManager.getUserObject(getContext()).get_path(),
+        Log.e("url", Urls.getRemovedList + SharedPreferenceManager.getUserObject(getContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getRemovedList + SharedPreferenceManager.getUserObject(getContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

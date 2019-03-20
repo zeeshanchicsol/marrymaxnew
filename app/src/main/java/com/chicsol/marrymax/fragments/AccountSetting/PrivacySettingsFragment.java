@@ -120,9 +120,9 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("api path", "" + Urls.getProfilePrivacy + SharedPreferenceManager.getUserObject(context).get_path());
+        Log.e("api path", "" + Urls.getProfilePrivacy + SharedPreferenceManager.getUserObject(context).getPath());
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfilePrivacy + SharedPreferenceManager.getUserObject(context).get_path(),
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfilePrivacy + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -193,7 +193,7 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
         rgInterest.setOnCheckedChangeListener(PrivacySettingsFragment.this);
 
 
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() < 4) {
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() < 4) {
             tvSubOpt1.setVisibility(View.VISIBLE);
             //  tvSubOpt2.setVisibility(View.VISIBLE);
             tvSubOpt3.setVisibility(View.VISIBLE);
@@ -246,7 +246,7 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
             try {
                 jsonObject.put("id", id);
                 jsonObject.put("value", value);
-                jsonObject.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                jsonObject.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                 editPrivacyRequest(jsonObject);
             } catch (JSONException e) {
                 e.printStackTrace();

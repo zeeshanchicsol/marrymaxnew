@@ -17,7 +17,6 @@
 package com.chicsol.marrymax.adapters;
 
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -35,34 +34,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.subscription.OrderProcessActivity;
 import com.chicsol.marrymax.modal.Subscription;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
-import com.chicsol.marrymax.urls.Urls;
-import com.chicsol.marrymax.utils.Constants;
-import com.chicsol.marrymax.utils.MySingleton;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.process.BitmapProcessor;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int VIEW_ITEM = 1;
@@ -244,7 +227,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 @Override
                 public void onClick(View v) {
 
-                    if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+                    if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
 
 
                         String currency = obj.getItem_currency().charAt(0) + "";

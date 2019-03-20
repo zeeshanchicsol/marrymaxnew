@@ -157,7 +157,7 @@ public class ChangePasswordFragment extends Fragment {
 
 
                     Log.e("Loggggg", etOldPassword.getText().toString());
-                    Log.e("Loggggg", SharedPreferenceManager.getUserObject(context).get_password());
+                    Log.e("Loggggg", SharedPreferenceManager.getUserObject(context).getPassword());
                 } catch (Exception e) {
                     UserSessionManager sessionManager = new UserSessionManager(context);
                     sessionManager.logoutUser();
@@ -166,7 +166,7 @@ public class ChangePasswordFragment extends Fragment {
                 String oldpass = etOldPassword.getText().toString();
                 String newpass = etNewPassword.getText().toString();
                 String confirmnewpass = etConfirmNewPassword.getText().toString();
-            //    Log.e("Loggggg",    oldpass+"  old <==> new  "+SharedPreferenceManager.getUserObject(context).get_password());
+            //    Log.e("Loggggg",    oldpass+"  old <==> new  "+SharedPreferenceManager.getUserObject(context).getPassword());
 
 
 
@@ -200,16 +200,16 @@ public class ChangePasswordFragment extends Fragment {
                     focusView = etConfirmNewPassword;
 
                     focusView.requestFocus();
-                } else if (!oldpass.equals(SharedPreferenceManager.getUserObject(context).get_password())) {
+                } else if (!oldpass.equals(SharedPreferenceManager.getUserObject(context).getPassword())) {
                     Toast.makeText(context, "Old Password Incorrect", Toast.LENGTH_SHORT).show();
                 } else if (!newpass.equals(confirmnewpass)) {
                     Toast.makeText(context, "New Password Does Not Match", Toast.LENGTH_SHORT).show();
                 } else {
 
                     Members members = new Members();
-                    members.set_password(etOldPassword.getText().toString());
-                    members.set_new_password(etNewPassword.getText().toString());
-                    members.set_path(SharedPreferenceManager.getUserObject(context).get_path());
+                    members.setPassword(etOldPassword.getText().toString());
+                    members.setNew_password(etNewPassword.getText().toString());
+                    members.setPath(SharedPreferenceManager.getUserObject(context).getPath());
                     Gson gson = new Gson();
                     String memString = gson.toJson(members);
 
@@ -254,7 +254,7 @@ public class ChangePasswordFragment extends Fragment {
 
 
                                 Members member = SharedPreferenceManager.getUserObject(context);
-                                member.set_password(newPass);
+                                member.setPassword(newPass);
 
                                 SharedPreferenceManager.setUserObject(context, member);
 

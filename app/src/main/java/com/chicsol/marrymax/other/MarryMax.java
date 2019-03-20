@@ -28,7 +28,6 @@ import com.chicsol.marrymax.activities.ContactAcivity;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.activities.WebViewActivity;
-import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.activities.registration.RegisterAppearanceActivity;
 import com.chicsol.marrymax.activities.registration.RegisterGeographicActivity;
 import com.chicsol.marrymax.activities.registration.RegisterInterest;
@@ -38,6 +37,7 @@ import com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity;
 import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.activities.subscription.SubscriptionPlanActivity;
 import com.chicsol.marrymax.dialogs.dialogContactDetails;
+import com.chicsol.marrymax.dialogs.dialogFeedBackPending;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogRequestPhone;
 import com.chicsol.marrymax.dialogs.dialogWithdrawInterest;
@@ -45,9 +45,9 @@ import com.chicsol.marrymax.fragments.inbox.DashboardMessagesDetailActivity;
 import com.chicsol.marrymax.interfaces.PhoneRequestCallBackInterface;
 import com.chicsol.marrymax.interfaces.RequestCallbackInterface;
 import com.chicsol.marrymax.interfaces.WithdrawRequestCallBackInterface;
-import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
+import com.chicsol.marrymax.modal.mMemPhone;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
@@ -116,11 +116,11 @@ public class MarryMax {
 
 
     public void getProfileProgress(final Context context, final Members member, final Activity activity) {
-        //   Log.e("URL----", "" + Urls.getProgressbar + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        //   Log.e("URL----", "" + Urls.getProgressbar + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
         // pDialog.setMessage("getProfileProgress");
         //pDialog.show();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                Urls.getProgressbar + SharedPreferenceManager.getUserObject(context).get_path(), null,
+                Urls.getProgressbar + SharedPreferenceManager.getUserObject(context).getPath(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -132,7 +132,7 @@ public class MarryMax {
                             int registration_within_id = response.getInt("id");
 
 
-                            if (member.get_member_status() == 0) {
+                            if (member.getMember_status() == 0) {
 
                                 if (registration_within_id == 0) {
                                     Intent intent = new Intent(activity, RegisterGeographicActivity.class);
@@ -167,7 +167,7 @@ public class MarryMax {
                                 }
 
 
-                            } else if (member.get_member_status() < 3) {
+                            } else if (member.getMember_status() < 3) {
                                 if (registration_within_id < 100) {
                                     if (registration_within_id == 70) {
                                         Intent intent = new Intent(activity, RegisterInterest.class);
@@ -258,12 +258,12 @@ public class MarryMax {
 
 
     public void getProfileProgress(final Class cls, final Activity activity, final Context context, final Members member) {
-        //  Log.e("URL----", "" + Urls.getProgressbar + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        //  Log.e("URL----", "" + Urls.getProgressbar + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
         //   final ProgressDialog pDialog = new ProgressDialog(activity);
         //   pDialog.setMessage("Loading...");
 //        pDialog.show();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                Urls.getProgressbar + SharedPreferenceManager.getUserObject(context).get_path(), null,
+                Urls.getProgressbar + SharedPreferenceManager.getUserObject(context).getPath(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -275,7 +275,7 @@ public class MarryMax {
                             int registration_within_id = response.getInt("id");
 
 
-                            if (member.get_member_status() == 0) {
+                            if (member.getMember_status() == 0) {
 
 
                                 switch (cls.getSimpleName()) {
@@ -397,27 +397,27 @@ public class MarryMax {
 
         Members smember = SharedPreferenceManager.getUserObject(context);
 
-        //  Log.e("member type", smember.get_member_status() + "-------" + member.get_open_message());
+        //  Log.e("member type", smember.getMember_status() + "-------" + member.getOpen_message());
         switch (category) {
 
             //View Profile
             case 1:
 
                 String compUptoSSeventyText = "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile up to 70% and Verify Phone or Email </font></b> before you can view the complete profile details.";
-                if (smember.get_member_status() == 0) {
+                if (smember.getMember_status() == 0) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", compUptoSSeventyText, "Complete Profile", 8);
                     dialogP.show(frgMngr, "d");
                     return false;
 
-                } else if (smember.get_member_status() < 3 && smember.get_phone_verified() == 0 && smember.get_email_verified() == 0) {
+                } else if (smember.getMember_status() < 3 && smember.getPhone_verified() == 0 && smember.getEmail_verified() == 0) {
                     // Toast.makeText(context, "Clicked ", Toast.LENGTH_SHORT).show();
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", compUptoSSeventyText, "Complete Profile", 8);
                     dialogP.show(frgMngr, "d");
                     return false;
 
-                } else if (smember.get_member_status() >= 7) {
+                } else if (smember.getMember_status() >= 7) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.show(frgMngr, "d");
@@ -459,7 +459,7 @@ public class MarryMax {
                   /*  intent.putExtra("selectedposition", selectedPosition);
                     SharedPreferenceManager.setMemberDataList(context, memberDataList);*/
 
-                    Log.e("Path", "" + member.get_path());
+                    Log.e("Path", "" + member.getPath());
                     Log.e("UserPath", "" + member.getUserpath());
 
                     Gson gson = new Gson();
@@ -476,27 +476,27 @@ public class MarryMax {
             case 2:
 
 
-                if (smember.get_member_status() <= 1 && smember.get_phone_verified() == 0) {
+                if (smember.getMember_status() <= 1 && smember.getPhone_verified() == 0) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
 
-                } else if (smember.get_member_status() < 3) {
+                } else if (smember.getMember_status() < 3) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
 
-                } else if (smember.get_member_status() == 3) {
+                } else if (smember.getMember_status() == 3) {
                     return true;
 
-                } else if (smember.get_member_status() == 4) {
+                } else if (smember.getMember_status() == 4) {
                     return true;
 
 
-                } else if (smember.get_member_status() == 7 || smember.get_member_status() == 8) {
+                } else if (smember.getMember_status() == 7 || smember.getMember_status() == 8) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
@@ -510,31 +510,31 @@ public class MarryMax {
             case 3:
 
 
-                if (smember.get_member_status() <= 1 && smember.get_phone_verified() == 0) {
+                if (smember.getMember_status() <= 1 && smember.getPhone_verified() == 0) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
 
-                } else if (smember.get_member_status() < 3) {
+                } else if (smember.getMember_status() < 3) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
 
-                } else if (smember.get_member_status() == 3) {
+                } else if (smember.getMember_status() == 3) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to upgrade your account and become a subscriber to use this feature.", "Subscribe", 9);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     /*you need to upgrade your account and become a subscriber to use this feature.*/
                     return false;
 
-                } else if (smember.get_member_status() == 4) {
+                } else if (smember.getMember_status() == 4) {
                     return true;
 
 
-                } else if (smember.get_member_status() == 7 || smember.get_member_status() == 8) {
+                } else if (smember.getMember_status() == 7 || smember.getMember_status() == 8) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
@@ -546,26 +546,26 @@ public class MarryMax {
 
             //PhoneView  Request
             case 4:
-                if (smember.get_member_status() <= 1 && smember.get_phone_verified() == 0) {
+                if (smember.getMember_status() <= 1 && smember.getPhone_verified() == 0) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
 
-                } else if (smember.get_member_status() < 3) {
+                } else if (smember.getMember_status() < 3) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
-                } else if (smember.get_member_status() == 3) {
+                } else if (smember.getMember_status() == 3) {
                     viewRequestPhone(member, context, frgMngr, fragment, 3);
                     return false;
 
-                } else if (smember.get_member_status() == 4) {
+                } else if (smember.getMember_status() == 4) {
                     viewRequestPhone(member, context, frgMngr, fragment, 4);
                     return false;
-                } else if (smember.get_member_status() == 7 || smember.get_member_status() == 8) {
+                } else if (smember.getMember_status() == 7 || smember.getMember_status() == 8) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
@@ -575,43 +575,51 @@ public class MarryMax {
                 break;
             //PhoneView  Request Detail
             case phoneViewRequestDetail:
-                if (smember.get_member_status() <= 1 && smember.get_phone_verified() == 0) {
+                /*        if (feedback_due == 0) {*/
+
+
+                if (smember.getMember_status() <= 1 && smember.getPhone_verified() == 0) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
 
-                } else if (smember.get_member_status() < 3) {
+                } else if (smember.getMember_status() < 3) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
-                } else if (smember.get_member_status() == 3) {
+                } else if (smember.getMember_status() == 3) {
                     viewRequestPhoneDetail(member, context, frgMngr, fragment, 3);
                     return false;
 
-                } else if (smember.get_member_status() == 4) {
+                } else if (smember.getMember_status() == 4) {
                     viewRequestPhoneDetail(member, context, frgMngr, fragment, 4);
                     return false;
-                } else if (smember.get_member_status() == 7 || smember.get_member_status() == 8) {
+                } else if (smember.getMember_status() == 7 || smember.getMember_status() == 8) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, Please review notes as MarryMax team advised and update your profile or contact us for further assistance", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
 
                 }
+
+             /*   } else {
+                    //show feedback pending dialog
+                }*/
+
                 break;
 
             case sendMessage:
 
 
-                if (smember.get_member_status() < 3 || smember.get_member_status() >= 7) {
+                if (smember.getMember_status() < 3 || smember.getMember_status() >= 7) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
-                } else if (smember.get_member_status() == 3) {
+                } else if (smember.getMember_status() == 3) {
 
                   /*  Intent in = new Intent(activity, DashboardMessagesDetailActivity.class);
                     Gson gson = new Gson();
@@ -622,18 +630,18 @@ public class MarryMax {
                     in.putExtra("objtype", 0);
                     in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(in);*/
-                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Message", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>. Please subscribe to send personalized message and connect with the potential matches immediately.", member.get_accept_message() + "", 23);
+                    dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Message", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>. Please subscribe to send personalized message and connect with the potential matches immediately.", member.getAccept_message() + "", 23);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
-                } /*else if (smember.get_member_status() ==4 && member.get_open_message() == 0) {
+                } /*else if (smember.getMember_status() ==4 && member.getOpen_message() == 0) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, User accept message only from his own matches.", "Subscribe", 9);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
 
-                } */ else if (smember.get_member_status() == 4) {
+                } */ else if (smember.getMember_status() == 4) {
 
-                    if (member.get_open_message() == 0) {
+                    if (member.getOpen_message() == 0) {
                         dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, User accept message only from his own matches.", "", 10);
                         dialogP.setTargetFragment(fragment, 0);
                         dialogP.show(frgMngr, "d");
@@ -655,7 +663,7 @@ public class MarryMax {
                 }
 
             case blockReportConcernMatchAidFavourite:
-                if (smember.get_member_status() < 3) {
+                if (smember.getMember_status() < 3) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
@@ -668,21 +676,21 @@ public class MarryMax {
 
             case addNotesAddToList:
 
-                if (smember.get_member_status() <= 2 || smember.get_member_status() >= 7) {
+                if (smember.getMember_status() <= 2 || smember.getMember_status() >= 7) {
 
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to <b> <font color=#9a0606>Complete Your Profile, Verify Phone and Email</font></b> before you can start interacting with other members or use available options.", "Complete Profile", 8);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
                     return false;
 
-                } else if (smember.get_member_status() == 3) {
+                } else if (smember.getMember_status() == 3) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, you need to upgrade your account and become a subscriber to use this feature.", "Subscribe", 9);
                     dialogP.setTargetFragment(fragment, 0);
                     dialogP.show(frgMngr, "d");
 
                     return false;
 
-                } else if (smember.get_member_status() == 4) {
+                } else if (smember.getMember_status() == 4) {
                     return true;
 
 
@@ -700,16 +708,16 @@ public class MarryMax {
     }
 
     private void viewRequestPhoneDetail(Members member, Context context, FragmentManager frgMngr, Fragment fragment, int status) {
-        if (member.get_phone_request_id() == 0) {
-            if (member.get_phone_verified() == 2) {
-                if (member.get_hide_phone() == 0 || member.get_allow_phone_view() > 0) {
+        if (member.getPhone_request_id() == 0) {
+            if (member.getPhone_verified() == 2) {
+                if (member.getHide_phone() == 0 || member.getAllow_phone_view() > 0) {
                     //greeen
 
                     if (status == 4) {
                         JSONObject params = new JSONObject();
                         try {
                             params.put("userpath", member.getUserpath());
-                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -734,7 +742,7 @@ public class MarryMax {
                         params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
                         params.put("type", "5");
                         params.put("userpath", member.getUserpath());
-                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -769,8 +777,8 @@ public class MarryMax {
             JSONObject params = new JSONObject();
             try {
                 params.put("userpath", member.getUserpath());
-                params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                params.put("interested_id", member.get_phone_request_id());
+                params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+                params.put("interested_id", member.getPhone_request_id());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -785,7 +793,7 @@ public class MarryMax {
 
     private void viewRequestPhone(Members member, Context context, FragmentManager frgMngr, Fragment fragment, int status) {
 
-        if (member.get_phone_view() == 2 || member.get_phone_privilege_id() > 0) {
+        if (member.getPhone_view() == 2 || member.getPhone_privilege_id() > 0) {
             //see mobile  green
             // Log.e("Green", "Green");
             if (status == 4) {
@@ -793,7 +801,7 @@ public class MarryMax {
                 JSONObject params = new JSONObject();
                 try {
                     params.put("userpath", member.getUserpath());
-                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -806,17 +814,17 @@ public class MarryMax {
             }
 
 
-        } else if (member.get_phone_view() == 1 && member.get_phone_privilege_id() == 0) {
+        } else if (member.getPhone_view() == 1 && member.getPhone_privilege_id() == 0) {
             //orange
-            if (member.get_phone_request_id() > 0) {
+            if (member.getPhone_request_id() > 0) {
 
                 JSONObject params = new JSONObject();
                 try {
 
                     // userpath
                     params.put("userpath", member.getUserpath());
-                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                    params.put("interested_id", member.get_phone_request_id());
+                    params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+                    params.put("interested_id", member.getPhone_request_id());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -833,7 +841,7 @@ public class MarryMax {
                     params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
                     params.put("type", "5");
                     params.put("userpath", member.getUserpath());
-                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -848,7 +856,7 @@ public class MarryMax {
                 newFragment.show(frgMngr, "dialog");
 
             }
-        } else if (member.get_phone_view() == 0 && member.get_phone_privilege_id() == 0) {
+        } else if (member.getPhone_view() == 0 && member.getPhone_privilege_id() == 0) {
             //grey
             //default
             String desc = "Contact details of <b> <font color=#216917>" + member.getAlias() + "</font></b>" + " are not available to public.";
@@ -876,7 +884,7 @@ public class MarryMax {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  ", response + "");
+                        Log.e("mobileInfo  ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -884,11 +892,53 @@ public class MarryMax {
 
                             ///Log.e("interested id", "" + member.getAlias() + "====================");
 
-                            dialogContactDetails newFragment = dialogContactDetails.newInstance(responseObject.toString(), alias);
-                            if (fragment != null) {
-                                newFragment.setTargetFragment(fragment, 3);
+
+                            Gson gson;
+                            GsonBuilder gsonBuilder = new GsonBuilder();
+
+                            gson = gsonBuilder.create();
+                            Type type = new TypeToken<mMemPhone>() {
+                            }.getType();
+                            mMemPhone memPhone = (mMemPhone) gson.fromJson(responseObject.toString(), type);
+
+                            if (memPhone.getFeedback_due() == 0) {
+
+                                dialogContactDetails newFragment = dialogContactDetails.newInstance(responseObject.toString(), alias);
+                                if (fragment != null) {
+                                    newFragment.setTargetFragment(fragment, 3);
+                                }
+                                newFragment.show(frgMngr, "dialog");
+                            } else {
+
+
+                                String aliasn = "<font color='#9a0606'>" + alias + "!</font><br>";
+
+
+                       /*         if (memPhone.getFeedback_due() == 1) {
+                                    String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+
+                                    dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
+                                    newFragment.setTargetFragment(fragment, 3);
+
+                                    newFragment.show(frgMngr, "dialog");
+
+
+                                } else if (memPhone.getFeedback_due() == 2) {*/
+
+
+                                String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
+                                if (fragment != null) {
+                                    newFragment.setTargetFragment(fragment, 3);
+                                }
+                                newFragment.show(frgMngr, "dialog");
+
+
+                                //  }
+
+
                             }
-                            newFragment.show(frgMngr, "dialog");
 
                         } catch (JSONException e) {
                             pDialog.dismiss();
@@ -1048,7 +1098,7 @@ public class MarryMax {
     }
 
     public boolean uploadPhotoCheck(Context context) {
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() != 0) {
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() != 0) {
             return true;
         } else {
             Toast.makeText(context, "Please complete your profile first to upload photos", Toast.LENGTH_SHORT).show();
@@ -1214,9 +1264,9 @@ public class MarryMax {
             matchType = "/0";
             Log.e("==0----", "0----");
         }
-        Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + matchType);
+        Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).getPath() + matchType);
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getRawData + SharedPreferenceManager.getUserObject(context).get_path() + matchType,
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getRawData + SharedPreferenceManager.getUserObject(context).getPath() + matchType,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -1289,8 +1339,8 @@ public class MarryMax {
     //for getting default search data
     private void getSearchListData(final Context context) {
 
-        //  Log.e("url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(context).get_path(),
+        //  Log.e("url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -1318,8 +1368,8 @@ public class MarryMax {
   /*  public void updateStatus(final Context context) {
 
         // pDialog.show();
-        Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -1341,20 +1391,20 @@ public class MarryMax {
 
                             boolean pCOmpleteStatus = true;
                             Members members = SharedPreferenceManager.getUserObject(context);
-                            if (dashboards.getAdmin_approved_status().equals("1") && members.get_member_status() < 3) {
-                                if (members.get_member_status() == 1) {
+                            if (dashboards.getAdmin_approved_status().equals("1") && members.getMember_status() < 3) {
+                                if (members.getMember_status() == 1) {
                                     if (dashboards.getEmail_complete_status().equals("1") && dashboards.getPhone_complete_status().equals("1") && dashboards.getProfile_complete_status().equals("100")) {
-                                       *//* members.set_member_status(3);
+                                       *//* members.setMember_status(3);
 
                                         SharedPreferenceManager.setUserObject(context, members);*//*
                                     } else {
-                                       *//* members.set_member_status(2);
+                                       *//* members.setMember_status(2);
                                         SharedPreferenceManager.setUserObject(context, members);*//*
                                     }
 
-                                } else if (members.get_member_status() == 2) {
+                                } else if (members.getMember_status() == 2) {
                                     if (dashboards.getEmail_complete_status().equals("1") && dashboards.getPhone_complete_status().equals("1") && dashboards.getProfile_complete_status().equals("100")) {
-                                       *//* members.set_member_status(3);
+                                       *//* members.setMember_status(3);
                                         SharedPreferenceManager.setUserObject(context, members);*//*
                                     }
 
@@ -1393,7 +1443,7 @@ public class MarryMax {
 
     public boolean getUpdateCheck(Context context) {
 
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 || SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3 || SharedPreferenceManager.getUserObject(context).getMember_status() == 4) {
             return true;
         } else {
 
@@ -1431,38 +1481,38 @@ public class MarryMax {
 
 
     public boolean checkUserStatusLogin(Members member) {
-        if (member.get_registration_within_id() != 5 && member.get_member_status() == 0) {
-            if (member.get_registration_within_id() == -1) {
+        if (member.getRegistration_within_id() != 5 && member.getMember_status() == 0) {
+            if (member.getRegistration_within_id() == -1) {
                 Intent intent = new Intent(activity, RegisterGeographicActivity.class);
                 activity.startActivity(intent);
                 activity.finish();
                 return false;
                 //  HttpContext.Current.Response.Redirect("~/1_Geographic", false);
-            } else if (member.get_registration_within_id() == 0) {
+            } else if (member.getRegistration_within_id() == 0) {
                 Intent intent = new Intent(activity, RegisterAppearanceActivity.class);
                 activity.startActivity(intent);
                 activity.finish();
                 return false;
                 // HttpContext.Current.Response.Redirect("~/2_Appearance", false);
-            } else if (member.get_registration_within_id() == 1) {
+            } else if (member.getRegistration_within_id() == 1) {
                 Intent intent = new Intent(activity, RegisterLifeStyleActivity1.class);
                 activity.startActivity(intent);
                 activity.finish();
                 return false;
                 //   HttpContext.Current.Response.Redirect("~/3_LifeStyle", false);
-            } else if (member.get_registration_within_id() == 2) {
+            } else if (member.getRegistration_within_id() == 2) {
                 Intent intent = new Intent(activity, RegisterLifeStyleActivity2.class);
                 activity.startActivity(intent);
                 activity.finish();
                 return false;
                 //  HttpContext.Current.Response.Redirect("~/3_LifeStyle2", false);
-            } else if (member.get_registration_within_id() == 3) {
+            } else if (member.getRegistration_within_id() == 3) {
                 Intent intent = new Intent(activity, RegisterInterest.class);
                 activity.startActivity(intent);
                 activity.finish();
                 return false;
                 // HttpContext.Current.Response.Redirect("~/4_Interest", false);
-            } else if (member.get_registration_within_id() == 4) {
+            } else if (member.getRegistration_within_id() == 4) {
                 Intent intent = new Intent(activity, RegisterPersonalityActivity.class);
                 activity.startActivity(intent);
                 activity.finish();
@@ -1483,11 +1533,11 @@ public class MarryMax {
 
     public void setHeighAgeChecks() {
         if (jsonArraySearch != null) {
-            if (defaultSelectionsObj.get_choice_age_from() == 0) {
-                defaultSelectionsObj.set_choice_age_from(18);
+            if (defaultSelectionsObj.getChoice_age_from() == 0) {
+                defaultSelectionsObj.setChoice_age_from(18);
             }
-            if (defaultSelectionsObj.get_choice_age_upto() == 0) {
-                defaultSelectionsObj.set_choice_age_upto(70);
+            if (defaultSelectionsObj.getChoice_age_upto() == 0) {
+                defaultSelectionsObj.setChoice_age_upto(70);
             }
 
             Gson gsonc;
@@ -1502,11 +1552,11 @@ public class MarryMax {
                 e.printStackTrace();
             }
             if (dataListHeight.size() > 0) {
-                if (defaultSelectionsObj.get_choice_height_from_id() == 0) {
-                    defaultSelectionsObj.set_choice_height_from_id(Long.parseLong(dataListHeight.get(0).getId()));
+                if (defaultSelectionsObj.getChoice_height_from_id() == 0) {
+                    defaultSelectionsObj.setChoice_height_from_id(Long.parseLong(dataListHeight.get(0).getId()));
                 }
-                if (defaultSelectionsObj.get_choice_height_to_id() == 0) {
-                    defaultSelectionsObj.set_choice_height_to_id(Long.parseLong(dataListHeight.get(dataListHeight.size() - 1).getId()));
+                if (defaultSelectionsObj.getChoice_height_to_id() == 0) {
+                    defaultSelectionsObj.setChoice_height_to_id(Long.parseLong(dataListHeight.get(dataListHeight.size() - 1).getId()));
                 }
             }
         }

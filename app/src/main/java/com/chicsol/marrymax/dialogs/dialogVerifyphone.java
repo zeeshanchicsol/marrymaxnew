@@ -3,9 +3,7 @@ package com.chicsol.marrymax.dialogs;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
@@ -27,7 +25,6 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.activities.ContactAcivity;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -141,7 +138,7 @@ public class dialogVerifyphone extends DialogFragment {
         btnSendVerificaitonCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getmobileCode(SharedPreferenceManager.getUserObject(context).get_path());
+                getmobileCode(SharedPreferenceManager.getUserObject(context).getPath());
 
             }
         });
@@ -190,12 +187,12 @@ public class dialogVerifyphone extends DialogFragment {
                     params.put("contact_ip", "");
                     params.put("emailaddress", "");
                     params.put("contact_category_id", "5");
-                    params.put("contact_name", SharedPreferenceManager.getUserObject(context).get_personal_name());
+                    params.put("contact_name", SharedPreferenceManager.getUserObject(context).getPersonal_name());
 
                     params.put("contact_message", "I am unable to verify phone number. - Sent from Account Setting");
                     params.put("contact_country_id", country_id);
 
-                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
 
                 } catch (JSONException e) {
@@ -344,7 +341,7 @@ public class dialogVerifyphone extends DialogFragment {
         try {
 
             params.put("postal_code", postalcode);
-            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -366,14 +363,14 @@ public class dialogVerifyphone extends DialogFragment {
                         }.getType();
                         Members mem = (Members) gson.fromJson(response.toString(), membert);
 
-                        if (mem.get_phone_verified() == 1) {
+                        if (mem.getPhone_verified() == 1) {
 
 
                             //    mCompleteListener.onComplete("");
                             Members mem2 = SharedPreferenceManager.getUserObject(context);
 
-                            if (mem.get_request_profile_view() != mem2.get_member_status()) {
-                                mem2.set_member_status(mem.get_request_profile_view());
+                            if (mem.getRequest_profile_view() != mem2.getMember_status()) {
+                                mem2.setMember_status(mem.getRequest_profile_view());
                                 SharedPreferenceManager.setUserObject(context, mem2);
 
                                 dialogVerifyphone.this.getDialog().cancel();
@@ -382,7 +379,7 @@ public class dialogVerifyphone extends DialogFragment {
                             dialogVerifyphone.this.getDialog().cancel();
                             mCompleteListener.onComplete("");
 
-                        } else if (mem.get_phone_verified() == 0) {
+                        } else if (mem.getPhone_verified() == 0) {
                             Toast.makeText(context, "Phone Not Verified", Toast.LENGTH_SHORT).show();
                             mCompleteListener.onComplete("");
                         }

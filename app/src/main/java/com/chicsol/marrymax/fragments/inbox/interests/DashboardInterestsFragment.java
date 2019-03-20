@@ -144,7 +144,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
             getCommunicationCount();
             JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                 params.put("page_no", 1);
                 params.put("type", type);
 
@@ -253,7 +253,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
             JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                 params.put("page_no", lastPage);
                 params.put("type", type);
 
@@ -278,7 +278,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
             JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                 params.put("page_no", 1);
                 params.put("type", type);
 
@@ -367,7 +367,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                             //memberC.setInterested_members_count(getInterested_members_count);
 
                             if (type.equals("interestsent")) {
-                                if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() > 4) {
+                                if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 || SharedPreferenceManager.getUserObject(context).getMember_status() > 4) {
 
                                     recyclerView.setVisibility(View.GONE);
                                     llEmptyState.setVisibility(View.VISIBLE);
@@ -376,11 +376,11 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                                     btOnSearch.setVisibility(View.VISIBLE);
                                 } else {
 
-                                    if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 || SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
+                                    if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3 || SharedPreferenceManager.getUserObject(context).getMember_status() == 4) {
                                         if (membersDataList.size() == 0) {
                                             htmlDescriptionText.append("<b> You haven’t shown interest in anyone yet!</b> <br>");
 
-                                            if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+                                            if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
 
                                                 htmlDescriptionText.append(" Subscribe now to enjoy following benefits.");
 
@@ -432,7 +432,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
                             else {
 
 
-                                if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() > 4) {
+                                if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 || SharedPreferenceManager.getUserObject(context).getMember_status() > 4) {
 
                                     if (memberC.getInterested_members_count() == 0) {
                                         recyclerView.setVisibility(View.GONE);
@@ -453,11 +453,11 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
                                 } else {
 
-                                    if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3 || SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
+                                    if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3 || SharedPreferenceManager.getUserObject(context).getMember_status() == 4) {
                                         if (membersDataList.size() == 0) {
                                             htmlDescriptionText.append("<b> You have  " + getInterested_members_count + "  interests.</b> <br>");
 
-                                            if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+                                            if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
                                                 //    htmlDescriptionText.append("&#8226; \n");
                                                 htmlDescriptionText.append(" Subscribe now to enjoy following benefits ");
 
@@ -673,7 +673,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
             JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                 params.put("page_no", 1);
                 params.put("type", type);
 
@@ -691,8 +691,8 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
        /* final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-        Log.e("url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e("url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

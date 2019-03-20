@@ -67,8 +67,8 @@ public class dialogRequestPhone extends DialogFragment {
         args.putString("name", title);
         args.putString("alias", desc);
         args.putString("params", params);
-        /*args.putString("param", String.valueOf(member2.get_phone_view()));
-        args.putString("my_id", String.valueOf(member2.get_my_id()));
+        /*args.putString("param", String.valueOf(member2.getPhone_view()));
+        args.putString("my_id", String.valueOf(member2.getMy_id()));
         args.putString("checkedTextView", member.getAlias());
         args.putString("userpath", userpath);
 */
@@ -216,7 +216,7 @@ public class dialogRequestPhone extends DialogFragment {
                             } else if (responseid == -1) {
                                 mOkButton.setVisibility(View.GONE);
                                 String desctxt = "";
-                                if (SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
+                                if (SharedPreferenceManager.getUserObject(context).getMember_status() == 4) {
                                     desctxt = "\u25CF You have reached the contact limit.\n" +
                                             "\u25CF Please wait 24 hours to send new request.\n" +
                                             "";

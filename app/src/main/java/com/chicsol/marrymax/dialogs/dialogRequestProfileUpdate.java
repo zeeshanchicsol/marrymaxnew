@@ -27,7 +27,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
-import com.chicsol.marrymax.interfaces.PhoneRequestCallBackInterface;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -246,7 +245,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
                         JSONObject params = new JSONObject();
                         try {
 
-                            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
 
                             params.put("ID", cat.getId());
                             params.put("ID2", sub.getId());

@@ -47,7 +47,6 @@ import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.dialogs.dialogFeedback;
 import com.chicsol.marrymax.dialogs.dialogFeedbackDetail;
-import com.chicsol.marrymax.dialogs.dialogMatchAidFeedback;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mContacts;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -342,7 +341,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                     JSONObject jsonObject = new JSONObject();
                     try {
                         jsonObject.put("id", obj.getPhone_request_id());
-                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         deleteMyContact(jsonObject);
                     } catch (JSONException e) {
@@ -359,7 +358,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                     JSONObject params = new JSONObject();
                     try {
                         params.put("userpath", obj.getUserpath());
-                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id() + "", params.toString());
                         newFragment.setTargetFragment(fragment, 0);
@@ -371,7 +370,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                    /* JSONObject jsonObject = new JSONObject();
                     try {
                         jsonObject.put("id", obj.getPhone_request_id());
-                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         deleteMyContact(jsonObject);
                     } catch (JSONException e) {
@@ -389,7 +388,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                         jsonObject.put("id", obj.getMatch_id());
                         jsonObject.put("my_id", obj.getFeedback_id());
                         jsonObject.put("userpath", obj.getUserpath());
-                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         dialogFeedbackDetail newFragment = dialogFeedbackDetail.newInstance(jsonObject.toString());
                         newFragment.setTargetFragment(fragment, 0);

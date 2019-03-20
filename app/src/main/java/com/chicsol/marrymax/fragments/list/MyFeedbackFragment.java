@@ -23,11 +23,9 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.search.SearchMainActivity;
-import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyContacts;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyFeedbacks;
 import com.chicsol.marrymax.dialogs.dialogFeedback;
 import com.chicsol.marrymax.dialogs.dialogFeedbackDetail;
-import com.chicsol.marrymax.modal.mContacts;
 import com.chicsol.marrymax.modal.mUsrFeedback;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -177,8 +175,8 @@ public class MyFeedbackFragment extends Fragment implements RecyclerViewAdapterM
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("myContacts ", Urls.getUsrFeedbacks + "/" + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getUsrFeedbacks + "/" + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path(),
+        Log.e("myContacts ", Urls.getUsrFeedbacks + "/" + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getUsrFeedbacks + "/" + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

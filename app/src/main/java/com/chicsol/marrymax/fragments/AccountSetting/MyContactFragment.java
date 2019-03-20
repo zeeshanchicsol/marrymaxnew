@@ -3,7 +3,6 @@ package com.chicsol.marrymax.fragments.AccountSetting;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -24,7 +23,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -46,7 +44,6 @@ import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.adapters.MySpinnerCSCAdapter;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
-import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.WebCSC;
@@ -272,12 +269,12 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 //     Log.e("111 land number is", landNum);
 
 
-              /*  tvMobile.setText(member.get_phone_mobile());
-                tvCountry.setText(member.get_country_name());
-                tvLandline.setText(member.get_phone_home());
-                tvNameOfContactPerson.setText(member.get_personal_name());
-                tvRelationshipWithMember.setText(member.get_profile_owner());
-                tvConvenientCallTime.setText(member.get_notes());*/
+              /*  tvMobile.setText(member.getPhone_mobile());
+                tvCountry.setText(member.getCountry_name());
+                tvLandline.setText(member.getPhone_home());
+                tvNameOfContactPerson.setText(member.getPersonal_name());
+                tvRelationshipWithMember.setText(member.getProfile_owner());
+                tvConvenientCallTime.setText(member.getNotes());*/
                 View focusView = null;
 
                 if (spinnerAScontactCountry.getSelectedItemPosition() == 0) {
@@ -365,17 +362,17 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
                     Members member = new Members();
-                    member.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                    member.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
                     WebCSC selectedCountry = (WebCSC) spinnerAScontactCountry.getSelectedItem();
 
                     if (selectedCountry != null) {
-                        member.set_country_id(Long.parseLong(selectedCountry.getId()));
+                        member.setCountry_id(Long.parseLong(selectedCountry.getId()));
                     }
 
                     WebArd selectedRelationShip = (WebArd) spinnerAScontactRelationShipWithMember.getSelectedItem();
-                    member.set_profile_owner_id(Long.parseLong(selectedRelationShip.getId()));
+                    member.setProfile_owner_id(Long.parseLong(selectedRelationShip.getId()));
                     WebArd selectedTimeToCall = (WebArd) spinnerMyAScontactConvTimeToCall.getSelectedItem();
-                    member.set_notes(selectedTimeToCall.getName());
+                    member.setNotes(selectedTimeToCall.getName());
 
                     // String mobnum = EditTextAScontactMobileNumber.getText().toString();
 
@@ -384,12 +381,12 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                     mobNum = mobNum.replaceAll("[/\\D/g]", "");
 
-                    member.set_phone_mobile(mobNum);
+                    member.setPhone_mobile(mobNum);
                     //  String landline = EditTextAScontactLandlineNumber.getText().toString();
 
-                    member.set_phone_home(landNum);
+                    member.setPhone_home(landNum);
                     String PersonalName = EditTextAScontactPersonName.getText().toString();
-                    member.set_personal_name(PersonalName);
+                    member.setPersonal_name(PersonalName);
 
                     Gson gson = new Gson();
 
@@ -407,16 +404,16 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         });
 
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
-            getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+            getRequest(SharedPreferenceManager.getUserObject(getContext()).getPath());
         }
         snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTip, Snackbar.LENGTH_SHORT);
         snackbarNotVerifiedLandLine = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTip, Snackbar.LENGTH_SHORT);
 
 /* email
-        etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
+        etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).getEmail());
         etAsEmail.setEnabled(false);*/
 
-    /*    if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+    /*    if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).getMember_status() >= 7) {
             checkEmailStatus(getContext());
             llASEmail.setVisibility(View.VISIBLE);
         } else {
@@ -429,8 +426,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 /*    public void checkEmailStatus(final Context context) {
 
         // pDialog.show();
-        Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -452,7 +449,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                             boolean pCOmpleteStatus = true;
                             Members members = SharedPreferenceManager.getUserObject(context);
-                            //   if (dashboards.getAdmin_approved_status().equals("1") && members.get_member_status() < 3) {
+                            //   if (dashboards.getAdmin_approved_status().equals("1") && members.getMember_status() < 3) {
 
                             if (dashboards.getEmail_complete_status().equals("1")) {
                                 //hide update email
@@ -466,9 +463,9 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                             }
 
-                                *//*else if (members.get_member_status() == 2) {
+                                *//*else if (members.getMember_status() == 2) {
                                     if (dashboards.getEmail_complete_status().equals("1")  && dashboards.getProfile_complete_status().equals("100")) {
-                                        members.set_member_status(3);
+                                        members.setMember_status(3);
                                         SharedPreferenceManager.setUserObject(context,members);
                                     }
 
@@ -530,29 +527,29 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         LinearlayoutAccountSettingMyContactNoData.setVisibility(View.VISIBLE);
         btCancel.setVisibility(View.VISIBLE);
         ViewGenerator viewGenerator = new ViewGenerator(getContext());
-        viewGenerator.selectSpinnerItemByIdWebCSC(spinnerAScontactCountry, member.get_country_id(), countryOfLivingDataList);
-        viewGenerator.selectSpinnerItemById(spinnerAScontactRelationShipWithMember, member.get_profile_owner_id(), relationshipDataList);
+        viewGenerator.selectSpinnerItemByIdWebCSC(spinnerAScontactCountry, member.getCountry_id(), countryOfLivingDataList);
+        viewGenerator.selectSpinnerItemById(spinnerAScontactRelationShipWithMember, member.getProfile_owner_id(), relationshipDataList);
 
 
-        Log.e("Evening aaaaa", "" + member.get_notes() + "===");
+        Log.e("Evening aaaaa", "" + member.getNotes() + "===");
 
-        viewGenerator.selectSpinnerItemByValue(spinnerMyAScontactConvTimeToCall, member.get_notes(), covenientTimetoCallDataList);
+        viewGenerator.selectSpinnerItemByValue(spinnerMyAScontactConvTimeToCall, member.getNotes(), covenientTimetoCallDataList);
 
-        if (member.get_notes().equals("Morning")) {
+        if (member.getNotes().equals("Morning")) {
             spinnerMyAScontactConvTimeToCall.setSelection(1);
-        } else if (member.get_notes().equals("Afternoon")) {
+        } else if (member.getNotes().equals("Afternoon")) {
             spinnerMyAScontactConvTimeToCall.setSelection(2);
-        } else if (member.get_notes().equals("Evening")) {
+        } else if (member.getNotes().equals("Evening")) {
             spinnerMyAScontactConvTimeToCall.setSelection(3);
 
         } else {
             spinnerMyAScontactConvTimeToCall.setSelection(0);
         }
 
-        Log.e("get_phone_mobile", "" + member.get_phone_mobile());
+        Log.e("getPhone_mobile", "" + member.getPhone_mobile());
 
         //adapter_countryOfLiving
-        String mobile = member.get_phone_mobile();
+        String mobile = member.getPhone_mobile();
 
         if (mobile.contains("-")) {
             String[] sad = mobile.split("-");
@@ -560,7 +557,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 EditTextAScontactMobileNumber.setTag("+" + sad[0] + " ");
                 EditTextAScontactMobileNumber.setText(sad[1]);
             } else {
-                EditTextAScontactMobileNumber.setText(member.get_phone_mobile());
+                EditTextAScontactMobileNumber.setText(member.getPhone_mobile());
 
             }
         } else {
@@ -568,7 +565,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         }
 
 
-        String landline = member.get_phone_home();
+        String landline = member.getPhone_home();
         if (!landline.equals("")) {
 
             if (landline.contains("-")) {
@@ -586,13 +583,13 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
         }
-        //  tvCountry.setText(member.get_country_name());
-        //    EditTextAScontactLandlineNumber.setText(member.get_phone_home());
+        //  tvCountry.setText(member.getCountry_name());
+        //    EditTextAScontactLandlineNumber.setText(member.getPhone_home());
 
 
-        EditTextAScontactPersonName.setText(member.get_personal_name());
-        // tvRelationshipWithMember.setText(member.get_profile_owner());
-        //   tvConvenientCallTime.setText(member.get_notes());
+        EditTextAScontactPersonName.setText(member.getPersonal_name());
+        // tvRelationshipWithMember.setText(member.getProfile_owner());
+        //   tvConvenientCallTime.setText(member.getNotes());
     }
 
     private void resetValues() {
@@ -601,14 +598,14 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
         EditTextAScontactMobileNumber.setText("");
-        //  tvCountry.setText(member.get_country_name());
+        //  tvCountry.setText(member.getCountry_name());
         EditTextAScontactLandlineNumber.setText("");
         EditTextAScontactPersonName.setText("");
         spinnerAScontactCountry.setSelection(0);
         spinnerAScontactRelationShipWithMember.setSelection(0);
         spinnerMyAScontactConvTimeToCall.setSelection(0);
-        // tvRelationshipWithMember.setText(member.get_profile_owner());
-        //   tvConvenientCallTime.setText(member.get_notes());
+        // tvRelationshipWithMember.setText(member.getProfile_owner());
+        //   tvConvenientCallTime.setText(member.getNotes());
     }
 
     private void setListeners() {
@@ -634,7 +631,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
        btEmailCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).get_email());
+                etAsEmail.setText(SharedPreferenceManager.getUserObject(getContext()).getEmail());
                 etAsEmail.setEnabled(false);
                 etAsEmail.setError(null);
                 emailEnabled = false;
@@ -678,7 +675,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         btResendVerificationEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Verify Your Email", "Here is your email address that needs to be verified.<br /> <b>  <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).get_email() + "</font></b><br /> " +
+                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Verify Your Email", "Here is your email address that needs to be verified.<br /> <b>  <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).getEmail() + "</font></b><br /> " +
                         "Please verify your email by using the link, we had emailed you.<br /> <font color=#9a0606> (In case you didn't receive any email,  please check your spam/junk folder or click \"Resend Verification Email\" )</font> ", "Resend Verification Email", 22);
                 dialogP.show(getFragmentManager(), "d");
             }
@@ -688,7 +685,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             @Override
             public void onClick(View v) {
                 if (member != null) {
-                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, false);
+                    dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.getPhone_mobile(), country_id, false);
                     newFragment.setTargetFragment(MyContactFragment.this, 3);
                     newFragment.show(getFragmentManager(), "dialog");
                 } else {
@@ -723,13 +720,13 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             @Override
             public void onClick(View v) {
 
-                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() == 0 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+                if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() == 0 || SharedPreferenceManager.getUserObject(getContext()).getMember_status() >= 7) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).getAlias() + "</font></b>, please complete your profile first then we can send you verification code on your Mobile number.", "Complete Profile", 8);
                     dialogP.show(getFragmentManager(), "d");
 
                 } else {
 
-                    getValidCode(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                    getValidCode(SharedPreferenceManager.getUserObject(getContext()).getPath());
 
 
                 }
@@ -773,9 +770,9 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                                     if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
                                         Members member = new Members();
-                                        member.set_request_id(about_type_id);
+                                        member.setRequest_id(about_type_id);
 
-                                        member.set_path(SharedPreferenceManager.getUserObject(context).get_path());
+                                        member.setPath(SharedPreferenceManager.getUserObject(context).getPath());
 
                                         Gson gson = new Gson();
 
@@ -867,19 +864,19 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                                 }.getType();
                                 member = new Members();
                                 member = (Members) gsonc.fromJson(jsonData.getJSONObject(0).toString(), listType);
-                                Log.e("Phone Verified " + member.get_phone_view(), "" + member.get_phone_verified());
+                                Log.e("Phone Verified " + member.getPhone_view(), "" + member.getPhone_verified());
 
 
                                 //      phone_verified!=2 && phone_view!=2  // show
 
-                                if (member.get_phone_verified() != 2 && member.get_phone_view() != 2) {
+                                if (member.getPhone_verified() != 2 && member.getPhone_view() != 2) {
 
                                     //edit and delte buttons visible
                                     LinearlayoutAccountSettingMyContactEdiDelete.setVisibility(View.VISIBLE);
                                 }
 
 
-                               /* if (member.get_phone_verified() == 2 ) {
+                               /* if (member.getPhone_verified() == 2 ) {
                                     LinearlayoutAccountSettingMyContactEdiDelete.setVisibility(View.GONE);
                                     //edit and delete buttons hide
                                 }
@@ -979,9 +976,9 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         LinearlayoutAccountSettingMyContact.setVisibility(View.VISIBLE);
         LinearlayoutAccountSettingMyContactNoData.setVisibility(View.GONE);
 
-        country_id = member.get_country_id() + "";
+        country_id = member.getCountry_id() + "";
 
-        String mobile = member.get_phone_mobile();
+        String mobile = member.getPhone_mobile();
         Log.e("mob", "mob==" + mobile);
         // if()
         if (!mobile.equals("") && mobile.contains("-")) {
@@ -999,10 +996,10 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
         }
 
-        tvCountry.setText(member.get_country_name());
+        tvCountry.setText(member.getCountry_name());
 
 
-        String landline = member.get_phone_home();
+        String landline = member.getPhone_home();
         if (!landline.equals("")) {
             String[] sad1 = landline.split("-");
             if (sad1.length > 0) {
@@ -1025,10 +1022,10 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         */
 
 
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 || SharedPreferenceManager.getUserObject(context).getMember_status() >= 7) {
 
 
-            if (member.get_phone_view() == 1) {
+            if (member.getPhone_view() == 1) {
                 if (!landline.equals("")) {
 
                     llPhoneVerifyLandline.setVisibility(View.VISIBLE);
@@ -1043,14 +1040,14 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 //pending
 
 
-            } else if (member.get_phone_view() == 2) {
+            } else if (member.getPhone_view() == 2) {
                 //verified
                 llPhoneVerifyLandline.setVisibility(View.VISIBLE);
                 tvPhoneVerifyLandline.setText("Verified");
                 ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
                 llPhoneVerifyLandline.setClickable(false);
 
-            } else if (member.get_phone_view() == 3) {
+            } else if (member.getPhone_view() == 3) {
 
                 if (!landline.equals("")) {
 
@@ -1071,7 +1068,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         } else {
 
 
-            if (member.get_phone_view() == 2) {
+            if (member.getPhone_view() == 2) {
 
                 //verified
                 llPhoneVerifyLandline.setVisibility(View.VISIBLE);
@@ -1096,19 +1093,19 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         }
 
 
-        //  tvLandline.setText(member.get_phone_home());
+        //  tvLandline.setText(member.getPhone_home());
 
 
-        tvNameOfContactPerson.setText(member.get_personal_name());
-        tvRelationshipWithMember.setText(member.get_profile_owner());
-        tvConvenientCallTime.setText(member.get_notes());
-        about_type_id = member.get_about_type_id();
+        tvNameOfContactPerson.setText(member.getPersonal_name());
+        tvRelationshipWithMember.setText(member.getProfile_owner());
+        tvConvenientCallTime.setText(member.getNotes());
+        about_type_id = member.getAbout_type_id();
 
 
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 || SharedPreferenceManager.getUserObject(context).getMember_status() >= 7) {
 
 
-            if (member.get_phone_verified() == 3) {
+            if (member.getPhone_verified() == 3) {
                 //message to show
                 // Unable to verify. Please contact MarryMax support.
 
@@ -1123,16 +1120,16 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 llPhoneVerified.setVisibility(View.GONE);
                 llVerifyPhone.setVisibility(View.GONE);
             }
-            if (member.get_phone_verified() == 2) {
+            if (member.getPhone_verified() == 2) {
                 //verified
                 llPhoneVerified.setVisibility(View.VISIBLE);
                 llEnterCode.setVisibility(View.GONE);
                 llPhoneNotVerified.setVisibility(View.GONE);
                 llVerifyPhone.setVisibility(View.GONE);
             }
-            if (member.get_phone_verified() == 1) {
+            if (member.getPhone_verified() == 1) {
 
-                if (member.get_accept_message() == 1) {
+                if (member.getAccept_message() == 1) {
 
 //verify now
                     llVerifyPhone.setVisibility(View.VISIBLE);
@@ -1159,7 +1156,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             }
 
         } else {
-            if (member.get_phone_verified() == 2) {
+            if (member.getPhone_verified() == 2) {
                 //verified
                 llPhoneVerified.setVisibility(View.VISIBLE);
                 llEnterCode.setVisibility(View.GONE);
@@ -1179,7 +1176,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
         }
-        //Log.e("get_phone_home", member.get_phone_verified() + "");
+        //Log.e("getPhone_home", member.getPhone_verified() + "");
     }
 
 
@@ -1221,7 +1218,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                                     }
                                 }
 
-                                getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+                                getRequest(SharedPreferenceManager.getUserObject(getContext()).getPath());
 
                             } else {
                                 Toast.makeText(context, "Unable to add phone number. Please contact MarryMax support", Toast.LENGTH_SHORT).show();
@@ -1292,7 +1289,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                         //if(res!=0){
 
                         Toast.makeText(context, "Contact Details Updated", Toast.LENGTH_SHORT).show();
-                        getRequest(SharedPreferenceManager.getUserObject(context).get_path());
+                        getRequest(SharedPreferenceManager.getUserObject(context).getPath());
                         // }
                          /*   Gson gson;
                             GsonBuilder gsonBuilder = new GsonBuilder();
@@ -1359,7 +1356,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
                 params.put("name", "" + etAsEmail.getText().toString());
-                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
 
 
             } catch (JSONException e) {
@@ -1442,13 +1439,13 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                         if (response != null) {
 
                             if (Long.parseLong(response) == 0) {
-                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, false);
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.getPhone_mobile(), country_id, false);
                                 newFragment.setTargetFragment(MyContactFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
 
                             } else {
 
-                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, true);
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.getPhone_mobile(), country_id, true);
                                 newFragment.setTargetFragment(MyContactFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
                             }
@@ -1479,7 +1476,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
     @Override
     public void onComplete(String s) {
-        getRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+        getRequest(SharedPreferenceManager.getUserObject(getContext()).getPath());
     }
 
 

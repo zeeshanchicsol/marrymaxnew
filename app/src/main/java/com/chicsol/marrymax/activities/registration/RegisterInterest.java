@@ -112,9 +112,9 @@ public class RegisterInterest extends BaseRegistrationActivity {
 
 
                         params.put("interest_ids", interest_ids);
-                        params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
+                        params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
 
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -190,7 +190,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
         ViewGenerator viewGenerator = new ViewGenerator(RegisterInterest.this);
 
 
-        viewGenerator.selectCheckRadioFromGridLayout(gridLayout, members_obj.get_interest_ids());
+        viewGenerator.selectCheckRadioFromGridLayout(gridLayout, members_obj.getInterest_ids());
     }
 
 
@@ -200,7 +200,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
         pDialog.setCancelable(false);
         pDialog.show();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                Urls.regGetInterestUrl + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(), null,
+                Urls.regGetInterestUrl + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -232,7 +232,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                             gson = gsonBuilder.create();
                             //   Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
                             members_obj = gson.fromJson(jsonGrography.get(0).toString(), Members.class);
-                            // Log.e("Aliaaaaaaaasss", members_obj.get_country_id() + "");
+                            // Log.e("Aliaaaaaaaasss", members_obj.getCountry_id() + "");
 
 
                         } catch (JSONException e) {
@@ -244,8 +244,8 @@ public class RegisterInterest extends BaseRegistrationActivity {
 
                         ViewGenerator viewGenerator = new ViewGenerator(RegisterInterest.this);
 
-                        Log.e("Perssssssssss", members_obj.get_interest_ids() + "h");
-                        if (members_obj.get_interest_ids().equals("")) {
+                        Log.e("Perssssssssss", members_obj.getInterest_ids() + "h");
+                        if (members_obj.getInterest_ids().equals("")) {
                             updateData = false;
 
                         } else {

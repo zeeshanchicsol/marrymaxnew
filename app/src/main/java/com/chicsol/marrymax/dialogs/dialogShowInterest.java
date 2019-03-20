@@ -3,7 +3,6 @@ package com.chicsol.marrymax.dialogs;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.Html;
@@ -25,6 +24,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.interfaces.UpdateMemberFromDialogFragment;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.mMemInterest;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -61,17 +61,17 @@ public class dialogShowInterest extends DialogFragment {
     }
 
 
-    public static dialogShowInterest newInstance(Members member, String userpath, boolean replyCheck, Members member2) {
+    public static dialogShowInterest newInstance(Members member, String userpath, boolean replyCheck, mMemInterest member2) {
 
         dialogShowInterest frag = new dialogShowInterest();
         Bundle args = new Bundle();
 
 
         args.putBoolean("replyCheck", replyCheck);
-        args.putString("name", String.valueOf(member2.get_interested_id()));
-        args.putString("desc", String.valueOf(member2.get_image_view()));
-        args.putString("param", String.valueOf(member2.get_phone_view()));
-        args.putString("my_id", String.valueOf(member2.get_my_id()));
+        args.putString("name", String.valueOf(member2.getInterested_id()));
+        args.putString("desc", String.valueOf(member2.getImage_view()));
+        args.putString("param", String.valueOf(member2.getPhone_view()));
+        args.putString("my_id", String.valueOf(member2.getMy_id()));
         args.putString("alias", member.getAlias());
         args.putString("userpath", userpath);
 
@@ -146,7 +146,7 @@ public class dialogShowInterest extends DialogFragment {
 
             String desctxt = "";
 
-            if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+            if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
 
                 desctxt = "\u25CF Daily sent limit is reached.\n" +
                         "\u25CF Please wait 24 hours before you can contact new  members.\n";
@@ -154,7 +154,7 @@ public class dialogShowInterest extends DialogFragment {
                 mOkButton.setText("Subscribe");
                 subscribe = true;
 
-            } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
+            } else if (SharedPreferenceManager.getUserObject(context).getMember_status() == 4) {
 
 
                 desctxt = "You have reached the contact limit.\n" +
@@ -277,7 +277,7 @@ public class dialogShowInterest extends DialogFragment {
 
                         params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
                         params.put("userpath", userpath);
-                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         Log.e("showInterest params ", "" + params);
                     } catch (JSONException e) {

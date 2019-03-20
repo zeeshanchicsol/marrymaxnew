@@ -159,7 +159,7 @@ public class dialogRemoveFromSearch extends DialogFragment {
                             int responseid = response.getInt("id");
                             if (responseid == 1) {
 
-                                //  member.set_removed_member(responseid);
+                                //  member.setRemoved_member(responseid);
                                 Toast.makeText(getContext(), "User has been Removed successfully ", Toast.LENGTH_SHORT).show();
                                 dialogRemoveFromSearch.this.getDialog().cancel();
                                 removeMember.onRemove(true);
@@ -168,7 +168,7 @@ public class dialogRemoveFromSearch extends DialogFragment {
                                  */
 
                             } /*else {
-                               // member.set_removed_member(responseid);
+                               // member.setRemoved_member(responseid);
                                 Toast.makeText(getContext(), "User has been unremoved successfully ", Toast.LENGTH_SHORT).show();
                             *//*    MenuItem menuItem = addRemoveBlockMenu.getMenu().findItem(R.id.menu_up_remove);
                              *//*

@@ -27,14 +27,11 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity;
 import com.chicsol.marrymax.adapters.ParentAdapter;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mChild;
-import com.chicsol.marrymax.modal.mContacts;
 import com.chicsol.marrymax.modal.mMemList;
 import com.chicsol.marrymax.modal.mParentChild;
-import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
@@ -197,7 +194,7 @@ public class QuestionsActivity extends AppCompatActivity {
         JSONObject paramsm = new JSONObject();
         try {
 
-            paramsm.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            paramsm.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
             paramsm.put("userpath", userpath);
             getMemberData(paramsm);
             ///Log.e("Q",""+params.toString());
@@ -214,13 +211,13 @@ public class QuestionsActivity extends AppCompatActivity {
         tvQuestionLimit.setText(Html.fromHtml(desc));
 
         tvAlias.setText(member.getAlias());
-        tvAge.setText(member.get_min_age() + "");
-        //  tvLastLogin.setText(member.get_last_login_date());
+        tvAge.setText(member.getMin_age() + "");
+        //  tvLastLogin.setText(member.getLast_login_date());
 
 
         ivMain.setMinimumHeight(height);
 
-        imageLoader.displayImage(Urls.baseUrl + "/" + member.get_default_image(),
+        imageLoader.displayImage(Urls.baseUrl + "/" + member.getDefault_image(),
                 ivMain, options,
                 new SimpleImageLoadingListener() {
 
@@ -278,7 +275,7 @@ public class QuestionsActivity extends AppCompatActivity {
                     JSONObject params = new JSONObject();
                     try {
 
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                         params.put("userpath", userpath);
                         params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
                         params.put("questionids", getQuestionsIds());
@@ -325,7 +322,7 @@ public class QuestionsActivity extends AppCompatActivity {
   /*      final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-        Log.e("api path", "" + Urls.getQuestionAnswers + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        Log.e("api path", "" + Urls.getQuestionAnswers + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getQuestionAnswers,
                 new Response.Listener<JSONArray>() {
@@ -512,7 +509,7 @@ public class QuestionsActivity extends AppCompatActivity {
                             if (member != null) {
                                 initHeade(member);
                             }
-                            Log.e("getAlias", "" + member.get_age() + "   " + member.get_last_login_date());
+                            Log.e("getAlias", "" + member.getAge() + "   " + member.getLast_login_date());
 
 
                         } catch (JSONException e) {

@@ -183,10 +183,10 @@ public class DashMembers extends Fragment  implements RecyclerViewAdapter.OnItem
         try {
             params.put("page_no", lastPageMSLW);
             params.put("type", "registertoday");
-            params.put("member_status", SharedPreferenceManager.getUserObject(getContext()).get_member_status());
-            params.put("phone_verified", SharedPreferenceManager.getUserObject(getContext()).get_phone_verified());
+            params.put("member_status", SharedPreferenceManager.getUserObject(getContext()).getMember_status());
+            params.put("phone_verified", SharedPreferenceManager.getUserObject(getContext()).getPhone_verified());
 
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -243,7 +243,7 @@ public class DashMembers extends Fragment  implements RecyclerViewAdapter.OnItem
                                 Members memberTotalPages = (Members) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), membert);
 
 
-                                totalPagesMSLW = memberTotalPages.get_total_pages();
+                                totalPagesMSLW = memberTotalPages.getTotal_pages();
                                 Log.e("total pages mlbt", "" + totalPagesMSLW);
 
                                 if (totalPagesMSLW == 0 || totalPagesMSLW == 1) {
@@ -305,7 +305,7 @@ public class DashMembers extends Fragment  implements RecyclerViewAdapter.OnItem
 */
     @Override
     public void onItemClick(View view, Members members, int position, List<Members> items,Members member) {
-        //  Toast.makeText(getActivity(), members.get_path() + " clicked", Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(getActivity(), members.getPath() + " clicked", Toast.LENGTH_SHORT).show();
  /*       Intent intent = new Intent(getActivity(), UserProfileActivity.class);
         intent.putExtra("userpath", members.getUserpath());
         startActivity(intent);*/

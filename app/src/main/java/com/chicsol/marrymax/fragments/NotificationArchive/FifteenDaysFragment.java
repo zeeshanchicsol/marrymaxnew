@@ -119,7 +119,7 @@ public class FifteenDaysFragment extends Fragment implements RecyclerViewAdapter
         try {
 
 
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
             params.put("type", "15");
 
         } catch (JSONException e) {
@@ -145,7 +145,7 @@ public class FifteenDaysFragment extends Fragment implements RecyclerViewAdapter
                                 // Log.e("load notificans size 0", "00");
                                 recyclerView.setVisibility(View.GONE);
                                 llNone.setVisibility(View.VISIBLE);
-                                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3) {
+                                if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() < 3) {
                                     profileCompletionCheck.setVisibility(View.VISIBLE);
                                 } else {
                                     profileCompletionCheck.setVisibility(View.INVISIBLE);
@@ -170,7 +170,7 @@ public class FifteenDaysFragment extends Fragment implements RecyclerViewAdapter
                                 } else {
                                     recyclerView.setVisibility(View.GONE);
                                     llNone.setVisibility(View.VISIBLE);
-                                    if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3) {
+                                    if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() < 3) {
                                         profileCompletionCheck.setVisibility(View.VISIBLE);
                                     } else {
                                         profileCompletionCheck.setVisibility(View.INVISIBLE);

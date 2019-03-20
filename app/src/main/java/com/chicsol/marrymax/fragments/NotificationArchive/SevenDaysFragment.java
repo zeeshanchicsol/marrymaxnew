@@ -126,7 +126,7 @@ private  String Tag="SevenDaysFragment";
         try {
 
 
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
             params.put("type", "7");
 
         } catch (JSONException e) {
@@ -152,7 +152,7 @@ private  String Tag="SevenDaysFragment";
                                 // Log.e("load notificans size 0", "00");
                                 recyclerView.setVisibility(View.GONE);
                                 llNone.setVisibility(View.VISIBLE);
-                                if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3) {
+                                if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3) {
                                     profileCompletionCheck.setVisibility(View.VISIBLE);
                                 } else {
                                     profileCompletionCheck.setVisibility(View.INVISIBLE);
@@ -177,7 +177,7 @@ private  String Tag="SevenDaysFragment";
                                 } else {
                                     recyclerView.setVisibility(View.GONE);
                                     llNone.setVisibility(View.VISIBLE);
-                                    if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3) {
+                                    if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3) {
                                         profileCompletionCheck.setVisibility(View.VISIBLE);
                                     } else {
                                         profileCompletionCheck.setVisibility(View.GONE);

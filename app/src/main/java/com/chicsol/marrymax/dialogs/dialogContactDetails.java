@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.mMemPhone;
 import com.chicsol.marrymax.widgets.faTextView;
 import com.chicsol.marrymax.widgets.mCheckBox;
 import com.chicsol.marrymax.widgets.mTextView;
@@ -35,10 +36,10 @@ public class dialogContactDetails extends DialogFragment {
     mTextView tvDesc, tvTitle;
     String userpath, alias;
     boolean replyCheck;
-    Members member;
+    mMemPhone member;
 
     public static dialogContactDetails newInstance(String params, String alias) {
- /*       Members member, String userpath, boolean replyCheck, Members member2*/
+        /*       Members member, String userpath, boolean replyCheck, Members member2*/
         dialogContactDetails frag = new dialogContactDetails();
         Bundle args = new Bundle();
 
@@ -46,8 +47,8 @@ public class dialogContactDetails extends DialogFragment {
         // args.putString("name", name);
         args.putString("alias", alias);
         args.putString("params", params);
-        /*args.putString("param", String.valueOf(member2.get_phone_view()));
-        args.putString("my_id", String.valueOf(member2.get_my_id()));
+        /*args.putString("param", String.valueOf(member2.getPhone_view()));
+        args.putString("my_id", String.valueOf(member2.getMy_id()));
         args.putString("checkedTextView", member.getAlias());
         args.putString("userpath", userpath);
 */
@@ -78,9 +79,9 @@ public class dialogContactDetails extends DialogFragment {
         GsonBuilder gsonBuilder = new GsonBuilder();
 
         gson = gsonBuilder.create();
-        Type type = new TypeToken<Members>() {
+        Type type = new TypeToken<mMemPhone>() {
         }.getType();
-        member = (Members) gson.fromJson(params, type);
+        member = (mMemPhone) gson.fromJson(params, type);
 
     }
 
@@ -89,7 +90,7 @@ public class dialogContactDetails extends DialogFragment {
         final View rootView = inflater.inflate(R.layout.dialog_contact_details, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-        String desc = "Here is the contact detail of  <b> <font color=#216917>" + alias + "</font></b>" ;
+        String desc = "Here is the contact detail of  <b> <font color=#216917>" + alias + "</font></b>";
 
         tvTitle = (mTextView) rootView.findViewById(R.id.TextViewContactDialogTitle);
 
@@ -99,16 +100,16 @@ public class dialogContactDetails extends DialogFragment {
         mTextView contactCalltime = (mTextView) rootView.findViewById(R.id.TextViewContactDialogPrefferedCallTime);
         mTextView contactCountryName = (mTextView) rootView.findViewById(R.id.TextViewContactDialogCountryName);
 
-        contactName.setText(""+member.get_personal_name());
+        contactName.setText("" + member.getPersonal_name());
 
-        contactPhone.setText(""+member.get_phone_mobile());
+        contactPhone.setText("" + member.getPhone_mobile());
 
 
-        contactRelationShip.setText(""+member.get_profile_owner());
+        contactRelationShip.setText("" + member.getProfile_owner());
 
-        contactCalltime.setText(""+member.get_notes());
+        contactCalltime.setText("" + member.getNotes());
 
-        contactCountryName.setText(""+member.get_country_name());
+        contactCountryName.setText("" + member.getCountry_name());
 
 
         Button mOkButton = (Button) rootView.findViewById(R.id.ButtonContactDialogCancel);

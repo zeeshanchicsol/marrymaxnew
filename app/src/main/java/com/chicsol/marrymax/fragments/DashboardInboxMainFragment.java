@@ -90,7 +90,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
 
 
       /*  Members member = SharedPreferenceManager.getUserObject(context);
-        if (member.get_member_status() < 3 || member.get_member_status() >= 7) {
+        if (member.getMember_status() < 3 || member.getMember_status() >= 7) {
            new MarryMax(null).updateStatus(context);
 
         }*/
@@ -182,8 +182,8 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
        *//* final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*//*
-        Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

@@ -3,14 +3,11 @@ package com.chicsol.marrymax.activities.searchyourbestmatch;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -258,36 +255,36 @@ public class SearchYourBestMatchActivity extends AppCompatActivity {
                     if (spinner_religion.getSelectedItemId() != 0 && gender != null) {
 
 
-                        defaultSelectionsObj.set_gender(gender);
+                        defaultSelectionsObj.setGender(gender);
 
 
                         WebArd sReligion = (WebArd) spinner_religion.getSelectedItem();
 
-                        defaultSelectionsObj.set_religion_id(Long.parseLong(sReligion.getId()));
+                        defaultSelectionsObj.setReligion_id(Long.parseLong(sReligion.getId()));
 
                         if (spinner_education.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spinner_education.getSelectedItem();
-                            defaultSelectionsObj.set_choice_education_ids(srr.getId());
+                            defaultSelectionsObj.setChoice_education_ids(srr.getId());
                         }
                         if (spinner_ethnic.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spinner_ethnic.getSelectedItem();
-                            defaultSelectionsObj.set_choice_ethnic_bground_ids(srr.getId());
+                            defaultSelectionsObj.setChoice_ethnic_bground_ids(srr.getId());
                         }
                         if (spinner_religioussect.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spinner_religioussect.getSelectedItem();
-                            defaultSelectionsObj.set_choice_religious_sect_ids(srr.getId());
+                            defaultSelectionsObj.setChoice_religious_sect_ids(srr.getId());
                         }
                         if (spinner_country.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spinner_country.getSelectedItem();
-                            defaultSelectionsObj.set_choice_country_ids(srr.getId());
+                            defaultSelectionsObj.setChoice_country_ids(srr.getId());
                         }
                         if (spMyChoiceAgeFrom.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spMyChoiceAgeFrom.getSelectedItem();
-                            defaultSelectionsObj.set_choice_age_from(Long.parseLong(srr.getId()));
+                            defaultSelectionsObj.setChoice_age_from(Long.parseLong(srr.getId()));
                         }
                         if (spMyChoiceAgeTo.getSelectedItemId() != 0) {
                             WebArd srr = (WebArd) spMyChoiceAgeTo.getSelectedItem();
-                            defaultSelectionsObj.set_choice_age_upto(Long.parseLong(srr.getId()));
+                            defaultSelectionsObj.setChoice_age_upto(Long.parseLong(srr.getId()));
                         }
 
 

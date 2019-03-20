@@ -40,7 +40,6 @@ import com.chicsol.marrymax.interfaces.MatchesRefreshCallBackInterface;
 import com.chicsol.marrymax.interfaces.UpdateMatchesCountCallback;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
-import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
@@ -105,11 +104,11 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
         }
 
 
-        if (defaultSelectionsObj.get_choice_age_from() == 0) {
-            defaultSelectionsObj.set_choice_age_from(18);
+        if (defaultSelectionsObj.getChoice_age_from() == 0) {
+            defaultSelectionsObj.setChoice_age_from(18);
         }
-        if (defaultSelectionsObj.get_choice_age_upto() == 0) {
-            defaultSelectionsObj.set_choice_age_upto(70);
+        if (defaultSelectionsObj.getChoice_age_upto() == 0) {
+            defaultSelectionsObj.setChoice_age_upto(70);
         }
 
         Gson gson = new Gson();
@@ -160,14 +159,14 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
         Members memberSearchObj = defaultSelectionsObj;
 
         if (memberSearchObj != null) {
-            ///  memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            ///  memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
-            // memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-            //  memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-            // memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+            // memberSearchObj.setMember_status(SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+            //  memberSearchObj.setPhone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+            // memberSearchObj.setEmail_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail_verified());
             //page and type
-            memberSearchObj.set_page_no(1);
-            memberSearchObj.set_type("");
+            memberSearchObj.setPage_no(1);
+            memberSearchObj.setType("");
 
             Gson gson = new Gson();
             params = gson.toJson(memberSearchObj);
@@ -184,13 +183,13 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
 
        Members memberSearchObjDefault = DrawerActivity.rawSearchObj;
         if (memberSearchObjDefault != null) {
-            memberSearchObjDefault.set_path(SharedPreferenceManager.getUserObject(getApplicationContext().getApplicationContext()).get_path());
-            memberSearchObjDefault.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-            memberSearchObjDefault.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-            memberSearchObjDefault.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+            memberSearchObjDefault.setPath(SharedPreferenceManager.getUserObject(getApplicationContext().getApplicationContext()).getPath());
+            memberSearchObjDefault.setMember_status(SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+            memberSearchObjDefault.setPhone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+            memberSearchObjDefault.setEmail_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail_verified());
             //page and type
-            memberSearchObjDefault.set_page_no(1);
-            memberSearchObjDefault.set_type("");
+            memberSearchObjDefault.setPage_no(1);
+            memberSearchObjDefault.setType("");
 
             Gson gson = new Gson();
             String params = gson.toJson(memberSearchObj);
@@ -262,9 +261,9 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
         spinner_bride_groom.setAdapter(spAdapterBrideGroom);
 
 
-        if (defaultSelectionsObj.get_gender() != null) {
+        if (defaultSelectionsObj.getGender() != null) {
 
-            if (defaultSelectionsObj.get_gender().equals("M")) {
+            if (defaultSelectionsObj.getGender().equals("M")) {
                 spinner_bride_groom.setSelection(1);
             } else {
 
@@ -272,7 +271,7 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
             }
 
         } else {
-            defaultSelectionsObj.set_gender("M");
+            defaultSelectionsObj.setGender("M");
 
         }
 
@@ -341,21 +340,21 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
                 //  Toast.makeText(getApplicationContext(), "" + position, Toast.LENGTH_SHORT).show();
 
                 if (position == 0) {
-                    defaultSelectionsObj.set_gender("F");
+                    defaultSelectionsObj.setGender("F");
                 } else {
-                    defaultSelectionsObj.set_gender("M");
+                    defaultSelectionsObj.setGender("M");
                 }
                 Members memberSearchObj = defaultSelectionsObj;
 
                 if (memberSearchObj != null) {
-                    ///  memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                    ///  memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
-                    // memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-                    //  memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-                    // memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+                    // memberSearchObj.setMember_status(SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+                    //  memberSearchObj.setPhone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+                    // memberSearchObj.setEmail_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail_verified());
                     //page and type
-                    memberSearchObj.set_page_no(1);
-                    memberSearchObj.set_type("");
+                    memberSearchObj.setPage_no(1);
+                    memberSearchObj.setType("");
 
                     Gson gson = new Gson();
                     params = gson.toJson(memberSearchObj);
@@ -379,8 +378,8 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
     private void getData() {
         //  String.Max
         pDialog.setVisibility(View.VISIBLE);
-        //  Log.e("url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        //  Log.e("url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -409,13 +408,13 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
             Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
        /*     Members memberSearchObj = DrawerActivity.rawSearchObj;
 
-            memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-            memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-            memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-            memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+            memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+            memberSearchObj.setMember_status(SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+            memberSearchObj.setPhone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+            memberSearchObj.setEmail_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail_verified());
             //page and type
-            memberSearchObj.set_page_no(lastPage);
-            memberSearchObj.set_type("");
+            memberSearchObj.setPage_no(lastPage);
+            memberSearchObj.setType("");
 
             Gson gson = new Gson();
             String params = gson.toJson(memberSearchObj);*/
@@ -427,7 +426,7 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
             Type membert = new TypeToken<Members>() {
             }.getType();
             Members memberObj = (Members) gsont.fromJson(params, membert);
-            memberObj.set_page_no(lastPage);
+            memberObj.setPage_no(lastPage);
             gsont.toString();
             // Log.e("params json", gsont.toJson(memberObj));
             loadMoreData(gsont.toJson(memberObj));
@@ -449,13 +448,13 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
                 //  Toast.makeText(getApplicationContext(), "" + message, Toast.LENGTH_SHORT).show();
                 //   textView1.setText(message);
 
-                ListViewAdvSearchFragment.defaultSelectionsObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                ListViewAdvSearchFragment.defaultSelectionsObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-                ListViewAdvSearchFragment.defaultSelectionsObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-                ListViewAdvSearchFragment.defaultSelectionsObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+                ListViewAdvSearchFragment.defaultSelectionsObj.setPath(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                ListViewAdvSearchFragment.defaultSelectionsObj.setMember_status(SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+                ListViewAdvSearchFragment.defaultSelectionsObj.setPhone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+                ListViewAdvSearchFragment.defaultSelectionsObj.setEmail_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail_verified());
                 //page and type
-                ListViewAdvSearchFragment.defaultSelectionsObj.set_page_no(1);
-                ListViewAdvSearchFragment.defaultSelectionsObj.set_type("");
+                ListViewAdvSearchFragment.defaultSelectionsObj.setPage_no(1);
+                ListViewAdvSearchFragment.defaultSelectionsObj.setType("");
 
 
                 Gson gson = new Gson();
@@ -474,13 +473,13 @@ public class WhoIsLookingForMeResultsActivity extends AppCompatActivity implemen
     public void onRefresh() {
         Members memberSearchObj = defaultSelectionsObj;
 
-        //  memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        //  memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-        //  memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-        //  memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+        //  memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //  memberSearchObj.setMember_status(SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+        //  memberSearchObj.setPhone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+        //  memberSearchObj.setEmail_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail_verified());
         //page and type
-        memberSearchObj.set_page_no(1);
-        memberSearchObj.set_type("");
+        memberSearchObj.setPage_no(1);
+        memberSearchObj.setType("");
 
         Gson gson = new Gson();
         params = gson.toJson(memberSearchObj);

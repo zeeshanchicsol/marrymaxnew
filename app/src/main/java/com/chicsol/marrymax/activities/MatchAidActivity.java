@@ -13,7 +13,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,7 +24,6 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
-import com.chicsol.marrymax.activities.registration.RegisterGeographicActivity;
 import com.chicsol.marrymax.dialogs.dialogMatchAidFeedback;
 import com.chicsol.marrymax.modal.mLfm;
 import com.chicsol.marrymax.other.MarryMax;
@@ -142,7 +140,7 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
         llEmptyMatches = (LinearLayout) findViewById(R.id.LinearLayoutMAtchAidEmpty);
         llEmptyMatches.setVisibility(View.GONE);
 
-        if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() <= 3) {
+        if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() <= 3) {
             llNoMatches.setVisibility(View.VISIBLE);
 
         } else {
@@ -187,9 +185,9 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
 
 
 
-        Log.e("getRequest path", "" + Urls.getAssistanceList + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        Log.e("getRequest path", "" + Urls.getAssistanceList + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getAssistanceList + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getAssistanceList + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

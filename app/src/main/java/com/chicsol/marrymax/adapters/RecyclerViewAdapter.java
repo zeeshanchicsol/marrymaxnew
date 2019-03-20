@@ -199,14 +199,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
             }
             holder.alias.setText(item.getAlias());
-            holder.age.setText("( " + item.get_age() + " )");
-            holder.eduMaritalStatus.setText(item.get_education_types() + " | " + item.get_marital_status_types());
-            holder.country.setText(item.get_country_name());
+            holder.age.setText("( " + item.getAge() + " )");
+            holder.eduMaritalStatus.setText(item.getEducation_types() + " | " + item.getMarital_status_types());
+            holder.country.setText(item.getCountry_name());
 
-            holder.aboutme.setText(item.get_about_member());
+            holder.aboutme.setText(item.getAbout_member());
 
 
-            imageLoader.displayImage(Urls.baseUrl + "/" + item.get_default_image(),
+            imageLoader.displayImage(Urls.baseUrl + "/" + item.getDefault_image(),
                     holder.image, options,
                     new SimpleImageLoadingListener() {
 

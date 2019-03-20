@@ -50,6 +50,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.dialogs.dialogAddNotes;
+import com.chicsol.marrymax.dialogs.dialogFeedBackPending;
 import com.chicsol.marrymax.dialogs.dialogRemoveFromSearch;
 import com.chicsol.marrymax.dialogs.dialogRequest;
 import com.chicsol.marrymax.dialogs.dialogRequestPhone;
@@ -62,6 +63,7 @@ import com.chicsol.marrymax.interfaces.UpdateMatchesCountCallback;
 import com.chicsol.marrymax.interfaces.UpdateMemberFromDialogFragment;
 import com.chicsol.marrymax.interfaces.WithdrawRequestCallBackInterface;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.mMemInterest;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -81,7 +83,6 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.nostra13.universalimageloader.core.process.BitmapProcessor;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -334,37 +335,37 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 
             holder.alias.setText(member.getAlias());
-            holder.age.setText("( " + member.get_age() + " Years)");
-            holder.tvAboutMe.setText(Html.fromHtml("<b>About: </b>" + member.get_about_member()));
+            holder.age.setText("( " + member.getAge() + " Years)");
+            holder.tvAboutMe.setText(Html.fromHtml("<b>About: </b>" + member.getAbout_member()));
 
-            holder.pref1.setText(member.get_pref1() + ": ");
-            holder.pref2.setText(member.get_pref2() + ": ");
-            holder.pref3.setText(member.get_pref3() + ": ");
-            holder.pref4.setText(member.get_pref4() + ": ");
+            holder.pref1.setText(member.getPref1() + ": ");
+            holder.pref2.setText(member.getPref2() + ": ");
+            holder.pref3.setText(member.getPref3() + ": ");
+            holder.pref4.setText(member.getPref4() + ": ");
 
-            holder.prefValue1.setText(member.get_prefvalue1());
-            holder.prefValue2.setText(member.get_prefvalue2());
-            holder.prefValue3.setText(member.get_prefvalue3());
-            holder.prefValue4.setText(member.get_prefvalue4());
+            holder.prefValue1.setText(member.getPrefvalue1());
+            holder.prefValue2.setText(member.getPrefvalue2());
+            holder.prefValue3.setText(member.getPrefvalue3());
+            holder.prefValue4.setText(member.getPrefvalue4());
 
-            if (member.get_photo_count() > 0) {
-                holder.imageCount.setText(member.get_photo_count() + "");
+            if (member.getPhoto_count() > 0) {
+                holder.imageCount.setText(member.getPhoto_count() + "");
 
             } else {
                 holder.ll_image_count.setVisibility(View.GONE);
             }
 //========Phone View========================
-            if (member.get_phone_view() == 2 || member.get_phone_privilege_id() > 0) {
+            if (member.getPhone_view() == 2 || member.getPhone_privilege_id() > 0) {
                 //see mobile  green
                 holder.ivViewPhone.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
-            } else if (member.get_phone_view() == 1 && member.get_phone_privilege_id() == 0) {
+            } else if (member.getPhone_view() == 1 && member.getPhone_privilege_id() == 0) {
                 //orange
                 holder.ivViewPhone.setImageDrawable(context.getResources().getDrawable(R.drawable.num_not_verified_icon_60));
-            } else if (member.get_phone_view() != 2 && member.get_phone_view() != 1 && member.get_phone_privilege_id() == 0) {
+            } else if (member.getPhone_view() != 2 && member.getPhone_view() != 1 && member.getPhone_privilege_id() == 0) {
                 //grey
                 holder.ivViewPhone.setImageDrawable(context.getResources().getDrawable(R.drawable.no_number_icon_60));
             }
-            /*else if (member.get_phone_view() == 0 && member.get_profile_privilege_id() == 0) {
+            /*else if (member.getPhone_view() == 0 && member.getProfile_privilege_id() == 0) {
                 //grey
                 holder.ivViewPhone.setImageDrawable(context.getResources().getDrawable(R.drawable.no_number_icon_60));
             }*/
@@ -375,37 +376,37 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 //      */
 
 
-            //    Log.e("get_profil:  " + member.getAlias() + "   = " + member.get_hidden_status() + "  " + member.get_profile_privilege_id(), "" + member.get_profile_request_id());
+            //    Log.e("get_profil:  " + member.getAlias() + "   = " + member.getHidden_status() + "  " + member.getProfile_privilege_id(), "" + member.getProfile_request_id());
 
             holder.tvBtMenu.setVisibility(View.VISIBLE);
 
-            if (member.get_hidden_status() == 1 && member.get_profile_privilege_id() == 0) {
+            if (member.getHidden_status() == 1 && member.getProfile_privilege_id() == 0) {
 
 
-                if (member.get_profile_request_id() > 0) {
+                if (member.getProfile_request_id() > 0) {
 
                     popup.getMenu().getItem(0).setTitle("Withdraw Request");
 
                 } else {
                     popup.getMenu().getItem(0).setTitle("Request Profile");
                 }
-            } else if (member.get_hidden_status() == 0 && member.get_photo_privilege_id() == 0) {
+            } else if (member.getHidden_status() == 0 && member.getPhoto_privilege_id() == 0) {
 
-                if (member.get_photo_count() == 0 && member.get_blur() == 0) {
-                    if (member.get_photo_upload_request_id() == 0) {
+                if (member.getPhoto_count() == 0 && member.getBlur() == 0) {
+                    if (member.getPhoto_upload_request_id() == 0) {
                         //request  photo view
                         popup.getMenu().getItem(0).setTitle("Request Photo");
-                    } else if (member.get_photo_upload_request_id() > 0) {
+                    } else if (member.getPhoto_upload_request_id() > 0) {
                         popup.getMenu().getItem(0).setTitle("Withdraw Request");
                     }
 
 
-                } else if ((member.get_photo_count() > 0 || member.get_blur() == 1) && member.get_hide_photo() > 0) {
-                    if (member.get_photo_request_id() == 0) {
+                } else if ((member.getPhoto_count() > 0 || member.getBlur() == 1) && member.getHide_photo() > 0) {
+                    if (member.getPhoto_request_id() == 0) {
                         //request  photo view
                         popup.getMenu().getItem(0).setTitle("Request Photo View");
 
-                    } else if (member.get_photo_request_id() > 0) {
+                    } else if (member.getPhoto_request_id() > 0) {
                         popup.getMenu().getItem(0).setTitle("Withdraw Request");
                     }
 
@@ -422,11 +423,11 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 //========Image View========================
 
-            imageLoader.displayImage(Urls.baseUrl + "/images/flags/" + member.get_country_flag() + ".gif", holder.ivCountryFlag, optionsNormalImage);
+            imageLoader.displayImage(Urls.baseUrl + "/images/flags/" + member.getCountry_flag() + ".gif", holder.ivCountryFlag, optionsNormalImage);
 
             holder.image.setMinimumHeight(height);
 
-            imageLoader.displayImage(Urls.baseUrl + "/" + member.get_default_image(),
+            imageLoader.displayImage(Urls.baseUrl + "/" + member.getDefault_image(),
                     holder.image, options,
                     new SimpleImageLoadingListener() {
 
@@ -499,17 +500,17 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 
                                             //======================================================
-                                            if (member.get_hidden_status() == 1 && member.get_profile_privilege_id() == 0) {
+                                            if (member.getHidden_status() == 1 && member.getProfile_privilege_id() == 0) {
 
 
-                                                if (member.get_profile_request_id() > 0) {
+                                                if (member.getProfile_request_id() > 0) {
 
                                                     JSONObject params = new JSONObject();
                                                     try {
 
                                                         params.put("userpath", member.getUserpath());
-                                                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                                                        params.put("interested_id", member.get_profile_request_id());
+                                                        params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+                                                        params.put("interested_id", member.getProfile_request_id());
                                                     } catch (JSONException e) {
                                                         e.printStackTrace();
                                                     }
@@ -532,10 +533,10 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 
 //======================================================
-                                            if (member.get_hidden_status() == 0 && member.get_photo_privilege_id() == 0) {
+                                            if (member.getHidden_status() == 0 && member.getPhoto_privilege_id() == 0) {
 
-                                                if (member.get_photo_count() == 0 && member.get_blur() == 0) {
-                                                    if (member.get_photo_upload_request_id() == 0) {
+                                                if (member.getPhoto_count() == 0 && member.getBlur() == 0) {
+                                                    if (member.getPhoto_upload_request_id() == 0) {
                                                         //request  photo view
                                                         // popup.getMenu().getItem(0).setTitle("Request Photo");
 
@@ -547,15 +548,15 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                                                         request(member, title, desc, btTitile, type);
 
 
-                                                    } else if (member.get_photo_upload_request_id() > 0) {
+                                                    } else if (member.getPhoto_upload_request_id() > 0) {
                                                         // popup.getMenu().getItem(0).setTitle("Withdraw Request");
 
                                                         JSONObject params = new JSONObject();
                                                         try {
 
                                                             params.put("userpath", member.getUserpath());
-                                                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                                                            params.put("interested_id", member.get_photo_upload_request_id());
+                                                            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+                                                            params.put("interested_id", member.getPhoto_upload_request_id());
                                                         } catch (JSONException e) {
                                                             e.printStackTrace();
                                                         }
@@ -567,8 +568,8 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                                                     }
 
 
-                                                } else if ((member.get_photo_count() > 0 || member.get_blur() == 1) && member.get_hide_photo() > 0) {
-                                                    if (member.get_photo_request_id() == 0) {
+                                                } else if ((member.getPhoto_count() > 0 || member.getBlur() == 1) && member.getHide_photo() > 0) {
+                                                    if (member.getPhoto_request_id() == 0) {
                                                         //request  photo view
                                                         // popup.getMenu().getItem(0).setTitle("Request Photo View");
 
@@ -579,14 +580,14 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                                                         request(member, title, desc, btTitile, type);
 
 
-                                                    } else if (member.get_photo_request_id() > 0) {
+                                                    } else if (member.getPhoto_request_id() > 0) {
                                                         // popup.getMenu().getItem(0).setTitle("Withdraw Request");
                                                         JSONObject params = new JSONObject();
                                                         try {
 
                                                             params.put("userpath", member.getUserpath());
-                                                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                                                            params.put("interested_id", member.get_photo_request_id());
+                                                            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+                                                            params.put("interested_id", member.getPhoto_request_id());
                                                         } catch (JSONException e) {
                                                             e.printStackTrace();
                                                         }
@@ -659,7 +660,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 
 //========================SHOW INTEREST==============================================
-            if (member.get_request_response_id() == 0) {
+            if (member.getRequest_response_id() == 0) {
                 holder.tvShowInterestText.setText("Show Interest");
                 holder.faInterestIcon.setText(context.getResources().getString(R.string.fa_icon_show_interest));
 
@@ -667,7 +668,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                     holder.bt_ShowInterest.setBackgroundTintList(ContextCompat.getColorStateList(context, R.color.colorMMButtonShowInterest));
                 }
 
-            } else if (member.get_request_response_id() == 1 || member.get_request_response_id() == 2) {
+            } else if (member.getRequest_response_id() == 1 || member.getRequest_response_id() == 2) {
                 holder.faInterestIcon.setText(context.getResources().getString(R.string.fa_icon_pause));
 
                 holder.tvShowInterestText.setText("Awaiting Response");
@@ -677,7 +678,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                 }
 
 
-            } else if (member.get_request_response_id() == 3) {
+            } else if (member.getRequest_response_id() == 3) {
                 holder.tvShowInterestText.setText("Interest Accepted");
                 holder.faInterestIcon.setText(context.getResources().getString(R.string.fa_icon_accepted));
 
@@ -691,7 +692,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                 @Override
                 public void onClick(View view) {
 
-                    Log.e("Loggg===" + member.get_request_response_id(), "==" + member.get_request_response_id());
+                    Log.e("Loggg===" + member.getRequest_response_id(), "==" + member.getRequest_response_id());
 
 
                     boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null, null, null);
@@ -699,12 +700,12 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                     if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
                         if (checkStatus) {
 
-                            if (member.get_request_response_id() == 0) {
+                            if (member.getRequest_response_id() == 0) {
 
                                 JSONObject params = new JSONObject();
                                 try {
                                     params.put("userpath", member.getUserpath());
-                                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                                    params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -713,7 +714,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
                                 Members sessionObj = SharedPreferenceManager.getUserObject(context);
                                 if (functions.checkProfileCompleteStatus(sessionObj)) {
-                                    if (member.get_interested_id() == 0) {
+                                    if (member.getInterested_id() == 0) {
                                         selectedPosition = position;
                                         showInterest(params, false, member);
 
@@ -731,7 +732,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                 }
             });
 
-            if (member.get_issubscribed() == 1 && member.get_isedit() == 2 && member.get_member_notes_id() != 0) {
+            if (member.getIssubscribed() == 1 && member.getIsedit() == 2 && member.getMember_notes_id() != 0) {
                 holder.faNotes.setVisibility(View.VISIBLE);
             } else {
                 holder.faNotes.setVisibility(View.GONE);
@@ -763,9 +764,9 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                             JSONObject params = new JSONObject();
                             try {
                                 // Log.e("user path", member.getUserpath() + "==");
-                                params.put("id", member.get_removed_member());
+                                params.put("id", member.getRemoved_member());
                                 params.put("userpath", member.getUserpath());
-                                params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                                params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -786,7 +787,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                     try {
                         params.put("id", "0");
                         params.put("userpath", item.getUserpath());
-                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -816,7 +817,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
             params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
             params.put("type", type);
             params.put("userpath", member.getUserpath());
-            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -872,17 +873,43 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                             GsonBuilder gsonBuilder = new GsonBuilder();
 
                             gson = gsonBuilder.create();
-                            Type type = new TypeToken<Members>() {
+                            Type type = new TypeToken<mMemInterest>() {
                             }.getType();
-                            Members member2 = (Members) gson.fromJson(responseObject.toString(), type);
+                            mMemInterest member2 = (mMemInterest) gson.fromJson(responseObject.toString(), type);
                             Log.e("interested id", "" + member.getAlias() + "====================");
 
-                            dialogShowInterest newFragment = dialogShowInterest.newInstance(member, member.getUserpath(), replyCheck, member2);
-                            newFragment.setListener(RecyclerViewAdapterMyMatches.this);
+                            if (member2.getFeedback_due() == 0) {
+                                dialogShowInterest newFragment = dialogShowInterest.newInstance(member, member.getUserpath(), replyCheck, member2);
+                                newFragment.setListener(RecyclerViewAdapterMyMatches.this);
 
-                            newFragment.setTargetFragment(fragment, 0);
-                            newFragment.show(frgMngr, "dialog");
+                                newFragment.setTargetFragment(fragment, 0);
+                                newFragment.show(frgMngr, "dialog");
+                            } else {
 
+                                String aliasn = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
+
+
+                       /*         if (memPhone.getFeedback_due() == 1) {
+                                    String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+
+                                    dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
+                                    newFragment.setTargetFragment(fragment, 3);
+
+                                    newFragment.show(frgMngr, "dialog");
+
+
+                                } else if (memPhone.getFeedback_due() == 2) {*/
+
+
+                                String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
+                                newFragment.setTargetFragment(fragment, 3);
+                                newFragment.show(frgMngr, "dialog");
+
+
+                                //  }
+                            }
 
                         } catch (JSONException e) {
                             pDialog.dismiss();
@@ -996,7 +1023,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
     public void updateInterest(boolean update) {
 
         if (update) {
-            items.get(selectedPosition).set_request_response_id(1);
+            items.get(selectedPosition).setRequest_response_id(1);
             notifyDataSetChanged();
         }
 
@@ -1018,7 +1045,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
     @Override
     public void onPhoneViewRequestComplete(String requestid) {
 
-        items.get(selectedPosition).set_phone_request_id(Long.parseLong(requestid));
+        items.get(selectedPosition).setPhone_request_id(Long.parseLong(requestid));
         notifyDataSetChanged();
     }
 
@@ -1029,20 +1056,20 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
         switch (id) {
             case 1:
 
-                items.get(selectedPosition).set_photo_upload_request_id(0);
+                items.get(selectedPosition).setPhoto_upload_request_id(0);
 
                 break;
             case 2:
-                items.get(selectedPosition).set_photo_request_id(0);
+                items.get(selectedPosition).setPhoto_request_id(0);
                 break;
             case 3:
-                items.get(selectedPosition).set_profile_request_id(0);
+                items.get(selectedPosition).setProfile_request_id(0);
                 break;
             case 4:
-                items.get(selectedPosition).set_phone_request_id(0);
+                items.get(selectedPosition).setPhone_request_id(0);
                 break;
             case 5:
-                items.get(selectedPosition).set_interested_id(0);
+                items.get(selectedPosition).setInterested_id(0);
                 break;
 
         }
@@ -1054,14 +1081,14 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
     public void onRequestCallback(String type, String responseid) {
 
         if (type.equals("1")) {
-            items.get(selectedPosition).set_photo_upload_request_id(Long.parseLong(responseid));
+            items.get(selectedPosition).setPhoto_upload_request_id(Long.parseLong(responseid));
 
         } else if (type.equals("2")) {
 
-            items.get(selectedPosition).set_photo_request_id(Long.parseLong(responseid));
+            items.get(selectedPosition).setPhoto_request_id(Long.parseLong(responseid));
 
         } else if (type.equals("3")) {
-            items.get(selectedPosition).set_profile_request_id(Long.parseLong(responseid));
+            items.get(selectedPosition).setProfile_request_id(Long.parseLong(responseid));
 
 
         }

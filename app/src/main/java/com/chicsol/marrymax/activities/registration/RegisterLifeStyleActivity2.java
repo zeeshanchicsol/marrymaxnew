@@ -2,7 +2,6 @@ package com.chicsol.marrymax.activities.registration;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -263,7 +262,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                         params.put("choice_smoking_ids", choice_smoking_ids);
 
 
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                         //   Log.e("params", "" + params);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -298,38 +297,38 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
 
         ViewGenerator viewGenerator = new ViewGenerator(RegisterLifeStyleActivity2.this);
 
-        //Log.e("eddddddddd", "" + members_obj.get_about_type_id());
+        //Log.e("eddddddddd", "" + members_obj.getAbout_type_id());
 
 
-        viewGenerator.selectSpinnerItemById(spMySiblingPosition, members_obj.get_sibling_id(), siblingDataList);
+        viewGenerator.selectSpinnerItemById(spMySiblingPosition, members_obj.getSibling_id(), siblingDataList);
 
-        viewGenerator.selectCheckRadio(rgFamilyValues, members_obj.get_family_values_id(), llcbViewFamilyValues, members_obj.get_choice_family_values_ids());
-        viewGenerator.selectCheckRadio(rgLivingArrangements, members_obj.get_living_arrangement_id(), llcbViewLivingArrangements, members_obj.get_choice_living_arangment_ids());
+        viewGenerator.selectCheckRadio(rgFamilyValues, members_obj.getFamily_values_id(), llcbViewFamilyValues, members_obj.getChoice_family_values_ids());
+        viewGenerator.selectCheckRadio(rgLivingArrangements, members_obj.getLiving_arrangement_id(), llcbViewLivingArrangements, members_obj.getChoice_living_arangment_ids());
 
-        viewGenerator.selectCheckRadio(rgHijab, members_obj.get_hijab_id(), llcbViewHijab, members_obj.get_choice_hijab_ids());
+        viewGenerator.selectCheckRadio(rgHijab, members_obj.getHijab_id(), llcbViewHijab, members_obj.getChoice_hijab_ids());
 
 
         Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-        if (member.get_member_status() >= 2 && member.get_member_status() < 7) {
-            /*  if (member.get_member_status() == 3 || member.get_member_status() == 4) {*/
+        if (member.getMember_status() >= 2 && member.getMember_status() < 7) {
+            /*  if (member.getMember_status() == 3 || member.getMember_status() == 4) {*/
 
 
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgSmoke, members_obj.get_smoking_id(), llcbViewSmoke, members_obj.get_choice_smoking_ids());
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgDrink, members_obj.get_drink_id(), llcbViewDrink, members_obj.get_choice_drink_ids());
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgRaisedWhere, members_obj.get_raised_id(), llcbViewRaisedWhere, members_obj.get_choice_raised_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgSmoke, members_obj.getSmoking_id(), llcbViewSmoke, members_obj.getChoice_smoking_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgDrink, members_obj.getDrink_id(), llcbViewDrink, members_obj.getChoice_drink_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgRaisedWhere, members_obj.getRaised_id(), llcbViewRaisedWhere, members_obj.getChoice_raised_ids());
 
             viewGenerator.selectCheckRadioWithDisabledRadio(rgPhysicalChallenges, members_obj.getPhysic_id(), llcbViewPhysicalChallenges, members_obj.getChoice_physic_ids());
 
         } else {
-            viewGenerator.selectCheckRadio(rgSmoke, members_obj.get_smoking_id(), llcbViewSmoke, members_obj.get_choice_smoking_ids());
-            viewGenerator.selectCheckRadio(rgDrink, members_obj.get_drink_id(), llcbViewDrink, members_obj.get_choice_drink_ids());
-            viewGenerator.selectCheckRadio(rgRaisedWhere, members_obj.get_raised_id(), llcbViewRaisedWhere, members_obj.get_choice_raised_ids());
+            viewGenerator.selectCheckRadio(rgSmoke, members_obj.getSmoking_id(), llcbViewSmoke, members_obj.getChoice_smoking_ids());
+            viewGenerator.selectCheckRadio(rgDrink, members_obj.getDrink_id(), llcbViewDrink, members_obj.getChoice_drink_ids());
+            viewGenerator.selectCheckRadio(rgRaisedWhere, members_obj.getRaised_id(), llcbViewRaisedWhere, members_obj.getChoice_raised_ids());
             viewGenerator.selectCheckRadio(rgPhysicalChallenges, members_obj.getPhysic_id(), llcbViewPhysicalChallenges, members_obj.getChoice_physic_ids());
 
         }
 
-        etNoOfBrothers.setText(members_obj.get_brothers_count() + "");
-        etNoOfSisters.setText(members_obj.get_sisters_count() + "");
+        etNoOfBrothers.setText(members_obj.getBrothers_count() + "");
+        etNoOfSisters.setText(members_obj.getSisters_count() + "");
 
 
     }
@@ -405,9 +404,9 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
     private void GetLifeStyleData() {
 
         pDialog.show();
-        Log.e("url", "" + Urls.RegGetLifeStyle1Url2 + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        Log.e("url", "" + Urls.RegGetLifeStyle1Url2 + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                Urls.RegGetLifeStyle1Url2 + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(), null,
+                Urls.RegGetLifeStyle1Url2 + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -458,7 +457,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                             gson = gsonBuilder.create();
                             Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
                             members_obj = gson.fromJson(jsonGrography.get(0).toString(), Members.class);
-                            Log.e("Aliaaaaaaaasss", members_obj.get_country_id() + "");
+                            Log.e("Aliaaaaaaaasss", members_obj.getCountry_id() + "");
 
 
                         } catch (JSONException e) {
@@ -470,7 +469,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
 
                         ViewGenerator viewGenerator = new ViewGenerator(RegisterLifeStyleActivity2.this);
 
-                        if (members_obj.get_family_values_id() == 0) {
+                        if (members_obj.getFamily_values_id() == 0) {
                             updateData = false;
 
                         } else {
@@ -558,9 +557,9 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                                 Members member = SharedPreferenceManager.getUserObject(getApplication());
 
 
-                                if (member.get_member_status() == 0) {
+                                if (member.getMember_status() == 0) {
                                     int status = response.getInt("name");
-                                    member.set_member_status(status);
+                                    member.setMember_status(status);
                                     SharedPreferenceManager.setUserObject(getApplicationContext(), member);
                                 }
 

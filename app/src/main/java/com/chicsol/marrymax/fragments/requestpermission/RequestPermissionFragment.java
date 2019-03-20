@@ -1,6 +1,5 @@
 package com.chicsol.marrymax.fragments.requestpermission;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,7 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.activities.RequestPermissionsActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterRequestPermissions;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mRequestPermission;
@@ -131,7 +129,7 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
 
 
             params.put("userpath", member.getUserpath());
-            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
 
         } catch (JSONException e) {

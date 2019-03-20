@@ -90,7 +90,7 @@ public class BlockListAdapter extends ArrayAdapter<WebArdList> {
                 try {
                     params.put("about_type_id", "1");
                     params.put("userpath", item.getUserpath());
-                    params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

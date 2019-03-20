@@ -94,7 +94,7 @@ public class ThirtyDaysFragment extends Fragment implements RecyclerViewAdapterN
         recyclerAdapter.setOnItemClickListener(ThirtyDaysFragment.this);
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
         loadArchive();}
-       // Log.e("Logg Status",""+SharedPreferenceManager.getUserObject(getContext()).get_member_status());
+       // Log.e("Logg Status",""+SharedPreferenceManager.getUserObject(getContext()).getMember_status());
 
 
     }
@@ -122,7 +122,7 @@ public class ThirtyDaysFragment extends Fragment implements RecyclerViewAdapterN
         try {
 
 
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
             params.put("type", "30");
 
         } catch (JSONException e) {
@@ -148,7 +148,7 @@ public class ThirtyDaysFragment extends Fragment implements RecyclerViewAdapterN
                                 // Log.e("load notificans size 0", "00");
                                 recyclerView.setVisibility(View.GONE);
                                 llNone.setVisibility(View.VISIBLE);
-                                if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3) {
+                                if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() < 3) {
                                     profileCompletionCheck.setVisibility(View.VISIBLE);
                                 } else {
                                     profileCompletionCheck.setVisibility(View.INVISIBLE);
@@ -173,7 +173,7 @@ public class ThirtyDaysFragment extends Fragment implements RecyclerViewAdapterN
                                 } else {
                                     recyclerView.setVisibility(View.GONE);
                                     llNone.setVisibility(View.VISIBLE);
-                                     if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3) {
+                                     if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() < 3) {
                                         profileCompletionCheck.setVisibility(View.VISIBLE);
                                     } else {
                                         profileCompletionCheck.setVisibility(View.INVISIBLE);

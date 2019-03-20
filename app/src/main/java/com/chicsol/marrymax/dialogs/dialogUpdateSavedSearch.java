@@ -148,7 +148,7 @@ public class dialogUpdateSavedSearch extends DialogFragment {
                     try {
                         params.put("id", id);
                         params.put("name", etMemberNotes.getText().toString());
-                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                         updateSearch(params);
                     } catch (JSONException e) {
                         e.printStackTrace();

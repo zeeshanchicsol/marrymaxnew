@@ -176,7 +176,7 @@ public class dialogAddNotes extends DialogFragment {
         try {
 
             params.put("userpath", userpath);
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -251,7 +251,7 @@ public class dialogAddNotes extends DialogFragment {
             params.put("message", etNotes.getText().toString());
             params.put("message_id", member_notes_id + "");
             params.put("userpath", userpath);
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -323,7 +323,7 @@ public class dialogAddNotes extends DialogFragment {
 
 
             params.put("id", member_notes_id + "");
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -130,7 +130,7 @@ public class RecyclerViewAdapterUPPictures extends RecyclerView.Adapter<Recycler
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Members item = items.get(position);
-        imageLoader.displayImage(Urls.baseUrl + "/" + item.get_photo_path(),
+        imageLoader.displayImage(Urls.baseUrl + "/" + item.getPhoto_path(),
                 holder.image, options,
                 new SimpleImageLoadingListener() {
 

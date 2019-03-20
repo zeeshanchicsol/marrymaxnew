@@ -2,12 +2,10 @@ package com.chicsol.marrymax.activities;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -28,12 +25,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity;
-import com.chicsol.marrymax.activities.registration.RegistrationActivity;
-import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.adapters.MySpinnerAdapterContactUS;
-import com.chicsol.marrymax.modal.WebArd;
-import com.chicsol.marrymax.modal.WebCSC;
 import com.chicsol.marrymax.modal.mCountryCode;
 import com.chicsol.marrymax.other.ConnectionDetector;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -261,7 +253,7 @@ public class ContactAcivity extends AppCompatActivity {
                                     params.put("contact_country_id", countryObj.getId());
 
                                     if (SharedPreferenceManager.getUserObject(getApplicationContext()) != null) {
-                                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                                     }
 
 

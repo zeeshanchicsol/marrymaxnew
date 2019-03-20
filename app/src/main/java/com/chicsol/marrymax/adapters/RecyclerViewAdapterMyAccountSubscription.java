@@ -56,11 +56,11 @@ public class RecyclerViewAdapterMyAccountSubscription extends RecyclerView.Adapt
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Members obj = items.get(position);
-        holder.title.setText(obj.get_name());
-        holder.startDate.setText(obj.get_start_date());
-        holder.endDate.setText(obj.get_end_date());
+        holder.title.setText(obj.getName());
+        holder.startDate.setText(obj.getStart_date());
+        holder.endDate.setText(obj.getEnd_date());
 
-        if (obj.get_member_status() == 1) {
+        if (obj.getMember_status() == 1) {
             holder.statusText.setText("Active");
             holder.icStatus.setImageResource(R.drawable.ic_check_circle_black_24dp);
 

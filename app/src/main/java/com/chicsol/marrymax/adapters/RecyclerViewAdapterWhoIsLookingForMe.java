@@ -18,15 +18,12 @@ package com.chicsol.marrymax.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.Members;
@@ -128,9 +125,9 @@ public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<R
 
 
         if (idkey.equals("religion_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_religion_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getReligion_id(), dataList);
         } else if (idkey.equals("gender")) {
-            if (defaultSelectionsObj.get_gender().equals("M")) {
+            if (defaultSelectionsObj.getGender().equals("M")) {
                 holder.spWhoIs.setSelection(1);
             } else {
                 holder.spWhoIs.setSelection(2);
@@ -138,37 +135,37 @@ public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<R
 
 
         } else if (idkey.equals("min_age")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_min_age(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getMin_age(), dataList);
         } else if (idkey.equals("country_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_country_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getCountry_id(), dataList);
         } else if (idkey.equals("visa_status_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_visa_status_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getVisa_status_id(), dataList);
         } else if (idkey.equals("body_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_body_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getBody_id(), dataList);
         } else if (idkey.equals("complexion_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_complexion_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getComplexion_id(), dataList);
         } else if (idkey.equals("height_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_height_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getHeight_id(), dataList);
         } else if (idkey.equals("education_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_education_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getEducation_id(), dataList);
         } else if (idkey.equals("ethnic_background_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_ethnic_background_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getEthnic_background_id(), dataList);
         } else if (idkey.equals("religious_sect_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_religious_sect_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getReligious_sect_id(), dataList);
         } else if (idkey.equals("marital_status_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_marital_status_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getMarital_status_id(), dataList);
         } else if (idkey.equals("children_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_children_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getChildren_id(), dataList);
         } else if (idkey.equals("living_arrangement_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_living_arrangement_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getLiving_arrangement_id(), dataList);
         } else if (idkey.equals("hijab_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_hijab_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getHijab_id(), dataList);
         } else if (idkey.equals("raised_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_raised_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getRaised_id(), dataList);
         } else if (idkey.equals("smoking_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_smoking_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getSmoking_id(), dataList);
         } else if (idkey.equals("drink_id")) {
-            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.get_drink_id(), dataList);
+            viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getDrink_id(), dataList);
         }
         else if (idkey.equals("physic_id")) {
             viewGenerator.selectSpinnerItemByIdWebCSC(holder.spWhoIs, defaultSelectionsObj.getPhysic_id(), dataList);
@@ -179,11 +176,11 @@ public class RecyclerViewAdapterWhoIsLookingForMe extends RecyclerView.Adapter<R
 
 
      /*   Members obj = items.get(position);
-        holder.title.setText(obj.get_name());
-        holder.startDate.setText(obj.get_start_date());
-        holder.endDate.setText(obj.get_end_date());
+        holder.title.setText(obj.getName());
+        holder.startDate.setText(obj.getStart_date());
+        holder.endDate.setText(obj.getEnd_date());
 
-        if (obj.get_member_status() == 1) {
+        if (obj.getMember_status() == 1) {
             holder.statusText.setText("Active");
             holder.icStatus.setImageResource(R.drawable.ic_check_circle_black_24dp);
 

@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -100,9 +99,9 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
     private void getNotificationRequest() {
         loading = true;
         pDialog.setVisibility(View.VISIBLE);
-        Log.e(Tag + " getNotRequest p", "" + Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).get_path());
+        Log.e(Tag + " getNotRequest p", "" + Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).getPath());
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).get_path(),
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -328,7 +327,7 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
             // Log.e("CompoundButton  ", isChecked + "   ===========  " + buttonView.getText());
             JSONObject jsonObject = new JSONObject();
             try {
-                jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                 jsonObject.put("id", id);
 
 
@@ -346,7 +345,7 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
 
                 JSONObject jsonObject = new JSONObject();
                 try {
-                    jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                    jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                     jsonObject.put("id", buttonView.getId());
                     jsonObject.put("isedit", buttonView.getTag());
                     jsonObject.put("my_id", my_id);

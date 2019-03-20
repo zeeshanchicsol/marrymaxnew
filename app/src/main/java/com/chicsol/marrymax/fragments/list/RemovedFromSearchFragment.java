@@ -85,8 +85,8 @@ public class RemovedFromSearchFragment extends Fragment implements RemovedFromSe
 
     private void getData() {
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("url", Urls.getRemovedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getRemovedList + SharedPreferenceManager.getUserObject(getContext()).get_path(),
+        Log.e("url", Urls.getRemovedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getRemovedList + SharedPreferenceManager.getUserObject(getContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

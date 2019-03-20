@@ -97,10 +97,10 @@ public class RecommendedMatches extends Fragment implements RecyclerViewAdapterR
 
             JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
-                params.put("phone_verified", SharedPreferenceManager.getUserObject(getContext()).get_phone_verified());
-                params.put("email_verified", SharedPreferenceManager.getUserObject(getContext()).get_email_verified());
-                params.put("member_status", SharedPreferenceManager.getUserObject(getContext()).get_member_status());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
+                params.put("phone_verified", SharedPreferenceManager.getUserObject(getContext()).getPhone_verified());
+                params.put("email_verified", SharedPreferenceManager.getUserObject(getContext()).getEmail_verified());
+                params.put("member_status", SharedPreferenceManager.getUserObject(getContext()).getMember_status());
 
                 loadData(params.toString(), false);
 
@@ -290,10 +290,10 @@ public class RecommendedMatches extends Fragment implements RecyclerViewAdapterR
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
-                params.put("phone_verified", SharedPreferenceManager.getUserObject(getContext()).get_phone_verified());
-                params.put("email_verified", SharedPreferenceManager.getUserObject(getContext()).get_email_verified());
-                params.put("member_status", SharedPreferenceManager.getUserObject(getContext()).get_member_status());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
+                params.put("phone_verified", SharedPreferenceManager.getUserObject(getContext()).getPhone_verified());
+                params.put("email_verified", SharedPreferenceManager.getUserObject(getContext()).getEmail_verified());
+                params.put("member_status", SharedPreferenceManager.getUserObject(getContext()).getMember_status());
 
 
                 loadData(params.toString(), false);

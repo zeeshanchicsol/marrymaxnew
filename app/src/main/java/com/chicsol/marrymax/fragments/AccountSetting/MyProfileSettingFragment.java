@@ -35,7 +35,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.MatchAidActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
-import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
 import com.chicsol.marrymax.modal.Dashboards;
@@ -160,7 +159,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), snackBarToolTip, Snackbar.LENGTH_SHORT);
 
     /*    tvSubscriberOnly = (TextView) view.findViewById(R.id.TextViewMatchAidSubscribersOnly);
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() <= 3) {
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() <= 3) {
             tvSubscriberOnly.setVisibility(View.VISIBLE);
 
         } else {
@@ -212,7 +211,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         tvAdminReviewTitle = (TextView) view.findViewById(R.id.TextViewAdminReviewTitle);
         tvAdminReviewTitleMain = (TextView) view.findViewById(R.id.TextViewAdminReviewTitleMain);
 
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() == 7) {
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() == 7) {
             tvAdminReviewTitle.setText(" (Please review admin notes and update your profile as suggested.)");
             tvAdminReviewTitleMain.setText("Review completed");
 
@@ -220,7 +219,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         }
 
 
-     /*   if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+     /*   if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).getMember_status() >= 7) {
             checkEmailStatus(getContext());
             // llASEmail.setVisibility(View.VISIBLE);
         } else {
@@ -240,11 +239,11 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         etAsEmail = (EditText) view.findViewById(R.id.EditTextAScontactEmail);
         llASEmail = (LinearLayout) view.findViewById(R.id.LinearlayoutAccountSettingEmail);
 
-        etAsEmail.setText(SharedPreferenceManager.getUserObject(context).get_email());
+        etAsEmail.setText(SharedPreferenceManager.getUserObject(context).getEmail());
         etAsEmail.setEnabled(false);
 
 
- /*  if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 7) {
+ /*  if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() < 3 || SharedPreferenceManager.getUserObject(getContext()).getMember_status() >= 7) {
             checkEmailStatus(getContext());
             llASEmail.setVisibility(View.VISIBLE);
         } else {
@@ -263,7 +262,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     private void loadData() {
 
 
-        if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 || SharedPreferenceManager.getUserObject(context).getMember_status() >= 7) {
             tvDesc.setVisibility(View.VISIBLE);
         } else {
             tvDesc.setVisibility(View.GONE);
@@ -272,7 +271,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
         //============EMAIL
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
-            getRequest(SharedPreferenceManager.getUserObject(context).get_path());
+            getRequest(SharedPreferenceManager.getUserObject(context).getPath());
 
 
             getPhoneNumber();
@@ -302,10 +301,10 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             @Override
             public void onClick(View v) {
 
-                if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3) {
+                if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3) {
 
                     Toast.makeText(context, "Please complete and verify your profile details.", Toast.LENGTH_LONG).show();
-                } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 7 || SharedPreferenceManager.getUserObject(context).get_member_status() == 8) {
+                } else if (SharedPreferenceManager.getUserObject(context).getMember_status() == 7 || SharedPreferenceManager.getUserObject(context).getMember_status() == 8) {
 
                     Toast.makeText(context, "Please review notes as MarryMax team advised and update your profile or contact us for further assistance", Toast.LENGTH_LONG).show();
                 } else {
@@ -338,16 +337,16 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         btVerifyNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SharedPreferenceManager.getUserObject(context).get_member_status() == 0) {
+                if (SharedPreferenceManager.getUserObject(context).getMember_status() == 0) {
                     dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Notification", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, please complete your profile first then we can send you verification code on your Mobile number.", "Complete Profile", 8);
                     dialogP.show(getFragmentManager(), "d");
 
                 } else {
-                  /*  dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, true);
+                  /*  dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.getPhone_mobile(), country_id, true);
                     newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
                     newFragment.show(getFragmentManager(), "dialog");*/
 
-                    getValidCode(SharedPreferenceManager.getUserObject(context).get_path());
+                    getValidCode(SharedPreferenceManager.getUserObject(context).getPath());
 
 
                 }
@@ -408,7 +407,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         btEmailCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                etAsEmail.setText(SharedPreferenceManager.getUserObject(context).get_email());
+                etAsEmail.setText(SharedPreferenceManager.getUserObject(context).getEmail());
                 etAsEmail.setEnabled(false);
                 etAsEmail.setError(null);
                 emailEnabled = false;
@@ -448,7 +447,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         btResendVerificationEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Verify Your Email", "Here is your email address that needs to be verified.<br /> <b>  <font color=#216917>" + SharedPreferenceManager.getUserObject(context).get_email() + "</font></b><br /> " +
+                dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Verify Your Email", "Here is your email address that needs to be verified.<br /> <b>  <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getEmail() + "</font></b><br /> " +
                         "Please verify your email by using the link, we had emailed you.<br /> <font color=#9a0606> (In case you didn't receive any email,  please check your spam/junk folder or click \"Resend Verification Email\" )</font> ", "Resend Verification Email", 22);
                 dialogP.show(getFragmentManager(), "d");
             }
@@ -476,13 +475,13 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                         if (response != null) {
 
                             if (Long.parseLong(response) == 0) {
-                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, false);
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.getPhone_mobile(), country_id, false);
                                 newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
 
                             } else {
 
-                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.get_phone_mobile(), country_id, true);
+                                dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.getPhone_mobile(), country_id, true);
                                 newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
                             }
@@ -521,8 +520,8 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         }
 
 
-        Log.e("URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e("URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -552,7 +551,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             //   tvProfileCompleteion.setText(dashboards.getProfile_complete_status() + "% Complete");
 
 
-                            if (Integer.parseInt(dashboards.getProfile_complete_status()) < 70 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
+                            if (Integer.parseInt(dashboards.getProfile_complete_status()) < 70 || SharedPreferenceManager.getUserObject(context).getMember_status() >= 7) {
 
                                 String compUptoSSeventyText = "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, your profile is <b> <font color=#9a0606>Not Live </font></b> ";
                                 tvTitleLiveNotLive.setText(Html.fromHtml(compUptoSSeventyText));
@@ -584,7 +583,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             }
 
 
-                            if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
+                            if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 || SharedPreferenceManager.getUserObject(context).getMember_status() >= 7) {
 
                                 llASEmail.setVisibility(View.VISIBLE);
                                 if (dashboards.getEmail_complete_status().equals("1")) {
@@ -650,7 +649,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 //========================================================================================================
 
-                            if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
+                            if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 || SharedPreferenceManager.getUserObject(context).getMember_status() >= 7) {
 
                                 //Mobile Number
                                 //how to display update Number button and Add number button with Mobile number
@@ -741,7 +740,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
                             if (!lNumber.equals("") && !lNumber.equals("null")) {
-                                if (SharedPreferenceManager.getUserObject(context).get_member_status() < 3 || SharedPreferenceManager.getUserObject(context).get_member_status() >= 7) {
+                                if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 || SharedPreferenceManager.getUserObject(context).getMember_status() >= 7) {
 
 
                                     faLandIcon.setVisibility(View.GONE);
@@ -836,21 +835,21 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                             //Lanline Checks
 
-                       /*     if (member.get_phone_view() == 1) {
+                       /*     if (member.getPhone_view() == 1) {
                                 llPhoneVerifyLandline.setVisibility(View.VISIBLE);
                                 tvPhoneVerifyLandline.setText("Not Verified");
                                 ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
                                 //pending
 
 
-                            } else if (member.get_phone_view() == 2) {
+                            } else if (member.getPhone_view() == 2) {
 
                                 //verified
                                 llPhoneVerifyLandline.setVisibility(View.VISIBLE);
                                 tvPhoneVerifyLandline.setText("Verified");
                                 ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
 
-                            } else if (member.get_phone_view() == 3) {
+                            } else if (member.getPhone_view() == 3) {
                                 llPhoneVerifyLandline.setVisibility(View.VISIBLE);
                                 tvPhoneVerifyLandline.setText("Not Verified");
                                 ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.no_number_icon_60));
@@ -953,8 +952,8 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     private void getPhoneNumber() {
 
 
-        Log.e(" Notification url", Urls.getPhnV + SharedPreferenceManager.getUserObject(context).get_path());
-        StringRequest req = new StringRequest(Urls.getPhnV + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e(" Notification url", Urls.getPhnV + SharedPreferenceManager.getUserObject(context).getPath());
+        StringRequest req = new StringRequest(Urls.getPhnV + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -1039,8 +1038,8 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     public void checkEmailStatus(final Context context) {
 
         // pDialog.show();
-        Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -1062,7 +1061,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                             boolean pCOmpleteStatus = true;
                             Members members = SharedPreferenceManager.getUserObject(context);
-                            //   if (dashboards.getAdmin_approved_status().equals("1") && members.get_member_status() < 3) {
+                            //   if (dashboards.getAdmin_approved_status().equals("1") && members.getMember_status() < 3) {
 
                             if (dashboards.getEmail_complete_status().equals("1")) {
                                 //hide update email
@@ -1093,9 +1092,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                             }
 
-                                *//*else if (members.get_member_status() == 2) {
+                                *//*else if (members.getMember_status() == 2) {
                                     if (dashboards.getEmail_complete_status().equals("1")  && dashboards.getProfile_complete_status().equals("100")) {
-                                        members.set_member_status(3);
+                                        members.setMember_status(3);
                                         SharedPreferenceManager.setUserObject(context,members);
                                     }
 
@@ -1136,8 +1135,8 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 /*    public void checkEmailStatus(final Context context) {
 
         // pDialog.show();
-        Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e("status URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -1160,7 +1159,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                             boolean pCOmpleteStatus = true;
                             Members members = SharedPreferenceManager.getUserObject(context);
-                            //   if (dashboards.getAdmin_approved_status().equals("1") && members.get_member_status() < 3) {
+                            //   if (dashboards.getAdmin_approved_status().equals("1") && members.getMember_status() < 3) {
 
                             if (dashboards.getEmail_complete_status().equals("1")) {
                                 //hide update email
@@ -1174,9 +1173,9 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                             }
 
-                                else if (members.get_member_status() == 2) {
+                                else if (members.getMember_status() == 2) {
                                     if (dashboards.getEmail_complete_status().equals("1")  && dashboards.getProfile_complete_status().equals("100")) {
-                                        members.set_member_status(3);
+                                        members.setMember_status(3);
                                         SharedPreferenceManager.setUserObject(context,members);
                                     }
 
@@ -1224,7 +1223,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
             params.put("name", "" + etAsEmail.getText().toString());
-            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
 
         } catch (JSONException e) {
@@ -1263,7 +1262,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
 
                             Members member = SharedPreferenceManager.getUserObject(context);
-                            member.set_email(etAsEmail.getText().toString());
+                            member.setEmail(etAsEmail.getText().toString());
                             SharedPreferenceManager.setUserObject(context, member);
 
 
@@ -1343,7 +1342,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                 }.getType();
                                 member = new Members();
                                 member = (Members) gsonc.fromJson(jsonData.getJSONObject(0).toString(), listType);
-                                country_id = member.get_country_id() + "";
+                                country_id = member.getCountry_id() + "";
                             }
 
 

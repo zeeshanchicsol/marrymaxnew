@@ -122,7 +122,7 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
 
         mTextView tcUserName = (mTextView) findViewById(R.id.TextViewNavUserName);
 
-        tcUserName.setText(member.get_personal_name());
+        tcUserName.setText(member.getPersonal_name());
 
 
         geographicView = (LinearLayout) findViewById(R.id.ViewGeographic);
@@ -221,7 +221,7 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
                    })*/.build();
 
         ImageView iv_profile = (ImageView) findViewById(R.id.imageViewNavDefaultImage);
-        imageLoader.displayImage(Urls.baseUrl + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_default_image(),
+        imageLoader.displayImage(Urls.baseUrl + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).getDefault_image(),
                 iv_profile, options,
                 new SimpleImageLoadingListener() {
 
@@ -255,7 +255,7 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
                 });
 
 
-        if (member.get_member_status() == 3 || member.get_member_status() == 4) {
+        if (member.getMember_status() == 3 || member.getMember_status() == 4) {
             //  show request update
             btExpandRequestUpdateLayout.setVisibility(View.VISIBLE);
 
@@ -476,8 +476,8 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
     private void getData() {
         //  String.Max
         //  pDialog.setVisibility(View.VISIBLE);
-        //  Log.e("url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        //  Log.e("url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -513,14 +513,14 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
         if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
 
 
-            if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() != 0) {
+            if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() != 0) {
                 if (drawer != null) {
                     drawer.closeDrawers();
                 }
-                if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_path() != null && SharedPreferenceManager.getUserObject(getApplicationContext()).get_path() != "") {
+                if (SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() != null && SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() != "") {
                     Intent intent = new Intent(BaseRegistrationActivity.this, MyProfileActivity.class);
 
-                    intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                    intent.putExtra("userpath", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
                     startActivity(intent);
                 } else {

@@ -178,8 +178,8 @@ public class DashboardPermissionsFragment extends Fragment implements SwipeRefre
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getSavedList", Urls.permission + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path() + "/" + type);
-        JsonArrayRequest req = new JsonArrayRequest(Urls.permission + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path() + "/" + type,
+        Log.e("getSavedList", Urls.permission + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath() + "/" + type);
+        JsonArrayRequest req = new JsonArrayRequest(Urls.permission + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath() + "/" + type,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -246,7 +246,7 @@ public class DashboardPermissionsFragment extends Fragment implements SwipeRefre
 
      /*       JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                 params.put("page_no", 1);
                 params.put("type", type);
 

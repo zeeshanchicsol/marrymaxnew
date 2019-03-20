@@ -78,8 +78,8 @@ public class BlockedListFragment extends Fragment implements BlockListAdapter.on
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("url", Urls.getBlockedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getBlockedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path(),
+        Log.e("url", Urls.getBlockedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getBlockedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

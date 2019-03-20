@@ -226,7 +226,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
         try {
 
 
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
             params.put("userpath", userpath);
 
 
@@ -322,7 +322,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
         try {
 
 
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
             params.put("notes", notes);
             params.put("id", id);
 
@@ -467,7 +467,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
         try {
 
 
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
             params.put("my_id", my_id);
             params.put("id", id);
             params.put("userpath", userpath);

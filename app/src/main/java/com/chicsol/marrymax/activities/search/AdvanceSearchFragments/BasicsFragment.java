@@ -15,7 +15,6 @@ import android.widget.Spinner;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
-import com.chicsol.marrymax.modal.MatchesCountUpdateEvent;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.utils.ViewGenerator;
@@ -24,7 +23,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
 
 import java.lang.reflect.Type;
@@ -133,10 +131,10 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 WebArd selectedItem = (WebArd) spRegisterWithIn.getSelectedItem();
-                defaultSelectionsObj.set_registration_within_id(Long.parseLong(selectedItem.getId()));
+                defaultSelectionsObj.setRegistration_within_id(Long.parseLong(selectedItem.getId()));
 
                 updateDot();
-                //    Log.e("set_reg_within_id",""+defaultSelectionsObj.get_registration_within_id());
+                //    Log.e("set_reg_within_id",""+defaultSelectionsObj.getRegistration_within_id());
 
             }
 
@@ -150,8 +148,8 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
 
                 WebArd selectedItem = (WebArd) spLastLoginDate.getSelectedItem();
 
-                defaultSelectionsObj.set_last_login_date_id(Long.parseLong(selectedItem.getId()));
-                //  Log.e("set_reg_within_id",""+defaultSelectionsObj.get_last_login_date_id());
+                defaultSelectionsObj.setLast_login_date_id(Long.parseLong(selectedItem.getId()));
+                //  Log.e("set_reg_within_id",""+defaultSelectionsObj.getLast_login_date_id());
                 updateDot();
             }
 
@@ -188,7 +186,7 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
 
 
         /*if (defaultSelectionsObj != null) {
-            if (defaultSelectionsObj.get_pictureonly() == 1 || defaultSelectionsObj.get_opentopublic() == 1 || defaultSelectionsObj.get_registration_within_id() != 0 || defaultSelectionsObj.get_last_login_date_id() != 0 || !TextUtils.isEmpty(defaultSelectionsObj.get_choice_profile_owner_Ids()) || !TextUtils.isEmpty(defaultSelectionsObj.get_choice_zodiac_sign_ids())) {
+            if (defaultSelectionsObj.getPictureonly() == 1 || defaultSelectionsObj.getOpentopublic() == 1 || defaultSelectionsObj.getRegistration_within_id() != 0 || defaultSelectionsObj.getLast_login_date_id() != 0 || !TextUtils.isEmpty(defaultSelectionsObj.getChoice_profile_owner_Ids()) || !TextUtils.isEmpty(defaultSelectionsObj.getChoice_zodiac_sign_ids())) {
                 Toast.makeText(getContext(), "selected", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getContext(), "not selected", Toast.LENGTH_SHORT).show();
@@ -198,43 +196,43 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
 
         if (defaultSelectionsObj != null) {
 
-            // Log.e("Choice profile ower ids", "" + defaultSelectionsObj.get_choice_profile_owner_Ids());
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchProfileCreatedFor, defaultSelectionsObj.get_choice_profile_owner_Ids());
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchZodiacSign, defaultSelectionsObj.get_choice_zodiac_sign_ids());
+            // Log.e("Choice profile ower ids", "" + defaultSelectionsObj.getChoice_profile_owner_Ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchProfileCreatedFor, defaultSelectionsObj.getChoice_profile_owner_Ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchZodiacSign, defaultSelectionsObj.getChoice_zodiac_sign_ids());
 
 
-            if (defaultSelectionsObj.get_pictureonly() == 1) {
+            if (defaultSelectionsObj.getPictureonly() == 1) {
                 checkboxItemAdvSearchBasicsPicOnly.setChecked(true);
             } else {
                 checkboxItemAdvSearchBasicsPicOnly.setChecked(false);
             }
 
-            if (defaultSelectionsObj.get_opentopublic() == 1) {
+            if (defaultSelectionsObj.getOpentopublic() == 1) {
                 checkboxItemAdvSearchBasicsOpenToPub.setChecked(true);
             } else {
                 checkboxItemAdvSearchBasicsOpenToPub.setChecked(false);
             }
 
 
-            if (defaultSelectionsObj.get_registration_within_id() == 0) {
+            if (defaultSelectionsObj.getRegistration_within_id() == 0) {
                 spRegisterWithIn.setSelection(0);
-            } else if (defaultSelectionsObj.get_registration_within_id() == 7) {
+            } else if (defaultSelectionsObj.getRegistration_within_id() == 7) {
                 spRegisterWithIn.setSelection(1);
-            } else if (defaultSelectionsObj.get_registration_within_id() == 15) {
+            } else if (defaultSelectionsObj.getRegistration_within_id() == 15) {
                 spRegisterWithIn.setSelection(2);
-            } else if (defaultSelectionsObj.get_registration_within_id() == 30) {
+            } else if (defaultSelectionsObj.getRegistration_within_id() == 30) {
                 spRegisterWithIn.setSelection(3);
             } else {
                 spRegisterWithIn.setSelection(0);
             }
 
-            if (defaultSelectionsObj.get_last_login_date_id() == 0) {
+            if (defaultSelectionsObj.getLast_login_date_id() == 0) {
                 spLastLoginDate.setSelection(0);
-            } else if (defaultSelectionsObj.get_last_login_date_id() == 7) {
+            } else if (defaultSelectionsObj.getLast_login_date_id() == 7) {
                 spLastLoginDate.setSelection(1);
-            } else if (defaultSelectionsObj.get_last_login_date_id() == 15) {
+            } else if (defaultSelectionsObj.getLast_login_date_id() == 15) {
                 spLastLoginDate.setSelection(2);
-            } else if (defaultSelectionsObj.get_last_login_date_id() == 30) {
+            } else if (defaultSelectionsObj.getLast_login_date_id() == 30) {
                 spLastLoginDate.setSelection(3);
             } else {
 
@@ -258,29 +256,29 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
         if (buttonView == checkboxItemAdvSearchBasicsPicOnly) {
             if (isChecked) {
 
-                defaultSelectionsObj.set_pictureonly(1);
+                defaultSelectionsObj.setPictureonly(1);
 
-                /// Log.e("pic only", ListViewAdvSearchFragment.defaultSelectionsObj.get_pictureonly() + "");
+                /// Log.e("pic only", ListViewAdvSearchFragment.defaultSelectionsObj.getPictureonly() + "");
             } else {
-                defaultSelectionsObj.set_pictureonly(0);
-                //  Log.e("pic only", ListViewAdvSearchFragment.defaultSelectionsObj.get_pictureonly() + "");
+                defaultSelectionsObj.setPictureonly(0);
+                //  Log.e("pic only", ListViewAdvSearchFragment.defaultSelectionsObj.getPictureonly() + "");
             }
         }
 
         if (buttonView == checkboxItemAdvSearchBasicsOpenToPub) {
             if (isChecked) {
-                defaultSelectionsObj.set_opentopublic(1);
+                defaultSelectionsObj.setOpentopublic(1);
             } else {
-                defaultSelectionsObj.set_opentopublic(0);
+                defaultSelectionsObj.setOpentopublic(0);
             }
         }
         if (buttonView.getTag() != null) {
             if (buttonView.getTag().equals("profilefor")) {
-                defaultSelectionsObj.set_choice_profile_owner_Ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchProfileCreatedFor));
+                defaultSelectionsObj.setChoice_profile_owner_Ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchProfileCreatedFor));
 
             }
             if (buttonView.getTag().equals("zodiacsign")) {
-                defaultSelectionsObj.set_choice_zodiac_sign_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchZodiacSign));
+                defaultSelectionsObj.setChoice_zodiac_sign_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchZodiacSign));
 
 
             }
@@ -333,12 +331,12 @@ public class BasicsFragment extends Fragment implements CompoundButton.OnChecked
     public void onClick(View v) {
 
         if (v.getTag().equals("select_profile_with")) {
-            defaultSelectionsObj.set_pictureonly(0);
-            defaultSelectionsObj.set_opentopublic(0);
+            defaultSelectionsObj.setPictureonly(0);
+            defaultSelectionsObj.setOpentopublic(0);
         } else if (v.getTag().equals("profile_created_for")) {
-            defaultSelectionsObj.set_choice_profile_owner_Ids("");
+            defaultSelectionsObj.setChoice_profile_owner_Ids("");
         } else if (v.getTag().equals("zodiac")) {
-            defaultSelectionsObj.set_choice_zodiac_sign_ids("");
+            defaultSelectionsObj.setChoice_zodiac_sign_ids("");
 
         }
 

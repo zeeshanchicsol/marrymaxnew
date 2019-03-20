@@ -56,7 +56,6 @@ import com.chicsol.marrymax.utils.MySingleton;
 import com.crashlytics.android.Crashlytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
@@ -69,13 +68,11 @@ import java.net.NetworkInterface;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Timer;
-import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -1220,7 +1217,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
                                 Members member = SharedPreferenceManager.getUserObject(getApplication());
-                                member.set_password(password);
+                                member.setPassword(password);
 
                                 SharedPreferenceManager.setUserObject(getApplicationContext(), member);
 

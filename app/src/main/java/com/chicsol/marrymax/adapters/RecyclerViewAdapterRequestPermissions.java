@@ -100,15 +100,15 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
 
         if (permissioncheck) {
             if (position == 0) {
-                if (members.get_image_count() == 0 && obj.getName().equals("PRIVATE")) {
+                if (members.getImage_count() == 0 && obj.getName().equals("PRIVATE")) {
 
                     /// holder.image.setImageResource(R.drawable.ic_photo_rp_large_black_24dp);
 
                     obj.setType("Upload Pictures");
                     obj.setPrivilege_type_id(1);
-                    if (members.get_photo_upload_request_id() > 0) {
+                    if (members.getPhoto_upload_request_id() > 0) {
 
-                        obj.setRequest_id(members.get_photo_upload_request_id());
+                        obj.setRequest_id(members.getPhoto_upload_request_id());
                         obj.setMember_status(1);
                         obj.setSelf(1);
 
@@ -173,7 +173,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
 
         if (!permissioncheck) {
 
-            if (SharedPreferenceManager.getUserObject(context).get_member_status() != 4) {
+            if (SharedPreferenceManager.getUserObject(context).getMember_status() != 4) {
                 holder.actionSwitch.setEnabled(false);
             } else {
                 holder.actionSwitch.setEnabled(true);
@@ -299,7 +299,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                     params.put("request_id", obj.getRequest_id());
                     params.put("type", type);
                     params.put("userpath", userPath);
-                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
 
                 } catch (JSONException e) {
@@ -331,7 +331,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                     params.put("request_id", obj.getRequest_id());
                     params.put("type", type);
                     params.put("userpath", userPath);
-                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
 
                 } catch (JSONException e) {
@@ -353,7 +353,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                 try {
 
                     params.put("request_id", obj.getRequest_id());
-                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
 
                 } catch (JSONException e) {
@@ -395,8 +395,8 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                             params.put("privilege_type_id", obj.getPrivilege_type_id());
                             params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
                             params.put("userpath", userPath);
-                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-                            params.put("status", SharedPreferenceManager.getUserObject(context).get_member_status());
+                            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+                            params.put("status", SharedPreferenceManager.getUserObject(context).getMember_status());
 
 
                         } catch (JSONException e) {
@@ -412,7 +412,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                             params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());
                             params.put("type", type);
                             params.put("userpath", userPath);
-                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
 
                         } catch (JSONException e) {
@@ -437,7 +437,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                     params.put("alias", alias);
                     params.put("interested_id", obj.getRequest_id());
                     params.put("userpath", userPath);
-                    params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
 
                 } catch (JSONException e) {
@@ -509,8 +509,8 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                                                         try {
 
         params.put("userpath", member.getUserpath());
-        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
-        params.put("interested_id", member.get_photo_upload_request_id());
+        params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+        params.put("interested_id", member.getPhoto_upload_request_id());
     } catch (JSONException e) {
         e.printStackTrace();
     }
@@ -546,7 +546,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                                 onUpdateListener.onUpdate("");
 
                                 if (obj.getPrivilege_type_id() == 1) {
-                                    members.set_photo_upload_request_id(0);
+                                    members.setPhoto_upload_request_id(0);
 
                                 }
 
@@ -825,14 +825,14 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
 
                                 String desctxt = "";
 
-                                if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+                                if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
 
                                     desctxt = "<ul><li> Daily sent limit is reached.</li>" +
                                             "<br><li> Please wait 24 hours before you can contact new members.</li>" +
                                             "</ul>";
 
 
-                                } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 4) {
+                                } else if (SharedPreferenceManager.getUserObject(context).getMember_status() == 4) {
 
                                     desctxt = "<ul><li>You have reached the contact limit.</li>" +
                                             "<br><li>Please wait 24 hours to send new request.</li>" +
@@ -857,7 +857,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                             } else {
                                 if (obj.getPrivilege_type_id() == 1) {
                                     if (responseid > 0) {
-                                        members.set_photo_upload_request_id(responseid);
+                                        members.setPhoto_upload_request_id(responseid);
                                     }
 
                                 }

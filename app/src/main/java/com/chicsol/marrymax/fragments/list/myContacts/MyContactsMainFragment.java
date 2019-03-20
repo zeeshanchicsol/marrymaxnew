@@ -51,7 +51,7 @@ public class MyContactsMainFragment extends Fragment implements DashboarMainActi
     public void onResume() {
         super.onResume();
     /*    Members member = SharedPreferenceManager.getUserObject(context);
-        if (member.get_member_status() < 3 || member.get_member_status() >= 7) {
+        if (member.getMember_status() < 3 || member.getMember_status() >= 7) {
             new MarryMax(null).updateStatus(context);
 
         }*/

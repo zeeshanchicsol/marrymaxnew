@@ -160,7 +160,7 @@ public class dialogReportConcern extends DialogFragment {
                             params.put("details", radioSexButton.getText().toString());
                         }
                         params.put("userpath", userpath);
-                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

@@ -185,34 +185,34 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
 
         if (defaultSelectionsObj != null) {
 
-            viewGenerator.selectCheckBoxes(llAdvSearchPhysique, defaultSelectionsObj.get_choice_body_ids());
-            viewGenerator.selectCheckBoxes(llAdvSearchComplexion, defaultSelectionsObj.get_choice_complexion_ids());
-            viewGenerator.selectCheckBoxes(llAdvSearchHairColor, defaultSelectionsObj.get_choice_hair_color_ids());
-            viewGenerator.selectCheckBoxes(llAdvSearchEyeColor, defaultSelectionsObj.get_choice_eye_color_ids());
-            //viewGenerator.selectCheckBoxes(llAdvSearchComplexion, members.get_choice_zodiac_sign_ids());
+            viewGenerator.selectCheckBoxes(llAdvSearchPhysique, defaultSelectionsObj.getChoice_body_ids());
+            viewGenerator.selectCheckBoxes(llAdvSearchComplexion, defaultSelectionsObj.getChoice_complexion_ids());
+            viewGenerator.selectCheckBoxes(llAdvSearchHairColor, defaultSelectionsObj.getChoice_hair_color_ids());
+            viewGenerator.selectCheckBoxes(llAdvSearchEyeColor, defaultSelectionsObj.getChoice_eye_color_ids());
+            //viewGenerator.selectCheckBoxes(llAdvSearchComplexion, members.getChoice_zodiac_sign_ids());
 
-            Log.e("Eye colorrrrr", "Selection  height  " + defaultSelectionsObj.get_choice_height_from_id());
-            //   Toast.makeText(getContext(), "== "+defaultSelectionsObj.get_choice_age_from(), Toast.LENGTH_SHORT).show();
+            Log.e("Eye colorrrrr", "Selection  height  " + defaultSelectionsObj.getChoice_height_from_id());
+            //   Toast.makeText(getContext(), "== "+defaultSelectionsObj.getChoice_age_from(), Toast.LENGTH_SHORT).show();
 
-            if (defaultSelectionsObj.get_choice_age_from() == 0) {
-                defaultSelectionsObj.set_choice_age_from(18);
+            if (defaultSelectionsObj.getChoice_age_from() == 0) {
+                defaultSelectionsObj.setChoice_age_from(18);
             }
-            if (defaultSelectionsObj.get_choice_age_upto() == 0) {
-                defaultSelectionsObj.set_choice_age_upto(70);
-            }
-
-            if (defaultSelectionsObj.get_choice_height_from_id() == 0) {
-                defaultSelectionsObj.set_choice_height_from_id(Long.parseLong(heightFromDataList.get(1).getId()));
-            }
-            if (defaultSelectionsObj.get_choice_height_to_id() == 0) {
-                defaultSelectionsObj.set_choice_height_to_id(Long.parseLong(heightFromDataList.get(heightFromDataList.size() - 1).getId()));
+            if (defaultSelectionsObj.getChoice_age_upto() == 0) {
+                defaultSelectionsObj.setChoice_age_upto(70);
             }
 
-            viewGenerator.selectSpinnerItemById(spAgeFrom, defaultSelectionsObj.get_choice_age_from(), agefromDataList);
-            viewGenerator.selectSpinnerItemById(spAgeTo, defaultSelectionsObj.get_choice_age_upto(), ageToDataList);
+            if (defaultSelectionsObj.getChoice_height_from_id() == 0) {
+                defaultSelectionsObj.setChoice_height_from_id(Long.parseLong(heightFromDataList.get(1).getId()));
+            }
+            if (defaultSelectionsObj.getChoice_height_to_id() == 0) {
+                defaultSelectionsObj.setChoice_height_to_id(Long.parseLong(heightFromDataList.get(heightFromDataList.size() - 1).getId()));
+            }
 
-            viewGenerator.selectSpinnerItemById(spHeightFrom, defaultSelectionsObj.get_choice_height_from_id(), heightFromDataList);
-            viewGenerator.selectSpinnerItemById(spHeightTo, defaultSelectionsObj.get_choice_height_to_id(), heightToDataList);
+            viewGenerator.selectSpinnerItemById(spAgeFrom, defaultSelectionsObj.getChoice_age_from(), agefromDataList);
+            viewGenerator.selectSpinnerItemById(spAgeTo, defaultSelectionsObj.getChoice_age_upto(), ageToDataList);
+
+            viewGenerator.selectSpinnerItemById(spHeightFrom, defaultSelectionsObj.getChoice_height_from_id(), heightFromDataList);
+            viewGenerator.selectSpinnerItemById(spHeightTo, defaultSelectionsObj.getChoice_height_to_id(), heightToDataList);
 
         }
 
@@ -225,7 +225,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position != 0) {
                     WebArd selectedItem = (WebArd) spAgeFrom.getSelectedItem();
-                    defaultSelectionsObj.set_choice_age_from(Long.parseLong(selectedItem.getId()));
+                    defaultSelectionsObj.setChoice_age_from(Long.parseLong(selectedItem.getId()));
                 }
                 updateDot();
             }
@@ -240,7 +240,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position != 0) {
                     WebArd selectedItem = (WebArd) spAgeTo.getSelectedItem();
-                    defaultSelectionsObj.set_choice_age_upto(Long.parseLong(selectedItem.getId()));
+                    defaultSelectionsObj.setChoice_age_upto(Long.parseLong(selectedItem.getId()));
                 }
                 updateDot();
             }
@@ -255,7 +255,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position != 0) {
                     WebArd selectedItem = (WebArd) spHeightFrom.getSelectedItem();
-                    defaultSelectionsObj.set_choice_height_from_id(Long.parseLong(selectedItem.getId()));
+                    defaultSelectionsObj.setChoice_height_from_id(Long.parseLong(selectedItem.getId()));
                 }
                 updateDot();
             }
@@ -270,7 +270,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position != 0) {
                     WebArd selectedItem = (WebArd) spHeightTo.getSelectedItem();
-                    defaultSelectionsObj.set_choice_height_to_id(Long.parseLong(selectedItem.getId()));
+                    defaultSelectionsObj.setChoice_height_to_id(Long.parseLong(selectedItem.getId()));
                 }
                 updateDot();
             }
@@ -328,10 +328,10 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        defaultSelectionsObj.set_choice_body_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchPhysique));
-        defaultSelectionsObj.set_choice_complexion_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchComplexion));
-        defaultSelectionsObj.set_choice_hair_color_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchHairColor));
-        defaultSelectionsObj.set_choice_eye_color_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchEyeColor));
+        defaultSelectionsObj.setChoice_body_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchPhysique));
+        defaultSelectionsObj.setChoice_complexion_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchComplexion));
+        defaultSelectionsObj.setChoice_hair_color_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchHairColor));
+        defaultSelectionsObj.setChoice_eye_color_ids(viewGenerator.getSelectionFromCheckbox(llAdvSearchEyeColor));
         updateDot();
     }
 
@@ -361,17 +361,17 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
     @Override
     public void onClick(View v) {
         if (v.getTag().equals("physique")) {
-            defaultSelectionsObj.set_choice_body_ids("");
+            defaultSelectionsObj.setChoice_body_ids("");
 
         } else if (v.getTag().equals("complexion")) {
-            defaultSelectionsObj.set_choice_complexion_ids("");
+            defaultSelectionsObj.setChoice_complexion_ids("");
 
         } else if (v.getTag().equals("eye_color")) {
-            defaultSelectionsObj.set_choice_eye_color_ids("");
+            defaultSelectionsObj.setChoice_eye_color_ids("");
 
 
         } else if (v.getTag().equals("hair_color")) {
-            defaultSelectionsObj.set_choice_hair_color_ids("");
+            defaultSelectionsObj.setChoice_hair_color_ids("");
 
         }
 

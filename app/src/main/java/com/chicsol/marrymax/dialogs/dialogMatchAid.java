@@ -143,7 +143,7 @@ public class dialogMatchAid extends DialogFragment {
 
                         params.put("id", abtypeid);
                         params.put("userpath", userpath);
-                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

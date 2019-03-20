@@ -189,7 +189,7 @@ public class dialogGeoInfo extends DialogFragment {
         try {
 
             params.put("selectdlist", notes);
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
         } catch (JSONException e) {
             e.printStackTrace();
         }

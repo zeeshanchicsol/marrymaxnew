@@ -80,9 +80,9 @@ public class dialogSaveSearch extends DialogFragment {
                 if (!TextUtils.isEmpty(etSaveSearch.getText().toString().trim())) {
 
 
-                    defaultSelectionsObj.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
-                    defaultSelectionsObj.set_name(etSaveSearch.getText().toString());
-                    defaultSelectionsObj.set_notes("");
+                    defaultSelectionsObj.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
+                    defaultSelectionsObj.setName(etSaveSearch.getText().toString());
+                    defaultSelectionsObj.setNotes("");
 
                     Gson gson = new Gson();
                     String params = gson.toJson(defaultSelectionsObj);

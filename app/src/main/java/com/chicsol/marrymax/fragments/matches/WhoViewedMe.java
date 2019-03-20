@@ -147,13 +147,13 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             Members memberSearchObj = DrawerActivity.rawSearchObj;
             if (memberSearchObj != null) {
-                memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
-                memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getContext()).get_member_status());
-                memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getContext()).get_phone_verified());
-                memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getContext()).get_email_verified());
+                memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
+                memberSearchObj.setMember_status(SharedPreferenceManager.getUserObject(getContext()).getMember_status());
+                memberSearchObj.setPhone_verified(SharedPreferenceManager.getUserObject(getContext()).getPhone_verified());
+                memberSearchObj.setEmail_verified(SharedPreferenceManager.getUserObject(getContext()).getEmail_verified());
                 //page and type
-                memberSearchObj.set_page_no(1);
-                memberSearchObj.set_type("VG");
+                memberSearchObj.setPage_no(1);
+                memberSearchObj.setType("VG");
 
                 Gson gson = new Gson();
                 String params = gson.toJson(memberSearchObj);
@@ -294,8 +294,8 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
     private void getData() {
         //  String.Max
         pDialog.setVisibility(View.VISIBLE);
-        //  Log.e("url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + SharedPreferenceManager.getUserObject(getContext()).get_path(),
+        //  Log.e("url", Urls.getSearchLists + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + SharedPreferenceManager.getUserObject(getContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -338,7 +338,7 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
             Type membert = new TypeToken<Members>() {
             }.getType();
             Members memberObj = (Members) gsont.fromJson(params, membert);
-            memberObj.set_page_no(lastPage);
+            memberObj.setPage_no(lastPage);
             gsont.toString();
             // Log.e("params json", gsont.toJson(memberObj));
             loadMoreData(gsont.toJson(memberObj));
@@ -364,13 +364,13 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             if (memberSearchObj != null) {
 
-                memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
-                memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getContext()).get_member_status());
-                memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getContext()).get_phone_verified());
-                memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getContext()).get_email_verified());
+                memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
+                memberSearchObj.setMember_status(SharedPreferenceManager.getUserObject(getContext()).getMember_status());
+                memberSearchObj.setPhone_verified(SharedPreferenceManager.getUserObject(getContext()).getPhone_verified());
+                memberSearchObj.setEmail_verified(SharedPreferenceManager.getUserObject(getContext()).getEmail_verified());
                 //page and type
-                memberSearchObj.set_page_no(1);
-                memberSearchObj.set_type("VG");
+                memberSearchObj.setPage_no(1);
+                memberSearchObj.setType("VG");
 
                 Gson gson = new Gson();
                 params = gson.toJson(memberSearchObj);
@@ -453,20 +453,20 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
                                     Members memberTotalPages = (Members) gson.fromJson(jsonarrayTotalPages.getJSONObject(0).toString(), membert);
 
 
-                                    totalPages = memberTotalPages.get_total_pages();
+                                    totalPages = memberTotalPages.getTotal_pages();
                                     lastPage = 1;
                                     Log.e("total pages", "" + totalPages);
                                     swipeRefresh.setRefreshing(false);
-                                    if (memberTotalPages.get_total_member_count() > 0) {
+                                    if (memberTotalPages.getTotal_member_count() > 0) {
 
 
                                         if (getView() != null) {
                                          /*   getView().findViewById(R.id.TextViewMatchesTotalCount).setVisibility(View.VISIBLE);
-                                            ((TextView) getView().findViewById(R.id.TextViewMatchesTotalCount)).setText("" + memberTotalPages.get_total_member_count() + " Matches Found");
+                                            ((TextView) getView().findViewById(R.id.TextViewMatchesTotalCount)).setText("" + memberTotalPages.getTotal_member_count() + " Matches Found");
                                 */
 
                                             tvMatchesCount.setVisibility(View.VISIBLE);
-                                            totalMatchesCount = memberTotalPages.get_total_member_count();
+                                            totalMatchesCount = memberTotalPages.getTotal_member_count();
                                             setMatchesCount();
 
                                         }
@@ -477,7 +477,7 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
                                 } else {
                                     recyclerAdapter.clear();
                                     swipeRefresh.setRefreshing(false);
-                                    if (SharedPreferenceManager.getUserObject(context).get_member_status() >= 0 && SharedPreferenceManager.getUserObject(context).get_member_status() <= 2) {
+                                    if (SharedPreferenceManager.getUserObject(context).getMember_status() >= 0 && SharedPreferenceManager.getUserObject(context).getMember_status() <= 2) {
 
                                         Gson gsont;
                                         GsonBuilder gsonBuildert = new GsonBuilder();
@@ -488,10 +488,10 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
 
 
                                         llMMMatchesNotFoundCompleteProfile.setVisibility(View.VISIBLE);
-                                        tvMatchesCountCp.setText(memberTotalPages.get_total_member_count() + "");
+                                        tvMatchesCountCp.setText(memberTotalPages.getTotal_member_count() + "");
                                         tvComplProfioleTitle.setText("Who Viewed Me!");
 
-                                    } else if (SharedPreferenceManager.getUserObject(context).get_member_status() == 3) {
+                                    } else if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
 
                                         GsonBuilder gsonBuildert = new GsonBuilder();
                                         Type membert = new TypeToken<Members>() {
@@ -500,7 +500,7 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
 
 
                                         llSubscribeNow.setVisibility(View.VISIBLE);
-                                        tvMatchesCountSubscribeNow.setText(memberTotalPages.get_total_member_count() + "");
+                                        tvMatchesCountSubscribeNow.setText(memberTotalPages.getTotal_member_count() + "");
                                         tvSubscribeNowTitle.setText("Who Viewed Me");
 
 

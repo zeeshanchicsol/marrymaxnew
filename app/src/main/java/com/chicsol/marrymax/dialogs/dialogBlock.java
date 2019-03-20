@@ -170,7 +170,7 @@ public class dialogBlock extends DialogFragment {
                         }
                         params.put("about_type_id", "0");
                         params.put("userpath", userpath);
-                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

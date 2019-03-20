@@ -29,12 +29,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterFeedbackQuestions;
 import com.chicsol.marrymax.modal.WebArd;
-import com.chicsol.marrymax.modal.cModel;
 import com.chicsol.marrymax.modal.mLfm;
 import com.chicsol.marrymax.modal.mUsrFeedback;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -300,7 +298,7 @@ public class dialogFeedback extends DialogFragment {
 
                     JSONObject params = new JSONObject();
                     try {
-                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                         params.put("userpath", userpath);
                         params.put("match_id", match_id);
 

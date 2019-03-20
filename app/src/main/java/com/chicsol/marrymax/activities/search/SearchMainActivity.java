@@ -1,10 +1,8 @@
 package com.chicsol.marrymax.activities.search;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -35,7 +33,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.ActivityLogin;
 import com.chicsol.marrymax.activities.DrawerActivity;
-import com.chicsol.marrymax.activities.search.AdvanceSearchFragments.GeographyFragment;
 import com.chicsol.marrymax.activities.search.AdvanceSearchFragments.ListViewAdvSearchFragment;
 import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchResultsActivity;
 import com.chicsol.marrymax.dialogs.dialogLoginToContinue;
@@ -50,18 +47,13 @@ import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
-import java.util.List;
 import java.util.Map;
 
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
@@ -174,8 +166,8 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
               /*  Intent intent = new Intent(SearchMainActivity.this, SearchYourBestMatchResultsActivity.class);
                 startActivity(intent);*/
                 if (memberSearchObj != null) {
-                    memberSearchObj.set_page_no(1);
-                    memberSearchObj.set_type("");
+                    memberSearchObj.setPage_no(1);
+                    memberSearchObj.setType("");
 
                     Gson gson = new Gson();
                     params = gson.toJson(memberSearchObj);
@@ -188,13 +180,13 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
                /* Intent intent = new Intent(SearchMainActivity.this, SearchResultsActivity.class);
                 startActivity(intent);*/
 
-                memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-                memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-                memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+                memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                memberSearchObj.setMember_status(SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+                memberSearchObj.setPhone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+                memberSearchObj.setEmail_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail_verified());
                 //page and type
-                memberSearchObj.set_page_no(1);
-                memberSearchObj.set_type("");
+                memberSearchObj.setPage_no(1);
+                memberSearchObj.setType("");
 
                 Gson gson = new Gson();
                 params = gson.toJson(memberSearchObj);
@@ -223,103 +215,103 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
         // Toast.makeText(getApplicationContext(), v.getTag() + "  profile_created_for", Toast.LENGTH_SHORT).show();
         //============Basics=======================
       /*  if (v.getTag().equals("select_profile_with")) {
-            defaultSelectionsObj.set_pictureonly(0);
-            defaultSelectionsObj.set_opentopublic(0);
+            defaultSelectionsObj.setPictureonly(0);
+            defaultSelectionsObj.setOpentopublic(0);
         } else if (v.getTag().equals("profile_created_for")) {
-            defaultSelectionsObj.set_choice_profile_owner_Ids("");
+            defaultSelectionsObj.setChoice_profile_owner_Ids("");
         } else if (v.getTag().equals("zodiac")) {
-            defaultSelectionsObj.set_choice_zodiac_sign_ids("");
+            defaultSelectionsObj.setChoice_zodiac_sign_ids("");
 
         }*/
 
         //==============Appearance=====================
     /*     if (v.getTag().equals("physique")) {
-            defaultSelectionsObj.set_choice_body_ids("");
+            defaultSelectionsObj.setChoice_body_ids("");
 
         } else if (v.getTag().equals("complexion")) {
-            defaultSelectionsObj.set_choice_complexion_ids("");
+            defaultSelectionsObj.setChoice_complexion_ids("");
 
         } else if (v.getTag().equals("eye_color")) {
-            defaultSelectionsObj.set_choice_eye_color_ids("");
+            defaultSelectionsObj.setChoice_eye_color_ids("");
 
 
         } else if (v.getTag().equals("hair_color")) {
-            defaultSelectionsObj.set_choice_hair_color_ids("");
+            defaultSelectionsObj.setChoice_hair_color_ids("");
 
         }*/
         //==============MaritalStatus=====================
 
 
       /*   if (v.getTag().equals("martial_status")) {
-            defaultSelectionsObj.set_choice_marital_status_ids("");
+            defaultSelectionsObj.setChoice_marital_status_ids("");
 
 
         } else if (v.getTag().equals("children")) {
-            defaultSelectionsObj.set_choice_children_ids("");
+            defaultSelectionsObj.setChoice_children_ids("");
         }*/
 
 
         //==============education occupation=====================
     /*     if (v.getTag().equals("education")) {
-            defaultSelectionsObj.set_choice_education_ids("");
+            defaultSelectionsObj.setChoice_education_ids("");
         } else if (v.getTag().equals("occupation")) {
-            defaultSelectionsObj.set_choice_occupation_ids("");
+            defaultSelectionsObj.setChoice_occupation_ids("");
 
         }*/
 
         //==============ethnic_background=====================
        /* if (v.getTag().equals("ethnic_background")) {
-            defaultSelectionsObj.set_choice_ethnic_bground_ids("");
+            defaultSelectionsObj.setChoice_ethnic_bground_ids("");
         } else if (v.getTag().equals("religious_sect")) {
-            defaultSelectionsObj.set_choice_religious_sect_ids("");
+            defaultSelectionsObj.setChoice_religious_sect_ids("");
         } else if (v.getTag().equals("caste")) {
-            defaultSelectionsObj.set_choice_caste_ids("");
+            defaultSelectionsObj.setChoice_caste_ids("");
         }
 */
 
         //==============LifeStyle 1=====================
        /*  if (v.getTag().equals("raisedwhere")) {
-            defaultSelectionsObj.set_choice_raised_ids("");
+            defaultSelectionsObj.setChoice_raised_ids("");
         } else if (v.getTag().equals("hijab")) {
-            defaultSelectionsObj.set_choice_hijab_ids("");
+            defaultSelectionsObj.setChoice_hijab_ids("");
         } else if (v.getTag().equals("familyvalue")) {
-            defaultSelectionsObj.set_choice_family_values_ids("");
+            defaultSelectionsObj.setChoice_family_values_ids("");
         } else if (v.getTag().equals("living_arrangement")) {
-            defaultSelectionsObj.set_choice_living_arangment_ids("");
+            defaultSelectionsObj.setChoice_living_arangment_ids("");
         }
 */
 
         //==============LifeStyle2=====================
    /*    if (v.getTag().equals("siblingposition")) {
-            defaultSelectionsObj.set_choice_sibling_ids("");
+            defaultSelectionsObj.setChoice_sibling_ids("");
 
         } else if (v.getTag().equals("smoking")) {
-            defaultSelectionsObj.set_choice_smoking_ids("");
+            defaultSelectionsObj.setChoice_smoking_ids("");
 
         } else if (v.getTag().equals("drink")) {
-            defaultSelectionsObj.set_choice_drink_ids("");
+            defaultSelectionsObj.setChoice_drink_ids("");
 
         }*/
         //==============Geography=====================
        /*  if (v.getTag().equals("top_locations")) {
-            defaultSelectionsObj.set_choice_country_ids("");
-            defaultSelectionsObj.set_choice_state_ids("");
-            defaultSelectionsObj.set_choice_cities_ids("");
+            defaultSelectionsObj.setChoice_country_ids("");
+            defaultSelectionsObj.setChoice_state_ids("");
+            defaultSelectionsObj.setChoice_cities_ids("");
 
         } else if (v.getTag().equals("country")) {
-            defaultSelectionsObj.set_choice_country_ids("");
-            defaultSelectionsObj.set_choice_state_ids("");
-            defaultSelectionsObj.set_choice_cities_ids("");
+            defaultSelectionsObj.setChoice_country_ids("");
+            defaultSelectionsObj.setChoice_state_ids("");
+            defaultSelectionsObj.setChoice_cities_ids("");
 
 
         } else if (v.getTag().equals("state")) {
-            defaultSelectionsObj.set_choice_state_ids("");
+            defaultSelectionsObj.setChoice_state_ids("");
 
         } else if (v.getTag().equals("city")) {
-            defaultSelectionsObj.set_choice_cities_ids("");
+            defaultSelectionsObj.setChoice_cities_ids("");
 
         } else if (v.getTag().equals("visa_status")) {
-            defaultSelectionsObj.set_choice_visa_status_ids("");
+            defaultSelectionsObj.setChoice_visa_status_ids("");
 
         }*/
 
@@ -532,10 +524,10 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
                 if (ConnectCheck.isConnected(v)) {
 
                     Members members = new Members();
-                    // members.set_min_age(18);
-                    //  members.set_max_age(70);
-      /*              members.set_choice_height_from_id(70);
-                    members.set_choice_height_to_id(70);*/
+                    // members.setMin_age(18);
+                    //  members.setMax_age(70);
+      /*              members.setChoice_height_from_id(70);
+                    members.setChoice_height_to_id(70);*/
                     defaultSelectionsObj = members;
 
                     MarryMax marryMax = new MarryMax(SearchMainActivity.this);
@@ -736,11 +728,11 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
 
 /*    private void setHeighAgeChecks() {
-        if (defaultSelectionsObj.get_choice_age_from() == 0) {
-            defaultSelectionsObj.set_choice_age_from(18);
+        if (defaultSelectionsObj.getChoice_age_from() == 0) {
+            defaultSelectionsObj.setChoice_age_from(18);
         }
-        if (defaultSelectionsObj.get_choice_age_upto() == 0) {
-            defaultSelectionsObj.set_choice_age_upto(70);
+        if (defaultSelectionsObj.getChoice_age_upto() == 0) {
+            defaultSelectionsObj.setChoice_age_upto(70);
         }
 
         Gson gsonc;
@@ -755,11 +747,11 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
             e.printStackTrace();
         }
         if (dataListHeight.size() > 0) {
-            if (defaultSelectionsObj.get_choice_height_from_id() == 0) {
-                defaultSelectionsObj.set_choice_height_from_id(Long.parseLong(dataListHeight.get(1).getId()));
+            if (defaultSelectionsObj.getChoice_height_from_id() == 0) {
+                defaultSelectionsObj.setChoice_height_from_id(Long.parseLong(dataListHeight.get(1).getId()));
             }
-            if (defaultSelectionsObj.get_choice_height_to_id() == 0) {
-                defaultSelectionsObj.set_choice_height_to_id(Long.parseLong(dataListHeight.get(dataListHeight.size() - 1).getId()));
+            if (defaultSelectionsObj.getChoice_height_to_id() == 0) {
+                defaultSelectionsObj.setChoice_height_to_id(Long.parseLong(dataListHeight.get(dataListHeight.size() - 1).getId()));
             }
         }
 

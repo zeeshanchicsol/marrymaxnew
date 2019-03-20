@@ -166,7 +166,7 @@ public class RequestPermissionsActivity extends AppCompatActivity implements Rec
 
 
             params.put("userpath", member.getUserpath());
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
 
         } catch (JSONException e) {

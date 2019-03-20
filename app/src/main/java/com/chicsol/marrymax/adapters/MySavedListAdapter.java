@@ -23,31 +23,21 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.activities.search.SearchResultsActivity;
 import com.chicsol.marrymax.fragments.list.MemberListActivity;
-import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mSavList;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.widgets.faTextView;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
-
-import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
 
 public class  MySavedListAdapter extends ArrayAdapter<mSavList> {
     Fragment fragment;
@@ -147,7 +137,7 @@ public class  MySavedListAdapter extends ArrayAdapter<mSavList> {
                                     JSONObject params = new JSONObject();
                                     try {
                                         params.put("id", item1.getId());
-                                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }

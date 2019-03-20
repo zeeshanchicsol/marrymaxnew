@@ -162,7 +162,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
 
         recyclerView.setAdapter(recyclerAdapter);
 
-        getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
 
     }
@@ -244,7 +244,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
     @Override
     public void onItemClick(Members members) {
         //  recyclerView.invalidate();
-        getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
 
     }
@@ -541,9 +541,9 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
 
         String url;
         if (subject != null) {
-            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path() + "/" + userpath + "/" + subject;
+            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() + "/" + userpath + "/" + subject;
         } else {
-            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path()+ "/0/0";
+            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath()+ "/0/0";
         }
 
         Log.e("url", "" + url);
@@ -567,7 +567,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                     Toast.makeText(PhotoUpload.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
 
 
-                    getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                    getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                     Toast.makeText(PhotoUpload.this, "Your pictures will be available in your Profile as soon as the site Admin reviews the pictures and approves them.", Toast.LENGTH_SHORT).show();
 
 
@@ -635,7 +635,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 //     params.put("api_token", "gh659gjhvdyudo973823tt9gvjf7i6ric75r76");
-                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
              /*   params.put("location", mLocationInput.getText().toString());
                 params.put("about", mAvatarInput.getText().toString());
                 params.put("contact", mContactInput.getText().toString());*/
@@ -676,7 +676,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
         final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("upload path", "" + Urls.getMembersPictures + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        Log.e("upload path", "" + Urls.getMembersPictures + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getMembersPictures + path,
                 new Response.Listener<JSONArray>() {

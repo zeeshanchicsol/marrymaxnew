@@ -398,47 +398,47 @@ public class RegisterAppearanceActivity extends BaseRegistrationActivity {
     private void selectFormData(Members members_obj) {
 
         ViewGenerator viewGenerator = new ViewGenerator(RegisterAppearanceActivity.this);
-        viewGenerator.selectSpinnerItemById(spMyHeight, members_obj.get_height_id(), heightDataList);
-        viewGenerator.selectSpinnerItemById(spMyChoiceheightFrom, members_obj.get_choice_height_from_id(), heightDataList);
-        viewGenerator.selectSpinnerItemById(spMyChoiceheightTo, members_obj.get_choice_height_to_id(), heightDataList);
+        viewGenerator.selectSpinnerItemById(spMyHeight, members_obj.getHeight_id(), heightDataList);
+        viewGenerator.selectSpinnerItemById(spMyChoiceheightFrom, members_obj.getChoice_height_from_id(), heightDataList);
+        viewGenerator.selectSpinnerItemById(spMyChoiceheightTo, members_obj.getChoice_height_to_id(), heightDataList);
 
-        viewGenerator.selectSpinnerItemById(spMyChoiceAgeFrom, members_obj.get_choice_age_from(), ageDataList);
-        viewGenerator.selectSpinnerItemById(spMyChoiceAgeTo, members_obj.get_choice_age_upto(), ageDataList);
+        viewGenerator.selectSpinnerItemById(spMyChoiceAgeFrom, members_obj.getChoice_age_from(), ageDataList);
+        viewGenerator.selectSpinnerItemById(spMyChoiceAgeTo, members_obj.getChoice_age_upto(), ageDataList);
 
         Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-    /*    if (member.get_member_status() == 3 || member.get_member_status() == 4) {*/
-        if (member.get_member_status() >= 2 && member.get_member_status() < 7) {
+    /*    if (member.getMember_status() == 3 || member.getMember_status() == 4) {*/
+        if (member.getMember_status() >= 2 && member.getMember_status() < 7) {
             spMyHeight.setEnabled(false);
 
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgPhysique, members_obj.get_body_id(), llcbViewPhysique, members_obj.get_choice_body_ids());
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgEye, members_obj.get_eye_color_id(), llcbViewEye, members_obj.get_choice_eye_color_ids());
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgComplexion, members_obj.get_complexion_id(), llcbViewComplexion, members_obj.get_choice_complexion_ids());
-            viewGenerator.selectCheckRadioWithDisabledRadio(rgHair, members_obj.get_hair_color_id(), llcbViewHair, members_obj.get_choice_hair_color_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgPhysique, members_obj.getBody_id(), llcbViewPhysique, members_obj.getChoice_body_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgEye, members_obj.getEye_color_id(), llcbViewEye, members_obj.getChoice_eye_color_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgComplexion, members_obj.getComplexion_id(), llcbViewComplexion, members_obj.getChoice_complexion_ids());
+            viewGenerator.selectCheckRadioWithDisabledRadio(rgHair, members_obj.getHair_color_id(), llcbViewHair, members_obj.getChoice_hair_color_ids());
 
 
         } else {
-            viewGenerator.selectCheckRadio(rgPhysique, members_obj.get_body_id(), llcbViewPhysique, members_obj.get_choice_body_ids());
+            viewGenerator.selectCheckRadio(rgPhysique, members_obj.getBody_id(), llcbViewPhysique, members_obj.getChoice_body_ids());
 
-            viewGenerator.selectCheckRadio(rgEye, members_obj.get_eye_color_id(), llcbViewEye, members_obj.get_choice_eye_color_ids());
+            viewGenerator.selectCheckRadio(rgEye, members_obj.getEye_color_id(), llcbViewEye, members_obj.getChoice_eye_color_ids());
 
-            viewGenerator.selectCheckRadio(rgComplexion, members_obj.get_complexion_id(), llcbViewComplexion, members_obj.get_choice_complexion_ids());
+            viewGenerator.selectCheckRadio(rgComplexion, members_obj.getComplexion_id(), llcbViewComplexion, members_obj.getChoice_complexion_ids());
 
-            viewGenerator.selectCheckRadio(rgHair, members_obj.get_hair_color_id(), llcbViewHair, members_obj.get_choice_hair_color_ids());
+            viewGenerator.selectCheckRadio(rgHair, members_obj.getHair_color_id(), llcbViewHair, members_obj.getChoice_hair_color_ids());
 
         }
 
 
-        //    Log.e("choice countrr", members_obj.get_choice_hair_color_ids() + "");
+        //    Log.e("choice countrr", members_obj.getChoice_hair_color_ids() + "");
         /*
 
-        Log.e("choice countrr", members_obj.get_choice_country_ids());
-        String[] cids = members_obj.get_choice_country_ids().split(",");
+        Log.e("choice countrr", members_obj.getChoice_country_ids());
+        String[] cids = members_obj.getChoice_country_ids().split(",");
 */
 
 
 //==============checkbox
 
-//        Log.e("visa", members_obj.get_choice_visa_status_ids());
+//        Log.e("visa", members_obj.getChoice_visa_status_ids());
 
 
     }
@@ -473,7 +473,7 @@ public class RegisterAppearanceActivity extends BaseRegistrationActivity {
 
         pDialog.show();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                Urls.RegGetProfileAppearance + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(), null,
+                Urls.RegGetProfileAppearance + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -530,7 +530,7 @@ public class RegisterAppearanceActivity extends BaseRegistrationActivity {
                         ViewGenerator viewGenerator = new ViewGenerator(RegisterAppearanceActivity.this);
 
 
-                        if (members_obj.get_body_id() == 0) {
+                        if (members_obj.getBody_id() == 0) {
                             updateData = false;
 
                         } else {
@@ -541,7 +541,7 @@ public class RegisterAppearanceActivity extends BaseRegistrationActivity {
 
                         if (updateData) {
                           /*  Members member=  SharedPreferenceManager.getUserObject(getApplicationContext());
-                            if (member.get_member_status()== 3 ||member.get_member_status()== 4) {
+                            if (member.getMember_status()== 3 ||member.getMember_status()== 4) {
                                 viewGenerator.addDynamicCheckRdioButtonsWithRadioDisabled(bodyDataList, rgPhysique, llcbViewPhysique);
                                 viewGenerator.addDynamicCheckRdioButtonsWithRadioDisabled(complexionDataList, rgComplexion, llcbViewComplexion);
                                 viewGenerator.addDynamicCheckRdioButtonsWithRadioDisabled(hairDataList, rgHair, llcbViewHair);
@@ -627,7 +627,7 @@ public class RegisterAppearanceActivity extends BaseRegistrationActivity {
             params.put("choice_complexion_ids", choice_complexion_ids);
             params.put("hair_color_id", hair_color_id);
             params.put("choice_hair_color_ids", choice_hair_color_ids);
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         } catch (JSONException e) {
             e.printStackTrace();

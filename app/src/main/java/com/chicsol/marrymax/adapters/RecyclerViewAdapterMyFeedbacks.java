@@ -17,7 +17,6 @@
 package com.chicsol.marrymax.adapters;
 
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -32,30 +31,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
 import com.chicsol.marrymax.dialogs.dialogFeedback;
 import com.chicsol.marrymax.dialogs.dialogFeedbackDetail;
 import com.chicsol.marrymax.modal.Members;
-import com.chicsol.marrymax.modal.mContacts;
 import com.chicsol.marrymax.modal.mUsrFeedback;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
-import com.chicsol.marrymax.utils.Constants;
-import com.chicsol.marrymax.utils.MySingleton;
-import com.chicsol.marrymax.widgets.faTextView;
 import com.chicsol.marrymax.widgets.mTextView;
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -71,7 +58,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int VIEW_ITEM = 1;
@@ -276,7 +262,7 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
                     try {
                         jsonObject.put("id", obj.getMatch_id());
                         jsonObject.put("my_id", obj.getFeedback_id());
-                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                         jsonObject.put("userpath", obj.getUserpath());
 
                         dialogFeedbackDetail newFragment = dialogFeedbackDetail.newInstance(jsonObject.toString());
@@ -300,7 +286,7 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
                     JSONObject params = new JSONObject();
                     try {
                         params.put("userpath", obj.getUserpath());
-                        params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         dialogFeedback newFragment = dialogFeedback.newInstance(obj.getUserpath(), obj.getMatch_id() + "", params.toString());
                         newFragment.setTargetFragment(fragment, 0);
@@ -382,7 +368,7 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
                    *//* JSONObject jsonObject = new JSONObject();
                     try {
                         jsonObject.put("id", obj.getPhone_request_id());
-                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         deleteMyContact(jsonObject);
                     } catch (JSONException e) {

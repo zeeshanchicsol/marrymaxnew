@@ -120,7 +120,7 @@ public class BasicInfoFragment extends Fragment {
 
         LinearLayoutDeclaration = (LinearLayout) view.findViewById(R.id.LinearLayoutDeclaration);
         if (myProfileCheck) {
-            if (SharedPreferenceManager.getUserObject(getContext()).get_member_status() >= 3 && SharedPreferenceManager.getUserObject(getContext()).get_member_status() <= 4) {
+            if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() >= 3 && SharedPreferenceManager.getUserObject(getContext()).getMember_status() <= 4) {
                 LinearLayoutDeclaration.setVisibility(View.VISIBLE);
             }
 
@@ -302,10 +302,10 @@ public class BasicInfoFragment extends Fragment {
     private void setPreferencesValues() {
         try {
 
-            pref1.setText(" " + memberChoice.get_pref1() + " ");
-            pref2.setText(" " + memberChoice.get_pref2() + " ");
-            pref3.setText(" " + memberChoice.get_pref3() + " ");
-            pref4.setText(" " + memberChoice.get_pref4() + " ");
+            pref1.setText(" " + memberChoice.getPref1() + " ");
+            pref2.setText(" " + memberChoice.getPref2() + " ");
+            pref3.setText(" " + memberChoice.getPref3() + " ");
+            pref4.setText(" " + memberChoice.getPref4() + " ");
 
         } catch (Exception e) {
             Crashlytics.logException(e);
@@ -317,24 +317,24 @@ public class BasicInfoFragment extends Fragment {
         try {
 
 
-            tvDesc.setText(Html.fromHtml(member.get_other_info()));
-            Log.e("what i dooo", "==" + member.get_for_fun());
-            Log.e("what i dooo", "==" + member.get_for_fun());
-            if (member.get_for_fun() != null && member.get_for_fun() != "") {
-                tvWhatIdoFor.setText(Html.fromHtml(member.get_for_fun()));
+            tvDesc.setText(Html.fromHtml(member.getOther_info()));
+            Log.e("what i dooo", "==" + member.getFor_fun());
+            Log.e("what i dooo", "==" + member.getFor_fun());
+            if (member.getFor_fun() != null && member.getFor_fun() != "") {
+                tvWhatIdoFor.setText(Html.fromHtml(member.getFor_fun()));
             } else {
                 llWIDFF.setVisibility(View.GONE);
 
             }
-            if (member.get_good_quality() != null && member.get_good_quality() != "") {
-                tvMyStrengths.setText(Html.fromHtml(member.get_good_quality()));
+            if (member.getGood_quality() != null && member.getGood_quality() != "") {
+                tvMyStrengths.setText(Html.fromHtml(member.getGood_quality()));
             } else {
                 llMS.setVisibility(View.GONE);
 
             }
 
-            if (member.get_most_thankfull() != null && member.get_most_thankfull() != "") {
-                tvMostThankful.setText(Html.fromHtml(member.get_most_thankfull()));
+            if (member.getMost_thankfull() != null && member.getMost_thankfull() != "") {
+                tvMostThankful.setText(Html.fromHtml(member.getMost_thankfull()));
             } else {
                 llMTO.setVisibility(View.GONE);
 
@@ -348,54 +348,54 @@ public class BasicInfoFragment extends Fragment {
             }
 
 
-            tvAge.setText(member.get_age());
-            tvHeight.setText(member.get_height_description());
-            tvPhysique.setText(member.get_body_types());
-            tvComplexion.setText(member.get_complexion_types());
+            tvAge.setText(member.getAge());
+            tvHeight.setText(member.getHeight_description());
+            tvPhysique.setText(member.getBody_types());
+            tvComplexion.setText(member.getComplexion_types());
 
-            tvEyeColor.setText(member.get_eye_color_types());
-            tvHairColor.setText(member.get_hair_color_types());
+            tvEyeColor.setText(member.getEye_color_types());
+            tvHairColor.setText(member.getHair_color_types());
 
             //choice
-            tvChoiceAge.setText(memberChoice.get_choice_age_from() + " Year To " + memberChoice.get_choice_age_upto() + " Years");
+            tvChoiceAge.setText(memberChoice.getChoice_age_from() + " Year To " + memberChoice.getChoice_age_upto() + " Years");
 
-            tvChoicePhysique.setText(memberChoice.get_choice_body());
-            tvChoiceComplexion.setText(memberChoice.get_choice_complexion());
-            tvChoiceEyeColor.setText(memberChoice.get_choice_eye_color());
-            tvChoiceHairColor.setText(memberChoice.get_choice_hair_color());
-            tvChoiceHeight.setText(memberChoice.get_choice_height_from() + " To " + memberChoice.get_choice_height_to());
+            tvChoicePhysique.setText(memberChoice.getChoice_body());
+            tvChoiceComplexion.setText(memberChoice.getChoice_complexion());
+            tvChoiceEyeColor.setText(memberChoice.getChoice_eye_color());
+            tvChoiceHairColor.setText(memberChoice.getChoice_hair_color());
+            tvChoiceHeight.setText(memberChoice.getChoice_height_from() + " To " + memberChoice.getChoice_height_to());
 
 
-            tvMyEducation.setText(member.get_education_types());
-            tvMyEducationField.setText(member.get_education_field_types());
+            tvMyEducation.setText(member.getEducation_types());
+            tvMyEducationField.setText(member.getEducation_field_types());
 
             String in = "";
-            if (!member.get_admin_notes().equals("")) {
+            if (!member.getAdmin_notes().equals("")) {
 
-                in = " in " + member.get_admin_notes();
+                in = " in " + member.getAdmin_notes();
 
             }
-            tvGraduated.setText(member.get_notes() + in);
-            tvOccupation.setText(member.get_occupation_types());
-            tvEconomy.setText(member.get_about_type());
-            tvIncome.setText(member.get_income_level());
-            tvCastSurname.setText(member.get_caste_name());
+            tvGraduated.setText(member.getNotes() + in);
+            tvOccupation.setText(member.getOccupation_types());
+            tvEconomy.setText(member.getAbout_type());
+            tvIncome.setText(member.getIncome_level());
+            tvCastSurname.setText(member.getCaste_name());
 
 
-            tvRaised.setText(member.get_raised_types());
-            tvFamilyValues.setText(member.get_family_values_types());
-            tvHijab.setText(member.get_hijab_types());
-            tvLiving.setText(member.get_living_arrabgements_types());
-            tvMaritalStatus.setText(member.get_marital_status_types());
-            tvChildren.setText(member.get_children_types());
-            tvChildrenDetail.setText(member.get_choice_children());
-            tvEthnicity.setText(member.get_ethnic_background_types());
+            tvRaised.setText(member.getRaised_types());
+            tvFamilyValues.setText(member.getFamily_values_types());
+            tvHijab.setText(member.getHijab_types());
+            tvLiving.setText(member.getLiving_arrabgements_types());
+            tvMaritalStatus.setText(member.getMarital_status_types());
+            tvChildren.setText(member.getChildren_types());
+            tvChildrenDetail.setText(member.getChoice_children());
+            tvEthnicity.setText(member.getEthnic_background_types());
             tvReligiousSect.setText(member.getReligious_sec_type());
-            tvBrothers.setText(member.get_brothers_count());
-            tvSisters.setText(member.get_sisters_count());
-            tvSiblingPosiiton.setText(member.get_sibling_types());
-            tvSmoke.setText(member.get_smoking_types());
-            tvDrink.setText(member.get_drinks_types());
+            tvBrothers.setText(member.getBrothers_count());
+            tvSisters.setText(member.getSisters_count());
+            tvSiblingPosiiton.setText(member.getSibling_types());
+            tvSmoke.setText(member.getSmoking_types());
+            tvDrink.setText(member.getDrinks_types());
             tvPhysicalChallenges.setText(member.getPhysics_types());
             if (member.getPhysics_types().equals("No") || member.getPhysics_types().equals("Any")) {
                 faUPPhysicalChallenges.setVisibility(View.GONE);
@@ -404,23 +404,23 @@ public class BasicInfoFragment extends Fragment {
             }
 
 
-            tvChoiceMyEducation.setText(memberChoice.get_choice_education());
+            tvChoiceMyEducation.setText(memberChoice.getChoice_education());
 
-            tvChoiceOccupation.setText(memberChoice.get_choice_occupation());
-            tvChoiceEconomy.setText(memberChoice.get_choice_economy_ids());
-            tvChoiceRaised.setText(memberChoice.get_choice_raised());
-            tvChoiceFamilyValues.setText(memberChoice.get_choice_family_values());
-            tvChoiceHijab.setText(memberChoice.get_choice_hijab());
-            tvChoiceLiving.setText(memberChoice.get_choice_living_arrangements());
-            tvChoiceMaritalStatus.setText(memberChoice.get_choice_marital_status());
-            tvChoiceChildren.setText(memberChoice.get_choice_children());
-            tvChoiceEthnicity.setText(memberChoice.get_choice_ethnic_background());
-            tvChoiceReligiousSect.setText(memberChoice.get_choice_religious_sec());
+            tvChoiceOccupation.setText(memberChoice.getChoice_occupation());
+            tvChoiceEconomy.setText(memberChoice.getChoice_economy_ids());
+            tvChoiceRaised.setText(memberChoice.getChoice_raised());
+            tvChoiceFamilyValues.setText(memberChoice.getChoice_family_values());
+            tvChoiceHijab.setText(memberChoice.getChoice_hijab());
+            tvChoiceLiving.setText(memberChoice.getChoice_living_arrangements());
+            tvChoiceMaritalStatus.setText(memberChoice.getChoice_marital_status());
+            tvChoiceChildren.setText(memberChoice.getChoice_children());
+            tvChoiceEthnicity.setText(memberChoice.getChoice_ethnic_background());
+            tvChoiceReligiousSect.setText(memberChoice.getChoice_religious_sec());
 
-            tvChoiceCountry.setText(memberChoice.get_choice_country_names());
-            tvChoiceVisaStatus.setText(memberChoice.get_choice_visa_status());
-            tvChoiceSmoke.setText(memberChoice.get_choice_smoking());
-            tvChoiceDrink.setText(memberChoice.get_choice_drinks());
+            tvChoiceCountry.setText(memberChoice.getChoice_country_names());
+            tvChoiceVisaStatus.setText(memberChoice.getChoice_visa_status());
+            tvChoiceSmoke.setText(memberChoice.getChoice_smoking());
+            tvChoiceDrink.setText(memberChoice.getChoice_drinks());
 
             tvChoicePhysicalChallenges.setText(memberChoice.getChoice_physics());
 

@@ -257,7 +257,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
                                         JSONObject params = new JSONObject();
                                         try {
                                             params.put("response_id", 1);
-                                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                                            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                                             params.put("id", obj.id);
                                             recommendResponse(params);
                                         } catch (JSONException e) {
@@ -272,7 +272,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
                                         JSONObject params = new JSONObject();
                                         try {
                                             params.put("response_id", 2);
-                                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                                            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                                             params.put("id", obj.getId());
                                             recommendResponse(params);
                                         } catch (JSONException e) {
@@ -284,7 +284,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
                                         JSONObject params = new JSONObject();
                                         try {
                                             params.put("response_id", 3);
-                                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                                            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                                             params.put("id", obj.id);
                                             recommendResponse(params);
                                         } catch (JSONException e) {
@@ -296,7 +296,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
                                         JSONObject params = new JSONObject();
                                         try {
                                             params.put("response_id", 4);
-                                            params.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                                            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
                                             params.put("id", obj.id);
                                             recommendResponse(params);
                                         } catch (JSONException e) {
@@ -429,7 +429,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
                     JSONObject jsonObject = new JSONObject();
                     try {
                         jsonObject.put("id", obj.getPhone_request_id());
-                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         deleteMyContact(jsonObject);
                     } catch (JSONException e) {

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -89,9 +88,9 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
 
     /*        JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                params.put("phone_verified", SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-                params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
+                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                params.put("phone_verified", SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+                params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
 
                 loadData(params.toString(), false);
 
@@ -195,9 +194,9 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
         pDialog.setVisibility(View.VISIBLE);
 
 
-        Log.e("getSubscriptions", "" + Urls.getSubscriptions + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        Log.e("getSubscriptions", "" + Urls.getSubscriptions + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSubscriptions + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSubscriptions + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

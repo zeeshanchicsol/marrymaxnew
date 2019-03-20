@@ -53,8 +53,8 @@ public class dialogDeclineInterestInbox extends DialogFragment {
 
         args.putString("request_id", String.valueOf(member.getRequest_id()));
 
-        //    args.putString("param", String.valueOf(member.get_phone_view()));
-        //   args.putString("my_id", String.valueOf(member.get_my_id()));
+        //    args.putString("param", String.valueOf(member.getPhone_view()));
+        //   args.putString("my_id", String.valueOf(member.getMy_id()));
         args.putString("alias", member.getAlias());
         args.putString("userpath", userpath);
 
@@ -206,7 +206,7 @@ public class dialogDeclineInterestInbox extends DialogFragment {
                     params.put("request_id", request_id);
                     params.put("type", "4");
                     params.put("userpath", userpath);
-                    params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                    params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

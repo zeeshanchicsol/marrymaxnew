@@ -21,7 +21,7 @@ public class functions {
 
     public static boolean checkProfileCompleteStatus(Members member) {
 
-        if (member.get_member_status() == 3 || member.get_member_status() == 4) {
+        if (member.getMember_status() == 3 || member.getMember_status() == 4) {
             return true;
         } else {
             return false;

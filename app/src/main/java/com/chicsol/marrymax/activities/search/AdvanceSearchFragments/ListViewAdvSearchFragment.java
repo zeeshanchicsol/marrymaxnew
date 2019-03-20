@@ -14,10 +14,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.search.SearchMainActivity;
 import com.chicsol.marrymax.adapters.AdvSearchAdapter;
 import com.chicsol.marrymax.modal.MatchesCountUpdateEvent;
@@ -269,7 +267,7 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
                             }.getType();
 
                             defaultSelectionsObj = gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                            Log.e("body ids rawww", ListViewAdvSearchFragment.defaultSelectionsObj.get_choice_smoking_ids() + "  --");
+                            Log.e("body ids rawww", ListViewAdvSearchFragment.defaultSelectionsObj.getChoice_smoking_ids() + "  --");
                             listener.onItemSelected(dataList.get(0));
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -294,8 +292,8 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
         final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(getContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getRawData + SharedPreferenceManager.getUserObject(getContext()).get_path(),
+        Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(getContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getRawData + SharedPreferenceManager.getUserObject(getContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -313,7 +311,7 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
                             }.getType();
 
                             defaultSelectionsObj = gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                            //      Log.e("body ids rawww", ListViewAdvSearchFragment.defaultSelectionsObj.get_choice_body_ids() + "  --");
+                            //      Log.e("body ids rawww", ListViewAdvSearchFragment.defaultSelectionsObj.getChoice_body_ids() + "  --");
                             listener.onItemSelected(dataList.get(0));
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -375,7 +373,7 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
 
 //===============Basics=======================
 
-            if (defaultSelectionsObj.get_pictureonly() != 0 || defaultSelectionsObj.get_opentopublic() != 0 || defaultSelectionsObj.get_registration_within_id() != 0 || defaultSelectionsObj.get_last_login_date_id() != 0 || checkStringWith0andNull(defaultSelectionsObj.get_choice_profile_owner_Ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_zodiac_sign_ids())) {
+            if (defaultSelectionsObj.getPictureonly() != 0 || defaultSelectionsObj.getOpentopublic() != 0 || defaultSelectionsObj.getRegistration_within_id() != 0 || defaultSelectionsObj.getLast_login_date_id() != 0 || checkStringWith0andNull(defaultSelectionsObj.getChoice_profile_owner_Ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_zodiac_sign_ids())) {
                 basicsSelected = true;
                 filterCount++;
             } else {
@@ -384,7 +382,7 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
 
 
 //================Appearance===============
-            if (defaultSelectionsObj.get_choice_age_from() != 18 || defaultSelectionsObj.get_choice_age_upto() != 70 || defaultSelectionsObj.get_choice_height_from_id() != 1 || defaultSelectionsObj.get_choice_height_to_id() != 31 || checkStringWith0andNull(defaultSelectionsObj.get_choice_body_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_complexion_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_hair_color_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_eye_color_ids())
+            if (defaultSelectionsObj.getChoice_age_from() != 18 || defaultSelectionsObj.getChoice_age_upto() != 70 || defaultSelectionsObj.getChoice_height_from_id() != 1 || defaultSelectionsObj.getChoice_height_to_id() != 31 || checkStringWith0andNull(defaultSelectionsObj.getChoice_body_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_complexion_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_hair_color_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_eye_color_ids())
                     ) {
                 appearanceSelected = true;
                 filterCount++;
@@ -392,42 +390,42 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
                 appearanceSelected = false;
             }
 //================Marital Status===============
-            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_marital_status_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_children_ids())) {
+            if (checkStringWith0andNull(defaultSelectionsObj.getChoice_marital_status_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_children_ids())) {
                 maritalSelected = true;
                 filterCount++;
             } else {
                 maritalSelected = false;
             }
 //================Edu Occupation===============
-            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_education_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_occupation_ids())) {
+            if (checkStringWith0andNull(defaultSelectionsObj.getChoice_education_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_occupation_ids())) {
                 eduOccuSelected = true;
                 filterCount++;
             } else {
                 eduOccuSelected = false;
             }
 //================Ethnic Background===============
-            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_ethnic_bground_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_religious_sect_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_caste_ids())) {
+            if (checkStringWith0andNull(defaultSelectionsObj.getChoice_ethnic_bground_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_religious_sect_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_caste_ids())) {
                 ethnicSelected = true;
                 filterCount++;
             } else {
                 ethnicSelected = false;
             }
 //================Lifestyle 1 ===============
-            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_raised_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_hijab_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_family_values_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_living_arangment_ids())) {
+            if (checkStringWith0andNull(defaultSelectionsObj.getChoice_raised_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_hijab_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_family_values_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_living_arangment_ids())) {
                 lifestyle1Selected = true;
                 filterCount++;
             } else {
                 lifestyle1Selected = false;
             }
 //================Lifestyle 2 ===============
-            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_sibling_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_smoking_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_drink_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_physic_ids())) {
+            if (checkStringWith0andNull(defaultSelectionsObj.getChoice_sibling_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_smoking_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_drink_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_physic_ids())) {
                 lifestyle2Selected = true;
                 filterCount++;
             } else {
                 lifestyle2Selected = false;
             }
 //================Geography  ===============
-            if (checkStringWith0andNull(defaultSelectionsObj.get_choice_country_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_state_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_cities_ids()) || checkStringWith0andNull(defaultSelectionsObj.get_choice_visa_status_ids())) {
+            if (checkStringWith0andNull(defaultSelectionsObj.getChoice_country_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_state_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_cities_ids()) || checkStringWith0andNull(defaultSelectionsObj.getChoice_visa_status_ids())) {
                 geographySelected = true;
                 filterCount++;
             } else {

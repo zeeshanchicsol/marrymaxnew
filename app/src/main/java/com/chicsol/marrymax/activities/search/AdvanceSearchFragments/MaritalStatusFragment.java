@@ -3,7 +3,6 @@ package com.chicsol.marrymax.activities.search.AdvanceSearchFragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.WebArd;
@@ -75,9 +73,9 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
             public void onClick(View v) {
                 //    resetSelections(v);
 
-                defaultSelectionsObj.set_choice_marital_status_ids("");
+                defaultSelectionsObj.setChoice_marital_status_ids("");
                 if (defaultSelectionsObj != null) {
-                    viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchMaritalStatus, defaultSelectionsObj.get_choice_marital_status_ids());
+                    viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchMaritalStatus, defaultSelectionsObj.getChoice_marital_status_ids());
 
                 }
             }
@@ -88,11 +86,11 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
                 //   Toast.makeText(getContext(), "clicked", Toast.LENGTH_SHORT).show();
                 //   resetSelections(v);
 
-                //    Log.e("before", "=  " + defaultSelectionsObj.get_choice_children_ids());
-                defaultSelectionsObj.set_choice_children_ids("");
-                //  Log.e("after", "=  " + defaultSelectionsObj.get_choice_children_ids());
+                //    Log.e("before", "=  " + defaultSelectionsObj.getChoice_children_ids());
+                defaultSelectionsObj.setChoice_children_ids("");
+                //  Log.e("after", "=  " + defaultSelectionsObj.getChoice_children_ids());
                 if (defaultSelectionsObj != null) {
-                    viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchChildren, defaultSelectionsObj.get_choice_children_ids());
+                    viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchChildren, defaultSelectionsObj.getChoice_children_ids());
 
 
                 }
@@ -122,14 +120,14 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
 
 
         if (defaultSelectionsObj != null) {
-            //   Log.e("set selection "+defaultSelectionsObj.get_choice_marital_status_ids(), "sett selection "+defaultSelectionsObj.get_choice_children_ids());
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchMaritalStatus, defaultSelectionsObj.get_choice_marital_status_ids());
+            //   Log.e("set selection "+defaultSelectionsObj.getChoice_marital_status_ids(), "sett selection "+defaultSelectionsObj.getChoice_children_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchMaritalStatus, defaultSelectionsObj.getChoice_marital_status_ids());
 
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchChildren, defaultSelectionsObj.get_choice_children_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchChildren, defaultSelectionsObj.getChoice_children_ids());
 
-           /* if (defaultSelectionsObj.get_choice_marital_status_ids().equals("")) {
+           /* if (defaultSelectionsObj.getChoice_marital_status_ids().equals("")) {
                 viewGenerator.resetCheckBoxes(LinearLayoutAdvSearchMaritalStatus);
-            } else if (defaultSelectionsObj.get_choice_children_ids().equals("")) {
+            } else if (defaultSelectionsObj.getChoice_children_ids().equals("")) {
                 viewGenerator.resetCheckBoxes(LinearLayoutAdvSearchChildren);
             }*/
         }
@@ -161,8 +159,8 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        defaultSelectionsObj.set_choice_marital_status_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchMaritalStatus));
-        defaultSelectionsObj.set_choice_children_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchChildren));
+        defaultSelectionsObj.setChoice_marital_status_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchMaritalStatus));
+        defaultSelectionsObj.setChoice_children_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchChildren));
         updateDot();
     }
 
@@ -194,13 +192,13 @@ public class MaritalStatusFragment extends Fragment implements CompoundButton.On
 
     private void resetSelections(View v) {
         if (v.getTag().equals("martial_status")) {
-            defaultSelectionsObj.set_choice_marital_status_ids("");
+            defaultSelectionsObj.setChoice_marital_status_ids("");
 
 
         } else if (v.getTag().equals("children")) {
-            defaultSelectionsObj.set_choice_children_ids("");
+            defaultSelectionsObj.setChoice_children_ids("");
         }
-        //   Log.e("defaultSelectionsObj", defaultSelectionsObj.get_choice_children_ids());
+        //   Log.e("defaultSelectionsObj", defaultSelectionsObj.getChoice_children_ids());
 
         setSelection();
     }

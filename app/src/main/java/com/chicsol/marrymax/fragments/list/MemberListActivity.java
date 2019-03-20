@@ -109,7 +109,7 @@ public class MemberListActivity extends AppCompatActivity implements RecyclerVie
 
             JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                 params.put("userpath", userpath);
                 params.put("id", id);
 
@@ -307,7 +307,7 @@ public class MemberListActivity extends AppCompatActivity implements RecyclerVie
         if (ConnectCheck.isConnected(findViewById(android.R.id.content))) {
             JSONObject params = new JSONObject();
             try {
-                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                 params.put("userpath", userpath);
                 params.put("id", id);
                 loadData(params.toString(), false);

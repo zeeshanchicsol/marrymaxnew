@@ -108,10 +108,10 @@ public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnChe
 
         if (defaultSelectionsObj != null) {
 
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchRaisedWhere, defaultSelectionsObj.get_choice_raised_ids());
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchHijab, defaultSelectionsObj.get_choice_hijab_ids());
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchFamilyValues, defaultSelectionsObj.get_choice_family_values_ids());
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchLivingArrangement, defaultSelectionsObj.get_choice_living_arangment_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchRaisedWhere, defaultSelectionsObj.getChoice_raised_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchHijab, defaultSelectionsObj.getChoice_hijab_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchFamilyValues, defaultSelectionsObj.getChoice_family_values_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchLivingArrangement, defaultSelectionsObj.getChoice_living_arangment_ids());
 
         }
 
@@ -163,14 +163,14 @@ public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnChe
 
         if (buttonView.getTag() != null) {
             if (buttonView.getTag().equals("raised")) {
-                defaultSelectionsObj.set_choice_raised_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchRaisedWhere));
+                defaultSelectionsObj.setChoice_raised_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchRaisedWhere));
             } else if (buttonView.getTag().equals("hijab")) {
-                defaultSelectionsObj.set_choice_hijab_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchHijab));
+                defaultSelectionsObj.setChoice_hijab_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchHijab));
             } else if (buttonView.getTag().equals("family")) {
-                defaultSelectionsObj.set_choice_family_values_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchFamilyValues));
+                defaultSelectionsObj.setChoice_family_values_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchFamilyValues));
 
             } else if (buttonView.getTag().equals("living")) {
-                defaultSelectionsObj.set_choice_living_arangment_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchLivingArrangement));
+                defaultSelectionsObj.setChoice_living_arangment_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchLivingArrangement));
             }
         }
         updateDot();
@@ -195,13 +195,13 @@ public class LifeStyle1Fragment extends Fragment implements CompoundButton.OnChe
     @Override
     public void onClick(View v) {
         if (v.getTag().equals("raisedwhere")) {
-            defaultSelectionsObj.set_choice_raised_ids("");
+            defaultSelectionsObj.setChoice_raised_ids("");
         } else if (v.getTag().equals("hijab")) {
-            defaultSelectionsObj.set_choice_hijab_ids("");
+            defaultSelectionsObj.setChoice_hijab_ids("");
         } else if (v.getTag().equals("familyvalue")) {
-            defaultSelectionsObj.set_choice_family_values_ids("");
+            defaultSelectionsObj.setChoice_family_values_ids("");
         } else if (v.getTag().equals("living_arrangement")) {
-            defaultSelectionsObj.set_choice_living_arangment_ids("");
+            defaultSelectionsObj.setChoice_living_arangment_ids("");
         }
         setSelection();
     }

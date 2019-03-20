@@ -98,8 +98,8 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
 
         if (defaultSelectionsObj != null) {
 
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchEducation, defaultSelectionsObj.get_choice_education_ids());
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchOccupation, defaultSelectionsObj.get_choice_occupation_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchEducation, defaultSelectionsObj.getChoice_education_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchOccupation, defaultSelectionsObj.getChoice_occupation_ids());
 
         }
 
@@ -137,11 +137,11 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
             if (buttonView.getTag().equals("education")) {
 
                 Log.e("in", "in edddddddddfdddddddddddd");
-                defaultSelectionsObj.set_choice_education_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchEducation));
-                Log.e("education ids", defaultSelectionsObj.get_choice_education_ids());
+                defaultSelectionsObj.setChoice_education_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchEducation));
+                Log.e("education ids", defaultSelectionsObj.getChoice_education_ids());
             } else if (buttonView.getTag().equals("occupation")) {
 
-                defaultSelectionsObj.set_choice_occupation_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchOccupation));
+                defaultSelectionsObj.setChoice_occupation_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchOccupation));
             }
 
         }
@@ -167,9 +167,9 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
     @Override
     public void onClick(View v) {
         if (v.getTag().equals("education")) {
-            defaultSelectionsObj.set_choice_education_ids("");
+            defaultSelectionsObj.setChoice_education_ids("");
         } else if (v.getTag().equals("occupation")) {
-            defaultSelectionsObj.set_choice_occupation_ids("");
+            defaultSelectionsObj.setChoice_occupation_ids("");
 
         }
         setSelection();

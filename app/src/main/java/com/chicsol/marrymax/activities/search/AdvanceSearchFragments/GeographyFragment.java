@@ -220,18 +220,18 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
             selectedStatesMap.clear();
             selectedCountriesMap.clear();
 
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchVisaStatus, defaultSelectionsObj.get_choice_visa_status_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchVisaStatus, defaultSelectionsObj.getChoice_visa_status_ids());
 
 
-            Log.e("states", defaultSelectionsObj.get_choice_state_ids() + "");
+            Log.e("states", defaultSelectionsObj.getChoice_state_ids() + "");
 
 
-            countriesAdapter.selectItem(defaultSelectionsObj.get_choice_country_ids());
-            if (defaultSelectionsObj.get_choice_country_ids() != "" && defaultSelectionsObj.get_choice_country_ids() != null) {
+            countriesAdapter.selectItem(defaultSelectionsObj.getChoice_country_ids());
+            if (defaultSelectionsObj.getChoice_country_ids() != "" && defaultSelectionsObj.getChoice_country_ids() != null) {
 
-                getStates(defaultSelectionsObj.get_choice_country_ids());
+                getStates(defaultSelectionsObj.getChoice_country_ids());
 
-                selectStatesGetCities(defaultSelectionsObj.get_choice_state_ids(), defaultSelectionsObj.get_choice_cities_ids());
+                selectStatesGetCities(defaultSelectionsObj.getChoice_state_ids(), defaultSelectionsObj.getChoice_cities_ids());
 
             }
         }
@@ -270,7 +270,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     tvMsgCities.setVisibility(View.VISIBLE);
 
                     selectedCountries = selectedIds;
-                    defaultSelectionsObj.set_choice_country_ids(selectedIds);
+                    defaultSelectionsObj.setChoice_country_ids(selectedIds);
                     getStates(getComaSeparatedItemsFromMap(selectedCountriesMap));
                     selectStatesGetCities(getComaSeparatedItemsFromMap(selectedStatesMap), getComaSeparatedItemsFromMap(selectedCitiesMap));
 
@@ -282,13 +282,13 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
                     tvMsgStates.setVisibility(View.VISIBLE);
                     statesAdapter.clear();
-                    defaultSelectionsObj.set_choice_country_ids(selectedIds);
+                    defaultSelectionsObj.setChoice_country_ids(selectedIds);
 
-                    defaultSelectionsObj.set_choice_state_ids(getComaSeparatedItemsFromMap(selectedStatesMap));
-                    defaultSelectionsObj.set_choice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
+                    defaultSelectionsObj.setChoice_state_ids(getComaSeparatedItemsFromMap(selectedStatesMap));
+                    defaultSelectionsObj.setChoice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
 
                 }
-                Log.e("selectedMap  " + defaultSelectionsObj.get_choice_country_ids() + " = " + defaultSelectionsObj.get_choice_state_ids() + " = " + defaultSelectionsObj.get_choice_cities_ids(), "" + getComaSeparatedItemsFromMap(selectedStatesMap) + " --------  " + getComaSeparatedItemsFromMap(selectedCitiesMap));
+                Log.e("selectedMap  " + defaultSelectionsObj.getChoice_country_ids() + " = " + defaultSelectionsObj.getChoice_state_ids() + " = " + defaultSelectionsObj.getChoice_cities_ids(), "" + getComaSeparatedItemsFromMap(selectedStatesMap) + " --------  " + getComaSeparatedItemsFromMap(selectedCitiesMap));
 
 
                 break;
@@ -311,7 +311,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
                     topCitiesAdapter.unCheckAll();
 
-                    defaultSelectionsObj.set_choice_state_ids(getComaSeparatedItemsFromMap(selectedStatesMap));
+                    defaultSelectionsObj.setChoice_state_ids(getComaSeparatedItemsFromMap(selectedStatesMap));
 
                 } else {
                     tvMsgCities.setVisibility(View.VISIBLE);
@@ -322,9 +322,9 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     topCitiesAdapter.selectItem(getComaSeparatedItemsFromMap(selectedCitiesMap));
 
                     Log.e("selectedCitiesMap", "" + getComaSeparatedItemsFromMap(selectedCitiesMap)+"=====");
-                    defaultSelectionsObj.set_choice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
+                    defaultSelectionsObj.setChoice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
 
-                    defaultSelectionsObj.set_choice_state_ids(selectedIds);
+                    defaultSelectionsObj.setChoice_state_ids(selectedIds);
                 }
                 break;
             case 0:
@@ -339,7 +339,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     topCitiesAdapter.unCheckItems(Objcsc.getId());
                     selectedCitiesMap.remove(Objcsc.getId());
                 }
-                defaultSelectionsObj.set_choice_cities_ids(selectedIds);
+                defaultSelectionsObj.setChoice_cities_ids(selectedIds);
 
                 break;
             case 3:
@@ -367,11 +367,11 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 }
 
 
-                defaultSelectionsObj.set_choice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
+                defaultSelectionsObj.setChoice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
 
-                defaultSelectionsObj.set_choice_state_ids(getComaSeparatedItemsFromMap(selectedStatesMap));
+                defaultSelectionsObj.setChoice_state_ids(getComaSeparatedItemsFromMap(selectedStatesMap));
 
-                defaultSelectionsObj.set_choice_country_ids(getComaSeparatedItemsFromMap(selectedCountriesMap));
+                defaultSelectionsObj.setChoice_country_ids(getComaSeparatedItemsFromMap(selectedCountriesMap));
 
 
              /*     if (!selectedIds.equals("")) {
@@ -406,7 +406,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
                 }*/
 
-                //   defaultSelectionsObj.set_choice_cities_ids(selectedIds);
+                //   defaultSelectionsObj.setChoice_cities_ids(selectedIds);
 
                 break;
 
@@ -434,12 +434,12 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 }
 
 
-                defaultSelectionsObj.set_choice_state_ids(getComaSeparatedItemsFromMap(selectedStatesMap));
+                defaultSelectionsObj.setChoice_state_ids(getComaSeparatedItemsFromMap(selectedStatesMap));
 
-                defaultSelectionsObj.set_choice_country_ids(getComaSeparatedItemsFromMap(selectedCountriesMap));
+                defaultSelectionsObj.setChoice_country_ids(getComaSeparatedItemsFromMap(selectedCountriesMap));
 
 
-                //    defaultSelectionsObj.set_choice_cities_ids(selectedIds);
+                //    defaultSelectionsObj.setChoice_cities_ids(selectedIds);
 
              /*
 
@@ -458,11 +458,11 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
                     getCities(Objcsc.getCid() + "^" + Objcsc.getId());
 
-                    defaultSelectionsObj.set_choice_state_ids(Objcsc.getId());
+                    defaultSelectionsObj.setChoice_state_ids(Objcsc.getId());
                 } else {
                     tvMsgCities.setVisibility(View.VISIBLE);
                     citiesAdapter.clear();
-                    defaultSelectionsObj.set_choice_state_ids(selectedIds);
+                    defaultSelectionsObj.setChoice_state_ids(selectedIds);
                 }*/
 
 
@@ -801,7 +801,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        defaultSelectionsObj.set_choice_visa_status_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchVisaStatus));
+        defaultSelectionsObj.setChoice_visa_status_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchVisaStatus));
         updateDot();
     }
 
@@ -824,9 +824,9 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     @Override
     public void onClick(View v) {
         if (v.getTag().equals("top_locations")) {
-            //  defaultSelectionsObj.set_choice_country_ids("");
-            defaultSelectionsObj.set_choice_state_ids("");
-            defaultSelectionsObj.set_choice_cities_ids("");
+            //  defaultSelectionsObj.setChoice_country_ids("");
+            defaultSelectionsObj.setChoice_state_ids("");
+            defaultSelectionsObj.setChoice_cities_ids("");
 
             topCitiesAdapter.unCheckAll();
             topStatesAdapter.unCheckAll();
@@ -834,9 +834,9 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
 
         } else if (v.getTag().equals("country")) {
-            defaultSelectionsObj.set_choice_country_ids("");
-            defaultSelectionsObj.set_choice_state_ids("");
-            defaultSelectionsObj.set_choice_cities_ids("");
+            defaultSelectionsObj.setChoice_country_ids("");
+            defaultSelectionsObj.setChoice_state_ids("");
+            defaultSelectionsObj.setChoice_cities_ids("");
 
             topCitiesAdapter.unCheckAll();
             topStatesAdapter.unCheckAll();
@@ -849,15 +849,15 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
 
         } else if (v.getTag().equals("state")) {
-            defaultSelectionsObj.set_choice_state_ids("");
+            defaultSelectionsObj.setChoice_state_ids("");
             statesAdapter.unCheckAll();
 
         } else if (v.getTag().equals("city")) {
-            defaultSelectionsObj.set_choice_cities_ids("");
+            defaultSelectionsObj.setChoice_cities_ids("");
             citiesAdapter.unCheckAll();
 
         } else if (v.getTag().equals("visa_status")) {
-            defaultSelectionsObj.set_choice_visa_status_ids("");
+            defaultSelectionsObj.setChoice_visa_status_ids("");
 
         }
         setSelection();

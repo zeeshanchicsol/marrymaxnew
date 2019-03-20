@@ -205,7 +205,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         try {
 
 
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
             params.put("userpath", obj.getUserpath());
             getChatRequest(params);
 
@@ -251,10 +251,10 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
                         //   path, userpath , checkedTextView , default_image
 
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                         params.put("userpath", objCom.getUserpath());
                         params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
-                        params.put("default_image", SharedPreferenceManager.getUserObject(getApplicationContext()).get_default_image());
+                        params.put("default_image", SharedPreferenceManager.getUserObject(getApplicationContext()).getDefault_image());
                         params.put("message", etSendMessage.getText().toString());
                         putSendMessage(params);
                     } catch (JSONException e) {
@@ -275,7 +275,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                     JSONObject params = new JSONObject();
                     try {
                         params.put("userpath", objCom.getUserpath());
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
                         dialogFeedback newFragment = dialogFeedback.newInstance(objCom.getUserpath(), match_id + "", params.toString());
                         //newFragment.setTargetFragment(fragment, 0);
@@ -292,7 +292,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                     try {
                         jsonObject.put("id", match_id);
                         jsonObject.put("my_id", feedback_id);
-                        jsonObject.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                         jsonObject.put("userpath", objCom.getUserpath());
                         dialogFeedbackDetail newFragment = dialogFeedbackDetail.newInstance(jsonObject.toString());
                         //  newFragment.setTargetFragment(getSupportFragmentManager(), 0);
@@ -323,7 +323,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
 
                             JSONObject params1 = new JSONObject();
-                            params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                            params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                             params1.put("userpath", objCom.getUserpath());
                             deleteRequest(params1);
 
@@ -389,7 +389,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
 
                                 if (mCommunication.write_quota == 0) {
-                                    if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 4) {
+                                    if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 4) {
 
                                         Toast.makeText(DashboardMessagesDetailActivity.this, "Dear " + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + ", you have send too many messages. In order to avoid spam please wait for sometime to send more messages.", Toast.LENGTH_LONG).show();
 
@@ -403,7 +403,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                     JSONObject params1 = new JSONObject();
 
 
-                                    params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                    params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                                     params1.put("userpath", objCom.getUserpath());
                                     getChatRequest(params1);
                                 }
@@ -426,7 +426,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                                     JSONObject params = new JSONObject();
                                                     try {
                                                         params.put("userpath", objCom.getUserpath());
-                                                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                                                     } catch (JSONException e) {
                                                         e.printStackTrace();
                                                     }
@@ -457,7 +457,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                             params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
                                             params.put("type", "5");
                                             params.put("userpath", objCom.getUserpath());
-                                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
@@ -535,7 +535,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                 finish();
 
                              /*   JSONObject params1 = new JSONObject();
-                                params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                                 params1.put("userpath", objCom.getUserpath());
                                 getChatRequest(params1);*/
 
@@ -643,7 +643,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                             }
 
 
-                            if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 3) {
+                            if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 3) {
                                 if (dlist2.size() > 0) {
                                     mCommunication mCom = dlist2.get(0);
 
@@ -654,13 +654,13 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                         tvReadQuotaHeading.setText(Html.fromHtml(headertxt));
                                         String subheadertxt = "Dear <font color='#9a0606'><b>" + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + "</b></font> , Please subscribe to send personalized message and connect with the potential matches immediately.Subscribe now to enjoy following benefits. \n \u25CF As a free member you can find & view your matches. \n \u25CF To read & write direct messages, please upgrade your account to a subscriber.";
                                         tvReadQuotaSubHeading.setText(Html.fromHtml(subheadertxt));
-                                        if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() >= 4) {
+                                        if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() >= 4) {
                                             btSubscribe.setVisibility(View.GONE);
                                         }
 
                                     }
                                 }
-                            }/* else if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 4) {
+                            }/* else if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 4) {
 
 
                             } */ else {

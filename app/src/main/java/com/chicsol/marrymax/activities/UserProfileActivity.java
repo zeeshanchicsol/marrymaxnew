@@ -125,9 +125,9 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
         JSONObject params = new JSONObject();
         try {
             params.put("userpath", userpath);
-            params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-            params.put("gender", SharedPreferenceManager.getUserObject(getApplicationContext()).get_gender());
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+            params.put("gender", SharedPreferenceManager.getUserObject(getApplicationContext()).getGender());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
             // Test Images Account
         *//*    params.put("userpath", "su8Gt~DnAz3r4UZAiw5DDQ==");
             params.put("member_status", "4");
@@ -146,46 +146,46 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
 
     private void setInterestButtonText() {
         Members sessionObj = SharedPreferenceManager.getUserObject(getApplicationContext());
-        Log.e(functions.checkProfileCompleteStatus(member) + "" + member.get_member_status(), "checcccccccccccccccccccc");
+        Log.e(functions.checkProfileCompleteStatus(member) + "" + member.getMember_status(), "checcccccccccccccccccccc");
         if (functions.checkProfileCompleteStatus(sessionObj)) {
-       *//*     if (sessionObj.get_member_status() < 3) {
+       *//*     if (sessionObj.getMember_status() < 3) {
 
                 tvInterest.setText("Show Interest");
                 llshowInterest.setBackgroundColor(R.color.colorUserProfileTextGreen);
 
             }*//*
 
-            Log.e("interested id", member.get_interested_id() + "");
-            Log.e("interested receieved", member.get_interest_received() + "");
-            if (member.get_interested_id() == 0) {
+            Log.e("interested id", member.getInterested_id() + "");
+            Log.e("interested receieved", member.getInterest_received() + "");
+            if (member.getInterested_id() == 0) {
                 tvInterest.setText("Show Interest");
                 llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorUserProfileTextGreen));
 
-            } else if (member.get_interested_id() != 0) {
+            } else if (member.getInterested_id() != 0) {
 
-                if (member.get_interest_received() == 0) {
+                if (member.getInterest_received() == 0) {
                     tvInterest.setText("Withdraw Interest");
                     tvShowInterestButtonText.setText("Withdraw Interest");
                     llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorGrey));
-                } else if (member.get_interest_received() == 1) {
+                } else if (member.getInterest_received() == 1) {
 
                     tvInterest.setText("Reply On Interest");
                     tvShowInterestButtonText.setText("Reply On Interest");
                     llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorDefaultGreen));
 
 
-                } else if (member.get_interest_received() == 3) {
+                } else if (member.getInterest_received() == 3) {
                     tvInterest.setText("Interest Accepted");
                     tvShowInterestButtonText.setText("Interest Accepted");
                     llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorUserProfileTextGreen));
                 }
             }
-            *//*else if (member.get_interested_id() == 0 && member.get_interest_received() == 0) {
+            *//*else if (member.getInterested_id() == 0 && member.getInterest_received() == 0) {
 
                 tvInterest.setText("Withdraw Interest");
                 llshowInterest.setBackgroundColor(R.color.colorGrey);
 
-            } else if (member.get_interested_id() == 0 && member.get_interest_received() == 3) {
+            } else if (member.getInterested_id() == 0 && member.getInterest_received() == 3) {
                 tvInterest.setText("Interest Accepted");
                 llshowInterest.setBackgroundColor(R.color.colorUserProfileTextGreen);
             }*//*
@@ -222,7 +222,7 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
                 List<Members> membersDataList = (List<Members>) gson.fromJson(objectsArray.toString(), member);
                 Log.e("Length 56", membersDataList.size() + "  ");
                 for (int i = 0; i < membersDataList.size(); i++) {
-                    sliderImagesDataList.add(membersDataList.get(i).get_photo_path());
+                    sliderImagesDataList.add(membersDataList.get(i).getPhoto_path());
 
                 }
 
@@ -360,26 +360,26 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
     private void settHeader() {
         //    tvAlias,tvDesc,tvLocation,tvProfileFor,tvReligion,tvEducation,tvOccupation,tvMaritalStatus;
         tvAlias.setText(member.getAlias());
-        tvAge.setText("( " + member.get_age() + " Years )");
+        tvAge.setText("( " + member.getAge() + " Years )");
         String location = "";
-        if (!(member.get_city_name().equals(""))) {
-            location = member.get_city_name() + ", ";
+        if (!(member.getCity_name().equals(""))) {
+            location = member.getCity_name() + ", ";
         }
-        if (!member.get_state_name().equals("")) {
+        if (!member.getState_name().equals("")) {
 
-            location = location + member.get_state_name() + ", ";
+            location = location + member.getState_name() + ", ";
         }
-        tvLocation.setText(location + member.get_country_name() + ", (" + member.get_visa_status_types() + ")");
-        // Log.e("Location", member.get_city_name());
-        tvProfileFor.setText(member.get_profile_owner());
+        tvLocation.setText(location + member.getCountry_name() + ", (" + member.getVisa_status_types() + ")");
+        // Log.e("Location", member.getCity_name());
+        tvProfileFor.setText(member.getProfile_owner());
         tvReligion.setText(member.getReligious_sec_type());
-        tvEducation.setText(member.get_education_types());
-        tvOccupation.setText(member.get_occupation_types());
-        tvMaritalStatus.setText(member.get_marital_status_types());
-        tvLastLoginDate.setText(member.get_last_login_date());
+        tvEducation.setText(member.getEducation_types());
+        tvOccupation.setText(member.getOccupation_types());
+        tvMaritalStatus.setText(member.getMarital_status_types());
+        tvLastLoginDate.setText(member.getLast_login_date());
 
 
-        if (member.get_image_count() > 0) {
+        if (member.getImage_count() > 0) {
             llImagesCount.setVisibility(View.VISIBLE);
             ibSwipeLeft.setVisibility(View.VISIBLE);
             ibSwipeRight.setVisibility(View.VISIBLE);
@@ -389,15 +389,15 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
             ibSwipeRight.setVisibility(View.GONE);
         }
 
-        tvImagesCount.setText(Long.toString(member.get_image_count()));
+        tvImagesCount.setText(Long.toString(member.getImage_count()));
 
-        //  Log.e("zodaic", "" + member.get_sign_name());
-        //  Log.e("country flag", "" + member.get_country_flag());
-        imageLoader.displayImage(Urls.baseUrl + "/images/zodiac/" + member.get_sign_name() + ".png", ivZodiacSign, options);
-        imageLoader.displayImage(Urls.baseUrl + "/images/flags/" + member.get_country_flag() + ".gif", ivCountrySign, options);
+        //  Log.e("zodaic", "" + member.getSign_name());
+        //  Log.e("country flag", "" + member.getCountry_flag());
+        imageLoader.displayImage(Urls.baseUrl + "/images/zodiac/" + member.getSign_name() + ".png", ivZodiacSign, options);
+        imageLoader.displayImage(Urls.baseUrl + "/images/flags/" + member.getCountry_flag() + ".gif", ivCountrySign, options);
 
-        if (member.get_phone_verified() == 2) {
-            if (member.get_hide_phone() == 0 || member.get_allow_phone_view() > 0) {
+        if (member.getPhone_verified() == 2) {
+            if (member.getHide_phone() == 0 || member.getAllow_phone_view() > 0) {
                 ivPhoneVerified.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
                 //greeen
             } else {
@@ -410,7 +410,7 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
             //default
         }
 
-      *//*imageLoader.displayImage(Urls.baseUrl + "/" + member.get_default_image(),
+      *//*imageLoader.displayImage(Urls.baseUrl + "/" + member.getDefault_image(),
               ivZodiacSign, options,
                 new SimpleImageLoadingListener() {
 
@@ -445,7 +445,7 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
 *//*
 
 
-        if (member.get_removed_member() == 1) {
+        if (member.getRemoved_member() == 1) {
             MenuItem menuItem = popupUp.getMenu().findItem(R.id.menu_up_remove);
 
             menuItem.setTitle("Unremove");
@@ -464,23 +464,23 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
 
         }*//*
 
-        Log.e("Saved Member", member.get_saved_member() + " ");
+        Log.e("Saved Member", member.getSaved_member() + " ");
 
-        if (member.get_saved_member() == 1) {
+        if (member.getSaved_member() == 1) {
 
             faAddToFavourites.setPressed(true);
         }
 
         //MenuItem menuItem1 = popupUp.getMenu().findItem(R.id.menu_up_request);
 
-      *//*  Log.e("Vall Member", member.get_hide_profile() + " " + member.get_hide_photo());
+      *//*  Log.e("Vall Member", member.getHide_profile() + " " + member.getHide_photo());
 
-        if (member.get_hide_profile() == 1) {
+        if (member.getHide_profile() == 1) {
             menuItem1.setTitle("Request Profile View");
 
         }
 
-        if (member.get_hide_photo() == 1) {
+        if (member.getHide_photo() == 1) {
             menuItem1.setTitle("Request Photo View");
 
         }*//*
@@ -498,16 +498,16 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
 
                 marryMax.statusBaseChecks(member, getApplicationContext(), 5, getSupportFragmentManager(), null, v, null, null);
 
-             *//*if (member.get_phone_request_id() == 0) {
-                    if (member.get_phone_verified() == 2) {
-                        if (member.get_hide_phone() == 0 || member.get_allow_phone_view() > 0) {
+             *//*if (member.getPhone_request_id() == 0) {
+                    if (member.getPhone_verified() == 2) {
+                        if (member.getHide_phone() == 0 || member.getAllow_phone_view() > 0) {
                             //greeen
 
 
                             JSONObject params = new JSONObject();
                             try {
                                 params.put("userpath", member.getUserpath());
-                                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -529,7 +529,7 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
                                 params.put("checkedTextView", member.getAlias());
                                 params.put("type", "5");
                                 params.put("userpath", member.getUserpath());
-                                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -552,8 +552,8 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
                     JSONObject params = new JSONObject();
                     try {
                         params.put("userpath", userpath);
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-                        params.put("interested_id", member.get_phone_request_id());
+                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                        params.put("interested_id", member.getPhone_request_id());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -615,16 +615,16 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
             @Override
             public void onClick(View v) {
                 //   Toast.makeText(UserProfileActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
-                //    Log.e("Saved Member", member.get_saved_member() + " ");
+                //    Log.e("Saved Member", member.getSaved_member() + " ");
 
                 boolean bcheck3 = marryMax.statusBaseChecks(member, getApplicationContext(), 7, getSupportFragmentManager(), null, v, null, null);
                 if (bcheck3) {
-                    if (member.get_saved_member() == 1) {
+                    if (member.getSaved_member() == 1) {
                         JSONObject params = new JSONObject();
                         try {
                             params.put("id", "1");
                             params.put("userpath", userpath);
-                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -634,7 +634,7 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
                         try {
                             params.put("id", "0");
                             params.put("userpath", userpath);
-                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -710,9 +710,9 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
                                 if (checkStatus) {
                                     JSONObject params = new JSONObject();
                                     try {
-                                        params.put("id", member.get_removed_member());
+                                        params.put("id", member.getRemoved_member());
                                         params.put("userpath", userpath);
-                                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
@@ -757,7 +757,7 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
         JSONObject params = new JSONObject();
         try {
             params.put("userpath", userpath);
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
             *//*  params.put("userpath", "jX0GywjuTMhXATJ3f56FIg==");
                     params.put("path", "G2vOHlGTQOrBjneguNPQuA==");*//*
         } catch (JSONException e) {
@@ -766,39 +766,39 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
 
 
         Members sessionObj = SharedPreferenceManager.getUserObject(getApplicationContext());
-        Log.e(functions.checkProfileCompleteStatus(member) + "" + member.get_member_status(), "checcccccccccccccccccccc");
+        Log.e(functions.checkProfileCompleteStatus(member) + "" + member.getMember_status(), "checcccccccccccccccccccc");
 
 
         boolean checkStatus = marryMax.statusBaseChecks(member, getApplicationContext(), 2, getSupportFragmentManager(), null, v, null, null);
 
         if (checkStatus) {
             if (functions.checkProfileCompleteStatus(sessionObj)) {
-                if (member.get_interested_id() == 0) {
+                if (member.getInterested_id() == 0) {
                     showInterest(params, false);
                       *//*  tvInterest.setText("Show Interest");
                         llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorUserProfileTextGreen));*//*
 
-                } else if (member.get_interested_id() != 0) {
+                } else if (member.getInterested_id() != 0) {
 
-                    if (member.get_interest_received() == 0) {
+                    if (member.getInterest_received() == 0) {
                            *//* tvInterest.setText("Withdraw Interest");
                             llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorGrey));*//*
                         try {
-                            params.put("interested_id", member.get_interested_id());
+                            params.put("interested_id", member.getInterested_id());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                         String desc = "Are you sure to withdraw your interest for  <font color=#216917>" + member.getAlias() + "</font>";
                         withdrawInterest(params, "Withdraw Interest", desc);
 
-                    } else if (member.get_interest_received() == 1) {
+                    } else if (member.getInterest_received() == 1) {
                         replyOnInterest(v);
 *//*
                             tvInterest.setText("Reply On Interest");
                             llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorDefaultGreen));*//*
 
 
-                    } else if (member.get_interest_received() == 3) {
+                    } else if (member.getInterest_received() == 3) {
                           *//*  tvInterest.setText("Interest Accepted");
                             llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorUserProfileTextGreen));*//*
                     }
@@ -939,7 +939,7 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
                         JSONObject params = new JSONObject();
                         try {
                             params.put("userpath", userpath);
-                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
             *//*  params.put("userpath", "jX0GywjuTMhXATJ3f56FIg==");
                     params.put("path", "G2vOHlGTQOrBjneguNPQuA==");*//*
                         } catch (JSONException e) {
@@ -1055,8 +1055,8 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
     private void matchAid() {
 
         pDialog.show();
-        Log.e("url", Urls.getAssistance + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getAssistance + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        Log.e("url", Urls.getAssistance + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getAssistance + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -1066,7 +1066,7 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
                             int res = response.getJSONArray(1).getJSONObject(0).getInt("id");
                             Log.e("ressss", "" + res + "");
                             if (res == 0) {
-                                dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
+                                dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
                                 newFragment.show(getSupportFragmentManager(), "dialog");
                             } else {
                                 dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath);
@@ -1255,14 +1255,14 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
                             int responseid = response.getInt("id");
                             if (responseid == 1) {
 
-                                member.set_removed_member(responseid);
+                                member.setRemoved_member(responseid);
                                 Toast.makeText(UserProfileActivity.this, "User has been Removed successfully ", Toast.LENGTH_SHORT).show();
 
                               *//*  MenuItem menuItem = addRemoveBlockMenu.getMenu().findItem(R.id.menu_up_remove);
                               *//*
                                 menuItem.setTitle("Unremove");
                             } else {
-                                member.set_removed_member(responseid);
+                                member.setRemoved_member(responseid);
                                 Toast.makeText(UserProfileActivity.this, "User has been unremoved successfully ", Toast.LENGTH_SHORT).show();
                             *//*    MenuItem menuItem = addRemoveBlockMenu.getMenu().findItem(R.id.menu_up_remove);
                                *//*
@@ -1394,9 +1394,9 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
                             }.getType();
                             member = (Members) gson.fromJson(firstJsonObj.toString(), type);
                             getSupportActionBar().setTitle(member.getAlias());
-                            if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_path() != null && member.get_path() != null) {
-                                Log.e("=========path ========", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path() + "======" + member.getUserpath());
-                                if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_path().equals((member.getUserpath()))) {
+                            if (SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() != null && member.getPath() != null) {
+                                Log.e("=========path ========", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() + "======" + member.getUserpath());
+                                if (SharedPreferenceManager.getUserObject(getApplicationContext()).getPath().equals((member.getUserpath()))) {
                                     LineaLayoutUserProfileInterestMessage = (LinearLayout) findViewById(R.id.LineaLayoutUserProfileInterestMessage);
                                     LineaLayoutUserProfileTopBar = (LinearLayout) findViewById(R.id.LineaLayoutUserProfileTopBar);
                                     LineaLayoutUserProfileInterestMessage.setVisibility(View.GONE);
@@ -1407,7 +1407,7 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
 
                             setInterestButtonText();
                             settHeader();
-                            loadSlider(member.get_default_image());
+                            loadSlider(member.getDefault_image());
 
                             setupViewPager(viewPager1, responsArray.toString());
                             // Log.e("Member checkedTextView", "" + member.getAlias());
@@ -1456,9 +1456,9 @@ public class UserProfileActivity extends AppCompatActivity implements PicturesFr
         JSONObject params = new JSONObject();
         try {
             params.put("userpath", userpath);
-            params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_notes_id());
-            params.put("gender", SharedPreferenceManager.getUserObject(getApplicationContext()).get_gender());
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_notes_id());
+            params.put("gender", SharedPreferenceManager.getUserObject(getApplicationContext()).getGender());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
         } catch (JSONException e) {
             e.printStackTrace();
         }

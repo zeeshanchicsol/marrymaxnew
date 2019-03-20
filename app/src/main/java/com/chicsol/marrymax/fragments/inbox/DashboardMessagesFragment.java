@@ -27,9 +27,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterInBoxList;
-import com.chicsol.marrymax.dialogs.dialogFeedBackPending;
-import com.chicsol.marrymax.dialogs.dialogVerifyphone;
-import com.chicsol.marrymax.fragments.AccountSetting.MyProfileSettingFragment;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mComCount;
 import com.chicsol.marrymax.modal.mCommunication;
@@ -206,9 +203,9 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
         pDialog.setMessage("Loading...");
         pDialog.show();*/
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).get_path());
+        Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath());
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).get_path(),
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -233,7 +230,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                             mComObj.getWrite_quota();*/
 
 
-                            if (member.get_member_status() < 3 || member.get_member_status() > 4) {
+                            if (member.getMember_status() < 3 || member.getMember_status() > 4) {
 
                                 llEmptyState.setVisibility(View.VISIBLE);
                                 recyclerView.setVisibility(View.GONE);
@@ -258,7 +255,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                 }
 
                             } else {
-                                if (member.get_member_status() == 3) {
+                                if (member.getMember_status() == 3) {
 
 
                                /*    You have 0 unread messages
@@ -336,7 +333,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                 if (jsonCountryStaeObj.length() == 0) {
 
 
-                                    if (member.get_member_status() == 3) {
+                                    if (member.getMember_status() == 3) {
 
 
                               *//*      You have 0 unread messages
@@ -360,7 +357,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
 
                                         TextViewEmptyMessage.setText(htmlDescriptionText.toString());
 
-                                    } else if (member.get_member_status() == 4) {
+                                    } else if (member.getMember_status() == 4) {
                                     *//*Find Matches here and take initiative in sending a personalized message to know more.
                                     Start a conversation, with simple greetings or by asking a question or talk about a specific interest in a simple and short message.
 
@@ -374,7 +371,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                 } else {
 
 
-                                    if (member.get_member_status() == 3) {
+                                    if (member.getMember_status() == 3) {
 
 *//*
                                     You have 0 unread messages OR
@@ -391,7 +388,7 @@ Subscribe now to enjoy following benefits.
                                     OptionsPersonalized Assistance
 
                                     Subscribe*//*
-                                    } else if (member.get_member_status() == 4) {
+                                    } else if (member.getMember_status() == 4) {
                                  *//*   You have 0unread messages   Or
                                     You have 1unread messages*//*
 
@@ -458,8 +455,8 @@ Subscribe now to enjoy following benefits.
        /* final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-        Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).get_path(),
+        Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

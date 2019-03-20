@@ -106,14 +106,14 @@ public class MySubscriptionFragment extends Fragment {
 
 
     private void loadData(){
-        long member_status = SharedPreferenceManager.getUserObject(context).get_member_status();
+        long member_status = SharedPreferenceManager.getUserObject(context).getMember_status();
 
 
         // Put SubscriptionData
         //  GetSubscriptions   path
         if (member_status < 3 || member_status >= 7) {
             //  GetSubscriptions   path
-            //getSubscriptionRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+            //getSubscriptionRequest(SharedPreferenceManager.getUserObject(getContext()).getPath());
             // call api and display sub data
             if (member_status < 3) {
                 //complete your profile
@@ -150,8 +150,8 @@ public class MySubscriptionFragment extends Fragment {
 
             //call subscription api to show data
             Members mem = new Members();
-            mem.set_path(SharedPreferenceManager.getUserObject(context).get_path());
-            mem.set_member_status(SharedPreferenceManager.getUserObject(context).get_member_status());
+            mem.setPath(SharedPreferenceManager.getUserObject(context).getPath());
+            mem.setMember_status(SharedPreferenceManager.getUserObject(context).getMember_status());
 
             Gson gson = new Gson();
             String memString = gson.toJson(mem);
@@ -210,14 +210,14 @@ public class MySubscriptionFragment extends Fragment {
         //  ButtonAccountSettingMySubscriptionMain
 
 /*        Members mem = new Members();
-        mem.set_path(SharedPreferenceManager.getUserObject(getContext()).get_path());
-        mem.set_member_status(SharedPreferenceManager.getUserObject(getContext()).get_member_status());
+        mem.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
+        mem.setMember_status(SharedPreferenceManager.getUserObject(getContext()).getMember_status());
 
         Gson gson = new Gson();
         String memString = gson.toJson(mem);*/
 
 
-        //  getSubscriptionRequest(SharedPreferenceManager.getUserObject(getContext()).get_path());
+        //  getSubscriptionRequest(SharedPreferenceManager.getUserObject(getContext()).getPath());
 
 
     }
@@ -281,7 +281,7 @@ public class MySubscriptionFragment extends Fragment {
                             if (dataList.size() > 0) {
 
                                 Members smem = dataList.get(0);
-                                long member_status = SharedPreferenceManager.getUserObject(context).get_member_status();
+                                long member_status = SharedPreferenceManager.getUserObject(context).getMember_status();
                                 if (member_status == 4) {
 
                                     llProfileLive.setVisibility(View.GONE);
@@ -291,7 +291,7 @@ public class MySubscriptionFragment extends Fragment {
 
                                 } else if (member_status == 3) {
 
-                                    if (smem.get_my_id() == 0) {
+                                    if (smem.getMy_id() == 0) {
                                         //show packages
                                         llProfileLive.setVisibility(View.GONE);
 
@@ -299,7 +299,7 @@ public class MySubscriptionFragment extends Fragment {
                                         llDefault.setVisibility(View.VISIBLE);
 
 
-                                    } else if (smem.get_my_id() == 1) {
+                                    } else if (smem.getMy_id() == 1) {
 
                                         llMySubscription.setVisibility(View.GONE);
 

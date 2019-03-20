@@ -2,8 +2,6 @@ package com.chicsol.marrymax.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -17,7 +15,6 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +30,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.registration.RegistrationActivity;
 import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchActivity;
-import com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeResultsActivity;
 import com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeSearchActivity;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.other.ConnectionDetector;
@@ -43,7 +39,6 @@ import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
-import com.chicsol.marrymax.utils.Cryptography_Android;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.utils.functions;
 import com.chicsol.marrymax.widgets.mButton2;
@@ -383,12 +378,12 @@ public class ActivityLogin extends AppCompatActivity {
                                 //  Log.d("Alias", response.get("alias").toString());
                                 //   Log.d("member type", response.getInt("member_status") + "");
                                 Members member = SharedPreferenceManager.getUserObject(getApplication());
-                                member.set_password(password);
+                                member.setPassword(password);
 
                                 SharedPreferenceManager.setUserObject(getApplicationContext(), member);
 
                                 checkUserStatus(member);
-                                //   Log.e("Reggggggggggg type",member.get_registration_within_id() + "");
+                                //   Log.e("Reggggggggggg type",member.getRegistration_within_id() + "");
 
                             } else {
 
@@ -441,33 +436,33 @@ public class ActivityLogin extends AppCompatActivity {
             finish();
         }
 
-    /*    if (member.get_registration_within_id() != 5 && member.get_member_status() == 0) {
-            if (member.get_registration_within_id() == -1) {
+    /*    if (member.getRegistration_within_id() != 5 && member.getMember_status() == 0) {
+            if (member.getRegistration_within_id() == -1) {
                 Intent intent = new Intent(ActivityLogin.this, RegisterGeographicActivity.class);
                 startActivity(intent);
                 finish();
                 //  HttpContext.Current.Response.Redirect("~/1_Geographic", false);
-            } else if (member.get_registration_within_id() == 0) {
+            } else if (member.getRegistration_within_id() == 0) {
                 Intent intent = new Intent(ActivityLogin.this, RegisterAppearanceActivity.class);
                 startActivity(intent);
                 finish();
                 // HttpContext.Current.Response.Redirect("~/2_Appearance", false);
-            } else if (member.get_registration_within_id() == 1) {
+            } else if (member.getRegistration_within_id() == 1) {
                 Intent intent = new Intent(ActivityLogin.this, RegisterLifeStyleActivity1.class);
                 startActivity(intent);
                 finish();
                 //   HttpContext.Current.Response.Redirect("~/3_LifeStyle", false);
-            } else if (member.get_registration_within_id() == 2) {
+            } else if (member.getRegistration_within_id() == 2) {
                 Intent intent = new Intent(ActivityLogin.this, RegisterLifeStyleActivity2.class);
                 startActivity(intent);
                 finish();
                 //  HttpContext.Current.Response.Redirect("~/3_LifeStyle2", false);
-            } else if (member.get_registration_within_id() == 3) {
+            } else if (member.getRegistration_within_id() == 3) {
                 Intent intent = new Intent(ActivityLogin.this, RegisterInterest.class);
                 startActivity(intent);
                 finish();
                 // HttpContext.Current.Response.Redirect("~/4_Interest", false);
-            } else if (member.get_registration_within_id() == 4) {
+            } else if (member.getRegistration_within_id() == 4) {
                 Intent intent = new Intent(ActivityLogin.this, RegisterPersonalityActivity.class);
                 startActivity(intent);
                 finish();

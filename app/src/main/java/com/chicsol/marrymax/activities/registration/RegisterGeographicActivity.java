@@ -16,7 +16,6 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,14 +23,12 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Request.Method;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.chicsol.marrymax.BuildConfig;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
@@ -406,21 +403,21 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         spMyCountry.setOnItemSelectedListener(null);
         spMyCountryState.setOnItemSelectedListener(null);
 
-        selectSpinnerItemByValue(spMyCountry, members_obj.get_country_id(), MyCountryDataList);
+        selectSpinnerItemByValue(spMyCountry, members_obj.getCountry_id(), MyCountryDataList);
         //disable country
 
 
         Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
-        //  Log.e("status isss  ",member.get_member_status()+"");
-        if (member.get_member_status() > 1 && member.get_member_status() < 5) {
+        //  Log.e("status isss  ",member.getMember_status()+"");
+        if (member.getMember_status() > 1 && member.getMember_status() < 5) {
 
             spMyCountry.setEnabled(false);
         }
 
-        selectSpinnerItemByValue(spMyCountryState, members_obj.get_state_id(), MyCountryStateDataList);
-        selectSpinnerItemByValue(spMyCountryCity, members_obj.get_city_id(), MyCountryCityDataList);
-        Log.e("choice countrr", members_obj.get_choice_country_ids());
-        String[] cids = members_obj.get_choice_country_ids().split(",");
+        selectSpinnerItemByValue(spMyCountryState, members_obj.getState_id(), MyCountryStateDataList);
+        selectSpinnerItemByValue(spMyCountryCity, members_obj.getCity_id(), MyCountryCityDataList);
+        Log.e("choice countrr", members_obj.getChoice_country_ids());
+        String[] cids = members_obj.getChoice_country_ids().split(",");
 
 
         Log.e("c idddddssssss", "" + cids.length);
@@ -465,13 +462,13 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         }
         //=======end
 
-        radioGroup.check((int) members_obj.get_visa_status_id());
+        radioGroup.check((int) members_obj.getVisa_status_id());
 //==============checkbox
 
-        //Log.e("visa", members_obj.get_choice_visa_status_ids());
+        //Log.e("visa", members_obj.getChoice_visa_status_ids());
 
 
-        String[] visa_status_check_ids = members_obj.get_choice_visa_status_ids().split(",");
+        String[] visa_status_check_ids = members_obj.getChoice_visa_status_ids().split(",");
         if (visa_status_check_ids.length > 0) {
             int childcount = llCheckboxView.getChildCount();
             for (int i = 0; i < childcount; i++) {
@@ -528,11 +525,11 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
     private void GetGeographyData() {
 
-        Log.e("RegisterGeography", "" + Urls.RegisterGeography + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        Log.e("RegisterGeography", "" + Urls.RegisterGeography + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         pDialog.show();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Method.GET,
-                Urls.RegisterGeography + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(), null,
+                Urls.RegisterGeography + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -590,9 +587,9 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                             gson = gsonBuilder.create();
                             Members members_obj = gson.fromJson(jsonGrography.get(0).toString(), Members.class);
 
-                            //   Log.e("member   "+MyCountryDataList.get(0).getId(),""+members_obj.get_country_id()+" ");
+                            //   Log.e("member   "+MyCountryDataList.get(0).getId(),""+members_obj.getCountry_id()+" ");
 
-                            if (members_obj.get_country_id() == 0) {
+                            if (members_obj.getCountry_id() == 0) {
                                 updateData = false;
 
                             } else {
@@ -798,7 +795,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
             params.put("postal_code", "");
             params.put("choice_country_ids", choice_country_ids);
             params.put("choice_visa_status_ids", choice_visa_status_ids);
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
         } catch (JSONException e) {
             e.printStackTrace();
         }

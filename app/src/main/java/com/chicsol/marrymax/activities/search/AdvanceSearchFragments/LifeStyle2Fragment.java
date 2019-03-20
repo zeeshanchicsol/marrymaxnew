@@ -108,9 +108,9 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
 
         if (defaultSelectionsObj != null) {
 
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchSiblingPosition, defaultSelectionsObj.get_choice_sibling_ids());
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchSmoking, defaultSelectionsObj.get_choice_smoking_ids());
-            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchDrink, defaultSelectionsObj.get_choice_drink_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchSiblingPosition, defaultSelectionsObj.getChoice_sibling_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchSmoking, defaultSelectionsObj.getChoice_smoking_ids());
+            viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchDrink, defaultSelectionsObj.getChoice_drink_ids());
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchPhysicalChallenges, defaultSelectionsObj.getChoice_physic_ids());
 
         }
@@ -164,17 +164,17 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
         if (buttonView.getTag() != null) {
-            //  Log.e("sibling ids",""+ defaultSelectionsObj.get_choice_raised_ids());
+            //  Log.e("sibling ids",""+ defaultSelectionsObj.getChoice_raised_ids());
             if (buttonView.getTag().equals("sibling")) {
-                defaultSelectionsObj.set_choice_sibling_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchSiblingPosition));
+                defaultSelectionsObj.setChoice_sibling_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchSiblingPosition));
 
 
             }
             if (buttonView.getTag().equals("smoke")) {
-                defaultSelectionsObj.set_choice_smoking_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchSmoking));
+                defaultSelectionsObj.setChoice_smoking_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchSmoking));
             }
             if (buttonView.getTag().equals("drink")) {
-                defaultSelectionsObj.set_choice_drink_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchDrink));
+                defaultSelectionsObj.setChoice_drink_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchDrink));
             }
             if (buttonView.getTag().equals("physicalChallenges")) {
                 defaultSelectionsObj.setChoice_physic_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchPhysicalChallenges));
@@ -204,13 +204,13 @@ public class LifeStyle2Fragment extends Fragment implements CompoundButton.OnChe
     @Override
     public void onClick(View v) {
         if (v.getTag().equals("siblingposition")) {
-            defaultSelectionsObj.set_choice_sibling_ids("");
+            defaultSelectionsObj.setChoice_sibling_ids("");
 
         } else if (v.getTag().equals("smoking")) {
-            defaultSelectionsObj.set_choice_smoking_ids("");
+            defaultSelectionsObj.setChoice_smoking_ids("");
 
         } else if (v.getTag().equals("drink")) {
-            defaultSelectionsObj.set_choice_drink_ids("");
+            defaultSelectionsObj.setChoice_drink_ids("");
 
         }
         else if (v.getTag().equals("physicalChallenges")) {

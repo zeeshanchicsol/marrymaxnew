@@ -108,8 +108,8 @@ public class MySavedSearchesFragment extends Fragment implements dialogUpdateSav
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getSaveSearchLists", Urls.getSaveSearchLists + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path());
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getSaveSearchLists + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).get_path(),
+        Log.e("getSaveSearchLists", Urls.getSaveSearchLists + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getSaveSearchLists + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

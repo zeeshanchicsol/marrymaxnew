@@ -1,16 +1,13 @@
 package com.chicsol.marrymax.activities.whoislookingformesearch;
 
 import android.app.ProgressDialog;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -18,22 +15,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyAccountSubscription;
-import com.chicsol.marrymax.adapters.RecyclerViewAdapterSubscriptionPlan;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterWhoIsLookingForMe;
 import com.chicsol.marrymax.modal.Members;
-import com.chicsol.marrymax.modal.Subscription;
-import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.WebCSC;
 import com.chicsol.marrymax.modal.WebCSCWithList;
-import com.chicsol.marrymax.other.MarryMax;
-import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
@@ -100,16 +90,16 @@ public class WhoIsSearchActivity extends AppCompatActivity {
         Members memberSearchObj = defaultSelectionsObj;
 
         if (memberSearchObj != null) {
-            ///  memberSearchObj.set_path(SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            ///  memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
-            // memberSearchObj.set_member_status(SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status());
-            //  memberSearchObj.set_phone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_phone_verified());
-            // memberSearchObj.set_email_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).get_email_verified());
+            // memberSearchObj.setMember_status(SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+            //  memberSearchObj.setPhone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+            // memberSearchObj.setEmail_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail_verified());
             //page and type
-            memberSearchObj.set_page_no(1);
-            memberSearchObj.set_type("");
+            memberSearchObj.setPage_no(1);
+            memberSearchObj.setType("");
 
-            Log.e("gender",memberSearchObj.get_gender());
+            Log.e("gender",memberSearchObj.getGender());
 
             Gson gson = new Gson();
 

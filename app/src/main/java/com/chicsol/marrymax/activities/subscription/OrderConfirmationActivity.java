@@ -49,7 +49,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
 
         JSONObject params = new JSONObject();
         try {
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
             // params.put("transpath", "AN~ZyeoBPTY=");
             params.put("transpath", transpath);
 

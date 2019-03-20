@@ -310,7 +310,7 @@ public class RecyclerViewAdapterMemberList extends RecyclerView.Adapter<Recycler
                         jsonObject.put("userpath", obj.getUserpath());
 
 
-                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).get_path());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         delete(jsonObject);
                     } catch (JSONException e) {

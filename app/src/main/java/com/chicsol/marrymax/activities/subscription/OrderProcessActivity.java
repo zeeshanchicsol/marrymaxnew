@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -212,7 +211,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         try {
 
 
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
             params.put("member_ip", ip);
             //    params.put("status", status);
 
@@ -230,7 +229,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
 
             params.put("procode_code", procode_code);
-            params.put("checkout_email_address", SharedPreferenceManager.getUserObject(getApplicationContext()).get_email());
+            params.put("checkout_email_address", SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail());
 
 
         } catch (JSONException e) {
@@ -554,7 +553,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         pDialog.setVisibility(View.VISIBLE);
 
 
-        Log.e("api path", "" + Urls.getPersonsList + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        Log.e("api path", "" + Urls.getPersonsList + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getPersonsList,
                 new Response.Listener<JSONArray>() {
@@ -615,9 +614,9 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         pDialog.setVisibility(View.VISIBLE);
 
 
-        Log.e("getPaymentPending path", "" + Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+        Log.e("getPaymentPending path", "" + Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -626,7 +625,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         int v = Math.round(Float.parseFloat(response));
                         Log.e("response", v + "");
 
-                        if (SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 2 || SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status() == 3 && v == 0) {
+                        if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 2 || SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 3 && v == 0) {
                             llMain.setVisibility(View.VISIBLE);
                             llErrorMessag.setVisibility(View.GONE);
                             generateCart(getParams(false));
@@ -635,7 +634,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                             llErrorMessag.setVisibility(View.VISIBLE);
 
 
-                            long member_status = SharedPreferenceManager.getUserObject(getApplicationContext()).get_member_status();
+                            long member_status = SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status();
                             if (member_status == 0 || member_status == 1) {
 
                                 tvErrorHeading.setText("You need to complete and verify your profile before you can purchase subscription.");
@@ -679,7 +678,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                 return Constants.getHashMap();
             }
         };
-     /*   JsonArrayRequest req = new JsonArrayRequest(Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).get_path(),
+     /*   JsonArrayRequest req = new JsonArrayRequest(Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -925,7 +924,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
             }
 
 
-            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).get_path());
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         } catch (JSONException e) {
             e.printStackTrace();

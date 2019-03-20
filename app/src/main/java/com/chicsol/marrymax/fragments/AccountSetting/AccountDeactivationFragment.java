@@ -205,7 +205,7 @@ public class AccountDeactivationFragment extends Fragment {
 
                         JSONObject params = new JSONObject();
                         try {
-                            params.put("path", SharedPreferenceManager.getUserObject(getContext()).get_path());
+                            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                             params.put("deactivate_reason_id", obj.getId());
                             if (!obj.getId().equals("-1")) {
                                 params.put("deactivate_reason", reason);
@@ -311,9 +311,9 @@ public class AccountDeactivationFragment extends Fragment {
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("api path", "" + Urls.getDeactivateReasons + SharedPreferenceManager.getUserObject(getContext()).get_path());
+        Log.e("api path", "" + Urls.getDeactivateReasons + SharedPreferenceManager.getUserObject(getContext()).getPath());
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getDeactivateReasons + SharedPreferenceManager.getUserObject(getContext()).get_path(),
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getDeactivateReasons + SharedPreferenceManager.getUserObject(getContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
