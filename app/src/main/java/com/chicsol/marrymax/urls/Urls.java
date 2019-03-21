@@ -282,6 +282,7 @@ public class Urls {
     public static String getContactList = baseUrl + "/api/WebArd/GetContactList/";
     public static String contactUs = baseUrl + "/api/WebArd/ContactUs";
 
+    public static String getContactData = baseUrl + "/api/WebArd/GetContactData";
 
     //================MATCH AID==================
     public static String getAssistanceList = baseUrl + "/api/WebArd/GetAssistanceList/";

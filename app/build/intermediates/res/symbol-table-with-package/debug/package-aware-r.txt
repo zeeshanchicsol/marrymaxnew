@@ -1230,6 +1230,7 @@ drawable ic_home_black_24dp
 drawable ic_incognito_white_24dp
 drawable ic_info_24dp
 drawable ic_jcb
+drawable ic_live_help_black_24dp
 drawable ic_location_on_black_24dp
 drawable ic_logo
 drawable ic_logo_stripe
@@ -1535,6 +1536,7 @@ id ImagePhotoUploadViewDeleteImage
 id ImageViewASContactLandLineNumberVerify
 id ImageViewAccountSettingMySubsActive
 id ImageViewAdvSearchIcon
+id ImageViewContactSupport
 id ImageViewCountryFlag
 id ImageViewDashMainNotificaitonIcon
 id ImageViewDefaultImage
@@ -1841,6 +1843,7 @@ id RecyclerViewWhoIsSearch
 id RelativeLayoutDashAcceptedMembers
 id RelativeLayoutDashBlocked
 id RelativeLayoutDashMyFavourites
+id RelativeLayoutDashMyMatches
 id RelativeLayoutDashMyNotes
 id RelativeLayoutDashRecommendedMatch
 id RelativeLayoutDashRemoveFromSearch
@@ -1945,6 +1948,7 @@ id TextViewDMFavouriteCount
 id TextViewDMMatchesLookingForMeCount
 id TextViewDMMatchesWithPhotoUpdateCount
 id TextViewDMMembersLookingForMeCount
+id TextViewDMMyMatchesCount
 id TextViewDMNewInteretsCount
 id TextViewDMNewMessagesCount
 id TextViewDMNewRequestsCount
@@ -2069,6 +2073,8 @@ id TextViewMultiChoice
 id TextViewMyContactListCallTime
 id TextViewMyContactsEmptyMessage
 id TextViewMyInterestRequestsUsername
+id TextViewMyMatchesCount
+id TextViewMyMatches_ic
 id TextViewMyProfileStatusDesc
 id TextViewMyProfileStatusLandNumber
 id TextViewMyProfileStatusMobileNumber
@@ -2236,6 +2242,7 @@ id TextViewUserProfileDeleteMessage
 id TextViewUserProfileFeedback
 id TextViewWhoIsTitle
 id TextViewdmAlias
+id TextViewdmWelcome
 id TextiewDialogWithdrawRequestTitle
 id ViewAppearance
 id ViewCircleHeight
@@ -2877,6 +2884,7 @@ layout dialog_add_notes
 layout dialog_add_to_list
 layout dialog_block
 layout dialog_contact_details
+layout dialog_contact_support
 layout dialog_decline
 layout dialog_enter_promo_code
 layout dialog_feedback

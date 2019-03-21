@@ -2,6 +2,7 @@ package com.chicsol.marrymax.fragments;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -44,11 +45,14 @@ import com.chicsol.marrymax.activities.MyProfileActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.activities.subscription.SubscriptionPlanActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapter;
+import com.chicsol.marrymax.dialogs.dialogBlock;
+import com.chicsol.marrymax.dialogs.dialogContactSupport;
 import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.fragments.DashMain.DashMembersFragment;
 import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.mDshCount;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -80,7 +84,7 @@ import java.util.Map;
  * Created by Android on 11/3/2016.
  */
 
-public class DashboardMainFragment extends Fragment implements RecyclerViewAdapter.OnItemClickListener, DashboarMainActivityWithBottomNav.BottomNavSelected, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
+public class DashboardMainFragment extends Fragment implements RecyclerViewAdapter.OnItemClickListener, DashboarMainActivityWithBottomNav.BottomNavSelected, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener, dialogContactSupport.onCompleteListener {
 
     String Tag = "DashboardMainFragment";
     public ImageLoader imageLoader;
@@ -97,7 +101,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
     private ProgressBar pDialog;
     private TextView tvWIV, tvWVM, tvPMP, tvMWPU, tvMemLFM, tvMatchesLFM, tvNewMessages, tvNewRequests, tvNewInterests;
-    private TextView tvAcceptedMembers, tvMyFavourites, tvMyNotes, tvRemoveFromSearch, tvBlocked, tvAaccMemCount, tvMFavCount, tvMyNotesCount, tvRecommenedMatchesCount, tvRemovedFromSearchCount, tvBlockedCount, tvProfileCompleteion, tvFeedbackPending;
+    private TextView tvAcceptedMembers, tvMyFavourites, tvMyNotes, tvRemoveFromSearch, tvBlocked, tvAaccMemCount, tvMyMatchesCount, tvMFavCount, tvMyNotesCount, tvRecommenedMatchesCount, tvRemovedFromSearchCount, tvBlockedCount, tvProfileCompleteion, tvFeedbackPending;
     private ImageView ivCompleleProfile, ivVerifyPhone, ivVerifyEmail, ivReviewPending, ivReviewPendingOrange;
     private CardView cardViewProfileCompletionStatus, cvPromoCode, cvFeedbackPending;
 
@@ -111,7 +115,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private AppCompatButton btPhoneRecievedCount, btRequestecievedCount, btInterestRecievedCount, btPermissionsRecievedCount, btPhoneSentCount, btInterestSentCount, btRequestSentCount, btPermissionsSentCount, btGiveFeedback;
 
     private TextView tvCount1, tvCount2, tvCount3, tvCount4, tvPromoMessageTitle;
-    private RelativeLayout rlAcceptedMem, rlMyFav, rlMyNotes, rlRemoveFromSearch, rlBlocked, rlRecommededMatches;
+    private RelativeLayout rlAcceptedMem, rlMyMatches, rlMyFav, rlMyNotes, rlRemoveFromSearch, rlBlocked, rlRecommededMatches;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     // FragmentTransaction transaction;
@@ -124,7 +128,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private AppCompatButton btDashboardGetOfferNow, btDashboardDismissBanner;
     private RelativeLayout rlUpgrade;
     private LinearLayout llMatchPreference;
-
+    private ImageView ivContactSupport;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -175,6 +179,10 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarDashMain1);
         pDialog.setVisibility(View.GONE);
 
+
+        ivContactSupport = (ImageView) view.findViewById(R.id.ImageViewContactSupport);
+
+
         btDashboardGetOfferNow = (AppCompatButton) view.findViewById(R.id.ButtonDashboardGetOfferNow);
         btDashboardDismissBanner = (AppCompatButton) view.findViewById(R.id.ButtonDashboardDismissBanner);
 
@@ -221,6 +229,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
         // ,,,,;
         rlAcceptedMem = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashAcceptedMembers);
+        rlMyMatches = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashMyMatches);
+
         rlMyFav = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashMyFavourites);
         rlMyNotes = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashMyNotes);
         rlRemoveFromSearch = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashRemoveFromSearch);
@@ -273,6 +283,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
         tvAaccMemCount = (TextView) view.findViewById(R.id.TextViewDMAcceptedMemCount);
+        tvMyMatchesCount = (TextView) view.findViewById(R.id.TextViewDMMyMatchesCount);
+
         tvMFavCount = (TextView) view.findViewById(R.id.TextViewDMFavouriteCount);
         tvMyNotesCount = (TextView) view.findViewById(R.id.TextViewDMNotesCount);
         tvRecommenedMatchesCount = (TextView) view.findViewById(R.id.TextViewDMRecommendedMatchesCount);
@@ -488,6 +500,15 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
     public void setListener() {
 
+
+        ivContactSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contactSupport();
+            }
+        });
+
+
         btGiveFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -677,6 +698,18 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                 startActivity(in);
             }
         });
+
+
+        rlMyMatches.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 24);
+                startActivity(in);
+            }
+        });
+
+
         rlMyFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -961,6 +994,102 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     }
 
 
+    private void contactSupport() {
+
+        pDialog.setVisibility(View.VISIBLE);
+
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getContactData,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d("Response", response.toString());
+
+
+                        try {
+                            JSONArray responseJSONArray = response.getJSONArray(0);
+
+                            dialogContactSupport newFragment = dialogContactSupport.newInstance(responseJSONArray);
+                            newFragment.setTargetFragment(DashboardMainFragment.this, 0);
+                            newFragment.show(getFragmentManager(), "dialog");
+
+
+                        } catch (JSONException e) {
+                            pDialog.setVisibility(View.INVISIBLE);
+                            e.printStackTrace();
+                        }
+
+                        pDialog.setVisibility(View.INVISIBLE);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+                pDialog.setVisibility(View.INVISIBLE);
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        MySingleton.getInstance(context).addToRequestQueue(req);
+    }
+
+
+/*    private void contactSupport() {
+
+
+        final ProgressDialog pDialog = new ProgressDialog(context);
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+        Log.e("api path", "" + Urls.getContactData);
+
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getContactData,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.e("Response", response.toString());
+                   *//*     try {
+
+
+                            JSONArray jsonCountryStaeObj = response.getJSONArray(0);
+
+
+                            Gson gsonc;
+                            GsonBuilder gsonBuilderc = new GsonBuilder();
+                            gsonc = gsonBuilderc.create();
+                            Type listType = new TypeToken<List<WebArd>>() {
+                            }.getType();
+
+                            List<WebArd> MyCountryStateDataList = (List<WebArd>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+*//*
+                        pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+                pDialog.dismiss();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(context).addToRequestQueue(req);
+    }*/
+
+
     //  GetDashboardData
     private void getDashboardData() {
 
@@ -1026,6 +1155,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 }
 
 
+                                if (Integer.parseInt(dash.getNotes_count()) == 1) {
+                                    ivContactSupport.setVisibility(View.VISIBLE);
+                                } else {
+                                    ivContactSupport.setVisibility(View.GONE);
+                                }
+
+
                                 tvWIV.setClickable(true);
                                 tvWIV.setText("Whom I Viewed (" + dash.getVisited_members_count() + ")");
                                 if (Integer.parseInt(dash.getVisited_members_count()) == 0) {
@@ -1081,9 +1217,16 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
                                 rlAcceptedMem.setClickable(true);
-                                tvAaccMemCount.setText(dash.getAccepted_count());
-                                if (Integer.parseInt(dash.getAccepted_count()) == 0) {
+                                tvAaccMemCount.setText(dash.getCount());
+                                if (Integer.parseInt(dash.getCount()) == 0) {
                                     rlAcceptedMem.setClickable(false);
+                                }
+
+
+                                rlMyMatches.setClickable(true);
+                                tvMyMatchesCount.setText(dash.getAccepted_count());
+                                if (Integer.parseInt(dash.getAccepted_count()) == 0) {
+                                    rlMyMatches.setClickable(false);
                                 }
 
 
@@ -1487,6 +1630,11 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     @Override
     public void onPreferenceComplete(String s) {
         setupViewPager();
+    }
+
+    @Override
+    public void onComplete(String s) {
+
     }
 
     /*private void getStatus() {

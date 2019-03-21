@@ -208,9 +208,16 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
                 fragment = new MyMatchesFragment();
                 break;
 
+
+
             case 25:
                 getSupportActionBar().setTitle("Feedback");
                 fragment = new MyFeedbackFragment();
+                break;
+
+            case 26:
+                getSupportActionBar().setTitle("My Matches");
+                fragment = new MyMatchesFragment();
                 break;
         }
 
