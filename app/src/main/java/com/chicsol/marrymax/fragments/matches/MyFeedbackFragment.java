@@ -1,4 +1,4 @@
-package com.chicsol.marrymax.fragments.list;
+package com.chicsol.marrymax.fragments.matches;
 
 import android.content.Context;
 import android.content.Intent;

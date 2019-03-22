@@ -150,7 +150,7 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/TextViewSubscriptionPlanShortDescription"
+                                android:id="@+id/TextViewSubscriptionPlanPhoneNumbers"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
@@ -159,15 +159,15 @@
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
 
-                            <!--  <TextView
-                                  android:id="@+id/TextViewSubscriptionPlanShortDescriptionMatchesCount"
-                                  android:layout_width="wrap_content"
-                                  android:layout_height="wrap_content"
-                                  android:layout_marginLeft="5dp"
-                                  android:layout_marginTop="5dp"
+                            <TextView
+                                android:id="@+id/TextViewSubscriptionPlanMatchesCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="5dp"
 
-                                  android:textColor="@color/colorSubscriptionDarkGrey"
-                                  android:textSize="15sp" />-->
+                                android:textColor="@color/colorSubscriptionDarkGrey"
+                                android:textSize="15sp" />
 
 
                         </LinearLayout>

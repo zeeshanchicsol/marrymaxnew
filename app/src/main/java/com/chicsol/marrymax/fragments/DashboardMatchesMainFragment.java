@@ -21,6 +21,7 @@ import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.fragments.matches.LookingForEachOther;
 import com.chicsol.marrymax.fragments.matches.MatchesWithPhotoUpdate2Fragment;
 import com.chicsol.marrymax.fragments.matches.MyFavouriteMatches;
+import com.chicsol.marrymax.fragments.matches.MyFeedbackFragment;
 import com.chicsol.marrymax.fragments.matches.MyMatchesFragment;
 import com.chicsol.marrymax.fragments.matches.PrefferedMatchingProfileFragment;
 import com.chicsol.marrymax.fragments.matches.WhoisLookingForMe;
@@ -211,6 +212,7 @@ public class DashboardMatchesMainFragment extends Fragment implements DashboarMa
         adapter.addFragment(new WhoisLookingForMe(), " Who is Looking For Me ");
         adapter.addFragment(new LookingForEachOther(), " Looking For Each Other ");
         adapter.addFragment(new MatchesWithPhotoUpdate2Fragment(), " Matches With Photo Update ");
+        adapter.addFragment(new MyFeedbackFragment(), "Feedback");
       /*  adapter.addFragment(new MyFavouriteMatches(), " My Favourite Matches ");*/
      /*   adapter.addFragment(new AccpetedMembers(), " Accepted Members ");*/
        /*   adapter.addFragment(new PrivacySettingsFragment(), "Privacy Setting ");

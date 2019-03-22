@@ -351,7 +351,7 @@ public class RecyclerViewAdapterMatchAid extends RecyclerView.Adapter<RecyclerVi
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvPlanName, tvPlanDuration, tvPlanTitle, tvPlanShortDescription;
+        public TextView tvPlanName, tvPlanDuration, tvPlanTitle;
 
         AppCompatButton btPurchase;
 
@@ -362,7 +362,6 @@ public class RecyclerViewAdapterMatchAid extends RecyclerView.Adapter<RecyclerVi
             tvPlanName = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanName);
             tvPlanDuration = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanDuration);
             tvPlanTitle = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanTitleDetail);
-            tvPlanShortDescription = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescription);
 
             btPurchase = (AppCompatButton) itemView.findViewById(R.id.ButtonSubscriptionPurchase);
 

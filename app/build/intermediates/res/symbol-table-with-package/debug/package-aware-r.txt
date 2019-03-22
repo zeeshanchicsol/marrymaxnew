@@ -1696,6 +1696,7 @@ id LinearLayoutOrderProcessSpinner
 id LinearLayoutPermissionPhone
 id LinearLayoutPermissionPicture
 id LinearLayoutPermissionProfile
+id LinearLayoutProfileDetailMemDetail
 id LinearLayoutQuestionMyProfile
 id LinearLayoutRecommendedMembersNotFound
 id LinearLayoutRecyclerMemSinceLastWeek
@@ -2170,13 +2171,16 @@ id TextViewRequests
 id TextViewRequests_ic
 id TextViewShortDescriptionMM
 id TextViewSubscriptionPlanDuration
+id TextViewSubscriptionPlanMatchesCount
 id TextViewSubscriptionPlanName
 id TextViewSubscriptionPlanPackages
-id TextViewSubscriptionPlanShortDescription
+id TextViewSubscriptionPlanPhoneNumbers
 id TextViewSubscriptionPlanTitleDetail
 id TextViewTermsConditions
 id TextViewTitle
 id TextViewUPAboutMyChoice
+id TextViewUPAboutParents
+id TextViewUPAboutSiblings
 id TextViewUPAge
 id TextViewUPAlias
 id TextViewUPBrothers
@@ -2220,6 +2224,7 @@ id TextViewUPHairColor
 id TextViewUPHeight
 id TextViewUPHijaab
 id TextViewUPIncome
+id TextViewUPJobDetails
 id TextViewUPLastLoginDate
 id TextViewUPLivingArrangements
 id TextViewUPLocation
@@ -2234,9 +2239,11 @@ id TextViewUPProfileFor
 id TextViewUPRaised
 id TextViewUPReligion
 id TextViewUPReligiousSect
+id TextViewUPResidenceDetails
 id TextViewUPSiblingPosition
 id TextViewUPSisters
 id TextViewUPSmoke
+id TextViewUPSocialDetail
 id TextViewUPWhatIdo
 id TextViewUserProfileDeleteMessage
 id TextViewUserProfileFeedback

@@ -61,6 +61,7 @@ import com.chicsol.marrymax.interfaces.RequestCallbackInterface;
 import com.chicsol.marrymax.interfaces.UpdateMemberFromDialogFragment;
 import com.chicsol.marrymax.interfaces.WithdrawRequestCallBackInterface;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.mMemDetail;
 import com.chicsol.marrymax.modal.mMemInterest;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -99,6 +100,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     MarryMax marryMax;
     private int lastSelectedPage = 0;
     Members member;
+    mMemDetail memDetailObj = null;
     private ImageView ivZodiacSign, ivCountrySign, ivPhoneVerified;
     private PopupMenu popupUp;
     //slider
@@ -111,9 +113,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private TabLayout tabLayout1;
     private ViewPager viewPager1;
     private mTextView tvShowInterestButtonText, tvMatchAid, tvImagesCount, tvInterest, tvAlias, tvAge, tvLocation, tvProfileFor, tvReligion, tvEducation, tvOccupation, tvMaritalStatus, tvLastLoginDate;
+
+    private TextView tvResidenceDetails, tvAboutParents, tvAboutSiblings, tvJobDetails, tvEducationDetail, tvSocialDetai;
+
     private DisplayImageOptions options;
     private LayoutInflater inflater;
-    private LinearLayout llScreenMain, llScreenWait, llshowInterest, llBottomshowInterest, llBottomSendMessage, llUPSendMessage, llImagesCount, LineaLayoutUserProfileInterestMessage, LineaLayoutUserProfileTopBar;
+    private LinearLayout llMemDetail, llScreenMain, llScreenWait, llshowInterest, llBottomshowInterest, llBottomSendMessage, llUPSendMessage, llImagesCount, LineaLayoutUserProfileInterestMessage, LineaLayoutUserProfileTopBar;
     private JSONArray responsArray;
     private String userpath;
     private ProgressDialog pDialog;
@@ -293,7 +298,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
     private void loadSlider(String mainPath) {
 
-
+        try {
         if (member.getImage_count() > 0) {
             llImagesCount.setVisibility(View.VISIBLE);
 
@@ -307,57 +312,66 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         // sliderImagesDataList.add(mainPath);
 
 
-        if (responsArray.length() == 5) {
-            // llPicsNotAvailable.setVisibility(View.GONE);
-            Gson gson;
-            GsonBuilder gsonBuilder = new GsonBuilder();
-            gson = gsonBuilder.create();
-            Type membera = new TypeToken<List<Members>>() {
-            }.getType();
+
+            if (responsArray.getJSONArray(4).length() >0) {
+                // llPicsNotAvailable.setVisibility(View.GONE);
+                Gson gson;
+                GsonBuilder gsonBuilder = new GsonBuilder();
+                gson = gsonBuilder.create();
+                Type membera = new TypeToken<List<Members>>() {
+                }.getType();
 
 
-            try {
-
-                JSONArray objectsArray = responsArray.getJSONArray(4);
 
 
-                List<Members> membersDataList = (List<Members>) gson.fromJson(objectsArray.toString(), membera);
+                    JSONArray objectsArray = responsArray.getJSONArray(4);
 
 
-                if (membersDataList.size() == 0) {
-                    sliderImagesDataList.add(mainPath);
-
-                    ibSwipeLeft.setVisibility(View.GONE);
-                    ibSwipeRight.setVisibility(View.GONE);
+                    List<Members> membersDataList = (List<Members>) gson.fromJson(objectsArray.toString(), membera);
 
 
-                } else {
-                    if (membersDataList.size() == 1) {
+                    if (membersDataList.size() == 0) {
+                        sliderImagesDataList.add(mainPath);
+
                         ibSwipeLeft.setVisibility(View.GONE);
                         ibSwipeRight.setVisibility(View.GONE);
+
+
                     } else {
-                        ibSwipeLeft.setVisibility(View.VISIBLE);
-                        ibSwipeRight.setVisibility(View.VISIBLE);
+                        if (membersDataList.size() == 1) {
+                            ibSwipeLeft.setVisibility(View.GONE);
+                            ibSwipeRight.setVisibility(View.GONE);
+                        } else {
+                            ibSwipeLeft.setVisibility(View.VISIBLE);
+                            ibSwipeRight.setVisibility(View.VISIBLE);
+                        }
+
+
+                        Log.e("photozzzzzz count", membersDataList.size() + "  ");
+                        for (int i = 0; i < membersDataList.size(); i++) {
+                            sliderImagesDataList.add(membersDataList.get(i).getPhoto_path());
+                            Log.e("photozzzzzz " + i, membersDataList.get(i).getPhoto_path());
+
+                        }
                     }
 
 
-                    Log.e("photozzzzzz count", membersDataList.size() + "  ");
-                    for (int i = 0; i < membersDataList.size(); i++) {
-                        sliderImagesDataList.add(membersDataList.get(i).getPhoto_path());
-                        Log.e("photozzzzzz " + i, membersDataList.get(i).getPhoto_path());
 
-                    }
-                }
+            }else {
+                sliderImagesDataList.add(mainPath);
 
+                ibSwipeLeft.setVisibility(View.GONE);
+                ibSwipeRight.setVisibility(View.GONE);
 
-                myCustomPagerAdapter = new ImageSliderPagerAdapter(context, sliderImagesDataList, rview);
-                viewPagerSlider.setAdapter(myCustomPagerAdapter);
-
-
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
 
+            myCustomPagerAdapter = new ImageSliderPagerAdapter(context, sliderImagesDataList, rview);
+            viewPagerSlider.setAdapter(myCustomPagerAdapter);
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
     }
@@ -373,6 +387,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         //      llScreenWait = (LinearLayout) view.findViewById(R.id.LinearLayoutscreen_wait);
         llScreenMain = (LinearLayout) view.findViewById(R.id.LinearLayoutUserProfileMainlayout);
+        llMemDetail = (LinearLayout) view.findViewById(R.id.LinearLayoutProfileDetailMemDetail);
 //
 
 
@@ -440,6 +455,15 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         tvLastLoginDate = (mTextView) view.findViewById(R.id.TextViewUPLastLoginDate);
         tvMatchAid = (mTextView) view.findViewById(R.id.TextViewMatchAid);
         llshowInterest = (LinearLayout) view.findViewById(R.id.LinearLayoutShowInterest);
+
+
+        tvResidenceDetails = (TextView) view.findViewById(R.id.TextViewUPResidenceDetails);
+        tvAboutParents = (TextView) view.findViewById(R.id.TextViewUPAboutParents);
+        tvAboutSiblings = (TextView) view.findViewById(R.id.TextViewUPAboutSiblings);
+        tvJobDetails = (TextView) view.findViewById(R.id.TextViewUPJobDetails);
+        tvEducationDetail = (TextView) view.findViewById(R.id.TextViewUPEducationDetail);
+        tvSocialDetai = (TextView) view.findViewById(R.id.TextViewUPSocialDetail);
+
 
         tvShowInterestButtonText = (mTextView) view.findViewById(R.id.mTextViewLinearLayoutUserProfileShowInterestText);
 
@@ -617,6 +641,22 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             menuItem1.setTitle("Request Photo View");
 
         }*/
+
+
+        if (memDetailObj != null) {
+
+            llMemDetail.setVisibility(View.VISIBLE);
+
+            tvResidenceDetails.setText(memDetailObj.getResidence());
+            tvAboutParents.setText(memDetailObj.getParents());
+            tvAboutSiblings.setText(memDetailObj.getSiblings());
+            tvJobDetails.setText(memDetailObj.getJobinfo());
+            tvEducationDetail.setText(memDetailObj.getAcademic());
+            tvSocialDetai.setText(memDetailObj.getSocial());
+        } else {
+            llMemDetail.setVisibility(View.GONE);
+        }
+
 
         postSetListener();
 
@@ -1143,34 +1183,34 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                         try {
                             int res = response.getJSONArray(1).getJSONObject(0).getInt("id");
                             int type = response.getJSONArray(1).getJSONObject(0).getInt("type");
-                        //    Log.e("ressss", "" + res + "");
+                            //    Log.e("ressss", "" + res + "");
 
                             if (type == 0) {
 
-                            if (SharedPreferenceManager.getUserObject(context).getMember_status() != 4) {
-                                dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).getMember_status());
-                                newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
-                                newFragment.show(getFragmentManager(), "dialog");
-
-                            } else {
-                                if (res == 0) {
+                                if (SharedPreferenceManager.getUserObject(context).getMember_status() != 4) {
                                     dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).getMember_status());
                                     newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
                                     newFragment.show(getFragmentManager(), "dialog");
-                                } else if (res == 1) {
-                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
-                                    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
-                                    newFragment.show(getFragmentManager(), "dialog");
-                                } else if (res == -1) {
 
-                                    //
+                                } else {
+                                    if (res == 0) {
+                                        dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).getMember_status());
+                                        newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                        newFragment.show(getFragmentManager(), "dialog");
+                                    } else if (res == 1) {
+                                        dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
+                                        newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                        newFragment.show(getFragmentManager(), "dialog");
+                                    } else if (res == -1) {
 
-                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
-                                    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
-                                    newFragment.show(getFragmentManager(), "dialog");
+                                        //
+
+                                        dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
+                                        newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                        newFragment.show(getFragmentManager(), "dialog");
+                                    }
                                 }
-                            }}
-                            else {
+                            } else {
                                 String aliasn = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
 
@@ -1543,17 +1583,30 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
                         try {
+                            Gson gson;
+                            GsonBuilder gsonBuilder = new GsonBuilder();
+                            gson = gsonBuilder.create();
+
 
 
                             responsArray = response.getJSONArray("jdata");
 
                             JSONObject firstJsonObj = responsArray.getJSONArray(0).getJSONObject(0);
 
+                            Gson gson2;
+                            GsonBuilder gsonBuilder2 = new GsonBuilder();
+                            gson2 = gsonBuilder2.create();
 
-                            Gson gson;
-                            GsonBuilder gsonBuilder = new GsonBuilder();
 
-                            gson = gsonBuilder.create();
+
+                            if (responsArray.getJSONArray(5).length() > 0) {
+                                JSONObject memDetailJsonObj = responsArray.getJSONArray(5).getJSONObject(0);
+                                if (memDetailJsonObj.length() > 0) {
+                                    memDetailObj = (mMemDetail) gson2.fromJson(memDetailJsonObj.toString(), mMemDetail.class);
+
+                                }
+                            }
+
                             Type type = new TypeToken<Members>() {
                             }.getType();
                             member = (Members) gson.fromJson(firstJsonObj.toString(), type);

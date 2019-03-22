@@ -24,7 +24,7 @@ import com.chicsol.marrymax.fragments.inbox.interests.DashboardMyInterestsMainFr
 import com.chicsol.marrymax.fragments.inbox.permissions.DashboardMyPermissionsMainFragment;
 import com.chicsol.marrymax.fragments.inbox.requests.DashboardMyRequestsMainFragment;
 import com.chicsol.marrymax.fragments.list.BlockedListFragment;
-import com.chicsol.marrymax.fragments.list.MyFeedbackFragment;
+import com.chicsol.marrymax.fragments.matches.MyFeedbackFragment;
 import com.chicsol.marrymax.fragments.list.RecommendedMatches;
 import com.chicsol.marrymax.fragments.list.RemovedFromSearchFragment;
 import com.chicsol.marrymax.fragments.list.myContacts.MyContactsMainFragment;

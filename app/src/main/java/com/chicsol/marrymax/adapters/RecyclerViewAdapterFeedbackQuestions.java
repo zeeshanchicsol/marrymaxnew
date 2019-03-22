@@ -23,6 +23,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -120,7 +121,7 @@ public class RecyclerViewAdapterFeedbackQuestions extends RecyclerView.Adapter<R
     @Override
     public void onBindViewHolder(MMViewHolder holder, int position) {
         final WebArd obj = items.get(position);
-        holder.tvQuestionTitle.setText(obj.getName());
+        holder.tvQuestionTitle.setText(Html.fromHtml("&#8226; "+obj.getName()));
        /* int q = position + 1;
 
 

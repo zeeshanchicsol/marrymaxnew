@@ -23,6 +23,18 @@ public class mMemDetail {
     public String social;
 
 
+    @SerializedName("jobinfo")
+    public String jobinfo;
+
+
+    public String getJobinfo() {
+        return jobinfo;
+    }
+
+    public void setJobinfo(String jobinfo) {
+        this.jobinfo = jobinfo;
+    }
+
     public long getInfo_id() {
         return info_id;
     }

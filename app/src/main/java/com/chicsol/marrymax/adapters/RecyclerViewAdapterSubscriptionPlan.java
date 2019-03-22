@@ -257,6 +257,11 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
 
 
             } else */
+
+            holder.tvPhoneNumbersCount.setText(Math.round(obj.getOrder_cost())+" Verified Phone Numbers ");
+            holder.tvMatchesCount.setText(Math.round(obj.getTotal_cost())+" Matches Communication ");
+
+
             if (obj.getItem_name().equals("Gold")) {
 
                 holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGolden));
@@ -264,7 +269,9 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionGolden));
                 }
-                holder.tvPlanShortDescription.setText("10 Matches / Rishtay ");
+
+
+
                 //   holder.tvPlanShortDescriptionMatchesCount.setText("100 Matches Communication ");
 
             } else if (obj.getItem_name().equals("Platinum")
@@ -274,7 +281,8 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionPlatinum));
                 }
-                holder.tvPlanShortDescription.setText("20 Matches / Rishtay ");
+
+
                 //   holder.tvPlanShortDescriptionMatchesCount.setText("150 Matches Communication ");
 
             }
@@ -352,7 +360,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvPlanName, tvRecomm, tvPlanDuration, tvPlanTitle, tvPlanShortDescription;
+        public TextView tvPlanName, tvRecomm, tvPlanDuration, tvPlanTitle, tvPhoneNumbersCount,tvMatchesCount;
         //   tvPlanShortDescriptionMatchesCount
 
         AppCompatButton btPurchase;
@@ -364,7 +372,9 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
             tvPlanName = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanName);
             tvPlanDuration = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanDuration);
             tvPlanTitle = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanTitleDetail);
-            tvPlanShortDescription = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescription);
+            tvPhoneNumbersCount = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanPhoneNumbers);
+            tvMatchesCount = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanMatchesCount);
+
             // tvPlanShortDescriptionMatchesCount = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescriptionMatchesCount);
 
             btPurchase = (AppCompatButton) itemView.findViewById(R.id.ButtonSubscriptionPurchase);
