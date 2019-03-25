@@ -299,21 +299,20 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private void loadSlider(String mainPath) {
 
         try {
-        if (member.getImage_count() > 0) {
-            llImagesCount.setVisibility(View.VISIBLE);
+            if (member.getImage_count() > 0) {
+                llImagesCount.setVisibility(View.VISIBLE);
 
-        } else {
-            llImagesCount.setVisibility(View.GONE);
+            } else {
+                llImagesCount.setVisibility(View.GONE);
 
-        }
-
-
-        sliderImagesDataList = new ArrayList<>();
-        // sliderImagesDataList.add(mainPath);
+            }
 
 
+            sliderImagesDataList = new ArrayList<>();
+            // sliderImagesDataList.add(mainPath);
 
-            if (responsArray.getJSONArray(4).length() >0) {
+
+            if (responsArray.getJSONArray(4).length() > 0) {
                 // llPicsNotAvailable.setVisibility(View.GONE);
                 Gson gson;
                 GsonBuilder gsonBuilder = new GsonBuilder();
@@ -322,42 +321,39 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 }.getType();
 
 
+                JSONArray objectsArray = responsArray.getJSONArray(4);
 
 
-                    JSONArray objectsArray = responsArray.getJSONArray(4);
+                List<Members> membersDataList = (List<Members>) gson.fromJson(objectsArray.toString(), membera);
 
 
-                    List<Members> membersDataList = (List<Members>) gson.fromJson(objectsArray.toString(), membera);
+                if (membersDataList.size() == 0) {
+                    sliderImagesDataList.add(mainPath);
+
+                    ibSwipeLeft.setVisibility(View.GONE);
+                    ibSwipeRight.setVisibility(View.GONE);
 
 
-                    if (membersDataList.size() == 0) {
-                        sliderImagesDataList.add(mainPath);
-
+                } else {
+                    if (membersDataList.size() == 1) {
                         ibSwipeLeft.setVisibility(View.GONE);
                         ibSwipeRight.setVisibility(View.GONE);
-
-
                     } else {
-                        if (membersDataList.size() == 1) {
-                            ibSwipeLeft.setVisibility(View.GONE);
-                            ibSwipeRight.setVisibility(View.GONE);
-                        } else {
-                            ibSwipeLeft.setVisibility(View.VISIBLE);
-                            ibSwipeRight.setVisibility(View.VISIBLE);
-                        }
-
-
-                        Log.e("photozzzzzz count", membersDataList.size() + "  ");
-                        for (int i = 0; i < membersDataList.size(); i++) {
-                            sliderImagesDataList.add(membersDataList.get(i).getPhoto_path());
-                            Log.e("photozzzzzz " + i, membersDataList.get(i).getPhoto_path());
-
-                        }
+                        ibSwipeLeft.setVisibility(View.VISIBLE);
+                        ibSwipeRight.setVisibility(View.VISIBLE);
                     }
 
 
+                    Log.e("photozzzzzz count", membersDataList.size() + "  ");
+                    for (int i = 0; i < membersDataList.size(); i++) {
+                        sliderImagesDataList.add(membersDataList.get(i).getPhoto_path());
+                        Log.e("photozzzzzz " + i, membersDataList.get(i).getPhoto_path());
 
-            }else {
+                    }
+                }
+
+
+            } else {
                 sliderImagesDataList.add(mainPath);
 
                 ibSwipeLeft.setVisibility(View.GONE);
@@ -367,7 +363,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
             myCustomPagerAdapter = new ImageSliderPagerAdapter(context, sliderImagesDataList, rview);
             viewPagerSlider.setAdapter(myCustomPagerAdapter);
-
 
 
         } catch (JSONException e) {
@@ -1588,7 +1583,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             gson = gsonBuilder.create();
 
 
-
                             responsArray = response.getJSONArray("jdata");
 
                             JSONObject firstJsonObj = responsArray.getJSONArray(0).getJSONObject(0);
@@ -1596,9 +1590,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             Gson gson2;
                             GsonBuilder gsonBuilder2 = new GsonBuilder();
                             gson2 = gsonBuilder2.create();
-
-
-
                             if (responsArray.getJSONArray(5).length() > 0) {
                                 JSONObject memDetailJsonObj = responsArray.getJSONArray(5).getJSONObject(0);
                                 if (memDetailJsonObj.length() > 0) {
@@ -1606,6 +1597,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                                 }
                             }
+
 
                             Type type = new TypeToken<Members>() {
                             }.getType();

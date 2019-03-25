@@ -126,7 +126,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     TextView tvEditProfile, tvViewProfile, tvAccStatus;
 
     private AppCompatButton btDashboardGetOfferNow, btDashboardDismissBanner;
-    private RelativeLayout rlUpgrade;
+  //  private RelativeLayout rlUpgrade;
     private LinearLayout llMatchPreference;
     private ImageView ivContactSupport;
 
@@ -236,7 +236,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         rlRemoveFromSearch = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashRemoveFromSearch);
         rlBlocked = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashBlocked);
         rlRecommededMatches = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashRecommendedMatch);
-        rlUpgrade = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashUpgrade);
+     //   rlUpgrade = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashUpgrade);
 
 
         llNewMessages = (LinearLayout) view.findViewById(R.id.LinearLayoutDMNewMessages);
@@ -416,12 +416,12 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     }
 
     private void LoadData() {
-        rlUpgrade.setVisibility(View.GONE);
+      /*  rlUpgrade.setVisibility(View.GONE);
         if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
 
             rlUpgrade.setVisibility(View.VISIBLE);
         }
-
+*/
 
         if (SharedPreferenceManager.getUserObject(context).getMember_status() != 4) {
             tvAccStatus.setVisibility(View.VISIBLE);
@@ -529,13 +529,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         });
 
 
-        rlUpgrade.setOnClickListener(new View.OnClickListener() {
+       /* rlUpgrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(), SubscriptionPlanActivity.class);
                 startActivity(in);
             }
-        });
+        });*/
         tvEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

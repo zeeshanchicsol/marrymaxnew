@@ -569,7 +569,8 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
         public ImageView image;
 
         public TextView tvAlias, tvAge, tvPhone, tvPreferedCallTime, tvCountry, tvDate;
-        public faTextView faRemove, faFeedback;
+        public faTextView faRemove;
+        //  faFeedback
         LinearLayout llCallTime, llPhoneNumber, llFeedback, llViewFeedback;
 
         public MMViewHolder(View itemView) {
@@ -582,7 +583,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
 
             tvDate = (TextView) itemView.findViewById(R.id.TextViewListDate);
             faRemove = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemRemove);
-            faFeedback = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemFeedback);
+            //   faFeedback = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemFeedback);
 
             llFeedback = (LinearLayout) itemView.findViewById(R.id.LinearLayoutMyContactItemFeedback);
 

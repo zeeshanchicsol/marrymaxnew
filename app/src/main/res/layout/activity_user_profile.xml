@@ -592,9 +592,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Residence Details: "
-                                android:textStyle="bold"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack" />
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/TextViewUPResidenceDetails"
@@ -603,8 +603,7 @@
                                 android:layout_marginBottom="10dp"
 
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
-                               />
+                                android:textColor="@color/colorBlack" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -616,9 +615,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="AboutParents: "
-                                android:textStyle="bold"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack" />
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/TextViewUPAboutParents"
@@ -626,8 +625,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
-                                />
+                                android:textColor="@color/colorBlack" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -639,9 +637,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="About Siblings: "
-                                android:textStyle="bold"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack" />
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/TextViewUPAboutSiblings"
@@ -650,23 +648,22 @@
                                 android:layout_marginBottom="10dp"
 
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
-                              />
+                                android:textColor="@color/colorBlack" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
+                            android:layout_marginTop="8dp"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Job Details: "
-                                android:textStyle="bold"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack" />
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/TextViewUPJobDetails"
@@ -675,8 +672,7 @@
                                 android:layout_marginBottom="10dp"
 
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
-                         />
+                                android:textColor="@color/colorBlack" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -689,9 +685,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Education Detail: "
-                                android:textStyle="bold"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack" />
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/TextViewUPEducationDetail"
@@ -700,8 +696,7 @@
                                 android:layout_marginBottom="10dp"
 
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
-                               />
+                                android:textColor="@color/colorBlack" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -714,9 +709,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Social Detail: "
-                                android:textStyle="bold"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack" />
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/TextViewUPSocialDetail"
@@ -725,8 +720,7 @@
                                 android:layout_marginBottom="10dp"
 
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
-                                />
+                                android:textColor="@color/colorBlack" />
                         </LinearLayout>
 
                     </LinearLayout>

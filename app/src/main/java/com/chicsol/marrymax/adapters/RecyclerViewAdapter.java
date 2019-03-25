@@ -202,8 +202,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             holder.age.setText("( " + item.getAge() + " )");
             holder.eduMaritalStatus.setText(item.getEducation_types() + " | " + item.getMarital_status_types());
             holder.country.setText(item.getCountry_name());
-
-            holder.aboutme.setText(item.getAbout_member());
+            String textdesc = "";
+            if (item.getAbout_member().length() > 20) {
+                textdesc = item.getAbout_member().substring(0, 20);
+            }
+            holder.aboutme.setText(textdesc);
 
 
             imageLoader.displayImage(Urls.baseUrl + "/" + item.getDefault_image(),

@@ -571,31 +571,25 @@
                                                 android:textColor="@color/colorDashboardMainTextRed"
                                                 android:textStyle="bold" />
 
-                                            <ImageView
-                                                android:id="@+id/ImageViewContactSupport"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_alignParentRight="true"
-                                                android:layout_gravity="right"
-                                                android:layout_marginRight="5dp"
-                                                android:clickable="true"
-                                                app:srcCompat="@drawable/ic_live_help_black_24dp" />
 
                                         </RelativeLayout>
 
-                                        <LinearLayout
+                                        <RelativeLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
+
                                             android:layout_marginTop="3dp">
 
                                             <TextView
                                                 android:id="@+id/TextViewDashMainEditProfile"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
+                                                android:layout_alignParentLeft="true"
                                                 android:background="?selectableItemBackground"
                                                 android:clickable="true"
                                                 android:fontFamily="sans-serif"
                                                 android:text="Edit "
+                                                android:layout_centerVertical="true"
                                                 android:textColor="@color/colorASBlue"
                                                 android:textStyle="bold" />
 
@@ -610,14 +604,26 @@
                                                 android:id="@+id/TextViewDashMainAddPhoto"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
+                                                android:layout_toRightOf="@+id/TextViewDashMainEditProfile"
                                                 android:background="?selectableItemBackground"
                                                 android:clickable="true"
+                                                android:layout_centerVertical="true"
                                                 android:fontFamily="sans-serif"
                                                 android:text="  |  View Profile"
                                                 android:textColor="@color/colorASBlue"
                                                 android:textStyle="bold" />
+                                          <!--  android:src="@drawable/ic_lets_talk"-->
+                                            <ImageView
+                                                android:id="@+id/ImageViewContactSupport"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentRight="true"
+                                                android:layout_gravity="right"
+                                                android:layout_marginRight="5dp"
+                                                android:clickable="true"
+                                                android:src="@drawable/ic_lets_talk" />
 
-                                        </LinearLayout>
+                                        </RelativeLayout>
 
                                         <!--             <TextView
                                                          android:layout_width="wrap_content"
@@ -638,7 +644,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="3dp"
                                                 android:fontFamily="sans-serif"
-                                                android:text="Free Member"
+                                                android:text="Basic Membership"
                                                 android:textColor="@color/colorDashboardMainNormalText"
                                                 android:visibility="gone"
 
@@ -699,7 +705,7 @@
 
                                                </LinearLayout>-->
 
-                                        <RelativeLayout
+                              <!--          <RelativeLayout
                                             android:id="@+id/RelativeLayoutDashUpgrade"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -710,24 +716,6 @@
                                             android:background="@drawable/shape_chip_drawable_home_page_upgrade"
                                             android:clickable="true"
                                             android:visibility="gone">
-
-                                            <!--    <de.hdodenhof.circleimageview.CircleImageView
-                                                    android:id="@+id/icon"
-                                                    android:layout_width="@dimen/icon_height"
-                                                    android:layout_height="@dimen/icon_height"
-                                                    android:src="@drawable/ic_add_white_24dp"
-                                                    app:civ_border_color="#FF000000" />-->
-                                            <!--    <TextView
-                                                         android:id="@+id/TextViewItemsCount"
-                                                         android:layout_width="20dp"
-                                                         android:layout_height="20dp"
-                                                         android:layout_centerVertical="true"
-                                                         android:layout_marginLeft="6dp"
-                                                         android:background="@drawable/rounded_textview"
-                                                         android:gravity="center"
-                                                         android:text="1"
-                                                         android:textColor="@android:color/holo_green_dark" />-->
-
 
                                             <ImageView
                                                 android:id="@+id/imageViewStar"
@@ -752,7 +740,7 @@
                                                 android:textColor="@color/colorDefaultGreen"
                                                 android:textSize="14sp" />
 
-                                        </RelativeLayout>
+                                        </RelativeLayout>-->
 
                                         <!--   <android.support.v7.widget.AppCompatButton
                                                style="@style/Base.Widget.AppCompat.Button"
@@ -2351,8 +2339,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="14sp"
                             android:layout_gravity="center_vertical"
-                            android:tint="@color/colorBlack"
-                            app:srcCompat="@drawable/ic_profile_settings_24dp" />
+
+                            app:srcCompat="@drawable/ic_pref" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -2360,7 +2348,7 @@
                             android:layout_gravity="center_vertical"
                             android:fontFamily="sans-serif"
                             android:text="Match Preferences"
-                            android:textColor="@color/colorBlack"
+                            android:textColor="#333"
                             android:textSize="13sp" />
 
                     </LinearLayout>

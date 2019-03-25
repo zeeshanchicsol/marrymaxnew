@@ -290,7 +290,11 @@
                            android:textColor="@color/colorWhite"
 
                            android:textSize="@dimen/text_size_mymatches_desc" />-->
-
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        app:srcCompat="@drawable/ic_pending_feedback" />
                     <com.chicsol.marrymax.widgets.mTextView
 
                         android:layout_width="wrap_content"
@@ -324,7 +328,11 @@
                            android:textColor="@color/colorWhite"
 
                            android:textSize="@dimen/text_size_mymatches_desc" />-->
-
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        app:srcCompat="@drawable/ic_match_feedback" />
                     <com.chicsol.marrymax.widgets.mTextView
                         android:id="@+id/TextViewMMShowInterestText"
                         android:layout_width="wrap_content"

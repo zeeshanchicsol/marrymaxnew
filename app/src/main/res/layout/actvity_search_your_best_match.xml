@@ -24,7 +24,7 @@
             android:id="@+id/TextViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Find matches from thousands of Pakistanies across the world."
+            android:text="Find matches from thousands of Pakistanis across the world."
             android:textColor="@color/colorRegistrationFields"
             android:textSize="@dimen/reg_title_text" />
     </LinearLayout>

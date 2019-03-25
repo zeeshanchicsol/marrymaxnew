@@ -1230,12 +1230,14 @@ drawable ic_home_black_24dp
 drawable ic_incognito_white_24dp
 drawable ic_info_24dp
 drawable ic_jcb
+drawable ic_lets_talk
 drawable ic_live_help_black_24dp
 drawable ic_location_on_black_24dp
 drawable ic_logo
 drawable ic_logo_stripe
 drawable ic_mail_outline_black_24dp
 drawable ic_mastercard
+drawable ic_match_feedback
 drawable ic_messages_empty_state
 drawable ic_mobicash
 drawable ic_monetization_on_black_24dp
@@ -1244,11 +1246,13 @@ drawable ic_more_vert_black_24dp_file
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_need_help
 drawable ic_no_m_rcmd
 drawable ic_no_result_found
 drawable ic_notifications_black_24dp
 drawable ic_notifications_none_black_192dp
 drawable ic_num_verified_icon_60
+drawable ic_pending_feedback
 drawable ic_person_black_24dp
 drawable ic_person_grey_24dp
 drawable ic_person_outline_black
@@ -1258,6 +1262,7 @@ drawable ic_phone_rp_black_24dp
 drawable ic_photo_camera_black_24dp
 drawable ic_photo_rp_large_black_24dp
 drawable ic_playlist_add_check_black_24dp
+drawable ic_pref
 drawable ic_profile_rp_black_24dp
 drawable ic_profile_settings_24dp
 drawable ic_reset_icon
@@ -1848,7 +1853,6 @@ id RelativeLayoutDashMyMatches
 id RelativeLayoutDashMyNotes
 id RelativeLayoutDashRecommendedMatch
 id RelativeLayoutDashRemoveFromSearch
-id RelativeLayoutDashUpgrade
 id RelativeLayoutHeadSubItem
 id RelativeLayoutVerifyEmail
 id RoundedImageViewChatListUserImage
@@ -2150,7 +2154,6 @@ id TextViewRecommendedMatchMaritalReligious
 id TextViewRecommendedMatchMaritalStatus
 id TextViewRecommendedMatchRecomdBy
 id TextViewRecommendedP
-id TextViewRecyclerSelectedItem
 id TextViewRegTopAppearance
 id TextViewRegTopGeography
 id TextViewRegTopInterest
@@ -2408,9 +2411,7 @@ id faTextViewListSavSearchBlocked
 id faTextViewListSavSearcheClick
 id faTextViewMMNotes
 id faTextViewMMRemove
-id faTextViewMyContactItemFeedback
 id faTextViewMyContactItemRemove
-id faTextViewMyContactItemViewFeedback
 id faTextViewMyMatchesInterestIcon
 id faTextViewRemoveSearchesUnremove
 id faTextViewUPChoicePhysicalChallenges
@@ -2474,7 +2475,6 @@ id imageViewDMVerifyPhone
 id imageViewNavDefaultImage
 id imageViewPhotoUploadPerview
 id imageViewQuestionsUser
-id imageViewStar
 id imageViewUserProfileSlider
 id info
 id italic
