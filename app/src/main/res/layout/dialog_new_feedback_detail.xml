@@ -142,7 +142,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_vertical"
-                                            android:text="ADASASD"
+                                            android:text=""
                                             android:textColor="@color/colorDashboardMainTextRed"
                                             android:textSize="@dimen/text_size_mymatches_desc"
                                             android:textStyle="bold" />
@@ -155,7 +155,7 @@
                                             android:layout_marginLeft="3dp"
                                             android:text="age"
                                             android:textColor="#7c7c7c"
-                                            android:textSize="@dimen/text_size_mymatches_desc2" />
+                                            android:textSize="@dimen/text_size_mymatches_desc"/>
 
                                         <com.chicsol.marrymax.widgets.mTextView
                                             android:id="@+id/TextViewFeedbackDate"
@@ -163,9 +163,9 @@
                                             android:layout_height="wrap_content"
                                             android:layout_marginRight="5dp"
                                             android:gravity="right"
-                                            android:text="d"
+                                            android:text=""
                                             android:textColor="#7c7c7c"
-                                            android:textSize="@dimen/text_size_mymatches_desc2" />
+                                            android:textSize="@dimen/text_size_mymatches_desc" />
 
                                         <!--@dimen/text_size_mymatches_desc-->
 

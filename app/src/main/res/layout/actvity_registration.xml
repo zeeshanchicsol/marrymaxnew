@@ -158,76 +158,79 @@
                                 />
 
                         </android.support.design.widget.TextInputLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp">
 
-                        <com.chicsol.marrymax.widgets.mTextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Please set a new password for MarryMax.com"
-                            android:textColor="@color/colorSpinnerLabel"
-                            android:textSize="@dimen/text_size_spinner_label" />
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColorHint="@color/colorRegistrationFields"
-                            app:passwordToggleDrawable="@null">
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
 
-                            <!--                    android:imeActionId="@+id/login"
-                                                android:imeActionLabel="@string/action_sign_in_short"
-                                                android:imeOptions="actionUnspecified"-->
-
-                            <com.chicsol.marrymax.widgets.mEditText
-                                android:id="@+id/EditTextPassword"
+                            <com.chicsol.marrymax.widgets.mTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/reg_password"
+                                android:text="Please set a new password for MarryMax.com"
+                                android:textColor="@color/colorSpinnerLabel"
+                                android:textSize="@dimen/text_size_spinner_label" />
 
-                                android:maxLength="15"
-                                android:singleLine="true"
-
-                                android:textColor="@color/colorRegistrationFields"
-                                app:backgroundTint="@color/colorUnderline" />
-
-                        </android.support.design.widget.TextInputLayout>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp">
-
-                        <com.chicsol.marrymax.widgets.mTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="A unique profile name, identifies your profile.   "
-                            android:textColor="@color/colorSpinnerLabel"
-                            android:textSize="@dimen/text_size_spinner_label" />
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColorHint="@color/colorRegistrationFields">
-
-                            <com.chicsol.marrymax.widgets.mEditText
-                                android:id="@+id/EditTextProfileName"
+                            <android.support.design.widget.TextInputLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Create a Profile Name for Public"
-                                android:imeOptions="actionDone"
-                                android:inputType="text"
-                                android:maxLength="12"
-                                android:singleLine="true"
-                                android:textColor="@color/colorRegistrationFields"
-                                app:backgroundTint="@color/colorUnderline" />
-                        </android.support.design.widget.TextInputLayout>
-                    </LinearLayout>
+                                android:textColorHint="@color/colorRegistrationFields"
+                                app:passwordToggleDrawable="@null">
+
+                                <!--                    android:imeActionId="@+id/login"
+                                                    android:imeActionLabel="@string/action_sign_in_short"
+                                                    android:imeOptions="actionUnspecified"-->
+
+                                <com.chicsol.marrymax.widgets.mEditText
+                                    android:id="@+id/EditTextPassword"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/reg_password"
+
+                                    android:maxLength="15"
+                                    android:singleLine="true"
+
+                                    android:textColor="@color/colorRegistrationFields"
+                                    app:backgroundTint="@color/colorUnderline" />
+
+                            </android.support.design.widget.TextInputLayout>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="A unique profile name, identifies your profile.   "
+                                android:textColor="@color/colorSpinnerLabel"
+                                android:textSize="@dimen/text_size_spinner_label" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColorHint="@color/colorRegistrationFields">
+
+                                <com.chicsol.marrymax.widgets.mEditText
+                                    android:id="@+id/EditTextProfileName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Create a Profile Name for Public"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="text"
+                                    android:maxLength="12"
+                                    android:singleLine="true"
+                                    android:textColor="@color/colorRegistrationFields"
+                                    app:backgroundTint="@color/colorUnderline" />
+                            </android.support.design.widget.TextInputLayout>
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -272,6 +275,7 @@
                                 android:text="Gender"
                                 android:textColor="@color/colorRegistrationFields"
                                 android:textSize="18sp" />
+
                             <com.chicsol.marrymax.widgets.mTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

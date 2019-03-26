@@ -1499,6 +1499,12 @@ id EditTextForgetEmail
 id EditTextGraduatedFrom
 id EditTextMatchAidFeedbackText
 id EditTextMaxAge
+id EditTextMemInfoAboutParents
+id EditTextMemInfoAboutSiblings
+id EditTextMemInfoEducationDetail
+id EditTextMemInfoJobDetails
+id EditTextMemInfoResidenceDetails
+id EditTextMemInfoSocialDetail
 id EditTextMemberNotes
 id EditTextMinAge
 id EditTextMostThankfulPers
@@ -2887,6 +2893,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout dialog_accept_interest
+layout dialog_add_member_info
 layout dialog_add_notes
 layout dialog_add_to_list
 layout dialog_block

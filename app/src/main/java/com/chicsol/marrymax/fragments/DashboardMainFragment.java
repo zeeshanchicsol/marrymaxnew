@@ -126,7 +126,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     TextView tvEditProfile, tvViewProfile, tvAccStatus;
 
     private AppCompatButton btDashboardGetOfferNow, btDashboardDismissBanner;
-  //  private RelativeLayout rlUpgrade;
+    //  private RelativeLayout rlUpgrade;
     private LinearLayout llMatchPreference;
     private ImageView ivContactSupport;
 
@@ -169,6 +169,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     }
 
     private void initilize(View view) {
+
   /*      pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");*/
 
@@ -236,7 +237,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         rlRemoveFromSearch = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashRemoveFromSearch);
         rlBlocked = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashBlocked);
         rlRecommededMatches = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashRecommendedMatch);
-     //   rlUpgrade = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashUpgrade);
+        //   rlUpgrade = (RelativeLayout) view.findViewById(R.id.RelativeLayoutDashUpgrade);
 
 
         llNewMessages = (LinearLayout) view.findViewById(R.id.LinearLayoutDMNewMessages);

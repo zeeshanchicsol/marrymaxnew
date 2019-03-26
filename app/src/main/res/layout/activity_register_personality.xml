@@ -317,6 +317,12 @@
 
                                             </WebView>
 
+                                           <android.support.v7.widget.AppCompatButton
+                                               android:layout_width="match_parent"
+                                               android:layout_height="wrap_content"
+                                               android:text="MemberInfo"
+                                               />
+
                                             <CheckBox
                                                 android:id="@+id/CheckBoxPersonalityDeclaration"
                                                 android:layout_width="match_parent"

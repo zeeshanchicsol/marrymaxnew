@@ -65,6 +65,9 @@ public class Urls {
 
     public static String getPersonalityDosDonts = baseUrl + "/api/WebArd/GetPersonalityDosDonts";
 
+    public static String memberInfo = baseUrl + "/api/WebArd/MemberInfo";
+
+
     //get progress
     public static String getProgressbar = baseUrl + "/api/WebArd/GetProgressbar/";
 

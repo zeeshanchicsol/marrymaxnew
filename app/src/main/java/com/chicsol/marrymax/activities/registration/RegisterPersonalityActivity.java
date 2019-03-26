@@ -593,7 +593,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
     private void updatePersonality(JSONObject params) {
 
-    showProgressDialog();
+        showProgressDialog();
 
 
         Log.e("Params " + Urls.updatePersonalityUrl, "" + params);
@@ -709,6 +709,75 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         if (pDialog != null && pDialog.isShowing()) {
             pDialog.dismiss();
         }
+    }
+
+
+    private void putRequest() {
+
+        final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+        //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
+
+        JSONObject params = new JSONObject();
+        try {
+
+
+            params.put("height_id", "");
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("Params", Urls.memberInfo + "" + params);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                Urls.memberInfo, params,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("re  update appearance", response + "");
+                    /*    try {
+                            int responseid = response.getInt("id");
+
+
+
+
+                        } catch (JSONException e) {
+                            pDialog.dismiss();
+                            e.printStackTrace();
+                        }
+*/
+                        pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                VolleyLog.e("res err", "Error: " + error);
+                // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
+
+                pDialog.dismiss();
+            }
+
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+
+// Adding request to request queue
+        ///   rq.add(jsonObjReq);
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
+
     }
 
 

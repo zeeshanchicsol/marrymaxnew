@@ -508,7 +508,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
             tvAboutParents.setText(memDetailObj.getParents());
             tvAboutSiblings.setText(memDetailObj.getSiblings());
             tvJobDetails.setText(memDetailObj.getJobinfo());
-            tvEducationDetail.setText(memDetailObj.getAcademic());
+            tvEducationDetail.setText(memDetailObj.getEducation());
             tvSocialDetai.setText(memDetailObj.getSocial());
         } else {
             llMemDetail.setVisibility(View.GONE);

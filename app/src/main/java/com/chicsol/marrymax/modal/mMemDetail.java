@@ -16,8 +16,18 @@ public class mMemDetail {
     @SerializedName("siblings")
     public String siblings;
 
-    @SerializedName("academic")
-    public String academic;
+
+
+    @SerializedName("education")
+    public String education;
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
 
     @SerializedName("social")
     public String social;
@@ -67,13 +77,10 @@ public class mMemDetail {
         this.siblings = siblings;
     }
 
-    public String getAcademic() {
-        return academic;
-    }
 
-    public void setAcademic(String academic) {
-        this.academic = academic;
-    }
+
+
+
 
     public String getSocial() {
         return social;
