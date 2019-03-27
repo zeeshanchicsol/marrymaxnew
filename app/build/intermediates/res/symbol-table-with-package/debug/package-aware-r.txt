@@ -1714,6 +1714,7 @@ id LinearLayoutRecyclerMemSinceLastWeek
 id LinearLayoutRegLifeStyle1ChoiceLanguage
 id LinearLayoutRegLifeStyle1Language
 id LinearLayoutRegLifeStyle1Marriage
+id LinearLayoutRegPersonalityMemberInfo
 id LinearLayoutRequestPermissionAcceptDecline
 id LinearLayoutRequestPermissionDenyPermission
 id LinearLayoutRequestPermissionNormal
@@ -1928,6 +1929,7 @@ id TextViewAccountSettingPrivacySubOption1
 id TextViewAccountSettingPrivacySubOption2
 id TextViewAccountSettingPrivacySubOption3
 id TextViewAccountSettingmcMobileNumber
+id TextViewAddMemberInfo
 id TextViewAdminReviewTitle
 id TextViewAdminReviewTitleMain
 id TextViewAdvSearchCityError
@@ -3685,6 +3687,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string personality_memberinfo_text
 string project_id
 string prompt_email
 string prompt_email_reg

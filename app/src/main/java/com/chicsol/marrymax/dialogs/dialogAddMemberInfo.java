@@ -2,6 +2,7 @@ package com.chicsol.marrymax.dialogs;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.AppCompatButton;
@@ -24,11 +25,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.modal.mMemDetail;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.widgets.faTextView;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,18 +45,22 @@ import java.util.Map;
 
 public class dialogAddMemberInfo extends DialogFragment {
     int member_notes_id = 0;
-    private String userpath;
+    // private String userpath;
     EditText etNotes;
     private ListView lv_mycontacts;
     private AppCompatButton btSave;
-    private ImageView ivDeleteNotes;
+    //  private ImageView ivDeleteNotes;
+
+    private EditText etMemInfoResidenceDetails, etMemInfoAboutParents, etMemInfoAboutSiblings, etMemInfoJobDetails, etMemInfoEducationDetail, etMemInfoSocialDetail;
+    private onCompleteListener mCompleteListener;
+
 
     public static dialogAddMemberInfo newInstance(String userpath) {
 
         dialogAddMemberInfo frag = new dialogAddMemberInfo();
         Bundle args = new Bundle();
-        args.putString("name", "Do's & Don't");
-        args.putString("userpath", userpath);
+
+        //  args.putString("userpath", userpath);
         frag.setArguments(args);
         return frag;
     }
@@ -62,12 +69,27 @@ public class dialogAddMemberInfo extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle mArgs = getArguments();
-        userpath = mArgs.getString("userpath");
+        //    userpath = mArgs.getString("userpath");
         ///  Log.e("json data", myValue);
 
 
     }
 
+    @Override
+    public void onAttach(Context activity) {
+        super.onAttach(activity);
+        try {
+
+
+            if (getTargetFragment() != null) {
+                mCompleteListener = (onCompleteListener) getTargetFragment();
+            } else {
+                mCompleteListener = (onCompleteListener) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(e.toString() + " must implement OnCompleteListener");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -75,30 +97,52 @@ public class dialogAddMemberInfo extends DialogFragment {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
 
-        etNotes = (EditText) rootView.findViewById(R.id.EditTextMemberNotes);
+        etMemInfoResidenceDetails = (EditText) rootView.findViewById(R.id.EditTextMemInfoResidenceDetails);
+        etMemInfoAboutParents = (EditText) rootView.findViewById(R.id.EditTextMemInfoAboutParents);
+        etMemInfoAboutSiblings = (EditText) rootView.findViewById(R.id.EditTextMemInfoAboutSiblings);
+        etMemInfoJobDetails = (EditText) rootView.findViewById(R.id.EditTextMemInfoJobDetails);
+        etMemInfoEducationDetail = (EditText) rootView.findViewById(R.id.EditTextMemInfoEducationDetail);
+        etMemInfoSocialDetail = (EditText) rootView.findViewById(R.id.EditTextMemInfoSocialDetail);
+
+
+        //etNotes = (EditText) rootView.findViewById(R.id.EditTextMemberNotes);
         btSave = (AppCompatButton) rootView.findViewById(R.id.ButtonNotesSave);
-        ivDeleteNotes = (ImageView) rootView.findViewById(R.id.ImageViewDeleteNotes);
+        // ivDeleteNotes = (ImageView) rootView.findViewById(R.id.ImageViewDeleteNotes);
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (!TextUtils.isEmpty(etNotes.getText().toString().trim())) {
-                    saveNotes();
+                if (!TextUtils.isEmpty(etMemInfoResidenceDetails.getText().toString().trim()) || !TextUtils.isEmpty(etMemInfoAboutParents.getText().toString().trim()) || !TextUtils.isEmpty(etMemInfoAboutSiblings.getText().toString().trim())
+                        || !TextUtils.isEmpty(etMemInfoJobDetails.getText().toString().trim()) || !TextUtils.isEmpty(etMemInfoEducationDetail.getText().toString().trim()) || !TextUtils.isEmpty(etMemInfoSocialDetail.getText().toString().trim())) {
+
+
+                    mMemDetail memDetailObj = new mMemDetail();
+                    memDetailObj.setResidence(etMemInfoResidenceDetails.getText().toString().trim());
+                    memDetailObj.setParents(etMemInfoAboutParents.getText().toString().trim());
+                    memDetailObj.setJobinfo(etMemInfoJobDetails.getText().toString().trim());
+                    memDetailObj.setEducation(etMemInfoEducationDetail.getText().toString().trim());
+                    memDetailObj.setSocial(etMemInfoSocialDetail.getText().toString().trim());
+
+
+                    try {
+                        Gson gson = new Gson();
+                        String objparamsa = gson.toJson(memDetailObj);
+                        JSONObject params = new JSONObject(objparamsa);
+                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
+                        saveMemberInfo(params);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
                 } else {
-                    Toast.makeText(getContext(), "Please Enter Notes to Save", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Please enter some information!", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
-        ivDeleteNotes.setImageResource(R.drawable.ic_delete_forever_black_24dp);
-        ivDeleteNotes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                deleteNotes();
-            }
-        });
-        getNotes(userpath);
+
 
 
       /*  lv_mycontacts=(ListView)rootView.findViewById(R.id.ListViewMySavedList);
@@ -166,7 +210,7 @@ public class dialogAddMemberInfo extends DialogFragment {
         getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
-    private void getNotes(String userpath) {
+/*    private void getNotes(String userpath) {
 
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
@@ -237,28 +281,18 @@ public class dialogAddMemberInfo extends DialogFragment {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq);
 
-    }
+    }*/
 
-    private void saveNotes() {
+    private void saveMemberInfo(JSONObject params) {
 
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();
 
-        JSONObject params = new JSONObject();
-        try {
 
-            params.put("message", etNotes.getText().toString());
-            params.put("message_id", member_notes_id + "");
-            params.put("userpath", userpath);
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        Log.e("params" + "  " + Urls.sendNotes, "" + params);
+        Log.e("params" + "  " + Urls.memberInfo, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.sendNotes, params,
+                Urls.memberInfo, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -266,10 +300,10 @@ public class dialogAddMemberInfo extends DialogFragment {
                         Log.e("re  update notes ", response + "");
                         try {
                             int responseid = response.getInt("id");
-                            if (responseid >= 1) {
+                            if (responseid > 0) {
                                 member_notes_id = responseid;
                                 Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-                                dialogAddMemberInfo.this.getDialog().cancel();
+                                mCompleteListener.onComplete("");
                             }
                             dialogAddMemberInfo.this.getDialog().cancel();
 
@@ -312,75 +346,8 @@ public class dialogAddMemberInfo extends DialogFragment {
     }
 
 
-    private void deleteNotes() {
-
-        final ProgressDialog pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-
-        JSONObject params = new JSONObject();
-        try {
-
-
-            params.put("id", member_notes_id + "");
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        Log.e("params" + "  " + Urls.deleteNotes, "" + params);
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.deleteNotes, params,
-                new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.e("re  update notes ", response + "");
-                        try {
-                            int responseid = response.getInt("id");
-                            if (responseid >= 1) {
-                                member_notes_id = responseid;
-                                Toast.makeText(getContext(), "Notes Deleted", Toast.LENGTH_SHORT).show();
-                                dialogAddMemberInfo.this.getDialog().cancel();
-                            }
-
-
-                        } catch (JSONException e) {
-                            pDialog.dismiss();
-                            e.printStackTrace();
-                        }
-
-
-                        pDialog.dismiss();
-                    }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-
-                VolleyLog.e("res err", "Error: " + error);
-                // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
-
-                pDialog.dismiss();
-            }
-
-
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                return Constants.getHashMap();
-            }
-        };
-
-// Adding request to request queue
-        ///   rq.add(jsonObjReq);
-        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
-                0,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq);
-
+    public static interface onCompleteListener {
+        public abstract void onComplete(String s);
     }
 }
 

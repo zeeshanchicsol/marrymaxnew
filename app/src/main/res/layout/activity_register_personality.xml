@@ -309,6 +309,39 @@
                                                 android:textColor="@color/colorBlack"
                                                 app:backgroundTint="@color/colorUnderline" />
 
+
+                                            <LinearLayout
+                                                android:id="@+id/LinearLayoutRegPersonalityMemberInfo"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:orientation="vertical"
+                                                android:visibility="gone">
+
+
+                                                <TextView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Add Specific Details"
+                                                    android:textColor="@color/colorTextRed"
+                                                    android:textStyle="bold" />
+
+                                                <View
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="1dp"
+                                                    android:background="#d7d7d7"
+
+                                                    ></View>
+
+                                                <TextView
+                                                    android:id="@+id/TextViewAddMemberInfo"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:clickable="true"
+                                                    android:text="@string/personality_memberinfo_text"
+                                                    android:textColor="@color/colorASBlue" />
+                                            </LinearLayout>
+
+
                                             <WebView
                                                 android:id="@+id/WebViewPersonalityDeclaration"
                                                 android:layout_width="match_parent"
@@ -317,16 +350,12 @@
 
                                             </WebView>
 
-                                           <android.support.v7.widget.AppCompatButton
-                                               android:layout_width="match_parent"
-                                               android:layout_height="wrap_content"
-                                               android:text="MemberInfo"
-                                               />
 
                                             <CheckBox
                                                 android:id="@+id/CheckBoxPersonalityDeclaration"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
+
                                                 android:text="@string/declaration_text_i_understand" />
 
                                         </android.support.v7.widget.GridLayout>

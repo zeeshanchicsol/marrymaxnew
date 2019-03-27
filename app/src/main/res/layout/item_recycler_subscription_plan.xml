@@ -165,9 +165,19 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginTop="5dp"
-
                                 android:textColor="@color/colorSubscriptionDarkGrey"
-                                android:textSize="15sp" />
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="5dp"
+                                android:text="View Unlimited Messages"
+                                android:textColor="@color/colorSubscriptionGreen"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
 
                         </LinearLayout>

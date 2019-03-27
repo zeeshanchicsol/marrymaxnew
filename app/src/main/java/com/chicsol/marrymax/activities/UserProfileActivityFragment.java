@@ -1353,7 +1353,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             Type type = new TypeToken<mMemInterest>() {
                             }.getType();
                             mMemInterest member2 = (mMemInterest) gson.fromJson(responseObject.toString(), type);
-                            Log.e("interested id", "" + member.getAlias() + "====================");
+                        //    Log.e("interested id", "" + member.getAlias() + "====================");
 
 
                             if (member2.getFeedback_due() == 0) {

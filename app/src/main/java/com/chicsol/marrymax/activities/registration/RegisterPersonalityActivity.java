@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.ActivityLogin;
+import com.chicsol.marrymax.dialogs.dialogAddMemberInfo;
 import com.chicsol.marrymax.dialogs.dialogDosDonts;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
@@ -54,7 +56,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class RegisterPersonalityActivity extends BaseRegistrationActivity implements CompoundButton.OnCheckedChangeListener {
+public class RegisterPersonalityActivity extends BaseRegistrationActivity implements CompoundButton.OnCheckedChangeListener, dialogAddMemberInfo.onCompleteListener {
     private Button bt_back, bt_register_free;
     private GridLayout gridLayout;
     private List<WebArd> personalityDataList;
@@ -64,6 +66,9 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
     private mTextView tvDosDont;
     private CheckBox cbDeclaration;
     ProgressDialog pDialog;
+    private TextView tvMemberInfo;
+
+    LinearLayout llMemberInfo;
 
 
     @Override
@@ -95,6 +100,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         etWhatIdoFor = (EditText) findViewById(R.id.EditTextWhatIDoPers);
         cbDeclaration = (CheckBox) findViewById(R.id.CheckBoxPersonalityDeclaration);
 
+        llMemberInfo = (LinearLayout) findViewById(R.id.LinearLayoutRegPersonalityMemberInfo);
 
         // tvDeclaration.setText(Html.fromHtml(getResources().getString(R.string.declaration_text_2)));
 
@@ -151,6 +157,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
 
         tvDosDont = (mTextView) findViewById(R.id.TextViewDosDont);
+        tvMemberInfo = (TextView) findViewById(R.id.TextViewAddMemberInfo);
+
 
         if (marryMax.getUpdateCheck(getApplicationContext())) {
 
@@ -176,6 +184,17 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
      newFragment.show(getSupportFragmentManager(), "dialog");
     }*/
     private void setListeners() {
+
+
+        tvMemberInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogAddMemberInfo newFragment = dialogAddMemberInfo.newInstance("");
+                //    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                newFragment.show(getSupportFragmentManager(), "dialog");
+            }
+        });
+
 
         etAboutMe.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -507,6 +526,12 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                             gson = gsonBuilder.create();
                             //  Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
                             members_obj = gson.fromJson(jsonGrography.get(0).toString(), Members.class);
+
+                            if (members_obj.getAbout_member_id() == 0) {
+                                llMemberInfo.setVisibility(View.VISIBLE);
+                            } else {
+                                llMemberInfo.setVisibility(View.GONE);
+                            }
                             // Log.e("Aliaaaaaaaasss", members_obj.getCountry_id() + "");
 
 
@@ -711,72 +736,9 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         }
     }
 
-
-    private void putRequest() {
-
-        final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-        //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
-
-        JSONObject params = new JSONObject();
-        try {
-
-
-            params.put("height_id", "");
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Log.e("Params", Urls.memberInfo + "" + params);
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.memberInfo, params,
-                new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
-                    /*    try {
-                            int responseid = response.getInt("id");
-
-
-
-
-                        } catch (JSONException e) {
-                            pDialog.dismiss();
-                            e.printStackTrace();
-                        }
-*/
-                        pDialog.dismiss();
-                    }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-
-                VolleyLog.e("res err", "Error: " + error);
-                // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
-
-                pDialog.dismiss();
-            }
-
-
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                return Constants.getHashMap();
-            }
-        };
-
-// Adding request to request queue
-        ///   rq.add(jsonObjReq);
-        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
-                0,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
+    @Override
+    public void onComplete(String s) {
+        llMemberInfo.setVisibility(View.GONE);
 
     }
 
