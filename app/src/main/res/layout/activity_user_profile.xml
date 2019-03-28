@@ -40,6 +40,7 @@
         android:visibility="visible">
 
         <include layout="@layout/toolbar_dashboard"></include>
+        <include layout="@layout/itemview_feedback_pending"></include>
 
         <LinearLayout
 

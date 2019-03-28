@@ -38,6 +38,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
     private Button btgotBack;
     private TextView tvTotalAmount, tvTopTitle, tvProfileName, tvName, tvEmailAddress, tvDate, tvOrderNumber, tvPaymentMethod, tvPlanName, tvPlanPrice, tvDiscountName, tvDiscount;
     String transpath = "";
+    private TextView tvMatchesCount, tvPhoneCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,11 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         tvDiscount = (TextView) findViewById(R.id.TextViewOrderConfirmationDiscount);
         tvTotalAmount = (TextView) findViewById(R.id.TextViewOrderConfirmationTotalAmount);
         tvTopTitle = (TextView) findViewById(R.id.TextViewOrderConfirmationTopTitle);
+
+
+        tvMatchesCount = (TextView) findViewById(R.id.TextViewOCMatchesCount);
+
+        tvPhoneCount = (TextView) findViewById(R.id.TextViewOCPhoneNumberCount);
 
 
         btgotBack.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +131,8 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         tvTopTitle.setText("You have paid " + sub.item_currency + " " + sub.getItem_price() + "for " + sub.getItem_name() + " .");
 
 
+        tvMatchesCount.setText(sub.other_item_id + "  Verified Phone Numbers");
+        tvMatchesCount.setText(sub.applied_force + " Matches Communication");
     }
 
 

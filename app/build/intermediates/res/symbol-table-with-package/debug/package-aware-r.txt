@@ -2105,6 +2105,8 @@ id TextViewNotes_ic
 id TextViewNotiArchiveUserAlias
 id TextViewNotiArchiveUserDate
 id TextViewNotiArchiveUserName
+id TextViewOCMatchesCount
+id TextViewOCPhoneNumberCount
 id TextViewOrderConfirmationDate
 id TextViewOrderConfirmationDiscount
 id TextViewOrderConfirmationDiscountName
@@ -2997,6 +2999,7 @@ layout item_recycler_subscription_plan
 layout item_recycler_whoislookingforme
 layout item_spinner_notifications
 layout item_userprofile_slider
+layout itemview_feedback_pending
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header_main
@@ -3651,6 +3654,7 @@ string fa_icon_show_interest
 string fa_icon_star
 string fa_icon_subscription
 string fa_icon_subscription_envelope
+string fa_icon_subscription_envelope_open
 string fa_icon_thumbs_up
 string fa_icon_trash
 string fa_icon_uploadphoto

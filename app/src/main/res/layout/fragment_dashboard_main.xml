@@ -585,11 +585,11 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_alignParentLeft="true"
+                                                android:layout_centerVertical="true"
                                                 android:background="?selectableItemBackground"
                                                 android:clickable="true"
                                                 android:fontFamily="sans-serif"
                                                 android:text="Edit "
-                                                android:layout_centerVertical="true"
                                                 android:textColor="@color/colorASBlue"
                                                 android:textStyle="bold" />
 
@@ -604,15 +604,15 @@
                                                 android:id="@+id/TextViewDashMainAddPhoto"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
+                                                android:layout_centerVertical="true"
                                                 android:layout_toRightOf="@+id/TextViewDashMainEditProfile"
                                                 android:background="?selectableItemBackground"
                                                 android:clickable="true"
-                                                android:layout_centerVertical="true"
                                                 android:fontFamily="sans-serif"
                                                 android:text="  |  View Profile"
                                                 android:textColor="@color/colorASBlue"
                                                 android:textStyle="bold" />
-                                          <!--  android:src="@drawable/ic_lets_talk"-->
+                                            <!--  android:src="@drawable/ic_lets_talk"-->
                                             <ImageView
                                                 android:id="@+id/ImageViewContactSupport"
                                                 android:layout_width="wrap_content"
@@ -621,8 +621,8 @@
                                                 android:layout_gravity="right"
                                                 android:layout_marginRight="5dp"
                                                 android:clickable="true"
-                                                android:visibility="gone"
-                                                android:src="@drawable/ic_lets_talk" />
+                                                android:src="@drawable/ic_lets_talk"
+                                                android:visibility="gone" />
 
                                         </RelativeLayout>
 
@@ -706,42 +706,42 @@
 
                                                </LinearLayout>-->
 
-                              <!--          <RelativeLayout
-                                            android:id="@+id/RelativeLayoutDashUpgrade"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
+                                        <!--          <RelativeLayout
+                                                      android:id="@+id/RelativeLayoutDashUpgrade"
+                                                      android:layout_width="wrap_content"
+                                                      android:layout_height="wrap_content"
+                                                      android:layout_marginTop="5dp"
 
 
-                                            android:layout_marginBottom="10dp"
-                                            android:background="@drawable/shape_chip_drawable_home_page_upgrade"
-                                            android:clickable="true"
-                                            android:visibility="gone">
+                                                      android:layout_marginBottom="10dp"
+                                                      android:background="@drawable/shape_chip_drawable_home_page_upgrade"
+                                                      android:clickable="true"
+                                                      android:visibility="gone">
 
-                                            <ImageView
-                                                android:id="@+id/imageViewStar"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="15sp"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginLeft="10dp"
-                                                android:clickable="true"
-                                                android:contentDescription="@null"
+                                                      <ImageView
+                                                          android:id="@+id/imageViewStar"
+                                                          android:layout_width="wrap_content"
+                                                          android:layout_height="15sp"
+                                                          android:layout_centerVertical="true"
+                                                          android:layout_marginLeft="10dp"
+                                                          android:clickable="true"
+                                                          android:contentDescription="@null"
 
-                                                app:srcCompat="@drawable/ic_star_black_24dp" />
+                                                          app:srcCompat="@drawable/ic_star_black_24dp" />
 
-                                            <TextView
-                                                android:id="@+id/TextViewRecyclerSelectedItem"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_centerVertical="true"
-                                                android:layout_marginRight="12dp"
-                                                android:layout_toRightOf="@id/imageViewStar"
-                                                android:fontFamily="sans-serif"
-                                                android:text=" Upgrade "
-                                                android:textColor="@color/colorDefaultGreen"
-                                                android:textSize="14sp" />
+                                                      <TextView
+                                                          android:id="@+id/TextViewRecyclerSelectedItem"
+                                                          android:layout_width="wrap_content"
+                                                          android:layout_height="wrap_content"
+                                                          android:layout_centerVertical="true"
+                                                          android:layout_marginRight="12dp"
+                                                          android:layout_toRightOf="@id/imageViewStar"
+                                                          android:fontFamily="sans-serif"
+                                                          android:text=" Upgrade "
+                                                          android:textColor="@color/colorDefaultGreen"
+                                                          android:textSize="14sp" />
 
-                                        </RelativeLayout>-->
+                                                  </RelativeLayout>-->
 
                                         <!--   <android.support.v7.widget.AppCompatButton
                                                style="@style/Base.Widget.AppCompat.Button"
@@ -835,46 +835,8 @@
 
                     </android.support.v7.widget.CardView>
 
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/CardViewDashMainFeedbackPending"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        app:cardElevation="2dp"
-                        app:cardUseCompatPadding="true">
+                    <include layout="@layout/itemview_feedback_pending"></include>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/TextViewDashMainFeedbackPending"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginTop="8dp"
-                                android:text="Dear,sadadas  your Feedback is Pending"
-                                android:textColor="@color/colorDashboardMainNormalText"
-
-                                />
-
-                            <android.support.v7.widget.AppCompatButton
-                                android:id="@+id/ButtonDashMainFeedbackPending"
-                                style="@style/myCustomMaterialButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right"
-                                android:layout_marginRight="8dp"
-                                android:text="Give Feedback"
-                                android:textAllCaps="false"
-                                android:textColor="@color/colorWhite" />
-
-
-                        </LinearLayout>
-
-                    </android.support.v7.widget.CardView>
 
                     <LinearLayout
                         android:layout_width="match_parent"

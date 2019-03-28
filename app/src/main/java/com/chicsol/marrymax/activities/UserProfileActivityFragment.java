@@ -14,7 +14,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -41,6 +44,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.BuildConfig;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.ImageSliderPagerAdapter;
 import com.chicsol.marrymax.dialogs.dialogAddNotes;
 import com.chicsol.marrymax.dialogs.dialogAddtoList;
@@ -114,7 +118,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private ViewPager viewPager1;
     private mTextView tvShowInterestButtonText, tvMatchAid, tvImagesCount, tvInterest, tvAlias, tvAge, tvLocation, tvProfileFor, tvReligion, tvEducation, tvOccupation, tvMaritalStatus, tvLastLoginDate;
 
-    private TextView tvResidenceDetails, tvAboutParents, tvAboutSiblings, tvJobDetails, tvEducationDetail, tvSocialDetai;
+    private TextView tvResidenceDetails, tvAboutParents, tvAboutSiblings, tvJobDetails, tvEducationDetail, tvSocialDetai, tvFeedbackPending;
 
     private DisplayImageOptions options;
     private LayoutInflater inflater;
@@ -128,8 +132,9 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     Toolbar toolbar;
     private Context context;
     private View rview;
+    private CardView cvFeedbackPending;
 
-
+    private AppCompatButton btGiveFeedback;
     //  boolean mUserVisibleHint = false;
 
     public static UserProfileActivityFragment newInstance(String userpath) {
@@ -378,6 +383,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     }*/
 
     private void initialize(View view) {
+        btGiveFeedback = (AppCompatButton) view.findViewById(R.id.ButtonDashMainFeedbackPending);
 
 
         //      llScreenWait = (LinearLayout) view.findViewById(R.id.LinearLayoutscreen_wait);
@@ -435,6 +441,11 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         faUserDropdown = (faTextView) view.findViewById(R.id.faTextViewUserDetailDropdown);
         faAddToFavourites = (faTextView) view.findViewById(R.id.faTextViewAddToFavouriteMember);
         faInterestIcon = (faTextView) view.findViewById(R.id.faTextViewUserProfileInterestIcon);
+
+
+        tvFeedbackPending = (TextView) view.findViewById(R.id.TextViewDashMainFeedbackPending);
+        cvFeedbackPending = (CardView) view.findViewById(R.id.CardViewDashMainFeedbackPending);
+
 
         tvImagesCount = (mTextView) view.findViewById(R.id.TextViewImagesCount);
         // iv_profile = (ImageView) view.findViewById(R.id.ImageViewUPImage);
@@ -674,7 +685,15 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private void setListenders() {
 
 
-
+        btGiveFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 25);
+                // in.putExtra("subtype", "received");
+                startActivity(in);
+            }
+        });
 
       /*  ivSwipeInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1209,6 +1228,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                 String aliasn = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
 
+
+
+
+
+
+
                        /*         if (memPhone.getFeedback_due() == 1) {
                                     String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
 
@@ -1353,7 +1378,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             Type type = new TypeToken<mMemInterest>() {
                             }.getType();
                             mMemInterest member2 = (mMemInterest) gson.fromJson(responseObject.toString(), type);
-                        //    Log.e("interested id", "" + member.getAlias() + "====================");
+                            //    Log.e("interested id", "" + member.getAlias() + "====================");
 
 
                             if (member2.getFeedback_due() == 0) {
@@ -1627,12 +1652,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             // Log.e("Member checkedTextView", "" + member.getAlias());
 
 
-                            /*            *//*  0            Don't do anything
+                /*                   0            Don't do anything
                             1            Show poup feedback is pending
-                            2            Show poup feedbacks are pending. Disable background*//*
+                            2            Show poup feedbacks are pending. Disable background*/
 
 
-                            Members samember = SharedPreferenceManager.getUserObject(context);
+                           /* Members samember = SharedPreferenceManager.getUserObject(context);
                             String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
 
 
@@ -1658,7 +1683,28 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                     newFragment.show(getFragmentManager(), "dialog");
 
                                 }
-                            }*/
+                            }
+*/
+
+                            Members samember = SharedPreferenceManager.getUserObject(context);
+                            String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
+                            if (Integer.parseInt(member.getFeedback_pending()) == 1) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+                                tvFeedbackPending.setText(Html.fromHtml(text));
+
+
+                                cvFeedbackPending.setVisibility(View.VISIBLE);
+
+                            } else if (Integer.parseInt(member.getFeedback_pending()) == 2) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
+                                tvFeedbackPending.setText(Html.fromHtml(text));
+                                cvFeedbackPending.setVisibility(View.VISIBLE);
+                            } else {
+
+                                // 0 hide
+                                cvFeedbackPending.setVisibility(View.GONE);
+
+                            }
 
 
                         } catch (JSONException e) {

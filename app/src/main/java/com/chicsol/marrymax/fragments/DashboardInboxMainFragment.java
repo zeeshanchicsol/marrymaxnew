@@ -1,6 +1,7 @@
 package com.chicsol.marrymax.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.CardView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +30,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.BuildConfig;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.dialogs.dialogFeedBackPending;
 import com.chicsol.marrymax.fragments.inbox.DashboardMessagesFragment;
 import com.chicsol.marrymax.fragments.inbox.DashboardQuestionsFragment;
@@ -60,8 +65,9 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     private ViewPager mViewPager;
     Typeface typeface;
     private Context context;
-
-
+    private CardView cvFeedbackPending;
+    private TextView  tvFeedbackPending;
+    private AppCompatButton btGiveFeedback;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +92,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
         }
 */
         Log.e("called", "called");
-    //    getCommunicationCount();
+        //    getCommunicationCount();
 
 
       /*  Members member = SharedPreferenceManager.getUserObject(context);
@@ -106,10 +112,13 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     }
 
 
-    private void initialize(View rootView) {
+    private void initialize(View view) {
 
         typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/centurygothic.ttf");
+        tvFeedbackPending = (TextView) view.findViewById(R.id.TextViewDashMainFeedbackPending);
+        cvFeedbackPending = (CardView) view.findViewById(R.id.CardViewDashMainFeedbackPending);
 
+        btGiveFeedback = (AppCompatButton) view.findViewById(R.id.ButtonDashMainFeedbackPending);
 
         //  TextView mTitle = (TextView) toolbar.findViewById(R.id.text_toolbar_title);
         //  mTitle.setTypeface(typeface);
@@ -121,11 +130,11 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
         // Set up the ViewPager with the sections adapter.
 
 
-        TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabs_inbox_main);
+        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs_inbox_main);
 
         // tabLayout.setupWithViewPager(mViewPager);
 
-        mViewPager = (ViewPager) rootView.findViewById(R.id.container_inbox_main);
+        mViewPager = (ViewPager) view.findViewById(R.id.container_inbox_main);
         setupViewPager(mViewPager);
 
         tabLayout.setupWithViewPager(mViewPager);
@@ -147,7 +156,21 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
             tab.setCustomView(relativeLayout);
             //tab.select();
         }
+        setListener();
+        getCommunicationCount();
+    }
 
+    private void setListener() {
+
+        btGiveFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 25);
+                // in.putExtra("subtype", "received");
+                startActivity(in);
+            }
+        });
     }
 
     @Override
@@ -175,13 +198,13 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     @Override
     public void bottomNavSelected() {
         //  Toast.makeText(context, "Inbox Selected", Toast.LENGTH_SHORT).show();
-        //  getCommunicationCount();
+       //   getCommunicationCount();
     }
 
- /*   private void getCommunicationCount() {
-       *//* final ProgressDialog pDialog = new ProgressDialog(getContext());
+    private void getCommunicationCount() {
+      /*  final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
-        pDialog.show();*//*
+        pDialog.show();*/
         Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
@@ -202,11 +225,11 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
                             //    new_messages_count = (int) comCount.getNew_messages_count();
 
 
-                            Members member = SharedPreferenceManager.getUserObject(context);
+                          /*     Members member = SharedPreferenceManager.getUserObject(context);
                             String alias = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
 
-                            if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
+                         if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
                                 String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
 
                                 dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
@@ -221,7 +244,27 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
                                 newFragment.show(getFragmentManager(), "dialog");
 
                             }
+*/
 
+                            Members samember = SharedPreferenceManager.getUserObject(context);
+                            String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
+                            if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+                                tvFeedbackPending.setText(Html.fromHtml(text));
+
+
+                                cvFeedbackPending.setVisibility(View.VISIBLE);
+
+                            } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
+                                tvFeedbackPending.setText(Html.fromHtml(text));
+                                cvFeedbackPending.setVisibility(View.VISIBLE);
+                            } else {
+
+                                // 0 hide
+                                cvFeedbackPending.setVisibility(View.GONE);
+
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -243,7 +286,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
             }
         };
         MySingleton.getInstance(context).addToRequestQueue(req, "DashboardInboxMainFragment");
-    }*/
+    }
 
     /**
      * A {@link FragmentStatePagerAdapter} that returns a fragment corresponding to
