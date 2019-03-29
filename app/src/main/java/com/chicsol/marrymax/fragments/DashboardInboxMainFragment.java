@@ -115,9 +115,10 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     private void initialize(View view) {
 
         typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/centurygothic.ttf");
+
+
         tvFeedbackPending = (TextView) view.findViewById(R.id.TextViewDashMainFeedbackPending);
         cvFeedbackPending = (CardView) view.findViewById(R.id.CardViewDashMainFeedbackPending);
-
         btGiveFeedback = (AppCompatButton) view.findViewById(R.id.ButtonDashMainFeedbackPending);
 
         //  TextView mTitle = (TextView) toolbar.findViewById(R.id.text_toolbar_title);

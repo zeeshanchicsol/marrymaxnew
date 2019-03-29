@@ -225,7 +225,7 @@
                                                     android:imeOptions="actionNext"
 
                                                     android:inputType="text"
-                                                    android:maxLength="1000"
+                                                    android:maxLength="1500"
                                                     android:textColor="@color/colorBlack"
                                                     app:backgroundTint="@color/colorUnderline" />
 
@@ -245,7 +245,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:imeOptions="actionNext"
                                                 android:inputType="text"
-                                                android:maxLength="140"
+                                                android:maxLength="200"
                                                 android:textColor="@color/colorBlack"
                                                 app:backgroundTint="@color/colorUnderline" />
 

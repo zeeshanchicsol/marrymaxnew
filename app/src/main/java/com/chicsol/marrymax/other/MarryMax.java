@@ -901,20 +901,20 @@ public class MarryMax {
                             }.getType();
                             mMemPhone memPhone = (mMemPhone) gson.fromJson(responseObject.toString(), type);
 
-                            if (memPhone.getFeedback_due() == 0) {
+                            //    if (memPhone.getFeedback_due() == 0) {
 
-                                dialogContactDetails newFragment = dialogContactDetails.newInstance(responseObject.toString(), alias);
-                                if (fragment != null) {
-                                    newFragment.setTargetFragment(fragment, 3);
-                                }
-                                newFragment.show(frgMngr, "dialog");
-                            } else {
+                            dialogContactDetails newFragment = dialogContactDetails.newInstance(responseObject.toString(), alias,memPhone.getFeedback_due());
+                            if (fragment != null) {
+                                newFragment.setTargetFragment(fragment, 3);
+                            }
+                            newFragment.show(frgMngr, "dialog");
+                        /*    } else {
 
 
                                 String aliasn = "<font color='#9a0606'>" + alias + "!</font><br>";
 
 
-                       /*         if (memPhone.getFeedback_due() == 1) {
+                       *//*         if (memPhone.getFeedback_due() == 1) {
                                     String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
 
                                     dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
@@ -923,7 +923,7 @@ public class MarryMax {
                                     newFragment.show(frgMngr, "dialog");
 
 
-                                } else if (memPhone.getFeedback_due() == 2) {*/
+                                } else if (memPhone.getFeedback_due() == 2) {*//*
 
 
                                 String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
@@ -938,7 +938,7 @@ public class MarryMax {
                                 //  }
 
 
-                            }
+                            }*/
 
                         } catch (JSONException e) {
                             pDialog.dismiss();

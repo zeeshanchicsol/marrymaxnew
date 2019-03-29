@@ -373,6 +373,8 @@
 
                 android:layout_marginLeft="4dp"
                 android:layout_weight="8.8"
+                android:maxLength="2000"
+
                 android:hint="Type Something..."
                 android:lines="2"
 

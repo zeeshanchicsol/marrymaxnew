@@ -537,7 +537,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            getMobileInfo(params);
+                         //   getMobileInfo(params);
 
 
                         } else {
@@ -617,7 +617,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         tvMatchAid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                matchAid();
+              //  matchAid();
             }
         });
         faAddToFavourites.setOnClickListener(new View.OnClickListener() {
@@ -958,6 +958,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         MySingleton.getInstance(this).addToRequestQueue(req);
     }
 
+/*
     private void matchAid() {
 
         pDialog.show();
@@ -1000,6 +1001,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         };
         MySingleton.getInstance(this).addToRequestQueue(req);
     }
+*/
 
 
     private void replyOnAcceptInterest(JSONObject params, final boolean replyCheck) {
@@ -1368,7 +1370,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
     }
 
 
-    private void getMobileInfo(JSONObject params) {
+/*    private void getMobileInfo(JSONObject params) {
 
 
         pDialog.show();
@@ -1425,7 +1427,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(this).addToRequestQueue(jsonObjReq);
-    }
+    }*/
 
 
     private Bitmap resizeImage(final Bitmap image, int maxHeight) {

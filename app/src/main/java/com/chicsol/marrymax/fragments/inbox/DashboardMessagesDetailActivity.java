@@ -249,14 +249,19 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                     JSONObject params = new JSONObject();
                     try {
 
-                        //   path, userpath , checkedTextView , default_image
+                        if (etSendMessage.getText().toString().trim().length() < 2) {
+                            Toast.makeText(DashboardMessagesDetailActivity.this, "Min 2 & max 2000 characters", Toast.LENGTH_SHORT).show();
 
-                        params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
-                        params.put("userpath", objCom.getUserpath());
-                        params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
-                        params.put("default_image", SharedPreferenceManager.getUserObject(getApplicationContext()).getDefault_image());
-                        params.put("message", etSendMessage.getText().toString());
-                        putSendMessage(params);
+                        } else {
+
+
+                            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                            params.put("userpath", objCom.getUserpath());
+                            params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
+                            params.put("default_image", SharedPreferenceManager.getUserObject(getApplicationContext()).getDefault_image());
+                            params.put("message", etSendMessage.getText().toString());
+                            putSendMessage(params);
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -413,7 +418,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                                 2            Phone is protected, give option to send request to view phone number
 */
 
-                              //  mCommunication.setId(1);
+                                //  mCommunication.setId(1);
                                 if (mCommunication.getId() == 1) {
                                     //     Phone is public,give option to show phone number
                                     AlertDialog.Builder builder = new AlertDialog.Builder(DashboardMessagesDetailActivity.this);

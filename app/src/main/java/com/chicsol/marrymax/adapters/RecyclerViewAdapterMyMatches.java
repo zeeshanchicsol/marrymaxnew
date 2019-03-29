@@ -878,18 +878,20 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                             mMemInterest member2 = (mMemInterest) gson.fromJson(responseObject.toString(), type);
                             Log.e("interested id", "" + member.getAlias() + "====================");
 
-                            if (member2.getFeedback_due() == 0) {
-                                dialogShowInterest newFragment = dialogShowInterest.newInstance(member, member.getUserpath(), replyCheck, member2);
-                                newFragment.setListener(RecyclerViewAdapterMyMatches.this);
+                            //    if (member2.getFeedback_due() == 0) {
 
-                                newFragment.setTargetFragment(fragment, 0);
-                                newFragment.show(frgMngr, "dialog");
-                            } else {
+
+                            dialogShowInterest newFragment = dialogShowInterest.newInstance(member, member.getUserpath(), replyCheck, member2, member2.getFeedback_due());
+                            newFragment.setListener(RecyclerViewAdapterMyMatches.this);
+
+                            newFragment.setTargetFragment(fragment, 0);
+                            newFragment.show(frgMngr, "dialog");
+                          /*  } else {
 
                                 String aliasn = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
 
-                       /*         if (memPhone.getFeedback_due() == 1) {
+                       *//*         if (memPhone.getFeedback_due() == 1) {
                                     String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
 
                                     dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
@@ -898,7 +900,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                                     newFragment.show(frgMngr, "dialog");
 
 
-                                } else if (memPhone.getFeedback_due() == 2) {*/
+                                } else if (memPhone.getFeedback_due() == 2) {*//*
 
 
                                 String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
@@ -909,7 +911,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
 
 
                                 //  }
-                            }
+                            }*/
 
                         } catch (JSONException e) {
                             pDialog.dismiss();

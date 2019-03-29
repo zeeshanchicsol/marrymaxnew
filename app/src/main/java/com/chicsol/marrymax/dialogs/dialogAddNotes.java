@@ -24,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.fragments.inbox.DashboardMessagesDetailActivity;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
@@ -83,7 +84,11 @@ public class dialogAddNotes extends DialogFragment {
             public void onClick(View view) {
 
                 if (!TextUtils.isEmpty(etNotes.getText().toString().trim())) {
-                    saveNotes();
+                    if (etNotes.getText().toString().trim().length() < 2) {
+                        Toast.makeText(getContext(), "Min 5  characters are allowed", Toast.LENGTH_SHORT).show();
+                    } else {
+                        saveNotes();
+                    }
                 } else {
                     Toast.makeText(getContext(), "Please Enter Notes to Save", Toast.LENGTH_SHORT).show();
                 }

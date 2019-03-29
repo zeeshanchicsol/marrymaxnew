@@ -146,9 +146,18 @@ public class dialogReportConcern extends DialogFragment {
                     try {
                         if (abtypeid == 47) {
                             if (!TextUtils.isEmpty(etOtherReason.getText().toString().trim())) {
+
+                                if (etOtherReason.getText().toString().trim().length() < 15) {
+                                    ccheck = false;
+                                    etOtherReason.setError("Min 15 & max 500 characters");
+                                    etOtherReason.requestFocus();
+                                }else {
+
                                 params.put("details", etOtherReason.getText().toString());
                                 params.put("id", abtypeid);
                                 ccheck = true;
+                                }
+
                             } else {
                                 Toast.makeText(getContext(), "Please Enter Reason", Toast.LENGTH_SHORT).show();
                                 ccheck = false;

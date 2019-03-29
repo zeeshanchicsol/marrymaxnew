@@ -115,7 +115,7 @@ public class dialogBlock extends DialogFragment {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                 //  Log.e("generateDynamicRadi",""+checkedId);
+                //  Log.e("generateDynamicRadi",""+checkedId);
                 abtypeid = checkedId;
                 if (checkedId == 35) {
 
@@ -155,8 +155,16 @@ public class dialogBlock extends DialogFragment {
                         if (abtypeid == 35) {
 
                             if (!TextUtils.isEmpty(etOtherReason.getText().toString().trim())) {
-                                params.put("notes", etOtherReason.getText().toString());
-                                params.put("id", abtypeid + "");
+
+
+                                if (etOtherReason.getText().toString().trim().length() < 15) {
+                                    ccehck = false;
+                                    etOtherReason.setError("Min 15 & max 2000 characters");
+                                    etOtherReason.requestFocus();
+                                } else {
+                                    params.put("notes", etOtherReason.getText().toString());
+                                    params.put("id", abtypeid + "");
+                                }
                                 ccehck = true;
                             } else {
                                 ccehck = false;

@@ -322,8 +322,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
             ck = true;
         }
         if (!TextUtils.isEmpty(etAboutMe.getText().toString().trim())) {
-            if (etAboutMe.getText().length() < 15 || etAboutMe.getText().length() > 1000) {
-                etAboutMe.setError("Min 15 char, max 1000 char");
+            if (etAboutMe.getText().length() < 5 || etAboutMe.getText().length() > 1500) {
+                etAboutMe.setError("Min 15 char, max 1500 characters");
 
                 etAboutMe.requestFocus();
                 ck = true;
@@ -331,8 +331,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
             }
         }
         if (!TextUtils.isEmpty(etAboutMyChoice.getText().toString().trim())) {
-            if (etAboutMyChoice.getText().length() < 15 || etAboutMyChoice.getText().length() > 1000) {
-                etAboutMyChoice.setError("Min 15 char, max 1000 char");
+            if (etAboutMyChoice.getText().length() < 5 || etAboutMyChoice.getText().length() > 1000) {
+                etAboutMyChoice.setError("Min 5 char, max 1000 characters");
 
                 etAboutMyChoice.requestFocus();
                 ck = true;
@@ -341,8 +341,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         }
 
         if (!TextUtils.isEmpty(etWhatIdoFor.getText().toString().trim())) {
-            if (etWhatIdoFor.getText().toString().length() > 140) {
-                etWhatIdoFor.setError("Min 15 char, max 1000 char");
+            if (etWhatIdoFor.getText().length() < 5 || etWhatIdoFor.getText().toString().length() > 2000) {
+                etWhatIdoFor.setError("Min 5 char, max 200 characters");
 
                 etWhatIdoFor.requestFocus();
                 ck = true;
@@ -350,8 +350,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
         }
         if (!TextUtils.isEmpty(etMyStrength.getText().toString())) {
-            if (etMyStrength.getText().toString().length() > 140) {
-                etMyStrength.setError("Min 15 char, max 1000 char");
+            if (etMyStrength.getText().length() < 5 || etMyStrength.getText().toString().length() > 200) {
+                etMyStrength.setError("Min 5 char, max 200 characters");
 
                 etMyStrength.requestFocus();
                 ck = true;
@@ -359,8 +359,8 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
         }
         if (!TextUtils.isEmpty(etMostThankfulFor.getText().toString().trim())) {
-            if (etMostThankfulFor.getText().toString().length() > 140) {
-                etMostThankfulFor.setError("Min 15 char, max 1000 char");
+            if (etMostThankfulFor.getText().length() < 5 || etMostThankfulFor.getText().toString().length() > 200) {
+                etMostThankfulFor.setError("Min 5 char, max 200 characters");
 
                 etMostThankfulFor.requestFocus();
                 ck = true;

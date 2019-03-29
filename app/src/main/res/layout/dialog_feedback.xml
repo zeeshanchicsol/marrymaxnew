@@ -92,6 +92,7 @@ android:orientation="vertical">
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minLines="2"
+                        android:maxLength="200"
                         android:hint="Enter Feedback....."
                         android:inputType="textMultiLine" />
 

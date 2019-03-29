@@ -585,13 +585,13 @@ public class Members {
 
 
     @SerializedName("feedback_pending")
-    public String feedback_pending;
+    public int feedback_pending;
 
-    public String getFeedback_pending() {
+    public int getFeedback_pending() {
         return feedback_pending;
     }
 
-    public void setFeedback_pending(String feedback_pending) {
+    public void setFeedback_pending(int feedback_pending) {
         this.feedback_pending = feedback_pending;
     }
 

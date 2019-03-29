@@ -177,8 +177,13 @@ public class AccountDeactivationFragment extends Fragment {
                         errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
                         errorText.setText("Please select reason for deactivation");
 
-                    } else if (obj.getId().equals("6") && TextUtils.isEmpty(reason.trim())) {
+                    } else if (obj.getId().equals("6") && TextUtils.isEmpty(reason.trim()) ) {
                         etOtherReason.setError("Please Enter Reason");
+                        focusView = etOtherReason;
+                        focusView.requestFocus();
+                    }
+                    else if (obj.getId().equals("6") &&  reason.trim().length()<5 ) {
+                        etOtherReason.setError("Min 5 & max 300 characters");
                         focusView = etOtherReason;
                         focusView.requestFocus();
                     }

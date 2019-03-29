@@ -60,10 +60,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="vertical">
 
                         <com.chicsol.marrymax.widgets.mTextView
@@ -90,10 +90,11 @@
 
                                 android:id="@+id/EditTextBlockDialgOtherReason"
                                 android:layout_width="match_parent"
-                                android:imeOptions="actionDone"
                                 android:layout_height="wrap_content"
                                 android:hint="If other, then please describe the reason."
-                                android:inputType="textMultiLine" />
+                                android:imeOptions="actionDone"
+                                android:inputType="textMultiLine"
+                                android:maxLength="200" />
                         </android.support.design.widget.TextInputLayout>
 
 

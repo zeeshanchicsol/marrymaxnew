@@ -740,6 +740,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             @Override
             public void onClick(View v) {
 
+
                 boolean bcheck3 = marryMax.statusBaseChecks(member, context, 7, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, Tag);
                 if (bcheck3) {
                     matchAid();
@@ -928,8 +929,23 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private void sendMessage(View v) {
         //   Log.e("Parcel Size", Parcel.obtain().dataSize() + "");
 
-        marryMax.statusBaseChecks(member, context, 6, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
+        String aliass = SharedPreferenceManager.getUserObject(getContext()).getAlias();
 
+        String aliasn = "<font color='#9a0606'>" + aliass + "!</font><br>";
+        if (member.getFeedback_pending() == 1) {
+            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending.To send more messages please give your previous feedbacks.";
+
+
+            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+
+        } else if (member.getFeedback_pending() == 2) {
+            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your Feedback are due. To send more messages please give your previous feedbacks.";
+            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+
+
+        } else {
+            marryMax.statusBaseChecks(member, context, 6, getFragmentManager(), UserProfileActivityFragment.this, v, null, null, null, null);
+        }
     }
 
 
@@ -1196,35 +1212,35 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                         try {
                             int res = response.getJSONArray(1).getJSONObject(0).getInt("id");
-                            int type = response.getJSONArray(1).getJSONObject(0).getInt("type");
+                            int feedback_due = response.getJSONArray(1).getJSONObject(0).getInt("type");
                             //    Log.e("ressss", "" + res + "");
 
-                            if (type == 0) {
+                            //    if (feedback_due == 0) {
 
-                                if (SharedPreferenceManager.getUserObject(context).getMember_status() != 4) {
-                                    dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).getMember_status());
+                            if (SharedPreferenceManager.getUserObject(context).getMember_status() != 4) {
+                                dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).getMember_status(), feedback_due);
+                                newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                newFragment.show(getFragmentManager(), "dialog");
+
+                            } else {
+                                if (res == 0) {
+                                    dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).getMember_status(), feedback_due);
                                     newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
                                     newFragment.show(getFragmentManager(), "dialog");
+                                } else if (res == 1) {
+                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
+                                    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                    newFragment.show(getFragmentManager(), "dialog");
+                                } else if (res == -1) {
 
-                                } else {
-                                    if (res == 0) {
-                                        dialogMatchAid newFragment = dialogMatchAid.newInstance(response, userpath, SharedPreferenceManager.getUserObject(context).getMember_status());
-                                        newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
-                                        newFragment.show(getFragmentManager(), "dialog");
-                                    } else if (res == 1) {
-                                        dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
-                                        newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
-                                        newFragment.show(getFragmentManager(), "dialog");
-                                    } else if (res == -1) {
+                                    //
 
-                                        //
-
-                                        dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
-                                        newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
-                                        newFragment.show(getFragmentManager(), "dialog");
-                                    }
+                                    dialogMatchAidUnderProcess newFragment = dialogMatchAidUnderProcess.newInstance(response, userpath, res);
+                                    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                                    newFragment.show(getFragmentManager(), "dialog");
                                 }
-                            } else {
+                            }
+                           /* } else {
                                 String aliasn = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
 
@@ -1234,7 +1250,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
 
-                       /*         if (memPhone.getFeedback_due() == 1) {
+                       *//*         if (memPhone.getFeedback_due() == 1) {
                                     String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
 
                                     dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
@@ -1243,7 +1259,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                     newFragment.show(frgMngr, "dialog");
 
 
-                                } else if (memPhone.getFeedback_due() == 2) {*/
+                                } else if (memPhone.getFeedback_due() == 2) {*//*
 
 
                                 String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
@@ -1253,7 +1269,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                 newFragment.show(getFragmentManager(), "dialog");
 
                             }
-
+*/
 
                         } catch (
                                 JSONException e) {
@@ -1381,17 +1397,17 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             //    Log.e("interested id", "" + member.getAlias() + "====================");
 
 
-                            if (member2.getFeedback_due() == 0) {
-                                dialogShowInterest newFragment = dialogShowInterest.newInstance(member, userpath, replyCheck, member2);
-                                newFragment.setListener(UserProfileActivityFragment.this);
-                                newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
-                                newFragment.show(getFragmentManager(), "dialog");
-                            } else {
+                            //    if (member2.getFeedback_due() == 0) {
+                            dialogShowInterest newFragment = dialogShowInterest.newInstance(member, userpath, replyCheck, member2, member2.getFeedback_due());
+                            newFragment.setListener(UserProfileActivityFragment.this);
+                            newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                            newFragment.show(getFragmentManager(), "dialog");
+                           /* } else {
 
                                 String aliasn = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
 
-                       /*         if (memPhone.getFeedback_due() == 1) {
+                       *//*         if (memPhone.getFeedback_due() == 1) {
                                     String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
 
                                     dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
@@ -1400,7 +1416,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                     newFragment.show(frgMngr, "dialog");
 
 
-                                } else if (memPhone.getFeedback_due() == 2) {*/
+                                } else if (memPhone.getFeedback_due() == 2) {*//*
 
 
                                 String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
@@ -1411,7 +1427,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
                                 //  }
-                            }
+                            }*/
 
                         } catch (JSONException e) {
                             pDialog.dismiss();
@@ -1649,6 +1665,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             loadSlider(member.getDefault_image());
 
                             setupViewPager(viewPager1, responsArray.toString());
+
+
                             // Log.e("Member checkedTextView", "" + member.getAlias());
 
 
@@ -1687,16 +1705,16 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 */
 
                             Members samember = SharedPreferenceManager.getUserObject(context);
-                            String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
-                            if (Integer.parseInt(member.getFeedback_pending()) == 1) {
+                            String alias = "<font>" + samember.getAlias() + "!</font><br>";
+                            if (member.getFeedback_pending() == 1) {
                                 String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
                                 tvFeedbackPending.setText(Html.fromHtml(text));
 
 
                                 cvFeedbackPending.setVisibility(View.VISIBLE);
 
-                            } else if (Integer.parseInt(member.getFeedback_pending()) == 2) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
+                            } else if (member.getFeedback_pending() == 2) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> Your feedback are due. To view more profiles please give your previous feedback";
                                 tvFeedbackPending.setText(Html.fromHtml(text));
                                 cvFeedbackPending.setVisibility(View.VISIBLE);
                             } else {

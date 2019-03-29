@@ -107,11 +107,16 @@ public class dialogMatchAidFeedback extends DialogFragment {
 
                             if (!TextUtils.isEmpty(fb.trim())) {
 
-                                params.put("id", lfm.getId());
-                                params.put("id2", mRbar.getNumStars());
-                                params.put("text", fb);
-                                Log.e("addFeedback", Urls.addFeedback + "   " + params);
-                                addFeedback(params);
+                                if (fb.length() < 2) {
+                                    Toast.makeText(getContext(), "Min 5  characters are allowed", Toast.LENGTH_SHORT).show();
+                                } else {
+
+                                    params.put("id", lfm.getId());
+                                    params.put("id2", mRbar.getNumStars());
+                                    params.put("text", fb);
+                                    Log.e("addFeedback", Urls.addFeedback + "   " + params);
+                                    addFeedback(params);
+                                }
                             } else {
 
                                 Toast.makeText(getContext(), "Enter Feedback Text ", Toast.LENGTH_SHORT).show();

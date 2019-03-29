@@ -210,7 +210,14 @@ public class ContactAcivity extends AppCompatActivity {
                             etQuestion.setError("Please Enter Your Query");
                             focusView = etQuestion;
                             focusView.requestFocus();
-                        } else if (TextUtils.isEmpty(mobNum.trim())) {
+                        }
+                        else if (question.length()<15) {
+                            etQuestion.setError("Min 15 & max 2000 characters");
+                            focusView = etQuestion;
+                            focusView.requestFocus();
+                        }
+
+                        else if (TextUtils.isEmpty(mobNum.trim())) {
                             EditTextAScontactMobileNumber.setError("Please Enter Mobile Number");
                             focusView = EditTextAScontactMobileNumber;
 

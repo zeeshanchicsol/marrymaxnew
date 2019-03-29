@@ -3,8 +3,12 @@ package com.chicsol.marrymax.dialogs;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -22,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.interfaces.UpdateMemberFromDialogFragment;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mMemInterest;
@@ -56,12 +62,19 @@ public class dialogShowInterest extends DialogFragment {
     private UpdateMemberFromDialogFragment updateMember;
     private Context context;
 
+
+    private int feedback_due;
+    private AppCompatButton btGiveFeedbackInterest;
+    private CardView cvFeedbackPending;
+    private TextView tvFeedbackPending;
+    private AppCompatButton btGiveFeedback;
+
     public void setListener(UpdateMemberFromDialogFragment listener) {
         updateMember = listener;
     }
 
 
-    public static dialogShowInterest newInstance(Members member, String userpath, boolean replyCheck, mMemInterest member2) {
+    public static dialogShowInterest newInstance(Members member, String userpath, boolean replyCheck, mMemInterest member2, int feedback_due) {
 
         dialogShowInterest frag = new dialogShowInterest();
         Bundle args = new Bundle();
@@ -74,6 +87,7 @@ public class dialogShowInterest extends DialogFragment {
         args.putString("my_id", String.valueOf(member2.getMy_id()));
         args.putString("alias", member.getAlias());
         args.putString("userpath", userpath);
+        args.putInt("feedback_due", feedback_due);
 
 
         frag.setArguments(args);
@@ -117,6 +131,7 @@ public class dialogShowInterest extends DialogFragment {
         my_id = mArgs.getString("my_id");
         userpath = mArgs.getString("userpath");
         alias = mArgs.getString("alias");
+        feedback_due = mArgs.getInt("feedback_due");
 
       /*  Log.e("name Fragment", interested_id);
         Log.e("desc Fragment", image_view);
@@ -129,13 +144,43 @@ public class dialogShowInterest extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.dialog_interest, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
+        tvFeedbackPending = (TextView) rootView.findViewById(R.id.TextViewDashMainFeedbackPending);
+        cvFeedbackPending = (CardView) rootView.findViewById(R.id.CardViewDashMainFeedbackPending);
+        btGiveFeedback = (AppCompatButton) rootView.findViewById(R.id.ButtonDashMainFeedbackPending);
+        btGiveFeedback.setVisibility(View.GONE);
+
+
         cbAllowPhone = (mCheckBox) rootView.findViewById(R.id.CheckBoxInterestAllowPhone);
         cbAllowPics = (mCheckBox) rootView.findViewById(R.id.CheckBoxInterestAllowPics);
         tvDesc = (mTextView) rootView.findViewById(R.id.TextViewDialogInterestDetails);
         tvDialogPhonePicsTitle = (mTextView) rootView.findViewById(R.id.TextViewDialogPhonePicsTitle);
+        btGiveFeedbackInterest = (AppCompatButton) rootView.findViewById(R.id.mButtonInterestGiveFeedback);
+
 
         Button mOkButton = (Button) rootView.findViewById(R.id.mButtonExpressWithDrawInterest);
-        Log.e("MyId", "" + my_id);
+
+
+        String aliass= SharedPreferenceManager.getUserObject(getContext()).getAlias();
+        String aliasn = "<font color='#9a0606'>" + aliass + "!</font><br>";
+        if (feedback_due == 1) {
+
+            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending. To continue viewing more phone numbers or sending interest you need to provide feedback.";
+            tvFeedbackPending.setText(Html.fromHtml(text));
+            btGiveFeedbackInterest.setVisibility(View.VISIBLE);
+            cvFeedbackPending.setVisibility(View.VISIBLE);
+
+        } else if (feedback_due == 2) {
+            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your Feedback are due. To continue viewing more phone numbers or sending interest you need to provide feedback.";
+            tvFeedbackPending.setBackgroundColor(Color.parseColor("#fff5d7"));
+            tvFeedbackPending.setText(Html.fromHtml(text));
+            btGiveFeedbackInterest.setVisibility(View.VISIBLE);
+            cvFeedbackPending.setVisibility(View.VISIBLE);
+
+        } else {
+            btGiveFeedbackInterest.setVisibility(View.GONE);
+            cvFeedbackPending.setVisibility(View.GONE);
+        }
 
 
         if (my_id.equals("0")) {
@@ -252,6 +297,16 @@ public class dialogShowInterest extends DialogFragment {
             JSONObject jsonObject= jsonArray2.getJSONObject(i);
             Log.e("value 2",""+jsonObject.get("name").toString());
         }*/
+
+        btGiveFeedbackInterest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 25);
+                // in.putExtra("subtype", "received");
+                startActivity(in);
+            }
+        });
 
 
         mOkButton.setOnClickListener(new View.OnClickListener() {

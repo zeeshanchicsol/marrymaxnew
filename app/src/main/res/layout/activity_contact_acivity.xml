@@ -182,7 +182,7 @@
                         android:hint="Question"
                         android:inputType="text"
                         android:imeOptions="actionDone"
-                        android:maxLength="1000"
+                        android:maxLength="2000"
                         android:textColor="@color/colorWhite"
                         app:backgroundTint="@color/colorUnderline" />
 

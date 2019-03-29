@@ -157,9 +157,19 @@ public class dialogContactSupport extends DialogFragment {
                         if (abtypeid == 115) {
 
                             if (!TextUtils.isEmpty(etOtherReason.getText().toString().trim())) {
-                                params.put("contact_message", etOtherReason.getText().toString());
-                                params.put("contact_category_id", abtypeid + "");
-                                ccehck = true;
+
+
+                                if (etOtherReason.getText().toString().trim().length() < 15) {
+                                    ccehck = false;
+                                    etOtherReason.setError("Min 15 & max 2000 characters");
+
+                                    etOtherReason.requestFocus();
+                                } else {
+
+                                    params.put("contact_message", etOtherReason.getText().toString());
+                                    params.put("contact_category_id", abtypeid + "");
+                                    ccehck = true;
+                                }
                             } else {
                                 ccehck = false;
                             }
@@ -177,7 +187,7 @@ public class dialogContactSupport extends DialogFragment {
                         e.printStackTrace();
                     }
                     //
-                    // 
+                    //
                     if (ccehck) {
                         query(params);
                     } else {

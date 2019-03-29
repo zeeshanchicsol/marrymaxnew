@@ -1,19 +1,26 @@
 package com.chicsol.marrymax.dialogs;
 
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mMemPhone;
+import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.widgets.faTextView;
 import com.chicsol.marrymax.widgets.mCheckBox;
 import com.chicsol.marrymax.widgets.mTextView;
@@ -38,7 +45,13 @@ public class dialogContactDetails extends DialogFragment {
     boolean replyCheck;
     mMemPhone member;
 
-    public static dialogContactDetails newInstance(String params, String alias) {
+    private int feedback_due;
+    private AppCompatButton btGiveFeedbackInterest;
+    private CardView cvFeedbackPending;
+    private TextView tvFeedbackPending;
+    private AppCompatButton btGiveFeedback;
+
+    public static dialogContactDetails newInstance(String params, String alias, int feedback_due) {
         /*       Members member, String userpath, boolean replyCheck, Members member2*/
         dialogContactDetails frag = new dialogContactDetails();
         Bundle args = new Bundle();
@@ -47,6 +60,8 @@ public class dialogContactDetails extends DialogFragment {
         // args.putString("name", name);
         args.putString("alias", alias);
         args.putString("params", params);
+        args.putInt("feedback_due", feedback_due);
+
         /*args.putString("param", String.valueOf(member2.getPhone_view()));
         args.putString("my_id", String.valueOf(member2.getMy_id()));
         args.putString("checkedTextView", member.getAlias());
@@ -66,6 +81,7 @@ public class dialogContactDetails extends DialogFragment {
         //  name = mArgs.getString("name");
         alias = mArgs.getString("alias");
         params = mArgs.getString("params");
+        feedback_due = mArgs.getInt("feedback_due");
       /*  my_id = mArgs.getString("my_id");
         userpath = mArgs.getString("userpath");
         checkedTextView = mArgs.getString("checkedTextView");*/
@@ -89,6 +105,13 @@ public class dialogContactDetails extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.dialog_contact_details, container, false);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
+
+        tvFeedbackPending = (TextView) rootView.findViewById(R.id.TextViewDashMainFeedbackPending);
+        cvFeedbackPending = (CardView) rootView.findViewById(R.id.CardViewDashMainFeedbackPending);
+        btGiveFeedback = (AppCompatButton) rootView.findViewById(R.id.ButtonDashMainFeedbackPending);
+        btGiveFeedback.setVisibility(View.GONE);
+        btGiveFeedbackInterest = (AppCompatButton) rootView.findViewById(R.id.mButtonInterestGiveFeedback);
 
         String desc = "Here is the contact detail of  <b> <font color=#216917>" + alias + "</font></b>";
 
@@ -115,6 +138,29 @@ public class dialogContactDetails extends DialogFragment {
         Button mOkButton = (Button) rootView.findViewById(R.id.ButtonContactDialogCancel);
 
 
+
+        String aliass= SharedPreferenceManager.getUserObject(getContext()).getAlias();
+        String aliasn = "<font color='#9a0606'>" + aliass + "!</font><br>";
+        if (feedback_due == 1) {
+
+            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending. To continue viewing more phone numbers or sending interest you need to provide feedback.";
+            tvFeedbackPending.setText(Html.fromHtml(text));
+            btGiveFeedbackInterest.setVisibility(View.VISIBLE);
+            cvFeedbackPending.setVisibility(View.VISIBLE);
+
+        } else if (feedback_due == 2) {
+            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your Feedback are due. To continue viewing more phone numbers or sending interest you need to provide feedback.";
+            tvFeedbackPending.setBackgroundColor(Color.parseColor("#fff5d7"));
+            tvFeedbackPending.setText(Html.fromHtml(text));
+            btGiveFeedbackInterest.setVisibility(View.VISIBLE);
+            cvFeedbackPending.setVisibility(View.VISIBLE);
+
+        } else {
+            btGiveFeedbackInterest.setVisibility(View.GONE);
+            cvFeedbackPending.setVisibility(View.GONE);
+        }
+
+
         //  tvTitle.setText(title);
 
 
@@ -133,6 +179,16 @@ public class dialogContactDetails extends DialogFragment {
 
             }
         });
+        btGiveFeedbackInterest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 25);
+                // in.putExtra("subtype", "received");
+                startActivity(in);
+            }
+        });
+
 
         faTextView cancelButton = (faTextView) rootView.findViewById(R.id.faButtonContactDialogDismiss);
         cancelButton.setOnClickListener(new View.OnClickListener() {
