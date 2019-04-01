@@ -72,7 +72,7 @@ public class dialogMatchAid extends DialogFragment {
     private AppCompatButton btGiveFeedback;
 
 
-    public static dialogMatchAid newInstance(JSONArray jsArray, String userpath, long member_status,int feedback_due) {
+    public static dialogMatchAid newInstance(JSONArray jsArray, String userpath, long member_status, int feedback_due) {
 
         dialogMatchAid frag = new dialogMatchAid();
         Bundle args = new Bundle();
@@ -112,22 +112,19 @@ public class dialogMatchAid extends DialogFragment {
         btGiveFeedbackInterest = (AppCompatButton) rootView.findViewById(R.id.mButtonInterestGiveFeedback);
 
 
+        MarryMax max = new MarryMax(null);
+        String desc = max.getFeedbackText(feedback_due, getContext());
 
-
-        String aliass= SharedPreferenceManager.getUserObject(getContext()).getAlias();
-
-        String aliasn = "<font color='#9a0606'>" + aliass + "!</font><br>";
         if (feedback_due == 1) {
 
-            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending. To continue requesting for match aid you need to provide feedback.";
-            tvFeedbackPending.setText(Html.fromHtml(text));
+
+            tvFeedbackPending.setText(Html.fromHtml(desc));
             btGiveFeedbackInterest.setVisibility(View.VISIBLE);
             cvFeedbackPending.setVisibility(View.VISIBLE);
 
         } else if (feedback_due == 2) {
-            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your Feedback are due. To continue requesting for match aid you need to provide feedback.";
             tvFeedbackPending.setBackgroundColor(Color.parseColor("#fff5d7"));
-            tvFeedbackPending.setText(Html.fromHtml(text));
+            tvFeedbackPending.setText(Html.fromHtml(desc));
             btGiveFeedbackInterest.setVisibility(View.VISIBLE);
             cvFeedbackPending.setVisibility(View.VISIBLE);
 
@@ -220,7 +217,6 @@ public class dialogMatchAid extends DialogFragment {
                 startActivity(in);
             }
         });
-
 
 
         faTextView cancelButton = (faTextView) rootView.findViewById(R.id.dismissBtnMatchAid);

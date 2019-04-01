@@ -119,7 +119,7 @@ public class dialogContactSupport extends DialogFragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 //  Log.e("generateDynamicRadi",""+checkedId);
                 abtypeid = checkedId;
-                if (checkedId == 115) {
+                if (checkedId == 116) {
 
                     textInputLayout.setVisibility(View.VISIBLE);
                 } else {
@@ -154,14 +154,14 @@ public class dialogContactSupport extends DialogFragment {
                     boolean ccehck = false;
                     JSONObject params = new JSONObject();
                     try {
-                        if (abtypeid == 115) {
+                        if (abtypeid == 116) {
 
                             if (!TextUtils.isEmpty(etOtherReason.getText().toString().trim())) {
 
 
                                 if (etOtherReason.getText().toString().trim().length() < 15) {
                                     ccehck = false;
-                                    etOtherReason.setError("Min 15 & max 2000 characters");
+                                    etOtherReason.setError("Min 15 & max 200 characters");
 
                                     etOtherReason.requestFocus();
                                 } else {

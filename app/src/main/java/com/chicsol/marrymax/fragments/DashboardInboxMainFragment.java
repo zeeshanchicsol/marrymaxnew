@@ -66,8 +66,9 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     Typeface typeface;
     private Context context;
     private CardView cvFeedbackPending;
-    private TextView  tvFeedbackPending;
+    private TextView tvFeedbackPending;
     private AppCompatButton btGiveFeedback;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -199,7 +200,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     @Override
     public void bottomNavSelected() {
         //  Toast.makeText(context, "Inbox Selected", Toast.LENGTH_SHORT).show();
-       //   getCommunicationCount();
+        //   getCommunicationCount();
     }
 
     private void getCommunicationCount() {
@@ -247,13 +248,24 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
                             }
 */
 
-                            Members samember = SharedPreferenceManager.getUserObject(context);
+
+                            MarryMax max = new MarryMax(null);
+                            if (Integer.parseInt(comCount.getFeedback_pending()) == 0) {
+                                cvFeedbackPending.setVisibility(View.GONE);
+                            } else {
+
+                                String desc = max.getFeedbackText(Integer.parseInt(comCount.getFeedback_pending()), context);
+                                tvFeedbackPending.setText(Html.fromHtml(desc));
+                                cvFeedbackPending.setVisibility(View.VISIBLE);
+                            }
+
+
+
+                          /*  Members samember = SharedPreferenceManager.getUserObject(context);
                             String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
                             if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
                                 String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
                                 tvFeedbackPending.setText(Html.fromHtml(text));
-
-
                                 cvFeedbackPending.setVisibility(View.VISIBLE);
 
                             } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
@@ -261,11 +273,10 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
                                 tvFeedbackPending.setText(Html.fromHtml(text));
                                 cvFeedbackPending.setVisibility(View.VISIBLE);
                             } else {
-
                                 // 0 hide
                                 cvFeedbackPending.setVisibility(View.GONE);
-
                             }
+                            */
 
                         } catch (JSONException e) {
                             e.printStackTrace();

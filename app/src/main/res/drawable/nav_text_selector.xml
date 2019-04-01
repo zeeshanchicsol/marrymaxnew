@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?><!--<selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item_image_slider android:state_pressed="true"
         android:drawable="@color/colorBlack"
         />
@@ -7,8 +6,8 @@
         android:drawable="@android:color/transparent" />
 </selector>-->
 
-    <selector xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:color="#258414" android:state_pressed="true" />
-        <item android:color="@color/colorBlack" android:state_focused="false" />
-        <item android:color="#258414" android:state_selected="true" />
-    </selector>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#258414" android:state_pressed="true" />
+    <item android:color="@color/colorBlack" android:state_focused="false" />
+    <item android:color="#258414" android:state_selected="true" />
+</selector>

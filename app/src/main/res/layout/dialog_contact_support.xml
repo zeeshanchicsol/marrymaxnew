@@ -40,7 +40,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Let's Talk "
+                            android:text="Let's Talk - If you need our help"
                             android:textColor="@color/colorWhite"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -70,7 +70,7 @@
                             android:id="@+id/TextViewDialogInterestDetails"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Please select the appropriate reason from given options."
+                            android:text="Please select reason, what you like to talk about!"
                             android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
@@ -93,8 +93,8 @@
                                 android:layout_height="wrap_content"
                                 android:hint="If other, then please describe the reason."
                                 android:imeOptions="actionDone"
-                                android:maxLength="2000"
-                                android:inputType="textMultiLine" />
+                                android:inputType="textMultiLine"
+                                android:maxLength="200" />
                         </android.support.design.widget.TextInputLayout>
 
 

@@ -2,7 +2,6 @@ package com.chicsol.marrymax.fragments;
 
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -43,16 +42,13 @@ import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.MyProfileActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
-import com.chicsol.marrymax.activities.subscription.SubscriptionPlanActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapter;
-import com.chicsol.marrymax.dialogs.dialogBlock;
 import com.chicsol.marrymax.dialogs.dialogContactSupport;
 import com.chicsol.marrymax.dialogs.dialogMatchingAttributeFragment;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.fragments.DashMain.DashMembersFragment;
 import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
-import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.mDshCount;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -128,7 +124,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private AppCompatButton btDashboardGetOfferNow, btDashboardDismissBanner;
     //  private RelativeLayout rlUpgrade;
     private LinearLayout llMatchPreference;
-    private ImageView ivContactSupport;
+    private ImageView ivLetsTalk;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -181,7 +177,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         pDialog.setVisibility(View.GONE);
 
 
-        ivContactSupport = (ImageView) view.findViewById(R.id.ImageViewContactSupport);
+        ivLetsTalk = (ImageView) view.findViewById(R.id.ImageViewContactSupport);
 
 
         btDashboardGetOfferNow = (AppCompatButton) view.findViewById(R.id.ButtonDashboardGetOfferNow);
@@ -344,10 +340,6 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         Members member = SharedPreferenceManager.getUserObject(getActivity().getApplicationContext());
 
 
-        String txt = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
-        tvFeedbackPending.setText(Html.fromHtml("Dear " + "<b>" + txt.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks"));
-
-
         // ll_blocked = (LinearLayout) view.findViewById(R.id.LinearLayoutdmBlocked);
         // ll_removed_from_search = (LinearLayout) view.findViewById(R.id.LinearLayoutdmRemovedFromSearch);
         tv_alias = (mTextView) view.findViewById(R.id.TextViewdmAlias);
@@ -502,7 +494,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     public void setListener() {
 
 
-        ivContactSupport.setOnClickListener(new View.OnClickListener() {
+        ivLetsTalk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 contactSupport();
@@ -1003,7 +995,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //   Log.e("getContactData", response.toString());
 
 
                         try {
@@ -1143,23 +1135,25 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 Dashboards dash = (Dashboards) gson.fromJson(jsonObj.toString(), membert);
 
 
-                                if (Integer.parseInt(dash.getFeedback_pending()) == 1) {
-                                    cvFeedbackPending.setVisibility(View.VISIBLE);
-
-                                } else if (Integer.parseInt(dash.getFeedback_pending()) == 2) {
-                                    cvFeedbackPending.setVisibility(View.VISIBLE);
+                                MarryMax max = new MarryMax(null);
+                                if (Integer.parseInt(dash.getFeedback_pending()) == 0) {
+                                    cvFeedbackPending.setVisibility(View.GONE);
                                 } else {
 
-                                    // 0 hide
-                                    cvFeedbackPending.setVisibility(View.GONE);
-
+                                    String desc = max.getFeedbackText(Integer.parseInt(dash.getFeedback_pending()), context);
+                                    tvFeedbackPending.setText(Html.fromHtml(desc));
+                                    cvFeedbackPending.setVisibility(View.VISIBLE);
                                 }
 
 
-                                if (Integer.parseInt(dash.getNotes_count()) == 1) {
-                                    ivContactSupport.setVisibility(View.VISIBLE);
+
+
+
+
+                                if (Integer.parseInt(dash.getSent_count()) == 1) {
+                                    ivLetsTalk.setVisibility(View.VISIBLE);
                                 } else {
-                                    ivContactSupport.setVisibility(View.GONE);
+                                    ivLetsTalk.setVisibility(View.GONE);
                                 }
 
 

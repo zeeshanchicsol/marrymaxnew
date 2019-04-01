@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -903,7 +904,7 @@ public class MarryMax {
 
                             //    if (memPhone.getFeedback_due() == 0) {
 
-                            dialogContactDetails newFragment = dialogContactDetails.newInstance(responseObject.toString(), alias,memPhone.getFeedback_due());
+                            dialogContactDetails newFragment = dialogContactDetails.newInstance(responseObject.toString(), alias, memPhone.getFeedback_due());
                             if (fragment != null) {
                                 newFragment.setTargetFragment(fragment, 3);
                             }
@@ -1577,6 +1578,27 @@ public class MarryMax {
             //   Log.e("versionName", "" + version);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+
+    public String getFeedbackText(int peedback_pending, Context context) {
+        Members membera = SharedPreferenceManager.getUserObject(context);
+
+        String desc = null;
+        if (peedback_pending == 1) {
+
+            String txt = "<font color='#9a0606'>" + membera.getAlias() + "!</font><br>";
+            return desc = "Dear " + "<b>" + txt.toUpperCase() + "</b> Please give us the feedback of a recently contacted match.";
+
+
+        } else if (peedback_pending == 2) {
+
+            String txt = "<font color='#9a0606'>" + membera.getAlias() + "!</font><br>";
+            return desc = "Dear " + "<b>" + txt.toUpperCase() + "</b>  Please give us at least one match feedback to many of the matches, you got connected to.";
+
+
+        } else {
+            return null;
         }
     }
 
