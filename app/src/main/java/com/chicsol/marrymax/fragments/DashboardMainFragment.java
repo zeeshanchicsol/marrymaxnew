@@ -119,8 +119,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     ViewPagerAdapter1 adapterMemFragment;
     private ViewPager viewPagerMemFragment;
     TabLayout tabLayoutMemFragment;
-    TextView tvEditProfile, tvViewProfile, tvAccStatus;
-
+    TextView tvEditProfile, tvAccStatus;
+    //, tvViewProfile
     private AppCompatButton btDashboardGetOfferNow, btDashboardDismissBanner;
     //  private RelativeLayout rlUpgrade;
     private LinearLayout llMatchPreference;
@@ -265,7 +265,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
         tvEditProfile = (TextView) view.findViewById(R.id.TextViewDashMainEditProfile);
-        tvViewProfile = (TextView) view.findViewById(R.id.TextViewDashMainAddPhoto);
+        // tvViewProfile = (TextView) view.findViewById(R.id.TextViewDashMainAddPhoto);
         tvAccStatus = (TextView) view.findViewById(R.id.TextViewDashMainAccStatus);
 
 
@@ -538,18 +538,18 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
             }
         });
-        tvViewProfile.setOnClickListener(new View.OnClickListener() {
+       /* tvViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 viewProfile();
-              /*  MarryMax marryMax = new MarryMax(getActivity());
+              *//*  MarryMax marryMax = new MarryMax(getActivity());
                 if (marryMax.uploadPhotoCheck(context)) {
                     Intent in = new Intent(context, PhotoUpload.class);
                     startActivity(in);
-                }*/
+                }*//*
             }
         });
-
+*/
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -1144,10 +1144,6 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                     tvFeedbackPending.setText(Html.fromHtml(desc));
                                     cvFeedbackPending.setVisibility(View.VISIBLE);
                                 }
-
-
-
-
 
 
                                 if (Integer.parseInt(dash.getSent_count()) == 1) {

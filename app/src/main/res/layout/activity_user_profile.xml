@@ -585,6 +585,7 @@
                         android:visibility="gone">
 
                         <LinearLayout
+                            android:id="@+id/LinearLayoutUserprofileResidenceDetails"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -594,7 +595,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Residence Details: "
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
+                                android:textColor="@color/colorDefaultGreen"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -608,6 +609,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/LinearLayoutUserprofileAboutParents"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -617,7 +619,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="AboutParents: "
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
+                                android:textColor="@color/colorDefaultGreen"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -630,6 +632,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/LinearLayoutUserprofileAboutSiblings"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -639,7 +642,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="About Siblings: "
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
+                                android:textColor="@color/colorDefaultGreen"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -653,6 +656,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/LinearLayoutUserprofileJobDetails"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
@@ -663,7 +667,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Job Details: "
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
+                                android:textColor="@color/colorDefaultGreen"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -677,6 +681,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/LinearLayoutUserprofileEducationDetails"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
@@ -687,7 +692,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Education Detail: "
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
+                                android:textColor="@color/colorDefaultGreen"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -701,6 +706,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/LinearLayoutUserprofileSocialDetails"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
@@ -711,7 +717,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Social Detail: "
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/colorBlack"
+                                android:textColor="@color/colorDefaultGreen"
                                 android:textStyle="bold" />
 
                             <TextView

@@ -496,6 +496,9 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                             viewGenerator.addDynamicCheckRdioButtons(smokeDataList, rgSmoke, llcbViewSmoke);
                             viewGenerator.addDynamicCheckRdioButtons(drinkDataList, rgDrink, llcbViewDrink);
                             viewGenerator.addDynamicCheckRdioButtons(physicalChallengesDataList, rgPhysicalChallenges, llcbViewPhysicalChallenges);
+
+                            rgPhysicalChallenges.check(Integer.parseInt(physicalChallengesDataList.get(0).getId()));
+
                         }
 
                         pDialog.dismiss();

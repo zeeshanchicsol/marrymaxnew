@@ -321,9 +321,17 @@
                                                 <TextView
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
-                                                    android:text="Add Specific Details"
+                                                    android:text="Specific Details"
                                                     android:textColor="@color/colorTextRed"
                                                     android:textStyle="bold" />
+
+                                                <TextView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Add more Specific Details . This Feature is just for Subscriber Only"
+
+                                                    />
+
 
                                                 <View
                                                     android:layout_width="wrap_content"
@@ -331,6 +339,7 @@
                                                     android:background="#d7d7d7"
 
                                                     ></View>
+
 
                                                 <TextView
                                                     android:id="@+id/TextViewAddMemberInfo"

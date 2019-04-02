@@ -1197,6 +1197,7 @@ drawable ic_amex
 drawable ic_arrow_left
 drawable ic_arrow_right
 drawable ic_bell
+drawable ic_call_support
 drawable ic_cancel_black_24dp
 drawable ic_cash
 drawable ic_check_black_24dp
@@ -1732,6 +1733,12 @@ id LinearLayoutUserProfilePhone
 id LinearLayoutUserProfileSendMessage
 id LinearLayoutUserProfileShowInterest
 id LinearLayoutUserProfileWIDFF
+id LinearLayoutUserprofileAboutParents
+id LinearLayoutUserprofileAboutSiblings
+id LinearLayoutUserprofileEducationDetails
+id LinearLayoutUserprofileJobDetails
+id LinearLayoutUserprofileResidenceDetails
+id LinearLayoutUserprofileSocialDetails
 id LinearLayoutVerifyMobile
 id LinearLayout_bestmatch_bride_groom
 id LinearLayoutdmBlocked
@@ -1972,7 +1979,6 @@ id TextViewDMRemFromSearchCount
 id TextViewDMWhomIviewedCount
 id TextViewDMWhomViewedMeCount
 id TextViewDashMainAccStatus
-id TextViewDashMainAddPhoto
 id TextViewDashMainEditProfile
 id TextViewDashMainFeedbackPending
 id TextViewDashNotificationDescription
@@ -2325,6 +2331,7 @@ id baseline
 id beginning
 id blocking
 id bottom
+id bt_call_support
 id bt_show_interest
 id buttonBack
 id buttonContinueStep2
@@ -3612,6 +3619,7 @@ string cvc_amex_hint
 string cvc_number_hint
 string declaration_text_i_understand
 string default_web_client_id
+string edit_profile_text
 string ep_desc
 string ep_desc2
 string error_field_required

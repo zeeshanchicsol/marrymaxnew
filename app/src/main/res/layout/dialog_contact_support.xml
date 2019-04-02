@@ -98,6 +98,48 @@
                         </android.support.design.widget.TextInputLayout>
 
 
+                        <LinearLayout
+                            android:id="@+id/bt_call_support"
+                            style="@style/myCustomMaterialButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="10dp"
+                            android:clickable="true"
+                            app:backgroundTint="@color/colorDefaultGreen">
+
+
+                            <TextView
+                                android:id="@+id/TextViewMMShowInterestText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:gravity="center"
+                                android:text="Call Me"
+                                android:textColor="#ffff" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/ic_call_support"
+
+                                />
+
+
+                            <!--    <com.chicsol.marrymax.widgets.faTextView
+                                    android:id="@+id/faTextViewMyMatchesInterestIcon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="6dp"
+                                    android:gravity="center"
+                                    android:text="@string/fa_icon_phone"
+                                    android:textColor="@color/colorWhite"
+
+                                    android:textSize="@dimen/text_size_mymatches_desc" />-->
+
+                        </LinearLayout>
+<!--
                         <android.support.v7.widget.AppCompatButton
                             android:id="@+id/mButtonDialogBlock"
                             style="@style/myCustomMaterialButton"
@@ -109,7 +151,7 @@
 
                             android:textAllCaps="false"
                             android:textColor="@color/colorWhite"
-                            app:backgroundTint="@color/colorDefaultGreen" />
+                            app:backgroundTint="@color/colorDefaultGreen" />-->
                     </LinearLayout>
 
 

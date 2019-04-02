@@ -160,6 +160,7 @@ public class dialogShowInterest extends DialogFragment {
 
         Button mOkButton = (Button) rootView.findViewById(R.id.mButtonExpressWithDrawInterest);
 
+/*
 
         String aliass= SharedPreferenceManager.getUserObject(getContext()).getAlias();
         String aliasn = "<font color='#9a0606'>" + aliass + "!</font><br>";
@@ -180,6 +181,18 @@ public class dialogShowInterest extends DialogFragment {
         } else {
             btGiveFeedbackInterest.setVisibility(View.GONE);
             cvFeedbackPending.setVisibility(View.GONE);
+        }
+*/
+
+
+        MarryMax max = new MarryMax(null);
+        if (feedback_due == 0) {
+            cvFeedbackPending.setVisibility(View.GONE);
+        } else {
+
+            String desc = max.getFeedbackText(feedback_due, context);
+            tvFeedbackPending.setText(Html.fromHtml(desc));
+            cvFeedbackPending.setVisibility(View.VISIBLE);
         }
 
 

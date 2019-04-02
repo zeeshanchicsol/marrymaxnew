@@ -105,6 +105,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
     ViewPagerAdapter1 adapter;
 
     private TextView tvResidenceDetails, tvAboutParents, tvAboutSiblings, tvJobDetails, tvEducationDetail, tvSocialDetai;
+    private LinearLayout llResidenceDetails, llAboutParents, llAboutSiblings, llJobDetails, llEducationDetail, llSocialDetai;
 
 
     @Override
@@ -303,6 +304,13 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         tvJobDetails = (TextView) findViewById(R.id.TextViewUPJobDetails);
         tvEducationDetail = (TextView) findViewById(R.id.TextViewUPEducationDetail);
         tvSocialDetai = (TextView) findViewById(R.id.TextViewUPSocialDetail);
+
+        llResidenceDetails = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileResidenceDetails);
+        llAboutParents = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileAboutParents);
+        llAboutSiblings = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileAboutParents);
+        llJobDetails = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileJobDetails);
+        llEducationDetail = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileEducationDetails);
+        llSocialDetai = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileSocialDetails);
 
 
         ivZodiacSign = (ImageView) findViewById(R.id.ImageViewUPZodiacSign);
@@ -504,16 +512,57 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
             llMemDetail.setVisibility(View.VISIBLE);
 
-            tvResidenceDetails.setText(memDetailObj.getResidence());
-            tvAboutParents.setText(memDetailObj.getParents());
-            tvAboutSiblings.setText(memDetailObj.getSiblings());
-            tvJobDetails.setText(memDetailObj.getJobinfo());
-            tvEducationDetail.setText(memDetailObj.getEducation());
-            tvSocialDetai.setText(memDetailObj.getSocial());
+            if (!memDetailObj.getResidence().trim().isEmpty()) {
+                tvResidenceDetails.setText(memDetailObj.getResidence());
+                llResidenceDetails.setVisibility(View.VISIBLE);
+            } else {
+                llResidenceDetails.setVisibility(View.GONE);
+            }
+
+
+            if (!memDetailObj.getParents().trim().isEmpty()) {
+                tvAboutParents.setText(memDetailObj.getParents());
+                llAboutParents.setVisibility(View.VISIBLE);
+            } else {
+                llAboutParents.setVisibility(View.GONE);
+            }
+
+
+            if (!memDetailObj.getSiblings().trim().isEmpty()) {
+                tvAboutSiblings.setText(memDetailObj.getSiblings());
+                llAboutSiblings.setVisibility(View.VISIBLE);
+            } else {
+                llAboutSiblings.setVisibility(View.GONE);
+            }
+
+
+            if (!memDetailObj.getJobinfo().trim().isEmpty()) {
+                tvJobDetails.setText(memDetailObj.getJobinfo());
+                llJobDetails.setVisibility(View.VISIBLE);
+            } else {
+                llJobDetails.setVisibility(View.GONE);
+            }
+
+
+            if (!memDetailObj.getEducation().trim().isEmpty()) {
+                tvEducationDetail.setText(memDetailObj.getEducation());
+                llEducationDetail.setVisibility(View.VISIBLE);
+            } else {
+                llEducationDetail.setVisibility(View.GONE);
+            }
+
+
+            if (!memDetailObj.getSocial().trim().isEmpty()) {
+                tvSocialDetai.setText(memDetailObj.getSocial());
+                llSocialDetai.setVisibility(View.VISIBLE);
+            } else {
+                llSocialDetai.setVisibility(View.GONE);
+            }
+
+
         } else {
             llMemDetail.setVisibility(View.GONE);
         }
-
         postSetListener();
 
     }
@@ -537,7 +586,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                         //   getMobileInfo(params);
+                            //   getMobileInfo(params);
 
 
                         } else {
@@ -617,7 +666,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         tvMatchAid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  matchAid();
+                //  matchAid();
             }
         });
         faAddToFavourites.setOnClickListener(new View.OnClickListener() {

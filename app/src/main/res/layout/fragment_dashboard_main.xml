@@ -589,9 +589,10 @@
                                                 android:background="?selectableItemBackground"
                                                 android:clickable="true"
                                                 android:fontFamily="sans-serif"
-                                                android:text="Edit "
-                                                android:textColor="@color/colorASBlue"
-                                                android:textStyle="bold" />
+                                                android:textColor="@color/colorDashboardMainNormalText"
+                                                android:text="@string/edit_profile_text"
+
+                                               />
 
                                             <!--     <TextView
                                                      android:layout_width="wrap_content"
@@ -600,18 +601,18 @@
                                                      android:text=""
                                                      android:textColor="@color/colorASBlue" />-->
 
-                                            <TextView
-                                                android:id="@+id/TextViewDashMainAddPhoto"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_centerVertical="true"
-                                                android:layout_toRightOf="@+id/TextViewDashMainEditProfile"
-                                                android:background="?selectableItemBackground"
-                                                android:clickable="true"
-                                                android:fontFamily="sans-serif"
-                                                android:text="  |  View Profile"
-                                                android:textColor="@color/colorASBlue"
-                                                android:textStyle="bold" />
+                                            <!--         <TextView
+                                                         android:id="@+id/TextViewDashMainAddPhoto"
+                                                         android:layout_width="wrap_content"
+                                                         android:layout_height="wrap_content"
+                                                         android:layout_centerVertical="true"
+                                                         android:layout_toRightOf="@+id/TextViewDashMainEditProfile"
+                                                         android:background="?selectableItemBackground"
+                                                         android:clickable="true"
+                                                         android:fontFamily="sans-serif"
+                                                         android:text="  |  View Profile"
+                                                         android:textColor="@color/colorASBlue"
+                                                         android:textStyle="bold" />-->
                                             <!--  android:src="@drawable/ic_lets_talk"-->
                                             <ImageView
                                                 android:id="@+id/ImageViewContactSupport"
@@ -646,7 +647,8 @@
                                                 android:layout_marginTop="3dp"
                                                 android:fontFamily="sans-serif"
                                                 android:text="Basic Membership"
-                                                android:textColor="@color/colorDashboardMainNormalText"
+                                                android:textColor="@color/colorASBlue"
+                                                android:textStyle="bold"
                                                 android:visibility="gone"
 
                                                 />

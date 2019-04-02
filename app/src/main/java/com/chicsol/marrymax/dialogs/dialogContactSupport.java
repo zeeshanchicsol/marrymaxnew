@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -26,9 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
-import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
-import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
@@ -58,7 +57,7 @@ public class dialogContactSupport extends DialogFragment {
     String userpath, notes, jsarray;
     int abtypeid = -1;
     private onCompleteListener mCompleteListener;
-
+   private LinearLayout ll_call_support;
     public static dialogContactSupport newInstance(JSONArray jsArray) {
 
         dialogContactSupport frag = new dialogContactSupport();
@@ -111,6 +110,8 @@ public class dialogContactSupport extends DialogFragment {
         final TextInputLayout textInputLayout = (TextInputLayout) rootView.findViewById(R.id.EditTextBlockDialgTextInputLayout);
 
         etOtherReason = (EditText) rootView.findViewById(R.id.EditTextBlockDialgOtherReason);
+        ll_call_support = (LinearLayout) rootView.findViewById(R.id.bt_call_support);
+
 
         final RadioGroup radioGroup = (RadioGroup) rootView.findViewById(R.id.RadioGroupBlockReasonDialog);
 
@@ -146,7 +147,63 @@ public class dialogContactSupport extends DialogFragment {
         }
 
 
-        Button mOkButton = (Button) rootView.findViewById(R.id.mButtonDialogBlock);
+
+        ll_call_support.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (abtypeid != -1) {
+                    boolean ccehck = false;
+                    JSONObject params = new JSONObject();
+                    try {
+                        if (abtypeid == 116) {
+
+                            if (!TextUtils.isEmpty(etOtherReason.getText().toString().trim())) {
+
+
+                                if (etOtherReason.getText().toString().trim().length() < 15) {
+                                    ccehck = false;
+                                    etOtherReason.setError("Min 15 & max 200 characters");
+
+                                    etOtherReason.requestFocus();
+                                } else {
+
+                                    params.put("contact_message", etOtherReason.getText().toString());
+                                    params.put("contact_category_id", abtypeid + "");
+                                    ccehck = true;
+                                }
+                            } else {
+                                ccehck = false;
+                            }
+
+                        } else {
+                            ccehck = true;
+                            RadioButton radioSexButton = (RadioButton) rootView.findViewById(abtypeid);
+                            params.put("contact_message", radioSexButton.getText().toString());
+                            params.put("contact_category_id", abtypeid + "");
+                        }
+                        params.put("flag", "usrmsg");
+                        //    params.put("userpath", userpath);
+                        //    params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    //
+                    //
+                    if (ccehck) {
+                        query(params);
+                    } else {
+                        Toast.makeText(getContext(), "Please enter other reason", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Please select reason", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
+
+  /*      Button mOkButton = (Button) rootView.findViewById(R.id.mButtonDialogBlock);
         mOkButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
 
@@ -199,7 +256,7 @@ public class dialogContactSupport extends DialogFragment {
                 }
 
             }
-        });
+        });*/
 
         faTextView cancelButton = (faTextView) rootView.findViewById(R.id.mButtonDismissDialogBlock);
         cancelButton.setOnClickListener(new View.OnClickListener() {
