@@ -118,7 +118,7 @@ public class dialogDeclineInterestInbox extends DialogFragment {
 
 
         String txt = "<font color='#9a0606'>" + alias + "</font>";
-        tvDesc.setText(Html.fromHtml("Great! You are interested in" + txt.toUpperCase()));
+        tvDesc.setText(Html.fromHtml("Yes, I am not interested in " + txt.toUpperCase()));
 
 
 

@@ -80,6 +80,8 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
     private AdapterView.OnItemSelectedListener spMyCountryListener, spMyCountryStateListener, spMyCountryCityListener;
     private AdapterView.OnItemSelectedListener statesListener, countriesListener;
     private ProgressDialog pDialog;
+
+    private String countryCode = null;
     //pr
 
     @Override
@@ -183,9 +185,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         }
 
 
-        if (BuildConfig.FLAVOR.equals("alfalah"))
-
-        {
+        if (BuildConfig.FLAVOR.equals("alfalah")) {
 
 
             tvSpMultiChoiceOrigin = (mTextView) findViewById(R.id.MutliChoiceOriginCountryButton);
@@ -213,9 +213,21 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 WebArd ard = (WebArd) spMyCountry.getSelectedItem();
                 if (position != -1 && position != 0) {
                     cModel c = MyCountryDataList2.get(position - 1);
-                 //   Log.e("country data code", "" + c.getCode());
+                    //   Log.e("country data code", "" + c.getCode());
 
-                    getCountryCode(c.getCode());
+
+                    if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 0 || SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 1) {
+
+                        if (countryCode == null) {
+                            putRequestCountryCode(c.getCode());
+                        } else {
+                            if (!c.getCode().equals(countryCode)) {
+                                dialogGeoInfo newFragment = dialogGeoInfo.newInstance("");
+                                newFragment.show(getSupportFragmentManager(), "dialog");
+                            }
+
+                        }
+                    }
 
                 }
                 if (Integer.parseInt(ard.getId()) != 0 && updateData != true) {
@@ -338,9 +350,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
             }
         });
 
-        if (BuildConfig.FLAVOR.equals("alfalah"))
-
-        {
+        if (BuildConfig.FLAVOR.equals("alfalah")) {
 
             tvSpMultiChoiceOrigin.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -568,9 +578,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
                             adapter_myCountry.updateDataList(MyCountryDataList);
 
-                            if (BuildConfig.FLAVOR.equals("alfalah"))
-
-                            {
+                            if (BuildConfig.FLAVOR.equals("alfalah")) {
                                 adapter_country_origin.updateDataList(MyCountryDataList);
 
                             }
@@ -863,6 +871,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
     }
 
+/*
     public void getCountryCode(final String selectedCountryCode) {
 
 
@@ -882,7 +891,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                             newFragment.show(getSupportFragmentManager(), "dialog");
                         }
 
-                     //   getIp(cc);
+                        //   getIp(cc);
 
 
                     }
@@ -906,6 +915,80 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
 
     }
+*/
+
+    private void putRequestCountryCode(final String selectedCountryCode) {
+
+        final ProgressDialog pDialog = new ProgressDialog(RegisterGeographicActivity.this);
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+        //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
+
+        JSONObject params = new JSONObject();
+        try {
+
+            params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+            params.put("member_status", SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("Params", "" + params);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                Urls.cntCode, params,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("re  update appearance", response + "");
+                        try {
+                            String responseName = response.getString("name");
+
+                            countryCode = responseName.replaceAll("^\"|\"$", "");
+
+                            if (!selectedCountryCode.toLowerCase().equals(responseName.toLowerCase())) {
+                                dialogGeoInfo newFragment = dialogGeoInfo.newInstance(response.toString());
+                                newFragment.show(getSupportFragmentManager(), "dialog");
+                            }
+
+
+                        } catch (JSONException e) {
+                            pDialog.dismiss();
+                            e.printStackTrace();
+                        }
+
+                        pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                VolleyLog.e("res err", "Error: " + error);
+                // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
+
+                pDialog.dismiss();
+            }
+
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+
+// Adding request to request queue
+        ///   rq.add(jsonObjReq);
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
+
+    }
+
 
    /* public void getIp(final String cc) {
         Log.e("api path", Urls.getIpAddress);

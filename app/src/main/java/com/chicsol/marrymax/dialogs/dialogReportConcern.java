@@ -149,7 +149,7 @@ public class dialogReportConcern extends DialogFragment {
 
                                 if (etOtherReason.getText().toString().trim().length() < 15) {
                                     ccheck = false;
-                                    etOtherReason.setError("Min 15 & max 500 characters");
+                                    etOtherReason.setError("Min 15 & max 200 characters");
                                     etOtherReason.requestFocus();
                                 }else {
 

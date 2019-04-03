@@ -1240,6 +1240,7 @@ drawable ic_mail_outline_black_24dp
 drawable ic_mastercard
 drawable ic_match_feedback
 drawable ic_messages_empty_state
+drawable ic_mmatches
 drawable ic_mobicash
 drawable ic_monetization_on_black_24dp
 drawable ic_more_vert_black_24dp
@@ -1331,6 +1332,7 @@ drawable swipeicon
 drawable tab_item_selector
 drawable testimg
 drawable text_oval
+drawable textview_circle_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable unread_background
@@ -1627,6 +1629,7 @@ id LinearLayoutDMMatchesWithPhotoUpdateCount
 id LinearLayoutDMMembersLookingForMeCount
 id LinearLayoutDMNewInterest
 id LinearLayoutDMNewMessages
+id LinearLayoutDMNewQuestions
 id LinearLayoutDMNewRequests
 id LinearLayoutDMPrefferedMatchingProfilesCount
 id LinearLayoutDMProfileIncomplete
@@ -1971,6 +1974,7 @@ id TextViewDMMembersLookingForMeCount
 id TextViewDMMyMatchesCount
 id TextViewDMNewInteretsCount
 id TextViewDMNewMessagesCount
+id TextViewDMNewQuestionsCount
 id TextViewDMNewRequestsCount
 id TextViewDMNotesCount
 id TextViewDMPrefferedMatchingProfilesCount
@@ -2157,10 +2161,12 @@ id TextViewQuestionTitle
 id TextViewQuestionsAge
 id TextViewQuestionsAlias
 id TextViewQuestionsLimit
+id TextViewQuestions_ic
 id TextViewReadQuotaHeading
 id TextViewReadQuotaSubHeading
 id TextViewRecom_ic
 id TextViewRecomm
+id TextViewRecommendationNotes
 id TextViewRecommendedMatchAge
 id TextViewRecommendedMatchAlias
 id TextViewRecommendedMatchDate
@@ -3655,6 +3661,7 @@ string fa_icon_phone
 string fa_icon_picture
 string fa_icon_profile_setting
 string fa_icon_question_withoutcircle
+string fa_icon_questions
 string fa_icon_remove
 string fa_icon_request
 string fa_icon_search

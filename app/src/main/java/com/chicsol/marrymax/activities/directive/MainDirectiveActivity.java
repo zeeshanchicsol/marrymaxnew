@@ -20,6 +20,7 @@ import com.chicsol.marrymax.fragments.AccountSetting.MyContactFragment;
 import com.chicsol.marrymax.fragments.AccountSetting.MyProfileSettingFragment;
 import com.chicsol.marrymax.fragments.DashboardInboxMainFragment;
 import com.chicsol.marrymax.fragments.inbox.DashboardMessagesFragment;
+import com.chicsol.marrymax.fragments.inbox.DashboardQuestionsFragment;
 import com.chicsol.marrymax.fragments.inbox.interests.DashboardMyInterestsMainFragment;
 import com.chicsol.marrymax.fragments.inbox.permissions.DashboardMyPermissionsMainFragment;
 import com.chicsol.marrymax.fragments.inbox.requests.DashboardMyRequestsMainFragment;
@@ -218,6 +219,11 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
             case 26:
                 getSupportActionBar().setTitle("My Matches");
                 fragment = new MyMatchesFragment();
+                break;
+
+            case 27:
+                getSupportActionBar().setTitle("Questions");
+                fragment = new DashboardQuestionsFragment();
                 break;
         }
 

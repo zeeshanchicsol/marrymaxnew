@@ -25,6 +25,7 @@ import com.chicsol.marrymax.fragments.list.RemovedFromSearchFragment;
 import com.chicsol.marrymax.fragments.list.myContacts.MyContactsMainFragment;
 import com.chicsol.marrymax.fragments.matches.AccpetedMembers;
 import com.chicsol.marrymax.fragments.matches.FavouriteMembers;
+import com.chicsol.marrymax.fragments.matches.SavedNotes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,8 @@ import java.util.List;
 public class DashboardMyListMainFragment extends Fragment implements DashboarMainActivityWithBottomNav.BottomNavSelected {
     private ViewPager mViewPager;
     Typeface typeface;
-private Context context;
+    private Context context;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,14 +64,11 @@ private Context context;
     }
 
 
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.context = context;
     }
-
-
 
 
     private void initialize(View rootView) {
@@ -118,12 +117,12 @@ private Context context;
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-     //  adapter.addFragment(new MyFavouritesFragment(), " My Favourites ");
+        //  adapter.addFragment(new MyFavouritesFragment(), " My Favourites ");
         adapter.addFragment(new FavouriteMembers(), " Favourite Members ");
         adapter.addFragment(new AccpetedMembers(), " Accepted Members ");
-       adapter.addFragment(new MyContactsMainFragment(), " My Contacts ");
-       adapter.addFragment(new MySavedListsFragment(), " My Saved List ");
-      //  adapter.addFragment(new MyNotesFragment(), " My Notes ");
+        adapter.addFragment(new MyContactsMainFragment(), " My Contacts ");
+        adapter.addFragment(new MySavedListsFragment(), " My Saved List ");
+        adapter.addFragment(new SavedNotes(), " My Notes ");
         adapter.addFragment(new MySavedSearchesFragment(), " My Saved Searches ");
         adapter.addFragment(new RemovedFromSearchFragment(), " Removed From Search ");
         adapter.addFragment(new RecommendedMatches(), " Recommended Matches ");

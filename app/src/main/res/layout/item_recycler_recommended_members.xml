@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
     android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
     android:background="@color/colorWhite"
     app:cardElevation="2dp"
     app:cardUseCompatPadding="true">
@@ -206,24 +206,40 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_weight="3"
                 android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Recommded By: " />
+                    android:layout_margin="8dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Recommded By: " />
+
+
+                    <TextView
+                        android:id="@+id/TextViewRecommendedMatchRecomdBy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ali"
+                        android:textColor="@color/colorBlack" />
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/TextViewRecommendedMatchRecomdBy"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/TextViewRecommendationNotes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ali"
-                    android:textColor="@color/colorBlack" />
+                    android:text="" />
 
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="wrap_content"

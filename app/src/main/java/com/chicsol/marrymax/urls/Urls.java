@@ -18,6 +18,7 @@ public class Urls {
     //Registration Activity
     public static String LoginUrl = baseUrl + "/api/WebArd/Login";
     public static String reg_Listing = baseUrl + "/api/WebArd/GetRegisterListings";
+    public static String getUsageInfo = baseUrl + "/api/WebArd/GetUsageInfo/";
 
     public static String getAppVersion = baseUrl + "/api/WebArd/GetAppVersion";
     public static String RegistrationUrl = baseUrl + "/api/WebArd/Registration";
@@ -35,6 +36,7 @@ public class Urls {
     public static String updateUserGeographyUrl = baseUrl + "/api/WebArd/EditGeogrophics";
 
     public static String getCntCode = baseUrl + "/api/WebArd/GetCntCode/";
+    public static String cntCode = baseUrl + "/api/WebArd/CntCode/";
 
     public static String getIpAddress = baseUrl + "/api/WebArd/GetIpAddress/";
 

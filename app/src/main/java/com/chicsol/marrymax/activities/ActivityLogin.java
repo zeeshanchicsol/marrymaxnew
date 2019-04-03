@@ -25,6 +25,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
@@ -32,6 +33,7 @@ import com.chicsol.marrymax.activities.registration.RegistrationActivity;
 import com.chicsol.marrymax.activities.searchyourbestmatch.SearchYourBestMatchActivity;
 import com.chicsol.marrymax.activities.whoislookingformesearch.WhoIsLookingForMeSearchActivity;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.other.ConnectionDetector;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.other.UserSessionManager;
@@ -43,16 +45,22 @@ import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.utils.functions;
 import com.chicsol.marrymax.widgets.mButton2;
 import com.crashlytics.android.Crashlytics;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 //import com.google.firebase.analytics.FirebaseAnalytics;
 
 import io.fabric.sdk.android.Fabric;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -95,6 +103,7 @@ public class ActivityLogin extends AppCompatActivity {
         new functions().getAccessToken();
 
         if (isUserLoggegIn == true) {
+            getUsageInfo();
             Members member = SharedPreferenceManager.getUserObject(getApplication());
             checkUserStatus(member);
         }
@@ -152,7 +161,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
         if (SharedPreferenceManager.getEmailSuggestionList(getApplicationContext()) == null) {
-        //    Log.e("array null", "null");
+            //    Log.e("array null", "null");
         } else {
             emailSuggestionList.addAll(SharedPreferenceManager.getEmailSuggestionList(getApplicationContext()));
             // mcList.add("zeeshan40@gmail.com");
@@ -382,6 +391,7 @@ public class ActivityLogin extends AppCompatActivity {
 
                                 SharedPreferenceManager.setUserObject(getApplicationContext(), member);
 
+                                getUsageInfo();
                                 checkUserStatus(member);
                                 //   Log.e("Reggggggggggg type",member.getRegistration_within_id() + "");
 
@@ -485,8 +495,8 @@ public class ActivityLogin extends AppCompatActivity {
     private void getAppVersion() {
 
 
-        Log.e(" Notification url", Urls.getAppVersion );
-        StringRequest req = new StringRequest(Urls.getAppVersion ,
+        Log.e(" Notification url", Urls.getAppVersion);
+        StringRequest req = new StringRequest(Urls.getAppVersion,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -518,7 +528,6 @@ public class ActivityLogin extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(req);
     }
-
 
 
     private boolean isPasswordValid(String password) {
@@ -558,6 +567,41 @@ public class ActivityLogin extends AppCompatActivity {
         ticks -= 621355968000000000L;
         long millis = ticks / 10000;
         return new Date(millis);
+    }
+
+
+    private void getUsageInfo() {
+
+
+     /*   final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();*/
+  // Log.e("getUsageInfo", "" + Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        //Log.d("Response", response.toString());
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+                //  pDialog.dismiss();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(req);
     }
 
 }

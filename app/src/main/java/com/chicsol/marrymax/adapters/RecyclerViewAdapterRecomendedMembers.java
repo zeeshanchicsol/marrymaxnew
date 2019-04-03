@@ -366,7 +366,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
             holder.tvReligious.setText(obj.getReligious_sec_type());
             holder.tvDate.setText(obj.getDate());
             holder.tvRecommendedBy.setText(obj.getAdmin_name());
-
+            holder.tvRecommendationNotes.setText(obj.getNotes());
 
             // imageLoader.displayImage(Urls.baseUrl + "/images/flags/" + member.getDefault_image() + ".gif", holder.ivCountryFlag, optionsNormalImage);
 
@@ -493,7 +493,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
         if (isProgress) {
 
             items.add(null);
-           notifyItemInserted(items.size() - 1);
+            notifyItemInserted(items.size() - 1);
 
         } else {
             items.remove(items.size() - 1);
@@ -547,7 +547,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
         public ImageView image;
 
         public TextView tvAlias, tvAge, tvEducation, tvMaritalStatus, tvCountry, tvDate;
-        public TextView tvEthnicity, tvReligious, tvRecommendedBy;
+        public TextView tvEthnicity, tvReligious, tvRecommendedBy, tvRecommendationNotes;
         FloatingActionButton fabAction;
 
         public MMViewHolder(View itemView) {
@@ -558,6 +558,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
             tvEducation = (TextView) itemView.findViewById(R.id.TextViewRecommendedMatchEducation);
             tvMaritalStatus = (TextView) itemView.findViewById(R.id.TextViewRecommendedMatchMaritalStatus);
             tvRecommendedBy = (TextView) itemView.findViewById(R.id.TextViewRecommendedMatchRecomdBy);
+            tvRecommendationNotes = (TextView) itemView.findViewById(R.id.TextViewRecommendationNotes);
 
 
             tvDate = (TextView) itemView.findViewById(R.id.TextViewRecommendedMatchDate);

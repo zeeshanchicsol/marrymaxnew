@@ -115,7 +115,7 @@
                                 android:id="@+id/EditTextReportConcernDialgOtherReason"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:maxLength="500"
+                                android:maxLength="200"
                                 android:hint="If other, then please describe the reason."
                                 android:imeOptions="actionDone"
                                 android:inputType="text" />

@@ -88,7 +88,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private DisplayImageOptions options;
     private LayoutInflater inflater;
     private CoordinatorLayout coordinatorLayout;
-    private LinearLayout llScreenWait, llMatchesNotFoundMSLW, llWhoViewedMe, llWhomIViewed, llPrefferedMatchingProfiles, llMatchesWithPhotoUpdate, llMembersLookingForMe, llMatchesLookingForMe, llNewMessages, llNewInterests, llNewRequests;
+    private LinearLayout llScreenWait, llMatchesNotFoundMSLW, llWhoViewedMe, llWhomIViewed, llPrefferedMatchingProfiles, llMatchesWithPhotoUpdate, llMembersLookingForMe, llMatchesLookingForMe, llNewMessages,llNewQuestions, llNewInterests, llNewRequests;
     private FrameLayout llProfileIncomplete, llVerifyPhone, llVerifyEmail, llReviewPending;
 
     private mTextView tv_alias;
@@ -96,7 +96,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
     private ProgressBar pDialog;
-    private TextView tvWIV, tvWVM, tvPMP, tvMWPU, tvMemLFM, tvMatchesLFM, tvNewMessages, tvNewRequests, tvNewInterests;
+    private TextView tvWIV, tvWVM, tvPMP, tvMWPU, tvMemLFM, tvMatchesLFM, tvNewMessages, tvNewRequests, tvNewInterests,tvNewQuestions;
     private TextView tvAcceptedMembers, tvMyFavourites, tvMyNotes, tvRemoveFromSearch, tvBlocked, tvAaccMemCount, tvMyMatchesCount, tvMFavCount, tvMyNotesCount, tvRecommenedMatchesCount, tvRemovedFromSearchCount, tvBlockedCount, tvProfileCompleteion, tvFeedbackPending;
     private ImageView ivCompleleProfile, ivVerifyPhone, ivVerifyEmail, ivReviewPending, ivReviewPendingOrange;
     private CardView cardViewProfileCompletionStatus, cvPromoCode, cvFeedbackPending;
@@ -239,6 +239,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         llNewMessages = (LinearLayout) view.findViewById(R.id.LinearLayoutDMNewMessages);
         llNewInterests = (LinearLayout) view.findViewById(R.id.LinearLayoutDMNewInterest);
         llNewRequests = (LinearLayout) view.findViewById(R.id.LinearLayoutDMNewRequests);
+        llNewQuestions = (LinearLayout) view.findViewById(R.id.LinearLayoutDMNewQuestions);
+
 
         ivCompleleProfile = (ImageView) view.findViewById(R.id.imageViewDMCompleteProfile);
         ivVerifyEmail = (ImageView) view.findViewById(R.id.imageViewDMVerifyEmail);
@@ -255,6 +257,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         tvNewMessages = (TextView) view.findViewById(R.id.TextViewDMNewMessagesCount);
         tvNewRequests = (TextView) view.findViewById(R.id.TextViewDMNewRequestsCount);
         tvNewInterests = (TextView) view.findViewById(R.id.TextViewDMNewInteretsCount);
+        tvNewQuestions = (TextView) view.findViewById(R.id.TextViewDMNewQuestionsCount);
 
         tvFeedbackPending = (TextView) view.findViewById(R.id.TextViewDashMainFeedbackPending);
 
@@ -776,6 +779,18 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
             }
         });
 
+
+        llNewQuestions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+                in.putExtra("type", 27);
+                startActivity(in);
+            }
+        });
+
+
+
         llPrefferedMatchingProfiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1189,22 +1204,32 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 }
 
                                 llNewMessages.setClickable(true);
-                                tvNewMessages.setText("(" + dash.getNew_messages_count() + ")");
+                                tvNewMessages.setText(dash.getNew_messages_count());
                                 if (Integer.parseInt(dash.getNew_messages_count()) == 0) {
                                     llNewMessages.setClickable(false);
                                 }
 
                                 llNewRequests.setClickable(true);
-                                tvNewRequests.setText("(" + dash.getNew_requests_count() + ")");
+                                tvNewRequests.setText(dash.getNew_requests_count());
                                 if (Integer.parseInt(dash.getNew_requests_count()) == 0) {
                                     llNewRequests.setClickable(false);
                                 }
 
                                 llNewInterests.setClickable(true);
-                                tvNewInterests.setText("(" + dash.getNew_interests_count() + ")");
+                                tvNewInterests.setText( dash.getNew_interests_count() );
                                 if (Integer.parseInt(dash.getNew_interests_count()) == 0) {
                                     llNewInterests.setClickable(false);
                                 }
+
+                                llNewQuestions.setClickable(true);
+                                tvNewQuestions.setText( dash.getNew_questions_count() );
+                                if (Integer.parseInt(dash.getNew_questions_count()) == 0) {
+                                    llNewQuestions.setClickable(false);
+                                }
+
+
+
+
 
 
                                 rlAcceptedMem.setClickable(true);
