@@ -112,7 +112,7 @@ public class dialogMatchAid extends DialogFragment {
         btGiveFeedbackInterest = (AppCompatButton) rootView.findViewById(R.id.mButtonInterestGiveFeedback);
 
 
-        MarryMax max = new MarryMax(null);
+  /*      MarryMax max = new MarryMax(null);
         String desc = max.getFeedbackText(feedback_due, getContext());
 
         if (feedback_due == 1) {
@@ -131,6 +131,20 @@ public class dialogMatchAid extends DialogFragment {
         } else {
             btGiveFeedbackInterest.setVisibility(View.GONE);
             cvFeedbackPending.setVisibility(View.GONE);
+        }
+*/
+
+        MarryMax max = new MarryMax(null);
+        if (feedback_due == 0) {
+            cvFeedbackPending.setVisibility(View.GONE);
+            btGiveFeedbackInterest.setVisibility(View.GONE);
+
+        } else {
+
+            String desca = max.getFeedbackText(feedback_due, getContext());
+            tvFeedbackPending.setText(Html.fromHtml(desca));
+            cvFeedbackPending.setVisibility(View.VISIBLE);
+            btGiveFeedbackInterest.setVisibility(View.VISIBLE);
         }
 
 

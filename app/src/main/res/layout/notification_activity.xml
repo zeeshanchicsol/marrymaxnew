@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorTabBackground"
                     app:tabIndicatorHeight="3dp"
-                    app:tabMode="fixed"
+                    app:tabMode="scrollable"
                     app:tabMaxWidth="0dp"
                     app:tabGravity="fill"/>
 

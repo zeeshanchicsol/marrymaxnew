@@ -322,7 +322,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
             ck = true;
         }
         if (!TextUtils.isEmpty(etAboutMe.getText().toString().trim())) {
-            if (etAboutMe.getText().length() < 5 || etAboutMe.getText().length() > 1500) {
+            if (etAboutMe.getText().length() < 15 || etAboutMe.getText().length() > 1500) {
                 etAboutMe.setError("Min 15 char, max 1500 characters");
 
                 etAboutMe.requestFocus();

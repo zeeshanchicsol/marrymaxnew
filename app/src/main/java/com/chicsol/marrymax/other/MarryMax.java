@@ -1454,7 +1454,10 @@ public class MarryMax {
 
 
     public String convertUTCTimeToLocal(String inputDate) {
-
+boolean am=false;
+        if(inputDate.contains("AM")){
+            am=true;
+        }
 
         try {
             String dateStr = inputDate;
@@ -1468,7 +1471,21 @@ public class MarryMax {
 
             df.setTimeZone(TimeZone.getDefault());
             String formattedDate = df2.format(date);
-            Log.e("local time is", formattedDate);
+
+            if(am){
+                if(formattedDate.contains("PM")){
+                   formattedDate= formattedDate.replace("PM","AM");
+                }
+            }else {
+                if(formattedDate.contains("AM")){
+                    formattedDate=   formattedDate.replace("AM","PM");
+                }
+            }
+
+
+         //
+            //
+            //  Log.e("local time is", formattedDate);
             return formattedDate;
 
 
@@ -1588,13 +1605,13 @@ public class MarryMax {
         if (peedback_pending == 1) {
 
             String txt = "<font color='#9a0606'>" + membera.getAlias() + "!</font><br>";
-            return desc = "Dear " + "<b>" + txt.toUpperCase() + "</b> Please give us the feedback of a recently contacted match.";
+            return desc = " <b> Dear " + "" + txt.toUpperCase() + "</b> Please give us the feedback of a recently contacted match.";
 
 
         } else if (peedback_pending == 2) {
 
             String txt = "<font color='#9a0606'>" + membera.getAlias() + "!</font><br>";
-            return desc = "Dear " + "<b>" + txt.toUpperCase() + "</b>  Please give us at least one match feedback to many of the matches, you got connected to.";
+            return desc = " <b> Dear " + "" + txt.toUpperCase() + "</b>  <font color='#9a0909'>Please give us at least one match feedback to many of the matches, you got connected to.";
 
 
         } else {

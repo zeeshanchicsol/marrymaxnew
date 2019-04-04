@@ -14,16 +14,32 @@
         android:layout_marginTop="8dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/TextViewDashMainFeedbackPending"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="Dear,sadadas  your Feedback is Pending"
-            android:textColor="@color/colorDashboardMainNormalText"
+            android:orientation="horizontal">
 
-            />
+            <com.chicsol.marrymax.widgets.faTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_icon_exclamation_triangle"
+                android:layout_marginRight="2dp"
+                android:textColor="#d89110" />
+
+            <TextView
+                android:id="@+id/TextViewDashMainFeedbackPending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text=" Dear,sadadas  your Feedback is Pending"
+                android:textColor="@color/colorDashboardMainNormalText"
+
+                />
+
+        </LinearLayout>
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/ButtonDashMainFeedbackPending"

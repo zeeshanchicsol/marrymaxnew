@@ -208,7 +208,7 @@ public class Urls {
     public static String getNotificationCount = baseUrl + "/api/WebArd/GetNotificationCount/";
     public static String getNotifyCntSta = baseUrl + "/api/WebArd/GetNotifyCntSta/";
 
-    public static String loadNotifications = baseUrl + "/api/WebArd/LoadNotifications";
+  //  public static String loadNotifications = baseUrl + "/api/WebArd/LoadNotifications";
     public static String loadArchive = baseUrl + "/api/WebArd/LoadArchive";
 
     //=====================MyList=========================

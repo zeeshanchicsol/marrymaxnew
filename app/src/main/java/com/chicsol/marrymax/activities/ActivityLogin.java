@@ -391,7 +391,7 @@ public class ActivityLogin extends AppCompatActivity {
 
                                 SharedPreferenceManager.setUserObject(getApplicationContext(), member);
 
-                                getUsageInfo();
+
                                 checkUserStatus(member);
                                 //   Log.e("Reggggggggggg type",member.getRegistration_within_id() + "");
 
@@ -576,7 +576,7 @@ public class ActivityLogin extends AppCompatActivity {
      /*   final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-  // Log.e("getUsageInfo", "" + Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        Log.e("getUsageInfo", "" + Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {

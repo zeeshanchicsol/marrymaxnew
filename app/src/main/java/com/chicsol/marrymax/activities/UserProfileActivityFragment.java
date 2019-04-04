@@ -981,13 +981,13 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         String aliass = SharedPreferenceManager.getUserObject(getContext()).getAlias();
 
         String aliasn = "<font color='#9a0606'>" + aliass + "!</font><br>";
-        if (member.getFeedback_pending() == 1) {
+      /*  if (member.getFeedback_pending() == 1) {
             String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> your Feedback is Pending.To send more messages please give your previous feedbacks.";
 
 
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
 
-        } else if (member.getFeedback_pending() == 2) {
+        } else */if (member.getFeedback_pending() == 2) {
             String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your Feedback are due. To send more messages please give your previous feedbacks.";
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
 

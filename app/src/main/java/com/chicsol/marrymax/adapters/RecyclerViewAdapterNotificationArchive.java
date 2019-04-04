@@ -32,6 +32,7 @@ import android.widget.TextView;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.mProperties;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.widgets.RoundedImageView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -58,9 +59,11 @@ public class RecyclerViewAdapterNotificationArchive extends RecyclerView.Adapter
 
     private LinearLayoutManager mLinearLayoutManager;
     private Fragment fragment;
+    MarryMax marryMax;
 
     public RecyclerViewAdapterNotificationArchive(final Context context) {
         //this.items = items;
+        marryMax = new MarryMax(null);
         this.fragment = fragment;
         this.context = context;
         //   this.frgMngr = frg;
@@ -201,7 +204,7 @@ public class RecyclerViewAdapterNotificationArchive extends RecyclerView.Adapter
     @Override
     public void onBindViewHolder(MMViewHolder holder, int position) {
         final mProperties member = items.get(position);
-        holder.tvDate.setText(" (" + member.getJoined_date() + ")");
+        holder.tvDate.setText(" (" +  marryMax.convertUTCTimeToLocal(member.getJoined_date() )+ ")");
         holder.tvDesc.setText(member.getName());
         holder.tvUsername.setText(member.getAlias());
 

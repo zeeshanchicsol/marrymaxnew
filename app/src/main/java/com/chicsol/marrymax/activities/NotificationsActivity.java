@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.fragments.NotificationArchive.AllNotificationsFragment;
 import com.chicsol.marrymax.fragments.NotificationArchive.FifteenDaysFragment;
 import com.chicsol.marrymax.fragments.NotificationArchive.SevenDaysFragment;
 import com.chicsol.marrymax.fragments.NotificationArchive.ThirtyDaysFragment;
@@ -81,7 +82,7 @@ public class NotificationsActivity extends AppCompatActivity {
         adapter.addFragment(new SevenDaysFragment(), " 7 days Old ");
         adapter.addFragment(new FifteenDaysFragment(), " 15 Days Old ");
         adapter.addFragment(new ThirtyDaysFragment(), " 30 Days Old ");
-
+        adapter.addFragment(new AllNotificationsFragment(), " All Notifications ");
 
         viewPager.setAdapter(adapter);
 

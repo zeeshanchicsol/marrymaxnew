@@ -188,11 +188,14 @@ public class dialogShowInterest extends DialogFragment {
         MarryMax max = new MarryMax(null);
         if (feedback_due == 0) {
             cvFeedbackPending.setVisibility(View.GONE);
+            btGiveFeedbackInterest.setVisibility(View.GONE);
+
         } else {
 
             String desc = max.getFeedbackText(feedback_due, context);
             tvFeedbackPending.setText(Html.fromHtml(desc));
             cvFeedbackPending.setVisibility(View.VISIBLE);
+            btGiveFeedbackInterest.setVisibility(View.VISIBLE);
         }
 
 

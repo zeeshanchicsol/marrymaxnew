@@ -20,6 +20,7 @@ import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mMemPhone;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.widgets.faTextView;
 import com.chicsol.marrymax.widgets.mCheckBox;
@@ -139,7 +140,7 @@ public class dialogContactDetails extends DialogFragment {
 
 
 
-        String aliass= SharedPreferenceManager.getUserObject(getContext()).getAlias();
+    /*    String aliass= SharedPreferenceManager.getUserObject(getContext()).getAlias();
         String aliasn = "<font color='#9a0606'>" + aliass + "!</font><br>";
         if (feedback_due == 1) {
 
@@ -158,7 +159,27 @@ public class dialogContactDetails extends DialogFragment {
         } else {
             btGiveFeedbackInterest.setVisibility(View.GONE);
             cvFeedbackPending.setVisibility(View.GONE);
+        }*/
+
+
+        MarryMax max = new MarryMax(null);
+        if (feedback_due == 0) {
+            cvFeedbackPending.setVisibility(View.GONE);
+            btGiveFeedbackInterest.setVisibility(View.GONE);
+
+        } else {
+
+            String desca = max.getFeedbackText(feedback_due, getContext());
+            tvFeedbackPending.setText(Html.fromHtml(desca));
+            cvFeedbackPending.setVisibility(View.VISIBLE);
+            btGiveFeedbackInterest.setVisibility(View.VISIBLE);
         }
+
+
+
+
+
+
 
 
         //  tvTitle.setText(title);
