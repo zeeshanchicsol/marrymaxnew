@@ -988,7 +988,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
 
         } else */if (member.getFeedback_pending() == 2) {
-            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your Feedback are due. To send more messages please give your previous feedbacks.";
+            String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your Feedback is due. To send more messages please give your previous feedback.";
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
 
 

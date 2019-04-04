@@ -1344,7 +1344,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:gravity="center"
-                                        android:text="New Messages"
+                                        android:text="Messages"
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/text_size_dash_main_count_box" />
 
@@ -1419,7 +1419,7 @@
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
                                         android:layout_gravity="center"
-                                        android:text="New Interest"
+                                        android:text="Interest"
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/text_size_dash_main_count_box" />
 
@@ -1494,7 +1494,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:gravity="center"
-                                        android:text="New Requests"
+                                        android:text="Requests"
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/text_size_dash_main_count_box" />
 
@@ -1574,7 +1574,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
-                                        android:text="New Questions"
+                                        android:text="Questions"
                                         android:gravity="center"
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/text_size_dash_main_count_box" />
