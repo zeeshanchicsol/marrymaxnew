@@ -1604,14 +1604,14 @@ boolean am=false;
         String desc = null;
         if (peedback_pending == 1) {
 
-            String txt = "<font color='#9a0606'>" + membera.getAlias() + "!</font><br>";
+            String txt = "<font color='#9a0606'>" + membera.getAlias() + "!</font>";
             return desc = " <b> Dear " + "" + txt.toUpperCase() + "</b> Please give us the feedback of a recently contacted match.";
 
 
         } else if (peedback_pending == 2) {
 
-            String txt = "<font color='#9a0606'>" + membera.getAlias() + "!</font><br>";
-            return desc = " <b> Dear " + "" + txt.toUpperCase() + "</b>  <font color='#9a0909'>Please give us at least one match feedback to many of the matches, you got connected to.";
+            String txt = "<font color='#9a0606'>" + membera.getAlias() + "!</font>";
+            return desc = " <b> Dear " + "" + txt.toUpperCase() + "</b>  <font color='#9a0909'> Please give us at least one match feedback to many of the matches, you got connected to.";
 
 
         } else {

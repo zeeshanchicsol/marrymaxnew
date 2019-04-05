@@ -363,7 +363,7 @@ public class dialogFeedback extends DialogFragment {
             }
 
         } else {
-            Toast.makeText(context, "Please enter the reason", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Please enter notes", Toast.LENGTH_SHORT).show();
             ck = true;
         }
         if (mRbar.getRating() >= 1) {
@@ -450,7 +450,6 @@ public class dialogFeedback extends DialogFragment {
                             prefValue2.setText(obj.getReligious_type());
                             prefValue3.setText(obj.getEthnic_type());
                             prefValue4.setText(obj.getEducation_type());
-
 
                             image.setMinimumHeight(height);
                             imageLoader.displayImage(Urls.baseUrl + "/" + obj.getDefault_image(),

@@ -88,7 +88,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private DisplayImageOptions options;
     private LayoutInflater inflater;
     private CoordinatorLayout coordinatorLayout;
-    private LinearLayout llScreenWait, llMatchesNotFoundMSLW, llWhoViewedMe, llWhomIViewed, llPrefferedMatchingProfiles, llMatchesWithPhotoUpdate, llMembersLookingForMe, llMatchesLookingForMe, llNewMessages,llNewQuestions, llNewInterests, llNewRequests;
+    private LinearLayout llScreenWait, llMatchesNotFoundMSLW, llWhoViewedMe, llWhomIViewed, llPrefferedMatchingProfiles, llMatchesWithPhotoUpdate, llMembersLookingForMe, llMatchesLookingForMe, llNewMessages, llNewQuestions, llNewInterests, llNewRequests;
     private FrameLayout llProfileIncomplete, llVerifyPhone, llVerifyEmail, llReviewPending;
 
     private mTextView tv_alias;
@@ -96,7 +96,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
     private ProgressBar pDialog;
-    private TextView tvWIV, tvWVM, tvPMP, tvMWPU, tvMemLFM, tvMatchesLFM, tvNewMessages, tvNewRequests, tvNewInterests,tvNewQuestions;
+    private TextView tvWIV, tvWVM, tvPMP, tvMWPU, tvMemLFM, tvMatchesLFM, tvNewMessages, tvNewRequests, tvNewInterests, tvNewQuestions;
     private TextView tvAcceptedMembers, tvMyFavourites, tvMyNotes, tvRemoveFromSearch, tvBlocked, tvAaccMemCount, tvMyMatchesCount, tvMFavCount, tvMyNotesCount, tvRecommenedMatchesCount, tvRemovedFromSearchCount, tvBlockedCount, tvProfileCompleteion, tvFeedbackPending;
     private ImageView ivCompleleProfile, ivVerifyPhone, ivVerifyEmail, ivReviewPending, ivReviewPendingOrange;
     private CardView cardViewProfileCompletionStatus, cvPromoCode, cvFeedbackPending;
@@ -790,7 +790,6 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         });
 
 
-
         llPrefferedMatchingProfiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1207,29 +1206,37 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 tvNewMessages.setText(dash.getNew_messages_count());
                                 if (Integer.parseInt(dash.getNew_messages_count()) == 0) {
                                     llNewMessages.setClickable(false);
+                                    tvNewMessages.setVisibility(View.GONE);
+                                } else {
+                                    tvNewMessages.setVisibility(View.VISIBLE);
                                 }
 
                                 llNewRequests.setClickable(true);
                                 tvNewRequests.setText(dash.getNew_requests_count());
                                 if (Integer.parseInt(dash.getNew_requests_count()) == 0) {
                                     llNewRequests.setClickable(false);
+                                    tvNewRequests.setVisibility(View.GONE);
+                                } else {
+                                    tvNewRequests.setVisibility(View.VISIBLE);
                                 }
 
                                 llNewInterests.setClickable(true);
-                                tvNewInterests.setText( dash.getNew_interests_count() );
+                                tvNewInterests.setText(dash.getNew_interests_count());
                                 if (Integer.parseInt(dash.getNew_interests_count()) == 0) {
                                     llNewInterests.setClickable(false);
+                                    tvNewInterests.setVisibility(View.GONE);
+                                } else {
+                                    tvNewInterests.setVisibility(View.VISIBLE);
                                 }
 
                                 llNewQuestions.setClickable(true);
-                                tvNewQuestions.setText( dash.getNew_questions_count() );
+                                tvNewQuestions.setText(dash.getNew_questions_count());
                                 if (Integer.parseInt(dash.getNew_questions_count()) == 0) {
                                     llNewQuestions.setClickable(false);
+                                    tvNewQuestions.setVisibility(View.GONE);
+                                } else {
+                                    tvNewQuestions.setVisibility(View.VISIBLE);
                                 }
-
-
-
-
 
 
                                 rlAcceptedMem.setClickable(true);
