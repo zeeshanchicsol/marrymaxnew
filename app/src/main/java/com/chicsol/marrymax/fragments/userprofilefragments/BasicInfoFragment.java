@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.mMemDetail;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.widgets.faTextView;
 import com.chicsol.marrymax.widgets.mTextView;
@@ -46,9 +47,14 @@ public class BasicInfoFragment extends Fragment {
     private LinearLayout llMTO, llWIDFF, llMS, llAMC;
     public String jsona = "";
     boolean myProfileCheck;
-    LinearLayout LinearLayoutDeclaration;
+    LinearLayout LinearLayoutDeclaration, llMemDetail;
 
     private faTextView faUPPhysicalChallenges, faUPChoicePhysicalChallenges;
+
+    private mMemDetail memDetailObj = null;
+    private TextView tvResidenceDetails, tvAboutParents, tvAboutSiblings, tvJobDetails, tvEducationDetail, tvSocialDetai;
+    private LinearLayout llResidenceDetails, llAboutParents, llAboutSiblings, llJobDetails, llEducationDetail, llSocialDetai;
+
 
     public BasicInfoFragment() {
         // Required empty public constructor
@@ -97,6 +103,18 @@ public class BasicInfoFragment extends Fragment {
             memberChoice = (Members) gson.fromJson(secondJsonObj.toString(), type);
 
 
+            Gson gson2;
+            GsonBuilder gsonBuilder2 = new GsonBuilder();
+            gson2 = gsonBuilder2.create();
+            if (jsonArray.getJSONArray(5).length() > 0) {
+                JSONObject memDetailJsonObj = jsonArray.getJSONArray(5).getJSONObject(0);
+                if (memDetailJsonObj.length() > 0) {
+                    memDetailObj = (mMemDetail) gson2.fromJson(memDetailJsonObj.toString(), mMemDetail.class);
+
+                }
+            }
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -119,6 +137,8 @@ public class BasicInfoFragment extends Fragment {
     private void initilize(View view) {
 
         LinearLayoutDeclaration = (LinearLayout) view.findViewById(R.id.LinearLayoutDeclaration);
+        llMemDetail = (LinearLayout) view.findViewById(R.id.LinearLayoutProfileDetailMemDetail);
+
         if (myProfileCheck) {
             if (SharedPreferenceManager.getUserObject(getContext()).getMember_status() >= 3 && SharedPreferenceManager.getUserObject(getContext()).getMember_status() <= 4) {
                 LinearLayoutDeclaration.setVisibility(View.VISIBLE);
@@ -210,6 +230,24 @@ public class BasicInfoFragment extends Fragment {
         tvChoiceDrink = (mTextView) view.findViewById(R.id.TextViewUPChoiceDrink);
 
         tvChoicePhysicalChallenges = (mTextView) view.findViewById(R.id.TextViewUPChoicePhysicalChallenges);
+
+
+//member info details
+        tvResidenceDetails = (TextView) view.findViewById(R.id.TextViewUPResidenceDetails);
+        tvAboutParents = (TextView) view.findViewById(R.id.TextViewUPAboutParents);
+        tvAboutSiblings = (TextView) view.findViewById(R.id.TextViewUPAboutSiblings);
+        tvJobDetails = (TextView) view.findViewById(R.id.TextViewUPJobDetails);
+        tvEducationDetail = (TextView) view.findViewById(R.id.TextViewUPMIEducationDetail);
+        tvSocialDetai = (TextView) view.findViewById(R.id.TextViewUPSocialDetail);
+
+        llResidenceDetails = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileResidenceDetails);
+        llAboutParents = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileAboutParents);
+        llAboutSiblings = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileAboutSiblings);
+        llJobDetails = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileJobDetails);
+        llEducationDetail = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileEducationDetails);
+        llSocialDetai = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileSocialDetails);
+
+
 
         //==========Layouts
 
@@ -428,6 +466,63 @@ public class BasicInfoFragment extends Fragment {
                 faUPChoicePhysicalChallenges.setVisibility(View.GONE);
             } else {
                 faUPChoicePhysicalChallenges.setVisibility(View.GONE);
+            }
+
+
+            if (memDetailObj != null) {
+
+                llMemDetail.setVisibility(View.VISIBLE);
+
+                if (!memDetailObj.getResidence().trim().isEmpty()) {
+                    tvResidenceDetails.setText(memDetailObj.getResidence());
+                    llResidenceDetails.setVisibility(View.VISIBLE);
+                } else {
+                    llResidenceDetails.setVisibility(View.GONE);
+                }
+
+
+                if (!memDetailObj.getParents().trim().isEmpty()) {
+                    tvAboutParents.setText(memDetailObj.getParents());
+                    llAboutParents.setVisibility(View.VISIBLE);
+                } else {
+                    llAboutParents.setVisibility(View.GONE);
+                }
+
+
+                if (!memDetailObj.getSiblings().trim().isEmpty()) {
+                    tvAboutSiblings.setText(memDetailObj.getSiblings());
+                    llAboutSiblings.setVisibility(View.VISIBLE);
+                } else {
+                    llAboutSiblings.setVisibility(View.GONE);
+                }
+
+
+                if (!memDetailObj.getJobinfo().trim().isEmpty()) {
+                    tvJobDetails.setText(memDetailObj.getJobinfo());
+                    llJobDetails.setVisibility(View.VISIBLE);
+                } else {
+                    llJobDetails.setVisibility(View.GONE);
+                }
+
+
+                if (!memDetailObj.getEducation().trim().isEmpty()) {
+                    tvEducationDetail.setText(memDetailObj.getEducation());
+                    llEducationDetail.setVisibility(View.VISIBLE);
+                } else {
+                    llEducationDetail.setVisibility(View.GONE);
+                }
+
+
+                if (!memDetailObj.getSocial().trim().isEmpty()) {
+                    tvSocialDetai.setText(memDetailObj.getSocial());
+                    llSocialDetai.setVisibility(View.VISIBLE);
+                } else {
+                    llSocialDetai.setVisibility(View.GONE);
+                }
+
+
+            } else {
+                llMemDetail.setVisibility(View.GONE);
             }
 
 

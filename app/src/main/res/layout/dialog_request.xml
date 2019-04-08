@@ -59,10 +59,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
                     <com.chicsol.marrymax.widgets.mTextView
@@ -78,7 +78,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Allow my phone on accepting Interest "
+                        android:text="Give permission to view my number, on accepting interest "
                         android:textColor="@color/colorBlack"
                         android:visibility="gone" />
 
@@ -87,20 +87,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Allow my pictures on accepting Interest "
+                        android:text="Give permission to view my pictures, on accepting interest "
                         android:textColor="@color/colorBlack"
                         android:visibility="gone" />
+
                     <android.support.v7.widget.AppCompatButton
                         android:id="@+id/mButtonDialogRequestSubscribe"
                         style="@style/myCustomMaterialButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
-                        android:visibility="gone"
                         android:text="Subscribe"
                         android:textAllCaps="false"
                         android:textColor="@color/colorWhite"
+                        android:visibility="gone"
                         app:backgroundTint="@color/colorDefaultGreen" />
+
                     <android.support.v7.widget.AppCompatButton
                         android:id="@+id/mButtonDialogRequest"
                         style="@style/myCustomMaterialButton"

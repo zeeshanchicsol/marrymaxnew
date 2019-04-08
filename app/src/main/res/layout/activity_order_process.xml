@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <ProgressBar
                 android:id="@+id/ProgressbarSubscriptionPlan"
@@ -361,28 +361,28 @@
                                 ></View>
                         </LinearLayout>
 
-                 <!--       <LinearLayout
+                        <!--       <LinearLayout
 
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:orientation="vertical">
-
-
-                            <AutoCompleteTextView
-                                android:id="@+id/EditTextOrderProcessWhoHelped"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:maxLines="1"
-                                android:nextFocusLeft="@id/EditTextOrderProcessWhoHelped"
-                                android:nextFocusUp="@id/EditTextOrderProcessWhoHelped"
-                                android:singleLine="true"
-                                android:textColor="@color/colorBlack" />
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginLeft="10dp"
+                                   android:layout_marginRight="10dp"
+                                   android:layout_marginBottom="10dp"
+                                   android:orientation="vertical">
 
 
-                        </LinearLayout>-->
+                                   <AutoCompleteTextView
+                                       android:id="@+id/EditTextOrderProcessWhoHelped"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:maxLines="1"
+                                       android:nextFocusLeft="@id/EditTextOrderProcessWhoHelped"
+                                       android:nextFocusUp="@id/EditTextOrderProcessWhoHelped"
+                                       android:singleLine="true"
+                                       android:textColor="@color/colorBlack" />
+
+
+                               </LinearLayout>-->
 
 
                     </LinearLayout>
@@ -670,32 +670,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:visibility="gone">
+                            android:visibility="visible">
 
-                            <com.stripe.android.view.CardInputWidget
-                                android:id="@+id/card_input_widget"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
+                                       <com.stripe.android.view.CardInputWidget
+                                                     android:id="@+id/card_input_widget"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="wrap_content" />
+                            <include layout="@layout/credit_card_item"></include>
 
-                            <Button
-                                android:id="@+id/ButtonPayThroughCreditCard"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="8dp"
-
-                                android:backgroundTint="@color/colorTextRed"
-                                android:text="Make Payment"
-                                android:textAllCaps="false"
-                                android:textColor="@color/colorWhite" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:gravity="center"
-                                android:text="Once payment is received, marrymax support will contact to verify payment details."
-                                android:textSize="12sp" />
 
                         </LinearLayout>
 
@@ -851,8 +833,6 @@
                         </LinearLayout>
 
 
-
-
                         <RadioButton
                             android:id="@+id/RadioButtonOrderProcessJazzCash"
                             android:layout_width="match_parent"
@@ -918,9 +898,6 @@
 
 
                         </LinearLayout>
-
-
-
 
 
                         <RadioButton

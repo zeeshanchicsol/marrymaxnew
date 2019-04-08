@@ -1489,6 +1489,8 @@ id EditTextAdvSearchGeographyStateSearch
 id EditTextAdvSearchMainProfileSearch
 id EditTextBlockDialgOtherReason
 id EditTextBlockDialgTextInputLayout
+id EditTextCVV
+id EditTextCardNumber
 id EditTextChatListsendMessageDesc
 id EditTextConfirmNewPasswordCP
 id EditTextContactEmail
@@ -1498,6 +1500,7 @@ id EditTextDateOfBirth
 id EditTextDialogSaveSearch
 id EditTextEmail
 id EditTextEmailLogin
+id EditTextExpiration
 id EditTextForgetEmail
 id EditTextGraduatedFrom
 id EditTextMatchAidFeedbackText
@@ -1870,6 +1873,7 @@ id RelativeLayoutDashMyMatches
 id RelativeLayoutDashMyNotes
 id RelativeLayoutDashRecommendedMatch
 id RelativeLayoutDashRemoveFromSearch
+id RelativeLayoutDashUpgrade
 id RelativeLayoutHeadSubItem
 id RelativeLayoutVerifyEmail
 id RoundedImageViewChatListUserImage
@@ -2176,6 +2180,7 @@ id TextViewRecommendedMatchMaritalReligious
 id TextViewRecommendedMatchMaritalStatus
 id TextViewRecommendedMatchRecomdBy
 id TextViewRecommendedP
+id TextViewRecyclerSelectedItem
 id TextViewRegTopAppearance
 id TextViewRegTopGeography
 id TextViewRegTopInterest
@@ -2253,6 +2258,7 @@ id TextViewUPJobDetails
 id TextViewUPLastLoginDate
 id TextViewUPLivingArrangements
 id TextViewUPLocation
+id TextViewUPMIEducationDetail
 id TextViewUPMaritalStatus
 id TextViewUPMostThankful
 id TextViewUPMyStrengths
@@ -2499,6 +2505,7 @@ id imageViewDMVerifyPhone
 id imageViewNavDefaultImage
 id imageViewPhotoUploadPerview
 id imageViewQuestionsUser
+id imageViewStar
 id imageViewUserProfileSlider
 id info
 id italic
@@ -2894,6 +2901,7 @@ layout content_main
 layout content_photo_upload
 layout content_questions
 layout counter_menuitem_layout
+layout credit_card_item
 layout custom_fullimage_dialog
 layout custom_tab_item
 layout custom_user_tab_item

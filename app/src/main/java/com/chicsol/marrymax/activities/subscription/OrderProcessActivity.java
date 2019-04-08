@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -41,6 +44,7 @@ import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.ExpandOrCollapse;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.chicsol.marrymax.widgets.AutoAddTextWatcher;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -94,6 +98,9 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     private RadioGroup rgAssisted;
     private LinearLayout llSpAssisted;
 
+    private EditText etCVV, etExpiry, etCardNumber;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,7 +122,33 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     private void initialize() {
         getSupportActionBar().setTitle("Order Summary");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mCardInputWidget = (CardInputWidget) findViewById(R.id.card_input_widget);
+        //    mCardInputWidget = (CardInputWidget) findViewById(R.id.card_input_widget);
+
+
+        //cc
+        etCardNumber = (EditText) findViewById(R.id.EditTextCardNumber);
+        etCVV = (EditText) findViewById(R.id.EditTextCVV);
+        etExpiry = (EditText) findViewById(R.id.EditTextExpiration);
+        etExpiry.addTextChangedListener(new AutoAddTextWatcher(etExpiry,
+                "/",
+                new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                },
+                2));
+        //end cc
 
         ReligionDataList = new ArrayList<>();
 
@@ -200,6 +233,9 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         ip = getIPAddress(true);
 
         getPaymentPending();
+
+
+        //creddd
 
 
     }
@@ -452,6 +488,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         btPayThroughCreditCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                validateCardInfo();
                 Card cardToSave = mCardInputWidget.getCard();
                 String selectionRadioValue = "";
 
@@ -510,6 +548,29 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
             }
         });
+    }
+
+    private boolean validateCardInfo() {
+
+        if (etExpiry.length() == 5) {
+            Log.e("etExpiry", etExpiry.getText().toString());
+        }
+
+        if (etCVV.length() < 3) {
+            Toast.makeText(this, "Incorrect CVV", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (etCardNumber.length() < 16) {
+            Toast.makeText(this, "Incorrect Card Number", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (etExpiry.length() < 5) {
+            Toast.makeText(this, "Incorrect Card Number", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        //  else if()
+        else {
+            return true;
+        }
+
     }
 
     private void generatewithCC() {

@@ -104,7 +104,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     MarryMax marryMax;
     private int lastSelectedPage = 0;
     Members member;
-    mMemDetail memDetailObj = null;
+
     private ImageView ivZodiacSign, ivCountrySign, ivPhoneVerified;
     private PopupMenu popupUp;
     //slider
@@ -118,11 +118,11 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private ViewPager viewPager1;
     private mTextView tvShowInterestButtonText, tvMatchAid, tvImagesCount, tvInterest, tvAlias, tvAge, tvLocation, tvProfileFor, tvReligion, tvEducation, tvOccupation, tvMaritalStatus, tvLastLoginDate;
 
-    private TextView tvResidenceDetails, tvAboutParents, tvAboutSiblings, tvJobDetails, tvEducationDetail, tvSocialDetai, tvFeedbackPending;
-    private LinearLayout llResidenceDetails, llAboutParents, llAboutSiblings, llJobDetails, llEducationDetail, llSocialDetai;
+    private TextView  tvFeedbackPending;
+
     private DisplayImageOptions options;
     private LayoutInflater inflater;
-    private LinearLayout llMemDetail, llScreenMain, llScreenWait, llshowInterest, llBottomshowInterest, llBottomSendMessage, llUPSendMessage, llImagesCount, LineaLayoutUserProfileInterestMessage, LineaLayoutUserProfileTopBar;
+    private LinearLayout  llScreenMain, llScreenWait, llshowInterest, llBottomshowInterest, llBottomSendMessage, llUPSendMessage, llImagesCount, LineaLayoutUserProfileInterestMessage, LineaLayoutUserProfileTopBar;
     private JSONArray responsArray;
     private String userpath;
     private ProgressDialog pDialog;
@@ -388,7 +388,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         //      llScreenWait = (LinearLayout) view.findViewById(R.id.LinearLayoutscreen_wait);
         llScreenMain = (LinearLayout) view.findViewById(R.id.LinearLayoutUserProfileMainlayout);
-        llMemDetail = (LinearLayout) view.findViewById(R.id.LinearLayoutProfileDetailMemDetail);
+
 //
 
 
@@ -463,19 +463,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         llshowInterest = (LinearLayout) view.findViewById(R.id.LinearLayoutShowInterest);
 
 
-        tvResidenceDetails = (TextView) view.findViewById(R.id.TextViewUPResidenceDetails);
-        tvAboutParents = (TextView) view.findViewById(R.id.TextViewUPAboutParents);
-        tvAboutSiblings = (TextView) view.findViewById(R.id.TextViewUPAboutSiblings);
-        tvJobDetails = (TextView) view.findViewById(R.id.TextViewUPJobDetails);
-        tvEducationDetail = (TextView) view.findViewById(R.id.TextViewUPEducationDetail);
-        tvSocialDetai = (TextView) view.findViewById(R.id.TextViewUPSocialDetail);
-
-        llResidenceDetails = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileResidenceDetails);
-        llAboutParents = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileAboutParents);
-        llAboutSiblings = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileAboutParents);
-        llJobDetails = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileJobDetails);
-        llEducationDetail = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileEducationDetails);
-        llSocialDetai = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileSocialDetails);
 
 
         tvShowInterestButtonText = (mTextView) view.findViewById(R.id.mTextViewLinearLayoutUserProfileShowInterestText);
@@ -655,62 +642,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         }*/
 
-
-        if (memDetailObj != null) {
-
-            llMemDetail.setVisibility(View.VISIBLE);
-
-            if (!memDetailObj.getResidence().trim().isEmpty()) {
-                tvResidenceDetails.setText(memDetailObj.getResidence());
-                llResidenceDetails.setVisibility(View.VISIBLE);
-            } else {
-                llResidenceDetails.setVisibility(View.GONE);
-            }
-
-
-            if (!memDetailObj.getParents().trim().isEmpty()) {
-                tvAboutParents.setText(memDetailObj.getParents());
-                llAboutParents.setVisibility(View.VISIBLE);
-            } else {
-                llAboutParents.setVisibility(View.GONE);
-            }
-
-
-            if (!memDetailObj.getSiblings().trim().isEmpty()) {
-                tvAboutSiblings.setText(memDetailObj.getSiblings());
-                llAboutSiblings.setVisibility(View.VISIBLE);
-            } else {
-                llAboutSiblings.setVisibility(View.GONE);
-            }
-
-
-            if (!memDetailObj.getJobinfo().trim().isEmpty()) {
-                tvJobDetails.setText(memDetailObj.getJobinfo());
-                llJobDetails.setVisibility(View.VISIBLE);
-            } else {
-                llJobDetails.setVisibility(View.GONE);
-            }
-
-
-            if (!memDetailObj.getEducation().trim().isEmpty()) {
-                tvEducationDetail.setText(memDetailObj.getEducation());
-                llEducationDetail.setVisibility(View.VISIBLE);
-            } else {
-                llEducationDetail.setVisibility(View.GONE);
-            }
-
-
-            if (!memDetailObj.getSocial().trim().isEmpty()) {
-                tvSocialDetai.setText(memDetailObj.getSocial());
-                llSocialDetai.setVisibility(View.VISIBLE);
-            } else {
-                llSocialDetai.setVisibility(View.GONE);
-            }
-
-
-        } else {
-            llMemDetail.setVisibility(View.GONE);
-        }
 
 
         postSetListener();
@@ -1677,16 +1608,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                             JSONObject firstJsonObj = responsArray.getJSONArray(0).getJSONObject(0);
 
-                            Gson gson2;
-                            GsonBuilder gsonBuilder2 = new GsonBuilder();
-                            gson2 = gsonBuilder2.create();
-                            if (responsArray.getJSONArray(5).length() > 0) {
-                                JSONObject memDetailJsonObj = responsArray.getJSONArray(5).getJSONObject(0);
-                                if (memDetailJsonObj.length() > 0) {
-                                    memDetailObj = (mMemDetail) gson2.fromJson(memDetailJsonObj.toString(), mMemDetail.class);
 
-                                }
-                            }
 
 
                             Type type = new TypeToken<Members>() {

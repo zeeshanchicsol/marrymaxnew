@@ -1047,6 +1047,9 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
                 llPhoneVerifyLandline.setClickable(false);
 
+
+
+
             } else if (member.getPhone_view() == 3) {
 
                 if (!landline.equals("")) {
@@ -1126,6 +1129,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 llEnterCode.setVisibility(View.GONE);
                 llPhoneNotVerified.setVisibility(View.GONE);
                 llVerifyPhone.setVisibility(View.GONE);
+
+                LinearlayoutAccountSettingMyContactEdiDelete.setVisibility(View.INVISIBLE);
             }
             if (member.getPhone_verified() == 1) {
 
@@ -1201,8 +1206,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                             int phone_verified = response.getInt("phone_verified");
                             int landline_verified = response.getInt("landline_verified");
 
-                            Log.e("aphone_verified", "" + phone_verified);
-                            Log.e("alandline_verified", "" + landline_verified);
+                        //    Log.e("aphone_verified", "" + phone_verified);
+                        //    Log.e("alandline_verified", "" + landline_verified);
 
                             int res = response.getInt("about_type_id");
 

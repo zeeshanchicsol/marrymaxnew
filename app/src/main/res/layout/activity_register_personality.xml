@@ -235,7 +235,7 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="10dp"
-                                                android:text="My Strengths(Optional Max. 200 Characters)"
+                                                android:text="My Best Skills(Optional Max. 200 Characters)"
                                                 android:textColor="@color/colorGrey"
                                                 android:textStyle="bold" />
 
@@ -328,7 +328,7 @@
                                                 <TextView
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
-                                                    android:text="Add more Specific Details . This Feature is just for Subscriber Only"
+                                                    android:text="Add more specific details to highlight your profile. \nThese details will be visible to subscribers only."
 
                                                     />
 

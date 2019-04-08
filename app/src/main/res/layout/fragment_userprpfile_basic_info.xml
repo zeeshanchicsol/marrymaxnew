@@ -118,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Most Thankful of:"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorDefaultGreen"
                         android:textStyle="bold" />
 
                     <com.chicsol.marrymax.widgets.mTextView
@@ -141,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="What i do for fun:"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorDefaultGreen"
                         android:textStyle="bold" />
 
                     <com.chicsol.marrymax.widgets.mTextView
@@ -161,8 +161,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="My Strengths:"
-                        android:textColor="@color/colorBlack"
+                        android:text="Skills, I have:"
+                        android:textColor="@color/colorDefaultGreen"
+
                         android:textStyle="bold" />
 
                     <com.chicsol.marrymax.widgets.mTextView
@@ -172,6 +173,173 @@
 
                         android:textColor="@color/colorUserProfileTextLight" />
                 </LinearLayout>
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutProfileDetailMemDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutUserprofileResidenceDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Residence Details: "
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorDefaultGreen"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/TextViewUPResidenceDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorBlack" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutUserprofileAboutParents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AboutParents: "
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorDefaultGreen"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/TextViewUPAboutParents"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorBlack" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutUserprofileAboutSiblings"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="About Siblings: "
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorDefaultGreen"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/TextViewUPAboutSiblings"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorBlack" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutUserprofileJobDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Job Details: "
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorDefaultGreen"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/TextViewUPJobDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorBlack" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutUserprofileEducationDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Education Detail: "
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorDefaultGreen"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/TextViewUPMIEducationDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorBlack" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayoutUserprofileSocialDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Social Detail: "
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorDefaultGreen"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/TextViewUPSocialDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/colorBlack" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
 
                 <LinearLayout
                     android:id="@+id/LinearLayoutUserProfileAMC"
@@ -184,7 +352,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="About My Choice:"
-                        android:textColor="@color/colorBlack"
+                        android:textColor="@color/colorUserProfileRed"
                         android:textStyle="bold" />
 
                     <com.chicsol.marrymax.widgets.mTextView
@@ -944,7 +1112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="Physical Disability: "
+                        android:text="Disability: "
                         android:textColor="@color/colorBlack" />
 
                     <LinearLayout
@@ -1676,7 +1844,7 @@
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Physical Disability : "
+                            android:text="Disability : "
                             android:textColor="@color/colorBlack" />
                     </LinearLayout>
 

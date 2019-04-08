@@ -173,12 +173,12 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
 
         if (!permissioncheck) {
 
-            if (SharedPreferenceManager.getUserObject(context).getMember_status() != 4) {
+          /*  if (SharedPreferenceManager.getUserObject(context).getMember_status() != 4) {
                 holder.actionSwitch.setEnabled(false);
             } else {
                 holder.actionSwitch.setEnabled(true);
-            }
-
+            }*/
+            holder.actionSwitch.setEnabled(true);
 
             if (obj.getName().equals("PUBLIC")) {
                 holder.status.setText("Available to View");

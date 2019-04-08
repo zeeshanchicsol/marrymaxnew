@@ -326,12 +326,12 @@
 
                         </android.support.v7.widget.RecyclerView>
 
-                       <!-- <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:text="Please Select All Options"
-                            android:textColor="@color/colorTextRed" />-->
+                        <!-- <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="right"
+                             android:text="Please Select All Options"
+                             android:textColor="@color/colorTextRed" />-->
 
 
                         <!--  <android.support.design.widget.TextInputLayout
@@ -370,14 +370,23 @@
 
                             android:stepSize="1.0" />
 
+                    <!--    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="10dp"
+                            android:text="Considering or Not Considering this match, write in few words."
+                            android:textColor="@color/colorBlack" />-->
+
                         <android.support.v7.widget.AppCompatEditText
                             android:id="@+id/EditTextMatchAidFeedbackText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:layout_marginTop="8dp"
+
                             android:layout_marginRight="10dp"
-                            android:hint="My Feedback"
+                            android:hint="Considering or Not Considering this match, write in few words."
                             android:inputType="textMultiLine"
                             android:minLines="2" />
 

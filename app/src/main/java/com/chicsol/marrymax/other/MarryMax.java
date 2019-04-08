@@ -1611,7 +1611,7 @@ boolean am=false;
         } else if (peedback_pending == 2) {
 
             String txt = "<font color='#9a0606'>" + membera.getAlias() + "!</font>";
-            return desc = " <b> Dear " + "" + txt.toUpperCase() + "</b>  <font color='#9a0909'> Please give us at least one match feedback to many of the matches, you got connected to.";
+            return desc = " <b> Dear " + "" + txt.toUpperCase() + "</b>  <font color='#9a0909'> Please give us the pending match feedback so we can help you better, thank you.";
 
 
         } else {

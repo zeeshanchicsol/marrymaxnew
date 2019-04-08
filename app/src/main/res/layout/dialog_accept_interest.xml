@@ -76,7 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Allow my phone on accepting Interest "
+                        android:text="Give permission to view my number, on accepting interest"
                         android:textColor="@color/colorBlack"
                         android:visibility="gone" />
 
@@ -85,7 +85,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Allow my pictures on accepting Interest "
+                        android:text="Give permission to view my pictures, on accepting interest "
                         android:textColor="@color/colorBlack"
                         android:visibility="gone" />
 

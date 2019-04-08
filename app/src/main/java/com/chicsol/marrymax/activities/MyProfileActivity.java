@@ -84,7 +84,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
     Members member;
     private ImageView ivZodiacSign, ivCountrySign, ivPhoneVerified;
     private PopupMenu popupUp;
-    mMemDetail memDetailObj = null;
+  // mMemDetail memDetailObj = null;
     //slider
     private ViewPager viewPagerSlider;
     private List<String> sliderImagesDataList;
@@ -97,15 +97,15 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
     private mTextView tvMatchAid, tvImagesCount, tvInterest, tvAlias, tvAge, tvLocation, tvProfileFor, tvReligion, tvEducation, tvOccupation, tvMaritalStatus, tvLastLoginDate;
     private DisplayImageOptions options;
     private LayoutInflater inflater;
-    private LinearLayout llMemDetail, llshowInterest, llBottomshowInterest, llBottomSendMessage, llImagesCount, LineaLayoutUserProfileInterestMessage, LineaLayoutUserProfileTopBar, LinearLayoutUserProfilePhone;
+    private LinearLayout  llshowInterest, llBottomshowInterest, llBottomSendMessage, llImagesCount, LineaLayoutUserProfileInterestMessage, LineaLayoutUserProfileTopBar, LinearLayoutUserProfilePhone;
     private JSONArray responsArray;
     private String userpath;
     private ProgressDialog pDialog;
     private ProgressBar progressBar;
     ViewPagerAdapter1 adapter;
-
-    private TextView tvResidenceDetails, tvAboutParents, tvAboutSiblings, tvJobDetails, tvEducationDetail, tvSocialDetai;
-    private LinearLayout llResidenceDetails, llAboutParents, llAboutSiblings, llJobDetails, llEducationDetail, llSocialDetai;
+ //   llMemDetail
+  //  private TextView tvResidenceDetails, tvAboutParents, tvAboutSiblings, tvJobDetails, tvEducationDetail, tvSocialDetai;
+  //  private LinearLayout llResidenceDetails, llAboutParents, llAboutSiblings, llJobDetails, llEducationDetail, llSocialDetai;
 
 
     @Override
@@ -261,7 +261,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         getSupportActionBar().setTitle("My Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        llMemDetail = (LinearLayout) findViewById(R.id.LinearLayoutProfileDetailMemDetail);
+   //     llMemDetail = (LinearLayout) findViewById(R.id.LinearLayoutProfileDetailMemDetail);
 
         LineaLayoutUserProfileInterestMessage = (LinearLayout) findViewById(R.id.LineaLayoutUserProfileInterestMessage);
         LineaLayoutUserProfileTopBar = (LinearLayout) findViewById(R.id.LineaLayoutUserProfileTopBar);
@@ -298,7 +298,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         ibSwipeLeft = (ImageButton) findViewById(R.id.imageButtonUPArrowLeft);
 
 
-        tvResidenceDetails = (TextView) findViewById(R.id.TextViewUPResidenceDetails);
+      /*  tvResidenceDetails = (TextView) findViewById(R.id.TextViewUPResidenceDetails);
         tvAboutParents = (TextView) findViewById(R.id.TextViewUPAboutParents);
         tvAboutSiblings = (TextView) findViewById(R.id.TextViewUPAboutSiblings);
         tvJobDetails = (TextView) findViewById(R.id.TextViewUPJobDetails);
@@ -310,7 +310,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
         llAboutSiblings = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileAboutParents);
         llJobDetails = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileJobDetails);
         llEducationDetail = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileEducationDetails);
-        llSocialDetai = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileSocialDetails);
+        llSocialDetai = (LinearLayout) findViewById(R.id.LinearLayoutUserprofileSocialDetails);*/
 
 
         ivZodiacSign = (ImageView) findViewById(R.id.ImageViewUPZodiacSign);
@@ -508,7 +508,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 */
 
 
-        if (memDetailObj != null) {
+/*        if (memDetailObj != null) {
 
             llMemDetail.setVisibility(View.VISIBLE);
 
@@ -562,7 +562,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
         } else {
             llMemDetail.setVisibility(View.GONE);
-        }
+        }*/
         postSetListener();
 
     }
@@ -1336,7 +1336,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                             JSONObject firstJsonObj = responsArray.getJSONArray(0).getJSONObject(0);
 
 
-                            Gson gson2;
+                       /*     Gson gson2;
                             GsonBuilder gsonBuilder2 = new GsonBuilder();
                             gson2 = gsonBuilder2.create();
                             if (responsArray.getJSONArray(5).length() > 0) {
@@ -1346,7 +1346,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
                                 }
                             }
-
+*/
 
                             Gson gson;
                             GsonBuilder gsonBuilder = new GsonBuilder();
