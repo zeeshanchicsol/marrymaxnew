@@ -213,12 +213,12 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
 
         if (holder1 instanceof MMViewHolder) {
             MMViewHolder holder = ((MMViewHolder) holder1);
-            if (position == 1) {
+           /* if (position == 1) {
                 holder.tvRecomm.setVisibility(View.VISIBLE);
             } else {
                 holder.tvRecomm.setVisibility(View.GONE);
             }
-
+*/
             holder.tvPlanName.setText("" + obj.getItem_name());
             holder.tvPlanDuration.setText("  (" + obj.getDuration() + " Months)");
             holder.tvPlanTitle.setText(obj.getName());
@@ -258,35 +258,33 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
 
             } else */
 
-            holder.tvPhoneNumbersCount.setText(Math.round(obj.getOrder_cost())+" Verified Phone Numbers ");
-            holder.tvMatchesCount.setText(Math.round(obj.getTotal_cost())+" Matches Communication ");
+            holder.tvPhoneNumbersCount.setText("Get " + Math.round(obj.getOrder_cost()) + " Verified Phone Numbers ");
+            holder.tvMatchesCount.setText( Math.round(obj.getTotal_cost()) + " Matches Messaging ");
 
+            //    Log.e("" + obj.getItem_name(), obj.getItem_name());
+            if (obj.getDuration().equals("3")) {
+                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
+                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionPlatinum));
+                }
+                holder.tvMessages.setText("Read Messages For 6 Months");
 
-            if (obj.getItem_name().equals("Gold")) {
+                //   holder.tvPlanShortDescriptionMatchesCount.setText("150 Matches Communication ");
+
+            } else if (obj.getDuration().equals("6")) {
 
                 holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGolden));
                 holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionGolden));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionGolden));
                 }
-
-
+                holder.tvMessages.setText("Read Messages For 9 Months");
 
                 //   holder.tvPlanShortDescriptionMatchesCount.setText("100 Matches Communication ");
 
-            } else if (obj.getItem_name().equals("Platinum")
-            ) {
-                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
-                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionPlatinum));
-                }
-
-
-                //   holder.tvPlanShortDescriptionMatchesCount.setText("150 Matches Communication ");
-
-            }
-            holder.itemView.setTag(obj);
+            } else
+                holder.itemView.setTag(obj);
 
         }
     }
@@ -360,7 +358,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvPlanName, tvRecomm, tvPlanDuration, tvPlanTitle, tvPhoneNumbersCount,tvMatchesCount;
+        public TextView tvPlanName, tvRecomm, tvPlanDuration, tvPlanTitle, tvPhoneNumbersCount, tvMatchesCount, tvMessages;
         //   tvPlanShortDescriptionMatchesCount
 
         AppCompatButton btPurchase;
@@ -377,6 +375,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
 
             // tvPlanShortDescriptionMatchesCount = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanShortDescriptionMatchesCount);
 
+            tvMessages = (TextView) itemView.findViewById(R.id.TextViewSubscriptionPlanMessages);
             btPurchase = (AppCompatButton) itemView.findViewById(R.id.ButtonSubscriptionPurchase);
             tvRecomm = (TextView) itemView.findViewById(R.id.TextViewRecommendedP);
 

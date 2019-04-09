@@ -151,6 +151,7 @@
                         android:textColor="@color/colorUserProfileTextLight" />
                 </LinearLayout>
 
+
                 <LinearLayout
                     android:id="@+id/LinearLayoutUserProfileMS"
                     android:layout_width="match_parent"
@@ -175,25 +176,29 @@
                 </LinearLayout>
 
 
-
-
-
-
-
                 <LinearLayout
                     android:id="@+id/LinearLayoutProfileDetailMemDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginTop="10dp"
+
                     android:layout_marginRight="10dp"
                     android:orientation="vertical"
                     android:visibility="visible">
+
+                    <View
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="#d7d7d7"
+
+                        ></View>
 
                     <LinearLayout
                         android:id="@+id/LinearLayoutUserprofileResidenceDetails"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                      android:layout_marginTop="5dp"
                         android:orientation="vertical">
 
                         <TextView
@@ -335,10 +340,14 @@
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textColor="@color/colorBlack" />
                     </LinearLayout>
+                    <View
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="#d7d7d7"
 
+                        ></View>
                 </LinearLayout>
-
-
 
 
                 <LinearLayout

@@ -4,9 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -44,11 +43,9 @@ import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.ExpandOrCollapse;
 import com.chicsol.marrymax.utils.MySingleton;
-import com.chicsol.marrymax.widgets.AutoAddTextWatcher;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.stripe.android.model.Card;
 import com.stripe.android.view.CardInputWidget;
 
 import org.json.JSONArray;
@@ -59,9 +56,14 @@ import java.lang.reflect.Type;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class OrderProcessActivity extends AppCompatActivity implements dialogSelectPackage.onChangeSubscriptionPlanListener, dialogEnterPromoCode.onApplyPromoCodeListener {
@@ -98,8 +100,13 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     private RadioGroup rgAssisted;
     private LinearLayout llSpAssisted;
 
-    private EditText etCVV, etExpiry, etCardNumber;
+    private EditText etCVV, etCardNumber;
+    // etExpiry
+    private Spinner spMonth, spYear;
 
+    private List<WebArd> yearDataList, monthDataList;
+
+    private MySpinnerAdapter spAdapterMonth, spAdapterYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,10 +132,52 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         //    mCardInputWidget = (CardInputWidget) findViewById(R.id.card_input_widget);
 
 
+        monthDataList = new ArrayList<>();
+        yearDataList = new ArrayList<>();
+
+        for (int i = 1; i <= 12; i++) {
+
+
+            if (i < 10) {
+
+                String text = (i < 10 ? "0" : "") + i;
+                WebArd webArd = new WebArd(String.valueOf(i), text + "");
+                monthDataList.add(webArd);
+            } else {
+                WebArd webArd = new WebArd(String.valueOf(i), i + "");
+                monthDataList.add(webArd);
+            }
+        }
+
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        for (int i = year; i <= year + 10; i++) {
+
+            WebArd webArd = new WebArd(String.valueOf(i), i + "");
+            yearDataList.add(webArd);
+        }
+
+        spMonth = (Spinner) findViewById(R.id.SpinnerAppCardExpiryMonth);
+        spYear = (Spinner) findViewById(R.id.SpinnerAppCardExpiryYear);
+
+
+        monthDataList.add(0, new WebArd("-1", "Select"));
+        yearDataList.add(0, new WebArd("-1", "Select"));
+        spAdapterMonth = new MySpinnerAdapter(this,
+                android.R.layout.simple_spinner_item, monthDataList);
+        spAdapterMonth.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spMonth.setAdapter(spAdapterMonth);
+
+        spAdapterYear = new MySpinnerAdapter(this,
+                android.R.layout.simple_spinner_item, yearDataList);
+        spAdapterYear.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spYear.setAdapter(spAdapterYear);
+
+
         //cc
         etCardNumber = (EditText) findViewById(R.id.EditTextCardNumber);
         etCVV = (EditText) findViewById(R.id.EditTextCVV);
-        etExpiry = (EditText) findViewById(R.id.EditTextExpiration);
+        /*etExpiry = (EditText) findViewById(R.id.EditTextExpiration);
         etExpiry.addTextChangedListener(new AutoAddTextWatcher(etExpiry,
                 "/",
                 new TextWatcher() {
@@ -147,7 +196,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
                     }
                 },
-                2));
+                2));*/
         //end cc
 
         ReligionDataList = new ArrayList<>();
@@ -489,60 +538,105 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
             @Override
             public void onClick(View v) {
 
-                validateCardInfo();
-                Card cardToSave = mCardInputWidget.getCard();
-                String selectionRadioValue = "";
-
-                int selectedId = rgAssisted.getCheckedRadioButtonId();
-
-                // find the radiobutton by returned id
-                RadioButton radioButtonSelected = (RadioButton) findViewById(selectedId);
-                selectionRadioValue = radioButtonSelected.getTag().toString();
+                if (validateCardInfo()) {
+                    WebArd wamonth = (WebArd) spMonth.getSelectedItem();
+                    String expmonth = wamonth.getName();
 
 
-                if (selectionRadioValue.equals("yes") && spinner_religion.getSelectedItemId() == 0) {
-                    Toast.makeText(OrderProcessActivity.this, "Please Select Who Helped you ", Toast.LENGTH_SHORT).show();
-                } else if (cardToSave == null) {
-                    Toast.makeText(OrderProcessActivity.this, "Invalid Card Data", Toast.LENGTH_SHORT).show();
-                    // mErrorDialogHandler.showError("Invalid Card Data");
-                } else {
+                    WebArd wayear = (WebArd) spYear.getSelectedItem();
+                    String expyear = wayear.getId();
 
-                    mPayments payments = new mPayments();
-
-                    if (selectionRadioValue.equals("yes")) {
-                        WebArd ObjWhoHelped = (WebArd) spinner_religion.getSelectedItem();
-                        payments.setHelp_person(ObjWhoHelped.getName());
-                    } else {
-                        payments.setHelp_person("N");
-                    }
-
-
-                    payments.setCard_number(Long.parseLong(cardToSave.getNumber()));
-                    payments.setCcv_number(Integer.parseInt(cardToSave.getCVC()));
-                    payments.setYear(cardToSave.getExpYear());
-                    payments.setMonth(cardToSave.getExpMonth());
-                    payments.setDescription(subscription.getShort_description());
-
-                    payments.setEmail(subscription.getEmail());
-
-                    payments.setAlias(subscription.getAlias());
-                    payments.setPersonal_name(subscription.getName());
-
-                    payments.setTranspath(subscription.getTranspath());
-                    payments.setAmount(subscription.getTotal_cost());
-
-
-                    Gson gson = new Gson();
-                    JSONObject params = null;
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
+                    Date strDate = null;
                     try {
-                        params = new JSONObject(gson.toJson(payments));
-                        Log.e("params", params.toString());
-                        ProcessPaymentRequest(params);
-                    } catch (JSONException e) {
+                        strDate = sdf.parse(expmonth + "/" + expyear);
+                    } catch (ParseException e) {
                         e.printStackTrace();
                     }
 
 
+                    Calendar calendar = Calendar.getInstance();
+                    int cyear = calendar.get(Calendar.YEAR);
+                    int cmonth = calendar.get(Calendar.MONTH);
+                    cmonth = cmonth + 1;
+                    boolean dateCheck = false;
+                    if (cyear == Integer.parseInt(expyear)) {
+
+                        //  Log.e("expmonth", Integer.parseInt(expmonth) + "     " + cmonth);
+
+                        if (Integer.parseInt(expmonth) < cmonth) {
+                            dateCheck = true;
+                        }
+
+
+                    }
+
+
+                    String cvv = etCVV.getText().toString().trim();
+                    String cardNumber = etCardNumber.getText().toString().trim();
+
+                    //    Card cardToSave = mCardInputWidget.getCard();
+                    String selectionRadioValue = "";
+
+                    int selectedId = rgAssisted.getCheckedRadioButtonId();
+
+                    // find the radiobutton by returned id
+                    RadioButton radioButtonSelected = (RadioButton) findViewById(selectedId);
+                    selectionRadioValue = radioButtonSelected.getTag().toString();
+
+                    //  Log.e("System",System.currentTimeMillis() +"  "+ strDate.getTime());
+
+
+                    if (selectionRadioValue.equals("yes") && spinner_religion.getSelectedItemId() == 0) {
+                        Toast.makeText(OrderProcessActivity.this, "Please Select Who Helped you ", Toast.LENGTH_SHORT).show();
+                    } else if (dateCheck) {
+                        Toast.makeText(OrderProcessActivity.this, "Invalid Expiry Date ", Toast.LENGTH_SHORT).show();
+
+                    } else {
+
+                        mPayments payments = new mPayments();
+
+                        if (selectionRadioValue.equals("yes")) {
+                            WebArd ObjWhoHelped = (WebArd) spinner_religion.getSelectedItem();
+                            payments.setHelp_person(ObjWhoHelped.getName());
+                        } else {
+                            payments.setHelp_person("N");
+                        }
+
+                        payments.setCard_number(Long.parseLong(cardNumber));
+                        payments.setCcv_number(Integer.parseInt(cvv));
+                        payments.setYear(Integer.parseInt(expyear));
+                        payments.setMonth(Integer.parseInt(expmonth));
+
+              /*      payments.setCard_number(Long.parseLong(cardToSave.getNumber()));
+                    payments.setCcv_number(Integer.parseInt(cardToSave.getCVC()));
+                    payments.setYear(cardToSave.getExpYear());
+                    payments.setMonth(cardToSave.getExpMonth());*/
+
+
+                        payments.setDescription(subscription.getShort_description());
+
+                        payments.setEmail(subscription.getEmail());
+
+                        payments.setAlias(subscription.getAlias());
+                        payments.setPersonal_name(subscription.getName());
+
+                        payments.setTranspath(subscription.getTranspath());
+                        payments.setAmount(subscription.getTotal_cost());
+
+
+                        Gson gson = new Gson();
+                        JSONObject params = null;
+                        try {
+                            params = new JSONObject(gson.toJson(payments));
+                            Log.e("params", params.toString());
+                            ProcessPaymentRequest(params);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
                 }
 
 
@@ -552,22 +646,26 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
     private boolean validateCardInfo() {
 
-        if (etExpiry.length() == 5) {
-            Log.e("etExpiry", etExpiry.getText().toString());
-        }
 
-        if (etCVV.length() < 3) {
+        if (etCVV.getText().toString().trim().length() < 3) {
             Toast.makeText(this, "Incorrect CVV", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (etCardNumber.length() < 16) {
+        } else if (etCardNumber.getText().toString().trim().length() < 16) {
             Toast.makeText(this, "Incorrect Card Number", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (etExpiry.length() < 5) {
-            Toast.makeText(this, "Incorrect Card Number", Toast.LENGTH_SHORT).show();
+        } else if (spMonth.getSelectedItemId() == 0) {
+            Toast.makeText(this, "Please select expiry month", Toast.LENGTH_SHORT).show();
+
             return false;
-        }
-        //  else if()
-        else {
+        } else if (spYear.getSelectedItemId() == 0) {
+            Toast.makeText(this, "Please select expiry year", Toast.LENGTH_SHORT).show();
+            return false;
+        } /*else if (spYear.getSelectedItemId() != 0 && spMonth.getSelectedItemId() != 0) {
+
+
+
+            return false;
+        }*/ else {
             return true;
         }
 

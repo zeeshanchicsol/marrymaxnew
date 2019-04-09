@@ -24,7 +24,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.ActivityLogin;
 import com.chicsol.marrymax.activities.ContactAcivity;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
@@ -1454,9 +1456,9 @@ public class MarryMax {
 
 
     public String convertUTCTimeToLocal(String inputDate) {
-boolean am=false;
-        if(inputDate.contains("AM")){
-            am=true;
+        boolean am = false;
+        if (inputDate.contains("AM")) {
+            am = true;
         }
 
         try {
@@ -1472,18 +1474,18 @@ boolean am=false;
             df.setTimeZone(TimeZone.getDefault());
             String formattedDate = df2.format(date);
 
-            if(am){
-                if(formattedDate.contains("PM")){
-                   formattedDate= formattedDate.replace("PM","AM");
+            if (am) {
+                if (formattedDate.contains("PM")) {
+                    formattedDate = formattedDate.replace("PM", "AM");
                 }
-            }else {
-                if(formattedDate.contains("AM")){
-                    formattedDate=   formattedDate.replace("AM","PM");
+            } else {
+                if (formattedDate.contains("AM")) {
+                    formattedDate = formattedDate.replace("AM", "PM");
                 }
             }
 
 
-         //
+            //
             //
             //  Log.e("local time is", formattedDate);
             return formattedDate;
@@ -1580,11 +1582,64 @@ boolean am=false;
         }
     }
 
+
+    public void getAppVersion(Context context) {
+
+
+        Log.e(" getAppVersion url", Urls.getAppVersion);
+        StringRequest req = new StringRequest(Urls.getAppVersion,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("getAppVersion ==", "=======================  " + response);
+
+                        String remoteVersionName = "1.0";
+                        //   String version = data[2];
+
+
+                        //  max.checkVersionUpdate(remoteVersionName);
+                        try {
+                            PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
+                            String localVersion = pInfo.versionName;
+                            Log.e("localVersion", localVersion + " ----  " + remoteVersionName);
+
+                            if (!remoteVersionName.equals(localVersion)) {
+                                //   Log.e("updatev now", remoteVersionName);
+                                updateVersion();
+                            }
+
+
+                            //   Log.e("versionName", "" + version);
+                        } catch (PackageManager.NameNotFoundException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        req.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(context).addToRequestQueue(req);
+    }
+
     public void checkVersionUpdate(String remoteVersionName) {
 
         try {
             PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
             String localVersion = pInfo.versionName;
+            Log.e("localVersion", localVersion + " ----  " + remoteVersionName);
 
             if (!remoteVersionName.equals(localVersion)) {
                 //   Log.e("updatev now", remoteVersionName);

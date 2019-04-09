@@ -88,6 +88,13 @@ DrawerActivity extends AppCompatActivity {
 
     private void initialize() {
 
+
+        {
+            MarryMax marryMax = new MarryMax(DrawerActivity.this);
+            marryMax.getAppVersion(getApplicationContext());
+
+        }
+
         LinearLayoutDrawerMyProfile = (LinearLayout) findViewById(R.id.LinearLayoutDrawerMyProfile);
 
 
@@ -256,7 +263,8 @@ DrawerActivity extends AppCompatActivity {
                 drawer.closeDrawers();
             }
 
-         /*   MarryMax marryMax = new MarryMax(DrawerActivity.this);
+
+         /*
             boolean acheck = marryMax.checkUserStatusLogin(member);
             if (acheck) {
                 Intent intent = new Intent(DrawerActivity.this, MyProfileActivity.class);

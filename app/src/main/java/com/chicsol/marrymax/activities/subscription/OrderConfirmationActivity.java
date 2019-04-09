@@ -38,7 +38,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
     private Button btgotBack;
     private TextView tvTotalAmount, tvTopTitle, tvProfileName, tvName, tvEmailAddress, tvDate, tvOrderNumber, tvPaymentMethod, tvPlanName, tvPlanPrice, tvDiscountName, tvDiscount;
     String transpath = "";
-    private TextView tvMatchesCount, tvPhoneCount;
+    private TextView tvMatchesCount, tvPhoneNumbersCount, tvMessages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +85,9 @@ public class OrderConfirmationActivity extends AppCompatActivity {
 
         tvMatchesCount = (TextView) findViewById(R.id.TextViewOCMatchesCount);
 
-        tvPhoneCount = (TextView) findViewById(R.id.TextViewOCPhoneNumberCount);
+        tvPhoneNumbersCount = (TextView) findViewById(R.id.TextViewOCPhoneNumberCount);
+
+        tvMessages = (TextView) findViewById(R.id.TextViewSubscriptionPlanMessages);
 
 
         btgotBack.setOnClickListener(new View.OnClickListener() {
@@ -128,13 +130,19 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         tvTotalAmount.setText(sub.item_currency + " " + sub.getOrder_cost() + "");
 
 
-        tvTopTitle.setText("You have paid " + sub.item_currency + " " + sub.getItem_price() + "for " + sub.getItem_name() + " .");
+        tvTopTitle.setText("You have paid " + sub.item_currency + " " + sub.getItem_price() + " for " + sub.getItem_name() + " .");
 
 
-        tvMatchesCount.setText(sub.other_item_id + "  Verified Phone Numbers");
-        tvMatchesCount.setText(sub.applied_force + " Matches Communication");
+        tvPhoneNumbersCount.setText("Get " + sub.other_item_id + " Verified Phone Numbers ");
+        tvMatchesCount.setText( sub.applied_force + " Matches Messaging ");
+
+        if (sub.getName().equals("Silver")) {
+            tvMessages.setText("Read Messages For 6 Months");
+        } else {
+            tvMessages.setText("Read Messages For 9 Months");
+        }
+
     }
-
 
     private void loadData(JSONObject params) {
 

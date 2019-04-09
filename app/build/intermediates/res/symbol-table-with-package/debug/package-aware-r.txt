@@ -1500,7 +1500,6 @@ id EditTextDateOfBirth
 id EditTextDialogSaveSearch
 id EditTextEmail
 id EditTextEmailLogin
-id EditTextExpiration
 id EditTextForgetEmail
 id EditTextGraduatedFrom
 id EditTextMatchAidFeedbackText
@@ -1890,6 +1889,8 @@ id SpinnerAdvSearchHeightFrom
 id SpinnerAdvSearchHeightTo
 id SpinnerAdvSearchLastLoginDate
 id SpinnerAdvSearchRegisteredWith
+id SpinnerAppCardExpiryMonth
+id SpinnerAppCardExpiryYear
 id SpinnerAppMyChoiceAgeFrom
 id SpinnerAppMyChoiceAgeTo
 id SpinnerAppMyChoiceHeightFrom
@@ -2090,6 +2091,7 @@ id TextViewMemberAliasDashMain
 id TextViewMemberCountryDashMain
 id TextViewMemberEducationMartialStatusDashMain
 id TextViewMemberFragmentError
+id TextViewMembernfoTitle
 id TextViewMessageDetailAge
 id TextViewMessageDetailAlias
 id TextViewMessageDetailEthnicbg
@@ -2202,6 +2204,7 @@ id TextViewRequests_ic
 id TextViewShortDescriptionMM
 id TextViewSubscriptionPlanDuration
 id TextViewSubscriptionPlanMatchesCount
+id TextViewSubscriptionPlanMessages
 id TextViewSubscriptionPlanName
 id TextViewSubscriptionPlanPackages
 id TextViewSubscriptionPlanPhoneNumbers
@@ -2356,7 +2359,6 @@ id buttonSearchWhoIsLooking
 id buttonSearchYourBestMatch
 id cancel_action
 id cardView
-id card_input_widget
 id card_number_label
 id center
 id center_horizontal
@@ -3718,6 +3720,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string personality_memberinfo_text
+string personality_memberinfo_title
 string project_id
 string prompt_email
 string prompt_email_reg

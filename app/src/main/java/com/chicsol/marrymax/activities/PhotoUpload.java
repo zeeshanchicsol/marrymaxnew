@@ -546,7 +546,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
             url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath()+ "/0/0";
         }
 
-        Log.e("url", "" + url);
+     //   Log.e("url", "" + url);
 
 
 
@@ -555,7 +555,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
 
         final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
         pDialog.setMessage("Loading...");
-        pDialog.setCancelable(false);
+
         pDialog.show();
 
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, url, new Response.Listener<NetworkResponse>() {

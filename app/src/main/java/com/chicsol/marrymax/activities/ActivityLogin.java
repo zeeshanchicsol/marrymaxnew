@@ -2,6 +2,8 @@ package com.chicsol.marrymax.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -493,40 +495,9 @@ public class ActivityLogin extends AppCompatActivity {
 
 
     private void getAppVersion() {
+        MarryMax max = new MarryMax(ActivityLogin.this);
+        max.getAppVersion(getApplicationContext());
 
-
-        Log.e(" Notification url", Urls.getAppVersion);
-        StringRequest req = new StringRequest(Urls.getAppVersion,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.e("getAppVersion ==", "=======================  " + response);
-
-                        String remoteVersionName = "1.0";
-                        //   String version = data[2];
-
-                        MarryMax max = new MarryMax(ActivityLogin.this);
-
-                        max.checkVersionUpdate(remoteVersionName);
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d("Err", "Error: " + error.getMessage());
-
-            }
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                return Constants.getHashMap();
-            }
-        };
-        req.setRetryPolicy(new DefaultRetryPolicy(
-                0,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(req);
     }
 
 

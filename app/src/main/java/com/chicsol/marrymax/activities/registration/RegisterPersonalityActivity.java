@@ -66,7 +66,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
     private mTextView tvDosDont;
     private CheckBox cbDeclaration;
     ProgressDialog pDialog;
-    private TextView tvMemberInfo;
+    private TextView tvMemberInfo, tvMemberIfoTitle;
 
     LinearLayout llMemberInfo;
 
@@ -158,7 +158,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
         tvDosDont = (mTextView) findViewById(R.id.TextViewDosDont);
         tvMemberInfo = (TextView) findViewById(R.id.TextViewAddMemberInfo);
-
+        tvMemberIfoTitle = (TextView) findViewById(R.id.TextViewMembernfoTitle);
 
         if (marryMax.getUpdateCheck(getApplicationContext())) {
 
@@ -184,7 +184,14 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
      newFragment.show(getSupportFragmentManager(), "dialog");
     }*/
     private void setListeners() {
-
+        tvMemberIfoTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogAddMemberInfo newFragment = dialogAddMemberInfo.newInstance("");
+                //    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
+                newFragment.show(getSupportFragmentManager(), "dialog");
+            }
+        });
 
         tvMemberInfo.setOnClickListener(new View.OnClickListener() {
             @Override

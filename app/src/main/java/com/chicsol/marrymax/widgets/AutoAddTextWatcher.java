@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 /**
  * Created by henry.chuang on 2016/5/12.
- */
+ *//*
 public class AutoAddTextWatcher implements TextWatcher {
     private CharSequence mBeforeTextChanged;
     private TextWatcher mTextWatcher;
@@ -83,4 +83,4 @@ public class AutoAddTextWatcher implements TextWatcher {
 
     }
 
-}
+}*/

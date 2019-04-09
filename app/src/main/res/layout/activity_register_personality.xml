@@ -209,7 +209,7 @@
                                             <com.chicsol.marrymax.widgets.mTextView
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:text="About Me( Max 1500 Characters)* "
+                                                android:text="About Me ( Max 1500 Characters)* "
                                                 android:textColor="@color/colorGrey"
                                                 android:textStyle="bold" />
 
@@ -235,7 +235,7 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="10dp"
-                                                android:text="My Best Skills(Optional Max. 200 Characters)"
+                                                android:text="My Best Skills (Optional Max. 200 Characters)"
                                                 android:textColor="@color/colorGrey"
                                                 android:textStyle="bold" />
 
@@ -274,7 +274,7 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="10dp"
-                                                android:text="What i do for fun(Optional Max. 200 Characters)"
+                                                android:text="What i do for fun (Optional Max. 200 Characters)"
                                                 android:textColor="@color/colorGrey"
                                                 android:textStyle="bold" />
 
@@ -319,10 +319,11 @@
 
 
                                                 <TextView
+                                                    android:id="@+id/TextViewMembernfoTitle"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
-                                                    android:text="Specific Details"
-                                                    android:textColor="@color/colorTextRed"
+                                                    android:text="@string/personality_memberinfo_title"
+                                                    android:textColor="@color/colorASBlue"
                                                     android:textStyle="bold" />
 
                                                 <TextView

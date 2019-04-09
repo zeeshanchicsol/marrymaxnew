@@ -19,6 +19,7 @@
         android:indeterminateTint="@color/colorUserProfileRed"
         android:indeterminateTintMode="src_in" />
 
+
     <LinearLayout
         android:id="@+id/LinearLayoutMMMatchesNotFound"
         android:layout_width="match_parent"
@@ -460,6 +461,15 @@
         </LinearLayout>
     </LinearLayout>
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="8dp"
+        android:text="Match Feedback is important to serve better and stay focused."/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecyclerViewMyContacts"
         android:layout_width="match_parent"
