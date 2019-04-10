@@ -190,6 +190,16 @@
 
                                     </LinearLayout>
 
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="9dp"
+                                        android:background="#fcf8e3"
+                                        android:padding="8dp"
+                                        android:text="@string/personality_note"
+                                        android:textColor="#8a6d3b"
+                                       />
+
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -209,8 +219,8 @@
                                             <com.chicsol.marrymax.widgets.mTextView
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:text="About Me ( Max 1500 Characters)* "
-                                                android:textColor="@color/colorGrey"
+                                                android:text="About Me *"
+                                                android:textColor="@color/colorTextRed"
                                                 android:textStyle="bold" />
 
                                             <android.support.design.widget.TextInputLayout
@@ -234,9 +244,17 @@
                                             <com.chicsol.marrymax.widgets.mTextView
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="10dp"
-                                                android:text="My Best Skills (Optional Max. 200 Characters)"
+                                                android:text="( Maximum 1500 Characters)"
                                                 android:textColor="@color/colorGrey"
+                                                android:textSize="8sp" />
+
+
+                                            <com.chicsol.marrymax.widgets.mTextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="10dp"
+                                                android:text="My Best Skills (Optional)"
+                                                android:textColor="@color/colorTextRed"
                                                 android:textStyle="bold" />
 
                                             <android.support.v7.widget.AppCompatEditText
@@ -249,14 +267,22 @@
                                                 android:textColor="@color/colorBlack"
                                                 app:backgroundTint="@color/colorUnderline" />
 
+                                            <com.chicsol.marrymax.widgets.mTextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+
+                                                android:text="(Maximum 200 Characters)"
+                                                android:textColor="@color/colorGrey"
+                                                android:textSize="8dp" />
+
 
                                             <com.chicsol.marrymax.widgets.mTextView
 
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="10dp"
-                                                android:text="Most Thankful For (Optional Max. 200 Characters)"
-                                                android:textColor="@color/colorGrey"
+                                                android:text="Most Thankful For (Optional)"
+                                                android:textColor="@color/colorTextRed"
                                                 android:textStyle="bold" />
 
                                             <android.support.v7.widget.AppCompatEditText
@@ -269,13 +295,22 @@
                                                 android:textColor="@color/colorBlack"
                                                 app:backgroundTint="@color/colorUnderline" />
 
+                                            <com.chicsol.marrymax.widgets.mTextView
+
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="(Maximum 200 Characters)"
+                                                android:textColor="@color/colorGrey"
+                                                android:textSize="8sp" />
+
 
                                             <com.chicsol.marrymax.widgets.mTextView
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="10dp"
-                                                android:text="What i do for fun (Optional Max. 200 Characters)"
-                                                android:textColor="@color/colorGrey"
+
+                                                android:text="What i do for fun (Optional )"
+                                                android:textColor="@color/colorTextRed"
                                                 android:textStyle="bold" />
 
                                             <android.support.v7.widget.AppCompatEditText
@@ -288,26 +323,41 @@
                                                 android:textColor="@color/colorBlack"
                                                 app:backgroundTint="@color/colorUnderline" />
 
+                                            <com.chicsol.marrymax.widgets.mTextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="(Maximum 200 Characters)"
+                                                android:textColor="@color/colorGrey"
+                                                android:textSize="8sp" />
+
 
                                             <com.chicsol.marrymax.widgets.mTextView
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="10dp"
-                                                android:text="About My Choice Max (1000 Characters)"
-                                                android:textColor="@color/colorDefaultGreen"
+                                                android:text="I'm Looking For In A Person (Optional)"
+                                                android:textColor="@color/colorTextRed"
                                                 android:textStyle="bold" />
 
                                             <android.support.v7.widget.AppCompatEditText
                                                 android:id="@+id/EditTextAboutMyChoice"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginBottom="20dp"
+
 
                                                 android:imeOptions="actionDone"
                                                 android:inputType="text"
                                                 android:maxLength="1000"
                                                 android:textColor="@color/colorBlack"
                                                 app:backgroundTint="@color/colorUnderline" />
+
+                                            <com.chicsol.marrymax.widgets.mTextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginBottom="20dp"
+                                                android:text="(Maximum 1000 Characters)"
+                                                android:textColor="@color/colorGrey"
+                                                android:textSize="8sp" />
 
 
                                             <LinearLayout
@@ -329,7 +379,7 @@
                                                 <TextView
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
-                                                    android:text="Add more specific details to highlight your profile. \nThese details will be visible to subscribers only."
+                                                    android:text="Add more specific details to highlight your profile."
 
                                                     />
 
