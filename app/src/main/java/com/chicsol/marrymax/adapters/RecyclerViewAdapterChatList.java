@@ -62,7 +62,7 @@ public class RecyclerViewAdapterChatList extends RecyclerView.Adapter<RecyclerVi
     private Fragment fragment;
     MarryMax marryMax;
 
-    public RecyclerViewAdapterChatList(final Context context,Activity activity) {
+    public RecyclerViewAdapterChatList(final Context context, Activity activity) {
         //this.items = items;
 
 
@@ -209,7 +209,7 @@ public class RecyclerViewAdapterChatList extends RecyclerView.Adapter<RecyclerVi
 
             holder.tvText.setText(Html.fromHtml(obj.getMessage()));
 
-            holder.tvDate.setText( marryMax.convertUTCTimeToLocal( obj.getMessage_date()));
+            holder.tvDate.setText(marryMax.convertUTCTimeToLocal(obj.getMessage_date()));
             // holder.tvCountry.setText(member.getCountry_name());
 
 
@@ -252,7 +252,9 @@ public class RecyclerViewAdapterChatList extends RecyclerView.Adapter<RecyclerVi
         } else {
             holder.tvText1.setText(Html.fromHtml(obj.getMessage()));
 
-            holder.tvDate1.setText( marryMax.convertUTCTimeToLocal( obj.getMessage_date()));
+            Log.e("date is ", obj.getMessage_date());
+
+            holder.tvDate1.setText(marryMax.convertUTCTimeToLocal(obj.getMessage_date()));
             // holder.tvCountry.setText(member.getCountry_name());
 
 

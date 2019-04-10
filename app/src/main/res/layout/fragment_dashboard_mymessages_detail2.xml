@@ -62,7 +62,7 @@
                 android:gravity="right"
                 android:orientation="horizontal">
 
-                <LinearLayout
+         <!--       <LinearLayout
                     android:id="@+id/LinearLayoutMessageDetailFeedback"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -92,7 +92,7 @@
                         android:textColor="@color/colorUserProfileRed"
                         android:textSize="13sp" />
 
-                </LinearLayout>
+                </LinearLayout>-->
 
                 <LinearLayout
                     android:id="@+id/LinearLayoutMessageDetailDeleteChat"
@@ -126,6 +126,7 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
 
     </LinearLayout>
 
@@ -180,6 +181,39 @@
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_below="@+id/LinearLayoutMessageDetailData"
+        android:id="@+id/LinearLayoutMessageDetailFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="3dp"
+        android:clickable="true"
+        android:gravity="right|center_vertical"
+        android:visibility="gone">
+
+        <com.chicsol.marrymax.widgets.faTextView
+            android:id="@+id/faUserProfileFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="3dp"
+            android:gravity="center"
+            android:text="@string/fa_icon_feedback"
+            android:textColor="@color/colorTextRed"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/TextViewUserProfileFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="Give Feedback"
+            android:textColor="@color/colorUserProfileRed"
+            android:textSize="13sp" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/LinearLayoutMMessagesReadQuota"

@@ -1590,10 +1590,10 @@ public class MarryMax {
         StringRequest req = new StringRequest(Urls.getAppVersion,
                 new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response) {
-                        Log.e("getAppVersion ==", "=======================  " + response);
-
-                        String remoteVersionName = "1.0";
+                    public void onResponse(String remoteVersionName) {
+                        remoteVersionName = remoteVersionName.replaceAll("^\"|\"$", "");
+                      //  Log.e("getAppVersion ==", "=======================  " + remoteVersionName);
+                        //String remoteVersionName = "1.0";
                         //   String version = data[2];
 
 
@@ -1601,7 +1601,7 @@ public class MarryMax {
                         try {
                             PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
                             String localVersion = pInfo.versionName;
-                            Log.e("localVersion", localVersion + " ----  " + remoteVersionName);
+                         //   Log.e("getAppVersion local", localVersion + " ----  " + remoteVersionName);
 
                             if (!remoteVersionName.equals(localVersion)) {
                                 //   Log.e("updatev now", remoteVersionName);
