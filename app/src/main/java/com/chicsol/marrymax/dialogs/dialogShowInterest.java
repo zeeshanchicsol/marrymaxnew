@@ -214,6 +214,10 @@ public class dialogShowInterest extends DialogFragment {
 
                 mOkButton.setText("Subscribe");
                 subscribe = true;
+                if (feedback_due == 2) {
+                    tvDesc.setVisibility(View.GONE);
+                }
+
 
             } else if (SharedPreferenceManager.getUserObject(context).getMember_status() == 4) {
 

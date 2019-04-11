@@ -1464,8 +1464,8 @@ public class MarryMax {
         try {
             String dateStr = inputDate;
             //"01/17/2018 09:20:16 AM";
-            SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss a", Locale.ENGLISH);
-            SimpleDateFormat df2 = new SimpleDateFormat("dd MMM , yyyy HH:mm a", Locale.ENGLISH);
+            SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a", Locale.ENGLISH);
+            SimpleDateFormat df2 = new SimpleDateFormat("dd MMM, yyyy h:mm a", Locale.ENGLISH);
             df.setTimeZone(TimeZone.getTimeZone("UTC"));
             Date date = null;
 
@@ -1474,7 +1474,7 @@ public class MarryMax {
             df.setTimeZone(TimeZone.getDefault());
             String formattedDate = df2.format(date);
 
-            if (am) {
+           /* if (am) {
                 if (formattedDate.contains("PM")) {
                     formattedDate = formattedDate.replace("PM", "AM");
                 }
@@ -1483,7 +1483,7 @@ public class MarryMax {
                     formattedDate = formattedDate.replace("AM", "PM");
                 }
             }
-
+*/
 
             //
             //

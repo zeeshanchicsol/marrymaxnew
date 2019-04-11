@@ -204,6 +204,8 @@ public class RecyclerViewAdapterNotificationArchive extends RecyclerView.Adapter
     @Override
     public void onBindViewHolder(MMViewHolder holder, int position) {
         final mProperties member = items.get(position);
+      //  Log.e("date is",""+member.getJoined_date());
+
         holder.tvDate.setText(" (" +  marryMax.convertUTCTimeToLocal(member.getJoined_date() )+ ")");
         holder.tvDesc.setText(member.getName());
         holder.tvUsername.setText(member.getAlias());

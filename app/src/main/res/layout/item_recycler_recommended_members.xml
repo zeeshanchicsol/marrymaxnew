@@ -198,14 +198,16 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#f2f2f2">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/LinearLayoutFlRecommendedMatchesMenu"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -232,21 +234,22 @@
                 </LinearLayout>
 
                 <TextView
-                    android:layout_marginLeft="8dp"
                     android:id="@+id/TextViewRecommendationNotes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="" />
+                    android:layout_marginLeft="8dp"
+                    android:text="asdasdadasd" />
 
             </LinearLayout>
 
 
             <LinearLayout
+                android:id="@+id/LinearLayoutFlRecommendedMatchesMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:gravity="right"
+
                 android:orientation="horizontal">
 
                 <android.support.design.widget.FloatingActionButton
@@ -264,7 +267,74 @@
 
 
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
+        <!--        <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#f2f2f2">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:layout_weight="3"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="Recommded By: " />
+
+
+                            <TextView
+                                android:id="@+id/TextViewRecommendedMatchRecomdBy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ali"
+                                android:textColor="@color/colorBlack" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_marginLeft="8dp"
+                            android:id="@+id/TextViewRecommendationNotes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:id="@+id/FloatingActionButtonRecommendedMatchesMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            app:backgroundTint="@color/colorWhite"
+                            app:elevation="0dp"
+                            app:fabSize="mini"
+
+                            app:srcCompat="@drawable/ic_more_vert_black_24dp_file"
+
+                            />
+
+
+                    </LinearLayout>
+                </LinearLayout>-->
 
     </LinearLayout>
 </android.support.v7.widget.CardView>
