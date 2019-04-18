@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -1489,6 +1490,44 @@ public class MarryMax {
             //
             //  Log.e("local time is", formattedDate);
             return formattedDate;
+
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
+    }
+
+
+    public String convertUTCTimeToLocalWithAgo(String inputDate) {
+        boolean am = false;
+        if (inputDate.contains("AM")) {
+            am = true;
+        }
+
+        try {
+            String dateStr = inputDate;
+            //"01/17/2018 09:20:16 AM";
+            SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a", Locale.ENGLISH);
+            SimpleDateFormat df2 = new SimpleDateFormat("dd MMM, yyyy h:mm a", Locale.ENGLISH);
+            df.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date date = null;
+
+            date = df.parse(dateStr);
+
+            df.setTimeZone(TimeZone.getDefault());
+
+
+            long time = date.getTime();
+            long now = System.currentTimeMillis();
+
+            CharSequence ago =
+                    DateUtils.getRelativeTimeSpanString(time, now, DateUtils.MINUTE_IN_MILLIS);
+
+            //  Log.e("local time is", formattedDate);
+            return ago.toString();
 
 
         } catch (ParseException e) {

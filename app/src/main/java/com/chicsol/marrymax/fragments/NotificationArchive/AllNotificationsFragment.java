@@ -124,7 +124,7 @@ public class AllNotificationsFragment extends Fragment implements RecyclerViewAd
 
 
             params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
-            params.put("type", "30");
+            params.put("type", "0");
 
         } catch (JSONException e) {
             pDialog.setVisibility(View.GONE);

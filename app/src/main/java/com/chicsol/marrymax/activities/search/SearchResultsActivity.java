@@ -54,8 +54,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
@@ -566,7 +568,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
                                         tvComplProfioleTitle2.setText("Not Connected With Your Matches Yet?");
 
                                         llMMMatchesNotFoundCompleteProfile.setVisibility(View.VISIBLE);
-                                        tvMatchesCountCp.setText(memberTotalPages.getTotal_member_count() + "");
+                                        tvMatchesCountCp.setText(NumberFormat.getNumberInstance(Locale.getDefault()).format(memberTotalPages.getTotal_member_count()) + "");
                                         tvComplProfioleTitle.setText("0");
                                         tvComplProfioleTitleCompProfile.setText("Matches Not Found");
 

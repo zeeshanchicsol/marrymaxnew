@@ -54,8 +54,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
@@ -86,7 +88,7 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
 
     private String Tag = "WhoViewedMe";
 
-  //  private LinearLayout llMatchPreference;
+    //  private LinearLayout llMatchPreference;
 
 
     @Override
@@ -186,7 +188,7 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
 
     private void initilize(View view) {
 
-     //   llMatchPreference = (LinearLayout) view.findViewById(R.id.LinearLayoutMatchesMatchPreference);
+        //   llMatchPreference = (LinearLayout) view.findViewById(R.id.LinearLayoutMatchesMatchPreference);
 
         fragment = WhoViewedMe.this;
         membersDataList = new ArrayList<>();
@@ -646,7 +648,7 @@ public class WhoViewedMe extends BaseMatchesFragment implements RecyclerViewAdap
 
     private void setMatchesCount() {
 
-        tvMatchesCount.setText(totalMatchesCount + " Matches Found");
+        tvMatchesCount.setText(NumberFormat.getNumberInstance(Locale.getDefault()).format(totalMatchesCount) + " Matches Found");
 
     }
 

@@ -55,8 +55,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
@@ -697,7 +699,7 @@ public class LookingForEachOther extends BaseMatchesFragment implements Recycler
 
     private void setMatchesCount() {
 
-        tvMatchesCount.setText(totalMatchesCount + " Matches Found");
+        tvMatchesCount.setText(NumberFormat.getNumberInstance(Locale.getDefault()).format(totalMatchesCount )+ " Matches Found");
 
     }
 

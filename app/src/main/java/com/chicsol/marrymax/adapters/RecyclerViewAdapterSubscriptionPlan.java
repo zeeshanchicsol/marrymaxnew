@@ -219,6 +219,10 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 holder.tvRecomm.setVisibility(View.GONE);
             }
 */
+/*           Log.e("vvvvv Item_name",""+obj.getItem_name());
+            Log.e("vvvvv duration",""+obj.getDuration());
+            Log.e("vvvvv name",""+obj.getName());*/
+
             holder.tvPlanName.setText("" + obj.getItem_name());
             holder.tvPlanDuration.setText("  (" + obj.getDuration() + " Months)");
             holder.tvPlanTitle.setText(obj.getName());

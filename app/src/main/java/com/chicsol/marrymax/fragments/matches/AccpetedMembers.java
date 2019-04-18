@@ -55,8 +55,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -530,7 +532,7 @@ public class AccpetedMembers extends  BaseMatchesFragment implements RecyclerVie
 
 
                                         llMMMatchesNotFoundCompleteProfile.setVisibility(View.VISIBLE);
-                                        tvMatchesCountCp.setText(memberTotalPages.getTotal_member_count() + "");
+                                        tvMatchesCountCp.setText(NumberFormat.getNumberInstance(Locale.getDefault()).format(memberTotalPages.getTotal_member_count()) + "");
                                         tvComplProfioleTitle.setText("Members, With Accepted Interest");
 
                                     } else {

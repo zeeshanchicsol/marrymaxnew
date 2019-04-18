@@ -51,8 +51,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
@@ -547,7 +549,7 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
 
                                     //     toolbar.setTitle();
                                     tvMatchesCount.setVisibility(View.VISIBLE);
-                                    tvMatchesCount.setText(memberTotalPages.getTotal_member_count() + " - Matches Found");
+                                    tvMatchesCount.setText(NumberFormat.getNumberInstance(Locale.getDefault()).format(memberTotalPages.getTotal_member_count()) + " - Matches Found");
                                     totalPages = memberTotalPages.getTotal_pages();
                                     lastPage = 1;
 

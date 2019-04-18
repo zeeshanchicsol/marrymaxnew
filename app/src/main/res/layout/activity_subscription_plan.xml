@@ -476,8 +476,8 @@
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
+        <!--how commited are you to yourself-->
+      <!--  <android.support.v7.widget.CardView
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -525,7 +525,7 @@
 
                         />
 
-                    <!--  <TextView
+                    &lt;!&ndash;  <TextView
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:clickable="true"
@@ -561,13 +561,13 @@
                           android:textColor="@color/colorBlack"
                           android:textSize="13sp"
 
-                          />-->
+                          />&ndash;&gt;
 
                 </LinearLayout>
 
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>-->
         <!--<android.support.v7.widget.AppCompatButton
 
             android:id="@+id/SubscriptionPlanPackageDetails"

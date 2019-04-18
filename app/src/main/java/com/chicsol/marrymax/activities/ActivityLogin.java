@@ -354,7 +354,7 @@ public class ActivityLogin extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Log.e("Log params ", Urls.LoginUrl + "   " + params);
+      //  Log.e("Log params ", Urls.LoginUrl + "   " + params);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.LoginUrl, params,

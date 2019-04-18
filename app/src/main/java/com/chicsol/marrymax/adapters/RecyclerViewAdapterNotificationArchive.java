@@ -76,7 +76,7 @@ public class RecyclerViewAdapterNotificationArchive extends RecyclerView.Adapter
                 // .showImageForEmptyUri(resize(R.drawable.oops_sm))
                 // .showImageForEmptyUri(resize(R.drawable.no_image))
                 //.showImageOnFail(resize(R.drawable.oops_sm))
-                 .cacheOnDisk(true)
+                .cacheOnDisk(true)
                 .considerExifParams(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
 
@@ -84,9 +84,9 @@ public class RecyclerViewAdapterNotificationArchive extends RecyclerView.Adapter
                     @Override
                     public Bitmap process(Bitmap bmp) {
 
-                      //  Log.e("bitmap width height", bmp.getWidth() + "" + bmp.getHeight());
+                        //  Log.e("bitmap width height", bmp.getWidth() + "" + bmp.getHeight());
 
-                       Bitmap bmp_sticker;
+                        Bitmap bmp_sticker;
                         //    Display display =context.getApplicationContext().getWindowManager().getDefaultDisplay();
                         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
 
@@ -117,7 +117,7 @@ public class RecyclerViewAdapterNotificationArchive extends RecyclerView.Adapter
                 // .showImageForEmptyUri(resize(R.drawable.oops_sm))
                 // .showImageForEmptyUri(resize(R.drawable.no_image))
                 //.showImageOnFail(resize(R.drawable.oops_sm))
-               // .cacheOnDisk(true)
+                // .cacheOnDisk(true)
                 .considerExifParams(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
 
@@ -204,9 +204,9 @@ public class RecyclerViewAdapterNotificationArchive extends RecyclerView.Adapter
     @Override
     public void onBindViewHolder(MMViewHolder holder, int position) {
         final mProperties member = items.get(position);
-      //  Log.e("date is",""+member.getJoined_date());
+        //  Log.e("date is",""+member.getJoined_date());
 
-        holder.tvDate.setText(" (" +  marryMax.convertUTCTimeToLocal(member.getJoined_date() )+ ")");
+        holder.tvDate.setText(" (" + marryMax.convertUTCTimeToLocalWithAgo(member.getJoined_date()) + ")");
         holder.tvDesc.setText(member.getName());
         holder.tvUsername.setText(member.getAlias());
 
