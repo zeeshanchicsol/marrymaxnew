@@ -149,36 +149,132 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/TextViewSubscriptionPlanPhoneNumbers"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="5dp"
-                                android:textColor="@color/colorSubscriptionGreen"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
+                            <!--    <TextView
+                                    android:id="@+id/TextViewSubscriptionPlanPhoneNumbers"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:textColor="@color/colorSubscriptionGreen"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />-->
 
-                            <TextView
-                                android:id="@+id/TextViewSubscriptionPlanMatchesCount"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="5dp"
-                                android:textColor="@color/colorSubscriptionGreen"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
+                                android:layout_alignParentLeft="true"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/TextViewSubscriptionPlanMessages"
-                                android:layout_width="wrap_content"
+                                <com.chicsol.marrymax.widgets.faTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:padding="2dp"
+                                    android:text="@string/fa_icon_phone"
+                                    android:textColor="@color/colorSubscriptionGreen"
+                                    android:textStyle="bold"
+                                    android:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/TextViewSubscriptionPlanPhoneNumbers"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:text=""
+                                    android:textColor="@color/colorSubscriptionGreen"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
+                                android:layout_alignParentLeft="true"
+                                android:orientation="horizontal">
+
+                                <com.chicsol.marrymax.widgets.faTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="4dp"
+                                    android:padding="2dp"
+                                    android:text="@string/fa_icon_subscription_envelope"
+                                    android:textColor="@color/colorSubscriptionGreen"
+                                    android:textStyle="bold"
+                                    android:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/TextViewSubscriptionPlanMatchesCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:text=""
+                                    android:textColor="@color/colorSubscriptionGreen"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                            <!-- <TextView
+                                 android:id="@+id/TextViewSubscriptionPlanMatchesCount"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:layout_marginLeft="5dp"
+                                 android:layout_marginTop="5dp"
+                                 android:textColor="@color/colorSubscriptionGreen"
+                                 android:textSize="15sp"
+                                 android:textStyle="bold" />-->
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="1dp"
                                 android:layout_marginTop="5dp"
-                                android:text="Bonus:"
-                                android:textColor="@color/colorSubscriptionGolden"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
+                                android:background="#d7d7d7"></View>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:orientation="horizontal">
+
+                                <com.chicsol.marrymax.widgets.faTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="4dp"
+                                    android:padding="2dp"
+                                    android:text="@string/fa_icon_subscription_envelope_open"
+                                    android:textColor="@color/colorSubscriptionGolden"
+                                    android:textStyle="bold"
+                                    android:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/TextViewSubscriptionPlanMessages"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:text=""
+                                    android:textColor="@color/colorSubscriptionGolden"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                            <!--   <TextView
+                                   android:id="@+id/TextViewSubscriptionPlanMessages"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_marginLeft="5dp"
+
+                                   android:text="Bonus:"
+                                   android:textColor="@color/colorSubscriptionGolden"
+                                   android:textSize="15sp"
+                                   android:textStyle="bold" />-->
 
 
                         </LinearLayout>

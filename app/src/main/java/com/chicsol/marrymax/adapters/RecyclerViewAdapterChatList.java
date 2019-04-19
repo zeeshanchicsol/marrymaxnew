@@ -209,7 +209,7 @@ public class RecyclerViewAdapterChatList extends RecyclerView.Adapter<RecyclerVi
 
             holder.tvText.setText(Html.fromHtml(obj.getMessage()));
 
-            holder.tvDate.setText(marryMax.convertUTCTimeToLocal(obj.getMessage_date()));
+            holder.tvDate.setText(marryMax.convertUTCTimeToLocalWithAgo(obj.getMessage_date()));
             // holder.tvCountry.setText(member.getCountry_name());
 
 
@@ -254,7 +254,7 @@ public class RecyclerViewAdapterChatList extends RecyclerView.Adapter<RecyclerVi
 
             Log.e("date is ", obj.getMessage_date());
 
-            holder.tvDate1.setText(marryMax.convertUTCTimeToLocal(obj.getMessage_date()));
+            holder.tvDate1.setText(marryMax.convertUTCTimeToLocalWithAgo(obj.getMessage_date()));
             // holder.tvCountry.setText(member.getCountry_name());
 
 

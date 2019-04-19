@@ -262,7 +262,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
 
             } else */
 
-            holder.tvPhoneNumbersCount.setText("Get " + Math.round(obj.getOrder_cost()) + " Verified Phone Numbers ");
+            holder.tvPhoneNumbersCount.setText(/*"Get " +*/ Math.round(obj.getOrder_cost()) + " Verified Phone Numbers ");
             holder.tvMatchesCount.setText( Math.round(obj.getTotal_cost()) + " Matches Messaging ");
 
             //    Log.e("" + obj.getItem_name(), obj.getItem_name());
