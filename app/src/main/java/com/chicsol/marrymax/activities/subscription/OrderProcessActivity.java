@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -65,6 +67,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class OrderProcessActivity extends AppCompatActivity implements dialogSelectPackage.onChangeSubscriptionPlanListener, dialogEnterPromoCode.onApplyPromoCodeListener {
     ImageButton btEditPackage;
@@ -107,6 +111,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     private List<WebArd> yearDataList, monthDataList;
 
     private MySpinnerAdapter spAdapterMonth, spAdapterYear;
+
+    private ArrayList<String> listOfPattern = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -281,6 +287,55 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
         ip = getIPAddress(true);
 
+
+
+
+
+   /*     electron: /^(4026|417500|4405|4508|4844|4913|4917)\d+$/,
+             maestro: /^(5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d+$/,
+               dankort: /^(5019)\d+$/,
+               interpayment: /^(636)\d+$/,
+                unionpay: /^(62|88)\d+$/,
+                visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
+                mastercard: /^5[1-5][0-9]{14}$/,
+                amex: /^3[47][0-9]{13}$/,
+                diners: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
+                discover: /^6(?:011|5[0-9]{2})[0-9]{12}$/,
+                jcb: /^(?:2131|1800|35\d{3})\d{11}$/*/
+
+
+        String ptVisa = "^4[0-9]{12}(?:[0-9]{3})?$";
+        listOfPattern.add(ptVisa);
+        String ptMasterCard = "^5[1-5][0-9]{14}$";
+        listOfPattern.add(ptMasterCard);
+        String ptAmeExp = "^3[47][0-9]{13}$";
+        listOfPattern.add(ptAmeExp);
+
+        String ptDinClb = "^3(?:0[0-5]|[68][0-9])[0-9]{11}$";
+        listOfPattern.add(ptDinClb);
+
+        String ptDiscover = "^6(?:011|5[0-9]{2})[0-9]{12}$";
+        listOfPattern.add(ptDiscover);
+
+        String ptJcb = "^(?:2131|1800|35\\d{3})\\d{11}$/*";
+        listOfPattern.add(ptJcb);
+
+        String ptElectron = "^(4026|417500|4405|4508|4844|4913|4917)\\d+$";
+        listOfPattern.add(ptElectron);
+
+        String ptMaestro = "^(5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\\d+$";
+        listOfPattern.add(ptMaestro);
+
+        String ptDankort = "^(5019)\\d+$";
+        listOfPattern.add(ptDankort);
+
+        String ptInterpayment = "^(636)\\d+$";
+        listOfPattern.add(ptInterpayment);
+
+        String ptUnionpay = "^(62|88)\\d+$";
+        listOfPattern.add(ptUnionpay);
+
+
         getPaymentPending();
 
 
@@ -324,6 +379,33 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     }
 
     private void setListeners() {
+
+/*
+        etCardNumber.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Log.d("DEBUG", "afterTextChanged : "+s);
+                String ccNum = s.toString();
+                for(String p:listOfPattern){
+                    if(ccNum.matches(p)){
+                        Log.d("DEBUG", "afterTextChanged : discover");
+                        break;
+                    }
+                }
+
+            }
+        });*/
+
         rgAssisted.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -537,8 +619,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         btPayThroughCreditCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (validateCardInfo()) {
+// validateCardNumber()
+                if (validateCardInfo() && validateCardNumber() && validateCardType()) {
                     WebArd wamonth = (WebArd) spMonth.getSelectedItem();
                     String expmonth = wamonth.getName();
 
@@ -644,13 +726,65 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         });
     }
 
+
+    private boolean validateCardNumber() {
+
+        String ccNumber = etCardNumber.getText().toString().trim();
+        int sum = 0;
+        boolean alternate = false;
+        for (int i = ccNumber.length() - 1; i >= 0; i--) {
+            int n = Integer.parseInt(ccNumber.substring(i, i + 1));
+            if (alternate) {
+                n *= 2;
+                if (n > 9) {
+                    n = (n % 10) + 1;
+                }
+            }
+            sum += n;
+            alternate = !alternate;
+        }
+
+        if (sum % 10 != 0) {
+            Toast.makeText(this, "Invalid Card Number", Toast.LENGTH_SHORT).show();
+        }
+        return (sum % 10 == 0);
+
+    }
+
+
+    private boolean validateCardType() {
+        boolean validCard = false;
+        Pattern pattern;
+        Matcher matcher;
+
+        String ccNum = etCardNumber.getText().toString();
+        //  Log.d("DEBUG", "afterTextChanged : " + ccNum);
+        for (String p : listOfPattern) {
+
+            pattern = Pattern.compile(p);
+            matcher = pattern.matcher(ccNum);
+            if (matcher.matches()) {
+                //   Log.d("DEBUG", pattern + " afterTextChanged : discover");
+
+                validCard = true;
+            }
+
+        }
+        if (!validCard) {
+            Toast.makeText(this, "Invalid Card Number", Toast.LENGTH_SHORT).show();
+        }
+
+        return validCard;
+
+    }
+
     private boolean validateCardInfo() {
 
 
         if (etCVV.getText().toString().trim().length() < 3) {
             Toast.makeText(this, "Incorrect CVV", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (etCardNumber.getText().toString().trim().length() < 16) {
+        } else if (etCardNumber.getText().toString().trim().length() < 12 || etCardNumber.getText().toString().trim().length() > 16) {
             Toast.makeText(this, "Incorrect Card Number", Toast.LENGTH_SHORT).show();
             return false;
         } else if (spMonth.getSelectedItemId() == 0) {
