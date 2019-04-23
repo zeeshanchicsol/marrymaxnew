@@ -197,6 +197,9 @@ public class dialogShowInterest extends DialogFragment {
             cvFeedbackPending.setVisibility(View.VISIBLE);
             btGiveFeedbackInterest.setVisibility(View.VISIBLE);
         }
+        if (feedback_due == 2) {
+            tvDesc.setVisibility(View.GONE);
+        }
 
 
         if (my_id.equals("0")) {
@@ -214,9 +217,7 @@ public class dialogShowInterest extends DialogFragment {
 
                 mOkButton.setText("Subscribe");
                 subscribe = true;
-                if (feedback_due == 2) {
-                    tvDesc.setVisibility(View.GONE);
-                }
+
 
 
             } else if (SharedPreferenceManager.getUserObject(context).getMember_status() == 4) {

@@ -74,7 +74,7 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_dashboard_mymessages, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_dashboard_myquestions, container, false);
 
         initilize(rootView);
         setListenders();
@@ -284,25 +284,19 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
 
                             }
                         } catch (
-                                JSONException e)
-
-                        {
+                                JSONException e) {
                             e.printStackTrace();
                         }
 
                         pDialog.setVisibility(View.GONE);
                     }
-                }, new Response.ErrorListener()
-
-        {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
                 pDialog.setVisibility(View.GONE);
             }
-        })
-
-        {
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 return Constants.getHashMap();

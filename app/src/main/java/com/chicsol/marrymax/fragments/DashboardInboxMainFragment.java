@@ -92,8 +92,8 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
             return;
         }
 */
-        Log.e("called", "called");
-        //    getCommunicationCount();
+        //    Log.e("called", "called");
+        getCommunicationCount();
 
 
       /*  Members member = SharedPreferenceManager.getUserObject(context);
@@ -159,7 +159,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
             //tab.select();
         }
         setListener();
-        getCommunicationCount();
+        //  getCommunicationCount();
     }
 
     private void setListener() {
@@ -220,34 +220,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
                         }.getType();
                         try {
 
-
                             mComCount comCount = (mComCount) gsonc.fromJson(response.getJSONArray(0).getJSONObject(0).toString(), listType);
-
-                            //   Log.e("ressssss", comCount.getNew_interests_count() + "");
-                            //    new_messages_count = (int) comCount.getNew_messages_count();
-
-
-                          /*     Members member = SharedPreferenceManager.getUserObject(context);
-                            String alias = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
-
-
-                         if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
-
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
-                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                                newFragment.show(getFragmentManager(), "dialog");
-
-                            } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks";
-
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
-                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                                newFragment.show(getFragmentManager(), "dialog");
-
-                            }
-*/
-
 
                             MarryMax max = new MarryMax(null);
                             if (Integer.parseInt(comCount.getFeedback_pending()) == 0) {
@@ -259,24 +232,6 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
                                 cvFeedbackPending.setVisibility(View.VISIBLE);
                             }
 
-
-
-                          /*  Members samember = SharedPreferenceManager.getUserObject(context);
-                            String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
-                            if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
-                                tvFeedbackPending.setText(Html.fromHtml(text));
-                                cvFeedbackPending.setVisibility(View.VISIBLE);
-
-                            } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
-                                tvFeedbackPending.setText(Html.fromHtml(text));
-                                cvFeedbackPending.setVisibility(View.VISIBLE);
-                            } else {
-                                // 0 hide
-                                cvFeedbackPending.setVisibility(View.GONE);
-                            }
-                            */
 
                         } catch (JSONException e) {
                             e.printStackTrace();

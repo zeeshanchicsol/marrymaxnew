@@ -1377,6 +1377,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_need_help
+drawable ic_new_ques_received
 drawable ic_no_m_rcmd
 drawable ic_no_result_found
 drawable ic_notifications_black_24dp
@@ -3155,6 +3156,7 @@ layout fragment_dashboard_mymatches
 layout fragment_dashboard_mymessages
 layout fragment_dashboard_mymessages_detail
 layout fragment_dashboard_mymessages_detail2
+layout fragment_dashboard_myquestions
 layout fragment_dashboard_questions_detail2
 layout fragment_dashboard_requests
 layout fragment_inbox_interests_main
