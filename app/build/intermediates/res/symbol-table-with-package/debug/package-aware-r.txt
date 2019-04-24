@@ -1334,7 +1334,7 @@ drawable ic_chevron_right_black_24dp
 drawable ic_clear_white_24dp
 drawable ic_contact_mail_black_24dp
 drawable ic_credit_card_black_24dp
-drawable ic_creditcard
+drawable ic_creditcards_new
 drawable ic_crown
 drawable ic_cvc
 drawable ic_cvc_amex
@@ -2048,6 +2048,7 @@ id SwitchCompatDisableEmailNotifications
 id SwitchCompatRequestPermissionItemImage
 id TablayoutMembersFragment
 id TablayoutRequestPermission
+id TableRowCDLandlineNumber
 id TextInputLayoutAsClose
 id TextInputLayoutAsPassword
 id TextVewDialogPCDescription
@@ -2100,6 +2101,7 @@ id TextViewChoiceCountriesTitle
 id TextViewClickHereToEnterCode
 id TextViewContactDialogContactName
 id TextViewContactDialogCountryName
+id TextViewContactDialogLandNumber
 id TextViewContactDialogMobileNumber
 id TextViewContactDialogPrefferedCallTime
 id TextViewContactDialogRelationship

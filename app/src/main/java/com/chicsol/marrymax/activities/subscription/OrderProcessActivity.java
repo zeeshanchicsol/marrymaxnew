@@ -94,6 +94,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     RadioGroup rgOrderProcessMain;
     RadioButton radioButtonOffline = null;
     private boolean cc = false;
+    private boolean creditCardCheck = false;
     Subscription subscription;
     //   JSONObject params;
     LinearLayout llMain, llErrorMessag;
@@ -122,6 +123,11 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         item_id = getIntent().getExtras().getString("item_id");
         other_item_id = getIntent().getExtras().getString("other_item_id");
         currency = getIntent().getExtras().getString("currency");
+        Log.e("currency", currency);
+        if (currency.equals("u")) {
+            creditCardCheck = true;
+        }
+
         initialize();
         setListeners();
     }
@@ -345,7 +351,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     }
 
 
-    private JSONObject getParams(boolean cccheck) {
+    private JSONObject getParams(boolean cccheck, boolean defaultt, boolean changeSubscriptionPlan) {
 
         JSONObject params = new JSONObject();
         try {
@@ -356,15 +362,44 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
             //    params.put("status", status);
 
 
-            if (cccheck || cc) {
-                if (currency.equals("p")) {
-                    params.put("item_id", other_item_id);
+            if (!defaultt) {
 
+
+                if (cccheck || cc) {
+                    if (currency.equals("p")) {
+                        params.put("item_id", other_item_id);
+
+                    } else {
+                        params.put("item_id", item_id);
+                    }
                 } else {
-                    params.put("item_id", item_id);
+
+                    if (currency.equals("u")) {
+                        params.put("item_id", other_item_id);
+
+                    } else {
+                        params.put("item_id", item_id);
+                    }
+
                 }
+
+                if (!cccheck) {
+                    params.put("payment_method", "wu");
+                } else {
+                    params.put("payment_method", "cc");
+                }
+
+            } else if (changeSubscriptionPlan) {
+                if (creditCardCheck) {
+                    params.put("payment_method", "cc");
+                } else {
+                    params.put("payment_method", "wu");
+                }
+                params.put("item_id", item_id);
+
             } else {
                 params.put("item_id", item_id);
+                params.put("payment_method", "");
             }
 
 
@@ -498,7 +533,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         collapaseView();
                         mAnimationManager.expand1(llWesterUnion);
 
-
+                        creditCardCheck = false;
                         lastview = llWesterUnion;
                         generatewithoutCC();
                         break;
@@ -507,7 +542,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         collapaseView();
                         mAnimationManager.expand1(llEasyPasa);
 
-
+                        creditCardCheck = false;
                         lastview = llEasyPasa;
                         generatewithoutCC();
                         break;
@@ -516,6 +551,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         collapaseView();
                         mAnimationManager.expand1(llJazzCash);
                         lastview = llJazzCash;
+                        creditCardCheck = false;
                         generatewithoutCC();
                         break;
 
@@ -526,13 +562,14 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         mAnimationManager.expand1(llCash);
 
                         lastview = llCash;
+                        creditCardCheck = false;
                         generatewithoutCC();
                         break;
                     case R.id.RadioButtonOrderProcessABL:
                         //   Toast.makeText(OrderProcessActivity.this, "ABL", Toast.LENGTH_SHORT).show();
                         collapaseView();
                         mAnimationManager.expand1(llABL);
-
+                        creditCardCheck = false;
                         lastview = llABL;
                         generatewithoutCC();
                         break;
@@ -545,7 +582,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
                         lastview = llCC;
                         generatewithCC();
-
+                        creditCardCheck = true;
 
                         break;
 
@@ -814,7 +851,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         }
         status = "stp";
 
-        generateCart(getParams(true));
+        generateCart(getParams(true, false, false));
 
     }
 
@@ -829,7 +866,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         }
 
 
-        generateCart(getParams(false));
+        generateCart(getParams(false, false, false));
 
     }
 
@@ -921,7 +958,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 2 || SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 3 && v == 0) {
                             llMain.setVisibility(View.VISIBLE);
                             llErrorMessag.setVisibility(View.GONE);
-                            generateCart(getParams(false));
+                            generateCart(getParams(false, true, false));
                         } else {
                             llMain.setVisibility(View.GONE);
                             llErrorMessag.setVisibility(View.VISIBLE);
@@ -1088,6 +1125,10 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                             tvo3.setText("Your Order Number is : " + OrderId);
                             tvo4.setText("Your Order Number is : " + OrderId);
                             tvOrderNumberJazzCash.setText("Your Order Number is : " + OrderId);
+                        /*    if (subscription.getItem_currency().equals("USD")) {
+                                creditCardCheck = true;
+                            }*/
+
 
                             if (subscription.getPromocode_info() != "") {
 
@@ -1179,22 +1220,28 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     @Override
     public void onChangeSubscriptionPackage(String itemid, String OtherItemId) {
 
-        if (cc) {
+        Log.e("onChangeSubscript", "" + creditCardCheck);
+
+    /*    if (creditCardCheck) {
             other_item_id = itemid;
             item_id = OtherItemId;
         } else {
             item_id = itemid;
             other_item_id = OtherItemId;
         }
+*/
 
-        generateCart(getParams(cc));
+        item_id = itemid;
+        other_item_id = OtherItemId;
+
+        generateCart(getParams(creditCardCheck, false, true));
     }
 
     @Override
     public void onApplyPromoCode(String s) {
         //   Toast.makeText(this, "" + s, Toast.LENGTH_SHORT).show();
         procode_code = s;
-        generateCart(getParams(false));
+        generateCart(getParams(false, false, false));
     }
 
 
@@ -1208,12 +1255,13 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         JSONObject params = new JSONObject();
         try {
 
-            if (cc) {
-                params.put("item_id", other_item_id);
+            //    Log.e("packages", cc + "");
+            if (creditCardCheck) {
+                // params.put("item_id", other_item_id);
                 params.put("payment_method", "cc");
             } else {
-                params.put("item_id", item_id);
-                params.put("payment_method", "");
+                //  params.put("item_id", item_id);
+                params.put("payment_method", "wu");
             }
 
 
@@ -1229,21 +1277,21 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        Log.e("getPackages", response + "");
                         try {
                             JSONArray responseArray = response.getJSONArray("data").getJSONArray(0);
+                            Log.e("getPackages", other_item_id + "  " + item_id);
 
-                            if (responseArray.length() > 0
-                            ) {
-                                if (cc) {
-                                    dialogSelectPackage newFragment = dialogSelectPackage.newInstance(responseArray.toString(), other_item_id, "", "", true);
+                            if (responseArray.length() > 0) {
+                                //   if (creditCardCheck) {
+                                dialogSelectPackage newFragment = dialogSelectPackage.newInstance(responseArray.toString(), item_id, "", "", true);
+                                newFragment.show(getSupportFragmentManager(), "dialog");
+
+                                // } else {
+                                  /*  dialogSelectPackage newFragment = dialogSelectPackage.newInstance(responseArray.toString(), item_id, "", "", false);
                                     newFragment.show(getSupportFragmentManager(), "dialog");
-
-                                } else {
-                                    dialogSelectPackage newFragment = dialogSelectPackage.newInstance(responseArray.toString(), item_id, "", "", false);
-                                    newFragment.show(getSupportFragmentManager(), "dialog");
-
-                                }
+*/
+                                // }
 
 
                             }

@@ -947,7 +947,7 @@ public class MarryMax {
                         } catch (JSONException e) {
                             pDialog.dismiss();
                             e.printStackTrace();
-                            Toast.makeText(activity, "Unable to provide contact details", Toast.LENGTH_LONG).show();
+                            Toast.makeText(activity, "Your have reached the maximum limit of your phone numbers quota.", Toast.LENGTH_LONG).show();
                         }
 
 

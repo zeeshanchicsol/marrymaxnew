@@ -32,6 +32,18 @@ public class mMemPhone {
     @SerializedName("feedback_due")
     public int feedback_due;
 
+    @SerializedName("phone_landline")
+    public String phone_landline;
+
+
+    public String getPhone_landline() {
+        return phone_landline;
+    }
+
+    public void setPhone_landline(String phone_landline) {
+        this.phone_landline = phone_landline;
+    }
+
 
     public String getProfile_owner() {
         return profile_owner;

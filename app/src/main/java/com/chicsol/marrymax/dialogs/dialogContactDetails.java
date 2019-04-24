@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.chicsol.marrymax.R;
@@ -120,6 +121,16 @@ public class dialogContactDetails extends DialogFragment {
 
         mTextView contactName = (mTextView) rootView.findViewById(R.id.TextViewContactDialogContactName);
         mTextView contactPhone = (mTextView) rootView.findViewById(R.id.TextViewContactDialogMobileNumber);
+        mTextView landPhone = (mTextView) rootView.findViewById(R.id.TextViewContactDialogLandNumber);
+        TableRow landRow = (TableRow) rootView.findViewById(R.id.TableRowCDLandlineNumber);
+
+        if (!member.getPhone_landline().equals("")) {
+            landPhone.setText("" + member.getPhone_landline());
+        }else {
+            landRow.setVisibility(View.GONE);
+        }
+
+
         mTextView contactRelationShip = (mTextView) rootView.findViewById(R.id.TextViewContactDialogRelationship);
         mTextView contactCalltime = (mTextView) rootView.findViewById(R.id.TextViewContactDialogPrefferedCallTime);
         mTextView contactCountryName = (mTextView) rootView.findViewById(R.id.TextViewContactDialogCountryName);
@@ -174,12 +185,6 @@ public class dialogContactDetails extends DialogFragment {
             cvFeedbackPending.setVisibility(View.VISIBLE);
             btGiveFeedbackInterest.setVisibility(View.VISIBLE);
         }
-
-
-
-
-
-
 
 
         //  tvTitle.setText(title);

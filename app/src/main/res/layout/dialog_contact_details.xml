@@ -121,6 +121,27 @@
                         </TableRow>
 
                         <TableRow
+                            android:id="@+id/TableRowCDLandlineNumber"
+                            android:layout_marginTop="4dp"
+                            android:padding="5dp">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+
+                                android:text="Landline Number: "
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:id="@+id/TextViewContactDialogLandNumber"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:textColor="@color/colorBlack" />
+
+                        </TableRow>
+
+                        <TableRow
                             android:layout_marginTop="4dp"
 
                             android:background="#30808080"
@@ -192,8 +213,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="right">
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
                         <android.support.v7.widget.AppCompatButton
                             android:id="@+id/mButtonInterestGiveFeedback"
                             style="@style/myCustomMaterialButton"
@@ -201,22 +223,23 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
                             android:text="Give Feedback "
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite"
                             android:visibility="gone"
+                            app:backgroundTint="@color/colorDefaultGreen" />
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonContactDialogCancel"
+                            style="@style/myCustomMaterialButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:contentDescription="this is desc"
+                            android:elevation="5dp"
+                            android:text="Close"
                             android:textAllCaps="false"
                             android:textColor="@color/colorWhite"
                             app:backgroundTint="@color/colorDefaultGreen" />
-                    <android.support.v7.widget.AppCompatButton
-                        android:id="@+id/ButtonContactDialogCancel"
-                        style="@style/myCustomMaterialButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:contentDescription="this is desc"
-                        android:elevation="5dp"
-                        android:text="Close"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorWhite"
-                        app:backgroundTint="@color/colorDefaultGreen" />
                     </LinearLayout>
                 </LinearLayout>
 

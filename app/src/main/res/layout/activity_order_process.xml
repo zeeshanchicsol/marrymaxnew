@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <ProgressBar
                 android:id="@+id/ProgressbarSubscriptionPlan"
@@ -662,7 +662,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_alignParentLeft="true"
-                            android:drawableTop="@drawable/ic_creditcard" />
+                            android:drawableTop="@drawable/ic_creditcards_new" />
 
 
                         <LinearLayout
@@ -694,19 +694,19 @@
                             android:textSize="19sp" />
 
 
-                        <RadioButton
 
-                            android:id="@+id/RadioButtonOrderProcessWesternUnion"
+
+
+                        <RadioButton
+                            android:id="@+id/RadioButtonOrderProcessABL"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:drawableTop="@drawable/ic_western"
-
-                            android:gravity="top" />
-
+                            android:layout_alignParentLeft="true"
+                            android:drawableTop="@drawable/ic_abl" />
 
                         <LinearLayout
 
-                            android:id="@+id/LinearlayoutOrderProcessWDetailView"
+                            android:id="@+id/LinearlayoutOrderProcessABL"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -718,12 +718,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="Pay using Western Union money transfer (Step - 2 of 2) "
+                                android:text="Pay in Bank Account (Step - 2 of 2) (Pakistan Only)"
                                 android:textColor="@color/colorTextRed"
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/OrderNumber1"
+
+                                android:id="@+id/OrderNumber3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -736,7 +737,8 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:lineSpacingExtra="5dp"
-                                android:text="@string/wu_subscription_plan_web"
+
+                                android:text="Please send your payment to following ABL account; mentioning your order number in payment reference."
                                 android:textColor="@color/colorBlack" />
 
 
@@ -745,16 +747,9 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:lineSpacingExtra="5dp"
-                                android:text="@string/wu_subscription_plan_mem_support_service"
+                                android:text="@string/abl_des"
                                 android:textColor="@color/colorBlack" />
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:lineSpacingExtra="5dp"
-                                android:text="@string/wu_subscription_plan_mem_support_email"
-                                android:textColor="@color/colorBlack" />
 
                             <View
                                 android:layout_width="match_parent"
@@ -764,6 +759,79 @@
 
 
                         </LinearLayout>
+
+
+
+
+
+
+                        <RadioButton
+                            android:id="@+id/RadioButtonOrderProcessCash"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:drawableTop="@drawable/ic_cash" />
+
+
+                        <LinearLayout
+
+                            android:id="@+id/LinearlayoutOrderProcessCash"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Pay Cash Directly at MarryMax.com's Office (Step - 2 of 2) (Pakistan Only)  "
+                                android:textColor="@color/colorTextRed"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/OrderNumber4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Your Order Number is 106"
+                                android:textColor="@color/colorTextRed" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+
+                                android:text="Please visit our Islamabad Office at following address, to pay for the service"
+                                android:textColor="@color/colorBlack" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/cash_desc"
+                                android:textColor="@color/colorBlack" />
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/colorGrey"></View>
+
+
+                        </LinearLayout>
+
+
+
+
+
 
 
                         <RadioButton
@@ -901,15 +969,18 @@
 
 
                         <RadioButton
-                            android:id="@+id/RadioButtonOrderProcessABL"
+
+                            android:id="@+id/RadioButtonOrderProcessWesternUnion"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
-                            android:drawableTop="@drawable/ic_abl" />
+                            android:drawableTop="@drawable/ic_western"
+
+                            android:gravity="top" />
+
 
                         <LinearLayout
 
-                            android:id="@+id/LinearlayoutOrderProcessABL"
+                            android:id="@+id/LinearlayoutOrderProcessWDetailView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -921,13 +992,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="Pay in Bank Account (Step - 2 of 2) (Pakistan Only)"
+                                android:text="Pay using Western Union money transfer (Step - 2 of 2) "
                                 android:textColor="@color/colorTextRed"
                                 android:textStyle="bold" />
 
                             <TextView
-
-                                android:id="@+id/OrderNumber3"
+                                android:id="@+id/OrderNumber1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -940,8 +1010,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:lineSpacingExtra="5dp"
-
-                                android:text="Please send your payment to following ABL account; mentioning your order number in payment reference."
+                                android:text="@string/wu_subscription_plan_web"
                                 android:textColor="@color/colorBlack" />
 
 
@@ -950,9 +1019,16 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:lineSpacingExtra="5dp"
-                                android:text="@string/abl_des"
+                                android:text="@string/wu_subscription_plan_mem_support_service"
                                 android:textColor="@color/colorBlack" />
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:lineSpacingExtra="5dp"
+                                android:text="@string/wu_subscription_plan_mem_support_email"
+                                android:textColor="@color/colorBlack" />
 
                             <View
                                 android:layout_width="match_parent"
@@ -964,68 +1040,8 @@
                         </LinearLayout>
 
 
-                        <RadioButton
-                            android:id="@+id/RadioButtonOrderProcessCash"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
-                            android:drawableTop="@drawable/ic_cash" />
 
 
-                        <LinearLayout
-
-                            android:id="@+id/LinearlayoutOrderProcessCash"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:orientation="vertical"
-                            android:visibility="gone">
-
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Pay Cash Directly at MarryMax.com's Office (Step - 2 of 2) (Pakistan Only)  "
-                                android:textColor="@color/colorTextRed"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/OrderNumber4"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Your Order Number is 106"
-                                android:textColor="@color/colorTextRed" />
-
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:lineSpacingExtra="5dp"
-
-                                android:text="Please visit our Islamabad Office at following address, to pay for the service"
-                                android:textColor="@color/colorBlack" />
-
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:lineSpacingExtra="5dp"
-                                android:text="@string/cash_desc"
-                                android:textColor="@color/colorBlack" />
-
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginTop="5dp"
-                                android:background="@color/colorGrey"></View>
-
-
-                        </LinearLayout>
 
 
                     </RadioGroup>
