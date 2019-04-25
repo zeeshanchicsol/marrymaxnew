@@ -478,8 +478,8 @@
                                     android:id="@+id/TextViewMMMatchesTitleSubscribeNow"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center"
                                     android:layout_marginLeft="8dp"
+                                    android:gravity="center"
                                     android:text="Members Looking For Me"
                                     android:textColor="@color/colorTextRed"
                                     android:textSize="19sp" />
@@ -488,8 +488,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="8dp"
-                                    android:gravity="center"
                                     android:layout_marginTop="5dp"
+                                    android:gravity="center"
                                     android:text="Subscribe To See Details."
                                     android:textColor="#272a30"
                                     android:textSize="18sp" />

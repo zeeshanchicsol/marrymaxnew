@@ -84,24 +84,9 @@
                         android:stretchColumns="*">
 
                         <TableRow
-                            android:background="#30808080"
-                            android:padding="5dp">
-
-                            <com.chicsol.marrymax.widgets.mTextView
-                                android:text="Contact Name: "
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold" />
-
-                            <com.chicsol.marrymax.widgets.mTextView
-                                android:id="@+id/TextViewContactDialogContactName"
-
-                                android:textColor="@color/colorBlack" />
-
-                        </TableRow>
-
-                        <TableRow
+                            android:id="@+id/TableRowCDMobileNumber"
                             android:layout_marginTop="4dp"
-
+                            android:background="#30808080"
                             android:padding="5dp">
 
                             <com.chicsol.marrymax.widgets.mTextView
@@ -142,9 +127,26 @@
                         </TableRow>
 
                         <TableRow
+                            android:background="#30808080"
+                            android:padding="5dp">
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:text="Contact Name: "
+                                android:textColor="@color/colorBlack"
+                                android:textStyle="bold" />
+
+                            <com.chicsol.marrymax.widgets.mTextView
+                                android:id="@+id/TextViewContactDialogContactName"
+
+                                android:textColor="@color/colorBlack" />
+
+                        </TableRow>
+
+
+                        <TableRow
                             android:layout_marginTop="4dp"
 
-                            android:background="#30808080"
+
                             android:padding="5dp">
 
                             <com.chicsol.marrymax.widgets.mTextView
@@ -165,6 +167,7 @@
 
                         <TableRow
                             android:layout_marginTop="4dp"
+                            android:background="#30808080"
                             android:padding="5dp">
 
                             <com.chicsol.marrymax.widgets.mTextView
@@ -189,7 +192,7 @@
                         <TableRow
                             android:layout_marginTop="4dp"
 
-                            android:background="#30808080"
+
                             android:padding="5dp">
 
                             <com.chicsol.marrymax.widgets.mTextView

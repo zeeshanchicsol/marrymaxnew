@@ -123,10 +123,15 @@ public class dialogContactDetails extends DialogFragment {
         mTextView contactPhone = (mTextView) rootView.findViewById(R.id.TextViewContactDialogMobileNumber);
         mTextView landPhone = (mTextView) rootView.findViewById(R.id.TextViewContactDialogLandNumber);
         TableRow landRow = (TableRow) rootView.findViewById(R.id.TableRowCDLandlineNumber);
+        TableRow mobileRow = (TableRow) rootView.findViewById(R.id.TableRowCDMobileNumber);
+
 
         if (!member.getPhone_landline().equals("")) {
             landPhone.setText("" + member.getPhone_landline());
-        }else {
+            mobileRow.setBackgroundColor(0x30808080);
+            landRow.setVisibility(View.VISIBLE);
+        } else {
+            mobileRow.setBackgroundColor(0xffffffff);
             landRow.setVisibility(View.GONE);
         }
 

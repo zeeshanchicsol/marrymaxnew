@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -221,6 +225,19 @@ public class SearchYourBestMatchResultsActivity extends AppCompatActivity implem
     }
 
     private void initilize() {
+        TextView tvSubEmpty = (TextView) findViewById(R.id.mTextViewMatchesNotFoundSubHeading);
+        tvSubEmpty.setVisibility(View.GONE);
+
+        AppCompatButton ButtonOnSearchClick = (AppCompatButton) findViewById(R.id.ButtonOnSearchClick);
+        ButtonOnSearchClick.setVisibility(View.GONE);
+
+        TextView tvMainEmpty = (TextView) findViewById(R.id.mTextViewMatchesNotFoundMain);
+
+
+        String desc = "<div style='text-align:center' ><b> <font color=#9a0909>0  Matches Found</font></b> <br> Not Connected With Your Matches Yet?</div>";
+        tvMainEmpty.setText(Html.fromHtml(desc));
+
+
         llMatchPreference = (LinearLayout) findViewById(R.id.LinearLayoutMatchesMatchPreference);
         llMatchPreference.setVisibility(View.GONE);
 

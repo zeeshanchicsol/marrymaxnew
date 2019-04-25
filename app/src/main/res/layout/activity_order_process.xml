@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <ProgressBar
                 android:id="@+id/ProgressbarSubscriptionPlan"
@@ -735,7 +735,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left"
                                 android:lineSpacingExtra="5dp"
 
                                 android:text="Please send your payment to following ABL account; mentioning your order number in payment reference."
@@ -745,7 +745,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+
                                 android:lineSpacingExtra="5dp"
                                 android:text="@string/abl_des"
                                 android:textColor="@color/colorBlack" />
@@ -813,7 +813,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+
                                 android:lineSpacingExtra="5dp"
                                 android:text="@string/cash_desc"
                                 android:textColor="@color/colorBlack" />
@@ -872,7 +872,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+
                                 android:lineSpacingExtra="5dp"
                                 android:text="@string/ep_desc"
                                 android:textColor="@color/colorBlack" />
@@ -885,7 +885,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+
                                 android:lineSpacingExtra="5dp"
                                 android:text="@string/ep_desc2"
                                 android:textColor="@color/colorBlack" />
@@ -939,7 +939,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+
                                 android:lineSpacingExtra="5dp"
                                 android:text="@string/jc_desc"
                                 android:textColor="@color/colorBlack" />
@@ -952,7 +952,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+
                                 android:lineSpacingExtra="5dp"
                                 android:text="@string/jc_desc2"
                                 android:textColor="@color/colorBlack" />
@@ -1008,7 +1008,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+
                                 android:lineSpacingExtra="5dp"
                                 android:text="@string/wu_subscription_plan_web"
                                 android:textColor="@color/colorBlack" />
@@ -1017,7 +1017,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+
                                 android:lineSpacingExtra="5dp"
                                 android:text="@string/wu_subscription_plan_mem_support_service"
                                 android:textColor="@color/colorBlack" />
@@ -1025,7 +1025,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+
                                 android:lineSpacingExtra="5dp"
                                 android:text="@string/wu_subscription_plan_mem_support_email"
                                 android:textColor="@color/colorBlack" />
@@ -1140,7 +1140,7 @@
                             android:id="@+id/TextViewOrderProcessErrorDescription"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+
                             android:text=""
                             android:textColor="@color/colorUserProfileTextGreen" />
 
