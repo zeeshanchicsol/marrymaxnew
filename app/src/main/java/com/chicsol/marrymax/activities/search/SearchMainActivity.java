@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,6 +78,8 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
     //   private OnMenuUpdatedListener onMenuUpdatedListener;
     private TextView tvCounter;
     public static int filterCount = 0;
+
+    private ImageView icMainSearch, icResetSearch, icSaveSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -340,6 +343,18 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
         pDialog = new ProgressDialog(SearchMainActivity.this);
         pDialog.setMessage("Loading...");
+
+
+        icSaveSearch = (ImageView) findViewById(R.id.ImageViewAdvSearchSaveicon);
+        icMainSearch = (ImageView) findViewById(R.id.ImageViewAdvSearchMainIcon);
+        icResetSearch = (ImageView) findViewById(R.id.ImageViewAdvSearchResetIcon);
+
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.LOLLIPOP) {
+            icSaveSearch.setVisibility(View.GONE);
+            icMainSearch.setVisibility(View.GONE);
+            icResetSearch.setVisibility(View.GONE);
+        }
+
 
         llSaveSearch = (LinearLayout) findViewById(R.id.LinearLayoutAdvSearchMainSaveSearch);
         llResetSearch = (LinearLayout) findViewById(R.id.LinearLayoutAdvSearchMainResetSearch);

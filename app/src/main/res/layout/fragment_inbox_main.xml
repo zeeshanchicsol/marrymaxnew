@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     android:orientation="vertical">
-
+    <include layout="@layout/itemview_feedback_pending"></include>
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 android:orientation="vertical"
                 android:background="@color/colorTabBackground"
                 >
-                <include layout="@layout/itemview_feedback_pending"></include>
+
                 <android.support.design.widget.TabLayout
                     android:id="@+id/tabs_inbox_main"
                     style="@style/NavigationTab"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:id="@+id/CardViewDashMainFeedbackPending"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,6 +10,7 @@
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -29,10 +31,10 @@
             android:textSize="10sp" />
 
         <TextView
-            android:layout_marginLeft="3dp"
             android:id="@+id/TextViewDashMainFeedbackPending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
             android:layout_marginBottom="2dp"
             android:layout_toLeftOf="@id/ButtonDashMainFeedbackPending"
             android:layout_toRightOf="@id/fatextviewgivefeedback"
@@ -103,7 +105,6 @@
 
 
       </LinearLayout>-->
-
 
 
 </android.support.v7.widget.CardView>

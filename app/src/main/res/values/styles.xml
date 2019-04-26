@@ -181,8 +181,11 @@
     <item name="android:textSize">16sp</item>
     <item name="android:singleLine">true</item>
 </style>
+
+
+
     <style name="ButtonBorder.Accent.Green">
-        <item name="android:background">@color/colorTextRed</item>
+        <item name="android:background">@color/colorWhite</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">16sp</item>
