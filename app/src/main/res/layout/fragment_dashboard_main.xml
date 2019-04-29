@@ -1769,7 +1769,7 @@
                                         android:layout_marginLeft="20dp"
                                         android:layout_toEndOf="@+id/TextViewMyMatches_ic"
                                         android:layout_toRightOf="@+id/TextViewMyMatches_ic"
-                                        android:text="My Matches  "
+                                        android:text="Contacted Matches  "
                                         android:textColor="@color/colorDashboardMainNormalText"
                                         android:textSize="@dimen/text_size_dash_main_count_box" />
 

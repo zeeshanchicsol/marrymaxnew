@@ -37,6 +37,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.registration.RegisterGeographicActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterUploadPictures;
 import com.chicsol.marrymax.dialogs.dialogDosDonts;
 import com.chicsol.marrymax.dialogs.dialogRequest;
@@ -94,7 +95,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
     String userpath = null;
 
     boolean OreoCheck = false;
-
+    private ProgressDialog pDialog;
     TextView tvDsdonts;
 
     private String Tag = "PhotoUpload";
@@ -131,6 +132,12 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
     }
 
     public void initilize() {
+
+        pDialog = new ProgressDialog(PhotoUpload.this);
+        pDialog.setMessage("Loading...");
+        pDialog.setCancelable(false);
+
+
 
         if (getIntent().hasExtra("subject")) {
             //
@@ -179,9 +186,9 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
     private void getDosDonts() {
 
 
-        final ProgressDialog pDialog = new ProgressDialog(this);
+      /*  final ProgressDialog pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading...");
-        pDialog.show();
+   */     pDialog.show();
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getPhotoDosDonts,
                 new Response.Listener<JSONArray>() {
@@ -552,11 +559,8 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
 
 
 
-
-        final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
-        pDialog.setMessage("Loading...");
-
         pDialog.show();
+
 
         VolleyMultipartRequest multipartRequest = new VolleyMultipartRequest(Request.Method.POST, url, new Response.Listener<NetworkResponse>() {
             @Override
@@ -572,7 +576,8 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
 
 
                 } else {
-                    Toast.makeText(PhotoUpload.this, "Error Occurred", Toast.LENGTH_SHORT).show();
+                    getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                    Toast.makeText(PhotoUpload.this, "Error. Please try again", Toast.LENGTH_SHORT).show();
                 }
                 pDialog.dismiss();
               /*  try {
@@ -664,7 +669,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
         };
 
         multipartRequest.setRetryPolicy(new DefaultRetryPolicy(
-                0,
+                10000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(getBaseContext()).addToRequestQueue(multipartRequest, Tag);
@@ -673,10 +678,10 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
     private void getMemberPics(final String path) {
 
 
-        final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
-        pDialog.setMessage("Loading...");
+     /*   final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
+        pDialog.setMessage("Loading...");*/
         pDialog.show();
-        Log.e("upload path", "" + Urls.getMembersPictures + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+     //   Log.e("upload path", "" + Urls.getMembersPictures + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getMembersPictures + path,
                 new Response.Listener<JSONArray>() {
@@ -809,6 +814,22 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
         cursor.close();
 
         return filePath;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.cancel();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
     }
 
 }

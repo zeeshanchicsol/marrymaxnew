@@ -701,7 +701,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getContext(), MainDirectiveActivity.class);
-                in.putExtra("type", 24);
+                in.putExtra("type", 25);
                 startActivity(in);
             }
         });
@@ -1241,15 +1241,15 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
 
                                 rlAcceptedMem.setClickable(true);
-                                tvAaccMemCount.setText(dash.getCount());
-                                if (Integer.parseInt(dash.getCount()) == 0) {
+                                tvAaccMemCount.setText(dash.getAccepted_count());
+                                if (Integer.parseInt(dash.getAccepted_count()) == 0) {
                                     rlAcceptedMem.setClickable(false);
                                 }
 
 
                                 rlMyMatches.setClickable(true);
-                                tvMyMatchesCount.setText(dash.getAccepted_count());
-                                if (Integer.parseInt(dash.getAccepted_count()) == 0) {
+                                tvMyMatchesCount.setText(dash.getCount());
+                                if (Integer.parseInt(dash.getCount()) == 0) {
                                     rlMyMatches.setClickable(false);
                                 }
 

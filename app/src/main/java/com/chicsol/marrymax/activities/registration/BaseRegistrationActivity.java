@@ -65,7 +65,7 @@ import static com.chicsol.marrymax.utils.Constants.jsonArraySearch;
  * Created by Android on 1/12/2017.
  */
 
-public class BaseRegistrationActivity extends DrawerActivity implements NavigationView.OnNavigationItemSelectedListener, dialogRequestProfileUpdate.onCompleteListener,dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
+public class BaseRegistrationActivity extends DrawerActivity implements NavigationView.OnNavigationItemSelectedListener, dialogRequestProfileUpdate.onCompleteListener, dialogMatchingAttributeFragment.onMatchPreferenceCompleteListener {
     public LinearLayout geographicView, appearanceView, lifestyleView, interestView, personalityView;
     public FloatingActionButton fabAppearance, fabGeographic, fabLifestyle, fabInterest, fabPersonality;
     public mTextView tvGeogrphic, tvAppearance, tvLifestyle, tvPersonality, tvInterest;
@@ -255,7 +255,7 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
                 });
 
 
-        if (member.getMember_status() == 3 || member.getMember_status() == 4) {
+        if (member.getMember_status() == 2 || member.getMember_status() == 3 || member.getMember_status() == 4) {
             //  show request update
             btExpandRequestUpdateLayout.setVisibility(View.VISIBLE);
 
