@@ -140,7 +140,7 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
 
                     if (arrayList.length < 4) {
 
-                        Snackbar snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), "minimium four matching attributes should be selected", Snackbar.LENGTH_SHORT);
+                        Snackbar snackbarNotVerified = Snackbar.make(getActivity().findViewById(android.R.id.content), "Minimum four matching attributes should be selected", Snackbar.LENGTH_SHORT);
                         snackbarNotVerified.show();
                     } else if (arrayList.length > 4) {
 
