@@ -164,8 +164,9 @@ public class dialogBlock extends DialogFragment {
                                 } else {
                                     params.put("notes", etOtherReason.getText().toString());
                                     params.put("id", abtypeid + "");
+                                    ccehck = true;
                                 }
-                                ccehck = true;
+
                             } else {
                                 ccehck = false;
                             }

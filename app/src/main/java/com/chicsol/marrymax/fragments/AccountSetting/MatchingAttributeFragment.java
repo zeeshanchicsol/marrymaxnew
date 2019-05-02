@@ -136,6 +136,7 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
 
 
                 if (selectedIds != null) {
+
                     String[] arrayList = selectedIds.split(",");
 
                     if (arrayList.length < 4) {
@@ -291,7 +292,7 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(getContext()).addToRequestQueue(req,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(req, Tag);
     }
 
 
@@ -421,12 +422,13 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
                 0,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq,Tag);
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonObjReq, Tag);
     }
+
     @Override
     public void onStop() {
         super.onStop();
-      //  MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
+        //  MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
     }
 
