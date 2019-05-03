@@ -260,9 +260,9 @@ public class dialogRequestProfileUpdate extends DialogFragment {
                         Toast.makeText(getContext(), "Some Fields are missisng", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-
+                    Toast.makeText(getContext(), "Some Fields are missisng", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(getContext(), "Some Fields are missisng", Toast.LENGTH_SHORT).show();
+
 
             }
         });
