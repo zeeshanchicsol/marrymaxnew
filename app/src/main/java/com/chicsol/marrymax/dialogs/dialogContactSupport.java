@@ -28,6 +28,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.modal.WebArd;
+import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
@@ -57,7 +58,8 @@ public class dialogContactSupport extends DialogFragment {
     String userpath, notes, jsarray;
     int abtypeid = -1;
     private onCompleteListener mCompleteListener;
-   private LinearLayout ll_call_support;
+    private LinearLayout ll_call_support;
+
     public static dialogContactSupport newInstance(JSONArray jsArray) {
 
         dialogContactSupport frag = new dialogContactSupport();
@@ -147,7 +149,6 @@ public class dialogContactSupport extends DialogFragment {
         }
 
 
-
         ll_call_support.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,7 +170,7 @@ public class dialogContactSupport extends DialogFragment {
                                 } else {
 
                                     params.put("contact_message", etOtherReason.getText().toString());
-                                    params.put("contact_category_id", abtypeid + "");
+                                    params.put("contact_category_id",   "9");
                                     ccehck = true;
                                 }
                             } else {
@@ -181,10 +182,11 @@ public class dialogContactSupport extends DialogFragment {
                             RadioButton radioSexButton = (RadioButton) rootView.findViewById(abtypeid);
                             params.put("contact_message", radioSexButton.getText().toString());
                             params.put("contact_category_id", abtypeid + "");
+                          /*  params.put("alias", SharedPreferenceManager.getUserObject(context).getAlias());*/
                         }
                         params.put("flag", "usrmsg");
                         //    params.put("userpath", userpath);
-                        //    params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
+                        params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -282,7 +284,7 @@ public class dialogContactSupport extends DialogFragment {
         pDialog.setMessage("Loading...");
         pDialog.show();
 
-        //   Log.e("blockReason" + "  " + Urls.contactUs, "" + params);
+         Log.e("contactUs" + "  " + Urls.contactUs, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.contactUs, params,
                 new Response.Listener<JSONObject>() {

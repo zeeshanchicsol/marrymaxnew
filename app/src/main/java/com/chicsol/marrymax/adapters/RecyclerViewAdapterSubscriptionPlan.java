@@ -231,6 +231,8 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 @Override
                 public void onClick(View v) {
 
+              //      Log.e("status is ", "" + SharedPreferenceManager.getUserObject(context).getMember_status());
+
                     if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
 
 
@@ -263,7 +265,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
             } else */
 
             holder.tvPhoneNumbersCount.setText(/*"Get " +*/ Math.round(obj.getOrder_cost()) + " Verified Phone Numbers ");
-            holder.tvMatchesCount.setText( Math.round(obj.getTotal_cost()) + " Matches Messaging ");
+            holder.tvMatchesCount.setText(Math.round(obj.getTotal_cost()) + " Matches Messaging ");
 
             //    Log.e("" + obj.getItem_name(), obj.getItem_name());
             if (obj.getDuration().equals("3")) {

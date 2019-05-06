@@ -461,9 +461,9 @@ public class PrefferedMatchingProfileFragment extends BaseMatchesFragment implem
             e.printStackTrace();
         }
 
-        Log.e("Params Preff" + " " + Urls.searchProfiles, "" + params);
+      //  Log.e("Params Preff" + " " + Urls.searchProfiles, "" + params);
 
-        Log.e("Params Preff" + " " + Urls.searchProfiles, "");
+      //  Log.e("Params Preff" + " " + Urls.searchProfiles, "");
 
 
         final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,

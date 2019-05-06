@@ -763,7 +763,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                             selectedPosition = position;
                             JSONObject params = new JSONObject();
                             try {
-                                // Log.e("user path", member.getUserpath() + "==");
+                               // Log.e("getRemoved_member", member.getRemoved_member() + "==");
                                 params.put("id", member.getRemoved_member());
                                 params.put("userpath", member.getUserpath());
                                 params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
