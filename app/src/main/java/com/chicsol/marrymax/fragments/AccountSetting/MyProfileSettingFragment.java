@@ -38,7 +38,9 @@ import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
 import com.chicsol.marrymax.modal.Dashboards;
+import com.chicsol.marrymax.modal.MatchesCountUpdateEvent;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.PhoneVerificationStatusUpdateEvent;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -51,6 +53,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -742,12 +745,15 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             if (!lNumber.equals("") && !lNumber.equals("null")) {
                                 if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 || SharedPreferenceManager.getUserObject(context).getMember_status() >= 7) {
 
-
+                                    btUpdateLandline.setVisibility(View.GONE);
                                     faLandIcon.setVisibility(View.GONE);
                                     if (dashboards.getPhone_complete_status().equals("0")) {
-                                        if (!lNumber.equals("null") && (Integer.parseInt(objPhone.get("landline_status").toString()) <= 1 || objPhone.get("landline_status").toString().equals("3"))) {
+                                        if (!lNumber.equals("null") && (Integer.parseInt(objPhone.get("landline_status").toString()) <= 1 || objPhone.get("landline_status").toString().equals("3"))  ) {
                                             //  Update Number
-                                            btUpdateLandline.setVisibility(View.VISIBLE);
+                                          if(  !objPhone.get("mobile_status").toString().equals("2")){
+                                              btUpdateLandline.setVisibility(View.VISIBLE);
+                                          }
+
                                             llPhoneVerifyLandline.setClickable(true);
                                         }
                                     }
@@ -1384,5 +1390,6 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     @Override
     public void onComplete(String s) {
         loadData();
+        EventBus.getDefault().postSticky(new PhoneVerificationStatusUpdateEvent("success"));
     }
 }

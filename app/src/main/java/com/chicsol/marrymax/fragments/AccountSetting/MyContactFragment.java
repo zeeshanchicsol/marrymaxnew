@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
@@ -44,7 +45,9 @@ import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.adapters.MySpinnerCSCAdapter;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
+import com.chicsol.marrymax.modal.MatchesCountUpdateEvent;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.PhoneVerificationStatusUpdateEvent;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.WebCSC;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -59,6 +62,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -70,11 +76,13 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
+
 /**
  * Created by Android on 11/3/2016.
  */
 
-public class MyContactFragment extends Fragment implements dialogVerifyphone.onCompleteListener {
+public class MyContactFragment extends Fragment implements dialogVerifyphone.onCompleteListener,SwipeRefreshLayout.OnRefreshListener {
     String Tag = "MyContactFragment";
     private Button bt_subscribe, bt_viewprofile, bt_viewprofile2;
 
@@ -115,6 +123,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     String snackBarToolTipLandLine = "";
 
     Context context;
+    private SwipeRefreshLayout swipeRefresh;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -131,6 +141,11 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     }
 
     private void initilize(View view) {
+
+
+        swipeRefresh = (SwipeRefreshLayout) view.findViewById(R.id.SwipeRefreshDashMainMM);
+        swipeRefresh.setOnRefreshListener(this);
+
 
         btAlreadyHaveCode = (AppCompatButton) view.findViewById(R.id.AppcompatButtonMyContactAlraadyHaveCode);
 
@@ -951,8 +966,10 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            swipeRefresh.setRefreshing(false);
                         }
 
+                        swipeRefresh.setRefreshing(false);
                         pDialog.setVisibility(View.GONE);
                     }
                 }, new Response.ErrorListener() {
@@ -960,6 +977,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
                 pDialog.setVisibility(View.GONE);
+                swipeRefresh.setRefreshing(false);
             }
         }) {
             @Override
@@ -1484,10 +1502,85 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         getRequest(SharedPreferenceManager.getUserObject(getContext()).getPath());
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
 
     @Override
     public void onStop() {
         super.onStop();
+        EventBus.getDefault().unregister(this);
         MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
     }
+
+    @Override
+    public void onRefresh() {
+        if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
+            getRequest(SharedPreferenceManager.getUserObject(getContext()).getPath());
+        }
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onEvent(PhoneVerificationStatusUpdateEvent event) {
+
+        //  Log.e("event", "" + event.getMessage());
+        if (event.getMessage().equals("success")) {
+            if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
+                getRequest(SharedPreferenceManager.getUserObject(getContext()).getPath());
+            }
+        }
+
+       /* if (event.getMessage().equals("filterCount")) {
+            if (filterCount == 0) {
+                getSupportActionBar().setTitle("Filter Results");
+            } else {
+                getSupportActionBar().setTitle("Filter Results (" + filterCount + ")");
+            }
+        } else if (event.getMessage().equals("getCount")) {
+            String params;
+            Members memberSearchObj = defaultSelectionsObj;
+            if (bestMatchCheck) {
+              *//*  Intent intent = new Intent(SearchMainActivity.this, SearchYourBestMatchResultsActivity.class);
+                startActivity(intent);*//*
+                if (memberSearchObj != null) {
+                    memberSearchObj.setPage_no(1);
+                    memberSearchObj.setType("");
+
+                    Gson gson = new Gson();
+                    params = gson.toJson(memberSearchObj);
+
+                    loadCounter(params);
+
+                }
+
+            } else {
+               *//* Intent intent = new Intent(SearchMainActivity.this, SearchResultsActivity.class);
+                startActivity(intent);*//*
+
+                memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                memberSearchObj.setMember_status(SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status());
+                memberSearchObj.setPhone_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getPhone_verified());
+                memberSearchObj.setEmail_verified(SharedPreferenceManager.getUserObject(getApplicationContext()).getEmail_verified());
+                //page and type
+                memberSearchObj.setPage_no(1);
+                memberSearchObj.setType("");
+
+                Gson gson = new Gson();
+                params = gson.toJson(memberSearchObj);
+
+                loadCounter(params);
+            }
+
+            //loadCounter();
+        } else {
+            //
+            tvCounter.setText("View " + event.getMessage() + " Matches");
+        }*/
+
+        ///    Toast.makeText(this, "" + event.getMessage(), Toast.LENGTH_SHORT).show();
+    }
+
+
 }
