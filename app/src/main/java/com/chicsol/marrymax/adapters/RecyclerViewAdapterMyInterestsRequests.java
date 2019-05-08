@@ -204,7 +204,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
     }
 
 
-    public void setRecyclerView(RecyclerView mView) {
+ /*   public void setRecyclerView(RecyclerView mView) {
         recyclerView = mView;
 
         mView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -222,7 +222,32 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
                 }
             }
         });
+    }*/
+
+    public void setRecyclerView(RecyclerView mView) {
+        recyclerView = mView;
+        mView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                visibleItemCount = recyclerView.getChildCount();
+                totalItemCount = mLinearLayoutManager.getItemCount();
+                firstVisibleItem = mLinearLayoutManager.findFirstVisibleItemPosition();
+
+                //      Log.e("zxzxzx "+isMoreLoading,"totalItemCount: "+totalItemCount+"  visibleItemCount : "+visibleItemCount+"");
+                if (!isMoreLoading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+                    if (onLoadMoreListener != null) {
+                        onLoadMoreListener.onLoadMore();
+                    }
+                    isMoreLoading = true;
+                }
+            }
+        });
     }
+
+
+
+
 
     public void setLinearLayoutManager(LinearLayoutManager linearLayoutManager) {
         this.mLinearLayoutManager = linearLayoutManager;

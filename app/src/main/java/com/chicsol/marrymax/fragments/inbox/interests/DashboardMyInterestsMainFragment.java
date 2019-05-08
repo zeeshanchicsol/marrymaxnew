@@ -117,6 +117,8 @@ public class DashboardMyInterestsMainFragment extends Fragment implements Dashbo
         Bundle bundle = new Bundle();
         bundle.putString("type", "interest");
         bundle.putBoolean("withdrawcheck", false);
+
+
         Bundle bundle2 = new Bundle();
         bundle2.putString("type", "interestsent");
         bundle2.putBoolean("withdrawcheck", true);
@@ -130,6 +132,7 @@ public class DashboardMyInterestsMainFragment extends Fragment implements Dashbo
         sent.setArguments(bundle2);
 
         adapter.addFragment(receieved, " Interests Received ");
+
         adapter.addFragment(sent, " Interests Sent ");
 
         viewPager.setAdapter(adapter);

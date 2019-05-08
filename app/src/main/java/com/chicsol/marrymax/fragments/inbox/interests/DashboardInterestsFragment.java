@@ -94,7 +94,7 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
     ViewGenerator viewGenerator;
     private AppCompatButton btCompleteProfile, btOnSearch, btSubscribe;
-    ;
+
 
 
     private String Tag = "DashboardInterestsFragment";
@@ -138,7 +138,8 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
     @Override
     public void onResume() {
         super.onResume();
-
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
 
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
             getCommunicationCount();
@@ -245,6 +246,8 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
     @Override
     public void onLoadMore() {
 
+        Log.e("loadmore", "loadmore");
+
         if (lastPage != totalPages && lastPage < totalPages) {
             lastPage = lastPage + 1;
 
@@ -271,6 +274,8 @@ public class DashboardInterestsFragment extends Fragment implements RecyclerView
 
     @Override
     public void onRefresh() {
+        lastPage = 1;
+        recyclerAdapter.setMoreLoading(false);
 
         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
 
