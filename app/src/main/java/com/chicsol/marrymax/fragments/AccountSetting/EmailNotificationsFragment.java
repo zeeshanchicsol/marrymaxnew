@@ -99,13 +99,13 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
     private void getNotificationRequest() {
         loading = true;
         pDialog.setVisibility(View.VISIBLE);
-        Log.e(Tag + " getNotRequest p", "" + Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e(Tag + " getNotRequest p", "" + Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getNotificationList + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                        //Log.e("Response", response.toString());
                         loading = false;
                         try {
 
@@ -129,7 +129,7 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
                                 }.getType();
 
                                 mAsEmailNotifications mem = (mAsEmailNotifications) gson.fromJson(response.getJSONArray(1).getJSONObject(0).toString(), listTyp);
-                                Log.e("aa ====-----", mem.getId());
+                                //Log.e("aa ====-----", mem.getId());
                                 SCtDisableEmailNotifications.setId(Integer.parseInt(mem.getId()));
                                 if (mem.getId().equals("0")) {
 
@@ -183,15 +183,15 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
         pD.show();
         pD.setCancelable(false);
 
-        Log.e(Tag + " params", params.toString());
-        Log.e(Tag + " profile path", Urls.changeNotification);
+        //Log.e(Tag + " params", params.toString());
+        //Log.e(Tag + " profile path", Urls.changeNotification);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.changeNotification, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res changeNotification", response + "");
+                        //Log.e("Res changeNotification", response + "");
                         loading = false;
                         try {
                             int responseid = response.getInt("id");
@@ -246,15 +246,15 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
         pD.setCancelable(false);*/
 
 
-        Log.e(Tag + " params all", params.toString());
-        Log.e(Tag + " profile path all", Urls.changeNotificationall);
+        //Log.e(Tag + " params all", params.toString());
+        //Log.e(Tag + " profile path all", Urls.changeNotificationall);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.changeNotificationall, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  change notif ", response + "");
+                        //Log.e("Res  change notif ", response + "");
                         loading = false;
                         try {
                             int responseid = response.getInt("id");
@@ -303,7 +303,7 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        Log.e("loading", "" + SCtDisableEmailNotifications.isChecked());
+        //Log.e("loading", "" + SCtDisableEmailNotifications.isChecked());
 
         // if (!loading) {
         String my_id = null;
@@ -316,7 +316,7 @@ public class EmailNotificationsFragment extends Fragment implements SwitchCompat
         if (buttonView.getTag().equals("disableallnoti")) {
 
             String id = null;
-            Log.e("buttonView.getId() " + isChecked, buttonView.getId() + "");
+            //Log.e("buttonView.getId() " + isChecked, buttonView.getId() + "");
             if (buttonView.isChecked()) {
                 id = "1";
             } else {

@@ -260,7 +260,7 @@ public class RegisterAppearanceActivity extends BaseRegistrationActivity {
                 WebArd waMyChoiceAgeFrom = (WebArd) spMyChoiceAgeFrom.getSelectedItem();
                 WebArd waMyChoiceAgeTo = (WebArd) spMyChoiceAgeTo.getSelectedItem();
                 if (!waMyChoiceAgeFrom.getId().equals("-1")) {
-                    Log.e("id is", waMyChoiceAgeFrom.getId());
+                  //  Log.e("id is", waMyChoiceAgeFrom.getId());
                     if (Integer.parseInt(waMyChoiceAgeTo.getId()) < Integer.parseInt(waMyChoiceAgeFrom.getId())) {
                         spMyChoiceAgeTo.setSelection(0);
                         Toast.makeText(RegisterAppearanceActivity.this, "Please Select Valid Age To", Toast.LENGTH_SHORT).show();
@@ -292,7 +292,7 @@ public class RegisterAppearanceActivity extends BaseRegistrationActivity {
                 WebArd waMyChoiceAgeFrom = (WebArd) spMyChoiceheightFrom.getSelectedItem();
                 WebArd waMyChoiceAgeTo = (WebArd) spMyChoiceheightTo.getSelectedItem();
                 if (!waMyChoiceAgeFrom.getId().equals("-1")) {
-                    Log.e("id is", waMyChoiceAgeFrom.getId());
+                //    Log.e("id is", waMyChoiceAgeFrom.getId());
                     if (Integer.parseInt(waMyChoiceAgeTo.getId()) < Integer.parseInt(waMyChoiceAgeFrom.getId())) {
                         spMyChoiceheightTo.setSelection(0);
                         Toast.makeText(RegisterAppearanceActivity.this, "Please Select Valid Height To", Toast.LENGTH_SHORT).show();

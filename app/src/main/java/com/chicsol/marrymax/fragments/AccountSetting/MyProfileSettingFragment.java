@@ -469,12 +469,12 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
        /* final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");*/
         pDialog.show();
-        Log.e("path", "" + Urls.getValidCode + path);
+        //Log.e("path", "" + Urls.getValidCode + path);
         StringRequest req = new StringRequest(Urls.getValidCode + path,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("Response--", response.toString() + "==");
+                        //Log.d("Response--", response.toString() + "==");
                         if (response != null) {
 
                             if (Long.parseLong(response) == 0) {
@@ -523,12 +523,12 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         }
 
 
-        Log.e("URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                        //Log.e("Response", response.toString());
 
                         swipeRefreshLayout.setRefreshing(false);
 
@@ -549,7 +549,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                             Dashboards dashboards = (Dashboards) gsonc.fromJson(jsonCountryStaeObj.getJSONObject(0).toString(), listType);
 
 
-                            Log.e("Email Complete Status", "" + dashboards.getEmail_complete_status());
+                            //Log.e("Email Complete Status", "" + dashboards.getEmail_complete_status());
 
                             //   tvProfileCompleteion.setText(dashboards.getProfile_complete_status() + "% Complete");
 
@@ -704,7 +704,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                         btVerifyNumber.setVisibility(View.GONE);
                                         llASPhone.setVisibility(View.VISIBLE);
                                         llPhoneNotVerified.setVisibility(View.VISIBLE);
-                                        Log.e("NotVerified", "Not Verified");
+                                        //Log.e("NotVerified", "Not Verified");
 
                                     }
                                 }
@@ -958,7 +958,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     private void getPhoneNumber() {
 
 
-        Log.e(" Notification url", Urls.getPhnV + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e(" Notification url", Urls.getPhnV + SharedPreferenceManager.getUserObject(context).getPath());
         StringRequest req = new StringRequest(Urls.getPhnV + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<String>() {
                     @Override
@@ -1235,7 +1235,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("updateEmail", Urls.updateEmail + " == " + params);
+        //Log.e("updateEmail", Urls.updateEmail + " == " + params);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateEmail, params,
@@ -1243,7 +1243,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
 
 
                         Gson gson;

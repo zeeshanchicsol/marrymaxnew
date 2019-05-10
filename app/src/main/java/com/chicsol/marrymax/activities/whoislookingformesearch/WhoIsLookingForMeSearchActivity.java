@@ -289,7 +289,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
 
                         Gson gson = new Gson();
                         String params = gson.toJson(Constants.defaultSelectionsObj);
-                        Log.e("params  ", params + "");
+                        //Log.e("params  ", params + "");
 
                         // SharedPreferenceManager.setDefaultSelectionsObj(getApplicationContext(),defaultSelectionsObj);
 
@@ -470,12 +470,12 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
         // Toast.makeText( "clcieck", Toast.LENGTH_SHORT).show();
 
         // Do stuff here.
-        Log.e("FragmentAlertDialog", "Positive click!");
+        //Log.e("FragmentAlertDialog", "Positive click!");
     }
 
     public void doNegativeClick() {
         // Do stuff here.
-        Log.e("FragmentAlertDialog", "Negative click!");
+        //Log.e("FragmentAlertDialog", "Negative click!");
     }
 
 /*    public static class DialogProfileFor1 extends DialogFragment {
@@ -569,7 +569,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
     private void getRegistrationData() {
 
         String url = Urls.reg_Listing;
-        Log.e("Url", "" + url);
+        //Log.e("Url", "" + url);
         final ProgressDialog pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
@@ -583,7 +583,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         //religious
 
-                        Log.d("res", response.toString());
+                        //Log.d("res", response.toString());
                         try {
                             JSONArray religionarray = response.getJSONArray("religion");
                             JSONArray religioussectarray = response.getJSONArray("religious");
@@ -598,7 +598,7 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
 
                             religionDatalist = (List<WebArd>) gsonc.fromJson(religionarray.toString(), listType);
                             religionDatalist.add(0, new WebArd("-1", "Select "));
-                            Log.e("size", "" + religionDatalist.size());
+                            //Log.e("size", "" + religionDatalist.size());
                             adapter_religion.updateDataList(religionDatalist);
 
                             relgiousSectDatalist = (List<WebArd>) gsonc.fromJson(religioussectarray.toString(), listType);
@@ -651,12 +651,12 @@ public class WhoIsLookingForMeSearchActivity extends AppCompatActivity {
         //  String.Max
 //pDialog.setMessage("getMessage");
         //  pDialog.show();
-        Log.e("Search Lists url", Urls.getSearchLists + 0);
+        //Log.e("Search Lists url", Urls.getSearchLists + 0);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchLists + 0,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("response", response.toString());
+                        //Log.e("response", response.toString());
                         Constants.jsonArraySearch = response;
                         //   pDialog.dismiss();
                     }

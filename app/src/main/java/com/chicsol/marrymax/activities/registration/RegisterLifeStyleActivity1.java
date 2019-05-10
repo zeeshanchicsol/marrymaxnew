@@ -492,7 +492,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                     //Selected edu
                     StringBuilder sbSelectedMyChoiceOccupation = new StringBuilder();
                     sbSelectedMyChoiceOccupation = max.getSelectedIdsFromList(occupationDataList);
-                    Log.e("sel Occupation ids :", sbSelectedMyChoiceOccupation + "");
+                    //Log.e("sel Occupation ids :", sbSelectedMyChoiceOccupation + "");
                  /*   for (int i = 0; i < selectedOccupationDataList.size(); i++) {
                         sbSelectedMyChoiceOccupation.append(occupationDataList.get((Integer) selectedOccupationDataList.get(i)).getId());
                         if (i != selectedOccupationDataList.size() - 1) {
@@ -619,7 +619,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
                         params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
-                        Log.e("params", "" + params);
+                        //Log.e("params", "" + params);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -818,7 +818,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         }
 
 
-        Log.e("getAbout_type", "" + members_obj.getAbout_type() + "  --   " + members_obj.getAbout_type_id());
+        //Log.e("getAbout_type", "" + members_obj.getAbout_type() + "  --   " + members_obj.getAbout_type_id());
 
         //  if (members_obj.getAbout_type() != "" || members_obj.getAbout_type_id() != 0) {
         if ((members_obj.getAbout_type() != "" && members_obj.getAbout_type() != null) || members_obj.getAbout_type_id() != 0) {
@@ -832,14 +832,14 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         my_id = members_obj.getMy_id();
 
         about_member_id = String.valueOf(members_obj.getAbout_member_id());
-        Log.e("eddddddddd", "" + members_obj.getAbout_type_id());
+        //Log.e("eddddddddd", "" + members_obj.getAbout_type_id());
         viewGenerator.selectSpinnerItemById(spMyEducation, members_obj.getEducation_id(), myEducationDataList);
         viewGenerator.selectSpinnerItemById(spMyEducationalField, members_obj.getEducation_field_id(), educationFieldDataList);
         viewGenerator.selectSpinnerItemById(spMyOccupation, members_obj.getOccupation_id(), myOccupationDataList);
         viewGenerator.selectSpinnerItemById(spMyGraduationYear, members_obj.getAbout_type_id(), graduationYearDataList);
         viewGenerator.selectSpinnerItemById(spMyAnnualIncomeLevel, members_obj.getIncome_level_id(), incomeDataList);
 
-        Log.e("choice_economy_ids " + members_obj.getEconomy_id(), "" + members_obj.getChoice_economy_ids());
+        //Log.e("choice_economy_ids " + members_obj.getEconomy_id(), "" + members_obj.getChoice_economy_ids());
 
         Members member = SharedPreferenceManager.getUserObject(getApplicationContext());
         if (member.getMember_status() >= 2 && member.getMember_status() < 7) {
@@ -913,10 +913,10 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
         }
 
 
-        Log.e("caste id", "castt  " + members_obj.getCaste_id() + "  lllll");
+        //Log.e("caste id", "castt  " + members_obj.getCaste_id() + "  lllll");
         if (members_obj.getCaste_id() != 0) {
 
-            Log.e("caste id", "castt  " + members_obj.getCaste_id() + "  zzzzzzzzzzz");
+            //Log.e("caste id", "castt  " + members_obj.getCaste_id() + "  zzzzzzzzzzz");
 
             //  acMyCaste.setText(members_obj.get_caste);
         }
@@ -924,7 +924,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
         ///=================choice education
         {
-            Log.e("choice Education", members_obj.getChoice_education_ids());
+            //Log.e("choice Education", members_obj.getChoice_education_ids());
             String[] cids = members_obj.getChoice_education_ids().split(",");
             //multi choice selection
 
@@ -962,7 +962,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 //=-====================================================================
 
         {
-            Log.e("choice Ocu", members_obj.getChoice_occupation_ids());
+            //Log.e("choice Ocu", members_obj.getChoice_occupation_ids());
             String[] cids = members_obj.getChoice_occupation_ids().split(",");
             //multi choice selection
             selectedOccupationDataList.clear();
@@ -1026,7 +1026,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
         pDialog.show();
 
-        Log.e("GetLifeStyleData par", "" + Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e("GetLifeStyleData par", "" + Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,
@@ -1034,7 +1034,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res mainnnnnnnnnnn", response + "");
+                        //Log.e("res mainnnnnnnnnnn", response + "");
                         try {
 
                             JSONArray jsonArrayEducation = response.getJSONArray("education");
@@ -1116,9 +1116,9 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                             //  12/1/2016 6:30:00 AM
 
                             gson = gsonBuilder.create();
-                            Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
+                            //Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
                             members_obj = gson.fromJson(jsonGrography.get(0).toString(), Members.class);
-                            Log.e("Aliaaaaaaaasss", members_obj.getCountry_id() + "");
+                            //Log.e("Aliaaaaaaaasss", members_obj.getCountry_id() + "");
 
 
                         } catch (JSONException e) {
@@ -1194,7 +1194,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
     private void updateLifestyle(JSONObject params) {
         pDialog.show();
-        Log.e("updateLifestyle", Urls.updateLifestyleUrl + "=======" + params.toString() + "");
+        //Log.e("updateLifestyle", Urls.updateLifestyleUrl + "=======" + params.toString() + "");
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateLifestyleUrl, params,
@@ -1202,7 +1202,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update lifestyle", response + "");
+                        //Log.e("re  update lifestyle", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -1264,7 +1264,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
     private void removeSchool(JSONObject params) {
         pDialog.show();
-        Log.e("updateLifestyle", Urls.removeSchool + "=======" + params.toString() + "");
+        //Log.e("updateLifestyle", Urls.removeSchool + "=======" + params.toString() + "");
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.removeSchool, params,
@@ -1272,7 +1272,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update lifestyle", response + "");
+                        //Log.e("re  update lifestyle", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -1334,7 +1334,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
     private void removeChildren(JSONObject params) {
         pDialog.show();
-        Log.e("removeChildren", Urls.removeChildren + "=======" + params.toString() + "");
+        //Log.e("removeChildren", Urls.removeChildren + "=======" + params.toString() + "");
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.removeChildren, params,
@@ -1342,7 +1342,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update lifestyle", response + "");
+                        //Log.e("re  update lifestyle", response + "");
 
                         try {
                             int responseid = response.getInt("id");

@@ -203,13 +203,13 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
         pDialog.setMessage("Loading...");
         pDialog.show();*/
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("msg Response", response.toString());
+                        //Log.e("msg Response", response.toString());
                         try {
                             llEmptySubItems.removeAllViews();
                             StringBuilder htmlDescriptionText = new StringBuilder();
@@ -455,12 +455,12 @@ Subscribe now to enjoy following benefits.
        /* final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-        Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("getSavedList ", response.toString() + "  ==   ");
+                        //Log.e("getSavedList ", response.toString() + "  ==   ");
                         Gson gsonc;
                         GsonBuilder gsonBuilderc = new GsonBuilder();
                         gsonc = gsonBuilderc.create();
@@ -471,7 +471,7 @@ Subscribe now to enjoy following benefits.
 
                             mComCount comCount = (mComCount) gsonc.fromJson(response.getJSONArray(0).getJSONObject(0).toString(), listType);
 
-                            Log.e("ressssss", comCount.getNew_interests_count() + "");
+                            //Log.e("ressssss", comCount.getNew_interests_count() + "");
                             new_messages_count = (int) comCount.getNew_messages_count();
 
 

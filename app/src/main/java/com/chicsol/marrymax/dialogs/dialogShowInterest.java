@@ -109,7 +109,7 @@ public class dialogShowInterest extends DialogFragment {
         try {
             context = activity;
 
-            Log.e("getfragment manager", "======" + getTargetFragment());
+            //Log.e("getfragment manager", "======" + getTargetFragment());
             if (getTargetFragment() != null) {
                 mCompleteListener = (onCompleteListener) getTargetFragment();
             } else {
@@ -355,7 +355,7 @@ public class dialogShowInterest extends DialogFragment {
                         params.put("userpath", userpath);
                         params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
-                        Log.e("showInterest params ", "" + params);
+                        //Log.e("showInterest params ", "" + params);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -425,7 +425,7 @@ public class dialogShowInterest extends DialogFragment {
         pDialog.show();
 
 
-        Log.e("show interest params" + "  " + Urls.showInterest, "" + params);
+        //Log.e("show interest params" + "  " + Urls.showInterest, "" + params);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.showInterest, params,
@@ -434,7 +434,7 @@ public class dialogShowInterest extends DialogFragment {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
 
                         if (dialogShowInterest.this.getDialog() != null) {
                             dialogShowInterest.this.getDialog().dismiss();

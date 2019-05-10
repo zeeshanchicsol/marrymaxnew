@@ -222,14 +222,14 @@ public class dialogBlock extends DialogFragment {
         pDialog.setMessage("Loading...");
         pDialog.show();
 
-        Log.e("blockReason" + "  " + Urls.blockReason, "" + params);
+        //Log.e("blockReason" + "  " + Urls.blockReason, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.blockReason, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid == 1) {

@@ -129,7 +129,7 @@ public class MarryMax {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res progress", response + "");
+                        //Log.e("res progress", response + "");
                         try {
 
 
@@ -272,7 +272,7 @@ public class MarryMax {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res progress", response + "");
+                        //Log.e("res progress", response + "");
                         try {
 
 
@@ -433,7 +433,7 @@ public class MarryMax {
                     Intent intent = new Intent(context, UserProfileActivityWithSlider.class);
 
 
-                    Log.e("Tag is", TAG + "==");
+                    //Log.e("Tag is", TAG + "==");
                     if (TAG.equals("SavedNotes") || TAG.equals("AccpetedMembers") || TAG.equals("FavouriteMembers") || TAG.equals("searchByAlias") || TAG.equals("featured")) {
 
 
@@ -452,7 +452,7 @@ public class MarryMax {
                         membersDataLista.add(seletedMember);
 
 
-                        Log.e("membersDataLista", membersDataLista.size() + "");
+                        //Log.e("membersDataLista", membersDataLista.size() + "");
 
                         intent.putExtra("selectedposition", "-1");
                         SharedPreferenceManager.setMemberDataList(context, gsonc.toJson(membersDataLista));
@@ -463,8 +463,8 @@ public class MarryMax {
                   /*  intent.putExtra("selectedposition", selectedPosition);
                     SharedPreferenceManager.setMemberDataList(context, memberDataList);*/
 
-                    Log.e("Path", "" + member.getPath());
-                    Log.e("UserPath", "" + member.getUserpath());
+                    //Log.e("Path", "" + member.getPath());
+                    //Log.e("UserPath", "" + member.getUserpath());
 
                     Gson gson = new Gson();
                     intent.putExtra("memresult", gson.toJson(memResultsObj));
@@ -880,15 +880,15 @@ public class MarryMax {
         final ProgressDialog pDialog = new ProgressDialog(activity);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("params mobile", params.toString());
-        Log.e("mobile U RL ", Urls.mobileInfo);
+        //Log.e("params mobile", params.toString());
+        //Log.e("mobile U RL ", Urls.mobileInfo);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.mobileInfo, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("mobileInfo  ", response + "");
+                        //Log.e("mobileInfo  ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -1151,7 +1151,7 @@ public class MarryMax {
     public String decryptAccessToken(String encrypted) {
 
         if (encrypted != null) {
-            Log.e("strin after encryption", encrypted);
+            //Log.e("strin after encryption", encrypted);
 
             encrypted = encrypted.replace("ARD", " ");
             encrypted = encrypted.replace("-345", " ");
@@ -1164,10 +1164,10 @@ public class MarryMax {
                 decryptedValue = crypt.Decrypt(encrypted, Urls.PassPhraseArdAp);
 
                 decryptedValue = decryptedValue.replace(Urls.ARDTOKEN + "***", "");
-                Log.e("Decrypted value ", decryptedValue + "");
+                //Log.e("Decrypted value ", decryptedValue + "");
 
                 int min = getTimeDifference(Long.parseLong(decryptedValue));
-                Log.e("minutes ", min + "");
+                //Log.e("minutes ", min + "");
 
                 return decryptedValue;
             } catch (Exception e) {
@@ -1260,21 +1260,21 @@ public class MarryMax {
         String matchType = "";
         if (matchPageType == 1) {
             matchType = "/pm";
-            //   Log.e("==pm", "pm");
+            //   //Log.e("==pm", "pm");
         } else if (matchPageType == 2) {
             matchType = "/lfm";
-            Log.e("==lfm", "lfm");
+            //Log.e("==lfm", "lfm");
         } else {
             matchType = "/0";
-            Log.e("==0----", "0----");
+            //Log.e("==0----", "0----");
         }
-        Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).getPath() + matchType);
+        //Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).getPath() + matchType);
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getRawData + SharedPreferenceManager.getUserObject(context).getPath() + matchType,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("getRawData Response", response.toString());
+                        //Log.e("getRawData Response", response.toString());
                         try {
                             //       Log.e("getRawData finished===", "==========================");
 
@@ -1625,7 +1625,7 @@ public class MarryMax {
     public void getAppVersion(Context context) {
 
 
-        Log.e(" getAppVersion url", Urls.getAppVersion);
+        //Log.e(" getAppVersion url", Urls.getAppVersion);
         StringRequest req = new StringRequest(Urls.getAppVersion,
                 new Response.Listener<String>() {
                     @Override
@@ -1678,7 +1678,7 @@ public class MarryMax {
         try {
             PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
             String localVersion = pInfo.versionName;
-            Log.e("localVersion", localVersion + " ----  " + remoteVersionName);
+            //Log.e("localVersion", localVersion + " ----  " + remoteVersionName);
 
             if (!remoteVersionName.equals(localVersion)) {
                 //   Log.e("updatev now", remoteVersionName);

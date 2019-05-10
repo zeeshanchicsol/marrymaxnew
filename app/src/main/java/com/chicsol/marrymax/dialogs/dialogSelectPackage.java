@@ -148,7 +148,7 @@ public class dialogSelectPackage extends DialogFragment {
                 View radioButton = radioGroup.findViewById(radioGroup.getCheckedRadioButtonId());
                 Subscription subscription = (Subscription) radioButton.getTag();
                 if (withdrawCheck) {
-                    Log.e("radio ids are", subscription.getItem_id() + "  " + subscription.getOther_item_id());
+                    //Log.e("radio ids are", subscription.getItem_id() + "  " + subscription.getOther_item_id());
 
                 }
           mCompleteListener.onChangeSubscriptionPackage(subscription.getItem_id()+"", subscription.getOther_item_id());

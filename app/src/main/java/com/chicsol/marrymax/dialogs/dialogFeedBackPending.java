@@ -144,7 +144,7 @@ public class dialogFeedBackPending extends DialogFragment {
             }
         });
 
-        Log.e("disabled", disabled + "");
+        //Log.e("disabled", disabled + "");
 
       /*  if (disabled) {
             //    getDialog().setCancelable(false);

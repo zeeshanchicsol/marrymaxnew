@@ -352,22 +352,22 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
     pDialog.show();
 }*/
         // pDialog.setVisibility(View.VISIBLE);
-        Log.e("MemberList Params", "" + paramsa);
-        Log.e("MemberList", "" + Urls.getMembersListbyType);
+        //Log.e("MemberList Params", "" + paramsa);
+        //Log.e("MemberList", "" + Urls.getMembersListbyType);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getMembersListbyType, paramsa,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("re  update data", response + "");
+                        //Log.d("re  update data", response + "");
 
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 
@@ -379,7 +379,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
 
                                 membersDataListMSLW = (List<Members>) gson.fromJson(jsonarrayData.toString(), member);
-                                Log.e("membersDataListMSLW 56", membersDataListMSLW.size() + "  ");
+                                //Log.e("membersDataListMSLW 56", membersDataListMSLW.size() + "  ");
                                 recyclerAdapterMSLW.addAll(membersDataListMSLW);
 
 
@@ -397,7 +397,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
 
 
                                 // totalPagesMSLW = memberTotalPages.getTotal_pages();
-                                Log.e("total pages mlbt", "" + totalPagesMSLW);
+                                //Log.e("total pages mlbt", "" + totalPagesMSLW);
 
                                 totalPages = memberTotalPages.getTotal_pages();
                                 lastPage = 1;
@@ -481,22 +481,22 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         //pDialog.show();
         //   pDialog.setVisibility(View.VISIBLE);
 
-        Log.e("Params", "" + params);
-        Log.e("Member List", "" + Urls.getMembersListbyType);
+        //Log.e("Params", "" + params);
+        //Log.e("Member List", "" + Urls.getMembersListbyType);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getMembersListbyType, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("new response data", response + "");
+                        //Log.d("new response data", response + "");
 
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
 
                                 Gson gson;
@@ -610,7 +610,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         intent.putExtra("userpath", members.getUserpath());
         startActivity(intent);*/
 
-        Log.e("position", "position: " + position);
+        //Log.e("position", "position: " + position);
         //  items.clear();
         //  items.add(members);
 
@@ -618,7 +618,7 @@ public class DashMembersFragment extends Fragment implements RecyclerViewAdapter
         MarryMax marryMax = new MarryMax(getActivity());
         if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
 
-            Log.e("Data list ", "" + items.size());
+            //Log.e("Data list ", "" + items.size());
             Gson gson = new Gson();
             marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashMembersFragment.this, view, gson.toJson(items), position + "", memResultsObj, Tag);
         }

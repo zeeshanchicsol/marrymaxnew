@@ -116,7 +116,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
     }
 
     public void showLog(String logtext) {
-        Log.e("MarryM", "" + logtext);
+        //Log.e("MarryM", "" + logtext);
     }
 
     private void initialize() {
@@ -259,7 +259,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 WebArd ardState = (WebArd) spMyCountryState.getSelectedItem();
                 WebArd ardCountry = (WebArd) spMyCountry.getSelectedItem();
 
-                Log.e("city state ", Integer.parseInt(ardState.getId()) + "  ----- " + Integer.parseInt(ardCountry.getId()) + "  " + updateData);
+             //   Log.e("city state ", Integer.parseInt(ardState.getId()) + "  ----- " + Integer.parseInt(ardCountry.getId()) + "  " + updateData);
 
                 //&& updateData != true
                 if (Integer.parseInt(ardState.getId()) != 0 && Integer.parseInt(ardCountry.getId()) != 0) {
@@ -298,7 +298,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 boolean validation = checkSelections(v);
 
 
-                Log.e("validation", "" + validation);
+             //   Log.e("validation", "" + validation);
 
                 if (!validation) {
 
@@ -426,18 +426,18 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
         selectSpinnerItemByValue(spMyCountryState, members_obj.getState_id(), MyCountryStateDataList);
         selectSpinnerItemByValue(spMyCountryCity, members_obj.getCity_id(), MyCountryCityDataList);
-        Log.e("choice countrr", members_obj.getChoice_country_ids());
+      //  Log.e("choice countrr", members_obj.getChoice_country_ids());
         String[] cids = members_obj.getChoice_country_ids().split(",");
 
 
-        Log.e("c idddddssssss", "" + cids.length);
+    //    Log.e("c idddddssssss", "" + cids.length);
 
         //multi choice selection
         seletedCountriesIdDataList.clear();
         for (int i = 0; i < cids.length; i++) {
             seletedCountriesIdDataList.add((cids[i]));
         }
-        Log.e("c idddddssssss", "" + seletedCountriesIdDataList.size());
+     //   Log.e("c idddddssssss", "" + seletedCountriesIdDataList.size());
 
 
         if (!seletedCountriesIdDataList.isEmpty()) {
@@ -535,7 +535,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
     private void GetGeographyData() {
 
-        Log.e("RegisterGeography", "" + Urls.RegisterGeography + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+    //    Log.e("RegisterGeography", "" + Urls.RegisterGeography + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         pDialog.show();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Method.GET,
@@ -544,7 +544,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res mainnnnnnnnnnn", response + "");
+                   //     Log.e("res mainnnnnnnnnnn", response + "");
                         try {
 
 
@@ -688,7 +688,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response states", response.toString());
+                     //   Log.e("Response states", response.toString());
 
                         try {
 
@@ -740,12 +740,12 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
 
 
         pDialog.show();
-        Log.e("url", Urls.getStateCitiesUrl + country_id + "," + state_id);
+    //    Log.e("url", Urls.getStateCitiesUrl + country_id + "," + state_id);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getStateCitiesUrl + country_id + "," + state_id,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+        //                Log.e("Response", response.toString());
                         try {
 
 
@@ -759,7 +759,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                             }.getType();
 
                             MyCountryCityDataList = (List<WebArd>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                            Log.e("city Size is ", "" + MyCountryCityDataList.size());
+             //               Log.e("city Size is ", "" + MyCountryCityDataList.size());
                             if (MyCountryCityDataList.size() > 0) {
                                 MyCountryCityDataList.add(0, new WebArd("-1", "Please Select "));
                                 adapter_myCountryCity.updateDataList(MyCountryCityDataList);
@@ -807,14 +807,14 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params update", params + "");
+   //     Log.e("Params update", params + "");
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateUserGeographyUrl, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update geograpy", response + "");
+           //             Log.e("re  update geograpy", response + "");
                         try {
                             int responseid = response.getInt("id");
 
@@ -933,14 +933,14 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", "" + params);
+     //   Log.e("Params", "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.cntCode, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             String responseName = response.getString("name");
 

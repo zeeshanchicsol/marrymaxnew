@@ -245,7 +245,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 @Override
                 public void onClick(View v) {
                     //    Toast.makeText(context, "clicked"+position, Toast.LENGTH_SHORT).show();
-                    Log.e("getMoreLoading rec", getMoreLoading() + "");
+                    //Log.e("getMoreLoading rec", getMoreLoading() + "");
 
                     if (!isMoreLoading) {
                         onItemClickListener.onItemClick(v, item, position, items, memResultsObj);

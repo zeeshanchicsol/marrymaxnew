@@ -111,7 +111,7 @@ private  Context context;
         initilize(rootView);
         setListeners();
         json = getArguments().getString("json");
-        Log.e("pictures fragment", "" + json);
+        //Log.e("pictures fragment", "" + json);
         if (json != null) {
             loadData(json);
         }
@@ -209,7 +209,7 @@ private  Context context;
             if (member.getImage_count() == 0) {
                 if (member.getPhoto_upload_request_id() == 0) {
                     //request  photo view
-                    Log.e("Request Photo", "Request Photo Upload");
+                    //Log.e("Request Photo", "Request Photo Upload");
                     tvEmptyStateMessage.setText(Html.fromHtml("Currently no pictures of " + "<b>" + txt.toUpperCase() + "</b> are available."));
 
                     btEmptyState.setText("Request Photo Upload");
@@ -281,7 +281,7 @@ private  Context context;
                     if (member.getImage_count() == 0) {
                         if (member.getPhoto_upload_request_id() == 0) {
                             //request  photo view
-                            Log.e("Request Photo", "Request Photo Upload");
+                            //Log.e("Request Photo", "Request Photo Upload");
 
 
                             type = "1";
@@ -294,7 +294,7 @@ private  Context context;
 
                         } else if (member.getPhoto_upload_request_id() > 0) {
 
-                            Log.e("Withdraw Request ", "Withdraw Request");
+                            //Log.e("Withdraw Request ", "Withdraw Request");
                             JSONObject params = new JSONObject();
                             try {
 
@@ -315,7 +315,7 @@ private  Context context;
                         if (member.getPhoto_request_id() == 0) {
                             //request  photo view
 
-                            Log.e("Request Photo View ", "Request Photo View");
+                            //Log.e("Request Photo View ", "Request Photo View");
                             type = "2";
                             title = "Photo View Request";
                             btTitile = "Request Photo";
@@ -414,7 +414,7 @@ private  Context context;
 
     @Override
     public void onComplete(String s) {
-        Log.e("Data welocomeeee", "==== " + s);
+        //Log.e("Data welocomeeee", "==== " + s);
         // loadData();
         if (Integer.parseInt(s) == 0) {
             // Toast.makeText(getContext(), "Request has not been sent successfully ", Toast.LENGTH_SHORT).show();

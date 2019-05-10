@@ -117,12 +117,12 @@ public class MySavedListsFragment extends Fragment implements MySavedListAdapter
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getSavedList", Urls.getSavedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
+        //Log.e("getSavedList", Urls.getSavedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getSavedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response getSavedList", response.toString() + "  ==   ");
+                        //Log.e("Response getSavedList", response.toString() + "  ==   ");
                         if (response.length() > 0) {
 
 

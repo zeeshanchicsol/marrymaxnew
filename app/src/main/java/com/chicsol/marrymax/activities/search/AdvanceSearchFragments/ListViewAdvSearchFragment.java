@@ -105,7 +105,7 @@ public class ListViewAdvSearchFragment extends Fragment implements BasicsFragmen
 
                 };*/
 
-        Log.e("Adaper Initialisezddd", "resetttttttttttt");
+        //Log.e("Adaper Initialisezddd", "resetttttttttttt");
         advSearchAdapter = new AdvSearchAdapter(getActivity(), R.layout.adv_search_item_listview, dataList);
         lvItems.setAdapter(advSearchAdapter);
 

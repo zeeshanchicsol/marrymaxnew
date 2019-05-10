@@ -436,7 +436,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
             Members member = SharedPreferenceManager.getUserObject(context);
 
-            Log.e("Completion Status", member.getMember_status() + "");
+            //Log.e("Completion Status", member.getMember_status() + "");
             if (member.getMember_status() < 3 || member.getMember_status() >= 7) {
                 // new MarryMax(null).updateStatus(context);
 
@@ -467,7 +467,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                     getDashboardData();
                     Members member = SharedPreferenceManager.getUserObject(context);
 
-                    Log.e("Completion Status", member.getMember_status() + "");
+                    //Log.e("Completion Status", member.getMember_status() + "");
                     if (member.getMember_status() < 3 || member.getMember_status() >= 7) {
 
                         //   new MarryMax(null).updateStatus(getContext());
@@ -1122,8 +1122,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         //  pDialog.show();
         pDialog.setVisibility(View.VISIBLE);
 
-        Log.e("getdash Params", "" + params);
-        Log.e("getdash List", "" + Urls.getDashboardData);
+        //Log.e("getdash Params", "" + params);
+        //Log.e("getdash List", "" + Urls.getDashboardData);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getDashboardData, params,
                 new Response.Listener<JSONObject>() {
@@ -1131,7 +1131,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.d("getdash  update data", response + "");
+                        //Log.d("getdash  update data", response + "");
 
                         try {
                             Members member = SharedPreferenceManager.getUserObject(context);
@@ -1139,7 +1139,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
                             if (jsonArray.length() > 0) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONObject jsonObj = jsonArray.getJSONArray(0).getJSONObject(0);
 
                                 Gson gson;
@@ -1351,12 +1351,12 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         pDialog.setVisibility(View.VISIBLE);
         setWaitScreen(true);
         // pDialog.show();
-        Log.e("URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("URL", Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileCompletion + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                        //Log.e("Response", response.toString());
                         Members member = SharedPreferenceManager.getUserObject(context);
 
                         try {
@@ -1372,7 +1372,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                             Dashboards dashboards = (Dashboards) gsonc.fromJson(jsonCountryStaeObj.getJSONObject(0).toString(), listType);
 
 
-                            Log.e("Email Complete Status", "" + dashboards.getEmail_complete_status());
+                            //Log.e("Email Complete Status", "" + dashboards.getEmail_complete_status());
 
                             tvProfileCompleteion.setText(dashboards.getProfile_complete_status() + "% Complete");
 
@@ -1433,7 +1433,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                             }
                             if (dashboards.getAdmin_approved_status().equals("0")) {
                                 pCOmpleteStatus = false;
-                                Log.e("mem status", member.getMember_status() + "");
+                                //Log.e("mem status", member.getMember_status() + "");
                                 if (member.getMember_status() == 7) {
                                     ivReviewPending.setVisibility(View.GONE);
                                     ivReviewPendingOrange.setVisibility(View.VISIBLE);
@@ -1532,14 +1532,14 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         intent.putExtra("userpath", members.getUserpath());
         startActivity(intent);*/
 
-        Log.e("position", "position: " + position);
+        //Log.e("position", "position: " + position);
 
 
         Activity activity = (Activity) getContext();
         MarryMax marryMax = new MarryMax(getActivity());
         if (ConnectCheck.isConnected(activity.findViewById(android.R.id.content))) {
 
-            Log.e("Data list ", "" + items.size());
+            //Log.e("Data list ", "" + items.size());
             Gson gson = new Gson();
             marryMax.statusBaseChecks(members, getContext(), 1, getFragmentManager(), DashboardMainFragment.this, view, gson.toJson(items), "" + position, memResultsObj, Tag);
         }
@@ -1612,13 +1612,13 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         pDialog.show();*/
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getAdminNotes path", "" + Urls.getAdminNotes + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("getAdminNotes path", "" + Urls.getAdminNotes + SharedPreferenceManager.getUserObject(context).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getAdminNotes + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
                         try {
 
 

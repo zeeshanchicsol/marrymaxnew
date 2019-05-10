@@ -120,13 +120,13 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("api path", "" + Urls.getProfilePrivacy + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("api path", "" + Urls.getProfilePrivacy + SharedPreferenceManager.getUserObject(context).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getProfilePrivacy + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        ///Log.d("Response", response.toString());
                         try {
 
 
@@ -233,7 +233,7 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
 
 
         RadioButton radioButton = (RadioButton) view2.findViewById(checkedId);
-        Log.e("radioo  " + radioButton.getTag(), group.getCheckedRadioButtonId() + "");
+        //Log.e("radioo  " + radioButton.getTag(), group.getCheckedRadioButtonId() + "");
 
 
         String tag = radioButton.getTag().toString();
@@ -253,8 +253,8 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
             }
 
 
-            //   Log.e("radioo   " + id, "" + value);
-            // Log.e("radioo   " + id, "" + value);
+            //   //Log.e("radioo   " + id, "" + value);
+            // //Log.e("radioo   " + id, "" + value);
 
         }
 
@@ -265,15 +265,15 @@ public class PrivacySettingsFragment extends Fragment implements RadioGroup.OnCh
     private void editPrivacyRequest(JSONObject params) {
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.editPrivacy);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.editPrivacy);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.editPrivacy, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
                         try {
                             int responseid = response.getInt("id");

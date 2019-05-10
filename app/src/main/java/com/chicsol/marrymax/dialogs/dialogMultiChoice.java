@@ -75,7 +75,7 @@ public class dialogMultiChoice extends DialogFragment {
 
             educationDataList = (List<WebArd>) gsonc.fromJson(mDataList, listType);
         }
-        Log.e("lissst size is ", educationDataList.size() + "");
+        //Log.e("lissst size is ", educationDataList.size() + "");
 
 
 
@@ -167,8 +167,8 @@ public class dialogMultiChoice extends DialogFragment {
                 List<WebArd> list = multiChoiceAdapterRecycler.getSelection();
                 for (int i = 0; i < list.size(); i++) {
 
-                    if (list.get(i).isSelected())
-                        Log.e("save  click", list.get(i).getName());
+                  /*  if (list.get(i).isSelected())
+                        Log.e("save  click", list.get(i).getName());*/
                 }
 
                 mCompleteListener.onMultiChoiceSave(list, which);

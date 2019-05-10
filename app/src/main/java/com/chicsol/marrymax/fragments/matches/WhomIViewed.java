@@ -284,7 +284,7 @@ public class WhomIViewed extends BaseMatchesFragment implements RecyclerViewAdap
         if (lastPage != totalPages && lastPage < totalPages) {
             lastPage = lastPage + 1;
 
-            Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
+            //Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
        /*     Members memberSearchObj = DrawerActivity.rawSearchObj;
 
             memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
@@ -411,22 +411,22 @@ public class WhomIViewed extends BaseMatchesFragment implements RecyclerViewAdap
             e.printStackTrace();
         }
 
-        Log.e("Params Preff" + " " + Urls.searchProfiles, "" + params);
+        //Log.e("Params Preff" + " " + Urls.searchProfiles, "" + params);
 
-        Log.e("Params Preff" + " " + Urls.searchProfiles, "");
+        //Log.e("Params Preff" + " " + Urls.searchProfiles, "");
         final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.searchProfiles, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  Preff Preff", response + "");
+                        //Log.e("re  Preff Preff", response + "");
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 
@@ -443,7 +443,7 @@ public class WhomIViewed extends BaseMatchesFragment implements RecyclerViewAdap
                                     recyclerAdapter.addAll(membersDataList);
 
 
-                                    Log.e("Length=================", membersDataList.size() + "  ");
+                                    //Log.e("Length=================", membersDataList.size() + "  ");
 
 
                                     Gson gsont;
@@ -456,7 +456,7 @@ public class WhomIViewed extends BaseMatchesFragment implements RecyclerViewAdap
 
                                     totalPages = memberTotalPages.getTotal_pages();
                                     lastPage = 1;
-                                    Log.e("total pages", "" + totalPages);
+                                    //Log.e("total pages", "" + totalPages);
                                     swipeRefresh.setRefreshing(false);
                                     if (memberTotalPages.getTotal_member_count() > 0) {
 
@@ -540,13 +540,13 @@ public class WhomIViewed extends BaseMatchesFragment implements RecyclerViewAdap
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 

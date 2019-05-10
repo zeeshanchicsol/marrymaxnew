@@ -82,14 +82,14 @@ public class MultiChoiceAdapter extends BaseAdapter {
         if (checkedList.size() > 0) {
             for (int i = 0; i < checkedList.size(); i++) {
                 if (Integer.parseInt(webArd.getId()) == Integer.parseInt(checkedList.get(i))) {
-                    //Log.e();
+                    ////Log.e();
 
                     //   view.setChecked(true);
                     // view.setSelected(true);
                     //view.setSelected(true);
                     //   view.toggle();
                     //  view.setBackgroundColor(getContext().getResources().getColor(R.color.colorTextRed));
-                  Log.e(webArd.getId()+"======"+webArd.getName()+"  checked", "checked    "+checkedList.get(i));
+                  //Log.e(webArd.getId()+"======"+webArd.getName()+"  checked", "checked    "+checkedList.get(i));
                     ((ListView) parent).setItemChecked(i, true);
 
                 }

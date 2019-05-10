@@ -164,13 +164,13 @@ public class RecyclerViewAdapterMemberList extends RecyclerView.Adapter<Recycler
                         if (widthScreen > heightScreen) {
                             int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
                             //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                             bmp_sticker = resizeImage(bmp, h);
                         } else {
                             int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
                             //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
                             bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                         }
 
                         return bmp_sticker;
@@ -376,15 +376,15 @@ public class RecyclerViewAdapterMemberList extends RecyclerView.Adapter<Recycler
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-        Log.e("params delete", params.toString());
-        Log.e("profile path", Urls.removeMemList);
+        //Log.e("params delete", params.toString());
+        //Log.e("profile path", Urls.removeMemList);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.removeMemList, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  delete ", response + "");
+                        //Log.e("Res  delete ", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -457,7 +457,7 @@ public class RecyclerViewAdapterMemberList extends RecyclerView.Adapter<Recycler
         items.clear();
         items.addAll(lst);
         notifyDataSetChanged();
-        Log.e("item size in adapter", items.size() + "");
+        //Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<mMemListDetail> lst) {
@@ -468,8 +468,8 @@ public class RecyclerViewAdapterMemberList extends RecyclerView.Adapter<Recycler
 
     @Override
     public void onComplete(String s) {
-        Log.e("clicked ", "Clicked");
-        Log.e("--------------------", "---------------Recycler------------------------------------");
+        //Log.e("clicked ", "Clicked");
+        //Log.e("--------------------", "---------------Recycler------------------------------------");
     }
 */
 

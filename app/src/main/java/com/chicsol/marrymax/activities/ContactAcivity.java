@@ -299,7 +299,7 @@ public class ContactAcivity extends AppCompatActivity {
 
                     }
                 } catch (Exception e) {
-                    Log.e("e", e.toString());
+                    //Log.e("e", e.toString());
                     Crashlytics.logException(e);
                     Toast.makeText(ContactAcivity.this, "There is system error Please try again", Toast.LENGTH_SHORT).show();
                 }
@@ -486,7 +486,7 @@ public class ContactAcivity extends AppCompatActivity {
 
     private boolean countryCodeCheck(int countryCode, int mobNum) {
 
-        Log.e("countryCodeCheck", countryCode + "   " + mobNum);
+        //Log.e("countryCodeCheck", countryCode + "   " + mobNum);
 
         if (countryCode == mobNum) {
             return false;
@@ -507,13 +507,13 @@ public class ContactAcivity extends AppCompatActivity {
 
 
         showProgressDialog();
-        Log.e("api path", "" + Urls.getContactList);
+        //Log.e("api path", "" + Urls.getContactList);
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getContactList,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                     //   Log.d("Response", response.toString());
                         try {
 
 
@@ -530,8 +530,8 @@ public class ContactAcivity extends AppCompatActivity {
                             countryDataList = (List<mCountryCode>) gsonc.fromJson(jsonCountryObj.toString(), listType);
 
 
-                            Log.e("size", contactForDataList.size() + "");
-                            Log.e("size", countryDataList.size() + "");
+                            //Log.e("size", contactForDataList.size() + "");
+                            //Log.e("size", countryDataList.size() + "");
                             contactForDataList.add(0, new mCountryCode("-1", "Select Contact For", "0"));
                             adapter_contactfor.updateDataList(contactForDataList);
 
@@ -563,12 +563,12 @@ public class ContactAcivity extends AppCompatActivity {
 
     private void contactUs(JSONObject params) {
 
-        Log.e("params", "" + params);
+        //Log.e("params", "" + params);
 
 
         showProgressDialog();
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
-        Log.e("params url", Urls.contactUs + "  ==  " + params);
+        //Log.e("params url", Urls.contactUs + "  ==  " + params);
 
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -668,7 +668,7 @@ public class ContactAcivity extends AppCompatActivity {
                 }
             }
         } catch (Exception ex) {
-            Log.e("IP Address", ex.toString());
+            //Log.e("IP Address", ex.toString());
         }
         return null;
     }

@@ -225,14 +225,14 @@ public class dialogReportConcern extends DialogFragment {
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("params", Urls.reportConcern + "  =======   " + params);
+        //Log.e("params", Urls.reportConcern + "  =======   " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.reportConcern, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("response   ", response + "");
+                        //Log.e("response   ", response + "");
                         try {
                             int responseid = response.getInt("id");
 

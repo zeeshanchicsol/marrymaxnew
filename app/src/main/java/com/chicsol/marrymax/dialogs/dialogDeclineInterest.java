@@ -203,7 +203,7 @@ public class dialogDeclineInterest extends DialogFragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.e("params", "" + params);
+                //Log.e("params", "" + params);
 
                 query(params);
 
@@ -262,7 +262,7 @@ public class dialogDeclineInterest extends DialogFragment {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
                         dialogDeclineInterest.this.getDialog().cancel();
                         try {
                             int responseid = response.getInt("id");

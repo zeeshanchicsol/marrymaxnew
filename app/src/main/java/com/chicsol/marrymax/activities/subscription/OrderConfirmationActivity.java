@@ -149,15 +149,15 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         final ProgressDialog pDialog = new ProgressDialog(OrderConfirmationActivity.this);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.printCart);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.printCart);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.printCart, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  generateCart ", response + "");
+                        //Log.e("Res  generateCart ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -172,7 +172,7 @@ public class OrderConfirmationActivity extends AppCompatActivity {
                             Subscription subscription = (Subscription) gson.fromJson(responseObject.toString(), type);
 
 
-                            Log.e("interested id", "" + subscription.getAlias() + "====================");
+                            //Log.e("interested id", "" + subscription.getAlias() + "====================");
 
                             setData(subscription);
 

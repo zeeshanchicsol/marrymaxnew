@@ -161,13 +161,13 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
                         if (widthScreen > heightScreen) {
                             int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
                             //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                             bmp_sticker = resizeImage(bmp, h);
                         } else {
                             int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
                             //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
                             bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                         }
 
                         return bmp_sticker;
@@ -370,7 +370,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
 
             // imageLoader.displayImage(Urls.baseUrl + "/images/flags/" + member.getDefault_image() + ".gif", holder.ivCountryFlag, optionsNormalImage);
 
-            Log.e("bj.getDefault_image()", "" + obj.getDefault_image());
+            //Log.e("bj.getDefault_image()", "" + obj.getDefault_image());
             holder.image.setMinimumHeight(height);
             imageLoader.displayImage(Urls.baseUrl + "/" + obj.getDefault_image(),
                     holder.image, options,
@@ -514,7 +514,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
         items.clear();
         items.addAll(lst);
         notifyDataSetChanged();
-        Log.e("item size in adapter", items.size() + "");
+        //Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<mRecommended> lst) {
@@ -584,15 +584,15 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.recommendResponse);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.recommendResponse);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.recommendResponse, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
 
                         try {

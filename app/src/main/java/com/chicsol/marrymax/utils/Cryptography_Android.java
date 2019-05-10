@@ -31,7 +31,7 @@ public class Cryptography_Android {
         } catch (Exception e) {
             Log.i("Erron in Decryption", e.toString());
         }
-        Log.e("Data", new String(results, "UTF-8"));
+        //Log.e("Data", new String(results, "UTF-8"));
         return new String(results, "UTF-8"); // it returns the result as a String
     }
 

@@ -207,12 +207,12 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
       /*  final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-        Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("getCommuni url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("getSavedList ", response.toString() + "  ==   ");
+                        //Log.e("getSavedList ", response.toString() + "  ==   ");
                         Gson gsonc;
                         GsonBuilder gsonBuilderc = new GsonBuilder();
                         gsonc = gsonBuilderc.create();

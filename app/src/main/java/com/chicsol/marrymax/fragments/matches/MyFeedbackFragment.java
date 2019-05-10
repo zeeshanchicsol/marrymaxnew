@@ -175,12 +175,12 @@ public class MyFeedbackFragment extends Fragment implements RecyclerViewAdapterM
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("myContacts ", Urls.getUsrFeedbacks + "/" + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
+        //Log.e("myContacts ", Urls.getUsrFeedbacks + "/" + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getUsrFeedbacks + "/" + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response getSavedList", response.toString() + "  ==   ");
+                        //Log.e("Response getSavedList", response.toString() + "  ==   ");
                         if (response.length() > 0) {
 
 

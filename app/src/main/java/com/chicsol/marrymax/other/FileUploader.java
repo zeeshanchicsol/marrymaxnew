@@ -73,7 +73,7 @@ public class FileUploader {
     public void addFilePart(String fieldName, File uploadFile)
             throws IOException {
         String fileName = uploadFile.getName();
-        Log.e("f name up",":"+fileName);
+        //Log.e("f name up",":"+fileName);
         writer.append("--" + boundary).append(LINE_FEED);
         writer.append(
                 "Content-Disposition: form-data; name=\"" + fieldName
@@ -149,11 +149,11 @@ public class FileUploader {
     	writer.append(LINE_FEED).flush();
     writer.append("--" + boundary + "--").append(LINE_FEED);
 
-        Log.e("writterrr",""+writer.toString());
+        //Log.e("writterrr",""+writer.toString());
     writer.close();
     	
     	int status = httpConn.getResponseCode();
-    Log.e("type","stu====="+status);
+    //Log.e("type","stu====="+status);
     if (status == HttpURLConnection.HTTP_OK) {
     	
     	try {
@@ -168,12 +168,12 @@ public class FileUploader {
 	            httpConn.disconnect();
 			json = sb.toString();
 		} catch (Exception e) {
-			Log.e("Buffer Error", "Error converting result " + e.toString());
+			//Log.e("Buffer Error", "Error converting result " + e.toString());
 		}
 
 		// try parse the string to a JSON object
 		//try {
-            Log.e("Response ",""+json.toString());
+            //Log.e("Response ",""+json.toString());
 
 			//jObj = new JSONArray(json);
 		/*} catch (JSONException e) {

@@ -230,7 +230,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
         if (lastPage != totalPages && lastPage < totalPages) {
             lastPage = lastPage + 1;
 
-            Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
+            //Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
 
 
             JSONObject params = new JSONObject();
@@ -298,7 +298,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
             e.printStackTrace();
         }
 
-        Log.e("Params search" + " " + Urls.interestRequestType, "" + params);
+        //Log.e("Params search" + " " + Urls.interestRequestType, "" + params);
 
         //  Log.e("Params search" + " " + Urls.searchProfiles, "");
         final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -307,7 +307,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
 
                             llEmptySubItems.removeAllViews();
@@ -316,7 +316,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                             //    if (jsonArray.length() > 1) {
 
-                            Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                            //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                             JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                             JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 
@@ -598,7 +598,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
         }
         //  Log.e("Params search" + " " + Urls.searchProfiles, "" + params);
 
-        Log.e("Request Params" + " " + Urls.interestRequestType, "");
+        //Log.e("Request Params" + " " + Urls.interestRequestType, "");
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.interestRequestType, params,
                 new Response.Listener<JSONObject>() {
@@ -611,7 +611,7 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 
@@ -691,12 +691,12 @@ public class DashboardRequestsFragment extends Fragment implements RecyclerViewA
       /*  final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-        Log.e("url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("url", Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getCommunicationCount + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("getSavedList ", response.toString() + "  ==   ");
+                        //Log.e("getSavedList ", response.toString() + "  ==   ");
                         Gson gsonc;
                         GsonBuilder gsonBuilderc = new GsonBuilder();
                         gsonc = gsonBuilderc.create();

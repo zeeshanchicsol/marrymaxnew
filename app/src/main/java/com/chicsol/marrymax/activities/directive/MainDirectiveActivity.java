@@ -72,7 +72,7 @@ public class MainDirectiveActivity extends AppCompatActivity implements dialogPr
             data = new Bundle();//create bundle instance
             data.putString("subtype", subType);//put string to pass with a PassPhraseArdAp value
         }
-        Log.e("Log", "" + type);
+       // Log.e("Log", "" + type);
 
         Fragment fragment = null;
         switch (type) {

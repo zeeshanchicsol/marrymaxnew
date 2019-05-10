@@ -136,14 +136,14 @@ public class dialogSaveSearch extends DialogFragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }*/
-        Log.e("Params", "" + params);
+        //Log.e("Params", "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.saveSearch, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  save search", response + "");
+                        //Log.e("re  save search", response + "");
                         try {
                             int responseid = response.getInt("id");
 

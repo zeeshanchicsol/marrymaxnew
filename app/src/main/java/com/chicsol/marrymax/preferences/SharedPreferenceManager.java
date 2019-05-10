@@ -93,7 +93,7 @@ public class SharedPreferenceManager {
         Gson gson = new Gson();
 
         String json = gson.toJson(arrayList);
-        Log.e("set json", json);
+        //Log.e("set json", json);
         editor.putString(SUGGESTION_LIST, json);
         editor.commit();
 
@@ -106,7 +106,7 @@ public class SharedPreferenceManager {
                 .getSharedPreferences(MARRYMAX_EMAIL_SUGGESTION_PREFER_NAME, PRIVATE_MODE);
         Gson gson = new Gson();
         String json = sharedPrefs.getString(SUGGESTION_LIST, null);
-        Log.e("get json", json + "");
+        //Log.e("get json", json + "");
         ArrayList arrayList = null;
 
         if (json != null) {

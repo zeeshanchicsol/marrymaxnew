@@ -233,14 +233,14 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", Urls.myList + "" + params);
+        //Log.e("Params", Urls.myList + "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.myList, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
 
 
@@ -255,7 +255,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
 
                             dataList = (List<mMemList>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
 
-                            Log.e("AddtoListList", "" + dataList.size());
+                            //Log.e("AddtoListList", "" + dataList.size());
                             if (dataList.size() > 0) {
                                /* LinearLayoutMMMatchesNotFound.setVisibility(View.GONE);
                                 llmainLayout.setVisibility(View.VISIBLE);
@@ -330,14 +330,14 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", Urls.addEditList + "" + params);
+        //Log.e("Params", Urls.addEditList + "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.addEditList, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re   myList", response + "");
+                        //Log.e("re   myList", response + "");
 
 
 
@@ -345,7 +345,7 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
                       int responseid = 0;
                         try {
                             responseid = response.getInt("id");
-                            Log.e("id is ",""+responseid);
+                            //Log.e("id is ",""+responseid);
                             if (responseid >= 0) {
 
                               //  Toast.makeText(getContext(), "Member added to lists successfully", Toast.LENGTH_SHORT).show();
@@ -476,14 +476,14 @@ public class dialogAddtoList extends DialogFragment implements MyAddToListAdapte
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", Urls.addMemList + "" + params);
+        //Log.e("Params", Urls.addMemList + "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.addMemList, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re   myList", response + "");
+                        //Log.e("re   myList", response + "");
                         getData();
 
                         int responseid = 0;

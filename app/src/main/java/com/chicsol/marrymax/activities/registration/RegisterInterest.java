@@ -100,7 +100,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                 ViewGenerator vg = new ViewGenerator(RegisterInterest.this);
 
 
-                Log.e("selecccccc", "44" + vg.getSelectionFromCheckbox(gridLayout));
+                //Log.e("selecccccc", "44" + vg.getSelectionFromCheckbox(gridLayout));
                 if (vg.getSelectionFromCheckbox(gridLayout) != "") {
 
 
@@ -205,7 +205,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res mainnnnnnnnnnn", response + "");
+                        //Log.e("res mainnnnnnnnnnn", response + "");
                         try {
 
                             pDialog.dismiss();
@@ -244,7 +244,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
 
                         ViewGenerator viewGenerator = new ViewGenerator(RegisterInterest.this);
 
-                        Log.e("Perssssssssss", members_obj.getInterest_ids() + "h");
+                        //Log.e("Perssssssssss", members_obj.getInterest_ids() + "h");
                         if (members_obj.getInterest_ids().equals("")) {
                             updateData = false;
 
@@ -308,14 +308,14 @@ public class RegisterInterest extends BaseRegistrationActivity {
         pDialog.show();
 
 
-        Log.e("Params interest "+ Urls.updateInterestUrl, "" + params);
+        //Log.e("Params interest "+ Urls.updateInterestUrl, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateInterestUrl, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             int responseid = response.getInt("id");
 

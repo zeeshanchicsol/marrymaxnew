@@ -322,16 +322,16 @@ public class QuestionsActivity extends AppCompatActivity {
   /*      final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-        Log.e("api path", "" + Urls.getQuestionAnswers + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e("api path", "" + Urls.getQuestionAnswers + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getQuestionAnswers,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                        //Log.e("Response", response.toString());
                         try {
 
-                            Log.e("array length is", response.length() + "");
+                            //Log.e("array length is", response.length() + "");
                             JSONArray jsonCountryStaeObj = response.getJSONArray(0);
 
 
@@ -342,7 +342,7 @@ public class QuestionsActivity extends AppCompatActivity {
                             }.getType();
 
                             List<mMemList> questDataList = (List<mMemList>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                            Log.e("MyCountryStateDataList", "" + questDataList.size());
+                            //Log.e("MyCountryStateDataList", "" + questDataList.size());
 
 
                             parentChildObj = new ArrayList<>();
@@ -412,14 +412,14 @@ public class QuestionsActivity extends AppCompatActivity {
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
 
-        Log.e("Params " + Urls.sendQuestion, "" + params);
+        //Log.e("Params " + Urls.sendQuestion, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.sendQuestion, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid >= 0) {
@@ -486,14 +486,14 @@ public class QuestionsActivity extends AppCompatActivity {
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
 
-        Log.e("Params Member Data" + Urls.memberData, "" + params);
+        //Log.e("Params Member Data" + Urls.memberData, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.memberData, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             //JSONArray jaData = response.getJSONArray("data");
 
@@ -509,7 +509,7 @@ public class QuestionsActivity extends AppCompatActivity {
                             if (member != null) {
                                 initHeade(member);
                             }
-                            Log.e("getAlias", "" + member.getAge() + "   " + member.getLast_login_date());
+                            //Log.e("getAlias", "" + member.getAge() + "   " + member.getLast_login_date());
 
 
                         } catch (JSONException e) {

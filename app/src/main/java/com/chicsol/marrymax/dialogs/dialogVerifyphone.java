@@ -199,7 +199,7 @@ public class dialogVerifyphone extends DialogFragment {
                     e.printStackTrace();
                 }
 
-                Log.e("params contact", params.toString());
+                //Log.e("params contact", params.toString());
                 contactUs(params);
 
 
@@ -281,12 +281,12 @@ public class dialogVerifyphone extends DialogFragment {
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("path", "" + Urls.getMobileCode + path);
+        //Log.e("path", "" + Urls.getMobileCode + path);
         StringRequest req = new StringRequest(Urls.getMobileCode + path,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("Response--", response.toString() + "==");
+                        //Log.d("Response--", response.toString() + "==");
                         if (response != null) {
 
                             if (Long.parseLong(response) == 0) {
@@ -346,14 +346,14 @@ public class dialogVerifyphone extends DialogFragment {
             e.printStackTrace();
         }
 
-        Log.e("validateMobile " + "  " + Urls.validateMobile, "" + params);
+        //Log.e("validateMobile " + "  " + Urls.validateMobile, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.validateMobile, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Response verification", response + "");
+                        //Log.e("Response verification", response + "");
 
 
                         Gson gson;
@@ -451,14 +451,14 @@ public class dialogVerifyphone extends DialogFragment {
 
     private void contactUs(JSONObject params) {
 
-        Log.e("params", "" + params);
+        //Log.e("params", "" + params);
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
 
 
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
-        Log.e("params url", Urls.contactUs + "  ==  " + params);
+        //Log.e("params url", Urls.contactUs + "  ==  " + params);
 
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -467,7 +467,7 @@ public class dialogVerifyphone extends DialogFragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res", response + "");
+                        //Log.e("res", response + "");
                         pDialog.dismiss();
 
                         try {

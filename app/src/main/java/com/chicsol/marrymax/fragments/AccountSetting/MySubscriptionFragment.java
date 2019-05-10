@@ -257,15 +257,15 @@ public class MySubscriptionFragment extends Fragment {
     private void putRequestGetSubscription(JSONObject params) {
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("GetSubscription params", params.toString());
-        Log.e("GetSubscription ", Urls.subscriptionData);
+        //Log.e("GetSubscription params", params.toString());
+        //Log.e("GetSubscription ", Urls.subscriptionData);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.subscriptionData, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  subscription ", response.toString() + "");
+                        //Log.e("Res  subscription ", response.toString() + "");
 
 
                         try {

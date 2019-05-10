@@ -118,9 +118,9 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
             memberSearchObj = gson.fromJson(getIntent().getStringExtra("memresult"), Members.class);
 
-            Log.e(TAG + " TYPE", "=- " + memberSearchObj.getType());
-            Log.e(TAG + " memresult", "=- " + getIntent().getStringExtra("memresult"));
-            Log.e(TAG + " userpath", "=- " + SharedPreferenceManager.getUserObject(getApplicationContext()).getUserpath());
+            //Log.e(TAG + " TYPE", "=- " + memberSearchObj.getType());
+            //Log.e(TAG + " memresult", "=- " + getIntent().getStringExtra("memresult"));
+            //Log.e(TAG + " userpath", "=- " + SharedPreferenceManager.getUserObject(getApplicationContext()).getUserpath());
 
             // Toast.makeText(this, "" + selectedposition, Toast.LENGTH_SHORT).show();
 
@@ -130,11 +130,11 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
             int pageNumber = (int) t;
 
 
-            Log.e(TAG + " selectedposition", "=- " + selectedposition);
-            Log.e(TAG + "selec", "=- " + lastDigit(selectedposition));
+            //Log.e(TAG + " selectedposition", "=- " + selectedposition);
+            //Log.e(TAG + "selec", "=- " + lastDigit(selectedposition));
 
 
-            Log.e(TAG + "pageNumber", "" + pageNumber);
+            //Log.e(TAG + "pageNumber", "" + pageNumber);
 
 
             Gson gsonc;
@@ -146,7 +146,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
             }.getType();
 
             membersDataList = (List<Members>) gsonc.fromJson(memdatalist, listType);
-            Log.e(TAG + "selectedposition", "" + selectedposition);
+            //Log.e(TAG + "selectedposition", "" + selectedposition);
 
 
   /*      Members memberSearchObj = defaultSelectionsObj;
@@ -177,7 +177,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
             memberSearchObj.setPage_no(pageNumber);
             String params = gson.toJson(memberSearchObj);
-            Log.e(TAG + "params  memberSearchObj", "=- " + params);
+            //Log.e(TAG + "params  memberSearchObj", "=- " + params);
             listUserProfiles(params);
 
 
@@ -214,7 +214,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
           //      Log.e(TAG + "ff adapter.getCount()", "" + adapter.getCount());
 
                 if (position == (adapter.getCount() - 1) && current_page < total_pages) {
-                    Log.e("ff in", "in ");
+                    //Log.e("ff in", "in ");
 
 
                     addBackward = false;
@@ -226,7 +226,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                     memberSearchObj.setPage_no(current_page);
                     Gson gson = new Gson();
                     String params = gson.toJson(memberSearchObj);
-                    Log.e(TAG + " params string", params + "==");
+                    //Log.e(TAG + " params string", params + "==");
 
                     //  listUserProfiles(params);
                     listMoreUserProfiles(params);
@@ -239,7 +239,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
                     lastSelectedPosition = position;
                     addBackward = true;
-                    Log.e("ff in", "in ");
+                    //Log.e("ff in", "in ");
 
                     firstTime = false;
 
@@ -250,7 +250,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                     memberSearchObj.setPage_no(current_page);
                     Gson gson = new Gson();
                     String params = gson.toJson(memberSearchObj);
-                    Log.e(TAG + " params string", params + "==");
+                    //Log.e(TAG + " params string", params + "==");
 
                     listMoreUserProfiles(params);
 
@@ -413,7 +413,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
             if (addBackward) {
                 mFragmentList.add(0, fragment);
                 mFragmentTitleList.add(0, title);
-                Log.e("addBackward", "addbackwards");
+                //Log.e("addBackward", "addbackwards");
 
             } else {
                 mFragmentList.add(fragment);
@@ -474,18 +474,18 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  listProfiles ", response + "");
+                        //Log.e("Res  listProfiles ", response + "");
 
                         try {
                             // JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
                             int page_num = response.getInt("page_no");
-                            Log.e(TAG + "listProfiles page_num", "" + page_num);
+                            //Log.e(TAG + "listProfiles page_num", "" + page_num);
                             int count = response.getInt("count");
-                            Log.e(TAG + " listProfiles", "" + count);
+                            //Log.e(TAG + " listProfiles", "" + count);
 
                             total_pages = Math.round(count / 50);
 
-                            Log.e(TAG + "total_pages aa", total_pages + "");
+                            //Log.e(TAG + "total_pages aa", total_pages + "");
                             JSONArray jsonArray = response.getJSONArray("prfids");
 
                             ArrayList<String> pathDataList = new ArrayList<>();
@@ -493,15 +493,15 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 pathDataList.add(jsonArray.get(i).toString());
 
-                                Log.e(TAG + "listProfiles size", "" + jsonArray.get(i).toString() + "====================");
+                                //Log.e(TAG + "listProfiles size", "" + jsonArray.get(i).toString() + "====================");
                                 if (jsonArray.get(i).toString().equals(selectedUserPath)) {
-                                    Log.e(TAG + "selectedPathMatch ", "" + jsonArray.get(i).toString() + "     ====================");
-                                    Log.e(TAG + "selectedPathMatch ", "" + selectedposition + "     ====================  " + i);
+                                    //Log.e(TAG + "selectedPathMatch ", "" + jsonArray.get(i).toString() + "     ====================");
+                                    //Log.e(TAG + "selectedPathMatch ", "" + selectedposition + "     ====================  " + i);
                                 }
 
                                 if (selectedposition == i) {
-                                    Log.e(TAG + "selectedPath", "" + jsonArray.get(i).toString() + "     ====================");
-                                    Log.e(TAG + "selectedPath", "" + selectedUserPath + "    ====================");
+                                    //Log.e(TAG + "selectedPath", "" + jsonArray.get(i).toString() + "     ====================");
+                                    //Log.e(TAG + "selectedPath", "" + selectedUserPath + "    ====================");
 
 
                                 }
@@ -509,7 +509,7 @@ public class UserProfileActivityWithSlider extends AppCompatActivity {
                             }
 
 
-                            Log.e(TAG + "listProfiles size", "" + pathDataList.size() + "====================");
+                            //Log.e(TAG + "listProfiles size", "" + pathDataList.size() + "====================");
                             try {
                                 //  up(viewPagerProfileSlider, pathDataList);
                                 updateDataList(pathDataList);

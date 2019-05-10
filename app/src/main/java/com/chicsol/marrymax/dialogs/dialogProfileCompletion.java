@@ -262,13 +262,13 @@ public class dialogProfileCompletion extends DialogFragment {
         pDialog.setMessage("Loading...");
         pDialog.show();
         pDialog.setCancelable(false);
-        Log.e("api path", "" + Urls.getEmailCode + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("api path", "" + Urls.getEmailCode + SharedPreferenceManager.getUserObject(context).getPath());
 
         StringRequest req = new StringRequest(Urls.getEmailCode + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e("Resp email  onse", response.toString());
+                        //Log.e("Resp email  onse", response.toString());
                         //   try {
                         int responseid = Integer.parseInt(response);
 

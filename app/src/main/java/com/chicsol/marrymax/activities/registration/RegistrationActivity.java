@@ -126,7 +126,7 @@ public class RegistrationActivity extends AppCompatActivity {
         updateData = getIntent().getBooleanExtra("updateData", false);
 
         getCurrentIP();
-        Log.e("second ip is:", getLocalIpAddress());
+        //Log.e("second ip is:", getLocalIpAddress());
 
 
     }
@@ -144,13 +144,13 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
                         //      mTextView.setText("Response is: "+ response.substring(0,500));
-                        Log.e("ip is", response.toString());
+                        //Log.e("ip is", response.toString());
 
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("response error", "" + error);
+                //Log.e("response error", "" + error);
 
             }
         });
@@ -173,7 +173,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 }
             }
         } catch (Exception ex) {
-            Log.e("IP Address", ex.toString());
+            //Log.e("IP Address", ex.toString());
         }
         return null;
     }
@@ -757,7 +757,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                                                         e.printStackTrace();
                                                                     }
 
-                                                                    Log.e("params", "" + params);
+                                                                    //Log.e("params", "" + params);
                                                                     RegisterUser(email, password, params);
 
                                                                 } else {
@@ -938,7 +938,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         pDialog.show();
 
-        Log.e("url", "" + url);
+        //Log.e("url", "" + url);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 url, null,
                 new Response.Listener<JSONObject>() {
@@ -947,7 +947,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
 
 
-                        Log.d("res", response.toString());
+                        //Log.d("res", response.toString());
                         try {
 
                             Gson gsonc;
@@ -1011,7 +1011,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         ///    pDialog.show();
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
-        Log.e("validateAlias url", Urls.validateAlias + "  ==  " + params);
+        //Log.e("validateAlias url", Urls.validateAlias + "  ==  " + params);
 
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -1020,7 +1020,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("validateAlias", response + "");
+                        //Log.e("validateAlias", response + "");
                         //    pDialog.dismiss();
 
                         try {
@@ -1100,7 +1100,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         pDialog.show();
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
-        Log.e("params url", Urls.RegistrationUrl + "  ==  " + params);
+        //Log.e("params url", Urls.RegistrationUrl + "  ==  " + params);
 
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -1109,7 +1109,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res", response + "");
+                        //Log.e("res", response + "");
                         pDialog.dismiss();
 
                         try {
@@ -1133,7 +1133,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             } else if (responseid == 8) {
                                 Toast.makeText(RegistrationActivity.this, "Profile Name Not Valid", Toast.LENGTH_SHORT).show();
                             }
-                            Log.e("Response id", responseid + "");
+                            //Log.e("Response id", responseid + "");
                             //    Log.d("Alias", response.get("alias").toString());
                             ///   Log.d("member status", response.getInt("member_status") + "");
                                        /*   Intent in = new Intent(RegistrationActivity.this, RegisterGeographicActivity.class);
@@ -1200,7 +1200,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res", response.toString());
+                        //Log.e("res", response.toString());
                         pDialog.dismiss();
                         try {
 

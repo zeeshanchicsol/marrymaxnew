@@ -436,7 +436,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.e("log " + charSequence, "" + charSequence.length());
+                //Log.e("log " + charSequence, "" + charSequence.length());
                 if (charSequence.length() > 0) {
                     //  Drawable img = getResources().getDrawable(R.drawable.ic_search_black_24dp);
 
@@ -682,7 +682,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
             e.printStackTrace();
         }
 
-        Log.e("Params search" + " " + Urls.searchedCount, "" + params);
+        //Log.e("Params search" + " " + Urls.searchedCount, "" + params);
 
         //Log.e("Params search" + " " + Urls.searchProfiles, "");
         final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -691,7 +691,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  serrr appearance", response + "");
+                        //Log.e("re  serrr appearance", response + "");
                         try {
                             int id = Math.round(Float.parseFloat(response.get("id").toString()));
                             EventBus.getDefault().postSticky(new MatchesCountUpdateEvent(id + ""));
@@ -711,7 +711,7 @@ public class SearchMainActivity extends AppCompatActivity implements ListViewAdv
             public void onErrorResponse(VolleyError error) {
 
 
-                VolleyLog.e("res err", "Error: " + error);
+              //  VolleyLog.e("res err", "Error: " + error);
                 //   if (!refresh) {
                 //pDialog.dismiss();
                 //   pDialog.setVisibility(View.INVISIBLE);

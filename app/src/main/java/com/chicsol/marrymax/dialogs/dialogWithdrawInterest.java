@@ -153,7 +153,7 @@ public class dialogWithdrawInterest extends DialogFragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  wwww interest", response + "");
+                        //Log.e("re  wwww interest", response + "");
                         try {
                             int responseid = response.getInt("id");
 

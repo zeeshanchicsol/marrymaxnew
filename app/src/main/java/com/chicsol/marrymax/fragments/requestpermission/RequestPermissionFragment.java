@@ -68,7 +68,7 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarRequestPermissions);
 
 
-        Log.e("Permission", permissioncheck + "");
+        //Log.e("Permission", permissioncheck + "");
 
 
         tvTitle = (TextView) view.findViewById(R.id.TextViewRequestPermissionTitle);
@@ -135,14 +135,14 @@ public class RequestPermissionFragment extends Fragment implements RecyclerViewA
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", Urls.requestPermissions + "=====" + params);
+        //Log.e("Params", Urls.requestPermissions + "=====" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.requestPermissions, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re request permissions", response + "");
+                        //Log.e("re request permissions", response + "");
                         try {
 
 

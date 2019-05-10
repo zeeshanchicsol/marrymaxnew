@@ -136,13 +136,13 @@ public class RecyclerViewAdapterChatList extends RecyclerView.Adapter<RecyclerVi
                         if (widthScreen > heightScreen) {
                             int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
                             //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                             bmp_sticker = resizeImage(bmp, h);
                         } else {
                             int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
                             //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
                             bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                         }
 
                         return bmp_sticker;
@@ -203,7 +203,7 @@ public class RecyclerViewAdapterChatList extends RecyclerView.Adapter<RecyclerVi
     @Override
     public void onBindViewHolder(MMViewHolder holder, int position) {
         final mCommunication obj = items.get(position);
-        Log.e("messagee", obj.getMessage() + "==" + obj.self);
+        //Log.e("messagee", obj.getMessage() + "==" + obj.self);
         //holder.tvText1.setText(Html.fromHtml(obj.getMessage()));
         if (obj.self == 0) {
 
@@ -252,7 +252,7 @@ public class RecyclerViewAdapterChatList extends RecyclerView.Adapter<RecyclerVi
         } else {
             holder.tvText1.setText(Html.fromHtml(obj.getMessage()));
 
-            Log.e("date is ", obj.getMessage_date());
+            //Log.e("date is ", obj.getMessage_date());
 
             holder.tvDate1.setText(marryMax.convertUTCTimeToLocalWithAgo(obj.getMessage_date()));
             // holder.tvCountry.setText(member.getCountry_name());
@@ -317,7 +317,7 @@ public class RecyclerViewAdapterChatList extends RecyclerView.Adapter<RecyclerVi
         items.addAll(lst);
         notifyDataSetChanged();
 
-        Log.e("item size in adapter", items.size() + "");
+        //Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<mCommunication> lst) {

@@ -168,7 +168,7 @@ public class RecommendedMatches extends Fragment implements RecyclerViewAdapterR
             e.printStackTrace();
         }
 
-        Log.e("Params contacts" + " " + Urls.recommendList, "" + params);
+        //Log.e("Params contacts" + " " + Urls.recommendList, "" + params);
 
         //  Log.e("Params search" + " " + Urls.searchProfiles, "");
         final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -177,13 +177,13 @@ public class RecommendedMatches extends Fragment implements RecyclerViewAdapterR
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("recommendList  recommendList ", response + "");
+                        //Log.e("recommendList  recommendList ", response + "");
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 0) {
 
-                                Log.e("----------------Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("----------------Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
 
 

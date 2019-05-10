@@ -174,7 +174,7 @@ public class RecyclerViewAdapterFeedbackQuestions extends RecyclerView.Adapter<R
         items.addAll(lst);
         notifyDataSetChanged();
 
-        Log.e("item size in adapter", items.size() + "");
+        //Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<WebArd

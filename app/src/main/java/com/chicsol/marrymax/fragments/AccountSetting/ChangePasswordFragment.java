@@ -156,8 +156,8 @@ public class ChangePasswordFragment extends Fragment {
                 try {
 
 
-                    Log.e("Loggggg", etOldPassword.getText().toString());
-                    Log.e("Loggggg", SharedPreferenceManager.getUserObject(context).getPassword());
+                    //Log.e("Loggggg", etOldPassword.getText().toString());
+                    //Log.e("Loggggg", SharedPreferenceManager.getUserObject(context).getPassword());
                 } catch (Exception e) {
                     UserSessionManager sessionManager = new UserSessionManager(context);
                     sessionManager.logoutUser();
@@ -239,14 +239,14 @@ public class ChangePasswordFragment extends Fragment {
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
 
-        Log.e("Params", "" + params);
+        //Log.e("Params", "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updatePassword, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid == 1) {

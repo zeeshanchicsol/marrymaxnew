@@ -80,7 +80,7 @@ public class DashboardAccountSettingFragment extends Fragment implements Dashboa
     private void initialize(View rootView) {
 
         typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/centurygothic.ttf");
-        Log.e("inittt", "inittttttttttttt=======");
+        //Log.e("inittt", "inittttttttttttt=======");
 
         //  TextView mTitle = (TextView) toolbar.findViewById(R.id.text_toolbar_title);
         //  mTitle.setTypeface(typeface);

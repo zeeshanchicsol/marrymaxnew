@@ -132,13 +132,13 @@ public class RecyclerViewAdapterInBoxList extends RecyclerView.Adapter<RecyclerV
                         if (widthScreen > heightScreen) {
                             int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
                             //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                             bmp_sticker = resizeImage(bmp, h);
                         } else {
                             int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
                             //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
                             bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                         }
 
                         return bmp_sticker;
@@ -264,7 +264,7 @@ public class RecyclerViewAdapterInBoxList extends RecyclerView.Adapter<RecyclerV
         items.clear();
         items.addAll(lst);
         notifyDataSetChanged();
-        Log.e("item size in adapter", items.size() + "");
+        //Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<mCommunication> lst) {

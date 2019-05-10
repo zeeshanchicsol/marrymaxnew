@@ -185,7 +185,7 @@ public class MemberListActivity extends AppCompatActivity implements RecyclerVie
             e.printStackTrace();
         }
 
-        Log.e("Params membersList" + " " + Urls.membersList, "" + params);
+        //Log.e("Params membersList" + " " + Urls.membersList, "" + params);
 
         //  Log.e("Params search" + " " + Urls.searchProfiles, "");
         final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -194,13 +194,13 @@ public class MemberListActivity extends AppCompatActivity implements RecyclerVie
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update contacts", response + "");
+                        //Log.e("re  update contacts", response + "");
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 0) {
 
-                                Log.e("----------------Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("----------------Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
 
 

@@ -315,14 +315,14 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Log.e("Params", "" + params);
+        //Log.e("Params", "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.defaultPicture, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             int responseid = response.getInt("id");
 
@@ -374,14 +374,14 @@ public class RecyclerViewAdapterUploadPictures extends RecyclerView.Adapter<Recy
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Log.e("del Params", Urls.deletePics + "----" + params);
+        //Log.e("del Params", Urls.deletePics + "----" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.deletePics, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             int responseid = response.getInt("id");
 

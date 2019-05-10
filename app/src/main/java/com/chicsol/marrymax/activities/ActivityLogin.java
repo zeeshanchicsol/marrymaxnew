@@ -118,7 +118,7 @@ public class ActivityLogin extends AppCompatActivity {
         Calendar cl2 = Calendar.getInstance();
 
         Long ticks = 621355968000000000L + cl2.getTimeInMillis() * 10000;
-        Log.e("ticks ", "ticks " + ticks + "   ms  " + cl2.getTimeInMillis());
+       //Log.e("ticks ", "ticks " + ticks + "   ms  " + cl2.getTimeInMillis());
 
 
     }
@@ -163,7 +163,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
         if (SharedPreferenceManager.getEmailSuggestionList(getApplicationContext()) == null) {
-            //    Log.e("array null", "null");
+            //   //Log.e("array null", "null");
         } else {
             emailSuggestionList.addAll(SharedPreferenceManager.getEmailSuggestionList(getApplicationContext()));
             // mcList.add("zeeshan40@gmail.com");
@@ -354,7 +354,7 @@ public class ActivityLogin extends AppCompatActivity {
             e.printStackTrace();
         }
 
-      //  Log.e("Log params ", Urls.LoginUrl + "   " + params);
+      // //Log.e("Log params ", Urls.LoginUrl + "   " + params);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.LoginUrl, params,
@@ -362,7 +362,7 @@ public class ActivityLogin extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res", response.toString());
+                       //Log.e("res", response.toString());
                         try {
 
 
@@ -395,7 +395,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
                                 checkUserStatus(member);
-                                //   Log.e("Reggggggggggg type",member.getRegistration_within_id() + "");
+                                //  //Log.e("Reggggggggggg type",member.getRegistration_within_id() + "");
 
                             } else {
 
@@ -547,7 +547,7 @@ public class ActivityLogin extends AppCompatActivity {
      /*   final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-        Log.e("getUsageInfo", "" + Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+       //Log.e("getUsageInfo", "" + Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {

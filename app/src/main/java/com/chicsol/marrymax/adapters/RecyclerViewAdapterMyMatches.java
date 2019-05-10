@@ -211,13 +211,13 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                         if (widthScreen > heightScreen) {
                             int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
                             //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                             bmp_sticker = resizeImage(bmp, h);
                         } else {
                             int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
                             //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
                             bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                         }
 
                         return bmp_sticker;
@@ -692,7 +692,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                 @Override
                 public void onClick(View view) {
 
-                    Log.e("Loggg===" + member.getRequest_response_id(), "==" + member.getRequest_response_id());
+                    //Log.e("Loggg===" + member.getRequest_response_id(), "==" + member.getRequest_response_id());
 
 
                     boolean checkStatus = marryMax.statusBaseChecks(member, context, 2, frgMngr, fragment, view, null, null, null, null);
@@ -855,15 +855,15 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
         pDialog.setMessage("Loading...");
         pDialog.show();
         pDialog.setCancelable(true);
-        Log.e("showInterest params", params.toString());
-        Log.e("profile path", Urls.interestProvisions);
+        //Log.e("showInterest params", params.toString());
+        //Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.interestProvisions, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -876,7 +876,7 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
                             Type type = new TypeToken<mMemInterest>() {
                             }.getType();
                             mMemInterest member2 = (mMemInterest) gson.fromJson(responseObject.toString(), type);
-                            Log.e("interested id", "" + member.getAlias() + "====================");
+                            //Log.e("interested id", "" + member.getAlias() + "====================");
 
                             //    if (member2.getFeedback_due() == 0) {
 
@@ -1009,8 +1009,8 @@ public class RecyclerViewAdapterMyMatches extends RecyclerView.Adapter<RecyclerV
     @Override
     public void onComplete(String s) {
         Toast.makeText(context, "Recycler ", Toast.LENGTH_SHORT).show();
-        Log.e("clicked ", "Clicked");
-        Log.e("--------------------", "---------------Recycler------------------------------------");
+        //Log.e("clicked ", "Clicked");
+        //Log.e("--------------------", "---------------Recycler------------------------------------");
     }
 
 

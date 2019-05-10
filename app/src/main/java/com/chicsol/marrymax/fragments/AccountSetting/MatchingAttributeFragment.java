@@ -225,7 +225,7 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
                         try {
 
 
@@ -239,7 +239,7 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
                             }.getType();
 
                             List<PrefMatching> dataList = (List<PrefMatching>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                            Log.e("Response", dataList.size() + "");
+                            //Log.e("Response", dataList.size() + "");
                             ViewGenerator viewGenerator = new ViewGenerator(getContext());
                             Point size = new Point();
                             if (getActivity() != null) {
@@ -362,7 +362,7 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
 
 
         }
-        Log.e("Log   a", "" + selectedIds);
+        //Log.e("Log   a", "" + selectedIds);
         return selectedIds;
 
 
@@ -372,15 +372,15 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
     private void updatePrefRequest(JSONObject params) {
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.editPreferences);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.editPreferences);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.editPreferences, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
 
                         try {

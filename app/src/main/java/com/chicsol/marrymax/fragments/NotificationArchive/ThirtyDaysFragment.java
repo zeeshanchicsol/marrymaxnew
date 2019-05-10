@@ -136,7 +136,7 @@ public class ThirtyDaysFragment extends Fragment implements RecyclerViewAdapterN
 
                     @Override
                     public void onResponse(JSONObject response) {
-                      Log.e("load notificaitons", response + "");
+                      //Log.e("load notificaitons", response + "");
 
 
                         try {

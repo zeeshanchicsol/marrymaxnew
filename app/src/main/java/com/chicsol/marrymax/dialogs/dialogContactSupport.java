@@ -284,14 +284,14 @@ public class dialogContactSupport extends DialogFragment {
         pDialog.setMessage("Loading...");
         pDialog.show();
 
-         Log.e("contactUs" + "  " + Urls.contactUs, "" + params);
+         //Log.e("contactUs" + "  " + Urls.contactUs, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.contactUs, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid == 1) {

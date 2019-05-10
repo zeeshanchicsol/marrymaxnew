@@ -189,7 +189,7 @@ public class MyMatchesFragment extends BaseMatchesFragment implements RecyclerVi
         super.setUserVisibleHint(isVisibleToUser);
         if (getView() != null) {
             if (isVisibleToUser) {
-                Log.e("MY MATCHES" + isVisibleToUser, "created");
+                //Log.e("MY MATCHES" + isVisibleToUser, "created");
 
                 //  new MarryMax(null).getRawData(context, 0);
             }
@@ -309,7 +309,7 @@ public class MyMatchesFragment extends BaseMatchesFragment implements RecyclerVi
         if (lastPage != totalPages && lastPage < totalPages) {
             lastPage = lastPage + 1;
 
-            Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
+            //Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
        /*     Members memberSearchObj = DrawerActivity.rawSearchObj;
 
             memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
@@ -429,7 +429,7 @@ public class MyMatchesFragment extends BaseMatchesFragment implements RecyclerVi
             e.printStackTrace();
         }
 
-        Log.e("Params mymatches" + " " + Urls.searchProfiles, "" + params);
+        //Log.e("Params mymatches" + " " + Urls.searchProfiles, "" + params);
 
         //  Log.e("Params search" + " " + Urls.searchProfiles, "");
         final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -438,13 +438,13 @@ public class MyMatchesFragment extends BaseMatchesFragment implements RecyclerVi
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 
@@ -566,7 +566,7 @@ public class MyMatchesFragment extends BaseMatchesFragment implements RecyclerVi
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 
@@ -693,7 +693,7 @@ public class MyMatchesFragment extends BaseMatchesFragment implements RecyclerVi
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                        //Log.e("Response", response.toString());
                         try {
                             //       Log.e("getRawData finished===", "==========================");
 

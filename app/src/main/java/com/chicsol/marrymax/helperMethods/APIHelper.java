@@ -72,13 +72,13 @@ public class APIHelper {
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("api path", "" + Urls.getStatesUrl + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("api path", "" + Urls.getStatesUrl + SharedPreferenceManager.getUserObject(context).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getStatesUrl + country_id,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
                         try {
 
 
@@ -137,14 +137,14 @@ public class APIHelper {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", "" + params);
+        //Log.e("Params", "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateUserAppearanceUrl, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                     /*    try {
                             int responseid = response.getInt("id");
 
@@ -193,15 +193,15 @@ public class APIHelper {
         final ProgressDialog pDialog = new ProgressDialog(context);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.interestProvisions);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.interestProvisions, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -257,12 +257,12 @@ public class APIHelper {
     private void getNotificationCount() {
 
 
-        Log.e(" Notification url", Urls.getNotificationCount + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e(" Notification url", Urls.getNotificationCount + SharedPreferenceManager.getUserObject(context).getPath());
         StringRequest req = new StringRequest(Urls.getNotificationCount + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e("Notification Count==", "=======================  " + response);
+                        //Log.e("Notification Count==", "=======================  " + response);
 
                     }
                 }, new Response.ErrorListener() {

@@ -175,7 +175,7 @@ public class dialogMatchAid extends DialogFragment {
             }.getType();
             dataList = (List<WebArdType>) gsonc.fromJson(jsonCountryStaeObj.get(0).toString(), listType);
             ViewGenerator viewGenerator = new ViewGenerator(getContext());
-            Log.e("Member Status", "" + member_status);
+            //Log.e("Member Status", "" + member_status);
 
 
             if (member_status < 4) {
@@ -282,7 +282,7 @@ public class dialogMatchAid extends DialogFragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("response   ", response + "");
+                        //Log.e("response   ", response + "");
                         try {
                             int responseid = response.getInt("id");
 

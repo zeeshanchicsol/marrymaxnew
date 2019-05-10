@@ -179,14 +179,14 @@ public class  MySavedListAdapter extends ArrayAdapter<mSavList> {
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Log.e("params" + "  " + Urls.deleteList, "" + params);
+        //Log.e("params" + "  " + Urls.deleteList, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.deleteList, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid == 1) {

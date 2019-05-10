@@ -187,13 +187,13 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
                         if (widthScreen > heightScreen) {
                             int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
                             //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                             bmp_sticker = resizeImage(bmp, h);
                         } else {
                             int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
                             //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
                             bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                         }
 
                         return bmp_sticker;
@@ -342,7 +342,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
 
             if (!interestCheck) {
 
-                Log.e("obj.getRequest_id()", "" + obj.getRequest_type_id());
+                //Log.e("obj.getRequest_id()", "" + obj.getRequest_type_id());
                 if (obj.getRequest_type_id() == 1) {
                     holder.tvYes.setText("Upload Image");
                 } else {
@@ -492,7 +492,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            Log.e("params", Urls.responseInterest + "   " + params);
+                            //Log.e("params", Urls.responseInterest + "   " + params);
                             responseOnInterest(params, obj);
                         }
                     }
@@ -521,7 +521,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        Log.e("params", Urls.responseInterest + "   " + params);
+                        //Log.e("params", Urls.responseInterest + "   " + params);
                         responseOnInterest(params, obj);
 
                     }
@@ -611,7 +611,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
         items.clear();
         items.addAll(lst);
         notifyDataSetChanged();
-        Log.e("item size in adapter", items.size() + "");
+        //Log.e("item size in adapter", items.size() + "");
     }
 
     public void addItemMore(List<mCommunication> lst) {
@@ -621,8 +621,8 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
 
     @Override
     public void onComplete(String s) {
-        Log.e("clicked ", "Clicked");
-        Log.e("--------------------", "---------------Recycler------------------------------------");
+        //Log.e("clicked ", "Clicked");
+        //Log.e("--------------------", "---------------Recycler------------------------------------");
     }
 
     @Override
@@ -732,15 +732,15 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.interestProvisions);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.interestProvisions, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -812,7 +812,7 @@ public class RecyclerViewAdapterMyInterestsRequests extends RecyclerView.Adapter
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.e("re  responseOnInterest", response + "");
+                        //Log.e("re  responseOnInterest", response + "");
 
                         try {
                             int responseid = response.getInt("id");

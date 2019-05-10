@@ -194,17 +194,17 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
         pDialog.setVisibility(View.VISIBLE);
 
 
-        Log.e("getSubscriptions", "" + Urls.getSubscriptions + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e("getSubscriptions", "" + Urls.getSubscriptions + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getSubscriptions + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
                         try {
                             JSONArray jsonarrayData = response.getJSONArray(0);
 
-                            Log.e("json length", jsonarrayData.length() + "");
+                            //Log.e("json length", jsonarrayData.length() + "");
 
                             if (jsonarrayData.length() > 0) {
 

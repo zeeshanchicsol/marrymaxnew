@@ -260,12 +260,12 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(context).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getPreferences + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
                         try {
 
 
@@ -279,7 +279,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
                             }.getType();
 
                             List<PrefMatching> dataList = (List<PrefMatching>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                            Log.e("Response", dataList.size() + "");
+                            //Log.e("Response", dataList.size() + "");
                             ViewGenerator viewGenerator = new ViewGenerator(context);
                             Point size = new Point();
                             if (getActivity() != null) {
@@ -402,7 +402,7 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
 
 
         }
-        Log.e("Log   a", "" + selectedIds);
+        //Log.e("Log   a", "" + selectedIds);
         return selectedIds;
 
 
@@ -412,15 +412,15 @@ public class dialogMatchingAttributeFragment extends DialogFragment implements C
     private void updatePrefRequest(JSONObject params) {
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.editPreferences);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.editPreferences);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.editPreferences, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
 
                         try {

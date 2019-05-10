@@ -100,7 +100,7 @@ public class RemovedFromSearchesListAdapter extends ArrayAdapter<WebArdList> {
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-        Log.e("params", params.toString() + " " + Urls.removedList);
+        //Log.e("params", params.toString() + " " + Urls.removedList);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.removedList, params,
@@ -108,7 +108,7 @@ public class RemovedFromSearchesListAdapter extends ArrayAdapter<WebArdList> {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  ", response + "");
+                        //Log.e("Res  ", response + "");
 
                         try {
                             int responseid = response.getInt("id");

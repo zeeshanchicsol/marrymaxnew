@@ -358,7 +358,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
         if (lastPage != totalPages && lastPage < totalPages) {
             lastPage = lastPage + 1;
 
-            Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
+            //Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
        /*     Members memberSearchObj = DrawerActivity.rawSearchObj;
 
             memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
@@ -494,7 +494,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
             e.printStackTrace();
         }
 
-        Log.e(TAG + "Params search" + " " + Urls.searchProfiles, "" + params);
+        //Log.e(TAG + "Params search" + " " + Urls.searchProfiles, "" + params);
 
         //Log.e("Params search" + " " + Urls.searchProfiles, "");
         final JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -503,13 +503,13 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  serrr appearance", response + "");
+                    //    Log.e("re  serrr appearance", response + "");
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 
@@ -665,7 +665,7 @@ public class SearchResultsActivity extends AppCompatActivity implements Recycler
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 

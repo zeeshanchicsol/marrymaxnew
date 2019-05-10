@@ -234,7 +234,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                         }
 
 
-                        Log.e("choice_physic_ids", "" + choice_physic_ids);
+                        //Log.e("choice_physic_ids", "" + choice_physic_ids);
 
                         params.put("brothers_count", brothers_count);
 
@@ -404,14 +404,14 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
     private void GetLifeStyleData() {
 
         pDialog.show();
-        Log.e("url", "" + Urls.RegGetLifeStyle1Url2 + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e("url", "" + Urls.RegGetLifeStyle1Url2 + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 Urls.RegGetLifeStyle1Url2 + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("res mainnnnnnnnnnn", response + "");
+                        //Log.e("res mainnnnnnnnnnn", response + "");
                         try {
 
                             JSONArray jsonArrayFamily = response.getJSONArray("family");
@@ -455,9 +455,9 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
                             GsonBuilder gsonBuilder = new GsonBuilder();
 
                             gson = gsonBuilder.create();
-                            Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
+                            //Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
                             members_obj = gson.fromJson(jsonGrography.get(0).toString(), Members.class);
-                            Log.e("Aliaaaaaaaasss", members_obj.getCountry_id() + "");
+                            //Log.e("Aliaaaaaaaasss", members_obj.getCountry_id() + "");
 
 
                         } catch (JSONException e) {
@@ -541,7 +541,7 @@ public class RegisterLifeStyleActivity2 extends BaseRegistrationActivity {
         pDialog.show();
 
 
-        Log.e("Params", Urls.updateLifestyleUrl2 + "  " + params);
+        //Log.e("Params", Urls.updateLifestyleUrl2 + "  " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateLifestyleUrl2, params,
                 new Response.Listener<JSONObject>() {

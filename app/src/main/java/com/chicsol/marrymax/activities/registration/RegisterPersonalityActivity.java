@@ -451,7 +451,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                        //Log.e("Response", response.toString());
                         dismissProgressDialog();
                         //        try {
                         dialogDosDonts newFragment = dialogDosDonts.newInstance(response.toString());
@@ -551,7 +551,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
                         ViewGenerator viewGenerator = new ViewGenerator(RegisterPersonalityActivity.this);
 
-                        Log.e("Perssssssssss", members_obj.getPersonality_ids() + "");
+                        //Log.e("Perssssssssss", members_obj.getPersonality_ids() + "");
                         if (members_obj.getPersonality_ids().equals("")) {
                             updateData = false;
 
@@ -628,7 +628,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         showProgressDialog();
 
 
-        Log.e("Params " + Urls.updatePersonalityUrl, "" + params);
+        //Log.e("Params " + Urls.updatePersonalityUrl, "" + params);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updatePersonalityUrl, params,
@@ -636,7 +636,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update data", response + "");
+                        //Log.e("re  update data", response + "");
                         try {
                             int responseid = response.getInt("id");
 

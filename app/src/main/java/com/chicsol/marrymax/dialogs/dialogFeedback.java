@@ -190,13 +190,13 @@ public class dialogFeedback extends DialogFragment {
                         if (widthScreen > heightScreen) {
                             int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
                             //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                             bmp_sticker = resizeImage(bmp, h);
                         } else {
                             int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
                             //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
                             bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                         }
 
                         return bmp_sticker;
@@ -410,7 +410,7 @@ public class dialogFeedback extends DialogFragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("usrFeedback ", response + "");
+                        //Log.e("usrFeedback ", response + "");
 
                         mUsrFeedback obj = new mUsrFeedback();
                         Gson gson;
@@ -584,14 +584,14 @@ public class dialogFeedback extends DialogFragment {
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
 
-        Log.e("updFeedback", Urls.updFeedback + "   " + params);
+        //Log.e("updFeedback", Urls.updFeedback + "   " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updFeedback, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  updFeedback ", response + "");
+                        //Log.e("re  updFeedback ", response + "");
 
                         try {
                             int responseid = response.getInt("id");

@@ -84,7 +84,7 @@ public class dialogRemoveFromSearch extends DialogFragment {
         super.onAttach(activity);
         try {
 
-            Log.e("getfragment manager", "======" + getTargetFragment());
+            //Log.e("getfragment manager", "======" + getTargetFragment());
             if (getTargetFragment() != null) {
                 mCompleteListener = (onCompleteListener) getTargetFragment();
             } else {
@@ -145,7 +145,7 @@ public class dialogRemoveFromSearch extends DialogFragment {
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-        Log.e("params Remove Search", Urls.removeMember + " ===== " + params.toString());
+        //Log.e("params Remove Search", Urls.removeMember + " ===== " + params.toString());
         //      Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.removeMember, params,
@@ -153,7 +153,7 @@ public class dialogRemoveFromSearch extends DialogFragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  ", response + "");
+                        //Log.e("Res  ", response + "");
 
                         try {
                             int responseid = response.getInt("id");

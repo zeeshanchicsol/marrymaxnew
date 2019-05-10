@@ -46,11 +46,11 @@ public class RequestPermissionsActivity extends AppCompatActivity implements Rec
         setContentView(R.layout.activity_request_permissions);
         String memberString = getIntent().getStringExtra("member");
 
-        Log.e("Member String is ", "" + memberString);
+        //Log.e("Member String is ", "" + memberString);
         Gson gson = new Gson();
         this.memberString = memberString;
         member = gson.fromJson(memberString, Members.class);
-        Log.e("Alias", member.getAlias());
+        //Log.e("Alias", member.getAlias());
         initialize();
 
         //  requestPermission();

@@ -185,13 +185,13 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
 
 
 
-        Log.e("getRequest path", "" + Urls.getAssistanceList + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e("getRequest path", "" + Urls.getAssistanceList + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getAssistanceList + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("getRequest Response", response.toString());
+                      //  Log.d("getRequest Response", response.toString());
                         try {
 
 
@@ -208,8 +208,8 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
                             List<mLfm> lis1 = (List<mLfm>) gsonc.fromJson(jsonArray1.toString(), listType);
                             List<mLfm> lis2 = (List<mLfm>) gsonc.fromJson(jsonArray2.toString(), listType);
 
-                            Log.e("s 1", lis1.size() + "");
-                            Log.e("s 2", lis2.size() + "");
+                            //Log.e("s 1", lis1.size() + "");
+                            //Log.e("s 2", lis2.size() + "");
 
 
                             if (lis1.size() == 0) {
@@ -292,10 +292,10 @@ public class MatchAidActivity extends AppCompatActivity implements dialogMatchAi
 
                                 for (int j = 0; j < lis2.size(); j++) {
                                     mLfm slfm = lis2.get(j);
-                                    Log.e("id for match", lfm.getId() + "   " + slfm.getId2());
+                                    //Log.e("id for match", lfm.getId() + "   " + slfm.getId2());
 
                                     if (lfm.getId() == slfm.getId2()) {
-                                        Log.e("equal", lfm.getId() + "   " + slfm.getId2());
+                                        //Log.e("equal", lfm.getId() + "   " + slfm.getId2());
                                         View subview = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_matchaid_subitem, null);
                                         mViewHolder vSubHoler = new mViewHolder(subview);
                                         vSubHoler.description.setText(slfm.getText());

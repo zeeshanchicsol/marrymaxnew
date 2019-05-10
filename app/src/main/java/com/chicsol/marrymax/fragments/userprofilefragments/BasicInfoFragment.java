@@ -356,8 +356,8 @@ public class BasicInfoFragment extends Fragment {
 
 
             tvDesc.setText(Html.fromHtml(member.getOther_info()));
-            Log.e("what i dooo", "==" + member.getFor_fun());
-            Log.e("what i dooo", "==" + member.getFor_fun());
+            //Log.e("what i dooo", "==" + member.getFor_fun());
+            //Log.e("what i dooo", "==" + member.getFor_fun());
             if (member.getFor_fun() != null && member.getFor_fun() != "") {
                 tvWhatIdoFor.setText(Html.fromHtml(member.getFor_fun()));
             } else {

@@ -52,7 +52,7 @@ public class ConnectionDetector {
                 {
                     return true;
                 } else {
-                    Log.e("NO INTERNET", "NO INTERNET");
+                    //Log.e("NO INTERNET", "NO INTERNET");
                     return false;
                 }
             }

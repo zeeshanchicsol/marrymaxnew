@@ -392,7 +392,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     // String mobnum = EditTextAScontactMobileNumber.getText().toString();
 
 
-                    Log.e("New Updated Time", "=" + mobNum);
+                    //Log.e("New Updated Time", "=" + mobNum);
 
                     mobNum = mobNum.replaceAll("[/\\D/g]", "");
 
@@ -524,7 +524,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
     private boolean countryCodeCheck(int countryCode, int mobNum) {
 
-        Log.e("countryCodeCheck", countryCode + "   " + mobNum);
+        //Log.e("countryCodeCheck", countryCode + "   " + mobNum);
 
         if (countryCode == mobNum) {
             return false;
@@ -546,7 +546,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         viewGenerator.selectSpinnerItemById(spinnerAScontactRelationShipWithMember, member.getProfile_owner_id(), relationshipDataList);
 
 
-        Log.e("Evening aaaaa", "" + member.getNotes() + "===");
+        //Log.e("Evening aaaaa", "" + member.getNotes() + "===");
 
         viewGenerator.selectSpinnerItemByValue(spinnerMyAScontactConvTimeToCall, member.getNotes(), covenientTimetoCallDataList);
 
@@ -561,7 +561,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
             spinnerMyAScontactConvTimeToCall.setSelection(0);
         }
 
-        Log.e("getPhone_mobile", "" + member.getPhone_mobile());
+        //Log.e("getPhone_mobile", "" + member.getPhone_mobile());
 
         //adapter_countryOfLiving
         String mobile = member.getPhone_mobile();
@@ -852,26 +852,26 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     private void getRequest(final String path) {
         pDialog.setVisibility(View.VISIBLE);
 
-        Log.e("path", "" + Urls.getProfileContact + path);
+        //Log.e("path", "" + Urls.getProfileContact + path);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getProfileContact + path,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("getProfileContact", response.toString());
+                        //Log.d("getProfileContact", response.toString());
                         try {
 
 
                             JSONArray jsonData = response.getJSONArray(0);
 
 
-                            Log.e(" jsonData ", "" + jsonData.length());
+                            //Log.e(" jsonData ", "" + jsonData.length());
                             llPhoneNotVerified.setVisibility(View.GONE);
 
 
                             if (jsonData.length() != 0) {
 
 
-                                Log.d("length 0", jsonData.length() + "");
+                                //Log.d("length 0", jsonData.length() + "");
                                 Gson gsonc;
                                 GsonBuilder gsonBuilderc = new GsonBuilder();
                                 gsonc = gsonBuilderc.create();
@@ -879,7 +879,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                                 }.getType();
                                 member = new Members();
                                 member = (Members) gsonc.fromJson(jsonData.getJSONObject(0).toString(), listType);
-                                Log.e("Phone Verified " + member.getPhone_view(), "" + member.getPhone_verified());
+                                //Log.e("Phone Verified " + member.getPhone_view(), "" + member.getPhone_verified());
 
 
                                 //      phone_verified!=2 && phone_view!=2  // show
@@ -909,7 +909,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                                 Type listTypl = new TypeToken<List<WebArd>>() {
                                 }.getType();
 
-                                Log.e("response issss", "" + response.getJSONArray(2).toString());
+                                //Log.e("response issss", "" + response.getJSONArray(2).toString());
                                 countryOfLivingDataList = (List<WebCSC>) gsonc.fromJson(response.getJSONArray(2).toString(), listTyplCSC);
                                 countryOfLivingDataList.add(0, new WebCSC("0", "0", "0", "Select"));
                                 adapter_countryOfLiving.updateDataList(countryOfLivingDataList);
@@ -927,7 +927,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                                 LinearlayoutAccountSettingMyContactEdiDelete.setVisibility(View.INVISIBLE);
                                 LinearlayoutAccountSettingMyContactNoData.setVisibility(View.VISIBLE);
                                 LinearlayoutAccountSettingMyContact.setVisibility(View.GONE);
-                                Log.e("array length", "" + response.length() + "");
+                                //Log.e("array length", "" + response.length() + "");
 
                                 Gson gsonc;
                                 GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -997,7 +997,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         country_id = member.getCountry_id() + "";
 
         String mobile = member.getPhone_mobile();
-        Log.e("mob", "mob==" + mobile);
+        //Log.e("mob", "mob==" + mobile);
         // if()
         if (!mobile.equals("") && mobile.contains("-")) {
             String[] sad = mobile.split("-");
@@ -1206,15 +1206,15 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     private void putRequest(JSONObject params, final boolean landlineAdded) {
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("params", params.toString());
-        Log.e("request url ", Urls.editContact);
+        //Log.e("params", params.toString());
+        //Log.e("request url ", Urls.editContact);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.editContact, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Response ", response.toString() + "");
+                        //Log.e("Response ", response.toString() + "");
 
                         //phone_verified   ==> 1 mobile was add/update, 0 if no add/update,  -1 if no add, update and not verified
                         //landline_verified   ==> 1 landline was add/update, 0 if no add/update,  -1 if no update , update and not verified
@@ -1296,15 +1296,15 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     private void putDeleteContactRequest(JSONObject params) {
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("params", params.toString());
-        Log.e("request url ", Urls.deleteContact);
+        //Log.e("params", params.toString());
+        //Log.e("request url ", Urls.deleteContact);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.deleteContact, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Response ", response.toString() + "");
+                        //Log.e("Response ", response.toString() + "");
 
                         //try {
                         //  int res = response.getInt("about_type_id");
@@ -1453,12 +1453,12 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("path", "" + Urls.getValidCode + path);
+        //Log.e("path", "" + Urls.getValidCode + path);
         StringRequest req = new StringRequest(Urls.getValidCode + path,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("Response--", response.toString() + "==");
+                        //Log.d("Response--", response.toString() + "==");
                         if (response != null) {
 
                             if (Long.parseLong(response) == 0) {

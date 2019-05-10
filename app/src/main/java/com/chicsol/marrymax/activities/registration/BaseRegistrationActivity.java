@@ -95,7 +95,7 @@ public class BaseRegistrationActivity extends DrawerActivity implements Navigati
 
         initialize();
         setListeners();
-        Log.e("Main Class", this.getClass().getSimpleName() + "");
+    //    Log.e("Main Class", this.getClass().getSimpleName() + "");
     }
 
     public void onCreateDrawer() {

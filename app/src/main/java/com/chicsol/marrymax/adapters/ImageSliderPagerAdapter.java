@@ -163,7 +163,7 @@ public class ImageSliderPagerAdapter extends PagerAdapter {
             public void onClick(View v) {
                 //  Toast.makeText(context, "you clicked image " + (position + 1), Toast.LENGTH_LONG).show();
 
-                Log.e("image", "image clicekd " + images.get(position));
+                //Log.e("image", "image clicekd " + images.get(position));
 
                 if (!images.get(position).equals("member_images/Male.jpg") && !images.get(position).equals("member_images/Female.jpg")) {
                     loadPhoto((ImageView) v);

@@ -236,7 +236,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             e.printStackTrace();
         }
 
-        Log.e("Params", params.toString() + "");
+        //Log.e("Params", params.toString() + "");
         getProfileDetail(params);
 
 
@@ -246,7 +246,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
         Members sessionObj = SharedPreferenceManager.getUserObject(context);
-        Log.e(functions.checkProfileCompleteStatus(member) + "" + member.getMember_status(), "checcccccccccccccccccccc");
+        //Log.e(functions.checkProfileCompleteStatus(member) + "" + member.getMember_status(), "checcccccccccccccccccccc");
         if (functions.checkProfileCompleteStatus(sessionObj)) {
        /*     if (sessionObj.getMember_status() < 3) {
 
@@ -349,10 +349,10 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                     }
 
 
-                    Log.e("photozzzzzz count", membersDataList.size() + "  ");
+                    //Log.e("photozzzzzz count", membersDataList.size() + "  ");
                     for (int i = 0; i < membersDataList.size(); i++) {
                         sliderImagesDataList.add(membersDataList.get(i).getPhoto_path());
-                        Log.e("photozzzzzz " + i, membersDataList.get(i).getPhoto_path());
+                        //Log.e("photozzzzzz " + i, membersDataList.get(i).getPhoto_path());
 
                     }
                 }
@@ -614,7 +614,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         }*/
 
-        Log.e("Saved Member", member.getSaved_member() + " ");
+        //Log.e("Saved Member", member.getSaved_member() + " ");
 
         if (member.getSaved_member() == 1) {
 
@@ -992,7 +992,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
     private void setupViewPager(ViewPager viewPager, String jsonArryaResponse1) {
-        Log.e("setup viewpager", "setup viewpager" + jsonArryaResponse1);
+        //Log.e("setup viewpager", "setup viewpager" + jsonArryaResponse1);
 
         Bundle args = new Bundle();
         args.putString("json", jsonArryaResponse1);
@@ -1102,12 +1102,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
     private void blockUser() {
         pDialog.show();
-        Log.e("blockUser", "" + Urls.getBlockReasonData);
+        //Log.e("blockUser", "" + Urls.getBlockReasonData);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getBlockReasonData,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
                         try {
                             JSONArray responseJSONArray = response.getJSONArray(0);
 
@@ -1147,7 +1147,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString() + "  ==   " + Urls.getReportConcernData);
+                        //Log.d("Response", response.toString() + "  ==   " + Urls.getReportConcernData);
 
 
                         try {
@@ -1183,12 +1183,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private void matchAid() {
 
         pDialog.show();
-        Log.e("url", Urls.getAssistance + SharedPreferenceManager.getUserObject(context).getPath());
+        //Log.e("url", Urls.getAssistance + SharedPreferenceManager.getUserObject(context).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getAssistance + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("getAssistance", response.toString() + "  ==   ");
+                        //Log.e("getAssistance", response.toString() + "  ==   ");
 
                         try {
                             int res = response.getJSONArray(1).getJSONObject(0).getInt("id");
@@ -1283,15 +1283,15 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.interestProvisions);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.interestProvisions, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -1304,7 +1304,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             Type type = new TypeToken<Members>() {
                             }.getType();
                             Members member2 = (Members) gson.fromJson(responseObject.toString(), type);
-                            Log.e("interested id", "" + member.getAlias() + "====================");
+                            //Log.e("interested id", "" + member.getAlias() + "====================");
 
                             dialogReplyOnAcceptInterest newFragment = dialogReplyOnAcceptInterest.newInstance(member, userpath, replyCheck, member2);
 
@@ -1353,15 +1353,15 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.interestProvisions);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.interestProvisions, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -1449,7 +1449,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
         pDialog.show();
-        Log.e("params", params.toString());
+        //Log.e("params", params.toString());
         //      Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.removeMember, params,
@@ -1457,7 +1457,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  ", response + "");
+                        //Log.e("Res  ", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -1518,7 +1518,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
 
         pDialog.show();
-        Log.e("params", params.toString());
+        //Log.e("params", params.toString());
         //      Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.addRemoveFavorites, params,
@@ -1526,7 +1526,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  ", response + "");
+                        //Log.e("Res  ", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -1585,8 +1585,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
         setWaitScreen(true);
 
-        Log.e("getProfileDetail", params.toString());
-        Log.e("getProfileDetail ", Urls.getProfileDetail);
+        //Log.e("getProfileDetail", params.toString());
+        //Log.e("getProfileDetail ", Urls.getProfileDetail);
         //    Log.e("getProfileDetail ", Constants.getHashMap() + "");
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -1595,7 +1595,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update lifestyle", response + "");
+                        //Log.e("re  update lifestyle", response + "");
 
 
                         try {
@@ -1759,7 +1759,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             e.printStackTrace();
         }
 
-        Log.d("Params", params.toString() + "");
+        //Log.d("Params", params.toString() + "");
         getProfileDetail(params);
     }
 
@@ -1969,14 +1969,14 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", Urls.forwardMember + " " + params);
+        //Log.e("Params", Urls.forwardMember + " " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.forwardMember, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             // int responseid = response.getInt("id");
                             //    userpath

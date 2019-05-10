@@ -99,7 +99,7 @@ public class WhoIsSearchActivity extends AppCompatActivity {
             memberSearchObj.setPage_no(1);
             memberSearchObj.setType("");
 
-            Log.e("gender",memberSearchObj.getGender());
+            //Log.e("gender",memberSearchObj.getGender());
 
             Gson gson = new Gson();
 
@@ -127,17 +127,17 @@ public class WhoIsSearchActivity extends AppCompatActivity {
         final ProgressDialog pDialog = new ProgressDialog(WhoIsSearchActivity.this);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("getLfmLists", "" + Urls.getLfmLists + " ====  ");
+        //Log.e("getLfmLists", "" + Urls.getLfmLists + " ====  ");
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getLfmLists,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("getLfmLists", response.toString());
+                        //Log.e("getLfmLists", response.toString());
                         try {
 
 
-                            Log.e("getLfmLists", "" + response.length());
+                            //Log.e("getLfmLists", "" + response.length());
 
                             for (int i = 0; i < response.length(); i++) {
 
@@ -145,7 +145,7 @@ public class WhoIsSearchActivity extends AppCompatActivity {
 
                                 JSONObject jsonObj = response.getJSONObject(i);
 
-                                Log.e("getLfmLists", "" + jsonObj.get("name"));
+                                //Log.e("getLfmLists", "" + jsonObj.get("name"));
 
                                 Gson gsonc;
                                 GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -164,7 +164,7 @@ public class WhoIsSearchActivity extends AppCompatActivity {
                             }
                             recyclerAdapter.addAll(dataList);
 
-                            Log.e("getLfmLists", "" + dataList.size());
+                            //Log.e("getLfmLists", "" + dataList.size());
 
 
                         } catch (JSONException e) {

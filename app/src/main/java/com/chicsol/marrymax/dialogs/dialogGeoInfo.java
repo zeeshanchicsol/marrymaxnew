@@ -194,14 +194,14 @@ public class dialogGeoInfo extends DialogFragment {
             e.printStackTrace();
         }
 
-        Log.e("params" + "  " + Urls.setCountryChangeReason, "" + params);
+        //Log.e("params" + "  " + Urls.setCountryChangeReason, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.setCountryChangeReason, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update geograpy", response + "");
+                        //Log.e("re  update geograpy", response + "");
                         try {
                             int responseid = response.getInt("id");
 

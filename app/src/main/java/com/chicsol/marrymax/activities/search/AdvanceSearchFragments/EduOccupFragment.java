@@ -136,9 +136,9 @@ public class EduOccupFragment extends Fragment implements CompoundButton.OnCheck
 
             if (buttonView.getTag().equals("education")) {
 
-                Log.e("in", "in edddddddddfdddddddddddd");
+                //Log.e("in", "in edddddddddfdddddddddddd");
                 defaultSelectionsObj.setChoice_education_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchEducation));
-                Log.e("education ids", defaultSelectionsObj.getChoice_education_ids());
+                //Log.e("education ids", defaultSelectionsObj.getChoice_education_ids());
             } else if (buttonView.getTag().equals("occupation")) {
 
                 defaultSelectionsObj.setChoice_occupation_ids(viewGenerator.getSelectionFromCheckbox(LinearLayoutAdvSearchOccupation));

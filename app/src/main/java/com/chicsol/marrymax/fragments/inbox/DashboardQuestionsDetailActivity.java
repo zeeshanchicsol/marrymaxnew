@@ -96,7 +96,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
         //   Log.e(objCom.getGender() + "=====Loggg" + objtype, "" + objCom.request_type_id);
 
-        Log.e(" objCom.request_type_id", "" + objCom.request_type_id);
+        //Log.e(" objCom.request_type_id", "" + objCom.request_type_id);
 
         initialize(objCom, objtype);
         // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
@@ -143,7 +143,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
         btSendAnswers = (AppCompatButton) findViewById(R.id.ButtonSendAnswers);
 
-        Log.e(obj.getEthnic_background_type() + "=====Loggg" + objtype, "" + objCom.getCountry_name());
+        //Log.e(obj.getEthnic_background_type() + "=====Loggg" + objtype, "" + objCom.getCountry_name());
 
         tvAge.setText("( " + obj.getAge() + " Years)");
         tvAlias.setText(obj.getAlias());
@@ -213,7 +213,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         }
 
 
-        Log.e("Subject", "" + obj.getSubject());
+        //Log.e("Subject", "" + obj.getSubject());
 
         tvSubject.setText(obj.getSubject());
 
@@ -258,7 +258,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                                 // it.remove(); // avoids a ConcurrentModificationException
                             }
 
-                            Log.e("answerids", stringBuilder.toString());
+                            //Log.e("answerids", stringBuilder.toString());
 
                             //path, alias, answerids, session_id
                             //  putSendAnswer();
@@ -374,14 +374,14 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         showProgressDialog();
 
 
-        Log.e("Params", Urls.sendAnswer + "    " + params);
+        //Log.e("Params", Urls.sendAnswer + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.sendAnswer, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  message sent", response + "");
+                        //Log.e("re  message sent", response + "");
                         try {
 
                             int responseid = response.getInt("id");
@@ -486,14 +486,14 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         showProgressDialog();
 
 
-        Log.e("Params", Urls.deleteQuestion + "    " + params);
+        //Log.e("Params", Urls.deleteQuestion + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.deleteQuestion, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
 
                             int responseid = response.getInt("id");
@@ -554,18 +554,18 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         final List<mIceBreak> QuestionsList = new ArrayList<>();
 
         showProgressDialog();
-        Log.e("Params", Urls.questionDetails + "    " + params);
+        //Log.e("Params", Urls.questionDetails + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.questionDetails, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  getChatRequest", response + "");
+                        //Log.e("re  getChatRequest", response + "");
                         try {
 
                             JSONArray jsonObj = response.getJSONArray("data");
-                            Log.e("re  getChatRequest", jsonObj.length() + "");
+                            //Log.e("re  getChatRequest", jsonObj.length() + "");
 
 
                             Gson gsonc;
@@ -583,7 +583,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
                                         QuestionChoiceList.add(dlist);
 
-                                        Log.e("ssssss", dlist.size() + "");
+                                        //Log.e("ssssss", dlist.size() + "");
                                     }
 
                                 } else {
@@ -646,7 +646,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                             }*/
                         } catch (Exception e) {
 
-                            Log.e("Exception here", "Exception");
+                            //Log.e("Exception here", "Exception");
                             e.printStackTrace();
                             dismissProgressDialog();
                         }/* catch (TransactionTooLargeException e)

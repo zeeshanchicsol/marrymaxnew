@@ -190,15 +190,15 @@ public class dialogRequestPhone extends DialogFragment {
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.submitRequest);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.submitRequest);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.submitRequest, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  request phone ", response + "");
+                        //Log.e("Res  request phone ", response + "");
 
                         try {
                             int responseid = response.getInt("id");

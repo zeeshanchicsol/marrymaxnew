@@ -111,8 +111,8 @@ public class dialogDosDontsPhotoUpload extends DialogFragment {
 
         viewGenerator.generateDosDontsViews(linearLayoutDos,true,dosDataList);
         viewGenerator.generateDosDontsViews(linearLayoutDonts,false,dontsDataList);
-        Log.e("json data1", dosDataList.toString());
-        Log.e("json data2", dontsDataList.toString());
+        //Log.e("json data1", dosDataList.toString());
+        //Log.e("json data2", dontsDataList.toString());
 
      /*   RadioGroup radioGroup = (RadioGroup) rootView.findViewById(R.id.RadioGroupProfileFor);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(

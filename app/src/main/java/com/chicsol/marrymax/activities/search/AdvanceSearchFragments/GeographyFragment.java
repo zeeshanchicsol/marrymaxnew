@@ -191,7 +191,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
             countriesDataList = (List<WebCSC>) gsonc.fromJson(jsonArraySearch.getJSONArray(3).toString(), listTypeWebCsc);
 
-            Log.e("c size", countriesDataList.size() + "");
+            //Log.e("c size", countriesDataList.size() + "");
             //	viewGenerator.generateDynamicCheckBoxesLL(dataList1, LinearLayoutAdvSearchCountries);
 
             topCitiesDataList = (List<WebCSC>) gsonc.fromJson(jsonArraySearch.getJSONArray(27).toString(), listTypeWebCsc);
@@ -223,7 +223,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
             viewGenerator.selectCheckBoxes(LinearLayoutAdvSearchVisaStatus, defaultSelectionsObj.getChoice_visa_status_ids());
 
 
-            Log.e("states", defaultSelectionsObj.getChoice_state_ids() + "");
+            //Log.e("states", defaultSelectionsObj.getChoice_state_ids() + "");
 
 
             countriesAdapter.selectItem(defaultSelectionsObj.getChoice_country_ids());
@@ -288,7 +288,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     defaultSelectionsObj.setChoice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
 
                 }
-                Log.e("selectedMap  " + defaultSelectionsObj.getChoice_country_ids() + " = " + defaultSelectionsObj.getChoice_state_ids() + " = " + defaultSelectionsObj.getChoice_cities_ids(), "" + getComaSeparatedItemsFromMap(selectedStatesMap) + " --------  " + getComaSeparatedItemsFromMap(selectedCitiesMap));
+                //Log.e("selectedMap  " + defaultSelectionsObj.getChoice_country_ids() + " = " + defaultSelectionsObj.getChoice_state_ids() + " = " + defaultSelectionsObj.getChoice_cities_ids(), "" + getComaSeparatedItemsFromMap(selectedStatesMap) + " --------  " + getComaSeparatedItemsFromMap(selectedCitiesMap));
 
 
                 break;
@@ -321,7 +321,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                     topCitiesAdapter.unCheckAll();
                     topCitiesAdapter.selectItem(getComaSeparatedItemsFromMap(selectedCitiesMap));
 
-                    Log.e("selectedCitiesMap", "" + getComaSeparatedItemsFromMap(selectedCitiesMap)+"=====");
+                    //Log.e("selectedCitiesMap", "" + getComaSeparatedItemsFromMap(selectedCitiesMap)+"=====");
                     defaultSelectionsObj.setChoice_cities_ids(getComaSeparatedItemsFromMap(selectedCitiesMap));
 
                     defaultSelectionsObj.setChoice_state_ids(selectedIds);
@@ -357,13 +357,13 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
                     getStates(getComaSeparatedItemsFromMap(selectedCountriesMap));
                     selectStatesGetCities(getComaSeparatedItemsFromMap(selectedStatesMap), getComaSeparatedItemsFromMap(selectedCitiesMap));
-                    Log.e("comma", getComaSeparatedItemsFromMap(selectedCitiesMap));
+                    //Log.e("comma", getComaSeparatedItemsFromMap(selectedCitiesMap));
 
                 } else {
                     //uncheck only city here
                     selectedCitiesMap.remove(Objcsc.getId());
                     citiesAdapter.unCheckItems(Objcsc.getId());
-                    Log.e("comma", getComaSeparatedItemsFromMap(selectedCitiesMap));
+                    //Log.e("comma", getComaSeparatedItemsFromMap(selectedCitiesMap));
                 }
 
 
@@ -541,7 +541,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                                 // getCities(Objcsc.getSid());
                                 //getCities(Objcsc.getCid() + "^" + Objcsc.getSid());
 
-                                Log.e("countriesAdapter 2", "" + countriesAdapter.getCheckedItems() + "^" + statesAdapter.getCheckedItems());
+                                //Log.e("countriesAdapter 2", "" + countriesAdapter.getCheckedItems() + "^" + statesAdapter.getCheckedItems());
                                 getCities(countriesAdapter.getCheckedItems() + "^" + statesAdapter.getCheckedItems());
                                 selectCity(selectedCities);
                                 topStatesAdapter.selectItem(selectedStates);
@@ -609,7 +609,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
     private void getStates(final String country_id) {
 
         statesApiRunning = true;
-        Log.e("getStates", Urls.getStates + country_id);
+        //Log.e("getStates", Urls.getStates + country_id);
         final ProgressDialog pD = new ProgressDialog(getContext());
         pD.setMessage("Loading...");
         pD.setCancelable(false);
@@ -619,7 +619,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                        //Log.e("Response", response.toString());
                         if (!response.isNull(0)) {
                             pD.dismiss();
 
@@ -672,12 +672,12 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
         pD.setMessage("Loading...");
         pD.setCancelable(false);
         pD.show();
-        Log.e("getCities", Urls.getCities + country_id);
+        //Log.e("getCities", Urls.getCities + country_id);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getCities + country_id,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                        //Log.e("Response", response.toString());
                         try {
 
                             pD.dismiss();
@@ -749,7 +749,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.e("onTextChanged", s.toString() + "");
+                //Log.e("onTextChanged", s.toString() + "");
                 countriesAdapter.getFilter().filter(s);
             }
 
@@ -768,7 +768,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.e("onTextChanged", s.toString() + "");
+                //Log.e("onTextChanged", s.toString() + "");
                 statesAdapter.getFilter().filter(s);
             }
 
@@ -786,7 +786,7 @@ public class GeographyFragment extends Fragment implements CheckBoxAdvSearchCSCR
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.e("onTextChanged", s.toString() + "");
+                //Log.e("onTextChanged", s.toString() + "");
                 citiesAdapter.getFilter().filter(s);
             }
 

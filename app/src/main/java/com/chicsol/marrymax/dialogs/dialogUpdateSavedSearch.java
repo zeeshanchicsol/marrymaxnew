@@ -73,7 +73,7 @@ public class dialogUpdateSavedSearch extends DialogFragment {
         super.onAttach(activity);
         try {
 
-            Log.e("getfragment manager", "======" + getTargetFragment());
+            //Log.e("getfragment manager", "======" + getTargetFragment());
             if (getTargetFragment() != null) {
                 mCompleteListener = (onCompleteListener) getTargetFragment();
             } else {
@@ -185,14 +185,14 @@ public class dialogUpdateSavedSearch extends DialogFragment {
         pDialog.setMessage("Loading...");
         pDialog.show();
 
-        Log.e("params" + "  " + Urls.updateSaveSearch, "" + params);
+        //Log.e("params" + "  " + Urls.updateSaveSearch, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.updateSaveSearch, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid == 1) {

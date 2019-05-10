@@ -206,7 +206,7 @@ public class AccountDeactivationFragment extends Fragment {
                         focusView = etPassword;
                         focusView.requestFocus();
                     } else {
-                        Log.e("innnnnnnnnnb1", " " + obj.getId());
+                        //Log.e("innnnnnnnnnb1", " " + obj.getId());
 
                         JSONObject params = new JSONObject();
                         try {
@@ -256,7 +256,7 @@ public class AccountDeactivationFragment extends Fragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             int responseid = response.getInt("id");
 
@@ -316,13 +316,13 @@ public class AccountDeactivationFragment extends Fragment {
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("api path", "" + Urls.getDeactivateReasons + SharedPreferenceManager.getUserObject(getContext()).getPath());
+        //Log.e("api path", "" + Urls.getDeactivateReasons + SharedPreferenceManager.getUserObject(getContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getDeactivateReasons + SharedPreferenceManager.getUserObject(getContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
                         try {
 
                             JSONArray jsonCountryStaeObj = response.getJSONArray(0);

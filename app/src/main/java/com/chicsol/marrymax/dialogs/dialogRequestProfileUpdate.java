@@ -295,15 +295,15 @@ public class dialogRequestProfileUpdate extends DialogFragment {
         final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("requestUpdate ", params.toString());
-        Log.e("requestUpdate path", Urls.requestUpdate);
+        //Log.e("requestUpdate ", params.toString());
+        //Log.e("requestUpdate path", Urls.requestUpdate);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.requestUpdate, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -373,7 +373,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response states", response.toString());
+                        //Log.e("Response states", response.toString());
 
                         try {
 
@@ -429,7 +429,7 @@ public class dialogRequestProfileUpdate extends DialogFragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response states", response.toString());
+                        //Log.e("Response states", response.toString());
 
                         try {
 

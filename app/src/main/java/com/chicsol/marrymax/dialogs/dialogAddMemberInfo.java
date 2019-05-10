@@ -290,14 +290,14 @@ public class dialogAddMemberInfo extends DialogFragment {
         pDialog.show();
 
 
-        Log.e("params" + "  " + Urls.memberInfo, "" + params);
+        //Log.e("params" + "  " + Urls.memberInfo, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.memberInfo, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update notes ", response + "");
+                        //Log.e("re  update notes ", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid > 0) {

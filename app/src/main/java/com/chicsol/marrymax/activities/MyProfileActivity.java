@@ -146,7 +146,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
             e.printStackTrace();
         }
 
-        Log.d("Params", params.toString() + "");
+        //Log.d("Params", params.toString() + "");
         getLifestyle(params);
 
 
@@ -154,7 +154,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
     private void setInterestButtonText() {
         Members sessionObj = SharedPreferenceManager.getUserObject(getApplicationContext());
-        Log.e(functions.checkProfileCompleteStatus(member) + "" + member.getMember_status(), "checcccccccccccccccccccc");
+        //Log.e(functions.checkProfileCompleteStatus(member) + "" + member.getMember_status(), "checcccccccccccccccccccc");
         if (functions.checkProfileCompleteStatus(sessionObj)) {
        /*     if (sessionObj.getMember_status() < 3) {
 
@@ -163,8 +163,8 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
             }*/
 
-            Log.e("interested id", member.getInterested_id() + "");
-            Log.e("interested receieved", member.getInterest_received() + "");
+            //Log.e("interested id", member.getInterested_id() + "");
+            //Log.e("interested receieved", member.getInterest_received() + "");
             if (member.getInterested_id() == 0) {
                 tvInterest.setText("Show Interest");
                 llshowInterest.setBackgroundColor(getResources().getColor(R.color.colorUserProfileTextGreen));
@@ -225,7 +225,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
 
                 List<Members> membersDataList = (List<Members>) gson.fromJson(objectsArray.toString(), member);
-                Log.e("Length 56", membersDataList.size() + "  ");
+                //Log.e("Length 56", membersDataList.size() + "  ");
                 for (int i = 0; i < membersDataList.size(); i++) {
                     sliderImagesDataList.add(membersDataList.get(i).getPhoto_path());
 
@@ -347,13 +347,13 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                         if (widthScreen > heightScreen) {
                             int h = (int) (heightScreen * 0.046);//it set the height of image 10% of your screen
                             //     iv.getLayoutParams().width = (int) (widthScreen * 0.10);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                             bmp_sticker = resizeImage(bmp, h);
                         } else {
                             int h = (int) (heightScreen * 0.027);//it set the height of image 10% of your screen
                             //   iv.getLayoutParams().width = (int) (widthScreen * 0.15);
                             bmp_sticker = resizeImage(bmp, h);
-                            Log.e("wid " + widthScreen + "  " + heightScreen, "");
+                            //Log.e("wid " + widthScreen + "  " + heightScreen, "");
                         }
 
                         return bmp_sticker;
@@ -485,7 +485,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
         }*/
 
-        Log.e("Saved Member", member.getSaved_member() + " ");
+        //Log.e("Saved Member", member.getSaved_member() + " ");
 
         if (member.getSaved_member() == 1) {
 
@@ -494,7 +494,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
         // MenuItem menuItem1 = popupUp.getMenu().findItem(R.id.menu_up_request);
 
-        Log.e("Vall Member", member.getHide_profile() + " " + member.getHide_photo());
+        //Log.e("Vall Member", member.getHide_profile() + " " + member.getHide_photo());
 
         /*if (member.getHide_profile() == 1) {
             menuItem1.setTitle("Request Profile View");
@@ -714,7 +714,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
 
                 Members sessionObj = SharedPreferenceManager.getUserObject(getApplicationContext());
-                Log.e(functions.checkProfileCompleteStatus(member) + "" + member.getMember_status(), "checcccccccccccccccccccc");
+                //Log.e(functions.checkProfileCompleteStatus(member) + "" + member.getMember_status(), "checcccccccccccccccccccc");
                 if (functions.checkProfileCompleteStatus(sessionObj)) {
                     if (member.getInterested_id() == 0) {
                         //  showInterest(params, false);
@@ -934,7 +934,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
 
 
                         try {
@@ -975,7 +975,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString() + "  ==   " + Urls.getReportConcernData);
+                        //Log.d("Response", response.toString() + "  ==   " + Urls.getReportConcernData);
 
 
                         try {
@@ -1057,15 +1057,15 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
 
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.interestProvisions);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.interestProvisions, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -1124,7 +1124,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
 
         pDialog.show();
-        Log.e("params", params.toString());
+        //Log.e("params", params.toString());
         Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.interestProvisions, params,
@@ -1191,7 +1191,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
 
         pDialog.show();
-        Log.e("params", params.toString());
+        //Log.e("params", params.toString());
         //      Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.removeMember, params,
@@ -1199,7 +1199,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  ", response + "");
+                        //Log.e("Res  ", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -1260,7 +1260,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
 
         pDialog.show();
-        Log.e("params", params.toString());
+        //Log.e("params", params.toString());
         //      Log.e("profile path", Urls.interestProvisions);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.addRemoveFavorites, params,
@@ -1268,7 +1268,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  ", response + "");
+                        //Log.e("Res  ", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -1320,15 +1320,15 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
 
 
         pDialog.show();
-        Log.e("getProfileDetail", params.toString());
-        Log.e("getProfileDetail path", Urls.getProfileDetail);
+        //Log.e("getProfileDetail", params.toString());
+        //Log.e("getProfileDetail path", Urls.getProfileDetail);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.getProfileDetail, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update lifestyle", response + "");
+                        //Log.e("re  update lifestyle", response + "");
 
                         try {
                             responsArray = response.getJSONArray("jdata");
@@ -1414,7 +1414,7 @@ public class MyProfileActivity extends AppCompatActivity implements PicturesFrag
             e.printStackTrace();
         }
 
-        Log.d("Params", params.toString() + "");
+        //Log.d("Params", params.toString() + "");
         getLifestyle(params);
     }
 

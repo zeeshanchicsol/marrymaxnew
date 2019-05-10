@@ -123,7 +123,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         item_id = getIntent().getExtras().getString("item_id");
         other_item_id = getIntent().getExtras().getString("other_item_id");
         currency = getIntent().getExtras().getString("currency");
-        Log.e("currency", currency);
+        //Log.e("currency", currency);
         if (currency.equals("u")) {
             creditCardCheck = true;
         }
@@ -748,7 +748,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         JSONObject params = null;
                         try {
                             params = new JSONObject(gson.toJson(payments));
-                            Log.e("params", params.toString());
+                            //Log.e("params", params.toString());
                             ProcessPaymentRequest(params);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -883,13 +883,13 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         pDialog.setVisibility(View.VISIBLE);
 
 
-        Log.e("api path", "" + Urls.getPersonsList + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e("api path", "" + Urls.getPersonsList + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getPersonsList,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
                         try {
                             JSONArray jsonarrayData = response.getJSONArray(0);
 
@@ -913,7 +913,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                             //    etWhoHelped.setAdapter(acAdapter);
                             adapter_religion.updateDataList(personsDataList);
 
-                            Log.e("json length", jsonarrayData.length() + "");
+                            //Log.e("json length", jsonarrayData.length() + "");
 
 
                         } catch (JSONException e) {
@@ -944,16 +944,16 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         pDialog.setVisibility(View.VISIBLE);
 
 
-        Log.e("getPaymentPending path", "" + Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e("getPaymentPending path", "" + Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        Log.e("response", Float.parseFloat(response) + "");
+                        //Log.e("response", Float.parseFloat(response) + "");
                         int v = Math.round(Float.parseFloat(response));
-                        Log.e("response", v + "");
+                        //Log.e("response", v + "");
 
                         if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 2 || SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 3 && v == 0) {
                             llMain.setVisibility(View.VISIBLE);
@@ -999,7 +999,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("Error", "" + error);
+                //Log.e("Error", "" + error);
                 // mTextView.setText("That didn't work!");
             }
         }) {
@@ -1083,15 +1083,15 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         pDialog.setMessage("Loading...");
         pDialog.show();*/
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("generateCart", params.toString());
-        Log.e("generateCart params", Urls.generateCart);
+        //Log.e("generateCart", params.toString());
+        //Log.e("generateCart params", Urls.generateCart);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.generateCart, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  generateCart ", response + "");
+                        //Log.e("Res  generateCart ", response + "");
 
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
@@ -1220,7 +1220,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     @Override
     public void onChangeSubscriptionPackage(String itemid, String OtherItemId) {
 
-        Log.e("onChangeSubscript", "" + creditCardCheck);
+        //Log.e("onChangeSubscript", "" + creditCardCheck);
 
     /*    if (creditCardCheck) {
             other_item_id = itemid;
@@ -1270,17 +1270,17 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("getPackages", Urls.packages + "" + params);
+        //Log.e("getPackages", Urls.packages + "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.packages, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("getPackages", response + "");
+                        //Log.e("getPackages", response + "");
                         try {
                             JSONArray responseArray = response.getJSONArray("data").getJSONArray(0);
-                            Log.e("getPackages", other_item_id + "  " + item_id);
+                            //Log.e("getPackages", other_item_id + "  " + item_id);
 
                             if (responseArray.length() > 0) {
                                 //   if (creditCardCheck) {
@@ -1342,15 +1342,15 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         final ProgressDialog pDialog = new ProgressDialog(OrderProcessActivity.this);
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("params payment process", params.toString());
-        Log.e("Payment path", Urls.processPayment);
+        //Log.e("params payment process", params.toString());
+        //Log.e("Payment path", Urls.processPayment);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.processPayment, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
 
                         try {

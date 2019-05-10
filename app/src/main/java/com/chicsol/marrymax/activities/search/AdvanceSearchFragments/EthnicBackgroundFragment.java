@@ -122,7 +122,7 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
             // recycler_view_caste.addItemDecoration(new MyDividerItemDecoration(this, DividerItemDecoration.VERTICAL, 36));
             recycler_view_caste.setAdapter(mAdapter);
 
-            Log.e("Logggeeee", "" + defaultSelectionsObj.getChoice_caste_ids());
+            //Log.e("Logggeeee", "" + defaultSelectionsObj.getChoice_caste_ids());
 
 
         } catch (JSONException e) {
@@ -160,7 +160,7 @@ public class EthnicBackgroundFragment extends Fragment implements CompoundButton
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.e("onTextChanged", s.toString() + "");
+                //Log.e("onTextChanged", s.toString() + "");
                 mAdapter.getFilter().filter(s);
             }
 

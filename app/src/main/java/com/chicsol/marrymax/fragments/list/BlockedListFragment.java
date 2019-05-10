@@ -78,12 +78,12 @@ public class BlockedListFragment extends Fragment implements BlockListAdapter.on
         final ProgressDialog pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();
-        Log.e("url", Urls.getBlockedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
+        //Log.e("url", Urls.getBlockedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getBlockedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString() + "  ==   ");
+                        //Log.e("Response", response.toString() + "  ==   ");
                         Gson gsonc;
                         GsonBuilder gsonBuilderc = new GsonBuilder();
                         gsonc = gsonBuilderc.create();
@@ -92,7 +92,7 @@ public class BlockedListFragment extends Fragment implements BlockListAdapter.on
                         List<WebArdList> dataList;
 
                         try {
-                            Log.e("Response", response.getJSONArray(0).toString());
+                            //Log.e("Response", response.getJSONArray(0).toString());
 
                             dataList = (List<WebArdList>) gsonc.fromJson(response.getJSONArray(0).toString(), listType);
                             myListAdapter = new BlockListAdapter(getActivity(), R.layout.item_list_blocked, dataList, BlockedListFragment.this);

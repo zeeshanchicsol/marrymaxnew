@@ -344,8 +344,8 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                 public void onImagesChosen(List<ChosenImage> list) {
 
 
-                    Log.e("Image list size", "" + list.size());
-                    Log.e("Image list size", "" + list.get(0).getOriginalPath());
+                    //Log.e("Image list size", "" + list.size());
+                    //Log.e("Image list size", "" + list.get(0).getOriginalPath());
 
                     if (list.size() > 0) {
                         uploadPhotoToServer(list.get(0).getOriginalPath());
@@ -456,7 +456,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                     //    imageView.setImageBitmap(new UserPicture(selectedImageUri, getContentResolver()).getBitmap());
                     //  getRealPathFromDocumentUri
 
-                    Log.e("URI ", selectedImageUri.toString());
+                    //Log.e("URI ", selectedImageUri.toString());
                     //   String selectedImagePath = getRealPathFromDocumentUri(getApplicationContext(), selectedImageUri);
                     Bitmap selectedImagePath = new UserPicture(selectedImageUri, getContentResolver()).getBitmap();
                     //   Log.e("selectedImagePath", selectedImagePath);
@@ -464,7 +464,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                     // uploadPhotoToServer(selectedImagePath);
 
                 } catch (Exception e) {
-                    Log.e(PhotoUpload.class.getSimpleName(), "Failed to load image", e);
+                    //Log.e(PhotoUpload.class.getSimpleName(), "Failed to load image", e);
                 }
                 // original code
 //                String selectedImagePath = getPath(selectedImageUri);
@@ -518,8 +518,8 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
             public void onImagesChosen(List<ChosenImage> list) {
 
 
-                Log.e("Image list size", "" + list.size());
-                Log.e("Image list size", "" + list.get(0).getOriginalPath());
+                //Log.e("Image list size", "" + list.size());
+                //Log.e("Image list size", "" + list.get(0).getOriginalPath());
 
                 if (list.size() > 0) {
 
@@ -543,7 +543,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
         // loading or check internet connection or something...
         // ... then
         final String filename = new File(path).getName();
-        Log.e("File Name", "" + filename);
+        //Log.e("File Name", "" + filename);
 
 
         String url;
@@ -566,7 +566,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
             @Override
             public void onResponse(NetworkResponse response) {
                 String resultResponse = new String(response.data);
-                Log.e("Messsage", "=======================" + resultResponse + "==============");
+                //Log.e("Messsage", "=======================" + resultResponse + "==============");
                 if (resultResponse.equals("1")) {
                     Toast.makeText(PhotoUpload.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
 
@@ -615,8 +615,8 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                         String status = response.getString("type");
                         String message = response.getString("message");
 
-                        Log.e("Error Status", status);
-                        Log.e("Error Message", message);
+                        //Log.e("Error Status", status);
+                        //Log.e("Error Message", message);
 
                         if (networkResponse.statusCode == 404) {
                             errorMessage = "Resource not found";
@@ -687,7 +687,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                        //Log.d("Response", response.toString());
                         try {
 
                             List<Members> mDataList = new ArrayList<>();
@@ -770,7 +770,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
         if (uri == null) {
             // perform some logging or show user feedback
             Toast.makeText(getApplicationContext(), "Failed to get picture", Toast.LENGTH_LONG).show();
-            Log.d(PhotoUpload.class.getSimpleName(), "Failed to parse image path from image URI " + uri);
+            //Log.d(PhotoUpload.class.getSimpleName(), "Failed to parse image path from image URI " + uri);
             return null;
         }
 
@@ -795,7 +795,7 @@ public class PhotoUpload extends AppCompatActivity implements RecyclerViewAdapte
         Pattern p = Pattern.compile("(\\d+)$");
         Matcher m = p.matcher(uri.toString());
         if (!m.find()) {
-            Log.e(PhotoUpload.class.getSimpleName(), "ID for requested image not found: " + uri.toString());
+            //Log.e(PhotoUpload.class.getSimpleName(), "ID for requested image not found: " + uri.toString());
             return filePath;
         }
         String imgId = m.group();

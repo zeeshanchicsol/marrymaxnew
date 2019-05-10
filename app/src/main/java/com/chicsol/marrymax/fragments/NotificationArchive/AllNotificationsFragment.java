@@ -137,7 +137,7 @@ public class AllNotificationsFragment extends Fragment implements RecyclerViewAd
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("load notificaitons", response + "");
+                        //Log.e("load notificaitons", response + "");
 
 
                         try {

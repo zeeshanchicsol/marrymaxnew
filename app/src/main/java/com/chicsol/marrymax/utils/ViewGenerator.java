@@ -863,7 +863,7 @@ public class ViewGenerator {
 //Seaarch
 
     public void selectCheckBoxes(LinearLayout glCheckboxView, String checkBoxIds) {
-        Log.e("Valueee", "" + checkBoxIds);
+        //Log.e("Valueee", "" + checkBoxIds);
         if (checkBoxIds != null && checkBoxIds != "") {
             resetCheckBoxes(glCheckboxView);
             String[] visa_status_check_ids = checkBoxIds.split(",");

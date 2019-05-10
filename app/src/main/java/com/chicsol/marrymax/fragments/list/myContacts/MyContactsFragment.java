@@ -189,12 +189,12 @@ public class MyContactsFragment extends Fragment implements RecyclerViewAdapterM
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("myContacts ", Urls.myContacts + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath() + "/" + type);
+        //Log.e("myContacts ", Urls.myContacts + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath() + "/" + type);
         JsonArrayRequest req = new JsonArrayRequest(Urls.myContacts + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath() + "/" + type,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response getSavedList", response.toString() + "  ==   ");
+                        //Log.e("Response getSavedList", response.toString() + "  ==   ");
                         if (response.length() > 0) {
 
 

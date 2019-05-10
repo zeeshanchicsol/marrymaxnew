@@ -191,7 +191,7 @@ public class AppearanceFragment extends Fragment implements CompoundButton.OnChe
             viewGenerator.selectCheckBoxes(llAdvSearchEyeColor, defaultSelectionsObj.getChoice_eye_color_ids());
             //viewGenerator.selectCheckBoxes(llAdvSearchComplexion, members.getChoice_zodiac_sign_ids());
 
-            Log.e("Eye colorrrrr", "Selection  height  " + defaultSelectionsObj.getChoice_height_from_id());
+            //Log.e("Eye colorrrrr", "Selection  height  " + defaultSelectionsObj.getChoice_height_from_id());
             //   Toast.makeText(getContext(), "== "+defaultSelectionsObj.getChoice_age_from(), Toast.LENGTH_SHORT).show();
 
             if (defaultSelectionsObj.getChoice_age_from() == 0) {

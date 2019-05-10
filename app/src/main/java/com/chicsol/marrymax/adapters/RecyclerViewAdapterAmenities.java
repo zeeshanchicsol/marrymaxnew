@@ -48,7 +48,7 @@ public class RecyclerViewAdapterAmenities extends RecyclerView.Adapter<RecyclerV
         //       this.rcType = rctype;
 /*        this.cMap = cMap;
         this.pMap = pMap;*/
-        Log.e("rcType", "" + rcType);
+        //Log.e("rcType", "" + rcType);
 
 
     }

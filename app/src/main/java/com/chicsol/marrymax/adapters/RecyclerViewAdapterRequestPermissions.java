@@ -305,7 +305,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.e("params", Urls.responseInterest + "   " + params);
+                //Log.e("params", Urls.responseInterest + "   " + params);
                 responseOnInterest(params);
 
 
@@ -337,7 +337,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.e("params", Urls.responseInterest + "  " + params);
+                //Log.e("params", Urls.responseInterest + "  " + params);
                 responseOnInterest(params);
 
 
@@ -359,7 +359,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.e("params", "" + params);
+                //Log.e("params", "" + params);
                 withdrawPermisssion(params);
 
 
@@ -402,7 +402,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        Log.e("params", "" + params);
+                        //Log.e("params", "" + params);
                         grantPermisssion(params, buttonView);
 
                     } else {
@@ -445,7 +445,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                 }
 
 
-                Log.e("params", "" + params);
+                //Log.e("params", "" + params);
                 withdrawInterest(params, obj);
             }
         });
@@ -536,7 +536,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  wwww interest", response + "");
+                        //Log.e("re  wwww interest", response + "");
                         try {
                             int responseid = response.getInt("id");
 
@@ -610,7 +610,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.e("re  responseOnInterest", response + "");
+                        //Log.e("re  responseOnInterest", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -667,7 +667,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
         pDialog.setMessage("Loading...");
         pDialog.show();
 
-        Log.e("withdrawPermisssion", Urls.withdrawPermission + "=======================" + params);
+        //Log.e("withdrawPermisssion", Urls.withdrawPermission + "=======================" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.withdrawPermission, params,
                 new Response.Listener<JSONObject>() {
@@ -675,7 +675,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -732,7 +732,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
         pDialog.setMessage("Loading...");
         pDialog.show();
 
-        Log.e("g permission", Urls.grantPermission + "=======================" + params);
+        //Log.e("g permission", Urls.grantPermission + "=======================" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.grantPermission, params,
                 new Response.Listener<JSONObject>() {
@@ -740,7 +740,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.e("response grant   ", response + "");
+                        //Log.e("response grant   ", response + "");
 
                         try {
                             int responseid = response.getInt("id");
@@ -808,7 +808,7 @@ public class RecyclerViewAdapterRequestPermissions extends RecyclerView.Adapter<
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
 
                         try {
                             int responseid = response.getInt("id");

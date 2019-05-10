@@ -233,14 +233,14 @@ public class MySavedSearchesListAdapter extends ArrayAdapter<cModel> {
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Log.e("params" + "  " + Urls.deleteSaveSearch, "" + params);
+        //Log.e("params" + "  " + Urls.deleteSaveSearch, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.deleteSaveSearch, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid == 1) {
@@ -299,19 +299,19 @@ public class MySavedSearchesListAdapter extends ArrayAdapter<cModel> {
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-        Log.e("getRawData started=====", "=========================" + Urls.getSrhRawData + searchid);
+        //Log.e("getRawData started=====", "=========================" + Urls.getSrhRawData + searchid);
         JsonArrayRequest req = new JsonArrayRequest(Urls.getSrhRawData + searchid,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response SRH", response.toString());
-                        Log.e("getRawData finished===", "==========================");
+                        //Log.e("Response SRH", response.toString());
+                        //Log.e("getRawData finished===", "==========================");
 
                         try {
 
 
                             JSONObject jsonCountryStaeObj = response.getJSONArray(0).getJSONObject(0);
-                            Log.e("Response 222", jsonCountryStaeObj.toString());
+                            //Log.e("Response 222", jsonCountryStaeObj.toString());
 
                             Gson gsonc;
                             GsonBuilder gsonBuilderc = new GsonBuilder();

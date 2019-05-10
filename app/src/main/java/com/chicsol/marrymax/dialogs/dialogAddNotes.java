@@ -186,14 +186,14 @@ public class dialogAddNotes extends DialogFragment {
             e.printStackTrace();
         }
 
-        Log.e("params" + "  " + Urls.membersNotes, "" + params);
+        //Log.e("params" + "  " + Urls.membersNotes, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.membersNotes, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update notes ", response + "");
+                        //Log.e("re  update notes ", response + "");
                         try {
                             JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
                             String notes = responseObject.getString("notes");
@@ -261,14 +261,14 @@ public class dialogAddNotes extends DialogFragment {
             e.printStackTrace();
         }
 
-        Log.e("params" + "  " + Urls.sendNotes, "" + params);
+        //Log.e("params" + "  " + Urls.sendNotes, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.sendNotes, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update notes ", response + "");
+                        //Log.e("re  update notes ", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid >= 1) {
@@ -333,14 +333,14 @@ public class dialogAddNotes extends DialogFragment {
             e.printStackTrace();
         }
 
-        Log.e("params" + "  " + Urls.deleteNotes, "" + params);
+        //Log.e("params" + "  " + Urls.deleteNotes, "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.deleteNotes, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update notes ", response + "");
+                        //Log.e("re  update notes ", response + "");
                         try {
                             int responseid = response.getInt("id");
                             if (responseid >= 1) {

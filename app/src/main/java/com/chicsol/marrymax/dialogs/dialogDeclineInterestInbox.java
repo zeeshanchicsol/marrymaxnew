@@ -170,7 +170,7 @@ public class dialogDeclineInterestInbox extends DialogFragment {
         //dont's
         for (int i=0;i<jsonArray2.length();i++){
             JSONObject jsonObject= jsonArray2.getJSONObject(i);
-            Log.e("value 2",""+jsonObject.get("name").toString());
+            //Log.e("value 2",""+jsonObject.get("name").toString());
         }*/
 
 
@@ -179,8 +179,8 @@ public class dialogDeclineInterestInbox extends DialogFragment {
             public void onClick(final View v) {
 
 
-                Log.e("cbb", cbAllowPhone.isChecked() + "");
-                Log.e("cbb pics", cbAllowPics.isChecked() + "");
+                //Log.e("cbb", cbAllowPhone.isChecked() + "");
+                //Log.e("cbb pics", cbAllowPics.isChecked() + "");
 
 
                 JSONObject params = new JSONObject();
@@ -210,7 +210,7 @@ public class dialogDeclineInterestInbox extends DialogFragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.e("params", "" + params);
+                //Log.e("params", "" + params);
 
                 query(params);
 
@@ -269,7 +269,7 @@ public class dialogDeclineInterestInbox extends DialogFragment {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        Log.e("re  update interest", response + "");
+                        //Log.e("re  update interest", response + "");
                      //   dialogDeclineInterestInbox.this.getDialog().cancel();
                         try {
                             int responseid = response.getInt("id");

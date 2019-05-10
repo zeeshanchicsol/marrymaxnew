@@ -240,14 +240,14 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", Urls.deleteList + "" + params);
+        //Log.e("Params", Urls.deleteList + "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.deleteList, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re   myList", response + "");
+                        //Log.e("re   myList", response + "");
                         getData();
                        /* try {
 
@@ -329,14 +329,14 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("AddMemList", Urls.addMemList + "" + params);
+        //Log.e("AddMemList", Urls.addMemList + "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.addMemList, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re   myList", response + "");
+                        //Log.e("re   myList", response + "");
                         getData();
 
                            int responseid = 0;
@@ -410,14 +410,14 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", Urls.myList + "" + params);
+        //Log.e("Params", Urls.myList + "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.myList, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
 
                             JSONArray jsonCountryStaeObj = response.getJSONArray("data").getJSONArray(0);
@@ -493,14 +493,14 @@ public class MyAddToListAdapter extends ArrayAdapter<mMemList> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.e("Params", Urls.addEditList + "" + params);
+        //Log.e("Params", Urls.addEditList + "" + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.addEditList, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re   myList", response + "");
+                        //Log.e("re   myList", response + "");
                         getData();
                         // et.setText("");
                         /*    try {

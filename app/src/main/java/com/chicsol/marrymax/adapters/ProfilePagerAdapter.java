@@ -61,7 +61,7 @@ public class ProfilePagerAdapter extends FragmentStatePagerAdapter {
         page_indexes.clear();
         page_indexes.addAll(lst);
         notifyDataSetChanged();
-        Log.e("item size in adapter", page_indexes.size() + "");
+        //Log.e("item size in adapter", page_indexes.size() + "");
     }
 
     public void addItemMore(ArrayList<String> lst, boolean addBackward) {

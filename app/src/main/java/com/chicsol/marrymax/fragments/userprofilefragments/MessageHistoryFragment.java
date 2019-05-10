@@ -26,7 +26,7 @@ public class MessageHistoryFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        Log.e("jsonn  ", getArguments().getString("json"));
+        //Log.e("jsonn  ", getArguments().getString("json"));
         String json = getArguments().getString("json");
 
     }

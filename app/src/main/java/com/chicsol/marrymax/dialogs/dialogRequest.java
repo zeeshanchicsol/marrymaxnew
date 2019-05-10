@@ -246,8 +246,8 @@ public class dialogRequest extends DialogFragment {
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Log.e("params", params.toString());
-        Log.e("profile path", Urls.submitRequest);
+        //Log.e("params", params.toString());
+        //Log.e("profile path", Urls.submitRequest);
         final String finalType = type;
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.submitRequest, params,
@@ -255,7 +255,7 @@ public class dialogRequest extends DialogFragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Res  interest ", response + "");
+                        //Log.e("Res  interest ", response + "");
 
                         try {
                             int responseid = response.getInt("id");

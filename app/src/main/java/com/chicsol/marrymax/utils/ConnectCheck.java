@@ -34,7 +34,7 @@ public class ConnectCheck {
 
 
         if (!isConnected) {
-            Log.e("log==========", "No internet");
+            //Log.e("log==========", "No internet");
             String message;
             int color;
             message = "Please Connect to Internet first";

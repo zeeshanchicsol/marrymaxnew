@@ -56,14 +56,14 @@ public class functions {
         String encryptedValue = null;
         try {
 
-            Log.e("ARDTOKEN",""+Urls.ARDTOKEN +"***" + ticks);
+            //Log.e("ARDTOKEN",""+Urls.ARDTOKEN +"***" + ticks);
             encryptedValue = crypt.Encrypt(Urls.ARDTOKEN +"***" + ticks, Urls.PassPhraseArdAp);
             //120 minutes check
             //    Log.e("encrypted value ", encryptedValue + "");
             String accesstoken = "ARD" + encryptedValue + "-345";
 
             String acctoken = accesstoken.replaceAll("\\s+", "");
-            Log.e("new access token ", Constants.accessToken + "");
+            //Log.e("new access token ", Constants.accessToken + "");
             return acctoken;
             //addd  start    ARD  end
         } catch (Exception e) {
@@ -97,7 +97,7 @@ public class functions {
     public int decryptAccessToken() {
         String encrypted = Constants.accessToken;
         if (encrypted != null) {
-            Log.e("strin after encryption", encrypted);
+            //Log.e("strin after encryption", encrypted);
 
             encrypted = encrypted.replace("ARD", " ");
             encrypted = encrypted.replace("-345", " ");
@@ -113,7 +113,7 @@ public class functions {
                 //Log.e("Decrypted value ", decryptedValue + "");
 
                 int min = getTimeDifference(Long.parseLong(decryptedValue));
-                Log.e("minutes ", min + "");
+                //Log.e("minutes ", min + "");
 
                 return min;
             } catch (Exception e) {

@@ -85,12 +85,12 @@ public class RemovedFromSearchFragment extends Fragment implements RemovedFromSe
 
     private void getData() {
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("url", Urls.getRemovedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
+        //Log.e("url", Urls.getRemovedList + SharedPreferenceManager.getUserObject(getActivity().getApplicationContext()).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getRemovedList + SharedPreferenceManager.getUserObject(getContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString() + "  ==   ");
+                        //Log.e("Response", response.toString() + "  ==   ");
                         if (response.length() > 0) {
                             Gson gsonc;
                             GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -101,7 +101,7 @@ public class RemovedFromSearchFragment extends Fragment implements RemovedFromSe
 
                             try {
 
-                                Log.e("Response", response.getJSONArray(0).toString());
+                                //Log.e("Response", response.getJSONArray(0).toString());
                                 dataList = (List<WebArdList>) gsonc.fromJson(response.getJSONArray(0).toString(), listType);
 
                                 if (dataList.size() > 0) {
@@ -110,7 +110,7 @@ public class RemovedFromSearchFragment extends Fragment implements RemovedFromSe
                                     tvHeadingRemoveFromSerch.setVisibility(View.VISIBLE);
                                     llmainLayout.setVisibility(View.VISIBLE);
                              /*       myListAdapter.addAll(dataList);*/
-                                    Log.e("dataList", "" + dataList.size());
+                                    //Log.e("dataList", "" + dataList.size());
                                     myListAdapter = new RemovedFromSearchesListAdapter(getActivity(), R.layout.item_list_removed_from_search, dataList, RemovedFromSearchFragment.this);
                                     lv_mycontacts.setAdapter(myListAdapter);
 

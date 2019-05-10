@@ -104,8 +104,8 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         }.getType();
         objCom = (mCommunication) gson.fromJson(obh, membert);
 
-        Log.e("Loggg", "" + obh);
-        Log.e(objCom.getGender() + "=====Loggg" + objtype, "" + objCom.getCountry_name());
+        //Log.e("Loggg", "" + obh);
+        //Log.e(objCom.getGender() + "=====Loggg" + objtype, "" + objCom.getCountry_name());
         etSendMessage.getBackground().mutate().setColorFilter(getResources().getColor(R.color.colorWhite), PorterDuff.Mode.SRC_ATOP);
         initialize(objCom, objtype);
         // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
@@ -160,7 +160,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
         llEmptySubItems = (LinearLayout) findViewById(R.id.LinearLayoutEmptySubItems);
 
-        Log.e(obj.getEthnic_background_type() + "=====Loggg" + objtype, "" + objCom.getCountry_name());
+        //Log.e(obj.getEthnic_background_type() + "=====Loggg" + objtype, "" + objCom.getCountry_name());
 
         tvAge.setText("( " + obj.getAge() + " Years)");
         tvAlias.setText(obj.getAlias());
@@ -367,14 +367,14 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         pDialog1.show();
 
 
-        Log.e("sendMessage Params", Urls.sendMessage + "    " + params);
+        //Log.e("sendMessage Params", Urls.sendMessage + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.sendMessage, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  message sent", response + "");
+                        //Log.e("re  message sent", response + "");
                         try {
 
                             JSONArray jsdata = response.getJSONArray("data");
@@ -523,14 +523,14 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         pDialog.setVisibility(View.VISIBLE);
 
 
-        Log.e("Params", Urls.deleteMessages + "    " + params);
+        //Log.e("Params", Urls.deleteMessages + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.deleteMessages, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
 
                             int responseid = response.getInt("id");
@@ -594,14 +594,14 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         pDialog.show();
 
 
-        Log.e("Params", Urls.messageDetail + "    " + params);
+        //Log.e("Params", Urls.messageDetail + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.messageDetail, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  getChatRequest", response + "");
+                        //Log.e("re  getChatRequest", response + "");
                         try {
 
 
@@ -624,7 +624,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
                                 match_id = mCom.getId();
                                 feedback_id = mCom.getRequest_type_id();
-                                Log.e("mmatch_id", match_id + " == " + feedback_id);
+                                //Log.e("mmatch_id", match_id + " == " + feedback_id);
 
                                 if (match_id != 0) {
                                     llFeedback.setVisibility(View.VISIBLE);
@@ -686,7 +686,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                             }
                         } catch (Exception e) {
 
-                            Log.e("Exception here", "Exception");
+                            //Log.e("Exception here", "Exception");
                             e.printStackTrace();
                             pDialog.dismiss();
                         }/* catch (TransactionTooLargeException e)

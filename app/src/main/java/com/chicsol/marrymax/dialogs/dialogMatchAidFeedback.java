@@ -93,7 +93,7 @@ public class dialogMatchAidFeedback extends DialogFragment {
         Button mOkButton = (Button) rootView.findViewById(R.id.mButtonDialogMatchAidUPViewProgress);
         mOkButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
-                Log.e("stars", mRbar.getRating() + "" + etFeedback.getText().toString());
+                //Log.e("stars", mRbar.getRating() + "" + etFeedback.getText().toString());
 
 
                 if (!checkSelections()) {
@@ -114,7 +114,7 @@ public class dialogMatchAidFeedback extends DialogFragment {
                                     params.put("id", lfm.getId());
                                     params.put("id2", mRbar.getNumStars());
                                     params.put("text", fb);
-                                    Log.e("addFeedback", Urls.addFeedback + "   " + params);
+                                    //Log.e("addFeedback", Urls.addFeedback + "   " + params);
                                     addFeedback(params);
                                 }
                             } else {
@@ -184,14 +184,14 @@ public class dialogMatchAidFeedback extends DialogFragment {
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
 
 
-        Log.e("addFeedback", Urls.addFeedback + "   " + params);
+        //Log.e("addFeedback", Urls.addFeedback + "   " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.addFeedback, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  addFeedback ", response + "");
+                        //Log.e("re  addFeedback ", response + "");
 
                         try {
                             int responseid = response.getInt("id");

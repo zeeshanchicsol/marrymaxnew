@@ -335,7 +335,7 @@ public class PrefferedMatchingProfileFragment extends BaseMatchesFragment implem
         if (lastPage != totalPages && lastPage < totalPages) {
             lastPage = lastPage + 1;
 
-            Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
+            //Log.e("", "las p: " + lastPage + " Total Pages:" + totalPages);
        /*     Members memberSearchObj = DrawerActivity.rawSearchObj;
 
             memberSearchObj.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
@@ -472,13 +472,13 @@ public class PrefferedMatchingProfileFragment extends BaseMatchesFragment implem
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  Preff Preff", response + "");
+                        //Log.e("re  Preff Preff", response + "");
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 
@@ -495,7 +495,7 @@ public class PrefferedMatchingProfileFragment extends BaseMatchesFragment implem
                                     recyclerAdapter.addAll(membersDataList);
 
 
-                                    Log.e("Length=================", membersDataList.size() + "  ");
+                                    //Log.e("Length=================", membersDataList.size() + "  ");
 
 
                                     Gson gsont;
@@ -508,7 +508,7 @@ public class PrefferedMatchingProfileFragment extends BaseMatchesFragment implem
 
                                     totalPages = memberTotalPages.getTotal_pages();
                                     lastPage = 1;
-                                    Log.e("total pages", memberTotalPages.getTotal_member_count() + "====" + totalPages);
+                                    //Log.e("total pages", memberTotalPages.getTotal_member_count() + "====" + totalPages);
                                     if (memberTotalPages.getTotal_member_count() > 0) {
 
 
@@ -592,13 +592,13 @@ public class PrefferedMatchingProfileFragment extends BaseMatchesFragment implem
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("re  update appearance", response + "");
+                        //Log.e("re  update appearance", response + "");
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
 
                             if (jsonArray.length() > 1) {
 
-                                Log.e("Length", jsonArray.getJSONArray(0).length() + "");
+                                //Log.e("Length", jsonArray.getJSONArray(0).length() + "");
                                 JSONArray jsonarrayData = jsonArray.getJSONArray(0);
                                 JSONArray jsonarrayTotalPages = jsonArray.getJSONArray(1);
 
@@ -663,12 +663,12 @@ public class PrefferedMatchingProfileFragment extends BaseMatchesFragment implem
 
     private void getRawData() {
 
-        Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).getPath() + "/pm");
+        //Log.e("getRawData started", Urls.getRawData + SharedPreferenceManager.getUserObject(context).getPath() + "/pm");
         JsonArrayRequest req = new JsonArrayRequest(Urls.getRawData + SharedPreferenceManager.getUserObject(context).getPath() + "/pm",
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                        //Log.e("Response", response.toString());
                         try {
                             //       Log.e("getRawData finished===", "==========================");
 

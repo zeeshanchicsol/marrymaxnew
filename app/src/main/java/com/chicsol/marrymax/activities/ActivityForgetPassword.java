@@ -17,6 +17,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity;
@@ -179,7 +180,7 @@ public class ActivityForgetPassword extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
 
-                //VolleyLog.e("res err", "Error: " +networkResponse);
+               // VolleyLog.e("res err", "Error: " +networkResponse);
                 Toast.makeText(ActivityForgetPassword.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
                 dismissProgressDialog();

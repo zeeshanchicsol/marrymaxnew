@@ -417,12 +417,12 @@ DrawerActivity extends AppCompatActivity {
     public void getNotificationCount() {
 
 
-        Log.e(" Notification url", Urls.getNotifyCntSta + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e(" Notification url", Urls.getNotifyCntSta + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
         StringRequest req = new StringRequest(Urls.getNotifyCntSta + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e("Notification Count==", "=======================  " + response + " ===== " + "");
+                        //Log.e("Notification Count==", "=======================  " + response + " ===== " + "");
                         if (!response.equals(null) && !response.equals("")) {
                             response = response.replace("\"", "");
 
@@ -486,7 +486,7 @@ DrawerActivity extends AppCompatActivity {
 
     private void getSearchListData() {
 
-        Log.e("Search Lists url", Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e("Search Lists url", Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getSearchListsAdv + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
