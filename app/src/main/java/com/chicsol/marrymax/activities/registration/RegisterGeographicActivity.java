@@ -350,7 +350,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
             }
         });
 
-        if (BuildConfig.FLAVOR.equals("alfalah")) {
+     /*   if (BuildConfig.FLAVOR.equals("alfalah")) {
 
             tvSpMultiChoiceOrigin.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -361,7 +361,7 @@ public class RegisterGeographicActivity extends BaseRegistrationActivity impleme
                 }
             });
 
-        }
+        }*/
     }
 
     private boolean checkSelections(View v) {

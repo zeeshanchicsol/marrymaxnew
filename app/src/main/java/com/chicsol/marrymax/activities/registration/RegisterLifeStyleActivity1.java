@@ -541,17 +541,17 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                     if (children_id.equals("2") || children_id.equals("3")) {
 
 
-                        if (!etNoOfGirls.getText().toString().isEmpty()) {
+                        if (!etNoOfGirls.getText().toString().trim().isEmpty()) {
                             girls_count = etNoOfGirls.getText().toString();
                         }
 
-                        if (!etNoOfBoys.getText().toString().isEmpty()) {
+                        if (!etNoOfBoys.getText().toString().trim().isEmpty()) {
                             boys_count = etNoOfBoys.getText().toString();
                         }
-                        if (!etMinAge.getText().toString().isEmpty()) {
+                        if (!etMinAge.getText().toString().trim().isEmpty()) {
                             min_age = etMinAge.getText().toString();
                         }
-                        if (!etMaxAge.getText().toString().isEmpty()) {
+                        if (!etMaxAge.getText().toString().trim().isEmpty()) {
                             max_age = etMaxAge.getText().toString();
                         }
 
@@ -579,6 +579,8 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
                         params.put("occupation_id", occupation_id);
                         params.put("choice_occupation_ids", sbSelectedMyChoiceOccupation);
+
+                     //   Log.e("economy_id",""+economy_id);
 
                         params.put("economy_id", economy_id);
                         params.put("choice_economy_ids", choice_economy_ids);
@@ -1137,6 +1139,8 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
                             updateData = true;
 
                         }
+
+
 
                         if (updateData) {
 

@@ -433,9 +433,9 @@ DrawerActivity extends AppCompatActivity {
                             String remoteVersionName = "1.0";
                             //   String version = data[2];
 
-                            MarryMax max = new MarryMax(DrawerActivity.this);
+                        //    MarryMax max = new MarryMax(DrawerActivity.this);
 
-                            max.checkVersionUpdate(remoteVersionName);
+                       //     max.checkVersionUpdate(remoteVersionName);
 
 
                             //    Toast.makeText(DrawerActivity.this, "version :" + version, Toast.LENGTH_SHORT).show();
