@@ -1020,7 +1020,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         String landline = member.getPhone_home();
         if (!landline.equals("")) {
             String[] sad1 = landline.split("-");
-            if (sad1.length > 0) {
+            if (sad1.length >= 0) {
 
                 tvLandline.setText(sad1[1]);
                 tvLandlineCode.setText(sad1[0] + "-");

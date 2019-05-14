@@ -53,6 +53,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
     private List<WebArd> interestDataList;
     private boolean updateData = true;
     private Members members_obj;
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,7 +70,9 @@ public class RegisterInterest extends BaseRegistrationActivity {
     }
 
     public void initialize() {
-
+        pDialog = new ProgressDialog(RegisterInterest.this);
+        pDialog.setMessage("Loading...");
+        pDialog.setCancelable(false);
 
         interestDataList = new ArrayList<>();
 
@@ -195,10 +198,8 @@ public class RegisterInterest extends BaseRegistrationActivity {
 
 
     private void GetInterestData() {
-        final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
-        pDialog.setCancelable(false);
-        pDialog.show();
+        showProgressDialog();
+
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 Urls.regGetInterestUrl + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,
                 new Response.Listener<JSONObject>() {
@@ -208,7 +209,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                         //Log.e("res mainnnnnnnnnnn", response + "");
                         try {
 
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             JSONArray jsonArrayInterest = response.getJSONArray("interest");
 
 
@@ -236,7 +237,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
 
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
@@ -269,7 +270,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                             viewGenerator.generateCheckBoxesInGridLayout(interestDataList, gridLayout, size.x - 30);
                         }
 
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -280,7 +281,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -301,11 +302,8 @@ public class RegisterInterest extends BaseRegistrationActivity {
     }
 
     private void updateInterest(JSONObject params) {
+        showProgressDialog();
 
-        final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
-        pDialog.setCancelable(false);
-        pDialog.show();
 
 
         //Log.e("Params interest "+ Urls.updateInterestUrl, "" + params);
@@ -335,10 +333,10 @@ public class RegisterInterest extends BaseRegistrationActivity {
                             }
 
                         } catch (JSONException e) {
-                            pDialog.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
-                        pDialog.dismiss();
+                        dismissProgressDialog();
                     }
                 }, new Response.ErrorListener() {
 
@@ -349,7 +347,7 @@ public class RegisterInterest extends BaseRegistrationActivity {
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
 
-                pDialog.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -367,6 +365,32 @@ public class RegisterInterest extends BaseRegistrationActivity {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(this).addToRequestQueue(jsonObjReq);
     }
+
+
+
+    @Override
+    public void onDestroy() {
+        dismissProgressDialog();
+        super.onDestroy();
+    }
+
+    private void showProgressDialog() {
+        if (pDialog == null) {
+            pDialog = new ProgressDialog(RegisterInterest.this);
+            pDialog.setMessage("Loading. Please wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+        }
+        pDialog.show();
+    }
+
+    private void dismissProgressDialog() {
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
+
+
 
 
 }

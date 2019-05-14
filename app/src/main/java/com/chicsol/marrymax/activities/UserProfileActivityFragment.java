@@ -223,9 +223,9 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         JSONObject params = new JSONObject();
         try {
             params.put("userpath", userpath);
-            params.put("member_status", SharedPreferenceManager.getUserObject(getContext()).getMember_status());
-            params.put("gender", SharedPreferenceManager.getUserObject(getContext()).getGender());
-            params.put("path", SharedPreferenceManager.getUserObject(getContext()).getPath());
+            params.put("member_status", SharedPreferenceManager.getUserObject(context).getMember_status());
+            params.put("gender", SharedPreferenceManager.getUserObject(context).getGender());
+            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
             // Test Images Account
         /*    params.put("userpath", "su8Gt~DnAz3r4UZAiw5DDQ==");
             params.put("member_status", "4");

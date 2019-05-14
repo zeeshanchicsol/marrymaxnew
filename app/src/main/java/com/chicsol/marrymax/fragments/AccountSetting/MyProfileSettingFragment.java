@@ -1388,6 +1388,13 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        MySingleton.getInstance(context).cancelPendingRequests(Tag);
+
+    }
+
+    @Override
     public void onComplete(String s) {
         loadData();
         EventBus.getDefault().postSticky(new PhoneVerificationStatusUpdateEvent("success"));

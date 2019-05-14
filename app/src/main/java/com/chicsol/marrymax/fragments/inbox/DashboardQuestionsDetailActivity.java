@@ -266,7 +266,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                             JSONObject params = new JSONObject();
                             try {
                                 params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
-                                params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                                params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
                                 params.put("answerids", stringBuilder.toString());
                                 params.put("session_id", objCom.getRequest_type_id());
                                 putSendAnswer(params);
