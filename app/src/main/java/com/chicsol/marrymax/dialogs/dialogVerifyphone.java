@@ -30,6 +30,7 @@ import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
+import com.chicsol.marrymax.widgets.PinEntryEditText;
 import com.chicsol.marrymax.widgets.faTextView;
 import com.chicsol.marrymax.widgets.mTextView;
 import com.google.gson.Gson;
@@ -51,8 +52,9 @@ import java.util.regex.Pattern;
 
 public class dialogVerifyphone extends DialogFragment {
     String phone = null;
-    EditText etCode;
-    mTextView tvMobileNumber;
+  //  EditText etCode;
+    PinEntryEditText etPinCode;
+    mTextView tvMobileNumber, tvVerifyFoneMobileNumber;
     LinearLayout llSendVerification, llVerifyCode, llError;
     private AppCompatButton btnSendVerificaitonCode, btnVerifyPhone;
     public onCompleteListener mCompleteListener;
@@ -121,7 +123,12 @@ public class dialogVerifyphone extends DialogFragment {
 
         tvMobileNumber = (mTextView) rootView.findViewById(R.id.TextViewAccountSettingmcMobileNumber);
 
-        etCode = (EditText) rootView.findViewById(R.id.EditTextAccountSettingMyContactVerifyCode);
+        tvVerifyFoneMobileNumber = (mTextView) rootView.findViewById(R.id.TextViewVerifyPhoneMobileNumber);
+
+
+       // etCode = (EditText) rootView.findViewById(R.id.EditTextAccountSettingMyContactVerifyCode);
+        etPinCode = (PinEntryEditText) rootView.findViewById(R.id.EditTextAccountSettingMyContactVerifyCodePinEntry);
+
         llSendVerification = (LinearLayout) rootView.findViewById(R.id.LinearlayoutAccountSettingMyContactSendVerificationCode);
 
         llVerifyCode = (LinearLayout) rootView.findViewById(R.id.LinearlayoutAccountSettingMyContactVerifyCode);
@@ -133,6 +140,7 @@ public class dialogVerifyphone extends DialogFragment {
         btnVerifyPhone = (AppCompatButton) rootView.findViewById(R.id.ButtonAccountSettingmcVerifyNow);
 
         tvMobileNumber.setText(phone);
+        tvVerifyFoneMobileNumber.setText(phone);
 
 
         btnSendVerificaitonCode.setOnClickListener(new View.OnClickListener() {
@@ -146,13 +154,19 @@ public class dialogVerifyphone extends DialogFragment {
             @Override
             public void onClick(View v) {
 
-                if (etCode.getText().toString().equals("")) {
+                if (etPinCode.getText().toString().trim().equals("")) {
                     Toast.makeText(context, "Pleas Enter Code First", Toast.LENGTH_SHORT).show();
 
-                } else if (!isCodeValid(etCode.getText().toString())) {
+
+                } else if ( etPinCode.getText().toString().length() ==6) {
+                    Toast.makeText(context, "Enter Valid Code", Toast.LENGTH_SHORT).show();
+                }
+
+
+                else if (!isCodeValid(etPinCode.getText().toString())) {
                     Toast.makeText(context, "Enter Valid Code", Toast.LENGTH_SHORT).show();
                 } else {
-                    validateMobile(etCode.getText().toString());
+                    validateMobile(etPinCode.getText().toString());
 
 
                 }
@@ -306,9 +320,7 @@ public class dialogVerifyphone extends DialogFragment {
                         }
                         pDialog.dismiss();
                     }
-                }, new Response.ErrorListener()
-
-        {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());

@@ -220,18 +220,46 @@
                         <com.chicsol.marrymax.widgets.mTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Please enter the verification code that you have received on your given mobile number."
+                            android:text="Please enter the 6-digit verification code we sent via SMS:"
                             android:textColor="@color/colorBlack"
+                            android:gravity="center"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
-                        <android.support.v7.widget.AppCompatEditText
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_marginTop="4dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Let's make sure it's really you. We've just sent a text message with a fresh verification code to the phone number "
+                            android:textColor="@color/colorBlack"
+                     />
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewVerifyPhoneMobileNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:text=""
+                            android:textColor="@color/colorDefaultGreen"
+                            android:textStyle="bold" />
+                     <!--   <android.support.v7.widget.AppCompatEditText
                             android:id="@+id/EditTextAccountSettingMyContactVerifyCode"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Enter Verification Code Here"
 
                             android:imeOptions="actionDone"
-                            android:inputType="number" />
+                            android:inputType="number" />-->
+                        <com.chicsol.marrymax.widgets.PinEntryEditText
+                            android:id="@+id/EditTextAccountSettingMyContactVerifyCodePinEntry"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:digits="1234567890"
+                            android:inputType="number"
+                            android:maxLength="6"
+                            android:textIsSelectable="false"
+                            android:textSize="20sp" />
 
                         <android.support.v7.widget.AppCompatButton
 

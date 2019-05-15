@@ -82,7 +82,7 @@ import static com.chicsol.marrymax.utils.Constants.defaultSelectionsObj;
  * Created by Android on 11/3/2016.
  */
 
-public class MyContactFragment extends Fragment implements dialogVerifyphone.onCompleteListener,SwipeRefreshLayout.OnRefreshListener {
+public class MyContactFragment extends Fragment implements dialogVerifyphone.onCompleteListener, SwipeRefreshLayout.OnRefreshListener {
     String Tag = "MyContactFragment";
     private Button bt_subscribe, bt_viewprofile, bt_viewprofile2;
 
@@ -256,6 +256,10 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
                 String landNum = EditTextAScontactLandlineNumber.getText().toString();
 
+                //    Log.e("mobNum",mobNum);
+                //    Log.e("landNum",landNum);
+
+
                 String personName = EditTextAScontactPersonName.getText().toString();
 
                 if (spinnerAScontactCountry.getSelectedItemPosition() != 0) {
@@ -318,16 +322,18 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
                 } */
+
+
                 else if (!isPhone(mobNum)) {
                     EditTextAScontactMobileNumber.setError("Invalid phone format");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
-                } else if (mobNum.length() > 16) {
-                    EditTextAScontactMobileNumber.setError("Max 16 Chars allowed");
+                } else if (mobNum.length() > 11) {
+                    EditTextAScontactMobileNumber.setError("Max 11 Chars allowed");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
-                } else if (landNum.length() > 16) {
-                    EditTextAScontactLandlineNumber.setError("Max 16 Chars allowed");
+                } else if (landNum.length() > 11) {
+                    EditTextAScontactLandlineNumber.setError("Max 11 Chars allowed");
                     focusView = EditTextAScontactLandlineNumber;
                     focusView.requestFocus();
                 }
@@ -1020,7 +1026,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         String landline = member.getPhone_home();
         if (!landline.equals("")) {
             String[] sad1 = landline.split("-");
-            if (sad1.length >= 0) {
+            if (sad1.length > 1) {
 
                 tvLandline.setText(sad1[1]);
                 tvLandlineCode.setText(sad1[0] + "-");
@@ -1064,8 +1070,6 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 tvPhoneVerifyLandline.setText("Verified");
                 ivPhoneVerifyLandline.setImageDrawable(getResources().getDrawable(R.drawable.ic_num_verified_icon_60));
                 llPhoneVerifyLandline.setClickable(false);
-
-
 
 
             } else if (member.getPhone_view() == 3) {
@@ -1224,8 +1228,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                             int phone_verified = response.getInt("phone_verified");
                             int landline_verified = response.getInt("landline_verified");
 
-                        //    Log.e("aphone_verified", "" + phone_verified);
-                        //    Log.e("alandline_verified", "" + landline_verified);
+                            //    Log.e("aphone_verified", "" + phone_verified);
+                            //    Log.e("alandline_verified", "" + landline_verified);
 
                             int res = response.getInt("about_type_id");
 
@@ -1466,11 +1470,17 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                                 newFragment.setTargetFragment(MyContactFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
 
-                            } else {
+                            } else if (Long.parseLong(response) == 1) {
 
                                 dialogVerifyphone newFragment = dialogVerifyphone.newInstance(member.getPhone_mobile(), country_id, true);
                                 newFragment.setTargetFragment(MyContactFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
+                            } else if (Long.parseLong(response) == 2) {
+                                //Dear "alias", We got the contact details, MarryMax Associate will contact you to verify details within one business day.
+                                Toast.makeText(context, "Dear " + SharedPreferenceManager.getUserObject(context).getAlias() + ", We got the contact details, MarryMax Associate will contact you to verify details within one business day.", Toast.LENGTH_SHORT).show();
+                                //      "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(getContext()).getAlias() + "</font></b>, please complete your profile first then we can send you verification code on your Mobile number.", "Complete Profile", 8);
+
+
                             }
                         }
                         pDialog.dismiss();

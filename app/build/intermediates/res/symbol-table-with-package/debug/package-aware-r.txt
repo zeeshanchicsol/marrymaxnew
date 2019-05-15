@@ -1608,7 +1608,7 @@ id EditTextAScontactMobileNumber
 id EditTextAScontactPersonName
 id EditTextAboutMePers
 id EditTextAboutMyChoice
-id EditTextAccountSettingMyContactVerifyCode
+id EditTextAccountSettingMyContactVerifyCodePinEntry
 id EditTextAddtoListCreateList
 id EditTextAddtoListUpdateList
 id EditTextAdvSearchEthnicBackgrounCasteSearch
@@ -2421,6 +2421,7 @@ id TextViewUPSocialDetail
 id TextViewUPWhatIdo
 id TextViewUserProfileDeleteMessage
 id TextViewUserProfileFeedback
+id TextViewVerifyPhoneMobileNumber
 id TextViewWhoIsTitle
 id TextViewdmAlias
 id TextViewdmWelcome
