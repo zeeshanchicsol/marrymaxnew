@@ -158,7 +158,7 @@ public class dialogVerifyphone extends DialogFragment {
                     Toast.makeText(context, "Pleas Enter Code First", Toast.LENGTH_SHORT).show();
 
 
-                } else if ( etPinCode.getText().toString().length() ==6) {
+                } else if ( etPinCode.getText().toString().length() !=6) {
                     Toast.makeText(context, "Enter Valid Code", Toast.LENGTH_SHORT).show();
                 }
 

@@ -1622,36 +1622,70 @@ public class MarryMax {
     }
 
 
-    public void getAppVersion(Context context) {
+    public void getAppVersion(final Context context) {
 
 
         //Log.e(" getAppVersion url", Urls.getAppVersion);
-        StringRequest req = new StringRequest(Urls.getAppVersion,
+        StringRequest req = new StringRequest(Urls.getAppVrsn,
                 new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String remoteVersionName) {
-                        remoteVersionName = remoteVersionName.replaceAll("^\"|\"$", "");
-                      //  Log.e("getAppVersion ==", "=======================  " + remoteVersionName);
+                    public void onResponse(String response) {
+                 //     Log.e("getAppVersion ==", "=======================  " + remoteVersionName);
+                     //   remoteVersionName = remoteVersionName.replaceAll("^\"|\"$", "");
+
                         //String remoteVersionName = "1.0";
                         //   String version = data[2];
 
 
-                        //  max.checkVersionUpdate(remoteVersionName);
                         try {
-                            PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
-                            String localVersion = pInfo.versionName;
-                         //   Log.e("getAppVersion local", localVersion + " ----  " + remoteVersionName);
 
-                            if (!remoteVersionName.equals(localVersion)) {
-                                //   Log.e("updatev now", remoteVersionName);
-                                updateVersion();
+
+
+
+                            Gson gsonc;
+                            GsonBuilder gsonBuilderc = new GsonBuilder();
+                            gsonc = gsonBuilderc.create();
+                            Type listType = new TypeToken<WebArd>() {
+                            }.getType();
+
+                           WebArd obj = (WebArd) gsonc.fromJson(response.toString(), listType);
+
+
+
+                            try {
+                                PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
+                                String localVersion = pInfo.versionName;
+
+                             //   obj.setName("2.0");
+                               //   Log.e("getAppVersion local", localVersion + " ----  " + obj.getName());
+
+                                if (!obj.getName().equals(localVersion)) {
+                                 //   Log.e("updatev now", response);
+                                    updateVersion(context);
+                                }
+
+
+                                //   Log.e("versionName", "" + version);
+                            } catch (PackageManager.NameNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                            catch (Exception e) {
+                                e.printStackTrace();
                             }
 
 
-                            //   Log.e("versionName", "" + version);
-                        } catch (PackageManager.NameNotFoundException e) {
+
+
+
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
+
+
+
+
+
+
 
                     }
                 }, new Response.ErrorListener() {
@@ -1673,7 +1707,7 @@ public class MarryMax {
         MySingleton.getInstance(context).addToRequestQueue(req);
     }
 
-    public void checkVersionUpdate(String remoteVersionName) {
+  /*  public void checkVersionUpdate(String remoteVersionName) {
 
         try {
             PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
@@ -1690,7 +1724,7 @@ public class MarryMax {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public String getFeedbackText(int peedback_pending, Context context) {
         Members membera = SharedPreferenceManager.getUserObject(context);
@@ -1715,7 +1749,12 @@ public class MarryMax {
 
 //==================================================Update===========================================================
 
-    public void updateVersion() {
+    public void updateVersion(Context context) {
+
+      /*  if(!((Activity) context).isFinishing())
+        {*/
+            //show dialog
+
         AlertDialog dialog = new AlertDialog.Builder(activity, R.style.MyDialogTheme)
                 .setTitle("New version available")
                 .setCancelable(false)
@@ -1744,5 +1783,7 @@ public class MarryMax {
         dialog.show();
 
     }
+
+//}
 
 }

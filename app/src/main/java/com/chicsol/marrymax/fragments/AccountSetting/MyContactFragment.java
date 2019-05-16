@@ -1462,7 +1462,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //Log.d("Response--", response.toString() + "==");
+                   //   Log.e("getValidCode", response.toString() + "==");
                         if (response != null) {
 
                             if (Long.parseLong(response) == 0) {

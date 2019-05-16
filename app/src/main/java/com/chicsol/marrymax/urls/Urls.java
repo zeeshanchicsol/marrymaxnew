@@ -20,7 +20,10 @@ public class Urls {
     public static String reg_Listing = baseUrl + "/api/WebArd/GetRegisterListings";
     public static String getUsageInfo = baseUrl + "/api/WebArd/GetUsageInfo/";
 
-    public static String getAppVersion = baseUrl + "/api/WebArd/GetAppVersion";
+    //old one
+   // public static String getAppVersion = baseUrl + "/api/WebArd/GetAppVersion";
+    public static String getAppVrsn = baseUrl + "/api/WebArd/GetAppVrsn";
+
     public static String RegistrationUrl = baseUrl + "/api/WebArd/Registration";
 
     public static String validateAlias = baseUrl + "/api/WebArd/ValidateAlias";
