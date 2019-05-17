@@ -1630,16 +1630,12 @@ public class MarryMax {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                 //     Log.e("getAppVersion ==", "=======================  " + remoteVersionName);
-                     //   remoteVersionName = remoteVersionName.replaceAll("^\"|\"$", "");
-
+                        //     Log.e("getAppVersion ==", "=======================  " + remoteVersionName);
+                        //   remoteVersionName = remoteVersionName.replaceAll("^\"|\"$", "");
                         //String remoteVersionName = "1.0";
                         //   String version = data[2];
 
-
                         try {
-
-
 
 
                             Gson gsonc;
@@ -1648,19 +1644,18 @@ public class MarryMax {
                             Type listType = new TypeToken<WebArd>() {
                             }.getType();
 
-                           WebArd obj = (WebArd) gsonc.fromJson(response.toString(), listType);
-
+                            WebArd obj = (WebArd) gsonc.fromJson(response.toString(), listType);
 
 
                             try {
                                 PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
                                 String localVersion = pInfo.versionName;
 
-                             //   obj.setName("2.0");
-                               //   Log.e("getAppVersion local", localVersion + " ----  " + obj.getName());
+                                //   obj.setName("2.0");
+                                //   Log.e("getAppVersion local", localVersion + " ----  " + obj.getName());
 
                                 if (!obj.getName().equals(localVersion)) {
-                                 //   Log.e("updatev now", response);
+                                    //   Log.e("updatev now", response);
                                     updateVersion(context);
                                 }
 
@@ -1668,23 +1663,14 @@ public class MarryMax {
                                 //   Log.e("versionName", "" + version);
                             } catch (PackageManager.NameNotFoundException e) {
                                 e.printStackTrace();
-                            }
-                            catch (Exception e) {
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
-
-
-
 
 
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
-
-
-
-
 
 
                     }
@@ -1753,7 +1739,7 @@ public class MarryMax {
 
       /*  if(!((Activity) context).isFinishing())
         {*/
-            //show dialog
+        //show dialog
 
         AlertDialog dialog = new AlertDialog.Builder(activity, R.style.MyDialogTheme)
                 .setTitle("New version available")

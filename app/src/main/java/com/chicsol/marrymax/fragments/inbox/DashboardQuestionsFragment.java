@@ -197,7 +197,7 @@ public class DashboardQuestionsFragment extends Fragment implements RecyclerView
                              /*
                                        Complete Your Profile*/
                                     htmlDescriptionText.append(" There are " + new_questions_count + "  unanswered questions. \n");
-                                    htmlDescriptionText.append(" Please complete & verify your profile to see your messages. \n");
+                                    htmlDescriptionText.append(" Please complete & verify your profile to see your questions. \n");
                                     TextViewEmptyMessage.setText(htmlDescriptionText.toString());
 
                                 }

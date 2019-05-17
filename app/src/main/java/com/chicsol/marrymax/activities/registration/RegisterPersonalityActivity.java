@@ -187,7 +187,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         tvMemberIfoTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogAddMemberInfo newFragment = dialogAddMemberInfo.newInstance("");
+                dialogAddMemberInfo newFragment = dialogAddMemberInfo.newInstance(members_obj.getAbout_member_id());
                 //    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
                 newFragment.show(getSupportFragmentManager(), "dialog");
             }
@@ -196,7 +196,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         tvMemberInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogAddMemberInfo newFragment = dialogAddMemberInfo.newInstance("");
+                dialogAddMemberInfo newFragment = dialogAddMemberInfo.newInstance(members_obj.getAbout_member_id());
                 //    newFragment.setTargetFragment(UserProfileActivityFragment.this, 0);
                 newFragment.show(getSupportFragmentManager(), "dialog");
             }
@@ -534,7 +534,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
                             //  Log.e("Aliaaaaaaaasss", jsonGrography.get(0).toString());
                             members_obj = gson.fromJson(jsonGrography.get(0).toString(), Members.class);
 
-                            if (members_obj.getAbout_member_id() == 0) {
+                            if (members_obj.getAbout_member_id() >= 0) {
                                 llMemberInfo.setVisibility(View.VISIBLE);
                             } else {
                                 llMemberInfo.setVisibility(View.GONE);
@@ -744,8 +744,12 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
     }
 
     @Override
-    public void onComplete(String s) {
-        llMemberInfo.setVisibility(View.GONE);
+    public void onComplete(long s) {
+
+        if(s<0){
+            llMemberInfo.setVisibility(View.GONE);
+        }
+
 
     }
 

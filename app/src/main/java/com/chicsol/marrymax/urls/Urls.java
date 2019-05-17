@@ -70,7 +70,11 @@ public class Urls {
 
     public static String getPersonalityDosDonts = baseUrl + "/api/WebArd/GetPersonalityDosDonts";
 
+    //MemberInfo  =====================================
+
     public static String memberInfo = baseUrl + "/api/WebArd/MemberInfo";
+
+    public static String getMemberInfo = baseUrl + "/api/WebArd/GetMemberInfo/";
 
 
     //get progress
