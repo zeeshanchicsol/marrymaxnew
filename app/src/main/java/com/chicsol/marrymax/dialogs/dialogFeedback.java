@@ -20,6 +20,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -81,6 +83,8 @@ public class dialogFeedback extends DialogFragment {
     private DisplayImageOptions options, optionsNormalImage;
     private LayoutInflater inflater;
     private int height = 0;
+    private boolean inputVisible = true;
+    private RadioGroup rgYesNo;
 
 
     public static dialogFeedback newInstance(String userpath, String match_id, String params) {
@@ -238,6 +242,7 @@ public class dialogFeedback extends DialogFragment {
         prefValue3 = (mTextView) rootView.findViewById(R.id.TextViewFeedbackPrefValue3);
         prefValue4 = (mTextView) rootView.findViewById(R.id.TextViewFeedbackPrefValue4);
 
+        rgYesNo = (RadioGroup) rootView.findViewById(R.id.RadioGroupQuestionYesNo);
 
         mRbar = (AppCompatRatingBar) rootView.findViewById(R.id.dialog_ratingbar);
 
@@ -259,7 +264,30 @@ public class dialogFeedback extends DialogFragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
         recyclerView.setAdapter(recyclerAdapter);
         //  recyclerAdapter.setOnItemClickListener(dialogFeedback.this);
+        rgYesNo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                // get selected radio button from radioGroup
+                int selectedId = group.getCheckedRadioButtonId();
+
+                // find the radiobutton by returned id
+                RadioButton radioButton = (RadioButton) rootView.findViewById(selectedId);
+
+                if (radioButton.getTag().toString().equals("0")) {
+                    etFeedback.setVisibility(View.VISIBLE);
+                    inputVisible = true;
+                } else {
+
+
+                    etFeedback.setVisibility(View.GONE);
+                    inputVisible = false;
+                }
+
+             /*   Toast.makeText(context,
+                        radioButton.getTag().toString(), Toast.LENGTH_SHORT).show();*/
+            }
+        });
 
         Button mOkButton = (Button) rootView.findViewById(R.id.mButtonDialogMatchAidUPViewProgress);
         mOkButton.setOnClickListener(new View.OnClickListener() {
@@ -302,7 +330,14 @@ public class dialogFeedback extends DialogFragment {
                         params.put("userpath", userpath);
                         params.put("match_id", match_id);
 
-                        params.put("notes", fb);
+
+                        if (inputVisible) {
+                            params.put("notes", fb);
+                        } else {
+
+                            params.put("notes", "Yes, considering this match.");
+                        }
+
                         params.put("rating", mRbar.getNumStars());
 
                         params.put("que_ans", anserString.toString());
@@ -353,19 +388,34 @@ public class dialogFeedback extends DialogFragment {
 
     private boolean checkFieldsSelection(View v) {
         boolean ck = false;
-        if (!TextUtils.isEmpty(etFeedback.getText().toString().trim())) {
-            if (etFeedback.getText().length() > 200) {
-                etFeedback.setError(" max 200 char");
+        Log.e("isSelected", "" + rgYesNo.isSelected());
 
-                etFeedback.requestFocus();
-                ck = true;
+        if (rgYesNo.getCheckedRadioButtonId() != -1) {
 
+            RadioButton radioButton = (RadioButton) v.findViewById(rgYesNo.getCheckedRadioButtonId());
+            if (radioButton.getTag().equals("0")) {
+
+                if (!TextUtils.isEmpty(etFeedback.getText().toString().trim())) {
+                    if (etFeedback.getText().length() > 200) {
+                        etFeedback.setError(" max 200 char");
+
+                        etFeedback.requestFocus();
+                        ck = true;
+
+                    }
+
+                } else {
+                    Toast.makeText(context, "Please enter notes", Toast.LENGTH_SHORT).show();
+                    ck = true;
+                }
             }
 
         } else {
-            Toast.makeText(context, "Please enter notes", Toast.LENGTH_SHORT).show();
             ck = true;
+            Toast.makeText(context, "Please Select All Options", Toast.LENGTH_SHORT).show();
         }
+
+
         if (mRbar.getRating() >= 1) {
 
         } else {
@@ -377,6 +427,11 @@ public class dialogFeedback extends DialogFragment {
             ck = true;
             Toast.makeText(context, "Please Select All Options", Toast.LENGTH_SHORT).show();
         }
+
+      /*  if (!rgYesNo.isSelected()) {
+            ck = true;
+            Toast.makeText(context, "Please Select All Options", Toast.LENGTH_SHORT).show();
+        }*/
 
 
         return ck;

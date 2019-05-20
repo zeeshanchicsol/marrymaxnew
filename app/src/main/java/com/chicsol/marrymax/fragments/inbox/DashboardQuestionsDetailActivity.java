@@ -554,7 +554,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
         final List<mIceBreak> QuestionsList = new ArrayList<>();
 
         showProgressDialog();
-        //Log.e("Params", Urls.questionDetails + "    " + params);
+     //   Log.e("questionDetails", Urls.questionDetails + "    " + params);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.questionDetails, params,
                 new Response.Listener<JSONObject>() {

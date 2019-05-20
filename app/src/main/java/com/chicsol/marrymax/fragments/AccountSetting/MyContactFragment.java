@@ -328,15 +328,15 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     EditTextAScontactMobileNumber.setError("Invalid phone format");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
-                } else if (mobNum.length() > 11) {
-                    EditTextAScontactMobileNumber.setError("Max 11 Chars allowed");
+                } else if (mobNum.length() > 11 || mobNum.length() < 9) {
+                    EditTextAScontactMobileNumber.setError("Max 11 and Min 9  Characters allowed");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
-                } else if (landNum.length() > 11) {
-                    EditTextAScontactLandlineNumber.setError("Max 11 Chars allowed");
+                }/* else if (landNum.length() > 11 || landNum.length() < 9) {
+                    EditTextAScontactLandlineNumber.setError("Max 11 and Min 9 Characters allowed");
                     focusView = EditTextAScontactLandlineNumber;
                     focusView.requestFocus();
-                }
+                }*/
 
                 /* else if (!TextUtils.isEmpty(landNum)) {
                  *//* EditTextAScontactLandlineNumber.setError("Please Enter Old Passwor");
@@ -365,16 +365,29 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     Toast.makeText(getContext(), "Select Convenient Time to Call", Toast.LENGTH_SHORT).show();
 
 
-                } else {
+                }
+                else if(!TextUtils.isEmpty(landNum) &&  (landNum.length() > 11 || landNum.length() < 9)){
+                    EditTextAScontactLandlineNumber.setError("Max 11 and Min 9 Characters allowed");
+                    focusView = EditTextAScontactLandlineNumber;
+                    focusView.requestFocus();
+                }
+                else {
 
-                    if (!TextUtils.isEmpty(landNum)) {
+                    if (!TextUtils.isEmpty(landNum) &&  !(landNum.length() > 11 || landNum.length() < 9)) {
 
                         if (!isPhone(landNum)) {
                             EditTextAScontactLandlineNumber.setError("Invalid landline format");
                             focusView = EditTextAScontactLandlineNumber;
                             focusView.requestFocus();
 
-                        } else {
+                        }/*else   if (landNum.length() > 11 || landNum.length() < 9) {
+                            EditTextAScontactLandlineNumber.setError("Max 11 and Min 9 Characters allowed");
+                            focusView = EditTextAScontactLandlineNumber;
+                            focusView.requestFocus();
+                        }
+*/
+
+                        else {
                             landlineAdded = true;
                         }
 
@@ -1462,7 +1475,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                   //   Log.e("getValidCode", response.toString() + "==");
+                        //   Log.e("getValidCode", response.toString() + "==");
                         if (response != null) {
 
                             if (Long.parseLong(response) == 0) {
