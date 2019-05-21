@@ -119,12 +119,12 @@
                                     >
 
 
-                                    <LinearLayout
+                                    <RelativeLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
 
 
-                                        android:orientation="horizontal">
+                                       >
                                         <!-- android:layout_height="@dimen/text_size_mymatches_desc"-->
                                         <!--     <ImageView
                                                  android:id="@+id/ImageViewMMCountryFlag"
@@ -141,7 +141,8 @@
                                             android:id="@+id/TextVewFeedbackAlias"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_gravity="center_vertical"
+                                            android:layout_alignParentLeft="true"
+
                                             android:text=""
                                             android:textColor="@color/colorDashboardMainTextRed"
                                             android:textSize="@dimen/text_size_mymatches_desc"
@@ -152,24 +153,25 @@
                                             android:id="@+id/TextViewFeedbackAge"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="3dp"
-                                            android:text="age"
+                                     android:layout_toRightOf="@id/TextVewFeedbackAlias"
+                                            android:text=""
                                             android:textColor="#7c7c7c"
-                                            android:textSize="@dimen/text_size_mymatches_desc"/>
+                                            android:textSize="@dimen/text_size_mymatches_desc" />
 
-                                        <com.chicsol.marrymax.widgets.mTextView
+                                      <com.chicsol.marrymax.widgets.mTextView
                                             android:id="@+id/TextViewFeedbackDate"
-                                            android:layout_width="match_parent"
+                                            android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginRight="5dp"
-                                            android:gravity="right"
+                                            android:layout_alignParentRight="true"
+
+
                                             android:text=""
                                             android:textColor="#7c7c7c"
                                             android:textSize="@dimen/text_size_mymatches_desc" />
 
                                         <!--@dimen/text_size_mymatches_desc-->
 
-                                    </LinearLayout>
+                                    </RelativeLayout>
 
                                     <LinearLayout
                                         android:layout_width="match_parent"

@@ -371,8 +371,7 @@
                             android:stepSize="1.0" />
 
 
-
-                        <LinearLayout
+                   <!--     <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="8dp"
@@ -380,43 +379,16 @@
                             android:orientation="horizontal"
                             android:weightSum="10">
 
-                    <!--        <TextView
-                                android:id="@+id/TextViewQuestion"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="6"
-                                android:backgroundTint="#f1f1f1"
-                                android:fontFamily="sans-serif"
-                                android:text="Q1 : What were you like as a kid?"
-
-                                android:textSize="14sp"
-                                />
--->
 
                             <TextView
                                 android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                                android:layout_weight="6"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Considering or Not Considering this match"
-                            android:textColor="@color/colorBlack" />
-
-                        <!--    <TextView
-                                android:id="@+id/TextViewQuestionAnswer"
-                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="5dp"
-                                android:layout_weight="4"
-                                android:backgroundTint="#f1f1f1"
-                                android:gravity="right"
-                                android:text="Yes"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorBlack"
-                                android:textSize="14sp"
-                                android:visibility="gone" />-->
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="6"
+                                android:text="Considering or Not Considering this match"
+                                android:textColor="@color/colorBlack" />
 
 
                             <RadioGroup
@@ -443,7 +415,7 @@
                                     android:text="No" />
                             </RadioGroup>
 
-                        </LinearLayout>
+                        </LinearLayout>-->
 
                         <android.support.v7.widget.AppCompatEditText
                             android:id="@+id/EditTextMatchAidFeedbackText"
@@ -452,7 +424,8 @@
                             android:layout_marginLeft="10dp"
 
                             android:layout_marginRight="10dp"
-                            android:hint="Why Not "
+                            android:hint="Considering or Not Considering this match, write in few words.
+"
                             android:inputType="textMultiLine"
                             android:minLines="2" />
 
