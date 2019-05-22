@@ -340,7 +340,8 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
                             JSONObject params1 = new JSONObject();
                             params1.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                             params1.put("id", objCom.getRequest_type_id());
-                            deleteQuestion(params1);
+                     //      Log.e("Params", Urls.deleteQuestion + "    " + params1);
+                          deleteQuestion(params1);
 
 
                         } catch (JSONException e) {
@@ -493,7 +494,7 @@ public class DashboardQuestionsDetailActivity extends AppCompatActivity implemen
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        //Log.e("re  update appearance", response + "");
+                      //  Log.e("re  update appearance", response + "");
                         try {
 
                             int responseid = response.getInt("id");

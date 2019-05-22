@@ -240,6 +240,34 @@
                     android:textColor="@color/colortextdashmymatches"
                     android:textSize="@dimen/text_size_mymatches_desc2" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Match Rating:"
+                        android:textColor="@color/colortextdashmymatches"
+                        android:textSize="@dimen/text_size_mymatches_desc2"
+                        android:textStyle="bold" />
+
+                    <android.support.v7.widget.AppCompatRatingBar
+android:id="@+id/RatingBarFeedbackMain"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colortextdashmymatches"
+                        android:textSize="@dimen/text_size_mymatches_desc2"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
 
             </LinearLayout>
         </LinearLayout>
@@ -273,9 +301,9 @@
                     android:id="@+id/LinearLayoutFeedbackViewGiveFeedback"
                     style="@style/myCustomMaterialButton"
                     android:layout_width="wrap_content"
-                    android:backgroundTint="#1d9b0c"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
+                    android:backgroundTint="#1d9b0c"
                     android:clickable="true"
                     android:visibility="visible">
 
@@ -295,6 +323,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         app:srcCompat="@drawable/ic_pending_feedback" />
+
                     <com.chicsol.marrymax.widgets.mTextView
 
                         android:layout_width="wrap_content"
@@ -333,6 +362,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
                         app:srcCompat="@drawable/ic_match_feedback" />
+
                     <com.chicsol.marrymax.widgets.mTextView
                         android:id="@+id/TextViewMMShowInterestText"
                         android:layout_width="wrap_content"

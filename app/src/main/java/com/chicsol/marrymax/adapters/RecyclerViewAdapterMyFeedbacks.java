@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -247,6 +248,12 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
             holder.llViewDetail.setVisibility(View.GONE);
 
 
+            holder.ratingBar.setRating(obj.getRating());
+            //Log.e("getRating",""+obj.getRating());
+        //    mRbar.setClickable(false);
+        //    holder.ratingBar.setIsIndicator(true);
+
+
             if (obj.getFeedback_id() == 0) {
                 holder.llViewGiveFeedback.setVisibility(View.VISIBLE);
             } else {
@@ -280,7 +287,6 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
             holder.llViewGiveFeedback.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
 
 
                     JSONObject params = new JSONObject();
@@ -487,9 +493,11 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
         public TextView tvAlias, tvAge, tvDate, tvCountry, pref1, pref2, pref3, pref4, prefValue1, prefValue2, prefValue3, prefValue4, tvAboutMe;
         //  public faTextView faRemove, faFeedback;
         LinearLayoutCompat llViewDetail, llViewGiveFeedback;
+        AppCompatRatingBar ratingBar;
 
         public MMViewHolder(View itemView) {
             super(itemView);
+            ratingBar = (AppCompatRatingBar) itemView.findViewById(R.id.RatingBarFeedbackMain);
             image = (ImageView) itemView.findViewById(R.id.ImageViewFeedbackProfile);
             tvAlias = (TextView) itemView.findViewById(R.id.TextVewFeedbackAlias);
             tvAge = (TextView) itemView.findViewById(R.id.TextViewFeedbackAge);
@@ -503,6 +511,7 @@ public class RecyclerViewAdapterMyFeedbacks extends RecyclerView.Adapter<Recycle
             prefValue2 = (mTextView) itemView.findViewById(R.id.TextViewFeedbackPrefValue2);
             prefValue3 = (mTextView) itemView.findViewById(R.id.TextViewFeedbackPrefValue3);
             prefValue4 = (mTextView) itemView.findViewById(R.id.TextViewFeedbackPrefValue4);
+
 
             tvAboutMe = (TextView) itemView.findViewById(R.id.TextViewFeedbackAboutMe);
 

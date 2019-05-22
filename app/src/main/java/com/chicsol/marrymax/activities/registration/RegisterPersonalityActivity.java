@@ -748,6 +748,10 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
 
         if(s<0){
             llMemberInfo.setVisibility(View.GONE);
+            members_obj.setAbout_member_id(s);
+        }
+        else if(s>0){
+            members_obj.setAbout_member_id(s);
         }
 
 

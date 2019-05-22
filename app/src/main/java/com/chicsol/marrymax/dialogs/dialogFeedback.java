@@ -266,7 +266,7 @@ public class dialogFeedback extends DialogFragment {
         Button mOkButton = (Button) rootView.findViewById(R.id.mButtonDialogMatchAidUPViewProgress);
         mOkButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
-
+             //    Log.e("stars",  Math.round(mRbar.getRating() )+ "");
 
                 if (!checkFieldsSelection(v)) {
 
@@ -305,7 +305,7 @@ public class dialogFeedback extends DialogFragment {
                         params.put("match_id", match_id);
 
                         params.put("notes", fb);
-                        params.put("rating", mRbar.getNumStars());
+                        params.put("rating", Math.round(mRbar.getRating()));
 
                         params.put("que_ans", anserString.toString());
 
