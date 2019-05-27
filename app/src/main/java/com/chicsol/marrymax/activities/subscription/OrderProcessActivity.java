@@ -4,10 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -33,6 +30,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.registration.RegisterPersonalityActivity;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.dialogs.dialogEnterPromoCode;
 import com.chicsol.marrymax.dialogs.dialogSelectPackage;
@@ -65,7 +63,6 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -74,7 +71,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     ImageButton btEditPackage;
     TextView tvPromoCode;
     Button btPayThroughCreditCard;
-    private ProgressBar pDialog;
+    private ProgressBar pBar;
+    private ProgressDialog pDialog;
     private ArrayAdapter acAdapter;
     String ip = "";
     String item_id = "";
@@ -243,7 +241,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         llCash = (LinearLayout) findViewById(R.id.LinearlayoutOrderProcessCash);
 
 
-        pDialog = (ProgressBar) findViewById(R.id.ProgressbarSubscriptionPlan);
+        pBar = (ProgressBar) findViewById(R.id.ProgressbarSubscriptionPlan);
         btEditPackage = (ImageButton) findViewById(R.id.ImageButtonEditPlackage);
         tvPromoCode = (TextView) findViewById(R.id.TextViewOrderProcessPromocode);
 
@@ -748,8 +746,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         JSONObject params = null;
                         try {
                             params = new JSONObject(gson.toJson(payments));
-                            //Log.e("params", params.toString());
-                            ProcessPaymentRequest(params);
+                           // Log.e("params", params.toString());
+                          ProcessPaymentRequest(params);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -880,7 +878,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     }
 
     private void getPersonsList() {
-        pDialog.setVisibility(View.VISIBLE);
+        pBar.setVisibility(View.VISIBLE);
 
 
         //Log.e("api path", "" + Urls.getPersonsList + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
@@ -920,16 +918,16 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                             e.printStackTrace();
                         }
                        /* if (!refresh) {
-                            // pDialog.dismiss();
-                            pDialog.setVisibility(View.GONE);
+                            // pBar.dismiss();
+                            pBar.setVisibility(View.GONE);
                         }*/
-                        pDialog.setVisibility(View.GONE);
+                        pBar.setVisibility(View.GONE);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.setVisibility(View.GONE);
+                pBar.setVisibility(View.GONE);
             }
         }) {
             @Override
@@ -941,7 +939,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
     }
 
     private void getPaymentPending() {
-        pDialog.setVisibility(View.VISIBLE);
+        pBar.setVisibility(View.VISIBLE);
 
 
         //Log.e("getPaymentPending path", "" + Urls.getPaymentPending + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
@@ -1054,16 +1052,16 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                             e.printStackTrace();
                         }
                        *//* if (!refresh) {
-                            // pDialog.dismiss();
-                            pDialog.setVisibility(View.GONE);
+                            // pBar.dismiss();
+                            pBar.setVisibility(View.GONE);
                         }*//*
-                        pDialog.setVisibility(View.GONE);
+                        pBar.setVisibility(View.GONE);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
-                pDialog.setVisibility(View.GONE);
+                pBar.setVisibility(View.GONE);
             }
         }) {
             @Override
@@ -1079,10 +1077,11 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         //    path,item_id,member_ip,procode_code,checkout_email_address,payment_method,pp_paykey
 
 
-/*        final ProgressDialog pDialog = new ProgressDialog(OrderProcessActivity.this);
-        pDialog.setMessage("Loading...");
-        pDialog.show();*/
-        pDialog.setVisibility(View.VISIBLE);
+/*        final ProgressDialog pBar = new ProgressDialog(OrderProcessActivity.this);
+        pBar.setMessage("Loading...");
+        pBar.show();*/
+        //pBar.setVisibility(View.VISIBLE);
+        showProgressDialog();
         //Log.e("generateCart", params.toString());
         //Log.e("generateCart params", Urls.generateCart);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
@@ -1155,13 +1154,13 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
 
                         } catch (JSONException e) {
-                            //    pDialog.dismiss();
-                            pDialog.setVisibility(View.GONE);
+                            //    pBar.dismiss();
+                          dismissProgressDialog();
                             e.printStackTrace();
                         }
 
-                        pDialog.setVisibility(View.GONE);
-                        //   pDialog.dismiss();
+                        dismissProgressDialog();
+                        //   pBar.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1170,8 +1169,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
 
                 VolleyLog.e("res err", "Error: " + error);
-                //   pDialog.dismiss();
-                pDialog.setVisibility(View.GONE);
+                //   pBar.dismiss();
+                dismissProgressDialog();
             }
 
 
@@ -1247,11 +1246,11 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
     private void getPackages() {
 
-      /*  final ProgressDialog pDialog = new ProgressDialog(OrderProcessActivity.this);
-        pDialog.setMessage("Loading...");
-        pDialog.show();*/
+      /*  final ProgressDialog pBar = new ProgressDialog(OrderProcessActivity.this);
+        pBar.setMessage("Loading...");
+        pBar.show();*/
         //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
-        pDialog.setVisibility(View.VISIBLE);
+        showProgressDialog();
         JSONObject params = new JSONObject();
         try {
 
@@ -1298,13 +1297,13 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
 
                         } catch (JSONException e) {
-                            //   pDialog.dismiss();
-                            pDialog.setVisibility(View.GONE);
+                            //   pBar.dismiss();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
-                        pDialog.setVisibility(View.GONE);
-                        // pDialog.dismiss();
+                        dismissProgressDialog();
+                        // pBar.dismiss();
                     }
                 }, new Response.ErrorListener() {
 
@@ -1314,8 +1313,8 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
                 VolleyLog.e("res err", "Error: " + error);
                 // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
-                pDialog.setVisibility(View.GONE);
-                //  pDialog.dismiss();
+                dismissProgressDialog();
+                //  pBar.dismiss();
             }
 
 
@@ -1408,5 +1407,30 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
     }
 
+
+
+
+
+    private void showProgressDialog() {
+        if (pDialog == null) {
+            pDialog = new ProgressDialog(OrderProcessActivity.this);
+            pDialog.setMessage("Loading. Please wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+        }
+        pDialog.show();
+    }
+
+    private void dismissProgressDialog() {
+        if (pDialog != null && pDialog.isShowing()) {
+            pDialog.dismiss();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        dismissProgressDialog();
+        super.onDestroy();
+    }
 
 }
