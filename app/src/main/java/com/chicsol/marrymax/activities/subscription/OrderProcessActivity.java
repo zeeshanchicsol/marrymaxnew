@@ -747,7 +747,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                         try {
                             params = new JSONObject(gson.toJson(payments));
                            // Log.e("params", params.toString());
-                          ProcessPaymentRequest(params);
+                            ProcessPaymentRequest(params);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -829,7 +829,15 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
         } else if (spYear.getSelectedItemId() == 0) {
             Toast.makeText(this, "Please select expiry year", Toast.LENGTH_SHORT).show();
             return false;
-        } /*else if (spYear.getSelectedItemId() != 0 && spMonth.getSelectedItemId() != 0) {
+        }else if (subscription.getTotal_cost() > 300) {
+            Toast.makeText(this, "Error , Please try again", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+
+
+
+        /*else if (spYear.getSelectedItemId() != 0 && spMonth.getSelectedItemId() != 0) {
 
 
 
@@ -1155,7 +1163,7 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
 
                         } catch (JSONException e) {
                             //    pBar.dismiss();
-                          dismissProgressDialog();
+                            dismissProgressDialog();
                             e.printStackTrace();
                         }
 
@@ -1406,9 +1414,6 @@ public class OrderProcessActivity extends AppCompatActivity implements dialogSel
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjReq);
     }
-
-
-
 
 
     private void showProgressDialog() {
