@@ -1,29 +1,21 @@
 {
   "project_info": {
-    "project_number": "43779756558",
-    "firebase_url": "https://marrymax-150206.firebaseio.com",
-    "project_id": "marrymax-150206",
-    "storage_bucket": "marrymax-150206.appspot.com"
+    "project_number": "80975728836",
+    "firebase_url": "https://mmtest-432d2.firebaseio.com",
+    "project_id": "mmtest-432d2",
+    "storage_bucket": "mmtest-432d2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:43779756558:android:9d7afe6d6767b0f8",
+        "mobilesdk_app_id": "1:80975728836:android:9d7afe6d6767b0f8",
         "android_client_info": {
           "package_name": "com.chicsol.marrymax"
         }
       },
       "oauth_client": [
         {
-          "client_id": "43779756558-ogok7k9unidoj81n98n58kshtt53g00h.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.chicsol.marrymax",
-            "certificate_hash": "3cc582c83389c69451c2cee7588e7f38ad0a19fb"
-          }
-        },
-        {
-          "client_id": "43779756558-kelah4re8r3grmgorhisq4hm5ubo2n2o.apps.googleusercontent.com",
+          "client_id": "80975728836-32nt94dr9cne5igif117jiel18kdrqbn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.chicsol.marrymax",
@@ -31,30 +23,31 @@
           }
         },
         {
-          "client_id": "43779756558-m1gc383p37tct4d1sejkbcojsc438bnb.apps.googleusercontent.com",
+          "client_id": "80975728836-o690gb9i8qgmi0u8qc002fr7s3us4mnt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC5392yUwUCuuH3uEl95z4DrPSxkzEo1gA"
+          "current_key": "AIzaSyB0sawmWf1wOhYcXMWCT70pmqasNOmZH0w"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "43779756558-m1gc383p37tct4d1sejkbcojsc438bnb.apps.googleusercontent.com",
+              "client_id": "80975728836-o690gb9i8qgmi0u8qc002fr7s3us4mnt.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "80975728836-pkbt5fq0r953pnc1p74rc1r46pi1i37h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.marrymax",
+                "app_store_id": "1326106167"
+              }
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

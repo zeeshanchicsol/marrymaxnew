@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
@@ -1771,5 +1773,99 @@ public class MarryMax {
     }
 
 //}
+
+    public void sendRegistrationToServer(String token,Context context) {
+
+      /*  final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();*/
+        //   RequestQueue rq = Volley.newRequestQueue(getActivity().getApplicationContext());
+
+        JSONObject params = new JSONObject();
+        try {
+
+          /*  path
+            device_id                         (unique device id)
+            token_id                          (mobile generated token)
+            app_ver                          (app version)
+            os_ver                            (os version)
+            device_name                 (device full name)*/
+            String android_id = Settings.Secure.getString(context.getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
+
+            if (android_id == null) {
+                android_id = SharedPreferenceManager.getUniqueId(context);
+            }
+
+            String version = "";
+            try {
+                PackageInfo pInfo =context. getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                version = pInfo.versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+            int os = Build.VERSION.SDK_INT;
+            String model = Build.MODEL;
+            //   Log.e("android_id", "" + android_id);
+
+            params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+            params.put("device_id", android_id);
+            params.put("token_id", token);
+            params.put("app_ver", version);
+            params.put("os_ver", os);
+            params.put("device_name", model);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("Params", "" + params);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                Urls.appDevice, params,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("response ", response + "");
+                        try {
+                            int responseid = response.getInt("id");
+
+
+                        } catch (JSONException e) {
+                            //   pDialog.dismiss();
+                            e.printStackTrace();
+                        }
+
+                        // pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                VolleyLog.e("res err", "Error: " + error);
+                // Toast.makeText(RegistrationActivity.this, "Incorrect Email or Password !", Toast.LENGTH_SHORT).show();
+
+                // pDialog.dismiss();
+            }
+
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+
+// Adding request to request queue
+        ///   rq.add(jsonObjReq);
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(context).addToRequestQueue(jsonObjReq);
+
+    }
 
 }

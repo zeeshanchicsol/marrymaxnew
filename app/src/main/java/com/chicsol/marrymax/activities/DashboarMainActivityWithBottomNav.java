@@ -1,5 +1,8 @@
 package com.chicsol.marrymax.activities;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -36,6 +39,11 @@ import com.chicsol.marrymax.preferences.Prefs;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.utils.AppVersionCode;
 import com.chicsol.marrymax.utils.ConnectCheck;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -129,6 +137,10 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_main_bottom_navigation);
 
+
+  //      FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+
+
         //  typeface = Typeface.createFromAsset(getAssets(), Constants.font_centurygothic);
    /*     if (Prefs.getApplicationVersionCode(this) <
    AppVersionCode.getApkVersionCode(this)) {
@@ -147,6 +159,7 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
         setSelectedTab();
         //  determinePaneLayout();
     }
+
 
     private void setSelectedTab() {
 
@@ -207,7 +220,7 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
                 BottomNavSelected fragment = (BottomNavSelected) adapter.instantiateItem(mViewPager, position);
                 if (fragment != null) {
                     //if (selectedTab != 2) {
-                    DashboarMainActivityWithBottomNav.super.  getNotificationCount();
+                    DashboarMainActivityWithBottomNav.super.getNotificationCount();
                     fragment.bottomNavSelected();
                     //}
                 }

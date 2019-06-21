@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Created by redZze on 6/6/2016.
@@ -29,13 +30,12 @@ public class SharedPreferenceManager {
     public static final String DEFAULT_SEARCH_OBJECT = "default_search_object";
     public static final String MEMBERS_DATALIST = "members_datalist";
     public static final String SUGGESTION_LIST = "suggestion_list";
+    public static final String UNIQUE_ID = "unique_id";
 
 
     public static final String USER_QUESTION_OBJ = "user_question_object";
 
     public static final String TUTORIAL_CHECK = "tutorial_check";
-
-
 
 
     public static Members getUserObject(Context context) {
@@ -119,6 +119,35 @@ public class SharedPreferenceManager {
         }
 
     }
+
+    public static void setUniqueId(Context context, String id) {
+
+        SharedPreferences sharedPreferences = context
+                .getSharedPreferences(MARRYMAX_EMAIL_SUGGESTION_PREFER_NAME, PRIVATE_MODE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(UNIQUE_ID, id);
+        editor.commit();
+
+    }
+
+    public static String getUniqueId(Context context) {
+
+        SharedPreferences sharedPrefs = context
+                .getSharedPreferences(MARRYMAX_EMAIL_SUGGESTION_PREFER_NAME, PRIVATE_MODE);
+
+        if (sharedPrefs.getString(UNIQUE_ID, null) == null) {
+
+            String id = UUID.randomUUID().toString();
+            setUniqueId(context, id);
+            return id;
+
+        } else {
+            return sharedPrefs.getString(UNIQUE_ID, null);
+        }
+
+
+    }
+
 
 
     public static Members getDefaultSelectionsObj(Context context) {
@@ -208,10 +237,6 @@ public class SharedPreferenceManager {
     }
 
 
-
-
-
-
     public static boolean getTutorialCheck(Context context) {
 
         SharedPreferences sharedPreferences = context
@@ -228,6 +253,9 @@ public class SharedPreferenceManager {
         editor.putBoolean(TUTORIAL_CHECK, userObject);
         editor.commit();
     }
+
+
+
 
 
 

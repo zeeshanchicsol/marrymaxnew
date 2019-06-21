@@ -365,15 +365,13 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     Toast.makeText(getContext(), "Select Convenient Time to Call", Toast.LENGTH_SHORT).show();
 
 
-                }
-                else if(!TextUtils.isEmpty(landNum) &&  (landNum.length() > 11 || landNum.length() < 9)){
+                } else if (!TextUtils.isEmpty(landNum) && (landNum.length() > 11 || landNum.length() < 9)) {
                     EditTextAScontactLandlineNumber.setError("Max 11 and Min 9 Characters allowed");
                     focusView = EditTextAScontactLandlineNumber;
                     focusView.requestFocus();
-                }
-                else {
+                } else {
 
-                    if (!TextUtils.isEmpty(landNum) &&  !(landNum.length() > 11 || landNum.length() < 9)) {
+                    if (!TextUtils.isEmpty(landNum) && !(landNum.length() > 11 || landNum.length() < 9)) {
 
                         if (!isPhone(landNum)) {
                             EditTextAScontactLandlineNumber.setError("Invalid landline format");
@@ -385,9 +383,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                             focusView = EditTextAScontactLandlineNumber;
                             focusView.requestFocus();
                         }
-*/
-
-                        else {
+*/ else {
                             landlineAdded = true;
                         }
 

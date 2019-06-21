@@ -251,7 +251,7 @@ public class ContactAcivity extends AppCompatActivity {
                                 try {
 
                                     params.put("contact_phone", mobNum);
-                                    params.put("contact_ip", getLocalIpAddress());
+                                    params.put("contact_ip", "");
                                     params.put("emailaddress", email);
                                     params.put("contact_category_id", cforObj.getId());
                                     params.put("contact_name", name);
@@ -655,7 +655,7 @@ public class ContactAcivity extends AppCompatActivity {
 
     }
 
-    public String getLocalIpAddress() {
+ /*   public String getLocalIpAddress() {
         try {
             for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();
                  en.hasMoreElements(); ) {
@@ -671,7 +671,7 @@ public class ContactAcivity extends AppCompatActivity {
             //Log.e("IP Address", ex.toString());
         }
         return null;
-    }
+    }*/
 
 
     @Override

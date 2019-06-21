@@ -449,7 +449,7 @@ DrawerActivity extends AppCompatActivity {
                                 member = member1;
                             }
 
-                            if (status.equals("5") || status.equals("6")) {
+                            if (status.equals("5") || status.equals("6") /*|| status.equals("10")*/) {
                                 MySingleton.getInstance(getApplicationContext()).getRequestQueue().cancelAll(new RequestQueue.RequestFilter() {
                                     @Override
                                     public boolean apply(Request<?> request) {

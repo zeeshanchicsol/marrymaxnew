@@ -1,11 +1,17 @@
 package com.chicsol.marrymax.activities;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -40,17 +46,22 @@ import com.chicsol.marrymax.other.ConnectionDetector;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.other.UserSessionManager;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
+import com.chicsol.marrymax.services.MyFirebaseMessagingService;
 import com.chicsol.marrymax.urls.Urls;
 import com.chicsol.marrymax.utils.ConnectCheck;
 import com.chicsol.marrymax.utils.Constants;
+import com.chicsol.marrymax.utils.Installation;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.utils.functions;
 import com.chicsol.marrymax.widgets.mButton2;
 import com.crashlytics.android.Crashlytics;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-//import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 
 import io.fabric.sdk.android.Fabric;
 
@@ -78,8 +89,8 @@ public class ActivityLogin extends AppCompatActivity {
     private UserSessionManager session;
 
     private ProgressDialog pDialog;
-
-    //  private FirebaseAnalytics mFirebaseAnalytics;
+    private FirebaseInstanceId instanceId;
+    //private FirebaseAnalytics mFirebaseAnalytics;
     private ArrayAdapter acAdapter;
 
 
@@ -97,6 +108,19 @@ public class ActivityLogin extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
 
+        //  Log.e("id","....."+ SharedPreferenceManager.getUniqueId(getApplicationContext()));
+
+
+        //    instanceId=FirebaseInstanceId.getInstance();
+
+   /*     new Thread(new Runnable() {
+            public void run() {
+                // a potentially time consuming task
+
+                Log.e("Id", instanceId.getId()+"");
+            }
+        }).start();*/
+
         UserSessionManager session = new UserSessionManager(
                 getApplicationContext());
         boolean isUserLoggegIn = session.isUserLoggedIn();
@@ -111,16 +135,38 @@ public class ActivityLogin extends AppCompatActivity {
         }
 
 
-        initialize();
-        setListeners();
-
-
         Calendar cl2 = Calendar.getInstance();
 
         Long ticks = 621355968000000000L + cl2.getTimeInMillis() * 10000;
-       //Log.e("ticks ", "ticks " + ticks + "   ms  " + cl2.getTimeInMillis());
+        //Log.e("ticks ", "ticks " + ticks + "   ms  " + cl2.getTimeInMillis());
+
+  /*  FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(ActivityLogin.this, new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String newToken = instanceIdResult.getToken();
+                Log.e("newToken", newToken);
+
+            }
+        });*/
+
+        //  String notificationToken = FirebaseInstanceId.getInstance().getToken();
+        //  Log.e("notificationToken", notificationToken);
+
+        //  mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
+      /*  FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String token = instanceIdResult.getToken();
+                Log.e("Refreshed", " : " + token);
+                // send it to server
+            }
+        });*/
+
+
+        initialize();
+        setListeners();
     }
 
 
@@ -354,7 +400,7 @@ public class ActivityLogin extends AppCompatActivity {
             e.printStackTrace();
         }
 
-      // //Log.e("Log params ", Urls.LoginUrl + "   " + params);
+        // //Log.e("Log params ", Urls.LoginUrl + "   " + params);
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.LoginUrl, params,
@@ -362,12 +408,47 @@ public class ActivityLogin extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                       //Log.e("res", response.toString());
+                        //Log.e("res", response.toString());
                         try {
 
 
                             if (response.get("status").equals("success")) {
 
+                                //   FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+
+                                Log.e("FirebaseMessaging", FirebaseMessaging.getInstance().isAutoInitEnabled() + "");
+                                if (FirebaseMessaging.getInstance().isAutoInitEnabled()) {
+                                    try {
+                                        FirebaseInstanceId.getInstance().getInstanceId()
+                                                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                                                        if (!task.isSuccessful()) {
+                                                            Log.e("zzzzz", "getInstanceId failed", task.getException());
+                                                            return;
+                                                        }
+
+                                                        // Get new Instance ID token
+                                                        String token = task.getResult().getToken();
+
+                                                        // Log and toast
+                                                        // String msg = getString(R.string.msg_token_fmt, token);
+                                                        Log.e("token", token);
+                                                        //  createNotification(token);
+                                                        MarryMax marryMax=new MarryMax(null);
+                                                        marryMax.sendRegistrationToServer(token,getApplicationContext());
+                                                        // Toast.makeText(DashboarMainActivityWithBottomNav.this, token.codePointAt(10), Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                    } catch (Exception e) {
+                                        Log.e("exce", e.toString());
+                                    }
+
+
+                                } else {
+                                    FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+
+                                }
 
                                 if (emailSuggestionList.size() > 0) {
                                     if (!emailSuggestionList.contains(email)) {
@@ -435,6 +516,28 @@ public class ActivityLogin extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(this).addToRequestQueue(jsonObjReq);
+    }
+
+    public void createNotification(String token) {
+        // Prepare intent which is triggered if the
+        // notification is selected
+        Intent intent = new Intent(this, ActivityLogin.class);
+        PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
+
+        // Build notification
+        // Actions are just fake
+        Notification noti = new Notification.Builder(this)
+                .setContentTitle("New mail from " + "test@gmail.com")
+                .setContentText(token).setSmallIcon(R.drawable.ic_reset_icon)
+                .setContentIntent(pIntent)
+                .addAction(R.drawable.ic_reset_icon, "Call", pIntent).build();
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        // hide the notification after its selected
+        noti.flags |= Notification.FLAG_AUTO_CANCEL;
+
+        notificationManager.notify(0, noti);
+
     }
 
     private void checkUserStatus(Members member) {
@@ -547,7 +650,7 @@ public class ActivityLogin extends AppCompatActivity {
      /*   final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
         pDialog.setMessage("Loading...");
         pDialog.show();*/
-       //Log.e("getUsageInfo", "" + Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        //Log.e("getUsageInfo", "" + Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getUsageInfo + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
                 new Response.Listener<JSONArray>() {
@@ -574,5 +677,8 @@ public class ActivityLogin extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(req);
     }
+
+
+
 
 }
