@@ -14,6 +14,8 @@ import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import java.io.File;
 import java.util.HashMap;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
+
 public class UserSessionManager {
 
     // Shared Preferences reference
@@ -63,29 +65,29 @@ public class UserSessionManager {
      * */
     /*
      * public boolean checkLogin(){ // Check login status
-	 * if(!this.isUserLoggedIn()){
-	 * 
-	 * // user is not logged in redirect him to Login Activity Intent i = new
-	 * Intent(_context, Login.class);
-	 * 
-	 * // Closing all the Activities from stack
-	 * i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	 * 
-	 * // Add new Flag to start new Activity
-	 * i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-	 * 
-	 * // Staring Login Activity _context.startActivity(i);
-	 * 
-	 * return true; } else{
-	 * 
-	 * Log.e("log in","loooooog"); Intent in=new
-	 * Intent(_context,MainScreen.class);
-	 * in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-	 * 
-	 * _context.startActivity(in);
-	 * 
-	 * } return false; }
-	 */
+     * if(!this.isUserLoggedIn()){
+     *
+     * // user is not logged in redirect him to Login Activity Intent i = new
+     * Intent(_context, Login.class);
+     *
+     * // Closing all the Activities from stack
+     * i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+     *
+     * // Add new Flag to start new Activity
+     * i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+     *
+     * // Staring Login Activity _context.startActivity(i);
+     *
+     * return true; } else{
+     *
+     * Log.e("log in","loooooog"); Intent in=new
+     * Intent(_context,MainScreen.class);
+     * in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+     *
+     * _context.startActivity(in);
+     *
+     * } return false; }
+     */
 
     /**
      * Get stored session data
@@ -106,8 +108,8 @@ public class UserSessionManager {
      * Clear session details
      */
     public void logoutUser() {
-
-        DrawerActivity.rawSearchObj=new Members();
+        ShortcutBadger.applyCount(_context, 0); //for 1.1.4+
+        DrawerActivity.rawSearchObj = new Members();
 
         // Clearing all user data from Shared Preferences
         editor.clear();

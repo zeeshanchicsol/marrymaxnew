@@ -53,6 +53,8 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.Map;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
+
 /**
  * Created by Android on 12/7/2016.
  */
@@ -405,6 +407,8 @@ DrawerActivity extends AppCompatActivity {
     private void settNotificationCount(String c) {
         try {
             count = Integer.parseInt(c);
+
+            ShortcutBadger.applyCount(this, count); //for 1.1.4+
             invalidateOptionsMenu();
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
