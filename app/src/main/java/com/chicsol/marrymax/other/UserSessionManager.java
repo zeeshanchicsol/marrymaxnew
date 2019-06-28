@@ -10,8 +10,10 @@ import com.chicsol.marrymax.activities.ActivityLogin;
 import com.chicsol.marrymax.activities.DrawerActivity;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 import me.leolin.shortcutbadger.ShortcutBadger;
@@ -108,6 +110,18 @@ public class UserSessionManager {
      * Clear session details
      */
     public void logoutUser() {
+/*        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    FirebaseInstanceId.getInstance().deleteInstanceId();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();*/
+
+
         ShortcutBadger.applyCount(_context, 0); //for 1.1.4+
         DrawerActivity.rawSearchObj = new Members();
 

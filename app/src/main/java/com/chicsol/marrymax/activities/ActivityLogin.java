@@ -69,6 +69,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -414,11 +415,24 @@ public class ActivityLogin extends AppCompatActivity {
 
                             if (response.get("status").equals("success")) {
 
-                                //   FirebaseMessaging.getInstance().setAutoInitEnabled(true);
 
-                                Log.e("FirebaseMessaging", FirebaseMessaging.getInstance().isAutoInitEnabled() + "");
+
+                              //  Log.e("FirebaseMessaging", FirebaseMessaging.getInstance().isAutoInitEnabled() + "");
                                 if (FirebaseMessaging.getInstance().isAutoInitEnabled()) {
-                                    try {
+
+                                                                            new Thread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            try {
+                                                                FirebaseInstanceId.getInstance().deleteInstanceId();
+                                                            } catch (IOException e) {
+                                                                e.printStackTrace();
+                                                            }
+                                                        }
+                                                    }).start();
+
+
+                                /*    try {
                                         FirebaseInstanceId.getInstance().getInstanceId()
                                                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                                                     @Override
@@ -442,7 +456,7 @@ public class ActivityLogin extends AppCompatActivity {
                                                 });
                                     } catch (Exception e) {
                                         Log.e("exce", e.toString());
-                                    }
+                                    }*/
 
 
                                 } else {

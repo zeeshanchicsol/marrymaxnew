@@ -75,11 +75,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // If the application is in the foreground handle both data and notification messages here.
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated.
-        //   Log.e(TAG, "From: " + remoteMessage.getFrom());
-        //      Log.e(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBodyLocalizationKey());
+       //    Log.e(TAG, "From: " + remoteMessage.getNotification().getTitle());
+      //      Log.e(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
 
 
-        Log.e(TAG, "From: " + remoteMessage.getFrom());
+    //    Log.e(TAG, "From: " + remoteMessage.getFrom());
 
         // Check if message contains a data payload.
      //   if (remoteMessage.getData().size() > 0) {
@@ -98,8 +98,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, ADMIN_CHANNEL_ID)
                     .setSmallIcon(R.mipmap.ic_launcher)  //a resource for your custom small icon
-                    .setContentTitle(remoteMessage.getData().get("title")) //the "title" value you sent in your notification
-                    .setContentText(remoteMessage.getData().get("message")) //ditto
+                    .setContentTitle( remoteMessage.getNotification().getTitle()) //the "title" value you sent in your notification
+                    .setContentText( remoteMessage.getNotification().getBody()) //ditto
                     .setAutoCancel(true)  //dismisses the notification on click
                     .setSound(defaultSoundUri);
 
