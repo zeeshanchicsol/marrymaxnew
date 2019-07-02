@@ -13,8 +13,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -81,6 +83,8 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
     private LinearLayout llEmptySubItems;
     long match_id = 0;
     long feedback_id = 0;
+    long read_quota = 0;
+
 
     private String Tag = "DashboardMessagesDetailActivity";
 
@@ -239,7 +243,26 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                 marryMax.subscribe();
             }
         });
+        etSendMessage.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 3 && read_quota == 1) {
+                    Toast.makeText(DashboardMessagesDetailActivity.this, "Dear " + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + ", Please! Subscribe to send message and view verified phone numbers.", Toast.LENGTH_LONG).show();
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         fl_send_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -260,7 +283,13 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
                             params.put("alias", SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias());
                             params.put("default_image", SharedPreferenceManager.getUserObject(getApplicationContext()).getDefault_image());
                             params.put("message", etSendMessage.getText().toString());
-                            putSendMessage(params);
+
+                            if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 3 && read_quota == 1) {
+                                Toast.makeText(DashboardMessagesDetailActivity.this, "Dear " + SharedPreferenceManager.getUserObject(getApplicationContext()).getAlias() + ", Please! Subscribe to send message and view verified phone numbers.", Toast.LENGTH_LONG).show();
+
+                            } else {
+                                putSendMessage(params);
+                            }
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -624,7 +653,9 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
 
                                 match_id = mCom.getId();
                                 feedback_id = mCom.getRequest_type_id();
-                                //Log.e("mmatch_id", match_id + " == " + feedback_id);
+                                read_quota = mCom.getRead_quota();
+
+                                //  Log.e("mCom", mCom.getRead_quota() + " == " );
 
                                 if (match_id != 0) {
                                     llFeedback.setVisibility(View.VISIBLE);

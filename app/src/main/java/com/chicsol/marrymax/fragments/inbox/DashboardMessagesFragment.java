@@ -203,7 +203,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
         pDialog.setMessage("Loading...");
         pDialog.show();*/
         pDialog.setVisibility(View.VISIBLE);
-        //Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath());
+        Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
@@ -216,9 +216,9 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
 
                             Members member = SharedPreferenceManager.getUserObject(context);
                             JSONArray jsonCountryStaeObj = response.getJSONArray(0);
-                            //   JSONArray jsonObjDMsgDetails = response.getJSONArray(1);
+                            JSONArray jsonObjDMsgDetails = response.getJSONArray(1);
 
-                          /*  Gson gsonc;
+                      Gson gsonc;
                             GsonBuilder gsonBuilderc = new GsonBuilder();
                             gsonc = gsonBuilderc.create();
                             Type listType = new TypeToken<mCommunication>() {
@@ -227,7 +227,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                             mCommunication mComObj = (mCommunication) gsonc.fromJson(jsonObjDMsgDetails.getJSONObject(0).toString(), listType);
 
                             mComObj.getRead_quota();
-                            mComObj.getWrite_quota();*/
+                           // mComObj.getWrite_quota();
 
 
                             if (member.getMember_status() < 3 || member.getMember_status() > 4) {
@@ -255,7 +255,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                 }
 
                             } else {
-                                if (member.getMember_status() == 3) {
+                                if (member.getMember_status() == 3  && mComObj.getRead_quota() !=1) {
 
 
                                /*    You have 0 unread messages
