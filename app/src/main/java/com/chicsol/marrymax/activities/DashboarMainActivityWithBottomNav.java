@@ -138,7 +138,7 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
         setContentView(R.layout.activity_dashboard_main_bottom_navigation);
 
 
-  //      FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+        //      FirebaseMessaging.getInstance().setAutoInitEnabled(true);
 
 
         //  typeface = Typeface.createFromAsset(getAssets(), Constants.font_centurygothic);

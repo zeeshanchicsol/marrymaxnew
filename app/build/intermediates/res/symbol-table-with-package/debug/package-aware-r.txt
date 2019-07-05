@@ -1535,7 +1535,9 @@ id ButtonContactDialogCancel
 id ButtonContactSubmit
 id ButtonDInterestsCompleteProfile
 id ButtonDInterestsSubscribe
+id ButtonDashMainEmailVerificationPending
 id ButtonDashMainFeedbackPending
+id ButtonDashMainPhoneVerificationPending
 id ButtonDashboardDismissBanner
 id ButtonDashboardGetOfferNow
 id ButtonDashboardInterestReceivedCount
@@ -1621,6 +1623,7 @@ id ButtonSubscriptionPurchase
 id ButtonViewProfile
 id CTRL
 id CardViewAmenities
+id CardViewDashMainEmailPhoneVerificationPending
 id CardViewDashMainFeedbackPending
 id CardViewDashMainMembersItem
 id CardViewProfileCompletionStatus
@@ -1759,7 +1762,6 @@ id LinearLayoutASProfileNotLive
 id LinearLayoutAccountSettingEmailNotificationsMain
 id LinearLayoutAccountSettingMyContactCallTime
 id LinearLayoutAccountSettingMyContactNotVerified
-id LinearLayoutAccountSettingMyContactPhoneNumber
 id LinearLayoutAccountSettingMyContactVerified
 id LinearLayoutAccountSettingMyContactVerifyLandline
 id LinearLayoutAccountSettingMyContactVerifyPhone
@@ -2107,6 +2109,7 @@ id TextViewASContactMobileNumber
 id TextViewASContactMobileNumberCode
 id TextViewASContactNameContact
 id TextViewASContactRelationship
+id TextViewASContactSendRequest
 id TextViewASMySubEndDate
 id TextViewASMySubPackageTitle
 id TextViewASMySubStartDate
@@ -2142,6 +2145,7 @@ id TextViewChatListText
 id TextViewChatListText1
 id TextViewChoiceCountriesTitle
 id TextViewClickHereToEnterCode
+id TextViewContactDialogAge
 id TextViewContactDialogContactName
 id TextViewContactDialogCountryName
 id TextViewContactDialogLandNumber
@@ -2169,6 +2173,7 @@ id TextViewDMWhomViewedMeCount
 id TextViewDashMainAccStatus
 id TextViewDashMainEditProfile
 id TextViewDashMainFeedbackPending
+id TextViewDashMainPhoneVerificationPending
 id TextViewDashNotificationDescription
 id TextViewDashNotificationUserName
 id TextViewDashboardCount1
@@ -2233,7 +2238,6 @@ id TextViewItemAdvSearchName
 id TextViewListAge
 id TextViewListDate
 id TextViewListMaritalStatus
-id TextViewListPhoneNumber
 id TextViewListSavSearchDate
 id TextViewListSavSearchName
 id TextViewListUsername
@@ -2643,6 +2647,7 @@ id faTextViewListSavSearchBlocked
 id faTextViewListSavSearcheClick
 id faTextViewMMNotes
 id faTextViewMMRemove
+id faTextViewMyContactItemPhone
 id faTextViewMyContactItemRemove
 id faTextViewMyMatchesInterestIcon
 id faTextViewRemoveSearchesUnremove
@@ -3180,6 +3185,7 @@ layout dialog_multi_choice
 layout dialog_new_feedback
 layout dialog_new_feedback_detail
 layout dialog_payment_terms
+layout dialog_phone_details
 layout dialog_profile_completion
 layout dialog_profilefor
 layout dialog_remove_from_search
@@ -3264,6 +3270,7 @@ layout item_recycler_whoislookingforme
 layout item_spinner_notifications
 layout item_userprofile_slider
 layout itemview_feedback_pending
+layout itemview_phone_verification_pending
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header_main

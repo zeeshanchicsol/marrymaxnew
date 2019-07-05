@@ -3,6 +3,7 @@ package com.chicsol.marrymax.fragments.AccountSetting;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
+import android.text.Html;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -41,6 +43,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.ContactAcivity;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.adapters.MySpinnerCSCAdapter;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
@@ -86,7 +89,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     String Tag = "MyContactFragment";
     private Button bt_subscribe, bt_viewprofile, bt_viewprofile2;
 
-    private mTextView tvMobile, tvCountry, tvLandline, tvNameOfContactPerson, tvRelationshipWithMember, tvConvenientCallTime, tvLandlineCode, tvMobileCode;
+    private mTextView tvMobile, tvCountry, tvLandline, tvNameOfContactPerson, tvRelationshipWithMember, tvConvenientCallTime, tvLandlineCode, tvMobileCode,tvSendRequest;
 
     private AppCompatSpinner spinnerAScontactCountry, spinnerAScontactRelationShipWithMember, spinnerMyAScontactConvTimeToCall;
     private AppCompatEditText EditTextAScontactPersonName;
@@ -148,6 +151,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
         btAlreadyHaveCode = (AppCompatButton) view.findViewById(R.id.AppcompatButtonMyContactAlraadyHaveCode);
+
+
 
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarProjectMain);
         pDialog.setVisibility(View.GONE);
@@ -243,6 +248,29 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         adapter_convenientTimeToCall = new MySpinnerAdapter(getContext(),
                 android.R.layout.simple_spinner_item, covenientTimetoCallDataList);
         spinnerMyAScontactConvTimeToCall.setAdapter(adapter_convenientTimeToCall);
+
+        tvSendRequest = (mTextView) view.findViewById(R.id.TextViewASContactSendRequest);
+        String sendreqtextdesc = "To change your phone number <b> <font color=#216917> send a request</font></b> to MarryMax, with details.";
+        tvSendRequest.setText(Html.fromHtml(sendreqtextdesc));
+
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() >= 3) {
+            tvSendRequest.setVisibility(View.VISIBLE);
+
+        } else {
+            tvSendRequest.setVisibility(View.GONE);
+        }
+        tvSendRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ContactAcivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+
+
+
+
 
 
         btSave.setOnClickListener(new View.OnClickListener() {

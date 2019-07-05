@@ -45,8 +45,10 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.UserProfileActivityWithSlider;
+import com.chicsol.marrymax.dialogs.dialogContactDetails;
 import com.chicsol.marrymax.dialogs.dialogFeedback;
 import com.chicsol.marrymax.dialogs.dialogFeedbackDetail;
+import com.chicsol.marrymax.dialogs.dialogPhoneDetails;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mContacts;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -55,6 +57,8 @@ import com.chicsol.marrymax.utils.Constants;
 import com.chicsol.marrymax.utils.MySingleton;
 import com.chicsol.marrymax.widgets.faTextView;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -66,6 +70,7 @@ import com.nostra13.universalimageloader.core.process.BitmapProcessor;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -244,15 +249,24 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
             holder.tvAlias.setText(obj.getAlias() + " ");
             holder.tvAge.setText("( " + obj.getMin_age() + " Years )");
 
-            holder.tvPhone.setText(obj.getPhone_mobile());
+           // holder.tvPhone.setText(obj.getPhone_mobile());
             holder.tvPreferedCallTime.setText(obj.getOther_info());
 
             if (type.equals("st")) {
-                holder.llPhoneNumber.setVisibility(View.GONE);
+             //   holder.llPhoneNumber.setVisibility(View.GONE);
                 holder.llCallTime.setVisibility(View.GONE);
+
+
             } else {
-                holder.llPhoneNumber.setVisibility(View.VISIBLE);
+            //    holder.llPhoneNumber.setVisibility(View.VISIBLE);
                 holder.llCallTime.setVisibility(View.VISIBLE);
+
+            }
+
+            if (type.equals("sv")) {
+                holder.faPhone.setVisibility(View.VISIBLE);
+            } else {
+                holder.faPhone.setVisibility(View.GONE);
             }
 
 
@@ -344,6 +358,22 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
                         jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
 
                         deleteMyContact(jsonObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+
+            holder.faPhone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    JSONObject jsonObject = new JSONObject();
+                    try {
+                        jsonObject.put("id", obj.getPhone_request_id());
+                        jsonObject.put("path", SharedPreferenceManager.getUserObject(context).getPath());
+
+                        getPhoneInfo(jsonObject, obj.getAlias());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -448,6 +478,74 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
         return items.size();
     }
 
+
+    private void getPhoneInfo(JSONObject params, final String alias) {
+
+        final ProgressDialog pDialog = new ProgressDialog(context);
+        pDialog.setMessage("Loading...");
+        pDialog.setCancelable(false);
+        pDialog.show();
+        Log.e("params", params.toString());
+        Log.e("phoneInfo", Urls.phoneInfo);
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
+                Urls.phoneInfo, params,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("phoneInfo ", response + "");
+
+                        try {
+                            JSONObject responseObject = response.getJSONArray("data").getJSONArray(0).getJSONObject(0);
+
+
+                         /*Gson gson;
+                            GsonBuilder gsonBuilder = new GsonBuilder();
+
+                            gson = gsonBuilder.create();
+                            Type type = new TypeToken<Members>() {
+                            }.getType();
+                            Members member2 = (Members) gson.fromJson(responseObject.toString(), type);
+                 */           //  Log.e("interested id", "" + member.get_alias() + "====================");
+
+                            dialogPhoneDetails newFragment = dialogPhoneDetails.newInstance(responseObject.toString(), alias);
+                            if (fragment != null) {
+                                newFragment.setTargetFragment(fragment, 3);
+                            }
+                            newFragment.show(frgMngr, "dialog");
+
+
+                        } catch (JSONException e) {
+                            pDialog.dismiss();
+                            e.printStackTrace();
+                        }
+
+                        pDialog.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                onUpdateListener.onUpdate("Error occurred, Try again.");
+
+                VolleyLog.e("res err", "Error: " + error);
+                pDialog.dismiss();
+            }
+
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        // Adding request to request queue
+        jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        MySingleton.getInstance(context).addToRequestQueue(jsonObjReq);
+    }
 
     private void deleteMyContact(JSONObject params) {
 
@@ -568,21 +666,23 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
     protected static class MMViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
 
-        public TextView tvAlias, tvAge, tvPhone, tvPreferedCallTime, tvCountry, tvDate;
-        public faTextView faRemove;
-        //  faFeedback
-        LinearLayout llCallTime, llPhoneNumber, llFeedback, llViewFeedback;
+        public TextView tvAlias, tvAge,  tvPreferedCallTime, tvCountry, tvDate;
+        public faTextView faRemove, faPhone;
+        //  faFeedback llPhoneNumber
+        LinearLayout llCallTime,  llFeedback, llViewFeedback;
 
         public MMViewHolder(View itemView) {
             super(itemView);
             image = (ImageView) itemView.findViewById(R.id.ImageViewListContactImage);
             tvAlias = (TextView) itemView.findViewById(R.id.TextViewListUsername);
             tvAge = (TextView) itemView.findViewById(R.id.TextViewListAge);
-            tvPhone = (TextView) itemView.findViewById(R.id.TextViewListPhoneNumber);
+         //   tvPhone = (TextView) itemView.findViewById(R.id.TextViewListPhoneNumber);
             tvPreferedCallTime = (TextView) itemView.findViewById(R.id.TextViewMyContactListCallTime);
 
             tvDate = (TextView) itemView.findViewById(R.id.TextViewListDate);
             faRemove = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemRemove);
+            faPhone = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemPhone);
+
             //   faFeedback = (faTextView) itemView.findViewById(R.id.faTextViewMyContactItemFeedback);
 
             llFeedback = (LinearLayout) itemView.findViewById(R.id.LinearLayoutMyContactItemFeedback);
@@ -591,7 +691,7 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
             llViewFeedback = (LinearLayout) itemView.findViewById(R.id.LinearLayoutMyContactItemViewFeedback);
 
             llCallTime = (LinearLayout) itemView.findViewById(R.id.LinearLayoutAccountSettingMyContactCallTime);
-            llPhoneNumber = (LinearLayout) itemView.findViewById(R.id.LinearLayoutAccountSettingMyContactPhoneNumber);
+         //   llPhoneNumber = (LinearLayout) itemView.findViewById(R.id.LinearLayoutAccountSettingMyContactPhoneNumber);
 
         }
     }

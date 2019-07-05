@@ -18,7 +18,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.CardView;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,8 +99,8 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private TextView tvWIV, tvWVM, tvPMP, tvMWPU, tvMemLFM, tvMatchesLFM, tvNewMessages, tvNewRequests, tvNewInterests, tvNewQuestions;
     private TextView tvAcceptedMembers, tvMyFavourites, tvMyNotes, tvRemoveFromSearch, tvBlocked, tvAaccMemCount, tvMyMatchesCount, tvMFavCount, tvMyNotesCount, tvRecommenedMatchesCount, tvRemovedFromSearchCount, tvBlockedCount, tvProfileCompleteion, tvFeedbackPending;
     private ImageView ivCompleleProfile, ivVerifyPhone, ivVerifyEmail, ivReviewPending, ivReviewPendingOrange;
-    private CardView cardViewProfileCompletionStatus, cvPromoCode, cvFeedbackPending;
-
+    private CardView cardViewProfileCompletionStatus, cvPromoCode, cvFeedbackPending, cvEmailPhoneVerificationPending;
+    private AppCompatButton btPhoneVerificationPending, btEmailVerificationPending;
     private AppCompatButton btSubscribe;
     private NestedScrollView NvScreenMain;
     private FrameLayout FrameLayoutDashMainContainer;
@@ -201,6 +200,29 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         cardViewProfileCompletionStatus = (CardView) view.findViewById(R.id.CardViewProfileCompletionStatus);
         cvPromoCode = (CardView) view.findViewById(R.id.CardViewPromoCode);
         cvFeedbackPending = (CardView) view.findViewById(R.id.CardViewDashMainFeedbackPending);
+        btEmailVerificationPending = (AppCompatButton) view.findViewById(R.id.ButtonDashMainEmailVerificationPending);
+        btPhoneVerificationPending = (AppCompatButton) view.findViewById(R.id.ButtonDashMainPhoneVerificationPending);
+
+        cvEmailPhoneVerificationPending = (CardView) view.findViewById(R.id.CardViewDashMainEmailPhoneVerificationPending);
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
+            cvEmailPhoneVerificationPending.setVisibility(View.VISIBLE);
+            if (SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0) {
+                btEmailVerificationPending.setVisibility(View.VISIBLE);
+            } else {
+                btEmailVerificationPending.setVisibility(View.GONE);
+            }
+            if (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0) {
+                btPhoneVerificationPending.setVisibility(View.VISIBLE);
+            } else {
+                btPhoneVerificationPending.setVisibility(View.GONE);
+            }
+
+        } else {
+            cvEmailPhoneVerificationPending.setVisibility(View.GONE);
+        }
+
+
+        cvEmailPhoneVerificationPending = (CardView) view.findViewById(R.id.CardViewDashMainEmailPhoneVerificationPending);
 
 
         coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.coordinatorLayoutDashMainFragment);
@@ -497,6 +519,23 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
 
     public void setListener() {
 
+        btEmailVerificationPending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(context, MainDirectiveActivity.class);
+                in.putExtra("type", 22);
+                startActivity(in);
+            }
+        });
+
+        btPhoneVerificationPending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(context, MainDirectiveActivity.class);
+                in.putExtra("type", 14);
+                startActivity(in);
+            }
+        });
 
         ivLetsTalk.setOnClickListener(new View.OnClickListener() {
             @Override

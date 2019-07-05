@@ -137,6 +137,7 @@
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>
+                    <include layout="@layout/itemview_phone_verification_pending"></include>
 
                     <include layout="@layout/itemview_feedback_pending"></include>
 

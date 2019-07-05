@@ -34,6 +34,20 @@ public class mContacts {
     public long match_id;
     @SerializedName("feedback_id")
     public int feedback_id;
+    @SerializedName("landline_mobile")
+    public String landline_mobile;
+
+    public String getLandline_mobile() {
+        return landline_mobile;
+    }
+
+    public void setLandline_mobile(String landline_mobile) {
+        this.landline_mobile = landline_mobile;
+    }
+
+
+
+
 
     public long getMatch_id() {
         return match_id;

@@ -223,6 +223,7 @@ public class Urls {
     //=====================MyList=========================
     public static String myContacts = baseUrl + "/api/WebArd/MyContacts/";
     public static String deleteMyContact = baseUrl + "/api/WebArd/DeleteMyContact";
+    public static String phoneInfo = baseUrl + "/api/WebArd/PhoneInfo";
     public static String getSavedList = baseUrl + "/api/WebArd/GetSavedList/";
 
 

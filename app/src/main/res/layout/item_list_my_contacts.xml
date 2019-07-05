@@ -84,7 +84,7 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+                  <!--  <LinearLayout
                         android:id="@+id/LinearLayoutAccountSettingMyContactPhoneNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                             android:text=" 03228686090"
                             android:textColor="#333333" />
 
-                    </LinearLayout>
+                    </LinearLayout>-->
 
                     <LinearLayout
                         android:id="@+id/LinearLayoutAccountSettingMyContactCallTime"
@@ -268,6 +268,20 @@
                         android:layout_marginRight="4dp"
                         android:background="#888"></View>-->
 
+                <com.chicsol.marrymax.widgets.faTextView
+                    android:id="@+id/faTextViewMyContactItemPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/colorUserProfileTextGreenLight"
+                    android:padding="5dp"
+
+                    android:text="@string/fa_icon_phone"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
 
                 <com.chicsol.marrymax.widgets.faTextView
                     android:id="@+id/faTextViewMyContactItemRemove"
@@ -275,9 +289,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="4dp"
+                    android:background="@color/colorTextRed"
                     android:layout_marginRight="10dp"
                     android:text="@string/fa_icon_remove"
-                    android:textColor="#777"
+                    android:padding="5dp"
+                    android:textColor="@color/colorWhite"
                     android:textSize="16sp"
                     android:visibility="gone" />
 
