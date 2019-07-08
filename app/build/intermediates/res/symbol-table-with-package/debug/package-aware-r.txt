@@ -1549,11 +1549,13 @@ id ButtonDashboardPhoneSentCount
 id ButtonDashboardRequestReceivedCount
 id ButtonDashboardRequestSentCount
 id ButtonDashboardonChangeMatchingAttributeMSLL
+id ButtonDialogEmailVerificationPending
 id ButtonDialogFeedBackPendingClose
 id ButtonDialogFeedBackPendingGiveFeedBack
 id ButtonDialogPCButton
 id ButtonDialogPCDismiss
 id ButtonDialogPCSubscribe
+id ButtonDialogPhoneVerificationPending
 id ButtonDialogRequestAccept
 id ButtonDialogRequestDeny
 id ButtonDialogRequestDenyPermission
@@ -1901,6 +1903,7 @@ id LinearLayoutRequestPermissionWithdrawRequest
 id LinearLayoutRequestProfileUpdate
 id LinearLayoutShowInterest
 id LinearLayoutSubscriptionPlanNotFound
+id LinearLayoutSubscriptionQouta
 id LinearLayoutUPSendMessage
 id LinearLayoutUserProfileAM
 id LinearLayoutUserProfileAMC
@@ -2385,6 +2388,8 @@ id TextViewRequestPermissionTitle
 id TextViewRequests
 id TextViewRequests_ic
 id TextViewShortDescriptionMM
+id TextViewSubsPlanContactsQouta
+id TextViewSubsPlanMessagesQouta
 id TextViewSubscriptionPlanDuration
 id TextViewSubscriptionPlanMatchesCount
 id TextViewSubscriptionPlanMessages
@@ -2639,6 +2644,8 @@ id expiry_date_label
 id faButtonContactDialogDismiss
 id faButtonRequestdismiss
 id faButtonShowInterestdismiss
+id faSubsQouta1
+id faSubsQouta2
 id faTextView2
 id faTextView3
 id faTextViewAddToFavouriteMember
@@ -3196,6 +3203,7 @@ layout dialog_request_profile_update
 layout dialog_save_search
 layout dialog_select_package
 layout dialog_update_saved_search
+layout dialog_verification_pending
 layout dialog_verify_phone
 layout dialog_withdraw_interest
 layout drawer_navigation_view
@@ -3923,6 +3931,7 @@ string fa_icon_favourite
 string fa_icon_feedback
 string fa_icon_female
 string fa_icon_gallery
+string fa_icon_hands_right
 string fa_icon_logout
 string fa_icon_male
 string fa_icon_match_pref

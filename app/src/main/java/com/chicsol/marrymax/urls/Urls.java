@@ -191,6 +191,9 @@ public class Urls {
     public static String getSubscriptions = baseUrl + "/api/WebArd/GetSubscriptions/";
 
     public static String subscriptionData = baseUrl + "/api/WebArd/SubscriptionData";
+
+    public static String subscriptionInfo = baseUrl + "/api/WebArd/SubscriptionInfo";
+
     public static String getNotificationList = baseUrl + "/api/WebArd/getNotificationList/";
     public static String appDevice = baseUrl + "/api/WebArd/AppDevice";
 

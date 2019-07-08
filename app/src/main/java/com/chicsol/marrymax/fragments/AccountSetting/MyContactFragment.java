@@ -89,7 +89,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
     String Tag = "MyContactFragment";
     private Button bt_subscribe, bt_viewprofile, bt_viewprofile2;
 
-    private mTextView tvMobile, tvCountry, tvLandline, tvNameOfContactPerson, tvRelationshipWithMember, tvConvenientCallTime, tvLandlineCode, tvMobileCode,tvSendRequest;
+    private mTextView tvMobile, tvCountry, tvLandline, tvNameOfContactPerson, tvRelationshipWithMember, tvConvenientCallTime, tvLandlineCode, tvMobileCode, tvSendRequest;
 
     private AppCompatSpinner spinnerAScontactCountry, spinnerAScontactRelationShipWithMember, spinnerMyAScontactConvTimeToCall;
     private AppCompatEditText EditTextAScontactPersonName;
@@ -151,7 +151,6 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
 
 
         btAlreadyHaveCode = (AppCompatButton) view.findViewById(R.id.AppcompatButtonMyContactAlraadyHaveCode);
-
 
 
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarProjectMain);
@@ -268,11 +267,6 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
         });
 
 
-
-
-
-
-
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -280,6 +274,13 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 boolean landlineAdded = false;
                 String mobNum = EditTextAScontactMobileNumber.getText().toString();
                 String countryCode = EditTextAScontactMobileNumber.getTag().toString();
+                int mobMinChars = 0;
+                if (countryCode.equals("+92")) {
+                    mobMinChars = 9;
+                } else {
+
+                    mobMinChars = 8;
+                }
 
 
                 String landNum = EditTextAScontactLandlineNumber.getText().toString();
@@ -356,8 +357,8 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     EditTextAScontactMobileNumber.setError("Invalid phone format");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
-                } else if (mobNum.length() > 11 || mobNum.length() < 9) {
-                    EditTextAScontactMobileNumber.setError("Max 11 and Min 9  Characters allowed");
+                } else if (mobNum.length() > 11 || mobNum.length() < mobMinChars) {
+                    EditTextAScontactMobileNumber.setError("Max 11 and Min "+mobMinChars+"  Characters allowed");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
                 }/* else if (landNum.length() > 11 || landNum.length() < 9) {

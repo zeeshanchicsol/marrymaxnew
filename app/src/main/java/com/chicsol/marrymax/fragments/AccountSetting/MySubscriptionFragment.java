@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,7 @@ import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterMyAccountSubscription;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.mSubQuotaInfo;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -58,16 +60,17 @@ public class MySubscriptionFragment extends Fragment {
     private List<Members> dataList;
     private RecyclerViewAdapterMyAccountSubscription recyclerAdapter;
 
-    private LinearLayout llProfileLive, llMySubscription, llDefault, llpProfileInComplete;
+    private LinearLayout llProfileLive, llMySubscription, llDefault, llpProfileInComplete, llSubscriptionQouta;
     AppCompatButton btSubscribe, bt_NotLiveCompletetProfile;
 
     TextView tvTitleNotLive, tvNotLiveTitleDetail;
     Context context;
 
-    TextView tProfileLive;
+    TextView tProfileLive, tvPlanMessagesQouta, tvSubsPlanContactsQouta;
     AppCompatButton btProfileLive;
 
     private String Tag = "DashMembersFragment";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,7 +95,6 @@ public class MySubscriptionFragment extends Fragment {
         setListeners();
 
 
-
         return rootView;
     }
 
@@ -105,7 +107,7 @@ public class MySubscriptionFragment extends Fragment {
     }
 
 
-    private void loadData(){
+    private void loadData() {
         long member_status = SharedPreferenceManager.getUserObject(context).getMember_status();
 
 
@@ -171,6 +173,7 @@ public class MySubscriptionFragment extends Fragment {
         }
 
     }
+
     private void initilize(View view) {
 
         pDialog = (ProgressBar) view.findViewById(R.id.ProgressbarProjectMain);
@@ -189,6 +192,9 @@ public class MySubscriptionFragment extends Fragment {
 
         llpProfileInComplete = (LinearLayout) view.findViewById(R.id.LinearLayoutASProfileNotLive);
 
+        llSubscriptionQouta = (LinearLayout) view.findViewById(R.id.LinearLayoutSubscriptionQouta);
+
+
         llMySubscription = (LinearLayout) view.findViewById(R.id.LinearlayoutASMySubscription);
 
 
@@ -205,6 +211,9 @@ public class MySubscriptionFragment extends Fragment {
 //profile live layout
         btProfileLive = (AppCompatButton) view.findViewById(R.id.ButtonAccountSettingMySubscriptionProfileLiveButton);
         tProfileLive = (TextView) view.findViewById(R.id.TextViewAccountSettingMySubscriptionPorfileLIve);
+
+        tvPlanMessagesQouta = (TextView) view.findViewById(R.id.TextViewSubsPlanMessagesQouta);
+        tvSubsPlanContactsQouta = (TextView) view.findViewById(R.id.TextViewSubsPlanContactsQouta);
 
 
         //  ButtonAccountSettingMySubscriptionMain
@@ -257,10 +266,10 @@ public class MySubscriptionFragment extends Fragment {
     private void putRequestGetSubscription(JSONObject params) {
 
         pDialog.setVisibility(View.VISIBLE);
-        //Log.e("GetSubscription params", params.toString());
-        //Log.e("GetSubscription ", Urls.subscriptionData);
+        Log.e("GetSubscription params", params.toString());
+        Log.e("GetSubscription ", Urls.subscriptionInfo);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
-                Urls.subscriptionData, params,
+                Urls.subscriptionInfo, params,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -270,14 +279,23 @@ public class MySubscriptionFragment extends Fragment {
 
                         try {
                             JSONArray jsonCountryStaeObj = response.getJSONArray("data").getJSONArray(0);
+                            JSONObject jsonCountryStaeObj2 = response.getJSONArray("data").getJSONArray(1).getJSONObject(0);
+
                             Gson gsonc;
                             GsonBuilder gsonBuilderc = new GsonBuilder();
                             gsonc = gsonBuilderc.create();
+
                             Type listType = new TypeToken<List<Members>>() {
                             }.getType();
-
-
                             List<Members> dataList = (List<Members>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+
+
+                            Type listType2 = new TypeToken<mSubQuotaInfo>() {
+                            }.getType();
+
+                            mSubQuotaInfo SubQuotaInfoObj = (mSubQuotaInfo) gsonc.fromJson(jsonCountryStaeObj2.toString(), listType2);
+
+
                             if (dataList.size() > 0) {
 
                                 Members smem = dataList.get(0);
@@ -287,7 +305,16 @@ public class MySubscriptionFragment extends Fragment {
                                     llProfileLive.setVisibility(View.GONE);
                                     llDefault.setVisibility(View.GONE);
                                     llMySubscription.setVisibility(View.VISIBLE);
+                                    llSubscriptionQouta.setVisibility(View.VISIBLE);
                                     recyclerAdapter.addAll(dataList);
+
+
+                                    String msgText = "Your have used <font color='#9a0606'>" + "<b>" + SubQuotaInfoObj.getMessages() + "</b></font> Messages out of  <font color='#277410'>" + "<b>" + SubQuotaInfoObj.getMessages_count() + "</b></font>";
+                                    tvPlanMessagesQouta.setText(Html.fromHtml(msgText));
+
+                                    String cotactsText = "Your have used <font color='#9a0606'>" + "<b>" + SubQuotaInfoObj.getContacts() + "</b></font> Contacts out of  <font color='#277410'>" + "<b>" + SubQuotaInfoObj.getContacts_count() + "</b></font>";
+                                    tvSubsPlanContactsQouta.setText(Html.fromHtml(cotactsText));
+
 
                                 } else if (member_status == 3) {
 
@@ -296,12 +323,14 @@ public class MySubscriptionFragment extends Fragment {
                                         llProfileLive.setVisibility(View.GONE);
 
                                         llMySubscription.setVisibility(View.GONE);
+                                        llSubscriptionQouta.setVisibility(View.GONE);
                                         llDefault.setVisibility(View.VISIBLE);
 
 
                                     } else if (smem.getMy_id() == 1) {
 
                                         llMySubscription.setVisibility(View.GONE);
+                                        llSubscriptionQouta.setVisibility(View.GONE);
 
                                         llProfileLive.setVisibility(View.VISIBLE);
 
@@ -399,7 +428,7 @@ public class MySubscriptionFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-     //   MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
+        //   MySingleton.getInstance(getContext()).cancelPendingRequests(Tag);
 
     }
 

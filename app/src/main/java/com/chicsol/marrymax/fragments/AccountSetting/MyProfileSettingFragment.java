@@ -35,6 +35,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.MatchAidActivity;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
+import com.chicsol.marrymax.dialogs.dialogPendingVerification;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.dialogs.dialogVerifyphone;
 import com.chicsol.marrymax.modal.Dashboards;
@@ -63,7 +64,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MyProfileSettingFragment extends Fragment implements dialogVerifyphone.onCompleteListener {
+public class MyProfileSettingFragment extends Fragment implements dialogVerifyphone.onCompleteListener, dialogPendingVerification.onCompleteListener {
 
 
     String Tag = "MyProfileSettingFragment";
@@ -171,6 +172,33 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 */
 
 
+        if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
+            boolean email_verified = false, phone_verified = false;
+
+            if (SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0) {
+                email_verified = true;
+            }
+            if (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0) {
+                phone_verified = true;
+            }
+
+            if (email_verified && phone_verified) {
+                dialogPendingVerification dialogP = dialogPendingVerification.newInstance("both", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your email and phone number so you can interact with your matches and they with you and also MarryMax team could assist you.");
+                dialogP.show(getFragmentManager(), "d");
+
+            } else if (email_verified) {
+                dialogPendingVerification dialogP = dialogPendingVerification.newInstance("email", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your email  so you can interact with your matches and they with you and also MarryMax team could assist you.");
+                dialogP.show(getFragmentManager(), "d");
+
+            } else if (phone_verified) {
+                dialogPendingVerification dialogP = dialogPendingVerification.newInstance("phone", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your  phone number so you can interact with your matches and they with you and also MarryMax team could assist you.");
+                dialogP.show(getFragmentManager(), "d");
+
+            }
+
+        }
+
+
         cvlandline = (CardView) view.findViewById(R.id.CardViewProfileSettingsLandline);
 
         btAddNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusAddNumber);
@@ -254,9 +282,6 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
             llASEmail.setVisibility(View.GONE);
         }
 */
-
-
-
 
 
     }
@@ -748,11 +773,11 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                                     btUpdateLandline.setVisibility(View.GONE);
                                     faLandIcon.setVisibility(View.GONE);
                                     if (dashboards.getPhone_complete_status().equals("0")) {
-                                        if (!lNumber.equals("null") && (Integer.parseInt(objPhone.get("landline_status").toString()) <= 1 || objPhone.get("landline_status").toString().equals("3"))  ) {
+                                        if (!lNumber.equals("null") && (Integer.parseInt(objPhone.get("landline_status").toString()) <= 1 || objPhone.get("landline_status").toString().equals("3"))) {
                                             //  Update Number
-                                          if(  !objPhone.get("mobile_status").toString().equals("2")){
-                                              btUpdateLandline.setVisibility(View.VISIBLE);
-                                          }
+                                            if (!objPhone.get("mobile_status").toString().equals("2")) {
+                                                btUpdateLandline.setVisibility(View.VISIBLE);
+                                            }
 
                                             llPhoneVerifyLandline.setClickable(true);
                                         }
@@ -1398,5 +1423,22 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     public void onComplete(String s) {
         loadData();
         EventBus.getDefault().postSticky(new PhoneVerificationStatusUpdateEvent("success"));
+    }
+
+    @Override
+    public void onComplete(int s) {
+        if (s == 1) {
+            //phone
+            Intent in = new Intent(getContext(), MainDirectiveActivity.class);
+            in.putExtra("type", 23);
+            startActivity(in);
+
+
+        } else if (s == 2) {
+            //email
+            dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Verify Your Email", "Here is your email address that needs to be verified.<br /> <b>  <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getEmail() + "</font></b><br /> " +
+                    "Please verify your email by using the link, we had emailed you.<br /> <font color=#9a0606> (In case you didn't receive any email,  please check your spam/junk folder or click \"Resend Verification Email\" )</font> ", "Resend Verification Email", 22);
+            dialogP.show(getFragmentManager(), "d");
+        }
     }
 }

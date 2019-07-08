@@ -449,8 +449,8 @@
                         android:id="@+id/LinearlayoutASMySubscription"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:orientation="vertical"
                         android:paddingTop="10dp"
-
                         android:visibility="visible">
 
                         <android.support.v7.widget.RecyclerView
@@ -462,7 +462,87 @@
 
                             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+                        <LinearLayout
+                            android:id="@+id/LinearLayoutSubscriptionQouta"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="5dp"
+                            android:visibility="visible"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="vertical">
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="My Subscription Quota"
+                                android:textColor="@color/colorSubscriptionGreen"
+                                android:textSize="16sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="5dp"
+                                android:background="@drawable/border_accountsetting_subscription_packages_box"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <com.chicsol.marrymax.widgets.faTextView
+                                        android:id="@+id/faSubsQouta1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_centerVertical="true"
+                                        android:text="@string/fa_icon_hands_right"
+                                        android:textColor="@color/colorSubscriptionGreen" />
+
+                                    <TextView
+                                        android:id="@+id/TextViewSubsPlanContactsQouta"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="3dp"
+                                        android:layout_centerVertical="true"
+
+                                        android:layout_toRightOf="@+id/faSubsQouta1"
+                                        android:text="Your have used 5 Contacts out of 15" />
+
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <com.chicsol.marrymax.widgets.faTextView
+                                        android:id="@+id/faSubsQouta2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_centerVertical="true"
+                                        android:text="@string/fa_icon_hands_right"
+                                        android:textColor="@color/colorSubscriptionGreen" />
+
+                                    <TextView
+                                        android:id="@+id/TextViewSubsPlanMessagesQouta"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="3dp"
+                                        android:layout_toRightOf="@+id/faSubsQouta2"
+                                        android:text="Your have used 5 Contacts out of 15" />
+
+
+                                </RelativeLayout>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>

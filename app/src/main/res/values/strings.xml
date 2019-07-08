@@ -194,6 +194,7 @@ For queries call at +92-51-8746090  or email at <b> support@marrymax.com</b> . <
 
     <!--UserProfile -->
     <string name="fa_icon_thumbs_up">&#xf087;</string>
+
     <!--Reg Geographic-->
     <string name="tv_name_reg_geogrphic">My Choice Countries</string>
     <string name="title_activity_photo_upload">Upload Photos</string>
@@ -206,10 +207,14 @@ For queries call at +92-51-8746090  or email at <b> support@marrymax.com</b> . <
     <!--  <string name="fa_icon_notes">&#xf24a;</string>-->
 
 
+    <string name="fa_icon_hands_right">&#xf0a4;</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="notifications_admin_channel_name">Global channel</string>
     <string name="notifications_admin_channel_description">Notifications sent from the app admin</string>
+
 
 </resources>

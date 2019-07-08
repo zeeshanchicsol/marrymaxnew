@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/LinearLayoutMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:elevation="10dp"
+        app:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorTextRed"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Verifications Pending "
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:id="@+id/faButtonContactDialogDismiss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/fa_icon_cross"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <include layout="@layout/itemview_feedback_pending"></include>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:id="@+id/TextViewContactDialogTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dear ZEESHAN150, To complete your profile , please verify your email and phone number so you can interact with your matches and they with you and also MarryMax team could assist you."
+                        android:textColor="@color/colorBlack" />
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonDialogPhoneVerificationPending"
+                            style="@style/myCustomMaterialButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:text="Verify Phone  "
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite"
+
+                            app:backgroundTint="@color/colorDefaultGreen" />
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonDialogEmailVerificationPending"
+                            style="@style/myCustomMaterialButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:text="Verify Email  "
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite"
+
+                            app:backgroundTint="@color/colorDefaultGreen" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right|center_vertical"
+                        android:background="#eee"
+                        android:padding="5dp"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonContactDialogCancel"
+                            style="@style/myCustomMaterialButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:contentDescription="this is desc"
+                            android:elevation="5dp"
+                            android:text="Close"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite"
+                            app:backgroundTint="@color/colorGrey" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
