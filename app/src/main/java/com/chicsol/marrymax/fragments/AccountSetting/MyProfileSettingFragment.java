@@ -184,14 +184,17 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
             if (email_verified && phone_verified) {
                 dialogPendingVerification dialogP = dialogPendingVerification.newInstance("both", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your email and phone number so you can interact with your matches and they with you and also MarryMax team could assist you.");
+                dialogP.setTargetFragment(MyProfileSettingFragment.this, 3);
                 dialogP.show(getFragmentManager(), "d");
 
             } else if (email_verified) {
                 dialogPendingVerification dialogP = dialogPendingVerification.newInstance("email", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your email  so you can interact with your matches and they with you and also MarryMax team could assist you.");
+                dialogP.setTargetFragment(MyProfileSettingFragment.this, 3);
                 dialogP.show(getFragmentManager(), "d");
 
             } else if (phone_verified) {
                 dialogPendingVerification dialogP = dialogPendingVerification.newInstance("phone", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your  phone number so you can interact with your matches and they with you and also MarryMax team could assist you.");
+                dialogP.setTargetFragment(MyProfileSettingFragment.this, 3);
                 dialogP.show(getFragmentManager(), "d");
 
             }

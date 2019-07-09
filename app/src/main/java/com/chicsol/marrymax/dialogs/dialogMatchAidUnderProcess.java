@@ -94,7 +94,7 @@ public class dialogMatchAidUnderProcess extends DialogFragment {
 
         if(response==-1){
             tvDesc1.setText("Please wait few more days, before you can submit a new Match-Aid request.");
-            tvDesc2.setText("Only one Match-Aid request is served within a week.");
+            tvDesc2.setText("Only one Match-Aid request is served within ten days.");
 
 
         }
