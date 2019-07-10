@@ -159,7 +159,16 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         NvScreenMain.post(new Runnable() {
             @Override
             public void run() {
-                NvScreenMain.scrollTo(0, cardViewProfileCompletionStatus.getTop());
+
+                if (cvEmailPhoneVerificationPending.getVisibility() == View.VISIBLE) {
+                    // Its visible
+                    NvScreenMain.scrollTo(0, cvEmailPhoneVerificationPending.getTop());
+                } else if (cardViewProfileCompletionStatus.getVisibility() == View.VISIBLE) {
+                    // Either gone or invisible
+                    NvScreenMain.scrollTo(0, cardViewProfileCompletionStatus.getTop());
+                }
+
+
             }
         });
     }
@@ -204,7 +213,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         btPhoneVerificationPending = (AppCompatButton) view.findViewById(R.id.ButtonDashMainPhoneVerificationPending);
 
         cvEmailPhoneVerificationPending = (CardView) view.findViewById(R.id.CardViewDashMainEmailPhoneVerificationPending);
-        if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
+        if ((SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && SharedPreferenceManager.getUserObject(context).getMember_status() > 0 ) &&  (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
             cvEmailPhoneVerificationPending.setVisibility(View.VISIBLE);
             if (SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0) {
                 btEmailVerificationPending.setVisibility(View.VISIBLE);

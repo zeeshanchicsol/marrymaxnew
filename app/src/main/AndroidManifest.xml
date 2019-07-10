@@ -154,6 +154,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".activities.UploadDocuments"
+            android:label="Upload Documents"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".activities.searchyourbestmatch.SearchYourBestMatchResultsActivity"
             android:label="Search Your Best Match"
             android:screenOrientation="portrait"

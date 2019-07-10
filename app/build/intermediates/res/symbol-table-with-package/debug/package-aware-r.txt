@@ -1446,6 +1446,7 @@ drawable ic_star_black_24dp
 drawable ic_thumb_down_black_24dp
 drawable ic_thumb_up_black_24dp
 drawable ic_unknown
+drawable ic_upload_document
 drawable ic_upload_no_img
 drawable ic_vector_difference_white_24dp
 drawable ic_visa
@@ -1622,6 +1623,8 @@ id ButtonSendQuestions
 id ButtonSubmitForgetPassword
 id ButtonSubscribe
 id ButtonSubscriptionPurchase
+id ButtonUploadDocuments
+id ButtonUploadDocumentsSelectFile
 id ButtonViewProfile
 id CTRL
 id CardViewAmenities
@@ -3126,6 +3129,7 @@ layout activity_register_lifestyle_step2
 layout activity_register_personality
 layout activity_request_permissions
 layout activity_subscription_plan
+layout activity_upload_documents
 layout activity_user_profile
 layout activity_user_profile_with_slider
 layout activity_web_view
@@ -3152,6 +3156,7 @@ layout card_input_widget
 layout content_main
 layout content_photo_upload
 layout content_questions
+layout content_upload_document
 layout counter_menuitem_layout
 layout credit_card_item
 layout custom_fullimage_dialog

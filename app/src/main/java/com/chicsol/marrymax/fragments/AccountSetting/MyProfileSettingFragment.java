@@ -33,7 +33,10 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.activities.MatchAidActivity;
+import com.chicsol.marrymax.activities.PhotoUpload;
+import com.chicsol.marrymax.activities.UploadDocuments;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.dialogs.dialogPendingVerification;
 import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
@@ -76,7 +79,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
     TextView tvTitleLiveNotLive, tvAdminReviewTitle, tvAdminReviewTitleMain;
     private boolean addNumber = false;
     private boolean addLandline = false;
-    private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber, btMatchAid;
+    private AppCompatButton btAddNumber, btVerifyNumber, btUpdateNumber, btMatchAid, btUploadDocuments;
     //   btUpdateEmailz  btResendVerification
 
     LinearLayout llASPhone, llASEmail;
@@ -172,7 +175,7 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 */
 
 
-        if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
+        if ((SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && SharedPreferenceManager.getUserObject(context).getMember_status() > 0) && (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
             boolean email_verified = false, phone_verified = false;
 
             if (SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0) {
@@ -209,6 +212,8 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         btUpdateNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusUpdateNumber);
 
         btMatchAid = (AppCompatButton) view.findViewById(R.id.ButtonMatchAid);
+        btUploadDocuments = (AppCompatButton) view.findViewById(R.id.ButtonUploadDocuments);
+
 
         llPhoneVerifyLandline = (LinearLayout) view.findViewById(R.id.LinearLayoutAccountSettingMyContactVerifyLandline);
         ivPhoneVerifyLandline = (ImageView) view.findViewById(R.id.ImageViewASContactLandLineNumberVerify);
@@ -346,6 +351,27 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
                 }
             }
         });
+
+        btUploadDocuments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(context, UploadDocuments.class);
+                startActivity(in);
+               /* if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3) {
+
+                    Toast.makeText(context, "Please complete and verify your profile details.", Toast.LENGTH_LONG).show();
+                } else if (SharedPreferenceManager.getUserObject(context).getMember_status() == 7 || SharedPreferenceManager.getUserObject(context).getMember_status() == 8) {
+
+                    Toast.makeText(context, "Please review notes as MarryMax team advised and update your profile or contact us for further assistance", Toast.LENGTH_LONG).show();
+                } else {
+
+                    //display screen
+                    Intent intent = new Intent(getActivity(), MatchAidActivity.class);
+                    startActivity(intent);
+                }*/
+            }
+        });
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

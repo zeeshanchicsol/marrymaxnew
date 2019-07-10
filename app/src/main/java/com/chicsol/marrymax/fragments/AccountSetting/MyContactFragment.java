@@ -275,7 +275,10 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                 String mobNum = EditTextAScontactMobileNumber.getText().toString();
                 String countryCode = EditTextAScontactMobileNumber.getTag().toString();
                 int mobMinChars = 0;
-                if (countryCode.equals("+92")) {
+
+              //  Log.e("countryCode", mobNum.length()+" _ " + countryCode+"");
+
+                if (countryCode.trim().equals("+92")) {
                     mobMinChars = 9;
                 } else {
 
@@ -358,7 +361,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
                 } else if (mobNum.length() > 11 || mobNum.length() < mobMinChars) {
-                    EditTextAScontactMobileNumber.setError("Max 11 and Min "+mobMinChars+"  Characters allowed");
+                    EditTextAScontactMobileNumber.setError("Max 11 and Min " + mobMinChars + "  Characters allowed");
                     focusView = EditTextAScontactMobileNumber;
                     focusView.requestFocus();
                 }/* else if (landNum.length() > 11 || landNum.length() < 9) {
@@ -450,7 +453,7 @@ public class MyContactFragment extends Fragment implements dialogVerifyphone.onC
                     Gson gson = new Gson();
 
                     //  Log.e("Loggg", gson.toJson(member));
-                    try {
+                  try {
 
                         if (ConnectCheck.isConnected(getActivity().findViewById(android.R.id.content))) {
                             putRequest(new JSONObject(gson.toJson(member)), landlineAdded);
