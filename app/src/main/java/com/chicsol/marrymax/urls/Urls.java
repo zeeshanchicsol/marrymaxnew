@@ -242,6 +242,9 @@ public class Urls {
     public static String defaultPicture = baseUrl + "/api/WebArd/DefaultPicture";
     public static String deletePics = baseUrl + "/api/WebArd/DeletePics";
 
+   //======================== Upload Document ================================
+   public static String getDocuments = baseUrl + "/api/WebArd/GetDocuments/";
+
 
     //==========================Saved Search List===============================
     public static String deleteSaveSearch = baseUrl + "/api/WebArd/DeleteSaveSearch";

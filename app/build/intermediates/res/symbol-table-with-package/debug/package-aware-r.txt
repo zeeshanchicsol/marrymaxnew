@@ -2470,6 +2470,8 @@ id TextViewUPSisters
 id TextViewUPSmoke
 id TextViewUPSocialDetail
 id TextViewUPWhatIdo
+id TextViewUploadDocFileName
+id TextViewUploadedDocumentsTitle
 id TextViewUserProfileDeleteMessage
 id TextViewUserProfileFeedback
 id TextViewVerifyPhoneMobileNumber
@@ -3249,6 +3251,7 @@ layout fragment_userprpfile_basic_info
 layout item_image_slider
 layout item_list_add_to_list
 layout item_list_blocked
+layout item_list_docs
 layout item_list_my_contacts
 layout item_list_my_saved_list
 layout item_list_my_saved_searches_list

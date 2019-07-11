@@ -55,20 +55,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your documets visibility by other members can be controlled by setting the photo privacy option and then by giving specific permission to other members requesting photo view or by your choice."/>
+                android:text="Your documets visibility by other members can be controlled by setting the photo privacy option and then by giving specific permission to other members requesting photo view or by your choice." />
 
 
             <TextView
-                android:layout_margin="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
 
-                android:textSize="12sp"
                 android:background="#fcf8e3"
                 android:padding="8dp"
                 android:text="All new documets are reviewed by MarryMax, and will be live as soon as approved. We reserve the right to remove inappropriate documets"
                 android:textColor="#8a6d3b"
-                />
+                android:textSize="12sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,24 +99,57 @@
                     ></View>
             </LinearLayout>
 
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/ButtonUploadDocumentsSelectFile"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="Select File" />
+               >
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/ButtonUploadDocumentsSelectFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select File"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:id="@+id/TextViewUploadDocFileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/ButtonUploadDocumentsSelectFile"
+                    android:text="file name" />
+
+            </RelativeLayout>
+
 
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/ButtonUploadDocuments"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:textColor="@color/colorWhite"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/colorSubscriptionGreen"
-                android:text="Upload Document" />
+                android:text="Upload Document"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
 
+            <TextView
+                android:id="@+id/TextViewUploadedDocumentsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="You have uploaded following documents"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:visibility="gone" />
 
+            <ListView
+                android:id="@+id/ListViewRemovedFromSerch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:divider="@color/colorDashboardBackground"
+                android:dividerHeight="1dp"></ListView>
         </LinearLayout>
 
 

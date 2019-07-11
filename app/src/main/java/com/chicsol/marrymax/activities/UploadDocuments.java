@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,12 +39,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.adapters.DocsListAdapter;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterUploadPictures;
 import com.chicsol.marrymax.dialogs.dialogDosDonts;
 import com.chicsol.marrymax.dialogs.dialogRequest;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
+import com.chicsol.marrymax.modal.mDoc;
 import com.chicsol.marrymax.other.AppHelper;
 import com.chicsol.marrymax.other.VolleyMultipartRequest;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -73,7 +76,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UploadDocuments extends AppCompatActivity implements RecyclerViewAdapterUploadPictures.OnItemClickListener, RecyclerViewAdapterUploadPictures.OnSelectImageListener, dialogRequest.onCompleteListener {
+public class UploadDocuments extends AppCompatActivity implements RecyclerViewAdapterUploadPictures.OnItemClickListener, dialogRequest.onCompleteListener, DocsListAdapter.OnUpdateListener {
 
     //    private  RecyclerView recyclerView;
     private List<Members> membersDataList;
@@ -107,6 +110,11 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
     private List<WebArd> ProfileForDataList;
 
     private Button bSelectFile, btUploadDocuments;
+
+
+    private DocsListAdapter myListAdapter;
+    private ListView lv_mycontacts;
+    private TextView tvUploadedDocumentsTitle, tvUploadDocFileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,6 +163,8 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         membersDataList = new ArrayList<>();
 
         tvDsdonts = (TextView) findViewById(R.id.TextViewPhotoUploadDosDonts);
+        tvUploadedDocumentsTitle = (TextView) findViewById(R.id.TextViewUploadedDocumentsTitle);
+        tvUploadDocFileName = (TextView) findViewById(R.id.TextViewUploadDocFileName);
 
         /* tvEmptyStateAlias = (TextView) view.findViewById(R.id.TextViewPicFragmentMainAlias);
          */
@@ -168,16 +178,17 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
         recyclerView.setAdapter(recyclerAdapter);*/
 
-        //  getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        getDocuments(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
 
         bSelectFile = (AppCompatButton) findViewById(R.id.ButtonUploadDocumentsSelectFile);
 
         btUploadDocuments = (AppCompatButton) findViewById(R.id.ButtonUploadDocuments);
 
-        ProfileForDataList=new ArrayList<>();
-        ProfileForDataList.add(new WebArd("1","NIC"));
-        ProfileForDataList.add(new WebArd("2","NIC"));
+        ProfileForDataList = new ArrayList<>();
+      /*  ProfileForDataList.add(new WebArd("1", "NIC"));
+        ProfileForDataList.add(new WebArd("2", "NIC"));*/
+
         spinner_profilefor = (Spinner) findViewById(R.id.sp_profilefor);
         spinner_profilefor.setPrompt("Select Profile For");
         adapter_profilefor = new MySpinnerAdapter(this,
@@ -186,6 +197,8 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         spinner_profilefor.setAdapter(adapter_profilefor);
 
 
+        lv_mycontacts = (ListView) findViewById(R.id.ListViewRemovedFromSerch);
+
     }
 
     private void setListeners() {
@@ -193,16 +206,25 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         bSelectFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
+
             }
         });
 
         btUploadDocuments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                if (spinner_profilefor.getSelectedItemId() == 0) {
+
+
+                    TextView errorText = (TextView) spinner_profilefor.getSelectedView();
+                    errorText.setError("");
+                    errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
+                    errorText.setText("Please select  Document Type");
+
+                } else { selectImage();
+                }
 
             }
         });
@@ -272,15 +294,10 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
     }
 
 
-    void openImageChooser() {
-
-    }
-
-
     @Override
     public void onItemClick(Members members) {
         //  recyclerView.invalidate();
-        getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        getDocuments(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
 
     }
@@ -290,8 +307,8 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
     }
 
-    @Override
-    public void onSelectImage(String s) {
+
+    public void selectImage() {
 
         if (ActivityCompat.checkSelfPermission(UploadDocuments.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(UploadDocuments.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -351,20 +368,8 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
         } else {
             //You already have the permission, just go ahead.
-
-/*
-            int currentVersion = android.os.Build.VERSION.SDK_INT;
-            if (currentVersion >= Build.VERSION_CODES.O_MR1) {
-
-
-                Intent intent = new Intent();
-                intent.setType(IMAGE_TYPE);
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent,
-                        "select image"), SELECT_SINGLE_PICTURE);
-
-            } else {*/
-            imagePicker = new ImagePicker(UploadDocuments.this);
+            proceedAfterPermission();
+       /*     imagePicker = new ImagePicker(UploadDocuments.this);
             //  imagePicker.allowMultiple();
             imagePicker.shouldGenerateMetadata(true);
             imagePicker.shouldGenerateThumbnails(true);
@@ -373,11 +378,11 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                 public void onImagesChosen(List<ChosenImage> list) {
 
 
-                    //Log.e("Image list size", "" + list.size());
-                    //Log.e("Image list size", "" + list.get(0).getOriginalPath());
+                    Log.e("Image list size", "" + list.size());
+                    Log.e("Image list size", "" + list.get(0).getOriginalPath());
 
                     if (list.size() > 0) {
-                        uploadPhotoToServer(list.get(0).getOriginalPath());
+                       // uploadPhotoToServer(list.get(0).getOriginalPath());
                     }
 
                 }
@@ -387,8 +392,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
                 }
             });
-            imagePicker.pickImage();
-            //    }
+            imagePicker.pickImage();*/
 
 
         }
@@ -526,6 +530,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
     }
 
     private void proceedAfterPermission() {
+        Log.e("Image Image", "Image");
         //We've got the permission, now we can proceed further
 /*        int currentVersion = android.os.Build.VERSION.SDK_INT;
         if (currentVersion >= Build.VERSION_CODES.O_MR1) {
@@ -547,8 +552,9 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
             public void onImagesChosen(List<ChosenImage> list) {
 
 
-                //Log.e("Image list size", "" + list.size());
-                //Log.e("Image list size", "" + list.get(0).getOriginalPath());
+                Log.e("Image list size", "" + list.size());
+                Log.e("Image getThumbnailPath", "" +list.get(0).getThumbnailPath());
+                Log.e("Image list size", "" + list.get(0).getOriginalPath());
 
                 if (list.size() > 0) {
 
@@ -574,7 +580,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         final String filename = new File(path).getName();
         //Log.e("File Name", "" + filename);
 
-
+        WebArd spObj = (WebArd) spinner_profilefor.getSelectedItem();
         String url;
         if (subject != null) {
             url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() + "/" + userpath + "/" + subject;
@@ -597,12 +603,12 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                     Toast.makeText(UploadDocuments.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
 
 
-                    getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                    getDocuments(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                     Toast.makeText(UploadDocuments.this, "Your pictures will be available in your Profile as soon as the site Admin reviews the pictures and approves them.", Toast.LENGTH_SHORT).show();
 
 
                 } else {
-                    getMemberPics(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                    getDocuments(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
                     Toast.makeText(UploadDocuments.this, "Error. Please try again", Toast.LENGTH_SHORT).show();
                 }
                 pDialog.dismiss();
@@ -701,61 +707,59 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         MySingleton.getInstance(getBaseContext()).addToRequestQueue(multipartRequest, Tag);
     }
 
-    private void getMemberPics(final String path) {
+    private void getDocuments(final String path) {
 
 
      /*   final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
         pDialog.setMessage("Loading...");*/
         pDialog.show();
-        //   Log.e("upload path", "" + Urls.getMembersPictures + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        Log.e("upload path", "" + Urls.getDocuments + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
-        JsonArrayRequest req = new JsonArrayRequest(Urls.getMembersPictures + path,
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getDocuments + path,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        //Log.d("Response", response.toString());
+                        Log.e("Response", response.toString());
                         try {
 
-                            List<Members> mDataList = new ArrayList<>();
-                            JSONArray jsonCountryStaeObj = response.getJSONArray(0);
+                            List<WebArd> mDataList;
+                            List<mDoc> mDocDataList;
+
+                            JSONArray jsonCountryStaeObj = response.getJSONArray(1);
+                            JSONArray jsonDocs = response.getJSONArray(0);
 
 
                             Gson gsonc;
                             GsonBuilder gsonBuilderc = new GsonBuilder();
                             gsonc = gsonBuilderc.create();
-                            Type listType = new TypeToken<List<Members>>() {
+                            Type listType = new TypeToken<List<WebArd>>() {
                             }.getType();
 
-                            mDataList = (List<Members>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
-                           /* if (mDataList.size() == 0) {
+                            mDataList = (List<WebArd>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+
+                            mDataList.add(0, new WebArd("-1", "Select"));
+                            adapter_profilefor.addAll(mDataList);
+
+                            Gson gson;
+                            GsonBuilder gsonBuilder = new GsonBuilder();
+                            gson = gsonBuilder.create();
+                            Type listTypea = new TypeToken<List<mDoc>>() {
+                            }.getType();
+
+                            mDocDataList = (List<mDoc>) gson.fromJson(jsonDocs.toString(), listTypea);
 
 
-                                mDataList.add(new Members());
-                                mDataList.add(new Members());
-                                mDataList.add(new Members());
-                                mDataList.add(new Members());
-                                recyclerAdapter.addAll(mDataList);
-                            } else if (mDataList.size() == 1) {
-                                mDataList.add(new Members());
-                                mDataList.add(new Members());
-                                mDataList.add(new Members());
-                                recyclerAdapter.addAll(mDataList);
-                            } else if (mDataList.size() == 2) {
+                            tvUploadedDocumentsTitle.setVisibility(View.GONE);
+                            if (mDocDataList.size() > 0) {
+                                tvUploadedDocumentsTitle.setVisibility(View.VISIBLE);
+                                myListAdapter = new DocsListAdapter(UploadDocuments.this, R.layout.item_list_docs, mDocDataList, UploadDocuments.this);
+                                lv_mycontacts.setAdapter(myListAdapter);
+                            } else {
+                                tvUploadedDocumentsTitle.setVisibility(View.GONE);
+                            }
 
-                                mDataList.add(new Members());
-                                mDataList.add(new Members());
-                                recyclerAdapter.addAll(mDataList);
 
-                            } else if (mDataList.size() == 3) {
-
-                                mDataList.add(new Members());
-                                recyclerAdapter.addAll(mDataList);
-
-                            } else if (mDataList.size() == 4) {
-
-                                recyclerAdapter.addAll(mDataList);
-
-                            }*/
+                            // Log.e("size", "" + mDocDataList.size());
 
 
                         } catch (JSONException e) {
@@ -859,4 +863,8 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
     }
 
 
+    @Override
+    public void onUpdate(String msg) {
+
+    }
 }
