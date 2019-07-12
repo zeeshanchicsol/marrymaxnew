@@ -71,13 +71,13 @@ public class DocsListAdapter extends ArrayAdapter<mDoc> {
         holder.txtTitle.setText(item.getDoc_type());
 
         if(item.getReview()==0){
-            holder.txtDate.setText("Pending Approval");
-            holder.txtDate.setTextColor(context.getResources().getColor(R.color.colorTextRed));
+            holder.txtDate.setText("");
+        //    holder.txtDate.setTextColor(context.getResources().getColor(R.color.colorTextRed));
 
         }else {
 
-            holder.txtDate.setText("Approved");
-            holder.txtDate.setTextColor(context.getResources().getColor(R.color.colorDefaultGreen));
+            holder.txtDate.setText("Reviewed");
+          //  holder.txtDate.setTextColor(context.getResources().getColor(R.color.colorDefaultGreen));
         }
        // holder.txtDate.setText(item.getReview());
 

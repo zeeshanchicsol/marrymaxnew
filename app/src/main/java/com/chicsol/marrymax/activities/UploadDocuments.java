@@ -19,9 +19,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -48,6 +50,7 @@ import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.mDoc;
 import com.chicsol.marrymax.other.AppHelper;
+import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.other.VolleyMultipartRequest;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -100,7 +103,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
 
     private ProgressDialog pDialog;
-    TextView tvDsdonts;
+ //   TextView tvDsdonts;
 
     private String Tag = "UploadDocuments";
 
@@ -109,12 +112,17 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
     private MySpinnerAdapter adapter_profilefor;
     private List<WebArd> ProfileForDataList;
 
-    private Button bSelectFile, btUploadDocuments;
+    private Button btUploadDocuments, btUploadDocumentCompContact;
 
 
     private DocsListAdapter myListAdapter;
     private ListView lv_mycontacts;
-    private TextView tvUploadedDocumentsTitle, tvUploadDocFileName;
+    private TextView tvUploadedDocumentsTitle, tvUploadedDocumentsNotificationMessage;
+
+    private EditText etDocInfo;
+
+    private LinearLayout llUploadDocumentMain, llCompleteProfileContact;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,9 +170,17 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
         membersDataList = new ArrayList<>();
 
-        tvDsdonts = (TextView) findViewById(R.id.TextViewPhotoUploadDosDonts);
+    //    tvDsdonts = (TextView) findViewById(R.id.TextViewPhotoUploadDosDonts);
         tvUploadedDocumentsTitle = (TextView) findViewById(R.id.TextViewUploadedDocumentsTitle);
-        tvUploadDocFileName = (TextView) findViewById(R.id.TextViewUploadDocFileName);
+        tvUploadedDocumentsNotificationMessage = (TextView) findViewById(R.id.TextViewUploadedDocumentsNotificationMessage);
+
+
+        etDocInfo = (EditText) findViewById(R.id.EditTextAboutMePers);
+
+        llUploadDocumentMain = (LinearLayout) findViewById(R.id.LinearLayoutUploadDocumentMain);
+
+        llCompleteProfileContact = (LinearLayout) findViewById(R.id.LinearLayoutCompleteProfileContact);
+
 
         /* tvEmptyStateAlias = (TextView) view.findViewById(R.id.TextViewPicFragmentMainAlias);
          */
@@ -181,9 +197,10 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         getDocuments(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
 
-        bSelectFile = (AppCompatButton) findViewById(R.id.ButtonUploadDocumentsSelectFile);
+        // bSelectFile = (AppCompatButton) findViewById(R.id.ButtonUploadDocumentsSelectFile);
 
         btUploadDocuments = (AppCompatButton) findViewById(R.id.ButtonUploadDocuments);
+        btUploadDocumentCompContact = (AppCompatButton) findViewById(R.id.ButtonUploadDocumentCompContact);
 
         ProfileForDataList = new ArrayList<>();
       /*  ProfileForDataList.add(new WebArd("1", "NIC"));
@@ -203,9 +220,19 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
     private void setListeners() {
 
-        bSelectFile.setOnClickListener(new View.OnClickListener() {
+        btUploadDocumentCompContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                MarryMax marryMax = new MarryMax(UploadDocuments.this);
+                if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 3 || SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 4) {
+                    //  btUploadDocumentCompContact.setText("Contact Support");
+                    marryMax.contact();
+
+                } else {
+                    marryMax.getProfileProgress(getApplicationContext(), SharedPreferenceManager.getUserObject(getApplicationContext()), UploadDocuments.this);
+                }
+
 
             }
         });
@@ -214,27 +241,57 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
             @Override
             public void onClick(View v) {
 
+                if (!checkSelections(v)) {
+                    selectImage();
 
-                if (spinner_profilefor.getSelectedItemId() == 0) {
-
-
-                    TextView errorText = (TextView) spinner_profilefor.getSelectedView();
-                    errorText.setError("");
-                    errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
-                    errorText.setText("Please select  Document Type");
-
-                } else { selectImage();
                 }
+
 
             }
         });
-        tvDsdonts.setOnClickListener(new View.OnClickListener() {
+     /*   tvDsdonts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getDosDonts();
             }
-        });
+        });*/
     }
+
+
+    private boolean checkSelections(View v) {
+        boolean ck = false;
+
+
+        if (spinner_profilefor.getSelectedItemId() == 0) {
+
+
+            TextView errorText = (TextView) spinner_profilefor.getSelectedView();
+            errorText.setError("");
+            errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
+            errorText.setText("Please select Document Type");
+            ck = true;
+        }
+        if (TextUtils.isEmpty(etDocInfo.getText().toString().trim())) {
+            etDocInfo.setError("Please Enter Document Info ");
+
+            etDocInfo.requestFocus();
+            ck = true;
+        }
+        if (!TextUtils.isEmpty(etDocInfo.getText().toString().trim())) {
+            //     etDocInfo.getText().length() < 15 ||
+            if (etDocInfo.getText().length() > 200) {
+                etDocInfo.setError("max 200 characters");
+
+                etDocInfo.requestFocus();
+                ck = true;
+
+            }
+        }
+
+
+        return ck;
+    }
+
 
     private void getDosDonts() {
 
@@ -552,9 +609,9 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
             public void onImagesChosen(List<ChosenImage> list) {
 
 
-                Log.e("Image list size", "" + list.size());
-                Log.e("Image getThumbnailPath", "" +list.get(0).getThumbnailPath());
-                Log.e("Image list size", "" + list.get(0).getOriginalPath());
+                //      Log.e("Image list size", "" + list.size());
+                //     Log.e("Image getThumbnailPath", "" + list.get(0).getThumbnailPath());
+                //      Log.e("Image list size", "" + list.get(0).getOriginalPath());
 
                 if (list.size() > 0) {
 
@@ -582,13 +639,13 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
         WebArd spObj = (WebArd) spinner_profilefor.getSelectedItem();
         String url;
-        if (subject != null) {
-            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() + "/" + userpath + "/" + subject;
-        } else {
-            url = Urls.fileUpload + "/" + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() + "/0/0";
-        }
+        /*        if (subject != null) {*/
+        url = Urls.docUpload + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() + "/" + spObj.getId();
+      /*  } else {
+            url = Urls.docUpload + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() + "/0/0";
+        }*/
 
-        //   Log.e("url", "" + url);
+        Log.e("url", "" + url);
 
 
         pDialog.show();
@@ -598,18 +655,21 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
             @Override
             public void onResponse(NetworkResponse response) {
                 String resultResponse = new String(response.data);
-                //Log.e("Messsage", "=======================" + resultResponse + "==============");
-                if (resultResponse.equals("1")) {
-                    Toast.makeText(UploadDocuments.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
-
+                Log.e("response", "=======================" + resultResponse + "==============");
+                if (resultResponse.equals("0")) {
 
                     getDocuments(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
-                    Toast.makeText(UploadDocuments.this, "Your pictures will be available in your Profile as soon as the site Admin reviews the pictures and approves them.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadDocuments.this, "Error. Please try again", Toast.LENGTH_SHORT).show();
 
 
                 } else {
+
+                    Toast.makeText(UploadDocuments.this, "Document Uploaded", Toast.LENGTH_SHORT).show();
+
+
                     getDocuments(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
-                    Toast.makeText(UploadDocuments.this, "Error. Please try again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadDocuments.this, "Your Document will be available in your Profile as soon as the site Admin reviews the documents and approves them.", Toast.LENGTH_SHORT).show();
+
                 }
                 pDialog.dismiss();
               /*  try {
@@ -672,7 +732,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 //     params.put("api_token", "gh659gjhvdyudo973823tt9gvjf7i6ric75r76");
-                params.put("path", SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+                params.put("notes", etDocInfo.getText().toString());
              /*   params.put("location", mLocationInput.getText().toString());
                 params.put("about", mAvatarInput.getText().toString());
                 params.put("contact", mContactInput.getText().toString());*/
@@ -727,6 +787,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
                             JSONArray jsonCountryStaeObj = response.getJSONArray(1);
                             JSONArray jsonDocs = response.getJSONArray(0);
+                            JSONArray jsonWebArd = response.getJSONArray(2);
 
 
                             Gson gsonc;
@@ -736,6 +797,35 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                             }.getType();
 
                             mDataList = (List<WebArd>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+
+                            WebArd arobj = (WebArd) gsonc.fromJson(jsonWebArd.getJSONObject(0).toString(), WebArd.class);
+
+                            Log.e("arobj", "" + arobj.getId());
+
+
+                            //   if(arobj.getId().equals("1"))
+                            if (arobj.getId().equals("1")) {
+                                ///show input document
+                                llCompleteProfileContact.setVisibility(View.GONE);
+                                tvUploadedDocumentsNotificationMessage.setVisibility(View.GONE);
+                                llUploadDocumentMain.setVisibility(View.VISIBLE);
+
+
+                            } else {
+                                llUploadDocumentMain.setVisibility(View.GONE);
+                                if (SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 3 || SharedPreferenceManager.getUserObject(getApplicationContext()).getMember_status() == 4) {
+                                    llCompleteProfileContact.setVisibility(View.VISIBLE);
+
+                                    btUploadDocumentCompContact.setText("Contact Support");
+                                    tvUploadedDocumentsNotificationMessage.setText("Contact Marrymax Support to upload document");
+
+                                } else {
+                                    btUploadDocumentCompContact.setText("Complete Profile");
+                                    llCompleteProfileContact.setVisibility(View.VISIBLE);
+                                    tvUploadedDocumentsNotificationMessage.setText("Please complete your profile to upload document");
+                                }
+                            }
+
 
                             mDataList.add(0, new WebArd("-1", "Select"));
                             adapter_profilefor.addAll(mDataList);
@@ -780,7 +870,11 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                 return Constants.getHashMap();
             }
         };
-        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(req, Tag);
+        MySingleton.getInstance(
+
+                getApplicationContext()).
+
+                addToRequestQueue(req, Tag);
     }
 
     @Override

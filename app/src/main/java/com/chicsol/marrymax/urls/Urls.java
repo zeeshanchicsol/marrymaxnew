@@ -21,7 +21,7 @@ public class Urls {
     public static String getUsageInfo = baseUrl + "/api/WebArd/GetUsageInfo/";
 
     //old one
-   // public static String getAppVersion = baseUrl + "/api/WebArd/GetAppVersion";
+    // public static String getAppVersion = baseUrl + "/api/WebArd/GetAppVersion";
     public static String getAppVrsn = baseUrl + "/api/WebArd/GetAppVrsn";
 
     public static String RegistrationUrl = baseUrl + "/api/WebArd/Registration";
@@ -220,7 +220,7 @@ public class Urls {
     public static String getNotificationCount = baseUrl + "/api/WebArd/GetNotificationCount/";
     public static String getNotifyCntSta = baseUrl + "/api/WebArd/GetNotifyCntSta/";
 
-  //  public static String loadNotifications = baseUrl + "/api/WebArd/LoadNotifications";
+    //  public static String loadNotifications = baseUrl + "/api/WebArd/LoadNotifications";
     public static String loadArchive = baseUrl + "/api/WebArd/LoadArchive";
 
     //=====================MyList=========================
@@ -242,9 +242,9 @@ public class Urls {
     public static String defaultPicture = baseUrl + "/api/WebArd/DefaultPicture";
     public static String deletePics = baseUrl + "/api/WebArd/DeletePics";
 
-   //======================== Upload Document ================================
-   public static String getDocuments = baseUrl + "/api/WebArd/GetDocuments/";
-
+    //======================== Upload Document ================================
+    public static String getDocuments = baseUrl + "/api/WebArd/GetDocuments/";
+    public static String docUpload = baseUrl + "/api/FileUpd/UserDoc/";
 
     //==========================Saved Search List===============================
     public static String deleteSaveSearch = baseUrl + "/api/WebArd/DeleteSaveSearch";

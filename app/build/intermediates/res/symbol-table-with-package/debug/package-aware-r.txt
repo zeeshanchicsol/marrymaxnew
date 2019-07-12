@@ -1623,8 +1623,8 @@ id ButtonSendQuestions
 id ButtonSubmitForgetPassword
 id ButtonSubscribe
 id ButtonSubscriptionPurchase
+id ButtonUploadDocumentCompContact
 id ButtonUploadDocuments
-id ButtonUploadDocumentsSelectFile
 id ButtonViewProfile
 id CTRL
 id CardViewAmenities
@@ -1802,6 +1802,7 @@ id LinearLayoutAdvSearchTopLocations
 id LinearLayoutAdvSearchVisaStatus
 id LinearLayoutAdvSearchZodiacSign
 id LinearLayoutChildren
+id LinearLayoutCompleteProfileContact
 id LinearLayoutContent
 id LinearLayoutDMMatchesLookingForMeCount
 id LinearLayoutDMMatchesWithPhotoUpdateCount
@@ -1908,6 +1909,7 @@ id LinearLayoutShowInterest
 id LinearLayoutSubscriptionPlanNotFound
 id LinearLayoutSubscriptionQouta
 id LinearLayoutUPSendMessage
+id LinearLayoutUploadDocumentMain
 id LinearLayoutUserProfileAM
 id LinearLayoutUserProfileAMC
 id LinearLayoutUserProfileMS
@@ -2470,7 +2472,7 @@ id TextViewUPSisters
 id TextViewUPSmoke
 id TextViewUPSocialDetail
 id TextViewUPWhatIdo
-id TextViewUploadDocFileName
+id TextViewUploadedDocumentsNotificationMessage
 id TextViewUploadedDocumentsTitle
 id TextViewUserProfileDeleteMessage
 id TextViewUserProfileFeedback
