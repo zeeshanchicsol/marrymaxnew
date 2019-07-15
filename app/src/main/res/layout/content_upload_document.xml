@@ -24,16 +24,16 @@
 
             android:textColor="@color/colorUserProfileRed" />
 
-       <!-- <com.chicsol.marrymax.widgets.mTextView
-            android:id="@+id/TextViewPhotoUploadDosDonts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="9dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="right"
-            android:text="Do's &amp; Don't"
-            android:textColor="@color/colorUserProfileRed" />-->
+        <!-- <com.chicsol.marrymax.widgets.mTextView
+             android:id="@+id/TextViewPhotoUploadDosDonts"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_margin="9dp"
+             android:layout_weight="1"
+             android:clickable="true"
+             android:gravity="right"
+             android:text="Do's &amp; Don't"
+             android:textColor="@color/colorUserProfileRed" />-->
     </LinearLayout>
 
     <android.support.v7.widget.CardView
@@ -56,29 +56,71 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:textColor="@color/colorBlack"
                 android:fontFamily="sans-serif"
-                android:text="\u2022   Photo must be a .jpeg, .jpg, .gif, .tif or .png format, not larger than 4mb.\n
-\u2022  Profile photo will be visible to all, irrespective of your privacy settings." />
+                android:text="\u2022   Document Photo must be a .jpeg, .jpg, .gif, .tif or .png format, not larger than 4 MB.\n
+\u2022  Verification Documents will be reviewed by MarryMax Admin Only."
+                android:textColor="@color/colorBlack" />
 
 
-       <!--     <TextView
+            <!--     <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_margin="4dp"
+
+                     android:background="#fcf8e3"
+                     android:padding="8dp"
+                     android:text="All new documets are reviewed by MarryMax, and will be live as soon as approved. We reserve the right to remove inappropriate documets"
+                     android:textColor="#8a6d3b"
+                     android:textSize="12sp" />
+     -->
+            <LinearLayout
+                android:id="@+id/LinearLayoutUploadedDocuments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:visibility="gone"
+                android:orientation="vertical">
 
-                android:background="#fcf8e3"
-                android:padding="8dp"
-                android:text="All new documets are reviewed by MarryMax, and will be live as soon as approved. We reserve the right to remove inappropriate documets"
-                android:textColor="#8a6d3b"
-                android:textSize="12sp" />
--->
+                <TextView
+                    android:id="@+id/TextViewUploadedDocumentsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="You have uploaded following documents"
+
+                    android:fontFamily="sans-serif"
+                    android:visibility="gone"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    />
+
+
+                <ListView
+                    android:id="@+id/ListViewRemovedFromSerch"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="3dp"
+                    android:divider="@color/colorDashboardBackground"
+                    android:dividerHeight="1dp"></ListView>
+
+            </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/LinearLayoutUploadDocumentMain"
-                android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload New Document"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -185,9 +227,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:visibility="gone"
                 android:layout_marginBottom="8dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/TextViewUploadedDocumentsNotificationMessage"
@@ -197,8 +239,7 @@
                     android:gravity="center"
                     android:text="adsad"
                     android:textColor="@color/colorSubscriptionGreen"
-                    android:textSize="16sp"
-                  />
+                    android:textSize="16sp" />
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/ButtonUploadDocumentCompContact"
@@ -215,24 +256,7 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/TextViewUploadedDocumentsTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="You have uploaded following documents"
-                android:textColor="@color/colorBlack"
-                android:textSize="16sp"
-                android:visibility="gone" />
 
-
-            <ListView
-                android:id="@+id/ListViewRemovedFromSerch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:divider="@color/colorDashboardBackground"
-                android:dividerHeight="1dp"></ListView>
         </LinearLayout>
 
 

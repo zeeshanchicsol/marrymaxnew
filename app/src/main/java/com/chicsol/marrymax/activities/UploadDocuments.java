@@ -41,6 +41,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.DocsListAdapter;
 import com.chicsol.marrymax.adapters.MySpinnerAdapter;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterUploadPictures;
@@ -103,7 +104,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
 
     private ProgressDialog pDialog;
- //   TextView tvDsdonts;
+    //   TextView tvDsdonts;
 
     private String Tag = "UploadDocuments";
 
@@ -121,7 +122,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
     private EditText etDocInfo;
 
-    private LinearLayout llUploadDocumentMain, llCompleteProfileContact;
+    private LinearLayout llUploadDocumentMain, llCompleteProfileContact, llUploadedDocuments;
 
 
     @Override
@@ -170,7 +171,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
         membersDataList = new ArrayList<>();
 
-    //    tvDsdonts = (TextView) findViewById(R.id.TextViewPhotoUploadDosDonts);
+        //    tvDsdonts = (TextView) findViewById(R.id.TextViewPhotoUploadDosDonts);
         tvUploadedDocumentsTitle = (TextView) findViewById(R.id.TextViewUploadedDocumentsTitle);
         tvUploadedDocumentsNotificationMessage = (TextView) findViewById(R.id.TextViewUploadedDocumentsNotificationMessage);
 
@@ -178,6 +179,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         etDocInfo = (EditText) findViewById(R.id.EditTextAboutMePers);
 
         llUploadDocumentMain = (LinearLayout) findViewById(R.id.LinearLayoutUploadDocumentMain);
+        llUploadedDocuments = (LinearLayout) findViewById(R.id.LinearLayoutUploadedDocuments);
 
         llCompleteProfileContact = (LinearLayout) findViewById(R.id.LinearLayoutCompleteProfileContact);
 
@@ -230,8 +232,12 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                     marryMax.contact();
 
                 } else {
-                    marryMax.getProfileProgress(getApplicationContext(), SharedPreferenceManager.getUserObject(getApplicationContext()), UploadDocuments.this);
-                }
+                    Intent in = new Intent(getApplicationContext(), MainDirectiveActivity.class);
+                    in.putExtra("type", 22);
+                    startActivity(in);
+
+
+                     }
 
 
             }
@@ -279,8 +285,8 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         }
         if (!TextUtils.isEmpty(etDocInfo.getText().toString().trim())) {
             //     etDocInfo.getText().length() < 15 ||
-            if (etDocInfo.getText().length() > 200) {
-                etDocInfo.setError("max 200 characters");
+            if (etDocInfo.getText().length() < 15 || etDocInfo.getText().length() > 200) {
+                etDocInfo.setError("Min 15 & Max 200 characters for Document Info");
 
                 etDocInfo.requestFocus();
                 ck = true;
@@ -782,7 +788,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                         Log.e("Response", response.toString());
                         try {
 
-                            List<WebArd> mDataList;
+                            List<WebArd> mDataList=new ArrayList<>();
                             List<mDoc> mDocDataList;
 
                             JSONArray jsonCountryStaeObj = response.getJSONArray(1);
@@ -827,8 +833,20 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                             }
 
 
-                            mDataList.add(0, new WebArd("-1", "Select"));
-                            adapter_profilefor.addAll(mDataList);
+
+                            if (jsonDocs.length() > 0) {
+
+                                Log.e("in","a "+mDataList.size());
+                                llUploadedDocuments.setVisibility(View.VISIBLE);
+                                mDataList.add(0, new WebArd("-1", "Select"));
+                                adapter_profilefor.addAll(mDataList);
+
+                            } else {
+                                Log.e("not in","b");
+                                llUploadedDocuments.setVisibility(View.GONE);
+                            }
+
+
 
                             Gson gson;
                             GsonBuilder gsonBuilder = new GsonBuilder();

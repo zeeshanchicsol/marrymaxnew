@@ -211,24 +211,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         cvFeedbackPending = (CardView) view.findViewById(R.id.CardViewDashMainFeedbackPending);
         btEmailVerificationPending = (AppCompatButton) view.findViewById(R.id.ButtonDashMainEmailVerificationPending);
         btPhoneVerificationPending = (AppCompatButton) view.findViewById(R.id.ButtonDashMainPhoneVerificationPending);
-
         cvEmailPhoneVerificationPending = (CardView) view.findViewById(R.id.CardViewDashMainEmailPhoneVerificationPending);
-        if ((SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && SharedPreferenceManager.getUserObject(context).getMember_status() > 0 ) &&  (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
-            cvEmailPhoneVerificationPending.setVisibility(View.VISIBLE);
-            if (SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0) {
-                btEmailVerificationPending.setVisibility(View.VISIBLE);
-            } else {
-                btEmailVerificationPending.setVisibility(View.GONE);
-            }
-            if (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0) {
-                btPhoneVerificationPending.setVisibility(View.VISIBLE);
-            } else {
-                btPhoneVerificationPending.setVisibility(View.GONE);
-            }
-
-        } else {
-            cvEmailPhoneVerificationPending.setVisibility(View.GONE);
-        }
 
 
         cvEmailPhoneVerificationPending = (CardView) view.findViewById(R.id.CardViewDashMainEmailPhoneVerificationPending);
@@ -443,7 +426,36 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         }, 1000);
     }
 
+
+
+
     private void LoadData() {
+
+
+        if ((SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && SharedPreferenceManager.getUserObject(context).getMember_status() > 0 ) &&  (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
+            cvEmailPhoneVerificationPending.setVisibility(View.VISIBLE);
+            if (SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0) {
+                btEmailVerificationPending.setVisibility(View.VISIBLE);
+            } else {
+                btEmailVerificationPending.setVisibility(View.GONE);
+            }
+            if (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0) {
+                btPhoneVerificationPending.setVisibility(View.VISIBLE);
+            } else {
+                btPhoneVerificationPending.setVisibility(View.GONE);
+            }
+
+        } else {
+            cvEmailPhoneVerificationPending.setVisibility(View.GONE);
+        }
+
+
+
+
+
+
+
+
         rlUpgrade.setVisibility(View.GONE);
         if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
 
