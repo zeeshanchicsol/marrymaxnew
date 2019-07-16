@@ -264,6 +264,8 @@ public class Urls {
     public static String matchMaking = baseUrl + "/App/MatchMaking";
     public static String faqs = baseUrl + "/App/Faqs";
     public static String benefits = baseUrl + "/App/MembershipPlans";
+    public static String successstories = baseUrl + "/App/successstories";
+
 
     public static String privacyPolicy = baseUrl + "/App/PrivacyPolicy";
     public static String profileGuideline = baseUrl + "/App/ProfileGuideline";

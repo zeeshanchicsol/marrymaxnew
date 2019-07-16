@@ -108,7 +108,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
     private String Tag = "UploadDocuments";
 
-    private Spinner spinner_profilefor;
+    private Spinner sp_doctype;
     // private DatePicker datePicker;
     private MySpinnerAdapter adapter_profilefor;
     private List<WebArd> ProfileForDataList;
@@ -208,12 +208,12 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
       /*  ProfileForDataList.add(new WebArd("1", "NIC"));
         ProfileForDataList.add(new WebArd("2", "NIC"));*/
 
-        spinner_profilefor = (Spinner) findViewById(R.id.sp_profilefor);
-        spinner_profilefor.setPrompt("Select Profile For");
+        sp_doctype = (Spinner) findViewById(R.id.sp_profilefor);
+        sp_doctype.setPrompt("Select Profile For");
         adapter_profilefor = new MySpinnerAdapter(this,
                 android.R.layout.simple_spinner_item, ProfileForDataList);
         adapter_profilefor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_profilefor.setAdapter(adapter_profilefor);
+        sp_doctype.setAdapter(adapter_profilefor);
 
 
         lv_mycontacts = (ListView) findViewById(R.id.ListViewRemovedFromSerch);
@@ -237,7 +237,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                     startActivity(in);
 
 
-                     }
+                }
 
 
             }
@@ -268,10 +268,10 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         boolean ck = false;
 
 
-        if (spinner_profilefor.getSelectedItemId() == 0) {
+        if (sp_doctype.getSelectedItemId() == 0) {
 
 
-            TextView errorText = (TextView) spinner_profilefor.getSelectedView();
+            TextView errorText = (TextView) sp_doctype.getSelectedView();
             errorText.setError("");
             errorText.setTextColor(getResources().getColor(R.color.colorTextRed));//just to highlight that this is an error
             errorText.setText("Please select Document Type");
@@ -643,7 +643,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
         final String filename = new File(path).getName();
         //Log.e("File Name", "" + filename);
 
-        WebArd spObj = (WebArd) spinner_profilefor.getSelectedItem();
+        WebArd spObj = (WebArd) sp_doctype.getSelectedItem();
         String url;
         /*        if (subject != null) {*/
         url = Urls.docUpload + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() + "/" + spObj.getId();
@@ -669,7 +669,8 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
 
                 } else {
-
+                    sp_doctype.setSelection(0);
+                    etDocInfo.setText("");
                     Toast.makeText(UploadDocuments.this, "Document Uploaded", Toast.LENGTH_SHORT).show();
 
 
@@ -779,7 +780,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
      /*   final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
         pDialog.setMessage("Loading...");*/
         pDialog.show();
-        Log.e("upload path", "" + Urls.getDocuments + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+        Log.e("getDocuments path", "" + Urls.getDocuments + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getDocuments + path,
                 new Response.Listener<JSONArray>() {
@@ -788,7 +789,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                         Log.e("Response", response.toString());
                         try {
 
-                            List<WebArd> mDataList=new ArrayList<>();
+                            List<WebArd> mDataList = new ArrayList<>();
                             List<mDoc> mDocDataList;
 
                             JSONArray jsonCountryStaeObj = response.getJSONArray(1);
@@ -832,20 +833,19 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                                 }
                             }
 
-
+                            mDataList.add(0, new WebArd("-1", "Select"));
+                            adapter_profilefor.addAll(mDataList);
 
                             if (jsonDocs.length() > 0) {
 
-                                Log.e("in","a "+mDataList.size());
+                                // Log.e("in","a "+mDataList.size());
                                 llUploadedDocuments.setVisibility(View.VISIBLE);
-                                mDataList.add(0, new WebArd("-1", "Select"));
-                                adapter_profilefor.addAll(mDataList);
+
 
                             } else {
-                                Log.e("not in","b");
+                                Log.e("not in", "b");
                                 llUploadedDocuments.setVisibility(View.GONE);
                             }
-
 
 
                             Gson gson;

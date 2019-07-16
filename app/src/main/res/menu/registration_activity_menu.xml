@@ -19,6 +19,12 @@
         android:orderInCategory="100"
         android:title="-Pricing"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_success_stories"
+        android:orderInCategory="100"
+        android:title="-Success Stories"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_aboutus"
         android:orderInCategory="100"

@@ -279,7 +279,7 @@ public class MySubscriptionFragment extends Fragment {
 
                         try {
                             JSONArray jsonCountryStaeObj = response.getJSONArray("data").getJSONArray(0);
-                            JSONObject jsonCountryStaeObj2 = response.getJSONArray("data").getJSONArray(1).getJSONObject(0);
+
 
                             Gson gsonc;
                             GsonBuilder gsonBuilderc = new GsonBuilder();
@@ -290,10 +290,6 @@ public class MySubscriptionFragment extends Fragment {
                             List<Members> dataList = (List<Members>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
 
 
-                            Type listType2 = new TypeToken<mSubQuotaInfo>() {
-                            }.getType();
-
-                            mSubQuotaInfo SubQuotaInfoObj = (mSubQuotaInfo) gsonc.fromJson(jsonCountryStaeObj2.toString(), listType2);
 
 
                             if (dataList.size() > 0) {
@@ -309,6 +305,13 @@ public class MySubscriptionFragment extends Fragment {
                                     recyclerAdapter.addAll(dataList);
 
 
+                                    JSONObject jsonCountryStaeObj2 = response.getJSONArray("data").getJSONArray(1).getJSONObject(0);
+                                    Type listType2 = new TypeToken<mSubQuotaInfo>() {
+                                    }.getType();
+
+                                    mSubQuotaInfo SubQuotaInfoObj = (mSubQuotaInfo) gsonc.fromJson(jsonCountryStaeObj2.toString(), listType2);
+
+
                                     String msgText = "Your have used <font color='#9a0606'>" + "<b>" + SubQuotaInfoObj.getMessages() + "</b></font> Messages out of  <font color='#277410'>" + "<b>" + SubQuotaInfoObj.getMessages_count() + "</b></font>";
                                     tvPlanMessagesQouta.setText(Html.fromHtml(msgText));
 
@@ -317,6 +320,7 @@ public class MySubscriptionFragment extends Fragment {
 
 
                                 } else if (member_status == 3) {
+
 
                                     if (smem.getMy_id() == 0) {
                                         //show packages

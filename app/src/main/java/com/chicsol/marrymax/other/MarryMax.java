@@ -1030,6 +1030,18 @@ public class MarryMax {
 
     }
 
+    public void successstories() {
+      /*  Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Urls.benefits));
+        activity.startActivity(browserIntent);*/
+
+        Intent intent = new Intent(activity, WebViewActivity.class);
+        intent.putExtra("url", Urls.successstories);
+        intent.putExtra("title", "Success Stories");
+        activity.startActivity(intent);
+
+
+    }
+
     public void personalizedMatching() {
       /*  Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Urls.matchMaking));
         activity.startActivity(browserIntent);*/
@@ -1774,7 +1786,7 @@ public class MarryMax {
 
 //}
 
-    public void sendRegistrationToServer(String token,Context context) {
+    public void sendRegistrationToServer(String token, Context context) {
 
       /*  final ProgressDialog pDialog = new ProgressDialog(getApplicationContext());
         pDialog.setMessage("Loading...");
@@ -1799,7 +1811,7 @@ public class MarryMax {
 
             String version = "";
             try {
-                PackageInfo pInfo =context. getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 version = pInfo.versionName;
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();

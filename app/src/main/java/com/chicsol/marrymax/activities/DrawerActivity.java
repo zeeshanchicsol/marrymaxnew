@@ -10,7 +10,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,7 +74,7 @@ DrawerActivity extends AppCompatActivity {
     int count = 0;
     private NotificationSpinnerAdapter m_adapter;
     private ArrayList<mProperties> m_NotificationDataList = new ArrayList<mProperties>();
-    private mTextView tcUserName;
+    private mTextView tcUserName, tvSuccessStories, tvWhyMarryMax,tvAboutMarryMax;
     private Members member;
     private ImageView iv_profile;
     private DisplayImageOptions options;
@@ -144,6 +143,43 @@ DrawerActivity extends AppCompatActivity {
 
 
         tcUserName = (mTextView) findViewById(R.id.TextViewNavUserName);
+        tvSuccessStories = (mTextView) findViewById(R.id.TextViewNavHeaderSuccessStories);
+        tvSuccessStories.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarryMax marryMax = new MarryMax(DrawerActivity.this);
+                marryMax.successstories();
+            }
+        });
+
+
+        tvWhyMarryMax = (mTextView) findViewById(R.id.TextViewNavHeaderWhyMarryMax);
+        tvWhyMarryMax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarryMax marryMax = new MarryMax(DrawerActivity.this);
+              //  marryMax.();
+            }
+        });
+
+
+
+
+
+        tvAboutMarryMax = (mTextView) findViewById(R.id.TextViewNavHeaderAboutMarryMax);
+        tvAboutMarryMax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MarryMax marryMax = new MarryMax(DrawerActivity.this);
+                marryMax.aboutus();
+            }
+        });
+
+
+
+
+
+
         member = SharedPreferenceManager.getUserObject(getApplicationContext());
 
 
@@ -437,9 +473,9 @@ DrawerActivity extends AppCompatActivity {
                             String remoteVersionName = "1.0";
                             //   String version = data[2];
 
-                        //    MarryMax max = new MarryMax(DrawerActivity.this);
+                            //    MarryMax max = new MarryMax(DrawerActivity.this);
 
-                       //     max.checkVersionUpdate(remoteVersionName);
+                            //     max.checkVersionUpdate(remoteVersionName);
 
 
                             //    Toast.makeText(DrawerActivity.this, "version :" + version, Toast.LENGTH_SHORT).show();

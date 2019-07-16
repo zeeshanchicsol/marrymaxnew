@@ -11,14 +11,18 @@
         android:background="@drawable/bg_nav_patern"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="10dp"
+
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="3dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
         <LinearLayout
-            android:clickable="true"
             android:id="@+id/LinearLayoutDrawerMyProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -65,400 +69,101 @@
                     android:layout_height="wrap_content"
                     android:text="(View Profile)"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
             </LinearLayout>
 
 
         </LinearLayout>
 
-
-    </LinearLayout>
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/TextViewNavHeaderAboutMarryMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+               android:gravity="center"
+                android:textSize="10sp"
+                android:drawableTop="@drawable/logo_m_white"
+                android:text=" About MarryMax"
+                />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/TextViewNavHeaderSuccessStories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:drawableTop="@drawable/wedding_rings_couple"
+
+
+                android:text="Success Stories"
+        />
+
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/TextViewNavHeaderWhyMarryMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:drawableTop="@drawable/logo_m_white"
+                android:layout_weight="1"
+                android:text="Why MarryMax?"
+             />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onDashboardClick"
-                android:orientation="horizontal"
-                android:padding="15dp"
-                android:weightSum="10">
+                android:orientation="vertical">
 
-                <com.chicsol.marrymax.widgets.faTextView
-
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
+                    android:clickable="true"
+                    android:onClick="onDashboardClick"
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:weightSum="10">
 
-                    android:text="@string/fa_icon_dashboard"
-                    android:textColor="@drawable/nav_text_fa_selector" />
+                    <com.chicsol.marrymax.widgets.faTextView
 
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
-                    android:text="Dashboard"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@drawable/nav_text_selector" />
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
 
-            </LinearLayout>
+                        android:text="@string/fa_icon_dashboard"
+                        android:textColor="@drawable/nav_text_fa_selector" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:padding="15dp"
-                android:weightSum="10">
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:text="Dashboard"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@drawable/nav_text_selector" />
 
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/fa_icon_matches"
-                    android:textColor="@drawable/nav_text_fa_selector" />
+                </LinearLayout>
 
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
-                    android:text="My Matches"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@drawable/nav_text_selector" />
-
-            </LinearLayout>
-
-
-            <!--   <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:clickable="true"
-                   android:orientation="horizontal"
-                   android:padding="15dp"
-                   android:weightSum="10">
-
-                   <com.chicsol.marrymax.widgets.faTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_marginRight="15dp"
-                       android:layout_weight="1"
-                       android:gravity="right"
-                       android:text="@string/fa_icon_match_pref"
-                       android:textColor="@drawable/nav_text_fa_selector" />
-
-                   <com.chicsol.marrymax.widgets.mTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="9"
-                       android:text="My Preffered Matches"
-                       android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                       android:textColor="@drawable/nav_text_selector" />
-
-               </LinearLayout>
-
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:clickable="true"
-                   android:orientation="horizontal"
-                   android:padding="15dp"
-                   android:weightSum="10">
-
-                   <com.chicsol.marrymax.widgets.faTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_marginRight="15dp"
-                       android:layout_weight="1"
-                       android:gravity="right"
-                       android:text="@string/fa_icon_matches"
-                       android:textColor="@drawable/nav_text_fa_selector" />
-
-                   <com.chicsol.marrymax.widgets.mTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="9"
-                       android:text="My Exact Matches"
-                       android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                       android:textColor="@drawable/nav_text_selector" />
-
-               </LinearLayout>
-
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:clickable="true"
-                   android:orientation="horizontal"
-                   android:padding="15dp"
-                   android:weightSum="10">
-
-                   <com.chicsol.marrymax.widgets.faTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_marginRight="15dp"
-                       android:layout_weight="1"
-                       android:gravity="right"
-                       android:text="@string/fa_icon_matches"
-                       android:textColor="@drawable/nav_text_fa_selector" />
-
-                   <com.chicsol.marrymax.widgets.mTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="9"
-                       android:text="Who Is Looking For Me"
-                       android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                       android:textColor="@drawable/nav_text_selector" />
-
-               </LinearLayout>
-
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:clickable="true"
-                   android:orientation="horizontal"
-                   android:padding="15dp"
-                   android:weightSum="10">
-
-                   <com.chicsol.marrymax.widgets.faTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_marginRight="15dp"
-                       android:layout_weight="1"
-                       android:gravity="right"
-                       android:text="@string/fa_icon_accepted"
-                       android:textColor="@drawable/nav_text_fa_selector" />
-
-                   <com.chicsol.marrymax.widgets.mTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="9"
-                       android:text="Looking For Each Other"
-                       android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                       android:textColor="@drawable/nav_text_selector" />
-
-               </LinearLayout>
-
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:clickable="true"
-                   android:orientation="horizontal"
-                   android:padding="15dp"
-                   android:weightSum="10">
-
-                   <com.chicsol.marrymax.widgets.faTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_marginRight="15dp"
-                       android:layout_weight="1"
-                       android:gravity="right"
-                       android:text="@string/fa_icon_search"
-                       android:textColor="@drawable/nav_text_fa_selector" />
-
-                   <com.chicsol.marrymax.widgets.mTextView
-                       android:layout_width="0dp"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="9"
-                       android:text="Advance Search"
-                       android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                       android:textColor="@drawable/nav_text_selector" />
-
-               </LinearLayout>-->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-
-                android:orientation="horizontal"
-                android:padding="15dp"
-                android:weightSum="10">
-
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/fa_icon_search"
-                    android:textColor="@drawable/nav_text_fa_selector" />
-
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
-                    android:text="My List"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@drawable/nav_text_selector" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/colorRegistrationLine"></View>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:padding="15dp"
-                android:weightSum="10">
-
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/fa_icon_newmessage"
-                    android:textColor="@drawable/nav_text_fa_selector" />
-
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
-                    android:text="My Messages"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@drawable/nav_text_selector" />
-
-            </LinearLayout>
-
-
-            <!--  <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:clickable="true"
-                  android:orientation="horizontal"
-                  android:padding="15dp"
-                  android:weightSum="10">
-
-                  <com.chicsol.marrymax.widgets.faTextView
-                      android:layout_width="0dp"
-                      android:layout_height="wrap_content"
-                      android:layout_marginRight="15dp"
-                      android:layout_weight="1"
-                      android:gravity="right"
-                      android:text="@string/fa_icon_thumbs_up"
-                      android:textColor="@drawable/nav_text_fa_selector" />
-
-                  <com.chicsol.marrymax.widgets.mTextView
-                      android:layout_width="0dp"
-                      android:layout_height="wrap_content"
-                      android:layout_weight="9"
-                      android:text="Interests"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                      android:textColor="@drawable/nav_text_selector" />
-
-              </LinearLayout>
-
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:clickable="true"
-                  android:orientation="horizontal"
-                  android:padding="15dp"
-                  android:weightSum="10">
-
-                  <com.chicsol.marrymax.widgets.faTextView
-                      android:layout_width="0dp"
-                      android:layout_height="wrap_content"
-                      android:layout_marginRight="15dp"
-                      android:layout_weight="1"
-                      android:gravity="right"
-                      android:text="@string/fa_icon_request"
-                      android:textColor="@drawable/nav_text_fa_selector" />
-
-                  <com.chicsol.marrymax.widgets.mTextView
-                      android:layout_width="0dp"
-                      android:layout_height="wrap_content"
-                      android:layout_weight="9"
-                      android:text="My Requests"
-                      android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                      android:textColor="@drawable/nav_text_selector" />
-
-              </LinearLayout>-->
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/colorRegistrationLine"></View>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onEditProfile"
-                android:orientation="horizontal"
-                android:padding="15dp"
-                android:weightSum="10">
-
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/fa_icon_uploadphoto"
-                    android:textColor="@drawable/nav_text_fa_selector" />
-
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
-                    android:text="Edit Profile"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@drawable/nav_text_selector" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onUploadPhotoClick"
-
-                android:orientation="horizontal"
-                android:padding="15dp"
-                android:weightSum="10">
-
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/fa_icon_uploadphoto"
-                    android:textColor="@drawable/nav_text_fa_selector" />
-
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
-                    android:text="Upload Photos"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@drawable/nav_text_selector" />
-
-            </LinearLayout>
-
-
-            <!--    <LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
@@ -472,55 +177,428 @@
                         android:layout_marginRight="15dp"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:text="@string/fa_icon_match_pref"
+                        android:text="@string/fa_icon_matches"
                         android:textColor="@drawable/nav_text_fa_selector" />
 
                     <com.chicsol.marrymax.widgets.mTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="9"
-                        android:text="Match Preferences"
+                        android:text="My Matches"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="@drawable/nav_text_selector" />
 
-                </LinearLayout>-->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onAccountClick"
-                android:orientation="horizontal"
-                android:padding="15dp"
-
-                android:weightSum="10">
-
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:id="@+id/faTextView3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/fa_icon_ac_setting"
-                    android:textColor="@drawable/nav_text_fa_selector" />
-
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:id="@+id/mTextView15"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
-                    android:text="Account Setting"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@drawable/nav_text_selector" />
-
-            </LinearLayout>
+                </LinearLayout>
 
 
-            <!--    <LinearLayout
+                &lt;!&ndash;   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:clickable="true"
+                       android:orientation="horizontal"
+                       android:padding="15dp"
+                       android:weightSum="10">
+
+                       <com.chicsol.marrymax.widgets.faTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_marginRight="15dp"
+                           android:layout_weight="1"
+                           android:gravity="right"
+                           android:text="@string/fa_icon_match_pref"
+                           android:textColor="@drawable/nav_text_fa_selector" />
+
+                       <com.chicsol.marrymax.widgets.mTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="9"
+                           android:text="My Preffered Matches"
+                           android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                           android:textColor="@drawable/nav_text_selector" />
+
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:clickable="true"
+                       android:orientation="horizontal"
+                       android:padding="15dp"
+                       android:weightSum="10">
+
+                       <com.chicsol.marrymax.widgets.faTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_marginRight="15dp"
+                           android:layout_weight="1"
+                           android:gravity="right"
+                           android:text="@string/fa_icon_matches"
+                           android:textColor="@drawable/nav_text_fa_selector" />
+
+                       <com.chicsol.marrymax.widgets.mTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="9"
+                           android:text="My Exact Matches"
+                           android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                           android:textColor="@drawable/nav_text_selector" />
+
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:clickable="true"
+                       android:orientation="horizontal"
+                       android:padding="15dp"
+                       android:weightSum="10">
+
+                       <com.chicsol.marrymax.widgets.faTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_marginRight="15dp"
+                           android:layout_weight="1"
+                           android:gravity="right"
+                           android:text="@string/fa_icon_matches"
+                           android:textColor="@drawable/nav_text_fa_selector" />
+
+                       <com.chicsol.marrymax.widgets.mTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="9"
+                           android:text="Who Is Looking For Me"
+                           android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                           android:textColor="@drawable/nav_text_selector" />
+
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:clickable="true"
+                       android:orientation="horizontal"
+                       android:padding="15dp"
+                       android:weightSum="10">
+
+                       <com.chicsol.marrymax.widgets.faTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_marginRight="15dp"
+                           android:layout_weight="1"
+                           android:gravity="right"
+                           android:text="@string/fa_icon_accepted"
+                           android:textColor="@drawable/nav_text_fa_selector" />
+
+                       <com.chicsol.marrymax.widgets.mTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="9"
+                           android:text="Looking For Each Other"
+                           android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                           android:textColor="@drawable/nav_text_selector" />
+
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:clickable="true"
+                       android:orientation="horizontal"
+                       android:padding="15dp"
+                       android:weightSum="10">
+
+                       <com.chicsol.marrymax.widgets.faTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_marginRight="15dp"
+                           android:layout_weight="1"
+                           android:gravity="right"
+                           android:text="@string/fa_icon_search"
+                           android:textColor="@drawable/nav_text_fa_selector" />
+
+                       <com.chicsol.marrymax.widgets.mTextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="9"
+                           android:text="Advance Search"
+                           android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                           android:textColor="@drawable/nav_text_selector" />
+
+                   </LinearLayout>&ndash;&gt;
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
+
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:weightSum="10">
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/fa_icon_search"
+                        android:textColor="@drawable/nav_text_fa_selector" />
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:text="My List"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@drawable/nav_text_selector" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/colorRegistrationLine"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:weightSum="10">
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/fa_icon_newmessage"
+                        android:textColor="@drawable/nav_text_fa_selector" />
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:text="My Messages"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@drawable/nav_text_selector" />
+
+                </LinearLayout>
+
+
+                &lt;!&ndash;  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:clickable="true"
+                      android:orientation="horizontal"
+                      android:padding="15dp"
+                      android:weightSum="10">
+
+                      <com.chicsol.marrymax.widgets.faTextView
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_marginRight="15dp"
+                          android:layout_weight="1"
+                          android:gravity="right"
+                          android:text="@string/fa_icon_thumbs_up"
+                          android:textColor="@drawable/nav_text_fa_selector" />
+
+                      <com.chicsol.marrymax.widgets.mTextView
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="9"
+                          android:text="Interests"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                          android:textColor="@drawable/nav_text_selector" />
+
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:clickable="true"
+                      android:orientation="horizontal"
+                      android:padding="15dp"
+                      android:weightSum="10">
+
+                      <com.chicsol.marrymax.widgets.faTextView
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_marginRight="15dp"
+                          android:layout_weight="1"
+                          android:gravity="right"
+                          android:text="@string/fa_icon_request"
+                          android:textColor="@drawable/nav_text_fa_selector" />
+
+                      <com.chicsol.marrymax.widgets.mTextView
+                          android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="9"
+                          android:text="My Requests"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                          android:textColor="@drawable/nav_text_selector" />
+
+                  </LinearLayout>&ndash;&gt;
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/colorRegistrationLine"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:onClick="onEditProfile"
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:weightSum="10">
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/fa_icon_uploadphoto"
+                        android:textColor="@drawable/nav_text_fa_selector" />
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:text="Edit Profile"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@drawable/nav_text_selector" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:onClick="onUploadPhotoClick"
+
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:weightSum="10">
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/fa_icon_uploadphoto"
+                        android:textColor="@drawable/nav_text_fa_selector" />
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:text="Upload Photos"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@drawable/nav_text_selector" />
+
+                </LinearLayout>
+
+
+                &lt;!&ndash;    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:orientation="horizontal"
+                        android:padding="15dp"
+                        android:weightSum="10">
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@string/fa_icon_match_pref"
+                            android:textColor="@drawable/nav_text_fa_selector" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="9"
+                            android:text="Match Preferences"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@drawable/nav_text_selector" />
+
+                    </LinearLayout>&ndash;&gt;
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:onClick="onAccountClick"
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+
+                    android:weightSum="10">
+
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:id="@+id/faTextView3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/fa_icon_ac_setting"
+                        android:textColor="@drawable/nav_text_fa_selector" />
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:id="@+id/mTextView15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:text="Account Setting"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@drawable/nav_text_selector" />
+
+                </LinearLayout>
+
+
+                &lt;!&ndash;    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:orientation="horizontal"
+                        android:padding="15dp"
+                        android:weightSum="10">
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@string/fa_icon_profile_setting"
+                            android:textColor="@drawable/nav_text_fa_selector" />
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="9"
+                            android:text="Profile Setting"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@drawable/nav_text_selector" />
+
+                    </LinearLayout>&ndash;&gt;
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:onClick="onFAQClick"
                     android:orientation="horizontal"
                     android:padding="15dp"
                     android:weightSum="10">
@@ -538,77 +616,49 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="9"
-                        android:text="Profile Setting"
+                        android:text="FAQs"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="@drawable/nav_text_selector" />
 
-                </LinearLayout>-->
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onFAQClick"
-                android:orientation="horizontal"
-                android:padding="15dp"
-                android:weightSum="10">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/colorRegistrationLine"></View>
 
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/fa_icon_profile_setting"
-                    android:textColor="@drawable/nav_text_fa_selector" />
-
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
-                    android:text="FAQs"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@drawable/nav_text_selector" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/colorRegistrationLine"></View>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:padding="15dp"
-                android:weightSum="10">
-
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/fa_icon_logout"
-
-                    android:textColor="@drawable/nav_text_fa_selector" />
-
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
                     android:clickable="true"
-                    android:onClick="onLogoutClick"
-                    android:text="Logout"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@drawable/nav_text_selector" />
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:weightSum="10">
 
+                    <com.chicsol.marrymax.widgets.faTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/fa_icon_logout"
+
+                        android:textColor="@drawable/nav_text_fa_selector" />
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:clickable="true"
+                        android:onClick="onLogoutClick"
+                        android:text="Logout"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@drawable/nav_text_selector" />
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+        </android.support.v4.widget.NestedScrollView>-->
 
 </LinearLayout>

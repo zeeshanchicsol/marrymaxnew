@@ -899,6 +899,10 @@ public class RegistrationActivity extends AppCompatActivity {
             case R.id.action_benefits:
                 marryMax.benefits();
                 return true;
+
+            case R.id.action_success_stories:
+                marryMax.successstories();
+                return true;
         /*    case R.id.action_personalized_matching:
                 marryMax.personalizedMatching();
                 return true;*/
