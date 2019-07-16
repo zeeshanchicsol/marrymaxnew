@@ -158,7 +158,7 @@ DrawerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MarryMax marryMax = new MarryMax(DrawerActivity.this);
-              //  marryMax.();
+               marryMax.WhyMarryMax();
             }
         });
 
