@@ -90,7 +90,7 @@ public class dialogProfileCompletion extends DialogFragment {
         title = mArgs.getString("name");
         desc = mArgs.getString("desc");
         btnText = mArgs.getString("btnText");
-        //Log.e("valll", name + "===" + desc + "==" + btnText);
+     Log.e("valll",  "===" + desc + "==" );
 
     }
 
@@ -117,7 +117,12 @@ public class dialogProfileCompletion extends DialogFragment {
         } else if (step == 8 || step == 22) {
 
             tvDesc.setText(Html.fromHtml(desc));
-        } else {
+        }
+        else if (step == 4 ) {
+
+            tvDesc.setText(Html.fromHtml(desc));
+        }
+        else {
             tvDesc.setText(desc);
         }
         tvTitle.setText(title);

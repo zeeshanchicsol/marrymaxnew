@@ -175,36 +175,6 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 */
 
 
-        if ((SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && SharedPreferenceManager.getUserObject(context).getMember_status() > 0) && (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
-            boolean email_verified = false, phone_verified = false;
-
-            if (SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0) {
-                email_verified = true;
-            }
-            if (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0) {
-                phone_verified = true;
-            }
-
-            if (email_verified && phone_verified) {
-                dialogPendingVerification dialogP = dialogPendingVerification.newInstance("both", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your email and phone number so you can interact with your matches and they with you and also MarryMax team could assist you.");
-                dialogP.setTargetFragment(MyProfileSettingFragment.this, 3);
-                dialogP.show(getFragmentManager(), "d");
-
-            } else if (email_verified) {
-                dialogPendingVerification dialogP = dialogPendingVerification.newInstance("email", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your email  so you can interact with your matches and they with you and also MarryMax team could assist you.");
-                dialogP.setTargetFragment(MyProfileSettingFragment.this, 3);
-                dialogP.show(getFragmentManager(), "d");
-
-            } else if (phone_verified) {
-                dialogPendingVerification dialogP = dialogPendingVerification.newInstance("phone", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your  phone number so you can interact with your matches and they with you and also MarryMax team could assist you.");
-                dialogP.setTargetFragment(MyProfileSettingFragment.this, 3);
-                dialogP.show(getFragmentManager(), "d");
-
-            }
-
-        }
-
-
         cvlandline = (CardView) view.findViewById(R.id.CardViewProfileSettingsLandline);
 
         btAddNumber = (AppCompatButton) view.findViewById(R.id.ButtonMyProfileStatusAddNumber);
@@ -355,20 +325,15 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
         btUploadDocuments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(context, UploadDocuments.class);
-                startActivity(in);
-               /* if (SharedPreferenceManager.getUserObject(context).getMember_status() < 3) {
 
-                    Toast.makeText(context, "Please complete and verify your profile details.", Toast.LENGTH_LONG).show();
+                if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3 || SharedPreferenceManager.getUserObject(context).getMember_status() == 4) {
+                    Intent in = new Intent(context, UploadDocuments.class);
+                    startActivity(in);
+
                 } else if (SharedPreferenceManager.getUserObject(context).getMember_status() == 7 || SharedPreferenceManager.getUserObject(context).getMember_status() == 8) {
+                    Toast.makeText(context, "Please complete and verify your profile details.", Toast.LENGTH_LONG).show();
 
-                    Toast.makeText(context, "Please review notes as MarryMax team advised and update your profile or contact us for further assistance", Toast.LENGTH_LONG).show();
-                } else {
-
-                    //display screen
-                    Intent intent = new Intent(getActivity(), MatchAidActivity.class);
-                    startActivity(intent);
-                }*/
+                }
             }
         });
 
@@ -702,6 +667,38 @@ public class MyProfileSettingFragment extends Fragment implements dialogVerifyph
 
                                 btAddNumber.setVisibility(View.VISIBLE);
                             }*/
+
+
+//==================================Email Phone Verificaiton Pending Dialog======================================================================
+
+                            if ((SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && SharedPreferenceManager.getUserObject(context).getMember_status() > 0) && (dashboards.getPhone_complete_status().equals("0") || dashboards.getEmail_complete_status().equals("0"))) {
+                                boolean email_verified = false, phone_verified = false;
+
+                                if (dashboards.getEmail_complete_status().equals("0")) {
+                                    email_verified = true;
+                                }
+                                if (dashboards.getPhone_complete_status().equals("0")) {
+                                    phone_verified = true;
+                                }
+
+                                if (email_verified && phone_verified) {
+                                    dialogPendingVerification dialogP = dialogPendingVerification.newInstance("both", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your email and phone number so you can interact with your matches and they with you and also MarryMax team could assist you.");
+                                    dialogP.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                    dialogP.show(getFragmentManager(), "d");
+
+                                } else if (email_verified) {
+                                    dialogPendingVerification dialogP = dialogPendingVerification.newInstance("email", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your email  so you can interact with your matches and they with you and also MarryMax team could assist you.");
+                                    dialogP.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                    dialogP.show(getFragmentManager(), "d");
+
+                                } else if (phone_verified) {
+                                    dialogPendingVerification dialogP = dialogPendingVerification.newInstance("phone", "Dear <b> <font color=#216917>" + SharedPreferenceManager.getUserObject(context).getAlias() + "</font></b>, To complete your profile , please verify your  phone number so you can interact with your matches and they with you and also MarryMax team could assist you.");
+                                    dialogP.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                    dialogP.show(getFragmentManager(), "d");
+
+                                }
+
+                            }
 
 
 //========================================================================================================

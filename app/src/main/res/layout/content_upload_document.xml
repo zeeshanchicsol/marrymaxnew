@@ -62,17 +62,17 @@
                 android:textColor="@color/colorBlack" />
 
 
-            <!--     <TextView
+          <TextView
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:layout_margin="4dp"
 
                      android:background="#fcf8e3"
                      android:padding="8dp"
-                     android:text="All new documets are reviewed by MarryMax, and will be live as soon as approved. We reserve the right to remove inappropriate documets"
+                     android:text="Uploading irrelevant or fake document will result in profile deactivation."
                      android:textColor="#8a6d3b"
                      android:textSize="12sp" />
-     -->
+
             <LinearLayout
                 android:id="@+id/LinearLayoutUploadedDocuments"
                 android:layout_width="match_parent"

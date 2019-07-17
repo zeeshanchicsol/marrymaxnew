@@ -175,6 +175,7 @@ public class dialogPendingVerification extends DialogFragment {
             @Override
             public void onClick(View v) {
                 mCompleteListener.onComplete(1);
+                dialogPendingVerification.this.getDialog().cancel();
          /*       Intent in = new Intent(getContext(), MainDirectiveActivity.class);
                 in.putExtra("type", 25);
                 // in.putExtra("subtype", "received");
@@ -187,6 +188,7 @@ public class dialogPendingVerification extends DialogFragment {
             @Override
             public void onClick(View v) {
                 mCompleteListener.onComplete(2);
+                dialogPendingVerification.this.getDialog().cancel();
           /*      Intent in = new Intent(getContext(), MainDirectiveActivity.class);
                 in.putExtra("type", 25);
                 // in.putExtra("subtype", "received");

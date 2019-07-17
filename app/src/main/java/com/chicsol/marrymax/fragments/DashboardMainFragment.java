@@ -18,6 +18,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.CardView;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,7 @@ import com.chicsol.marrymax.dialogs.dialogProfileCompletion;
 import com.chicsol.marrymax.fragments.DashMain.DashMembersFragment;
 import com.chicsol.marrymax.modal.Dashboards;
 import com.chicsol.marrymax.modal.Members;
+import com.chicsol.marrymax.modal.WebArd;
 import com.chicsol.marrymax.modal.mDshCount;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -427,33 +429,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     }
 
 
-
-
     private void LoadData() {
-
-
-        if ((SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && SharedPreferenceManager.getUserObject(context).getMember_status() > 0 ) &&  (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0 || SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0)) {
-            cvEmailPhoneVerificationPending.setVisibility(View.VISIBLE);
-            if (SharedPreferenceManager.getUserObject(context).getEmail_verified() == 0) {
-                btEmailVerificationPending.setVisibility(View.VISIBLE);
-            } else {
-                btEmailVerificationPending.setVisibility(View.GONE);
-            }
-            if (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0) {
-                btPhoneVerificationPending.setVisibility(View.VISIBLE);
-            } else {
-                btPhoneVerificationPending.setVisibility(View.GONE);
-            }
-
-        } else {
-            cvEmailPhoneVerificationPending.setVisibility(View.GONE);
-        }
-
-
-
-
-
-
 
 
         rlUpgrade.setVisibility(View.GONE);
@@ -1453,6 +1429,27 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                             }
 
 
+                            Log.e("email phone", dashboards.getEmail_complete_status() + "-----" + dashboards.getPhone_complete_status());
+
+
+                            if ((SharedPreferenceManager.getUserObject(context).getMember_status() < 3 && SharedPreferenceManager.getUserObject(context).getMember_status() > 0) && (dashboards.getPhone_complete_status().equals("0") || dashboards.getEmail_complete_status().equals("0"))) {
+                                cvEmailPhoneVerificationPending.setVisibility(View.VISIBLE);
+                                if (dashboards.getEmail_complete_status().equals("0")) {
+                                    btEmailVerificationPending.setVisibility(View.VISIBLE);
+                                } else {
+                                    btEmailVerificationPending.setVisibility(View.GONE);
+                                }
+                                if (dashboards.getPhone_complete_status().equals("0")) {
+                                    btPhoneVerificationPending.setVisibility(View.VISIBLE);
+                                } else {
+                                    btPhoneVerificationPending.setVisibility(View.GONE);
+                                }
+
+                            } else {
+                                cvEmailPhoneVerificationPending.setVisibility(View.GONE);
+                            }
+
+
                             if (dashboards.getEmail_complete_status().equals("0")) {
 
                                 // ivVerifyEmail.setImageDrawable(getResources().getDrawable(R.drawable.ver_step2));
@@ -1678,15 +1675,32 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        //Log.d("Response", response.toString());
+                        Log.e("getAdminNotes", response.toString());
                         try {
 
 
                             JSONArray jsonCountryStaeObj = response.getJSONArray(0);
-                            JSONObject jsObject = jsonCountryStaeObj.getJSONObject(0);
 
-                            adminNotes = jsObject.getString("name");
 
+                            Gson gsonc;
+                            GsonBuilder gsonBuilderc = new GsonBuilder();
+                            gsonc = gsonBuilderc.create();
+                            Type listType = new TypeToken<List<WebArd>>() {
+                            }.getType();
+
+                            List<WebArd> dataList = (List<WebArd>) gsonc.fromJson(jsonCountryStaeObj.toString(), listType);
+
+
+                            //  JSONArray jsonCountryStaeObj = response.getJSONArray(0);
+                            //    JSONObject jsObject = jsonCountryStaeObj.getJSONObject(0);
+
+                            //   adminNotes = jsObject.getString("name");
+                            StringBuilder builder = new StringBuilder();
+                            for (int i = 0; i < dataList.size(); i++) {
+                                WebArd ard = dataList.get(i);
+                                builder.append(ard.getName()+" <br><br>");
+                            }
+                            adminNotes = builder.toString();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
