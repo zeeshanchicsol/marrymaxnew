@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    tools:context="com.chicsol.marrymax.activities.PhotoUpload"
+    tools:showIn="@layout/activity_upload_documents"
+    android:layout_height="wrap_content">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorDashboardBackground"
     android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.chicsol.marrymax.activities.PhotoUpload"
-    tools:showIn="@layout/activity_upload_documents">
+    android:layout_marginTop="?attr/actionBarSize"
+
+
+   >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,13 +28,23 @@
 
         <com.chicsol.marrymax.widgets.mTextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
+            android:gravity="center"
             android:layout_marginTop="10dp"
             android:text="Improve Profile Credibility"
 
             android:textColor="@color/colorUserProfileRed" />
-
+        <com.chicsol.marrymax.widgets.mTextView
+            android:id="@+id/TextViewMMAge"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:text="(e.g. NIC, College Degree, Adress, etc...)"
+         android:gravity="center"
+            android:textColor="#7c7c7c"
+            android:textSize="@dimen/text_size_mymatches_desc2" />
         <!-- <com.chicsol.marrymax.widgets.mTextView
              android:id="@+id/TextViewPhotoUploadDosDonts"
              android:layout_width="wrap_content"
@@ -98,8 +119,10 @@
                 <ListView
                     android:id="@+id/ListViewRemovedFromSerch"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="160dp"
                     android:layout_marginTop="3dp"
+
+                    android:nestedScrollingEnabled="false"
                     android:divider="@color/colorDashboardBackground"
                     android:dividerHeight="1dp"></ListView>
 
@@ -264,3 +287,5 @@
 
 
 </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

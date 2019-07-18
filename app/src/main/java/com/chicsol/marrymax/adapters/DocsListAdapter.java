@@ -53,7 +53,7 @@ public class DocsListAdapter extends ArrayAdapter<mDoc> {
         Holder holder = null;
 
         if (row == null) {
-            LayoutInflater inflater =  context.getLayoutInflater();
+            LayoutInflater inflater = context.getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
             holder = new Holder();
             holder.txtTitle = (TextView) row.findViewById(R.id.TextViewRemoveSearchesName);
@@ -70,16 +70,21 @@ public class DocsListAdapter extends ArrayAdapter<mDoc> {
         mDoc item = data.get(position);
         holder.txtTitle.setText(item.getDoc_type());
 
-        if(item.getReview()==0){
-            holder.txtDate.setText("");
-        //    holder.txtDate.setTextColor(context.getResources().getColor(R.color.colorTextRed));
+        if (item.getReview() == 0) {
+            //review pending
+            holder.txtDate.setText("Review Pending");
+           holder.txtDate.setTextColor(context.getResources().getColor(R.color.colorDashboardMainReviewBoxOrange));
 
-        }else {
-
+        } else if (item.getReview() == 1) {
+            //review passed
             holder.txtDate.setText("Reviewed");
-          //  holder.txtDate.setTextColor(context.getResources().getColor(R.color.colorDefaultGreen));
+              holder.txtDate.setTextColor(context.getResources().getColor(R.color.colorDefaultGreen));
+        }  else if (item.getReview() == 2){
+            //Review Failed
+            holder.txtDate.setText("Review Failed");
+              holder.txtDate.setTextColor(context.getResources().getColor(R.color.colorTextRed));
         }
-       // holder.txtDate.setText(item.getReview());
+        // holder.txtDate.setText(item.getReview());
 
 
  /*       holder.ivUnRemove.setOnClickListener(new View.OnClickListener() {

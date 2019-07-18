@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingBottom="10dp"
             android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:weightSum="10">
 
             <LinearLayout
@@ -37,7 +37,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Naureen"
-                    android:textColor="@color/colorSubscriptionGreen" />
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -51,36 +53,39 @@
                     android:id="@+id/TextViewRemoveSearchesDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:text=""
+                    android:fontFamily="sans-serif"
+                    android:textSize="13sp"
                     android:textColor="@color/colorSubscriptionGreen" />
 
 
             </LinearLayout>
 
-    <!--        <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
+            <!--        <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
 
-                <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/ImageViewRemoveSearchesUnremove"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:tint="@color/colorGrey"
-                    app:srcCompat="@drawable/ic_cancel_black_24dp" />
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/ImageViewRemoveSearchesUnremove"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:tint="@color/colorGrey"
+                            app:srcCompat="@drawable/ic_cancel_black_24dp" />
 
-                <com.chicsol.marrymax.widgets.faTextView
-                    android:id="@+id/faTextViewRemoveSearchesUnremove"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fa_icon_delete"
-                    android:textColor="@color/colorTextRed"
-                    android:visibility="gone" />
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:id="@+id/faTextViewRemoveSearchesUnremove"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fa_icon_delete"
+                            android:textColor="@color/colorTextRed"
+                            android:visibility="gone" />
 
 
-            </LinearLayout>-->
+                    </LinearLayout>-->
 
 
             <!--      <LinearLayout
