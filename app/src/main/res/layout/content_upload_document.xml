@@ -5,287 +5,287 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.chicsol.marrymax.activities.PhotoUpload"
-    tools:showIn="@layout/activity_upload_documents"
-    android:layout_height="wrap_content">
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorDashboardBackground"
-    android:orientation="vertical"
-    android:layout_marginTop="?attr/actionBarSize"
+    tools:showIn="@layout/activity_upload_documents">
 
-
-   >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <com.chicsol.marrymax.widgets.mTextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="Improve Profile Credibility"
-
-            android:textColor="@color/colorUserProfileRed" />
-        <com.chicsol.marrymax.widgets.mTextView
-            android:id="@+id/TextViewMMAge"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="3dp"
-            android:text="(e.g. NIC, College Degree, Adress, etc...)"
-         android:gravity="center"
-            android:textColor="#7c7c7c"
-            android:textSize="@dimen/text_size_mymatches_desc2" />
-        <!-- <com.chicsol.marrymax.widgets.mTextView
-             android:id="@+id/TextViewPhotoUploadDosDonts"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_margin="9dp"
-             android:layout_weight="1"
-             android:clickable="true"
-             android:gravity="right"
-             android:text="Do's &amp; Don't"
-             android:textColor="@color/colorUserProfileRed" />-->
-    </LinearLayout>
-
-    <android.support.v7.widget.CardView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/colorDashboardBackground"
+        android:orientation="vertical"
 
-        app:cardElevation="10dp"
-        app:cardUseCompatPadding="true">
 
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            android:layout_margin="10dp"
+            <com.chicsol.marrymax.widgets.mTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Improve Profile Credibility"
 
-            android:orientation="vertical">
+                android:textColor="@color/colorUserProfileRed" />
 
-            <TextView
+            <com.chicsol.marrymax.widgets.mTextView
+                android:id="@+id/TextViewMMAge"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="(e.g. NIC, College Degree, Adress, etc...)"
+                android:textColor="#7c7c7c"
+                android:textSize="@dimen/text_size_mymatches_desc2" />
+            <!-- <com.chicsol.marrymax.widgets.mTextView
+                 android:id="@+id/TextViewPhotoUploadDosDonts"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="9dp"
+                 android:layout_weight="1"
+                 android:clickable="true"
+                 android:gravity="right"
+                 android:text="Do's &amp; Don't"
+                 android:textColor="@color/colorUserProfileRed" />-->
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true">
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:fontFamily="sans-serif"
-                android:text="\u2022   Document Photo must be a .jpeg, .jpg, .gif, .tif or .png format, not larger than 4 MB.\n
+                android:layout_margin="10dp"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="sans-serif"
+                    android:text="\u2022   Document Photo must be a .jpeg, .jpg, .gif, .tif or .png format, not larger than 4 MB.\n
 \u2022  Verification Documents will be reviewed by MarryMax Admin Only."
-                android:textColor="@color/colorBlack" />
+                    android:textColor="@color/colorBlack" />
 
-
-          <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_margin="4dp"
-
-                     android:background="#fcf8e3"
-                     android:padding="8dp"
-                     android:text="Uploading irrelevant or fake document will result in profile deactivation."
-                     android:textColor="#8a6d3b"
-                     android:textSize="12sp" />
-
-            <LinearLayout
-                android:id="@+id/LinearLayoutUploadedDocuments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/TextViewUploadedDocumentsTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="You have uploaded following documents"
+                    android:layout_margin="4dp"
 
-                    android:fontFamily="sans-serif"
-                    android:visibility="gone"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    />
-
-
-                <ListView
-                    android:id="@+id/ListViewRemovedFromSerch"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:layout_marginTop="3dp"
-
-                    android:nestedScrollingEnabled="false"
-                    android:divider="@color/colorDashboardBackground"
-                    android:dividerHeight="1dp"></ListView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/LinearLayoutUploadDocumentMain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="vertical">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Upload New Document"
-                    android:fontFamily="sans-serif"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp" />
+                    android:background="#fcf8e3"
+                    android:padding="8dp"
+                    android:text="Uploading irrelevant or fake document will result in profile deactivation."
+                    android:textColor="#8a6d3b"
+                    android:textSize="12sp" />
 
                 <LinearLayout
+                    android:id="@+id/LinearLayoutUploadedDocuments"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:visibility="gone">
 
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp">
+                    <TextView
+                        android:id="@+id/TextViewUploadedDocumentsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif"
+
+                        android:text="You have uploaded following documents"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+
+                    <ListView
+                        android:id="@+id/ListViewRemovedFromSerch"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_marginTop="3dp"
+                        android:divider="@color/colorDashboardBackground"
+                        android:dividerHeight="1dp"
+                        android:fastScrollAlwaysVisible="true"
+                        android:nestedScrollingEnabled="true"></ListView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutUploadDocumentMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="Upload New Document"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Please Select Document Type"
+                            android:textColor="@color/colorSpinnerLabel"
+                            android:textSize="@dimen/text_size_spinner_label" />
+
+                        <android.support.v7.widget.AppCompatSpinner
+                            android:id="@+id/sp_profilefor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="#d7d7d7"
+
+                            ></View>
+                    </LinearLayout>
+
+                    <!--  <RelativeLayout
+                          android:visibility="gone"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                         >
+
+                          <android.support.v7.widget.AppCompatButton
+                              android:id="@+id/ButtonUploadDocumentsSelectFile"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="Select File"
+                              android:textAllCaps="false" />
+
+                          <TextView
+                              android:id="@+id/TextViewUploadDocFileName"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_centerVertical="true"
+                              android:layout_toRightOf="@+id/ButtonUploadDocumentsSelectFile"
+                              android:text="file name" />
+
+                      </RelativeLayout>-->
+
 
                     <com.chicsol.marrymax.widgets.mTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Please Select Document Type"
-                        android:textColor="@color/colorSpinnerLabel"
-                        android:textSize="@dimen/text_size_spinner_label" />
+                        android:text="Document Info *"
+                        android:textColor="@color/colorTextRed"
+                        android:textStyle="bold" />
 
-                    <android.support.v7.widget.AppCompatSpinner
-                        android:id="@+id/sp_profilefor"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColorHint="@color/colorRegistrationFields">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/EditTextAboutMePers"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+
+                            android:inputType="text"
+                            android:maxLength="1500"
+                            android:textColor="@color/colorBlack"
+                            app:backgroundTint="@color/colorUnderline" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <com.chicsol.marrymax.widgets.mTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="( Maximum 200 Characters)"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="8sp" />
 
 
-                        />
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/ButtonUploadDocuments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:backgroundTint="@color/colorSubscriptionGreen"
+                        android:text="Upload Document"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
 
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#d7d7d7"
-
-                        ></View>
                 </LinearLayout>
 
-                <!--  <RelativeLayout
-                      android:visibility="gone"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                     >
-
-                      <android.support.v7.widget.AppCompatButton
-                          android:id="@+id/ButtonUploadDocumentsSelectFile"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Select File"
-                          android:textAllCaps="false" />
-
-                      <TextView
-                          android:id="@+id/TextViewUploadDocFileName"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_centerVertical="true"
-                          android:layout_toRightOf="@+id/ButtonUploadDocumentsSelectFile"
-                          android:text="file name" />
-
-                  </RelativeLayout>-->
-
-
-                <com.chicsol.marrymax.widgets.mTextView
+                <LinearLayout
+                    android:id="@+id/LinearLayoutCompleteProfileContact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Document Info *"
-                    android:textColor="@color/colorTextRed"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/colorRegistrationFields">
-
-                    <android.support.v7.widget.AppCompatEditText
-                        android:id="@+id/EditTextAboutMePers"
+                    <TextView
+                        android:id="@+id/TextViewUploadedDocumentsNotificationMessage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
 
-                        android:inputType="text"
-                        android:maxLength="1500"
-                        android:textColor="@color/colorBlack"
-                        app:backgroundTint="@color/colorUnderline" />
+                        android:gravity="center"
+                        android:text="adsad"
+                        android:textColor="@color/colorSubscriptionGreen"
+                        android:textSize="16sp" />
 
-                </android.support.design.widget.TextInputLayout>
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/ButtonUploadDocumentCompContact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="Complete Profile"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
 
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="( Maximum 200 Characters)"
-                    android:textColor="@color/colorGrey"
-                    android:textSize="8sp" />
+                        app:backgroundTint="@color/colorDefaultGreen" />
 
 
-                <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/ButtonUploadDocuments"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/colorSubscriptionGreen"
-                    android:text="Upload Document"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorWhite" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/LinearLayoutCompleteProfileContact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/TextViewUploadedDocumentsNotificationMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:gravity="center"
-                    android:text="adsad"
-                    android:textColor="@color/colorSubscriptionGreen"
-                    android:textSize="16sp" />
-
-                <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/ButtonUploadDocumentCompContact"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="Complete Profile"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorWhite"
-
-                    app:backgroundTint="@color/colorDefaultGreen" />
+                </LinearLayout>
 
 
             </LinearLayout>
 
 
-        </LinearLayout>
+        </android.support.v7.widget.CardView>
 
 
-    </android.support.v7.widget.CardView>
-
-
-</LinearLayout>
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
