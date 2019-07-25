@@ -223,17 +223,17 @@ public class DocsListAdapter extends ArrayAdapter<mDoc> {
     }*/
 
 
-/*    public void clear() {
+  public void clear() {
         data.clear();
         notifyDataSetChanged();
     }
 
-    public void addAll(List<WebArdList> lst) {
+    public void addAll(List<mDoc> lst) {
         data.clear();
         data.addAll(lst);
         notifyDataSetChanged();
 
-    }*/
+    }
 
 
     static class Holder {

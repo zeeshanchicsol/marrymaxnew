@@ -218,6 +218,9 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
         lv_mycontacts = (ListView) findViewById(R.id.ListViewRemovedFromSerch);
 
+        myListAdapter = new DocsListAdapter(UploadDocuments.this, R.layout.item_list_docs, new ArrayList<mDoc>(), UploadDocuments.this);
+        lv_mycontacts.setAdapter(myListAdapter);
+
     }
 
     private void setListeners() {
@@ -861,8 +864,9 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                             tvUploadedDocumentsTitle.setVisibility(View.GONE);
                             if (mDocDataList.size() > 0) {
                                 tvUploadedDocumentsTitle.setVisibility(View.VISIBLE);
-                                myListAdapter = new DocsListAdapter(UploadDocuments.this, R.layout.item_list_docs, mDocDataList, UploadDocuments.this);
-                                lv_mycontacts.setAdapter(myListAdapter);
+
+                                myListAdapter.addAll(mDocDataList);
+
                             } else {
                                 tvUploadedDocumentsTitle.setVisibility(View.GONE);
                             }

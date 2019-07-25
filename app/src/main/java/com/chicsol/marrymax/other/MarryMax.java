@@ -1265,12 +1265,12 @@ public class MarryMax {
     }
 
 
-    public void getRawData(Context context, int matchPageType) {
+  /*  public void getRawData(Context context, int matchPageType) {
 
-       /* if (!pDialog.isShowing()) {
+       *//* if (!pDialog.isShowing()) {
           //  pDialog.show();
            // pDialog.setMessage("getraw data");
-        }*/
+        }*//*
         String matchType = "";
         if (matchPageType == 1) {
             matchType = "/pm";
@@ -1324,7 +1324,7 @@ public class MarryMax {
             }
         };
         MySingleton.getInstance(context).addToRequestQueue(req);
-    }
+    }*/
 
 
     public void onSearchClicked(Context context, int check) {
@@ -1555,6 +1555,10 @@ public class MarryMax {
 
     public boolean checkUserStatusLogin(Members member) {
         if (member.getRegistration_within_id() != 5 && member.getMember_status() == 0) {
+
+
+
+
             if (member.getRegistration_within_id() == -1) {
                 Intent intent = new Intent(activity, RegisterGeographicActivity.class);
                 activity.startActivity(intent);
@@ -1592,6 +1596,8 @@ public class MarryMax {
                 return false;
                 //  HttpContext.Current.Response.Redirect("~/5_Personality", false);
             }
+
+
 
 
         } else {
