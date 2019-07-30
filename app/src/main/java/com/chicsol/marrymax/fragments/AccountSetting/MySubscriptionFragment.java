@@ -266,8 +266,8 @@ public class MySubscriptionFragment extends Fragment {
     private void putRequestGetSubscription(JSONObject params) {
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("GetSubscription params", params.toString());
-        Log.e("GetSubscription ", Urls.subscriptionInfo);
+     //   Log.e("GetSubscription params", params.toString());
+     //   Log.e("GetSubscription ", Urls.subscriptionInfo);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.subscriptionInfo, params,
                 new Response.Listener<JSONObject>() {

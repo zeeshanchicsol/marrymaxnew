@@ -442,22 +442,22 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
         }, 4000);
     }
 
-    void checkApplicationVersionCode() {
-        switch (Prefs.getApplicationVersionCode(this)) {
-            /**********   for the very first time only   **********/
-            /**********   things that we need only once  **********/
-            case PDefaultValue.VERSION_CODE:
-
-                //put this apk version code in Shared Preference
-                Prefs.putApplicationVersionCode(this, AppVersionCode.getApkVersionCode(this));
-
-                //recall this method so that doWorkOnLatestVersion() can be called
-                checkApplicationVersionCode();
-                break;
-            //**********************************************************//
-            default:
-                //do this for every version
-                break;
-        }
-    }
+//    void checkApplicationVersionCode() {
+//        switch (Prefs.getApplicationVersionCode(this)) {
+//            /**********   for the very first time only   **********/
+//            /**********   things that we need only once  **********/
+//            case PDefaultValue.VERSION_CODE:
+//
+//                //put this apk version code in Shared Preference
+//                Prefs.putApplicationVersionCode(this, AppVersionCode.getApkVersionCode(this));
+//
+//                //recall this method so that doWorkOnLatestVersion() can be called
+//                checkApplicationVersionCode();
+//                break;
+//            //**********************************************************//
+//            default:
+//                //do this for every version
+//                break;
+//        }
+//    }
 }

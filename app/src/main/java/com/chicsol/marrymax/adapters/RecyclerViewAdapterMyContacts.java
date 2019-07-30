@@ -263,14 +263,14 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
 
             }
 
-            if (type.equals("sv")) {
+            if (type.equals("sv") || type.equals("dl")) {
                 holder.faPhone.setVisibility(View.VISIBLE);
             } else {
                 holder.faPhone.setVisibility(View.GONE);
             }
 
 
-            if (type.equals("sv") || type.equals("st")) {
+            if (type.equals("sv") || type.equals("st") || type.equals("dl")) {
 
                 holder.llFeedback.setVisibility(View.GONE);
                 holder.llViewFeedback.setVisibility(View.GONE);

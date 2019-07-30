@@ -509,7 +509,7 @@ public class ActivityLogin extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                VolleyLog.e("res err", "Error: " + error.getMessage());
+                VolleyLog.e("zres err", "Error: " + error.getMessage());
                 Toast.makeText(ActivityLogin.this, "Invalid Email or Password !", Toast.LENGTH_SHORT).show();
 
                 pDialog.dismiss();

@@ -203,7 +203,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
         pDialog.setMessage("Loading...");
         pDialog.show();*/
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath());
+     //   Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {

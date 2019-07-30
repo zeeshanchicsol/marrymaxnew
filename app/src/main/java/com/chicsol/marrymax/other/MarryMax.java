@@ -1650,7 +1650,7 @@ public class MarryMax {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //     Log.e("getAppVersion ==", "=======================  " + remoteVersionName);
+                       //    Log.e("getAppVersion ==", "=======================  " + response);
                         //   remoteVersionName = remoteVersionName.replaceAll("^\"|\"$", "");
                         //String remoteVersionName = "1.0";
                         //   String version = data[2];
@@ -1672,7 +1672,7 @@ public class MarryMax {
                                 String localVersion = pInfo.versionName;
 
                                 //   obj.setName("2.0");
-                                //   Log.e("getAppVersion local", localVersion + " ----  " + obj.getName());
+                           //     Log.e("getAppVersion local", localVersion + " ----  " + obj.getName());
 
                                 if (!obj.getName().equals(localVersion)) {
                                     //   Log.e("updatev now", response);
