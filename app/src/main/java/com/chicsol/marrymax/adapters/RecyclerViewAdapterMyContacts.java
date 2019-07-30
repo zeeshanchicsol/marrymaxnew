@@ -485,8 +485,8 @@ public class RecyclerViewAdapterMyContacts extends RecyclerView.Adapter<Recycler
         pDialog.setMessage("Loading...");
         pDialog.setCancelable(false);
         pDialog.show();
-        Log.e("params", params.toString());
-        Log.e("phoneInfo", Urls.phoneInfo);
+      //  Log.e("params", params.toString());
+     //   Log.e("phoneInfo", Urls.phoneInfo);
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.PUT,
                 Urls.phoneInfo, params,
                 new Response.Listener<JSONObject>() {

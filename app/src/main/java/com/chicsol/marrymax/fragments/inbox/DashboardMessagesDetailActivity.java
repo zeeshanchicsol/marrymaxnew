@@ -67,7 +67,7 @@ import java.util.Map;
  */
 
 public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener, dialogFeedback.onCompleteListener, dialogFeedbackDetail.onCompleteListener, PhoneRequestCallBackInterface, dialogRequestPhone.onCompleteListener {
-    private TextView tvAge, tvAlias, tvEthnic, tvReligious, tvMarital, tvCountry;
+    private TextView tvAge, tvAlias, tvEthnic, tvReligious, tvMarital,tvEducationTypes, tvCountry;
     RecyclerView recyclerView;
     private RecyclerViewAdapterChatList recyclerAdapter;
     private List<mCommunication> items;
@@ -155,6 +155,9 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         tvEthnic = (TextView) findViewById(R.id.TextViewMessageDetailEthnicbg);
         tvReligious = (TextView) findViewById(R.id.TextViewMessageDetailReligious);
         tvMarital = (TextView) findViewById(R.id.TextViewMessageDetailMaritalStatus);
+
+        tvEducationTypes = (TextView) findViewById(R.id.TextViewMessageDetailEducationTypes);
+
         tvCountry = (TextView) findViewById(R.id.TextViewMessageDetailLivingCountry);
         tvReadQuotaHeading = (TextView) findViewById(R.id.TextViewReadQuotaHeading);
         tvReadQuotaSubHeading = (TextView) findViewById(R.id.TextViewReadQuotaSubHeading);
@@ -176,14 +179,16 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         }
 */
         tvEthnic.setText(objCom.getEthnic_background_type() + ", ");
+        tvEducationTypes.setText(objCom.getEducation_types() + ", ");
         tvReligious.setText(objCom.getReligious_sect_type());
+        tvMarital.setText(objCom.getGender() + " , ");
 
-        if (objtype == 1) {
+      /*  if (objtype == 1) {
             tvMarital.setVisibility(View.VISIBLE);
             tvMarital.setText(objCom.getGender() + " , ");
         } else {
             tvMarital.setVisibility(View.GONE);
-        }
+        }*/
 
 
         tvCountry.setText(objCom.getCountry_name() + " | ");

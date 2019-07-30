@@ -314,7 +314,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                     //   Log.e("Response", response.toString());
                         //        try {
                         dialogDosDonts newFragment = dialogDosDonts.newInstance(response.toString());
                         newFragment.show(getSupportFragmentManager(), "dialog");
@@ -347,7 +347,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                VolleyLog.d("Err", "Error: " + error.getMessage());
+              //  VolleyLog.d("Err", "Error: " + error.getMessage());
                 pDialog.dismiss();
             }
         }) {
@@ -596,7 +596,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
     }
 
     private void proceedAfterPermission() {
-        Log.e("Image Image", "Image");
+     //   Log.e("Image Image", "Image");
         //We've got the permission, now we can proceed further
 /*        int currentVersion = android.os.Build.VERSION.SDK_INT;
         if (currentVersion >= Build.VERSION_CODES.O_MR1) {
@@ -654,7 +654,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
             url = Urls.docUpload + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath() + "/0/0";
         }*/
 
-        Log.e("url", "" + url);
+    //    Log.e("url", "" + url);
 
 
         pDialog.show();
@@ -664,7 +664,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
             @Override
             public void onResponse(NetworkResponse response) {
                 String resultResponse = new String(response.data);
-                Log.e("response", "=======================" + resultResponse + "==============");
+             //   Log.e("response", "=======================" + resultResponse + "==============");
                 if (resultResponse.equals("0")) {
 
                     getDocuments(SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
@@ -734,7 +734,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                         pDialog.dismiss();
                     }
                 }
-                Log.i("Error", errorMessage);
+              //  Log.i("Error", errorMessage);
                 error.printStackTrace();
             }
         }) {
@@ -783,13 +783,13 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
      /*   final ProgressDialog pDialog = new ProgressDialog(PhotoUpload.this);
         pDialog.setMessage("Loading...");*/
         pDialog.show();
-        Log.e("getDocuments path", "" + Urls.getDocuments + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+     //   Log.e("getDocuments path", "" + Urls.getDocuments + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getDocuments + path,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.e("Response", response.toString());
+                     //   Log.e("Response", response.toString());
                         try {
 
                             List<WebArd> mDataList = new ArrayList<>();
@@ -810,7 +810,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
                             WebArd arobj = (WebArd) gsonc.fromJson(jsonWebArd.getJSONObject(0).toString(), WebArd.class);
 
-                            Log.e("arobj", "" + arobj.getId());
+                        //    Log.e("arobj", "" + arobj.getId());
 
 
                             //   if(arobj.getId().equals("1"))
@@ -847,7 +847,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
 
 
                             } else {
-                                Log.e("not in", "b");
+                            //    Log.e("not in", "b");
                                 llUploadedDocuments.setVisibility(View.GONE);
                             }
 
@@ -884,7 +884,7 @@ public class UploadDocuments extends AppCompatActivity implements RecyclerViewAd
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                VolleyLog.d("Err", "Error: " + error.getMessage());
+            //    VolleyLog.d("Err", "Error: " + error.getMessage());
                 pDialog.dismiss();
             }
         }) {

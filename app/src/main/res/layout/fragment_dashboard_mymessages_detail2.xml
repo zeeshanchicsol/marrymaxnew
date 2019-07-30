@@ -160,7 +160,13 @@
             android:text="Never Married"
             android:textColor="@color/colorBlack"
             android:textSize="14sp" />
-
+        <com.chicsol.marrymax.widgets.mTextView
+            android:id="@+id/TextViewMessageDetailEducationTypes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp" />
 
         <com.chicsol.marrymax.widgets.mTextView
             android:id="@+id/TextViewMessageDetailEthnicbg"

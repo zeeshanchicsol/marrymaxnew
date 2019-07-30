@@ -220,7 +220,7 @@ public class MatchingAttributeFragment extends Fragment implements CompoundButto
 
 
         pDialog.setVisibility(View.VISIBLE);
-        Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(getContext()).getPath());
+    //    Log.e("getPrefRequest ", "" + Urls.getPreferences + SharedPreferenceManager.getUserObject(getContext()).getPath());
         JsonArrayRequest req = new JsonArrayRequest(Urls.getPreferences + SharedPreferenceManager.getUserObject(getContext()).getPath(),
                 new Response.Listener<JSONArray>() {
                     @Override
