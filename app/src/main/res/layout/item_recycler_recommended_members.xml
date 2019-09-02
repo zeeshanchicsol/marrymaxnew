@@ -52,17 +52,9 @@
                 android:layout_weight="8"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/TextViewRecommendedMatchDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="5dp"
-                    android:text=""
-                    android:textColor="@color/colorBlack"
-                    android:textSize="9sp" />
 
-                <LinearLayout
+
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -72,6 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="SHAH_R7"
+                        android:layout_alignParentLeft="true"
                         android:textColor="@color/colorUserProfileTextGreen"
                         android:textSize="@dimen/text_size_up_h2"
                         android:textStyle="bold" />
@@ -82,11 +75,21 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="3dp"
                         android:text="age"
+                        android:layout_toRightOf="@+id/TextViewRecommendedMatchAlias"
                         android:textColor="#7c7c7c"
                         android:textSize="@dimen/text_size_mymatches_desc2" />
 
-
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/TextViewRecommendedMatchDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="5dp"
+                        android:text="12-345"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="9sp" />
+                </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -104,7 +107,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Education: "
-                        android:textColor="#7c7c7c"
+                        android:textColor="#272A30"
                         android:textSize="@dimen/text_size_mymatches_desc2" />
 
                     <TextView
@@ -112,7 +115,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textColor="#7c7c7c"
+                        android:textColor="#272A30"
+
                         android:textSize="@dimen/text_size_mymatches_desc2"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -127,7 +131,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Marital Status: "
-                        android:textColor="#7c7c7c"
+                        android:textColor="#272A30"
                         android:textSize="@dimen/text_size_mymatches_desc2" />
 
                     <TextView
@@ -135,7 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textColor="#7c7c7c"
+                        android:textColor="#272A30"
                         android:textSize="@dimen/text_size_mymatches_desc2"
                         android:textStyle="bold" />
 
@@ -152,7 +156,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ethnicity: "
-                        android:textColor="#7c7c7c"
+                        android:textColor="#272A30"
                         android:textSize="@dimen/text_size_mymatches_desc2" />
 
                     <TextView
@@ -161,7 +165,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textColor="#7c7c7c"
+                        android:textColor="#272A30"
                         android:textSize="@dimen/text_size_mymatches_desc2"
                         android:textStyle="bold" />
 
@@ -178,7 +182,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Religious: "
-                        android:textColor="#7c7c7c"
+                        android:textColor="#272A30"
                         android:textSize="@dimen/text_size_mymatches_desc2" />
 
                     <TextView
@@ -187,7 +191,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textColor="#7c7c7c"
+                        android:textColor="#272A30"
                         android:textSize="@dimen/text_size_mymatches_desc2"
                         android:textStyle="bold" />
 
@@ -201,7 +205,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#f2f2f2">
+            android:background="#f5f5f5">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -220,8 +224,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        android:text="Recommded By: " />
+android:textColor="@color/colorTextRed"
+                        android:text="Recommded By " />
 
 
                     <TextView

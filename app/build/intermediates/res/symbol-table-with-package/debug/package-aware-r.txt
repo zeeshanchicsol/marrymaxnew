@@ -3009,6 +3009,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView1
 id textView2
 id textViewDont
 id text_input_password_toggle
@@ -3256,6 +3257,7 @@ layout fragment_request_permissions
 layout fragment_userprofile_message_history
 layout fragment_userprofile_pictures
 layout fragment_userprpfile_basic_info
+layout fragment_userprpfile_basic_info_new
 layout item_image_slider
 layout item_list_add_to_list
 layout item_list_blocked

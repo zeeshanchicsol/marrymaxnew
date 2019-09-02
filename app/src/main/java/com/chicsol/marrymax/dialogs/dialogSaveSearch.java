@@ -79,18 +79,23 @@ public class dialogSaveSearch extends DialogFragment {
 
                 if (!TextUtils.isEmpty(etSaveSearch.getText().toString().trim())) {
 
-
-                    defaultSelectionsObj.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
-                    defaultSelectionsObj.setName(etSaveSearch.getText().toString());
-                    defaultSelectionsObj.setNotes("");
-
-                    Gson gson = new Gson();
-                    String params = gson.toJson(defaultSelectionsObj);
+                    //setChoice_caste_ids
+                    if (defaultSelectionsObj.getChoice_caste_ids().length() > 300) {
+                        Toast.makeText(getContext(), "You have selected too much castes", Toast.LENGTH_SHORT).show();
+                    } else {
 
 
-                    saveSearch(params);
-                }
-                else {
+                        defaultSelectionsObj.setPath(SharedPreferenceManager.getUserObject(getContext()).getPath());
+                        defaultSelectionsObj.setName(etSaveSearch.getText().toString());
+                        defaultSelectionsObj.setNotes("");
+
+                        Gson gson = new Gson();
+                        String params = gson.toJson(defaultSelectionsObj);
+
+
+                        saveSearch(params);
+                    }
+                } else {
                     Toast.makeText(getContext(), "Please Enter Search Name", Toast.LENGTH_SHORT).show();
 
                 }

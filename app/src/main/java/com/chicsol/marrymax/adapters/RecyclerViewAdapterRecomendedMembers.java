@@ -358,7 +358,7 @@ public class RecyclerViewAdapterRecomendedMembers extends RecyclerView.Adapter<R
             }
 
             holder.tvAlias.setText(obj.getAlias());
-            holder.tvAge.setText("( " + obj.getAge() + " Years )");
+            holder.tvAge.setText("( " + obj.getAge() + " )");
             holder.tvEducation.setText(obj.getEducation_types());
 
             holder.tvMaritalStatus.setText(obj.getMarital_status_types());

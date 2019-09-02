@@ -124,7 +124,7 @@ public class BasicInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_userprpfile_basic_info, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_userprpfile_basic_info_new, container, false);
         initilize(rootView);
         setListener();
         setValuee();
@@ -246,7 +246,6 @@ public class BasicInfoFragment extends Fragment {
         llJobDetails = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileJobDetails);
         llEducationDetail = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileEducationDetails);
         llSocialDetai = (LinearLayout) view.findViewById(R.id.LinearLayoutUserprofileSocialDetails);
-
 
 
         //==========Layouts

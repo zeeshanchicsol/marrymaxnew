@@ -1028,7 +1028,7 @@ public class RegisterLifeStyleActivity1 extends BaseRegistrationActivity impleme
 
         pDialog.show();
 
-        //Log.e("GetLifeStyleData par", "" + Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+      //  Log.e("GetLifeStyleData par", "" + Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 Urls.RegGetLifeStyle1Url + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(), null,

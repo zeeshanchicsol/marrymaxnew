@@ -131,14 +131,14 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/LinearLayoutMessageDetailData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout4"
         android:layout_centerHorizontal="true"
 
-        android:orientation="horizontal">
+       >
 
         <!--   <ImageView
                android:layout_width="wrap_content"
@@ -150,6 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Pakistan |"
+            android:layout_alignParentLeft="true"
             android:textColor="@color/colorBlack"
             android:textSize="14sp" />
 
@@ -158,13 +159,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Never Married"
+            android:layout_toRightOf="@+id/TextViewMessageDetailLivingCountry"
             android:textColor="@color/colorBlack"
             android:textSize="14sp" />
         <com.chicsol.marrymax.widgets.mTextView
             android:id="@+id/TextViewMessageDetailEducationTypes"
             android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/TextViewMessageDetailMaritalStatus"
             android:layout_height="wrap_content"
-            android:text=" "
+            android:text="asdfsdfsd ssdf sd fsd "
             android:textColor="@color/colorBlack"
             android:textSize="14sp" />
 
@@ -173,6 +176,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Urdu Speaking"
+            android:layout_toRightOf="@+id/TextViewMessageDetailEducationTypes"
             android:textColor="@color/colorBlack"
             android:textSize="14sp" />
 
@@ -180,12 +184,14 @@
             android:id="@+id/TextViewMessageDetailReligious"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/TextViewMessageDetailMaritalStatus"
+            android:layout_marginLeft="10dp"
             android:text=" Sunni"
             android:textColor="@color/colorBlack"
             android:textSize="14sp" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
     <LinearLayout

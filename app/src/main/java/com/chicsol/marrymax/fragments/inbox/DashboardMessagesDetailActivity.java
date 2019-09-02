@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,12 +68,14 @@ import java.util.Map;
  */
 
 public class DashboardMessagesDetailActivity extends AppCompatActivity implements RecyclerViewAdapterChatList.OnItemClickListener, dialogFeedback.onCompleteListener, dialogFeedbackDetail.onCompleteListener, PhoneRequestCallBackInterface, dialogRequestPhone.onCompleteListener {
-    private TextView tvAge, tvAlias, tvEthnic, tvReligious, tvMarital,tvEducationTypes, tvCountry;
+    private TextView tvAge, tvAlias, tvEthnic, tvReligious, tvMarital, tvEducationTypes, tvCountry;
     RecyclerView recyclerView;
     private RecyclerViewAdapterChatList recyclerAdapter;
     private List<mCommunication> items;
     private FrameLayout fl_send_message;
-    LinearLayout ll_DeleteChat, llFeedback, llMessageDetail, llReadQuota;
+    LinearLayout ll_DeleteChat, llFeedback, llReadQuota;
+
+    RelativeLayout llMessageDetail;
     EditText etSendMessage;
     mCommunication objCom;
     private ProgressBar pDialog;
@@ -143,7 +146,7 @@ public class DashboardMessagesDetailActivity extends AppCompatActivity implement
         llFeedback = (LinearLayout) findViewById(R.id.LinearLayoutMessageDetailFeedback);
 
 
-        llMessageDetail = (LinearLayout) findViewById(R.id.LinearLayoutMessageDetailData);
+        llMessageDetail = (RelativeLayout) findViewById(R.id.LinearLayoutMessageDetailData);
         llReadQuota = (LinearLayout) findViewById(R.id.LinearLayoutMMessagesReadQuota);
 
         btSubscribe = (AppCompatButton) findViewById(R.id.ButtonMessageDetailSubscribe);
