@@ -1160,6 +1160,7 @@ dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
 dimen padding_top
+dimen padding_up_table_rows
 dimen reg_circle_text
 dimen reg_title_text
 dimen reg_top_bar_text
@@ -1299,6 +1300,7 @@ drawable border_dash_mymatches_orangebox
 drawable border_dash_user_profile_box
 drawable border_dash_user_profile_buttons
 drawable border_dash_userprofile
+drawable border_dash_userprofile_table_rows
 drawable border_my_matches_main_block
 drawable border_notification_layout
 drawable btn_outline

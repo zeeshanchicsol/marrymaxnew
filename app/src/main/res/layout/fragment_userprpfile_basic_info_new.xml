@@ -390,21 +390,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="9"
-                android:background="#eaeaea">
+            <!--   <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="9"
+                   android:background="#eaeaea">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorUserProfileRed"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:src="@drawable/ic_web_white_24dp" />
+                   <ImageView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@color/colorUserProfileRed"
+                       android:paddingTop="5dp"
+                       android:paddingBottom="5dp"
+                       android:src="@drawable/ic_web_white_24dp" />
 
-            </LinearLayout>
+               </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -414,60 +414,25 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <com.chicsol.marrymax.widgets.mTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="My Appearance"
-                    android:textColor="@color/colorUserProfileRed"
-
-
-                    android:textSize="@dimen/text_size_up_h2" />
-
-                <View
-                    android:layout_width="100dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/colorUserProfileRed"></View>
-
-     <!--
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/colorLightGrey">
-
-
-
-                    &lt;!&ndash;  <com.chicsol.marrymax.widgets.mTextView
-                          android:id="@+id/TextViewUPAge"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-
-                          android:textColor="@color/colorBlack"
-                          android:textStyle="bold" />&ndash;&gt;
-
-
-                </LinearLayout>-->
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:divider="?android:attr/dividerHorizontal"
+                    android:showDividers="middle"
                     android:shrinkColumns="*"
                     android:stretchColumns="*">
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <TableRow android:padding="@dimen/padding_up_table_rows">
 
                         <TextView
                             android:id="@+id/textView1"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-
-                            android:layout_marginLeft="5dp"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif"
+                            android:gravity="center"
                             android:text="MySelf"
                             android:textColor="@color/colorTextRed"
                             android:textStyle="bold" />
@@ -475,255 +440,291 @@
 
                         <TextView
                             android:id="@+id/textView2"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-
-                            android:layout_marginLeft="5dp"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif"
-                            android:text="My Choice Criteria"
+
+                            android:gravity="center"
+                            android:text="My Choice "
                             android:textColor="@color/colorDefaultGreen"
                             android:textStyle="bold" />
 
                     </TableRow>
 
 
-
                     <TableRow
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:background="@color/colorLightGrey"
-                        android:layout_height="wrap_content">
+                        android:padding="@dimen/padding_up_table_rows">
+
                         <com.chicsol.marrymax.widgets.mTextView
-                            android:layout_span="2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:layout_span="2"
+                            android:gravity="center_horizontal"
                             android:text="Age"
-                            android:textColor="@color/colorBlack" />
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
 
                     </TableRow>
 
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:padding="@dimen/padding_up_table_rows">
 
                         <com.chicsol.marrymax.widgets.mTextView
 
                             android:id="@+id/TextViewUPAge"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
-
-
+                            android:background="@drawable/border_dash_userprofile_table_rows"
                             android:fontFamily="sans-serif"
 
+                            android:gravity="center"
 
-                            android:textColor="@color/colorBlack"
-                            android:textStyle="bold" />
+
+                            android:textColor="@color/colorBlack" />
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPChoiceAge"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
-
-
-                            android:fontFamily="sans-serif"
+                             android:fontFamily="sans-serif"
+                            android:gravity="center"
                             android:textColor="@color/colorBlack"
 
-                            android:textStyle="bold" />
-
+                            />
 
 
                     </TableRow>
 
 
-
-
                     <TableRow
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:background="@color/colorLightGrey"
-                        android:layout_height="wrap_content">
+                        android:padding="@dimen/padding_up_table_rows">
+
                         <com.chicsol.marrymax.widgets.mTextView
-                            android:layout_span="2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_span="2"
                             android:gravity="center"
+
                             android:text="Height"
-                            android:textColor="@color/colorBlack" />
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />
 
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_up_table_rows">
+
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPHeight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
 
-                            android:textColor="@color/colorBlack"
-                            android:textStyle="bold" />
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPChoiceHeight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
 
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorLightGrey"
+                        android:padding="@dimen/padding_up_table_rows">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:gravity="center"
+                            android:text="Physique"
                             android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
                     </TableRow>
 
-
                     <TableRow
                         android:layout_width="match_parent"
-                        android:background="@color/colorLightGrey"
-                        android:layout_height="wrap_content">
-                        <com.chicsol.marrymax.widgets.mTextView
-                            android:layout_span="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Physique"
-                            android:textColor="@color/colorBlack" />
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_up_table_rows">
 
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPPhysique"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:textColor="@color/colorBlack"
-                            android:textStyle="bold" />
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPChoicePhysique"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
 
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorLightGrey"
+                        android:padding="@dimen/padding_up_table_rows">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:gravity="center"
+                            android:text="Complexion"
                             android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
                     </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:background="@color/colorLightGrey"
-                        android:layout_height="wrap_content">
-                        <com.chicsol.marrymax.widgets.mTextView
-                            android:layout_span="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Complexion"
-                            android:textColor="@color/colorBlack" />
 
-                    </TableRow>
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_up_table_rows">
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPComplexion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:textColor="@color/colorBlack"
-                            android:textStyle="bold" />
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPChoiceComplexion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
 
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorLightGrey"
+                        android:padding="@dimen/padding_up_table_rows">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:gravity="center"
+                            android:text="Eye Color"
                             android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
-
                     </TableRow>
+
                     <TableRow
                         android:layout_width="match_parent"
-                        android:background="@color/colorLightGrey"
-                        android:layout_height="wrap_content">
-                        <com.chicsol.marrymax.widgets.mTextView
-                            android:layout_span="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Eye Color"
-                            android:textColor="@color/colorBlack" />
-
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_up_table_rows">
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPEyeColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:textColor="@color/colorBlack"
-                            android:textStyle="bold" />
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPChoiceEyeColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
 
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorLightGrey"
+                        android:padding="@dimen/padding_up_table_rows">
+
+                        <com.chicsol.marrymax.widgets.mTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:gravity="center"
+                            android:text="Hair Color"
                             android:textColor="@color/colorBlack"
                             android:textStyle="bold" />
 
                     </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:background="@color/colorLightGrey"
-                        android:layout_height="wrap_content">
-                        <com.chicsol.marrymax.widgets.mTextView
-                            android:layout_span="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Hair Color"
-                            android:textColor="@color/colorBlack" />
 
-                    </TableRow>
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_up_table_rows">
+
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPHairColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:textColor="@color/colorBlack"
-                            android:textStyle="bold" />
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
 
                         <com.chicsol.marrymax.widgets.mTextView
                             android:id="@+id/TextViewUPChoiceHairColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:textColor="@color/colorBlack"
-                            android:textStyle="bold" />
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack" />
                     </TableRow>
-
 
 
                 </TableLayout>
 
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/colorUserProfileRed"></View>
+
+                <!--
+                           <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:layout_marginTop="10dp"
+                               android:background="@color/colorLightGrey">
 
 
 
+                               &lt;!&ndash;  <com.chicsol.marrymax.widgets.mTextView
+                                     android:id="@+id/TextViewUPAge"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+
+                                     android:textColor="@color/colorBlack"
+                                     android:textStyle="bold" />&ndash;&gt;
 
 
-
-
-
-
+                           </LinearLayout>-->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -731,7 +732,16 @@
                     android:background="@color/colorUserProfileSeparationLine"></View>
 
 
-
+                <com.chicsol.marrymax.widgets.mTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorTextRed"
+                    android:gravity="center"
+                    android:text="My Appearance"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_up_h2"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -1462,13 +1472,13 @@
                         android:text="Height: "
                         android:textColor="@color/colorBlack" />
 
-                <!--    <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewUPChoiceHeight"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <!--    <com.chicsol.marrymax.widgets.mTextView
+                            android:id="@+id/TextViewUPChoiceHeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />-->
+                            android:textColor="@color/colorBlack"
+                            android:textStyle="bold" />-->
 
 
                 </LinearLayout>
@@ -1486,13 +1496,13 @@
                         android:text="Physique: "
                         android:textColor="@color/colorBlack" />
 
-                 <!--   <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewUPChoicePhysique"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <!--   <com.chicsol.marrymax.widgets.mTextView
+                           android:id="@+id/TextViewUPChoicePhysique"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
 
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />-->
+                           android:textColor="@color/colorBlack"
+                           android:textStyle="bold" />-->
 
 
                 </LinearLayout>
@@ -1509,13 +1519,13 @@
                         android:text="Complexion: "
                         android:textColor="@color/colorBlack" />
 
-               <!--     <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewUPChoiceComplexion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <!--     <com.chicsol.marrymax.widgets.mTextView
+                             android:id="@+id/TextViewUPChoiceComplexion"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
 
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />-->
+                             android:textColor="@color/colorBlack"
+                             android:textStyle="bold" />-->
 
 
                 </LinearLayout>
@@ -1532,13 +1542,13 @@
                         android:text="Eye Color: "
                         android:textColor="@color/colorBlack" />
 
-         <!--           <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewUPChoiceEyeColor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <!--           <com.chicsol.marrymax.widgets.mTextView
+                                   android:id="@+id/TextViewUPChoiceEyeColor"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
 
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />-->
+                                   android:textColor="@color/colorBlack"
+                                   android:textStyle="bold" />-->
 
 
                 </LinearLayout>
@@ -1556,13 +1566,13 @@
                         android:text="Hair Color: "
                         android:textColor="@color/colorBlack" />
 
-                 <!--   <com.chicsol.marrymax.widgets.mTextView
-                        android:id="@+id/TextViewUPChoiceHairColor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <!--   <com.chicsol.marrymax.widgets.mTextView
+                           android:id="@+id/TextViewUPChoiceHairColor"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
 
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold" />-->
+                           android:textColor="@color/colorBlack"
+                           android:textStyle="bold" />-->
 
 
                 </LinearLayout>
