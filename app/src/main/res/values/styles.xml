@@ -196,6 +196,25 @@
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorPrimary">@color/colorPrimary</item>
     </style>
+
+    <style name="profile_detail_header_text">
+
+
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+
+        <item name="android:textColor">@color/colorDefaultGreen</item>
+    </style>
+
+<!--    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:gravity="center"
+    android:text="Age"
+    android:textColor="@color/colorDefaultGreen"
+    android:textStyle="bold"-->
+
+
     <!--    <style name="Autocomplete" parent="Widget.AppCompat.Light.AutoCompleteTextView">
         <item_image_slider name="android:background">@color/colorWhite</item_image_slider>
         <item_image_slider name="colorControlNormal">@color/colorBlack</item_image_slider>
