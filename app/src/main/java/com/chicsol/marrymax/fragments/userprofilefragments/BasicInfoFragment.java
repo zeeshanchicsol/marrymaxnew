@@ -18,7 +18,7 @@ import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mMemDetail;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.widgets.faTextView;
-import com.chicsol.marrymax.widgets.mTextView;
+
 import com.crashlytics.android.Crashlytics;
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.gson.Gson;
@@ -35,14 +35,14 @@ import java.lang.reflect.Type;
 public class BasicInfoFragment extends Fragment {
     private JSONArray interestJsonArray, describePersonalityJsonArray;
     private Members member, memberChoice;
-    private mTextView tvDesc, tvMostThankful, tvWhatIdoFor, tvMyStrengths, tvABoutMyChoice, tvAge, tvHeight, tvPhysique, tvComplexion, tvEyeColor, tvHairColor, tvChoiceAge,
+    private TextView tvDesc, tvMostThankful, tvWhatIdoFor, tvMyStrengths, tvABoutMyChoice, tvAge, tvHeight, tvPhysique, tvComplexion, tvEyeColor, tvHairColor, tvChoiceAge,
             tvChoiceHeight, tvChoicePhysique, tvChoiceComplexion, tvChoiceEyeColor, tvChoiceHairColor;
-    private mTextView tvMyEducation, tvMyEducationField, tvGraduated, tvOccupation, tvEconomy, tvIncome, tvCastSurname, tvRaised, tvFamilyValues, tvHijab, tvLiving, tvMaritalStatus, tvChildren, tvChildrenDetail, tvEthnicity, tvReligiousSect, tvBrothers, tvSisters, tvSiblingPosiiton, tvSmoke, tvDrink, tvPhysicalChallenges,
+    private TextView tvMyEducation, tvMyEducationField, tvGraduated, tvOccupation, tvEconomy, tvIncome, tvCastSurname, tvRaised, tvFamilyValues, tvHijab, tvLiving, tvMaritalStatus, tvChildren, tvChildrenDetail, tvEthnicity, tvReligiousSect, tvBrothers, tvSisters, tvSiblingPosiiton, tvSmoke, tvDrink, tvPhysicalChallenges,
             tvChoiceMyEducation, tvChoiceOccupation, tvChoiceEconomy, tvChoiceRaised, tvChoiceFamilyValues, tvChoiceHijab, tvChoiceLiving, tvChoiceMaritalStatus, tvChoiceChildren, tvChoiceEthnicity, tvChoiceReligiousSect, tvChoiceCountry, tvChoiceVisaStatus, tvChoiceSmoke, tvChoiceDrink, tvChoicePhysicalChallenges;
 
     private TextView pref1, pref2, pref3, pref4;
 
-    private mTextView tvDescribePersonality;
+    private TextView tvDescribePersonality;
     private FlexboxLayout flexboxLayoutInterest;
     private LinearLayout llMTO, llWIDFF, llMS, llAMC;
     public String jsona = "";
@@ -85,7 +85,7 @@ public class BasicInfoFragment extends Fragment {
 
 
 /*
-            <com.chicsol.marrymax.widgets.mTextView
+            <com.chicsol.marrymax.widgets.TextView
                     android:layout_margin="5dp"
             android:background="@drawable/border_dash_userprofile"
             android:padding="5dp"
@@ -159,77 +159,77 @@ public class BasicInfoFragment extends Fragment {
         faUPPhysicalChallenges = (faTextView) view.findViewById(R.id.faTextViewUPPhysicalChallenges);
         faUPChoicePhysicalChallenges = (faTextView) view.findViewById(R.id.faTextViewUPChoicePhysicalChallenges);
 
-        tvDesc = (mTextView) view.findViewById(R.id.TextViewUPDescription);
-        tvMostThankful = (mTextView) view.findViewById(R.id.TextViewUPMostThankful);
-        tvWhatIdoFor = (mTextView) view.findViewById(R.id.TextViewUPWhatIdo);
-        tvMyStrengths = (mTextView) view.findViewById(R.id.TextViewUPMyStrengths);
-        tvABoutMyChoice = (mTextView) view.findViewById(R.id.TextViewUPAboutMyChoice);
+        tvDesc = (TextView) view.findViewById(R.id.TextViewUPDescription);
+        tvMostThankful = (TextView) view.findViewById(R.id.TextViewUPMostThankful);
+        tvWhatIdoFor = (TextView) view.findViewById(R.id.TextViewUPWhatIdo);
+        tvMyStrengths = (TextView) view.findViewById(R.id.TextViewUPMyStrengths);
+        tvABoutMyChoice = (TextView) view.findViewById(R.id.TextViewUPAboutMyChoice);
 
 
-        tvAge = (mTextView) view.findViewById(R.id.TextViewUPAge);
-        tvHeight = (mTextView) view.findViewById(R.id.TextViewUPHeight);
-        tvPhysique = (mTextView) view.findViewById(R.id.TextViewUPPhysique);
-        tvComplexion = (mTextView) view.findViewById(R.id.TextViewUPComplexion);
+        tvAge = (TextView) view.findViewById(R.id.TextViewUPAge);
+        tvHeight = (TextView) view.findViewById(R.id.TextViewUPHeight);
+        tvPhysique = (TextView) view.findViewById(R.id.TextViewUPPhysique);
+        tvComplexion = (TextView) view.findViewById(R.id.TextViewUPComplexion);
 
-        tvEyeColor = (mTextView) view.findViewById(R.id.TextViewUPEyeColor);
-        tvHairColor = (mTextView) view.findViewById(R.id.TextViewUPHairColor);
-
-
-        tvChoiceAge = (mTextView) view.findViewById(R.id.TextViewUPChoiceAge);
-        tvChoiceHeight = (mTextView) view.findViewById(R.id.TextViewUPChoiceHeight);
-        tvChoiceHairColor = (mTextView) view.findViewById(R.id.TextViewUPChoiceHairColor);
-        tvChoiceEyeColor = (mTextView) view.findViewById(R.id.TextViewUPChoiceEyeColor);
-        tvChoicePhysique = (mTextView) view.findViewById(R.id.TextViewUPChoicePhysique);
-        tvChoiceComplexion = (mTextView) view.findViewById(R.id.TextViewUPChoiceComplexion);
+        tvEyeColor = (TextView) view.findViewById(R.id.TextViewUPEyeColor);
+        tvHairColor = (TextView) view.findViewById(R.id.TextViewUPHairColor);
 
 
-        tvMyEducation = (mTextView) view.findViewById(R.id.TextViewUPEducationDetail);
-        tvMyEducationField = (mTextView) view.findViewById(R.id.TextViewUPEducationalField);
-        tvGraduated = (mTextView) view.findViewById(R.id.TextViewUPGraduatedFrom);
-        tvOccupation = (mTextView) view.findViewById(R.id.TextViewUPOccupationDetail);
-        tvEconomy = (mTextView) view.findViewById(R.id.TextViewUPEconomy);
-        tvIncome = (mTextView) view.findViewById(R.id.TextViewUPIncome);
-        tvCastSurname = (mTextView) view.findViewById(R.id.TextViewUPCastSurname);
+        tvChoiceAge = (TextView) view.findViewById(R.id.TextViewUPChoiceAge);
+        tvChoiceHeight = (TextView) view.findViewById(R.id.TextViewUPChoiceHeight);
+        tvChoiceHairColor = (TextView) view.findViewById(R.id.TextViewUPChoiceHairColor);
+        tvChoiceEyeColor = (TextView) view.findViewById(R.id.TextViewUPChoiceEyeColor);
+        tvChoicePhysique = (TextView) view.findViewById(R.id.TextViewUPChoicePhysique);
+        tvChoiceComplexion = (TextView) view.findViewById(R.id.TextViewUPChoiceComplexion);
 
 
-        tvRaised = (mTextView) view.findViewById(R.id.TextViewUPRaised);
-        tvFamilyValues = (mTextView) view.findViewById(R.id.TextViewUPFamilyValues);
-        tvHijab = (mTextView) view.findViewById(R.id.TextViewUPHijaab);
-        tvLiving = (mTextView) view.findViewById(R.id.TextViewUPLivingArrangements);
-        tvMaritalStatus = (mTextView) view.findViewById(R.id.TextViewUPMaritalStatus);
-        tvChildren = (mTextView) view.findViewById(R.id.TextViewUPChildren);
-        tvChildrenDetail = (mTextView) view.findViewById(R.id.TextViewUPChildrenDetail);
-        tvEthnicity = (mTextView) view.findViewById(R.id.TextViewUPEthnicity);
-        tvReligiousSect = (mTextView) view.findViewById(R.id.TextViewUPReligiousSect);
-        tvBrothers = (mTextView) view.findViewById(R.id.TextViewUPBrothers);
-        tvSisters = (mTextView) view.findViewById(R.id.TextViewUPSisters);
-        tvSiblingPosiiton = (mTextView) view.findViewById(R.id.TextViewUPSiblingPosition);
-        tvSmoke = (mTextView) view.findViewById(R.id.TextViewUPSmoke);
-        tvDrink = (mTextView) view.findViewById(R.id.TextViewUPDrink);
-        tvPhysicalChallenges = (mTextView) view.findViewById(R.id.TextViewUPPhysicalChallenges);
+        tvMyEducation = (TextView) view.findViewById(R.id.TextViewUPEducationDetail);
+        tvMyEducationField = (TextView) view.findViewById(R.id.TextViewUPEducationalField);
+        tvGraduated = (TextView) view.findViewById(R.id.TextViewUPGraduatedFrom);
+        tvOccupation = (TextView) view.findViewById(R.id.TextViewUPOccupationDetail);
+        tvEconomy = (TextView) view.findViewById(R.id.TextViewUPEconomy);
+        tvIncome = (TextView) view.findViewById(R.id.TextViewUPIncome);
+        tvCastSurname = (TextView) view.findViewById(R.id.TextViewUPCastSurname);
+
+
+        tvRaised = (TextView) view.findViewById(R.id.TextViewUPRaised);
+        tvFamilyValues = (TextView) view.findViewById(R.id.TextViewUPFamilyValues);
+        tvHijab = (TextView) view.findViewById(R.id.TextViewUPHijaab);
+        tvLiving = (TextView) view.findViewById(R.id.TextViewUPLivingArrangements);
+        tvMaritalStatus = (TextView) view.findViewById(R.id.TextViewUPMaritalStatus);
+        tvChildren = (TextView) view.findViewById(R.id.TextViewUPChildren);
+        tvChildrenDetail = (TextView) view.findViewById(R.id.TextViewUPChildrenDetail);
+        tvEthnicity = (TextView) view.findViewById(R.id.TextViewUPEthnicity);
+        tvReligiousSect = (TextView) view.findViewById(R.id.TextViewUPReligiousSect);
+        tvBrothers = (TextView) view.findViewById(R.id.TextViewUPBrothers);
+        tvSisters = (TextView) view.findViewById(R.id.TextViewUPSisters);
+        tvSiblingPosiiton = (TextView) view.findViewById(R.id.TextViewUPSiblingPosition);
+        tvSmoke = (TextView) view.findViewById(R.id.TextViewUPSmoke);
+        tvDrink = (TextView) view.findViewById(R.id.TextViewUPDrink);
+        tvPhysicalChallenges = (TextView) view.findViewById(R.id.TextViewUPPhysicalChallenges);
 
         //choice
-        tvChoiceMyEducation = (mTextView) view.findViewById(R.id.TextViewUPChoiceEducationDetail);
+        tvChoiceMyEducation = (TextView) view.findViewById(R.id.TextViewUPChoiceEducationDetail);
 
-        tvChoiceOccupation = (mTextView) view.findViewById(R.id.TextViewUPChoiceOccupationDetail);
-        tvChoiceEconomy = (mTextView) view.findViewById(R.id.TextViewUPChoiceEconomy);
-        tvChoiceRaised = (mTextView) view.findViewById(R.id.TextViewUPChoiceRaised);
-        tvChoiceFamilyValues = (mTextView) view.findViewById(R.id.TextViewUPChoiceChoiceFamilyValues);
-        tvChoiceHijab = (mTextView) view.findViewById(R.id.TextViewUPChoiceHijab);
-        tvChoiceLiving = (mTextView) view.findViewById(R.id.TextViewUPChoiceLivingArrangements);
-        tvChoiceMaritalStatus = (mTextView) view.findViewById(R.id.TextViewUPChoiceMaritalStatus);
-        tvChoiceChildren = (mTextView) view.findViewById(R.id.TextViewUPChoiceChildren);
-        tvChoiceEthnicity = (mTextView) view.findViewById(R.id.TextViewUPChoiceEthnicity);
-        tvChoiceReligiousSect = (mTextView) view.findViewById(R.id.TextViewUPChoiceReligiousSect);
+        tvChoiceOccupation = (TextView) view.findViewById(R.id.TextViewUPChoiceOccupationDetail);
+        tvChoiceEconomy = (TextView) view.findViewById(R.id.TextViewUPChoiceEconomy);
+        tvChoiceRaised = (TextView) view.findViewById(R.id.TextViewUPChoiceRaised);
+        tvChoiceFamilyValues = (TextView) view.findViewById(R.id.TextViewUPChoiceChoiceFamilyValues);
+        tvChoiceHijab = (TextView) view.findViewById(R.id.TextViewUPChoiceHijab);
+        tvChoiceLiving = (TextView) view.findViewById(R.id.TextViewUPChoiceLivingArrangements);
+        tvChoiceMaritalStatus = (TextView) view.findViewById(R.id.TextViewUPChoiceMaritalStatus);
+        tvChoiceChildren = (TextView) view.findViewById(R.id.TextViewUPChoiceChildren);
+        tvChoiceEthnicity = (TextView) view.findViewById(R.id.TextViewUPChoiceEthnicity);
+        tvChoiceReligiousSect = (TextView) view.findViewById(R.id.TextViewUPChoiceReligiousSect);
 
-        tvChoiceCountry = (mTextView) view.findViewById(R.id.TextViewUPChoiceCountry);
-        tvChoiceVisaStatus = (mTextView) view.findViewById(R.id.TextViewUPChoiceVisaStatus);
+        tvChoiceCountry = (TextView) view.findViewById(R.id.TextViewUPChoiceCountry);
+        tvChoiceVisaStatus = (TextView) view.findViewById(R.id.TextViewUPChoiceVisaStatus);
 
 
-        tvChoiceSmoke = (mTextView) view.findViewById(R.id.TextViewUPChoiceSmoke);
-        tvChoiceDrink = (mTextView) view.findViewById(R.id.TextViewUPChoiceDrink);
+        tvChoiceSmoke = (TextView) view.findViewById(R.id.TextViewUPChoiceSmoke);
+        tvChoiceDrink = (TextView) view.findViewById(R.id.TextViewUPChoiceDrink);
 
-        tvChoicePhysicalChallenges = (mTextView) view.findViewById(R.id.TextViewUPChoicePhysicalChallenges);
+        tvChoicePhysicalChallenges = (TextView) view.findViewById(R.id.TextViewUPChoicePhysicalChallenges);
 
 
 //member info details
@@ -258,7 +258,7 @@ public class BasicInfoFragment extends Fragment {
         pref3 = (TextView) view.findViewById(R.id.PrefChoice3);
         pref4 = (TextView) view.findViewById(R.id.PrefChoice4);
 //==============
-        tvDescribePersonality = (mTextView) view.findViewById(R.id.TextViewDescribePersonality);
+        tvDescribePersonality = (TextView) view.findViewById(R.id.TextViewDescribePersonality);
 
 
         //=====================================
@@ -311,23 +311,23 @@ public class BasicInfoFragment extends Fragment {
 
 
             for (int i = 0; i < interestJsonArray.length(); i++) {
-                TextView mTextView = new TextView(getActivity());
-                mTextView.setBackground(getResources().getDrawable(R.drawable.shape_chip_drawable));
-                mTextView.setTextColor(getResources().getColor(R.color.colorBlack));
+                TextView TextView = new TextView(getActivity());
+                TextView.setBackground(getResources().getDrawable(R.drawable.shape_chip_drawable));
+                TextView.setTextColor(getResources().getColor(R.color.colorBlack));
                 FlexboxLayout.LayoutParams params = new FlexboxLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 params.setMargins(5, 5, 5, 5);
 
-                mTextView.setLayoutParams(params);
+                TextView.setLayoutParams(params);
 
-                //mTextView.setPadding(5, 3, 5, 3);
-                mTextView.setGravity(Gravity.CENTER);
+                //TextView.setPadding(5, 3, 5, 3);
+                TextView.setGravity(Gravity.CENTER);
                 try {
-                    mTextView.setText("  " + interestJsonArray.getJSONObject(i).get("type").toString() + "  ");
+                    TextView.setText("  " + interestJsonArray.getJSONObject(i).get("type").toString() + "  ");
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Crashlytics.logException(e);
                 }
-                flexboxLayoutInterest.addView(mTextView);
+                flexboxLayoutInterest.addView(TextView);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -176,12 +176,11 @@
 
     <style name="ButtonBorder.Accent">
         <item name="android:background">@color/colorTextRed</item>
-    <item name="android:textColor">@color/colorWhite</item>
-    <item name="android:textAllCaps">false</item>
-    <item name="android:textSize">16sp</item>
-    <item name="android:singleLine">true</item>
-</style>
-
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
 
 
     <style name="ButtonBorder.Accent.Green">
@@ -197,28 +196,66 @@
         <item name="colorPrimary">@color/colorPrimary</item>
     </style>
 
+
+
+
     <style name="profile_detail_header_text">
+
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorDefaultGreen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="profile_detail_sub_text">
+
+   <!--     <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>-->
+        <item name="android:paddingTop">@dimen/padding_up_table_rows</item>
+        <item name="android:paddingLeft">@dimen/padding_up_table_rows</item>
+        <item name="android:paddingRight">@dimen/padding_up_table_rows</item>
+
+
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/border_dash_userprofile_table_rows</item>
+
+        <item name="android:gravity">center</item>
+
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+
+    <style name="profile_detail_sub_text_right">
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/padding_up_table_rows</item>
+        <item name="android:paddingLeft">@dimen/padding_up_table_rows</item>
+        <item name="android:paddingRight">@dimen/padding_up_table_rows</item>
+
+        <item name="android:layout_weight">1</item>
 
 
         <item name="android:gravity">center</item>
-        <item name="android:textStyle">bold</item>
 
-        <item name="android:textColor">@color/colorDefaultGreen</item>
+        <item name="android:textColor">@color/colorBlack</item>
+
+        <item name="android:textStyle">bold</item>
     </style>
 
-<!--    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
 
-    android:gravity="center"
-    android:text="Age"
-    android:textColor="@color/colorDefaultGreen"
-    android:textStyle="bold"-->
+    <style name="profile_detail_separation_line">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_gravity">center</item>
 
+        <item name="android:background">@color/colorUserProfileSeparationLine</item>
 
-    <!--    <style name="Autocomplete" parent="Widget.AppCompat.Light.AutoCompleteTextView">
-        <item_image_slider name="android:background">@color/colorWhite</item_image_slider>
-        <item_image_slider name="colorControlNormal">@color/colorBlack</item_image_slider>
-        <item_image_slider name="colorControlActivated">@color/colorUserProfileRed</item_image_slider>
+    </style>
 
-    </style>-->
 </resources>
