@@ -38,7 +38,7 @@ public class BasicInfoFragment extends Fragment {
     private TextView tvDesc, tvMostThankful, tvWhatIdoFor, tvMyStrengths, tvABoutMyChoice, tvAge, tvHeight, tvPhysique, tvComplexion, tvEyeColor, tvHairColor, tvChoiceAge,
             tvChoiceHeight, tvChoicePhysique, tvChoiceComplexion, tvChoiceEyeColor, tvChoiceHairColor;
     private TextView tvMyEducation, tvMyEducationField, tvGraduated, tvOccupation, tvEconomy, tvIncome, tvCastSurname, tvRaised, tvFamilyValues, tvHijab, tvLiving, tvMaritalStatus, tvChildren, tvChildrenDetail, tvEthnicity, tvReligiousSect, tvBrothers, tvSisters, tvSiblingPosiiton, tvSmoke, tvDrink, tvPhysicalChallenges,
-            tvChoiceMyEducation, tvChoiceOccupation, tvChoiceEconomy, tvChoiceRaised, tvChoiceFamilyValues, tvChoiceHijab, tvChoiceLiving, tvChoiceMaritalStatus, tvChoiceChildren, tvChoiceEthnicity, tvChoiceReligiousSect, tvChoiceCountry, tvChoiceVisaStatus, tvChoiceSmoke, tvChoiceDrink, tvChoicePhysicalChallenges;
+            tvChoiceMyEducation, tvChoiceOccupation, tvChoiceEconomy, tvChoiceRaised, tvChoiceFamilyValues, tvChoiceHijab, tvChoiceLiving, tvChoiceMaritalStatus, tvChoiceChildren, tvChoiceEthnicity, tvChoiceReligiousSect, tvMyCountry, tvChoiceCountry, tvMyVisaStatus, tvChoiceVisaStatus, tvChoiceSmoke, tvChoiceDrink, tvChoicePhysicalChallenges;
 
     private TextView pref1, pref2, pref3, pref4;
 
@@ -55,6 +55,8 @@ public class BasicInfoFragment extends Fragment {
     private TextView tvResidenceDetails, tvAboutParents, tvAboutSiblings, tvJobDetails, tvEducationDetail, tvSocialDetai;
     private LinearLayout llResidenceDetails, llAboutParents, llAboutSiblings, llJobDetails, llEducationDetail, llSocialDetai;
 
+    private  String visa_status_types="",country_name="";
+
 
     public BasicInfoFragment() {
         // Required empty public constructor
@@ -67,6 +69,10 @@ public class BasicInfoFragment extends Fragment {
 
 //        Log.e("Basic Info Fragment  ", getArguments().getString("json"));
         String json = getArguments().getString("json");
+
+         visa_status_types = getArguments().getString("visa_status_types");
+         country_name = getArguments().getString("country_name");
+
 
         try {
             JSONArray jsonArray = new JSONArray(json);
@@ -223,8 +229,10 @@ public class BasicInfoFragment extends Fragment {
         tvChoiceReligiousSect = (TextView) view.findViewById(R.id.TextViewUPChoiceReligiousSect);
 
         tvChoiceCountry = (TextView) view.findViewById(R.id.TextViewUPChoiceCountry);
-        tvChoiceVisaStatus = (TextView) view.findViewById(R.id.TextViewUPChoiceVisaStatus);
 
+        tvMyCountry = (TextView) view.findViewById(R.id.TextViewUPMyCountry);
+        tvChoiceVisaStatus = (TextView) view.findViewById(R.id.TextViewUPChoiceVisaStatus);
+        tvMyVisaStatus = (TextView) view.findViewById(R.id.TextViewUPMyVisaStatus);
 
         tvChoiceSmoke = (TextView) view.findViewById(R.id.TextViewUPChoiceSmoke);
         tvChoiceDrink = (TextView) view.findViewById(R.id.TextViewUPChoiceDrink);
@@ -455,7 +463,12 @@ public class BasicInfoFragment extends Fragment {
             tvChoiceReligiousSect.setText(memberChoice.getChoice_religious_sec());
 
             tvChoiceCountry.setText(memberChoice.getChoice_country_names());
+
+           tvMyCountry.setText(country_name);
+
             tvChoiceVisaStatus.setText(memberChoice.getChoice_visa_status());
+            tvMyVisaStatus.setText(visa_status_types);
+
             tvChoiceSmoke.setText(memberChoice.getChoice_smoking());
             tvChoiceDrink.setText(memberChoice.getChoice_drinks());
 

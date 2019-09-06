@@ -73,6 +73,16 @@ android:background="@color/colorWhite"
 
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/TextViewDescribePersonality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/colorTextRed"
+                    android:textStyle="bold" />
+
+
+
                 <LinearLayout
                     android:id="@+id/LinearLayoutUserProfileAM"
                     android:layout_width="match_parent"
@@ -371,18 +381,14 @@ android:background="@color/colorWhite"
                     android:layout_marginTop="10dp"
                     android:background="@color/colorUserProfileSeparationLine"></View>
 
-                <TextView
-                    android:id="@+id/TextViewDescribePersonality"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/colorTextRed"
-                    android:textStyle="bold" />
+
 
             </LinearLayout>
 
 
         </LinearLayout>
+
+
 
 
 
@@ -392,6 +398,54 @@ android:background="@color/colorWhite"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+
+            android:background="@color/colorWhite"
+
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+         <TableRow
+
+                android:background="@color/colorWhite"
+                android:padding="@dimen/padding_up_table_rows">
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="MySelf"
+                    android:background="@drawable/border_dash_userprofile_table_rows"
+
+                    android:textColor="@color/colorTextRed"
+                    android:textStyle="bold" />
+
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+
+                    android:gravity="center"
+                    android:text="My Choice "
+                    android:textColor="@color/colorDefaultGreen"
+                    android:textStyle="bold" />
+
+            </TableRow>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorUserProfileRed"></View>
+        </TableLayout>
 
 
     <TextView
@@ -427,42 +481,7 @@ android:background="@color/colorWhite"
             android:shrinkColumns="*"
             android:stretchColumns="*">
 
-        <TableRow
 
-            android:background="@color/colorWhite"
-            android:padding="@dimen/padding_up_table_rows">
-
-            <TextView
-
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:text="MySelf"
-android:background="@drawable/border_dash_userprofile_table_rows"
-
-                android:textColor="@color/colorTextRed"
-                android:textStyle="bold" />
-
-
-            <TextView
-
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif"
-
-                android:gravity="center"
-                android:text="My Choice "
-                android:textColor="@color/colorDefaultGreen"
-                android:textStyle="bold" />
-
-        </TableRow>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-             android:background="@color/colorUserProfileRed"></View>
 
         <TableRow
             android:layout_width="match_parent"
@@ -490,6 +509,7 @@ android:background="@drawable/border_dash_userprofile_table_rows"
             >
 
             <TextView
+                android:id="@+id/TextViewUPMyCountry"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 style="@style/profile_detail_sub_text"
@@ -535,6 +555,7 @@ android:background="@drawable/border_dash_userprofile_table_rows"
                 >
 
                 <TextView
+                    android:id="@+id/TextViewUPMyVisaStatus"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     style="@style/profile_detail_sub_text"
@@ -611,7 +632,7 @@ android:background="@drawable/border_dash_userprofile_table_rows"
                     android:shrinkColumns="*"
                     android:stretchColumns="*">
 
-                    <TableRow
+                <!--    <TableRow
 
                         android:background="@color/colorWhite"
                         android:padding="@dimen/padding_up_table_rows">
@@ -647,7 +668,7 @@ android:background="@drawable/border_dash_userprofile_table_rows"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
 
-                        android:background="@color/colorUserProfileRed"></View>
+                        android:background="@color/colorUserProfileRed"></View>-->
 
 
 
@@ -957,7 +978,7 @@ android:background="@color/colorWhite"
                     android:shrinkColumns="*"
                     android:stretchColumns="*">
 
-                    <TableRow
+                 <!--   <TableRow
 
                         android:background="@color/colorWhite"
                         android:padding="@dimen/padding_up_table_rows">
@@ -994,7 +1015,7 @@ android:background="@color/colorWhite"
                         android:layout_height="1dp"
 
                         android:background="@color/colorUserProfileRed"></View>
-
+-->
                     ====================================Start=============================
 
 

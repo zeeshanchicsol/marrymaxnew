@@ -993,9 +993,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
     private void setupViewPager(ViewPager viewPager, String jsonArryaResponse1) {
         //Log.e("setup viewpager", "setup viewpager" + jsonArryaResponse1);
-
+    //    tvLocation.setText(location + member.getCountry_name() + ", (" + member.getVisa_status_types() + ")");
         Bundle args = new Bundle();
         args.putString("json", jsonArryaResponse1);
+        args.putString("visa_status_types", member.getVisa_status_types());
+        args.putString("country_name", member.getCountry_name());
+
         BasicInfoFragment basicInfoFragment = new BasicInfoFragment();
         //   basicInfoFragment.jsona=jsonArryaResponse1;
         basicInfoFragment.setTargetFragment(getParentFragment(), 0);
