@@ -1,6 +1,6 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
+android:background="@color/colorWhite"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -407,11 +407,7 @@
         android:textStyle="bold" />
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="4dp"
-        android:background="@color/colorUserProfileRed"></View>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -463,7 +459,10 @@ android:background="@drawable/border_dash_userprofile_table_rows"
                 android:textStyle="bold" />
 
         </TableRow>
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+             android:background="@color/colorUserProfileRed"></View>
 
         <TableRow
             android:layout_width="match_parent"
@@ -592,11 +591,7 @@ android:background="@drawable/border_dash_userprofile_table_rows"
                 android:textStyle="bold" />
 
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/colorUserProfileRed"></View>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -648,6 +643,12 @@ android:background="@drawable/border_dash_userprofile_table_rows"
                             android:textStyle="bold" />
 
                     </TableRow>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:background="@color/colorUserProfileRed"></View>
+
 
 
                     <TableRow
@@ -935,11 +936,7 @@ android:background="@drawable/border_dash_userprofile_table_rows"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/text_size_up_h2" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/colorUserProfileRed"></View>
+
 
 
             <LinearLayout
@@ -992,6 +989,11 @@ android:background="@color/colorWhite"
                             android:textStyle="bold" />
 
                     </TableRow>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:background="@color/colorUserProfileRed"></View>
 
                     ====================================Start=============================
 
