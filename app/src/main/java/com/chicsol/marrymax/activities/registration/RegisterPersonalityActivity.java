@@ -314,7 +314,7 @@ public class RegisterPersonalityActivity extends BaseRegistrationActivity implem
         ViewGenerator vg = new ViewGenerator(RegisterPersonalityActivity.this);
 
         if (vg.getSelectionFromCheckbox(gridLayout) == "") {
-            //   Toast.makeText(this, "Select Personality", Toast.LENGTH_SHORT).show();
+            //   Toast.makeText(this, "Select Personality", Toast.LENGTH_SHORT).show();+6
 
             Snackbar.make(v, "Please select Personality", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
