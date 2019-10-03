@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,10 +20,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.UserProfileActivityFragment;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterAmenities;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterRecomendedMembers;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterSubscriptionPlan;
+import com.chicsol.marrymax.dialogs.dialogInstallmentPlan;
+import com.chicsol.marrymax.dialogs.dialogMatchAid;
 import com.chicsol.marrymax.modal.Subscription;
+import com.chicsol.marrymax.modal.mInstallment;
 import com.chicsol.marrymax.other.MarryMax;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
 import com.chicsol.marrymax.urls.Urls;
@@ -60,7 +65,7 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
     private RecyclerView rvAmenities;
     private RecyclerViewAdapterAmenities adapterAmenities;
     // AppCompatButton btSearch;
-
+    private AppCompatButton btInstallmentPlan;
     private LinearLayout llEmptyState;
     // private AppCompatButton packageDetails;
 
@@ -103,6 +108,8 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
 
     private void initilize() {
 
+
+        btInstallmentPlan = (AppCompatButton) findViewById(R.id.ButtonInstallmentPlan);
 
         //  packageDetails = (AppCompatButton) findViewById(R.id.SubscriptionPlanPackageDetails);
         tvPackageDetails = (TextView) findViewById(R.id.TextViewSubscriptionPlanPackages);
@@ -157,10 +164,26 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
 
         //  btSearch = (AppCompatButton) findViewById(R.id.ButtonMyContatsSearch);
         setListeners();
+
+
     }
 
     private void
     setListeners() {
+
+
+        btInstallmentPlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadInstallmentData();
+            }
+        });
+
+
+
+
+
+
     /*    packageDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,6 +210,69 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
                 startActivity(intent);
             }
         });*/
+    }
+
+
+    private void loadInstallmentData() {
+        pDialog.setVisibility(View.VISIBLE);
+
+
+        Log.e("getUsrInstPym", "" + Urls.getUsrInstPym + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath());
+
+        JsonArrayRequest req = new JsonArrayRequest(Urls.getUsrInstPym + SharedPreferenceManager.getUserObject(getApplicationContext()).getPath(),
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.e("Response", response.toString());
+                        try {
+                            JSONArray jsonarrayData = response.getJSONArray(0);
+
+                            //Log.e("json length", jsonarrayData.length() + "");
+
+                            if (jsonarrayData.length() > 0) {
+
+
+                                Gson gson;
+                                GsonBuilder gsonBuilder = new GsonBuilder();
+                                gson = gsonBuilder.create();
+                                Type member = new TypeToken<List<mInstallment>>() {
+                                }.getType();
+
+
+                                List<mInstallment> installment = (List<mInstallment>) gson.fromJson(jsonarrayData.toString(), member);
+                                if (installment.size() > 0) {
+
+                                    dialogInstallmentPlan newFragment = dialogInstallmentPlan.newInstance(response.toString());
+                                 //   newFragment.setTargetFragment(SubscriptionPlanActivity.this, 0);
+                                    newFragment.show(getSupportFragmentManager(), "dialog");
+
+
+                                }
+
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                       /* if (!refresh) {
+                            // pDialog.dismiss();
+                            pDialog.setVisibility(View.GONE);
+                        }*/
+                        pDialog.setVisibility(View.GONE);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Err", "Error: " + error.getMessage());
+                pDialog.setVisibility(View.GONE);
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return Constants.getHashMap();
+            }
+        };
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(req);
     }
 
 

@@ -393,6 +393,56 @@
 
 
         <android.support.v7.widget.CardView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text=" Package pricing is not affordable for you? We have best solution for you"
+                        android:textColor="@color/colorSubscriptionGreen"
+
+                        android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/ButtonInstallmentPlan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorSubscriptionGreen"
+                    android:text="Installment Plan"
+                    ></android.support.v7.widget.AppCompatButton>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+
+
+        <android.support.v7.widget.CardView
             android:id="@+id/CardViewAmenities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
