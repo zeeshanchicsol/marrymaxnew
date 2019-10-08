@@ -15,7 +15,6 @@ MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/m
 MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/ede359b0bf032c8682299509587a4e7b/play-services-stats-16.0.1/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/420e505f8c61bae48fe711a15e44fd53/play-services-basement-16.0.1/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:28.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/a94edf78a298bc4b357b6079e102cc4b/support-v4-28.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [net.danlew:android.joda:2.9.9] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/0f1cc511467ccf073850517be69c6cb3/android.joda-2.9.9/AndroidManifest.xml:2:1-8:12
 MERGED from [com.android.support:design:28.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/6c2164896ca319583b40d5b80aa35763/design-28.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android:flexbox:0.2.5] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/1b5257857f724779780406b6babf8b5f/flexbox-0.2.5/AndroidManifest.xml:17:1-27:12
 MERGED from [com.android.support.constraint:constraint-layout:2.0.0-alpha4] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/b2c288523a1803e436d14affa09678b7/constraint-layout-2.0.0-alpha4/AndroidManifest.xml:2:1-11:12
@@ -28,6 +27,7 @@ MERGED from [com.android.support:cardview-v7:28.0.0] /Users/marrymaxandroid/.gra
 MERGED from [com.android.support:gridlayout-v7:28.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/df5026ef4b1da379520e8480b4745208/gridlayout-v7-28.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.volley:volley:1.1.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/b010148c5d336135b8e32b0b7de3f235/volley-1.1.0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.kbeanie:multipicker:1.6] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/60466bbaaadec6f3b5a24f3ecdc11918/multipicker-1.6/AndroidManifest.xml:2:1-23:12
+MERGED from [net.danlew:android.joda:2.9.9] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/0f1cc511467ccf073850517be69c6cb3/android.joda-2.9.9/AndroidManifest.xml:2:1-8:12
 MERGED from [com.jakewharton:butterknife:8.8.1] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/d730ba2f6621db14b3003e3dcfeff241/butterknife-8.8.1/AndroidManifest.xml:2:1-7:12
 MERGED from [com.squareup.picasso:picasso:2.71828] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/21f20da300f0bb965f3f417e794d7655/picasso-2.71828/AndroidManifest.xml:2:1-14:12
 MERGED from [de.hdodenhof:circleimageview:3.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/9df95c7e0b4f3f53fe5c84610150df1a/circleimageview-3.0.0/AndroidManifest.xml:2:1-11:12
@@ -611,8 +611,6 @@ MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/marrym
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/420e505f8c61bae48fe711a15e44fd53/play-services-basement-16.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/a94edf78a298bc4b357b6079e102cc4b/support-v4-28.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/a94edf78a298bc4b357b6079e102cc4b/support-v4-28.0.0/AndroidManifest.xml:20:5-44
-MERGED from [net.danlew:android.joda:2.9.9] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/0f1cc511467ccf073850517be69c6cb3/android.joda-2.9.9/AndroidManifest.xml:6:5-43
-MERGED from [net.danlew:android.joda:2.9.9] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/0f1cc511467ccf073850517be69c6cb3/android.joda-2.9.9/AndroidManifest.xml:6:5-43
 MERGED from [com.android.support:design:28.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/6c2164896ca319583b40d5b80aa35763/design-28.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:28.0.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/6c2164896ca319583b40d5b80aa35763/design-28.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android:flexbox:0.2.5] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/1b5257857f724779780406b6babf8b5f/flexbox-0.2.5/AndroidManifest.xml:23:5-25:41
@@ -637,6 +635,8 @@ MERGED from [com.android.volley:volley:1.1.0] /Users/marrymaxandroid/.gradle/cac
 MERGED from [com.android.volley:volley:1.1.0] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/b010148c5d336135b8e32b0b7de3f235/volley-1.1.0/AndroidManifest.xml:7:5-43
 MERGED from [com.kbeanie:multipicker:1.6] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/60466bbaaadec6f3b5a24f3ecdc11918/multipicker-1.6/AndroidManifest.xml:7:5-9:41
 MERGED from [com.kbeanie:multipicker:1.6] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/60466bbaaadec6f3b5a24f3ecdc11918/multipicker-1.6/AndroidManifest.xml:7:5-9:41
+MERGED from [net.danlew:android.joda:2.9.9] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/0f1cc511467ccf073850517be69c6cb3/android.joda-2.9.9/AndroidManifest.xml:6:5-43
+MERGED from [net.danlew:android.joda:2.9.9] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/0f1cc511467ccf073850517be69c6cb3/android.joda-2.9.9/AndroidManifest.xml:6:5-43
 MERGED from [com.jakewharton:butterknife:8.8.1] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/d730ba2f6621db14b3003e3dcfeff241/butterknife-8.8.1/AndroidManifest.xml:5:5-43
 MERGED from [com.jakewharton:butterknife:8.8.1] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/d730ba2f6621db14b3003e3dcfeff241/butterknife-8.8.1/AndroidManifest.xml:5:5-43
 MERGED from [com.squareup.picasso:picasso:2.71828] /Users/marrymaxandroid/.gradle/caches/transforms-2/files-2.1/21f20da300f0bb965f3f417e794d7655/picasso-2.71828/AndroidManifest.xml:5:5-44

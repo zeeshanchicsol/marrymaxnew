@@ -80,7 +80,8 @@ public class dialogSaveSearch extends DialogFragment {
                 if (!TextUtils.isEmpty(etSaveSearch.getText().toString().trim())) {
 
                     //setChoice_caste_ids
-                    if (defaultSelectionsObj.getChoice_caste_ids().length() > 300) {
+
+                    if ( defaultSelectionsObj.getChoice_caste_ids()!=null  &&  defaultSelectionsObj.getChoice_caste_ids().length() > 300) {
                         Toast.makeText(getContext(), "You have selected too much castes", Toast.LENGTH_SHORT).show();
                     } else {
 

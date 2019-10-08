@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -253,6 +254,8 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+
+
                         }
                        /* if (!refresh) {
                             // pDialog.dismiss();
@@ -264,6 +267,7 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Err", "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(), "Contact MarryMax Support For Installments", Toast.LENGTH_LONG).show();
                 pDialog.setVisibility(View.GONE);
             }
         }) {
