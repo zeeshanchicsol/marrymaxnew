@@ -86,7 +86,7 @@
     <color name="colorUserProfileTextGreen">#216917</color>
     <color name="colorUserProfileTextGreenLight">#299E0D</color>
 
-    <color name="colorUserProfileSeparationLine">#eaeaea</color>
+    <color name="colorUserProfileSeparationLine">@color/colorLightGrey</color>
     <color name="colorUserProfileMessageIn">#E2F1F6</color>
     <color name="colorUserProfileMessageOut">#EEEEEE</color>
 

@@ -7,838 +7,946 @@
 
 
     android:orientation="vertical">
-<LinearLayout
 
-    android:id="@+id/LinearLayoutMain"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    <LinearLayout
 
-
-    android:orientation="vertical">
-
-    <android.support.v7.widget.CardView
+        android:id="@+id/LinearLayoutMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:elevation="10dp"
-        app:background="@color/colorWhite">
 
-        <LinearLayout
+
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="top"
+            android:elevation="10dp"
+            app:background="@color/colorWhite">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:orientation="vertical">
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorTextRed"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
 
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Package On Installment  "
-                        android:textColor="@color/colorWhite"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <com.chicsol.marrymax.widgets.faTextView
-                        android:id="@+id/faButtonContactDialogDismiss"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:text="@string/fa_icon_cross"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="20dp"
                     android:orientation="vertical">
-
-
-                    <TableLayout
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:stretchColumns="*">
-
-
-                        <TableRow
-
-                            android:layout_marginTop="4dp"
-
-                       >
-<!--
-                            <TextView
-
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text=""
-                                android:background="#d8d8d8"
-                                android:textColor="@color/colorWhite"
-                                android:textStyle="bold" />-->
-
-                            <LinearLayout
-                                android:background="#f3f3f3"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-
-
-                                android:orientation="horizontal"
-                                >
-                                <TextView
-
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="Packages"
-
-                                    android:textColor="#556679"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:background="#f3f3f3"
-
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-
-                                android:layout_span="2"
-                                android:orientation="vertical"
-                                >
-
-                                <TextView
-
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="Installments"
-                                    android:textColor="#556679"
-
-                                    android:textStyle="bold" />
-
-                                <LinearLayout
-                                    android:background="#d8d8d8"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:layout_marginLeft="4dp"
-                                    >
-                                    <TextView
-                                        android:background="#d8d8d8"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="center"
-                                        android:text="First"
-                                        android:layout_weight="1"
-                                        android:textColor="@color/colorBlack"
-                                        android:textStyle="bold" />
-                                    <View
-                                        android:layout_width="1dp"
-                                        android:layout_height="match_parent"
-                                        android:background="@color/colorWhite"
-                                        ></View>
-
-                                    <TextView
-                                        android:layout_weight="1"
-                                        android:background="#d8d8d8"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:gravity="center"
-                                        android:text="Second"
-                                        android:textColor="@color/colorBlack"
-                                        android:textStyle="bold" />
-
-                                </LinearLayout>
-                                <View
-                                    android:layout_marginLeft="4dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="2dp"
-                                    android:background="#556679"
-                                    ></View>
-
-                            </LinearLayout>
-
-
-
-                           <!-- <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:background="#d8d8d8"
-android:layout_span="2"
-                                android:gravity="center"
-                                android:text="Installments"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold" />-->
-
-
-
-                        </TableRow>
-
-
-
-
-                   <!--     <TableRow
-                            android:id="@+id/TableRowCDMobileNumber"
-
-
-                            android:padding="5dp">
-
-                            <TextView
-
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Packages"
-
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:background="#d8d8d8"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="First"
-                                android:visibility="invisible"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold" />
-
-                            <TextView
-
-                                android:background="#d8d8d8"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:visibility="invisible"
-                                android:gravity="center"
-                                android:text="Second"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold" />
-
-                        </TableRow>-->
-
-                        <TableRow
-
-                            android:padding="5dp">
-
-                            <TextView
-                                android:background="#556679"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="Silver(3 Month)"
-                                android:textColor="@color/colorWhite"
-                                android:textStyle="bold" />
-
-                         <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                             android:gravity="center"
-                                android:orientation="vertical"
-                                >
-                             <TextView
-                                 android:id="@+id/TextViewInstallmentSilverPrice1"
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:gravity="center"
-                                 android:textStyle="bold"
-                                 android:fontFamily="sans-serif"
-                                 android:text="PKR 6,000"
-                                 android:textColor="@color/colorSubscriptionGreen" />
-
-                             <TextView
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:gravity="center"
-                                 android:textSize="10sp"
-                                 android:fontFamily="sans-serif"
-                                 android:text="(PAKISTAN) "
-                                 android:textColor="@color/colorBlack" />
-
-                           <!--  <TextView
-                                 android:layout_marginTop="2dp"
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:gravity="center"
-                                 android:textStyle="bold"
-                                 android:fontFamily="sans-serif"
-                                 android:text="USD 100"
-                                 android:textColor="@color/colorSubscriptionGreen" />
-                             <TextView
-
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:gravity="center"
-                                 android:textSize="10sp"
-                                 android:fontFamily="sans-serif"
-                                 android:text="(WORLDWIDE)"
-                                 android:textColor="@color/colorBlack" />-->
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                >
-                                <TextView
-                                    android:id="@+id/TextViewInstallmentSilverPrice2"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif"
-                                    android:text="PKR 6,000"
-                                    android:textColor="@color/colorSubscriptionGreen" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textSize="10sp"
-                                    android:fontFamily="sans-serif"
-                                    android:text="(PAKISTAN) "
-                                    android:textColor="@color/colorBlack" />
-
-                              <!--  <TextView
-                                    android:layout_marginTop="2dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif"
-                                    android:text="USD 100"
-                                    android:textColor="@color/colorSubscriptionGreen" />
-                                <TextView
-
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textSize="10sp"
-                                    android:fontFamily="sans-serif"
-                                    android:text="(WORLDWIDE)"
-                                    android:textColor="@color/colorBlack" />-->
-                            </LinearLayout>
-
-
-
-
-                        </TableRow>
-
-                        <TableRow
-                            android:background="@color/colorLightGrey"
-                            android:padding="5dp">
-
-                            <TextView
-
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="Verified Numbers"
-                                android:textColor="@color/colorBlack" />
-
-                            <TextView
-                                android:id="@+id/TextViewInstallmentSilverVerifiedNumbers1"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="3"
-                                android:textColor="@color/colorBlack" />
-
-                            <TextView
-                                android:id="@+id/TextViewInstallmentSilverVerifiedNumbers2"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-
-                                android:gravity="center"
-                                android:text="5"
-                                android:textColor="@color/colorBlack" />
-
-                        </TableRow>
-
-
-                        <TableRow
-
-                            android:padding="5dp">
-
-                            <TextView
-                                android:fontFamily="sans-serif"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text=" Matching Messaging"
-                                android:textColor="@color/colorBlack" />
-
-                            <TextView
-                                android:id="@+id/TextViewInstallmentSilver1MessageCount"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="3"
-                                android:textColor="@color/colorBlack" />
-
-                            <TextView
-                                android:id="@+id/TextViewInstallmentSilver2MessageCount"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-
-                                android:gravity="center"
-                                android:text="5"
-                                android:textColor="@color/colorBlack" />
-
-                        </TableRow>
-                        <!--
-
-
-                                               <TableRow
-                                                   android:layout_marginTop="4dp"
-
-
-                                                   android:padding="5dp">
-
-                                                   <TextView
-
-
-                                                       android:text="Relationship: "
-                                                       android:textColor="@color/colorBlack"
-                                                       android:textStyle="bold" />
-
-                                                   <TextView
-
-
-
-                                                       android:textColor="@color/colorBlack" />
-                                               </TableRow>
-
-                                               <TableRow
-                                                   android:layout_marginTop="4dp"
-                                                   android:background="#30808080"
-                                                   android:padding="5dp">
-
-                                                   <TextView
-
-                                                       android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content"
-                                                       android:text="Preffered Call Time: "
-                                                       android:textColor="@color/colorBlack"
-                                                       android:textStyle="bold" />
-
-
-                                                   <TextView
-                                                       android:id="@+id/TextViewContactDialogPrefferedCallTime"
-                                                       android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content"
-
-                                                       android:textColor="@color/colorBlack" />
-
-                                               </TableRow>
-
-
-                                               <TableRow
-                                                   android:layout_marginTop="4dp"
-
-
-                                                   android:padding="5dp">
-
-                                                   <TextView
-
-                                                       android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content"
-                                                       android:text="Country Name: "
-                                                       android:textColor="@color/colorBlack"
-                                                       android:textStyle="bold" />
-
-                                                   <TextView
-                                                       android:id="@+id/TextViewContactDialogCountryName"
-                                                       android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content"
-
-                                                       android:textColor="@color/colorBlack" />
-                                               </TableRow>-->
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@color/colorLightGrey"
-
-                            ></View>
-
-                    </TableLayout>
-
-
-                    <TableLayout
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-
-                        android:stretchColumns="*">
-
-                <!--        <TableRow
-
-                            android:layout_marginTop="4dp"
-                            android:background="#cc850f"
-                            android:padding="5dp">
-
-                            <TextView
-
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="MONTH"
-                                android:textColor="@color/colorWhite"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="1ST"
-                                android:textColor="@color/colorWhite"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-
-                                android:gravity="center"
-                                android:text="2ND"
-                                android:textColor="@color/colorWhite"
-                                android:textStyle="bold" />
-
-                        </TableRow>-->
-
-                        <TableRow
-
-                            android:padding="5dp">
-
-                            <TextView
-
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="Gold(6 Month)"
-                                android:background="#cc850f"
-                                android:textColor="@color/colorWhite"
-                                android:textStyle="bold" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                >
-                                <TextView
-                                    android:id="@+id/TextViewInstallmentGold1Price1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif"
-                                    android:text="PKR 6,000"
-                                    android:textColor="@color/colorSubscriptionGreen" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textSize="10sp"
-                                    android:fontFamily="sans-serif"
-                                    android:text="(PAKISTAN) "
-                                    android:textColor="@color/colorBlack" />
-
-                             <!--   <TextView
-                                    android:layout_marginTop="2dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif"
-                                    android:text="USD 100"
-                                    android:textColor="@color/colorSubscriptionGreen" />
-                                <TextView
-
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textSize="10sp"
-                                    android:fontFamily="sans-serif"
-                                    android:text="(WORLDWIDE)"
-                                    android:textColor="@color/colorBlack" />-->
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                >
-                                <TextView
-                                    android:id="@+id/TextViewInstallmentGold1Price2"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif"
-                                    android:text="PKR 6,000"
-                                    android:textColor="@color/colorSubscriptionGreen" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textSize="10sp"
-                                    android:fontFamily="sans-serif"
-                                    android:text="(PAKISTAN) "
-                                    android:textColor="@color/colorBlack" />
-
-                              <!--  <TextView
-                                    android:layout_marginTop="2dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textStyle="bold"
-                                    android:fontFamily="sans-serif"
-                                    android:text="USD 100"
-                                    android:textColor="@color/colorSubscriptionGreen" />
-                                <TextView
-
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:textSize="10sp"
-                                    android:fontFamily="sans-serif"
-                                    android:text="(WORLDWIDE)"
-                                    android:textColor="@color/colorBlack" />-->
-                            </LinearLayout>
-
-
-                        </TableRow>
-
-                        <TableRow
-                            android:background="@color/colorLightGrey"
-                            android:padding="5dp">
-
-                            <TextView
-                                android:fontFamily="sans-serif"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="Verified Numbers"
-                                android:textColor="@color/colorBlack" />
-
-                            <TextView
-                                android:id="@+id/TextViewInstallmentGold1VerifiedNumbers1"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:fontFamily="sans-serif"
-                                android:text="7"
-                                android:textColor="@color/colorBlack" />
-
-                            <TextView
-                                android:id="@+id/TextViewInstallmentGold1VerifiedNumbers2"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif"
-                                android:gravity="center"
-                                android:text="8"
-                                android:textColor="@color/colorBlack" />
-
-                        </TableRow>
-
-                        <TableRow
-
-                            android:padding="5dp">
-
-                            <TextView
-                                android:fontFamily="sans-serif"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text=" Matching Messaging"
-                                android:textColor="@color/colorBlack" />
-
-                            <TextView
-                                android:id="@+id/TextViewInstallmentGold1MessageCount"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:fontFamily="sans-serif"
-                                android:text="3"
-                                android:textColor="@color/colorBlack" />
-
-                            <TextView
-                                android:id="@+id/TextViewInstallmentGold2MessageCount"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif"
-                                android:gravity="center"
-
-                                android:text="5"
-                                android:textColor="@color/colorBlack" />
-
-                        </TableRow>
-                        <!--
-
-
-                                               <TableRow
-                                                   android:layout_marginTop="4dp"
-
-
-                                                   android:padding="5dp">
-
-                                                   <TextView
-
-
-                                                       android:text="Relationship: "
-                                                       android:textColor="@color/colorBlack"
-                                                       android:textStyle="bold" />
-
-                                                   <TextView
-
-
-
-                                                       android:textColor="@color/colorBlack" />
-                                               </TableRow>
-
-                                               <TableRow
-                                                   android:layout_marginTop="4dp"
-                                                   android:background="#30808080"
-                                                   android:padding="5dp">
-
-                                                   <TextView
-
-                                                       android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content"
-                                                       android:text="Preffered Call Time: "
-                                                       android:textColor="@color/colorBlack"
-                                                       android:textStyle="bold" />
-
-
-                                                   <TextView
-                                                       android:id="@+id/TextViewContactDialogPrefferedCallTime"
-                                                       android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content"
-
-                                                       android:textColor="@color/colorBlack" />
-
-                                               </TableRow>
-
-
-                                               <TableRow
-                                                   android:layout_marginTop="4dp"
-
-
-                                                   android:padding="5dp">
-
-                                                   <TextView
-
-                                                       android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content"
-                                                       android:text="Country Name: "
-                                                       android:textColor="@color/colorBlack"
-                                                       android:textStyle="bold" />
-
-                                                   <TextView
-                                                       android:id="@+id/TextViewContactDialogCountryName"
-                                                       android:layout_width="match_parent"
-                                                       android:layout_height="wrap_content"
-
-                                                       android:textColor="@color/colorBlack" />
-                                               </TableRow>-->
-
-                    </TableLayout>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorLightGrey"
-                        android:orientation="vertical"
-                        android:padding="5dp"
-                        >
+                        android:background="@color/colorTextRed"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
                         <TextView
-                            android:textColor="@color/colorBlack"
-                            android:textSize="10sp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Installment Plan Details"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <com.chicsol.marrymax.widgets.faTextView
+                            android:id="@+id/faButtonContactDialogDismiss"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="@string/fa_icon_cross"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+
+                        <TableLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text=" \u2022 After 3rd month there should no need to pay more.\n
-\u2022 Subscription will expire after 3 month of last installment. Read Messages upto 9   month.\n
-\u2022 These Packages are only for Pakistanis only."
+                            android:layout_marginTop="10dp"
+                            android:stretchColumns="*">
 
-                            ></TextView>
+
+                            <TableRow
+
+                                android:layout_marginTop="4dp"
+
+                                >
+                                <!--
+                                                            <TextView
+
+                                                                android:layout_width="0dp"
+                                                                android:layout_height="wrap_content"
+                                                                android:gravity="center"
+                                                                android:text=""
+                                                                android:background="#d8d8d8"
+                                                                android:textColor="@color/colorWhite"
+                                                                android:textStyle="bold" />-->
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:background="#f3f3f3"
+
+
+                                    android:orientation="horizontal">
+
+                                    <TextView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="Packages"
+
+                                        android:textColor="#556679"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+
+                                    android:layout_height="match_parent"
+                                    android:layout_span="2"
+
+                                    android:background="#f3f3f3"
+                                    android:orientation="vertical">
+
+                                    <TextView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="Installments"
+                                        android:textColor="#556679"
+
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="4dp"
+                                        android:background="#d8d8d8"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="#d8d8d8"
+                                            android:gravity="center"
+                                            android:text="First"
+                                            android:textColor="@color/colorBlack"
+                                            android:textStyle="bold" />
+
+                                        <View
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:background="@color/colorWhite"></View>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="#d8d8d8"
+
+                                            android:gravity="center"
+                                            android:text="Second"
+                                            android:textColor="@color/colorBlack"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="2dp"
+                                        android:layout_marginLeft="4dp"
+                                        android:background="#556679"></View>
+
+                                </LinearLayout>
+
+
+                                <!-- <TextView
+                                     android:layout_width="0dp"
+                                     android:layout_height="match_parent"
+                                     android:background="#d8d8d8"
+     android:layout_span="2"
+                                     android:gravity="center"
+                                     android:text="Installments"
+                                     android:textColor="@color/colorBlack"
+                                     android:textStyle="bold" />-->
+
+
+                            </TableRow>
+
+
+                            <!--     <TableRow
+                                     android:id="@+id/TableRowCDMobileNumber"
+
+
+                                     android:padding="5dp">
+
+                                     <TextView
+
+                                         android:layout_width="0dp"
+                                         android:layout_height="wrap_content"
+                                         android:gravity="center"
+                                         android:text="Packages"
+
+                                         android:textColor="@color/colorBlack"
+                                         android:textStyle="bold" />
+
+                                     <TextView
+                                         android:background="#d8d8d8"
+                                         android:layout_width="0dp"
+                                         android:layout_height="wrap_content"
+                                         android:gravity="center"
+                                         android:text="First"
+                                         android:visibility="invisible"
+                                         android:textColor="@color/colorBlack"
+                                         android:textStyle="bold" />
+
+                                     <TextView
+
+                                         android:background="#d8d8d8"
+                                         android:layout_width="0dp"
+                                         android:layout_height="wrap_content"
+                                         android:visibility="invisible"
+                                         android:gravity="center"
+                                         android:text="Second"
+                                         android:textColor="@color/colorBlack"
+                                         android:textStyle="bold" />
+
+                                 </TableRow>-->
+
+                            <TableRow
+
+                                android:padding="5dp">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:background="#556679"
+                                    android:gravity="center"
+                                    android:text="Silver (3 Month)"
+                                    android:textColor="@color/colorWhite"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/TextViewInstallmentSilverPrice1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="PKR 6,000"
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="(PAKISTAN) "
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="10sp" />
+
+                                    <!--  <TextView
+                                          android:layout_marginTop="2dp"
+                                          android:layout_width="match_parent"
+                                          android:layout_height="wrap_content"
+                                          android:gravity="center"
+                                          android:textStyle="bold"
+                                          android:fontFamily="sans-serif"
+                                          android:text="USD 100"
+                                          android:textColor="@color/colorSubscriptionGreen" />
+                                      <TextView
+
+                                          android:layout_width="match_parent"
+                                          android:layout_height="wrap_content"
+                                          android:gravity="center"
+                                          android:textSize="10sp"
+                                          android:fontFamily="sans-serif"
+                                          android:text="(WORLDWIDE)"
+                                          android:textColor="@color/colorBlack" />-->
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/TextViewInstallmentSilverPrice2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="PKR 6,000"
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="(PAKISTAN) "
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="10sp" />
+
+                                    <!--  <TextView
+                                          android:layout_marginTop="2dp"
+                                          android:layout_width="match_parent"
+                                          android:layout_height="wrap_content"
+                                          android:gravity="center"
+                                          android:textStyle="bold"
+                                          android:fontFamily="sans-serif"
+                                          android:text="USD 100"
+                                          android:textColor="@color/colorSubscriptionGreen" />
+                                      <TextView
+
+                                          android:layout_width="match_parent"
+                                          android:layout_height="wrap_content"
+                                          android:gravity="center"
+                                          android:textSize="10sp"
+                                          android:fontFamily="sans-serif"
+                                          android:text="(WORLDWIDE)"
+                                          android:textColor="@color/colorBlack" />-->
+                                </LinearLayout>
+
+
+                            </TableRow>
+
+                            <TableRow
+                                android:background="@color/colorLightGrey"
+                                android:padding="5dp">
+                                <!--
+                                                            <TextView
+
+                                                                android:layout_width="0dp"
+                                                                android:layout_height="match_parent"
+                                                                android:gravity="center"
+                                                                android:text="Verified Numbers"
+                                                                android:textColor="@color/colorBlack" />-->
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:padding="@dimen/detail_padding_table_col">
+
+                                    <com.chicsol.marrymax.widgets.faTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+android:layout_gravity="center"
+                                        android:textColor="@color/colorSubscriptionGreen"
+android:text="@string/fa_icon_phone"
+                                      />
+
+                                    <TextView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:padding="@dimen/detail_padding_table_col"
+                                        android:text="Verified Phone Numbers  "
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:textSize="@dimen/detail_tv_size_table"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+
+                                <TextView
+                                    android:id="@+id/TextViewInstallmentSilverVerifiedNumbers1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="3"
+                                    android:textColor="@color/colorBlack" />
+
+                                <TextView
+                                    android:id="@+id/TextViewInstallmentSilverVerifiedNumbers2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+
+                                    android:gravity="center"
+                                    android:text="5"
+                                    android:textColor="@color/colorBlack" />
+
+                            </TableRow>
+
+
+                            <TableRow
+
+                                android:padding="5dp">
+
+                          <!--      <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="sans-serif"
+                                    android:gravity="center"
+                                    android:text=" Matches Messaging"
+                                    android:textColor="@color/colorBlack" />-->
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+
+                                    android:orientation="horizontal"
+                                    android:padding="@dimen/detail_padding_table_col">
+
+                                    <com.chicsol.marrymax.widgets.faTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:text="@string/fa_icon_profile_setting"
+                                        />
+
+                                    <TextView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:padding="@dimen/detail_padding_table_col"
+                                        android:text="Matches Messaging  "
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:textSize="@dimen/detail_tv_size_table"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/TextViewInstallmentSilver1MessageCount"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="3"
+                                    android:textColor="@color/colorBlack" />
+
+                                <TextView
+                                    android:id="@+id/TextViewInstallmentSilver2MessageCount"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+
+                                    android:gravity="center"
+                                    android:text="5"
+                                    android:textColor="@color/colorBlack" />
+
+                            </TableRow>
+                            <!--
+
+
+                                                   <TableRow
+                                                       android:layout_marginTop="4dp"
+
+
+                                                       android:padding="5dp">
+
+                                                       <TextView
+
+
+                                                           android:text="Relationship: "
+                                                           android:textColor="@color/colorBlack"
+                                                           android:textStyle="bold" />
+
+                                                       <TextView
+
+
+
+                                                           android:textColor="@color/colorBlack" />
+                                                   </TableRow>
+
+                                                   <TableRow
+                                                       android:layout_marginTop="4dp"
+                                                       android:background="#30808080"
+                                                       android:padding="5dp">
+
+                                                       <TextView
+
+                                                           android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:text="Preffered Call Time: "
+                                                           android:textColor="@color/colorBlack"
+                                                           android:textStyle="bold" />
+
+
+                                                       <TextView
+                                                           android:id="@+id/TextViewContactDialogPrefferedCallTime"
+                                                           android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+
+                                                           android:textColor="@color/colorBlack" />
+
+                                                   </TableRow>
+
+
+                                                   <TableRow
+                                                       android:layout_marginTop="4dp"
+
+
+                                                       android:padding="5dp">
+
+                                                       <TextView
+
+                                                           android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:text="Country Name: "
+                                                           android:textColor="@color/colorBlack"
+                                                           android:textStyle="bold" />
+
+                                                       <TextView
+                                                           android:id="@+id/TextViewContactDialogCountryName"
+                                                           android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+
+                                                           android:textColor="@color/colorBlack" />
+                                                   </TableRow>-->
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@color/colorLightGrey"
+
+                                ></View>
+
+                        </TableLayout>
+
+
+                        <TableLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+
+                            android:stretchColumns="*">
+
+                            <!--        <TableRow
+
+                                        android:layout_marginTop="4dp"
+                                        android:background="#cc850f"
+                                        android:padding="5dp">
+
+                                        <TextView
+
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="MONTH"
+                                            android:textColor="@color/colorWhite"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="1ST"
+                                            android:textColor="@color/colorWhite"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+
+                                            android:gravity="center"
+                                            android:text="2ND"
+                                            android:textColor="@color/colorWhite"
+                                            android:textStyle="bold" />
+
+                                    </TableRow>-->
+
+                            <TableRow
+
+                                android:padding="5dp">
+
+                                <TextView
+
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:background="#cc850f"
+                                    android:gravity="center"
+                                    android:text="Gold(6 Month)"
+                                    android:textColor="@color/colorWhite"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/TextViewInstallmentGold1Price1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="PKR 6,000"
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="(PAKISTAN) "
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="10sp" />
+
+                                    <!--   <TextView
+                                           android:layout_marginTop="2dp"
+                                           android:layout_width="match_parent"
+                                           android:layout_height="wrap_content"
+                                           android:gravity="center"
+                                           android:textStyle="bold"
+                                           android:fontFamily="sans-serif"
+                                           android:text="USD 100"
+                                           android:textColor="@color/colorSubscriptionGreen" />
+                                       <TextView
+
+                                           android:layout_width="match_parent"
+                                           android:layout_height="wrap_content"
+                                           android:gravity="center"
+                                           android:textSize="10sp"
+                                           android:fontFamily="sans-serif"
+                                           android:text="(WORLDWIDE)"
+                                           android:textColor="@color/colorBlack" />-->
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/TextViewInstallmentGold1Price2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="PKR 6,000"
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="(PAKISTAN) "
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="10sp" />
+
+                                    <!--  <TextView
+                                          android:layout_marginTop="2dp"
+                                          android:layout_width="match_parent"
+                                          android:layout_height="wrap_content"
+                                          android:gravity="center"
+                                          android:textStyle="bold"
+                                          android:fontFamily="sans-serif"
+                                          android:text="USD 100"
+                                          android:textColor="@color/colorSubscriptionGreen" />
+                                      <TextView
+
+                                          android:layout_width="match_parent"
+                                          android:layout_height="wrap_content"
+                                          android:gravity="center"
+                                          android:textSize="10sp"
+                                          android:fontFamily="sans-serif"
+                                          android:text="(WORLDWIDE)"
+                                          android:textColor="@color/colorBlack" />-->
+                                </LinearLayout>
+
+
+                            </TableRow>
+
+                            <TableRow
+                                android:background="@color/colorLightGrey"
+                                android:padding="5dp">
+
+                            <!--    <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="sans-serif"
+                                    android:gravity="center"
+                                    android:text="Verified Numbers"
+                                    android:textColor="@color/colorBlack" />-->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:padding="@dimen/detail_padding_table_col">
+
+                                    <com.chicsol.marrymax.widgets.faTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:text="@string/fa_icon_phone"
+                                        />
+
+                                    <TextView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:padding="@dimen/detail_padding_table_col"
+                                        android:text="Verified Phone Numbers  "
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:textSize="@dimen/detail_tv_size_table"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/TextViewInstallmentGold1VerifiedNumbers1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="sans-serif"
+                                    android:gravity="center"
+                                    android:text="7"
+                                    android:textColor="@color/colorBlack" />
+
+                                <TextView
+                                    android:id="@+id/TextViewInstallmentGold1VerifiedNumbers2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="sans-serif"
+                                    android:gravity="center"
+                                    android:text="8"
+                                    android:textColor="@color/colorBlack" />
+
+                            </TableRow>
+
+                            <TableRow
+
+                                android:padding="5dp">
+
+                               <!-- <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="sans-serif"
+                                    android:gravity="center"
+                                    android:text=" Matches Messaging"
+                                    android:textColor="@color/colorBlack" />-->
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+
+                                    android:orientation="horizontal"
+                                    android:padding="@dimen/detail_padding_table_col">
+
+                                    <com.chicsol.marrymax.widgets.faTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                      android:layout_gravity="center"
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:text="@string/fa_icon_profile_setting"
+                                        />
+
+                                    <TextView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:padding="@dimen/detail_padding_table_col"
+                                        android:text="Matches Messaging  "
+                                        android:textColor="@color/colorSubscriptionGreen"
+                                        android:textSize="@dimen/detail_tv_size_table"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/TextViewInstallmentGold1MessageCount"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="sans-serif"
+                                    android:gravity="center"
+                                    android:text="3"
+                                    android:textColor="@color/colorBlack" />
+
+                                <TextView
+                                    android:id="@+id/TextViewInstallmentGold2MessageCount"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="sans-serif"
+                                    android:gravity="center"
+
+                                    android:text="5"
+                                    android:textColor="@color/colorBlack" />
+
+                            </TableRow>
+                            <!--
+
+
+                                                   <TableRow
+                                                       android:layout_marginTop="4dp"
+
+
+                                                       android:padding="5dp">
+
+                                                       <TextView
+
+
+                                                           android:text="Relationship: "
+                                                           android:textColor="@color/colorBlack"
+                                                           android:textStyle="bold" />
+
+                                                       <TextView
+
+
+
+                                                           android:textColor="@color/colorBlack" />
+                                                   </TableRow>
+
+                                                   <TableRow
+                                                       android:layout_marginTop="4dp"
+                                                       android:background="#30808080"
+                                                       android:padding="5dp">
+
+                                                       <TextView
+
+                                                           android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:text="Preffered Call Time: "
+                                                           android:textColor="@color/colorBlack"
+                                                           android:textStyle="bold" />
+
+
+                                                       <TextView
+                                                           android:id="@+id/TextViewContactDialogPrefferedCallTime"
+                                                           android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+
+                                                           android:textColor="@color/colorBlack" />
+
+                                                   </TableRow>
+
+
+                                                   <TableRow
+                                                       android:layout_marginTop="4dp"
+
+
+                                                       android:padding="5dp">
+
+                                                       <TextView
+
+                                                           android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:text="Country Name: "
+                                                           android:textColor="@color/colorBlack"
+                                                           android:textStyle="bold" />
+
+                                                       <TextView
+                                                           android:id="@+id/TextViewContactDialogCountryName"
+                                                           android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+
+                                                           android:textColor="@color/colorBlack" />
+                                                   </TableRow>-->
+
+                        </TableLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorLightGrey"
+                            android:orientation="vertical"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="
+\u2022 Installment plans are available within Pakistan only.\n
+\u2022 Subscription duration won’t have a gap, if due installment is not paid on time.\n
+\u2022 Installment payment can be paid only by Bank deposit, Ezpaisa or Cash. "
+                                android:textColor="@color/colorBlack"
+                                android:textSize="10sp"
+
+                                ></TextView>
+
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/colorLightGrey"
+
+                            ></View>
 
 
                     </LinearLayout>
 
 
-                    <View
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/colorLightGrey"
-
-                        ></View>
-
-
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-
-                    <android.support.v7.widget.AppCompatButton
-                        android:id="@+id/ButtonContactDialogPurchase"
-                        style="@style/myCustomMaterialButton"
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:contentDescription="this is desc"
-                        android:elevation="5dp"
-                        android:text="Purchase"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorWhite"
-                        app:backgroundTint="@color/colorTextRed" />
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/ButtonContactDialogPurchase"
+                            style="@style/myCustomMaterialButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:contentDescription="this is desc"
+                            android:elevation="5dp"
+                            android:text="Purchase"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite"
+                            app:backgroundTint="@color/colorTextRed" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
 
             </LinearLayout>
 
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
 
 
-</LinearLayout>
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

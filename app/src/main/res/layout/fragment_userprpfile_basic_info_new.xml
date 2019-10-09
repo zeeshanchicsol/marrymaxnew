@@ -409,7 +409,7 @@ android:background="@color/colorWhite"
             android:shrinkColumns="*"
             android:stretchColumns="*">
 
-         <TableRow
+       <!--  <TableRow
 
                 android:background="@color/colorWhite"
                 android:padding="@dimen/padding_up_table_rows">
@@ -444,11 +444,92 @@ android:background="@color/colorWhite"
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorUserProfileRed"></View>
+                android:background="@color/colorUserProfileRed"></View>-->
         </TableLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_marginTop="8dp"
+    android:weightSum="9"
+    android:layout_height="wrap_content"
+    android:background="@color/colorTextRed"
+    >
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_weight="3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_up_table_rows"
+            android:text="Me"
+            android:textSize="12sp"
+    android:layout_centerInParent="true"
+            android:textColor="@color/colorWhite"
+            />
+        <View
+            android:layout_alignParentRight="true"
+            android:layout_width="2dp"
+            android:layout_height="23dp"
+            android:layout_centerVertical="true"
+            android:background="@color/colorLightGrey"
+            ></View>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="@dimen/padding_up_table_rows"
+            android:text="Geography"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_up_h2"
+            android:textStyle="bold" />
+        <View
+            android:layout_alignParentRight="true"
+            android:layout_width="2dp"
+            android:layout_height="23dp"
+            android:layout_centerVertical="true"
+            android:background="@color/colorLightGrey"
+            ></View>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+
+        android:layout_height="wrap_content"
+        android:layout_weight="3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/padding_up_table_rows"
+            android:text=" My Choice"
+            android:textColor="@color/colorWhite"
+            />
+    </RelativeLayout>
+
+
+
+</LinearLayout>
 
 
     <TextView
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -599,7 +680,7 @@ android:background="@color/colorWhite"
             android:orientation="vertical">
 
 
-            <TextView
+ <!--           <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -609,8 +690,89 @@ android:background="@color/colorWhite"
                 android:text="Appearance"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/text_size_up_h2"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
 
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:weightSum="9"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTextRed"
+                >
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_up_table_rows"
+                        android:text="Me"
+                        android:textSize="12sp"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorWhite"
+                        />
+                    <View
+                        android:layout_alignParentRight="true"
+                        android:layout_width="2dp"
+                        android:layout_height="23dp"
+                        android:layout_centerVertical="true"
+                        android:background="@color/colorLightGrey"
+                        ></View>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_up_table_rows"
+                        android:text="Appearance"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_up_h2"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_alignParentRight="true"
+                        android:layout_width="2dp"
+                        android:layout_height="23dp"
+                        android:layout_centerVertical="true"
+                        android:background="@color/colorLightGrey"
+                        ></View>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/padding_up_table_rows"
+                        android:text=" My Choice"
+                        android:textColor="@color/colorWhite"
+                        />
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
 
 
 
@@ -945,20 +1107,98 @@ android:background="@drawable/border_dash_userprofile_table_rows"
             android:orientation="vertical">
 
 
-            <TextView
+      <!--      <TextView
                 android:id="@+id/mTextView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:padding="@dimen/padding_up_table_rows"
                 android:background="@color/colorUserProfileRed"
-                android:text=" Lifestyle"
+                android:text=" LifeStyle"
                 android:gravity="center"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_size_up_h2" />
+                android:textSize="@dimen/text_size_up_h2" />-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:weightSum="9"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTextRed"
+                >
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_up_table_rows"
+                        android:text="Me"
+                        android:textSize="12sp"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/colorWhite"
+                        />
+                    <View
+                        android:layout_alignParentRight="true"
+                        android:layout_width="2dp"
+                        android:layout_height="23dp"
+                        android:layout_centerVertical="true"
+                        android:background="@color/colorLightGrey"
+                        ></View>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_up_table_rows"
+                        android:text="LifeStyle"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_up_h2"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_alignParentRight="true"
+                        android:layout_width="2dp"
+                        android:layout_height="23dp"
+                        android:layout_centerVertical="true"
+                        android:background="@color/colorLightGrey"
+                        ></View>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/padding_up_table_rows"
+                        android:text=" My Choice"
+                        android:textColor="@color/colorWhite"
+                        />
+                </RelativeLayout>
 
 
 
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
