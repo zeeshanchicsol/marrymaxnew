@@ -1352,6 +1352,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq, Tag);
     }
 
+    private  void CheckFeedbackDue(){
+
+
+
+    }
+
     private void showInterest(JSONObject params, final boolean replyCheck) {
 
 
@@ -1649,12 +1655,12 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             2            Show poup feedbacks are pending. Disable background*/
 
 
-                           /* Members samember = SharedPreferenceManager.getUserObject(context);
+                            Members samember = SharedPreferenceManager.getUserObject(context);
                             String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
 
 
-                            if (Integer.parseInt(member.getFeedback_pending()) == 1) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+                            if (member.getFeedback_pending() == 1) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is due.To continue viewing more profiles your need to provide feedback";
 
                                 dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
                                 //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
@@ -1662,11 +1668,11 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                                 newFragment.show(getFragmentManager(), "dialog");
 
 
-                            } else if (Integer.parseInt(member.getFeedback_pending()) == 2) {
+                            } else if (member.getFeedback_pending() == 2) {
 
                                 blockTouch(true);
 
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> Your feedbacks are due. To view more profiles please give your previous feedbacks";
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> &#8226;  Your Multiple match feedbacks are pending. <br/>  &#8226; To view more profiles please provide match feedbacks, thank you.<br/> ";
 
                                 dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
                                 //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
@@ -1676,7 +1682,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                                 }
                             }
-*/
 
                             MarryMax max = new MarryMax(null);
                             if (member.getFeedback_pending() == 0) {

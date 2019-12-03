@@ -27,6 +27,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.chicsol.marrymax.R;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.adapters.RecyclerViewAdapterInBoxList;
+import com.chicsol.marrymax.dialogs.dialogFeedBackPending;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.modal.mComCount;
 import com.chicsol.marrymax.modal.mCommunication;
@@ -203,7 +204,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
         pDialog.setMessage("Loading...");
         pDialog.show();*/
         pDialog.setVisibility(View.VISIBLE);
-     //   Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath());
+        //   Log.e("api inbox list", "" + Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath());
 
         JsonArrayRequest req = new JsonArrayRequest(Urls.getMessagesList + SharedPreferenceManager.getUserObject(context).getPath(),
                 new Response.Listener<JSONArray>() {
@@ -218,7 +219,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                             JSONArray jsonCountryStaeObj = response.getJSONArray(0);
                             JSONArray jsonObjDMsgDetails = response.getJSONArray(1);
 
-                      Gson gsonc;
+                            Gson gsonc;
                             GsonBuilder gsonBuilderc = new GsonBuilder();
                             gsonc = gsonBuilderc.create();
                             Type listType = new TypeToken<mCommunication>() {
@@ -227,7 +228,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                             mCommunication mComObj = (mCommunication) gsonc.fromJson(jsonObjDMsgDetails.getJSONObject(0).toString(), listType);
 
                             mComObj.getRead_quota();
-                           // mComObj.getWrite_quota();
+                            // mComObj.getWrite_quota();
 
 
                             if (member.getMember_status() < 3 || member.getMember_status() > 4) {
@@ -255,7 +256,7 @@ public class DashboardMessagesFragment extends Fragment implements RecyclerViewA
                                 }
 
                             } else {
-                                if (member.getMember_status() == 3  && mComObj.getRead_quota() !=1) {
+                                if (member.getMember_status() == 3 && mComObj.getRead_quota() != 1) {
 
 
                                /*    You have 0 unread messages
@@ -475,24 +476,23 @@ Subscribe now to enjoy following benefits.
                             new_messages_count = (int) comCount.getNew_messages_count();
 
 
-                         /*   Members member = SharedPreferenceManager.getUserObject(context);
+                        /*    Members member = SharedPreferenceManager.getUserObject(context);
                             String alias = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
 
 
                             if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is Pending.To view more profiles please give your previous feedback";
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is due.To continue viewing more profiles your need to provide feedback";
 
                                 dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
                                 //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
 
                             } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedbacks are Pending.To view more profiles please give your previous feedbacks";
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> &#8226;  Your Multiple match feedbacks are pending. <br/>  &#8226; To view more profiles please provide match feedbacks, thank you.<br/> ";
 
                                 dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
                                 //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
                                 newFragment.show(getFragmentManager(), "dialog");
-
                             }*/
 
 

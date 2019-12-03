@@ -127,6 +127,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
     private RelativeLayout rlUpgrade;
     private LinearLayout llMatchPreference;
     private ImageView ivLetsTalk;
+    private Dashboards dash = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -537,7 +538,23 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
         ivLetsTalk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                contactSupport();
+
+                if (dash != null) {
+                    if (Integer.parseInt(dash.getSent_count()) == 1) {
+                        if (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 1) {
+                            // show lets talk
+                            contactSupport();
+                        } else if (SharedPreferenceManager.getUserObject(context).getPhone_verified() == 0) {
+                            //show phone verified dialog
+                            dialogProfileCompletion dialogP = dialogProfileCompletion.newInstance("Verify Phone", "Please verify your Phone number using verification code we send to your Mobile number.", "My Contact Details", 3);
+                            dialogP.show(getFragmentManager(), "d");
+                        }
+
+
+                    }
+                }
+
+
             }
         });
 
@@ -1183,7 +1200,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                                 gson = gsonBuildert.create();
                                 Type membert = new TypeToken<Dashboards>() {
                                 }.getType();
-                                Dashboards dash = (Dashboards) gson.fromJson(jsonObj.toString(), membert);
+                                dash = (Dashboards) gson.fromJson(jsonObj.toString(), membert);
 
 
                                 MarryMax max = new MarryMax(null);
@@ -1698,7 +1715,7 @@ public class DashboardMainFragment extends Fragment implements RecyclerViewAdapt
                             StringBuilder builder = new StringBuilder();
                             for (int i = 0; i < dataList.size(); i++) {
                                 WebArd ard = dataList.get(i);
-                                builder.append(ard.getName()+" <br><br>");
+                                builder.append(ard.getName() + " <br><br>");
                             }
                             adminNotes = builder.toString();
 
