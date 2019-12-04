@@ -213,12 +213,13 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
 
         if (holder1 instanceof MMViewHolder) {
             MMViewHolder holder = ((MMViewHolder) holder1);
-           /* if (position == 1) {
+
+            if (position == 1) {
                 holder.tvRecomm.setVisibility(View.VISIBLE);
             } else {
                 holder.tvRecomm.setVisibility(View.GONE);
             }
-*/
+
 /*           Log.e("vvvvv Item_name",""+obj.getItem_name());
             Log.e("vvvvv duration",""+obj.getDuration());
             Log.e("vvvvv name",""+obj.getName());*/
@@ -231,7 +232,7 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
                 @Override
                 public void onClick(View v) {
 
-              //      Log.e("status is ", "" + SharedPreferenceManager.getUserObject(context).getMember_status());
+                    //      Log.e("status is ", "" + SharedPreferenceManager.getUserObject(context).getMember_status());
 
                     if (SharedPreferenceManager.getUserObject(context).getMember_status() == 3) {
 
@@ -268,7 +269,18 @@ public class RecyclerViewAdapterSubscriptionPlan extends RecyclerView.Adapter<Re
             holder.tvMatchesCount.setText(Math.round(obj.getTotal_cost()) + " Matches Messaging ");
 
             //    Log.e("" + obj.getItem_name(), obj.getItem_name());
-            if (obj.getDuration().equals("3")) {
+
+            if (obj.getDuration().equals("1")) {
+                holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionBasic));
+                holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionBasic));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    holder.btPurchase.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSubscriptionBasic));
+                }
+                holder.tvMessages.setText("Read Messages For 1 Month");
+
+                //   holder.tvPlanShortDescriptionMatchesCount.setText("150 Matches Communication ");
+
+            } else if (obj.getDuration().equals("3")) {
                 holder.tvPlanDuration.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
                 holder.tvPlanTitle.setTextColor(context.getResources().getColor(R.color.colorSubscriptionPlatinum));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

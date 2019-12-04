@@ -83,6 +83,12 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
         return rootView;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
+    }
 
     @Override
     public void onResume() {
@@ -93,7 +99,7 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
         }
 */
         //    Log.e("called", "called");
-        getCommunicationCount();
+
 
 
       /*  Members member = SharedPreferenceManager.getUserObject(context);
@@ -178,11 +184,21 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
     @Override
     public void setUserVisibleHint(boolean visible) {
         super.setUserVisibleHint(visible);
-        if (visible && isResumed()) {
+
+        Log.e("Tag", "Visible " + visible);
+
+        if (visible) {
+            getCommunicationCount();
+        }
+       /* if (visible && isResumed()) {
             //Only manually call onResume if fragment is already visible
             //Otherwise allow natural fragment lifecycle to call onResume
+
+
             onResume();
-        }
+
+
+        }*/
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -231,6 +247,28 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
                                 tvFeedbackPending.setText(Html.fromHtml(desc));
                                 cvFeedbackPending.setVisibility(View.VISIBLE);
                             }
+
+
+
+        Members member = SharedPreferenceManager.getUserObject(context);
+                            String alias = "<font color='#9a0606'>" + member.getAlias() + "!</font><br>";
+
+
+                            if (Integer.parseInt(comCount.getFeedback_pending()) == 1) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is due.To continue viewing more profiles your need to provide feedback";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false,true);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+
+                            } else if (Integer.parseInt(comCount.getFeedback_pending()) == 2) {
+                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> &#8226;  Your Multiple match feedbacks are pending. <br/>  &#8226; To view more profiles please provide match feedbacks, thank you.<br/> ";
+
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true,true);
+                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                                newFragment.show(getFragmentManager(), "dialog");
+                            }
+
 
 
                         } catch (JSONException e) {
@@ -294,4 +332,12 @@ public class DashboardInboxMainFragment extends Fragment implements DashboarMain
             return mFragmentTitleList.get(position);
         }
     }
+
+  /*  @Override
+    public void setUserVisibleHint(boolean visible) {
+        super.setUserVisibleHint(visible);
+        if (visible) {
+            Log.i("Tag", "Reload fragment");
+        }
+    }*/
 }

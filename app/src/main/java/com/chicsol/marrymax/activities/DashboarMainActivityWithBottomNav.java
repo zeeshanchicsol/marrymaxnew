@@ -130,7 +130,10 @@ public class DashboarMainActivityWithBottomNav extends DrawerActivity implements
     public interface BottomNavSelected {
         void bottomNavSelected();
     }
+public void navigateToTab(int selectedTab){
+    mViewPager.setCurrentItem(selectedTab);
 
+}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

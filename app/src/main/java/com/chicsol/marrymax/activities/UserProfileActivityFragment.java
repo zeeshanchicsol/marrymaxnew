@@ -118,11 +118,11 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     private ViewPager viewPager1;
     private mTextView tvShowInterestButtonText, tvMatchAid, tvImagesCount, tvInterest, tvAlias, tvAge, tvLocation, tvProfileFor, tvReligion, tvEducation, tvOccupation, tvMaritalStatus, tvLastLoginDate;
 
-    private TextView  tvFeedbackPending;
+    private TextView tvFeedbackPending;
 
     private DisplayImageOptions options;
     private LayoutInflater inflater;
-    private LinearLayout  llScreenMain, llScreenWait, llshowInterest, llBottomshowInterest, llBottomSendMessage, llUPSendMessage, llImagesCount, LineaLayoutUserProfileInterestMessage, LineaLayoutUserProfileTopBar;
+    private LinearLayout llScreenMain, llScreenWait, llshowInterest, llBottomshowInterest, llBottomSendMessage, llUPSendMessage, llImagesCount, LineaLayoutUserProfileInterestMessage, LineaLayoutUserProfileTopBar;
     private JSONArray responsArray;
     private String userpath;
     private ProgressDialog pDialog;
@@ -463,8 +463,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         llshowInterest = (LinearLayout) view.findViewById(R.id.LinearLayoutShowInterest);
 
 
-
-
         tvShowInterestButtonText = (mTextView) view.findViewById(R.id.mTextViewLinearLayoutUserProfileShowInterestText);
 
 
@@ -641,7 +639,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             menuItem1.setTitle("Request Photo View");
 
         }*/
-
 
 
         postSetListener();
@@ -918,7 +915,8 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
 
-        } else */if (member.getFeedback_pending() == 2) {
+        } else */
+        if (member.getFeedback_pending() == 2) {
             String text = "Dear " + "<b>" + aliasn.toUpperCase() + "</b> Your Feedback is due. To send more messages please give your previous feedback.";
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
 
@@ -993,7 +991,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
     private void setupViewPager(ViewPager viewPager, String jsonArryaResponse1) {
         //Log.e("setup viewpager", "setup viewpager" + jsonArryaResponse1);
-    //    tvLocation.setText(location + member.getCountry_name() + ", (" + member.getVisa_status_types() + ")");
+        //    tvLocation.setText(location + member.getCountry_name() + ", (" + member.getVisa_status_types() + ")");
         Bundle args = new Bundle();
         args.putString("json", jsonArryaResponse1);
         args.putString("visa_status_types", member.getVisa_status_types());
@@ -1352,8 +1350,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
         MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjReq, Tag);
     }
 
-    private  void CheckFeedbackDue(){
-
+    private void CheckFeedbackDue() {
 
 
     }
@@ -1618,8 +1615,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             JSONObject firstJsonObj = responsArray.getJSONArray(0).getJSONObject(0);
 
 
-
-
                             Type type = new TypeToken<Members>() {
                             }.getType();
                             member = (Members) gson.fromJson(firstJsonObj.toString(), type);
@@ -1662,7 +1657,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             if (member.getFeedback_pending() == 1) {
                                 String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is due.To continue viewing more profiles your need to provide feedback";
 
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false);
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false, false);
                                 //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
 
                                 newFragment.show(getFragmentManager(), "dialog");
@@ -1674,7 +1669,7 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
                                 String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> &#8226;  Your Multiple match feedbacks are pending. <br/>  &#8226; To view more profiles please provide match feedbacks, thank you.<br/> ";
 
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true);
+                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true, false);
                                 //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
                                 if (getFragmentManager() != null) {
 

@@ -27,6 +27,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.chicsol.marrymax.R;
+import com.chicsol.marrymax.activities.DashboarMainActivityWithBottomNav;
 import com.chicsol.marrymax.activities.directive.MainDirectiveActivity;
 import com.chicsol.marrymax.modal.Members;
 import com.chicsol.marrymax.preferences.SharedPreferenceManager;
@@ -57,18 +58,20 @@ public class dialogFeedBackPending extends DialogFragment {
     private TextView tvText;
     private AppCompatButton btGiveFeedback, btClose;
     ///  public onCompleteListener mCompleteListener;
-    private boolean disabled = false;
+    private boolean disabled = false, inboxCheck = false;
     private Context context;
     faTextView cancelButton;
 
 
-    public static dialogFeedBackPending newInstance(String text, boolean disabled) {
+    public static dialogFeedBackPending newInstance(String text, boolean disabled, boolean inboxCheck) {
 
         dialogFeedBackPending frag = new dialogFeedBackPending();
         Bundle args = new Bundle();
 
         args.putString("text", text);
         args.putBoolean("disabled", disabled);
+        args.putBoolean("inboxCheck", inboxCheck);
+
         frag.setArguments(args);
         return frag;
     }
@@ -79,6 +82,7 @@ public class dialogFeedBackPending extends DialogFragment {
         Bundle mArgs = getArguments();
         text = mArgs.getString("text");
         disabled = mArgs.getBoolean("disabled");
+        inboxCheck = mArgs.getBoolean("inboxCheck");
 
 
         // Log.e("text", text);
@@ -119,6 +123,13 @@ public class dialogFeedBackPending extends DialogFragment {
 
         btGiveFeedback = (AppCompatButton) rootView.findViewById(R.id.ButtonDialogFeedBackPendingGiveFeedBack);
         btClose = (AppCompatButton) rootView.findViewById(R.id.ButtonDialogFeedBackPendingClose);
+
+   /*  if(disabled){
+         btClose.setVisibility(View.GONE);
+     }
+     else {
+         btClose.setVisibility(View.VISIBLE);
+     }*/
         btGiveFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,24 +144,46 @@ public class dialogFeedBackPending extends DialogFragment {
         btClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogFeedBackPending.this.getDialog().cancel();
+                if (disabled) {
+                    if (inboxCheck) {
+                        ((DashboarMainActivityWithBottomNav) getActivity()).navigateToTab(0);
+                        dialogFeedBackPending.this.getDialog().cancel();
+                    } else {
+                        getActivity().finish();
+                    }
+                } else {
+                    dialogFeedBackPending.this.getDialog().cancel();
+                }
             }
+
+
         });
 
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
-                dialogFeedBackPending.this.getDialog().cancel();
+                if (disabled) {
+                    if (inboxCheck) {
+                        ((DashboarMainActivityWithBottomNav) getActivity()).navigateToTab(0);
+                        dialogFeedBackPending.this.getDialog().cancel();
+
+                    } else {
+                        getActivity().finish();
+                    }
+                } else {
+                    dialogFeedBackPending.this.getDialog().cancel();
+                }
+
             }
         });
 
         //Log.e("disabled", disabled + "");
 
-      if (disabled) {
+        if (disabled) {
             //    getDialog().setCancelable(false);
             setCancelable(false);
-            btClose.setClickable(false);
-            cancelButton.setClickable(false);
+            // btClose.setClickable(false);
+            //  cancelButton.setClickable(false);
         }
 
 
