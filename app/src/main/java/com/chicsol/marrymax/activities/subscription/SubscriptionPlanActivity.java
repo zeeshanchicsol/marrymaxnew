@@ -66,7 +66,7 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
     private RecyclerView rvAmenities;
     private RecyclerViewAdapterAmenities adapterAmenities;
     // AppCompatButton btSearch;
-    private AppCompatButton btInstallmentPlan;
+   // private AppCompatButton btInstallmentPlan;
     private LinearLayout llEmptyState;
     // private AppCompatButton packageDetails;
 
@@ -110,7 +110,7 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
     private void initilize() {
 
 
-        btInstallmentPlan = (AppCompatButton) findViewById(R.id.ButtonInstallmentPlan);
+     //   btInstallmentPlan    = (AppCompatButton) findViewById(R.id.ButtonInstallmentPlan);
 
         //  packageDetails = (AppCompatButton) findViewById(R.id.SubscriptionPlanPackageDetails);
         tvPackageDetails = (TextView) findViewById(R.id.TextViewSubscriptionPlanPackages);
@@ -173,7 +173,7 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
     setListeners() {
 
 
-        btInstallmentPlan.setOnClickListener(new View.OnClickListener() {
+       /* btInstallmentPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadInstallmentData();
@@ -181,7 +181,7 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements Recyc
         });
 
 
-
+*/
 
 
 
