@@ -136,9 +136,9 @@ public class OrderConfirmationActivity extends AppCompatActivity {
         tvPhoneNumbersCount.setText("Get " + sub.other_item_id + " Verified Phone Numbers ");
         tvMatchesCount.setText(sub.applied_force + " Matches Messaging ");
 
-        if (sub.getName().equals("Silver")) {
+        if (sub.getDuration().equals("Silver")) {
             tvMessages.setText("Read Messages For 6 Months");
-        } else if (sub.getName().equals("Basic")) {
+        } else if (sub.getDuration  ().equals("Basic")) {
             tvMessages.setText("Read Messages For 1 Month");
         } else {
             tvMessages.setText("Read Messages For 9 Months");

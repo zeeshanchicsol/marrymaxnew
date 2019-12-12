@@ -153,8 +153,30 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        setUserVisibleHint(false);
+      //  setUserVisibleHint(false);
         userpath = getArguments().getString("userpath");
+    }
+
+
+
+    @Override
+    public void setUserVisibleHint(boolean visible) {
+        super.setUserVisibleHint(visible);
+
+        Log.e("Tag", "Visible " + visible);
+
+        if (visible) {
+            CheckFeedbackDue();
+        }
+       /* if (visible && isResumed()) {
+            //Only manually call onResume if fragment is already visible
+            //Otherwise allow natural fragment lifecycle to call onResume
+
+
+            onResume();
+
+
+        }*/
     }
 
    /* @Override
@@ -220,17 +242,16 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
             ivSwipeInstructions.setVisibility(View.VISIBLE);
         }*/
 
+
+
+
         JSONObject params = new JSONObject();
         try {
             params.put("userpath", userpath);
             params.put("member_status", SharedPreferenceManager.getUserObject(context).getMember_status());
             params.put("gender", SharedPreferenceManager.getUserObject(context).getGender());
             params.put("path", SharedPreferenceManager.getUserObject(context).getPath());
-            // Test Images Account
-        /*    params.put("userpath", "su8Gt~DnAz3r4UZAiw5DDQ==");
-            params.put("member_status", "4");
-            params.put("gender", "F");
-            params.put("path", "O70ETBVSOFu4qO9tn^YMeA==");*/
+
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -1352,7 +1373,46 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
 
     private void CheckFeedbackDue() {
 
+        if(member!=null) {
 
+            Members samember = SharedPreferenceManager.getUserObject(context);
+            String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
+
+
+            if (member.getFeedback_pending() == 1) {
+                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is due.To continue viewing more profiles your need to provide feedback";
+
+                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false, false);
+                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+
+                newFragment.show(getFragmentManager(), "dialog");
+
+
+            } else if (member.getFeedback_pending() == 2) {
+
+                blockTouch(true);
+
+                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> &#8226;  Your Multiple match feedbacks are pending. <br/>  &#8226; To view more profiles please provide match feedbacks, thank you.<br/> ";
+
+                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true, false);
+                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
+                if (getFragmentManager() != null) {
+
+                    newFragment.show(getFragmentManager(), "dialog");
+
+                }
+            }
+
+            MarryMax max = new MarryMax(null);
+            if (member.getFeedback_pending() == 0) {
+                cvFeedbackPending.setVisibility(View.GONE);
+            } else {
+
+                String desc = max.getFeedbackText(member.getFeedback_pending(), context);
+                tvFeedbackPending.setText(Html.fromHtml(desc));
+                cvFeedbackPending.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     private void showInterest(JSONObject params, final boolean replyCheck) {
@@ -1650,43 +1710,6 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
                             2            Show poup feedbacks are pending. Disable background*/
 
 
-                            Members samember = SharedPreferenceManager.getUserObject(context);
-                            String alias = "<font color='#9a0606'>" + samember.getAlias() + "!</font><br>";
-
-
-                            if (member.getFeedback_pending() == 1) {
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> your Feedback is due.To continue viewing more profiles your need to provide feedback";
-
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, false, false);
-                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-
-                                newFragment.show(getFragmentManager(), "dialog");
-
-
-                            } else if (member.getFeedback_pending() == 2) {
-
-                                blockTouch(true);
-
-                                String text = "Dear " + "<b>" + alias.toUpperCase() + "</b> &#8226;  Your Multiple match feedbacks are pending. <br/>  &#8226; To view more profiles please provide match feedbacks, thank you.<br/> ";
-
-                                dialogFeedBackPending newFragment = dialogFeedBackPending.newInstance(text, true, false);
-                                //    newFragment.setTargetFragment(MyProfileSettingFragment.this, 3);
-                                if (getFragmentManager() != null) {
-
-                                    newFragment.show(getFragmentManager(), "dialog");
-
-                                }
-                            }
-
-                            MarryMax max = new MarryMax(null);
-                            if (member.getFeedback_pending() == 0) {
-                                cvFeedbackPending.setVisibility(View.GONE);
-                            } else {
-
-                                String desc = max.getFeedbackText(member.getFeedback_pending(), context);
-                                tvFeedbackPending.setText(Html.fromHtml(desc));
-                                cvFeedbackPending.setVisibility(View.VISIBLE);
-                            }
 
                        /*     Members samember = SharedPreferenceManager.getUserObject(context);
                             String alias = "<font>" + samember.getAlias() + "!</font><br>";
@@ -1747,6 +1770,11 @@ public class UserProfileActivityFragment extends Fragment implements PicturesFra
     public void onComplete(String s) {
 
         ReLoadProfile();
+
+    }
+
+    private void checkFeedbackPending(){
+
 
     }
 
