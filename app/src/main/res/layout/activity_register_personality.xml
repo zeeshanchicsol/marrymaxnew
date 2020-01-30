@@ -263,7 +263,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:imeOptions="actionNext"
                                                 android:inputType="text"
-                                                android:maxLength="200"
+                                                android:maxLength="192"
                                                 android:textColor="@color/colorBlack"
                                                 app:backgroundTint="@color/colorUnderline" />
 
